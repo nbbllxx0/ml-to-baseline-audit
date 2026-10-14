@@ -1,0 +1,44 @@
+{
+  "pid": "P00803",
+  "citation": {
+    "title": "Deep-Learning-Enabled Simulated Annealing for Topology Optimization",
+    "authors": "Changyu Deng; Can Qin; Wei Lu",
+    "year": 2020,
+    "venue": "arXiv preprint (cs.CE)",
+    "doi": "",
+    "arxiv_id": "2002.01927",
+    "version_coded": "Identity-checked, not fully coded (excluded as a duplicate). OpenAlex W3005255269 (this pool record's id) resolves to arXiv 2002.01927v1; downloaded and skimmed that v1 PDF (12 pp., submitted 4 Feb 2020, title 'Deep-Learning-Enabled Simulated Annealing for Topology Optimization', authors Changyu Deng, Can Qin, Wei Lu, method 'Generative Simulated Annealing' (GSA)+DNN, compliance-only, 'over two orders of magnitude' speedup). The same arXiv id (checked at arxiv.org/abs/2002.01927, 2026-09-24) has since been revised to v8 (26 Jan 2022), now titled 'Self-Directed Online Machine Learning for Topology Optimization' with 5 authors (adds Yizhou Wang, Yun Fu) and a related-DOI link to Nature Communications 13:388 (2022), doi 10.1038/s41467-021-27713-7 = pool record P00164."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as a duplicate). Headline, per this pool record's own abstract snapshot: a DNN substitutes the objective function inside a self-directed online learning loop (SOLO) with dynamically generated training data, tested on compliance-minimization and fluid-structure problems, cutting computational time by 2-5 orders of magnitude versus heuristic methods and outperforming other tested algorithms. The actual v1 PDF (the specific version this pool record's OpenAlex id points to) instead describes an earlier variant, DNN + 'Generative Simulated Annealing' (GSA), compliance-only, 'over two orders of magnitude' speedup -- the abstract text evidently reflects a later revision than the PDF this id resolves to.",
+    "location": "abstract (this pool record's metadata); not otherwise coded",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text as a duplicate before rule-level analysis)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded as FT-DUPLICATE. This pool record (P00803) and P00164 ('Self-Directed Online Machine Learning for Topology Optimization', Nature Communications 13:388 (2022), doi 10.1038/s41467-021-27713-7) are the same evolving arXiv preprint at different revision snapshots: both trace to arXiv 2002.01927 (this record's OpenAlex id W3005255269 resolves to 2002.01927v1, submitted 2020-02-04, the same date pool.csv gives for P00803; P00164's pool metadata carries arxiv_id 2002.01927 directly); the author lists overlap (Changyu Deng, Can Qin, Wei Lu in both, with Yizhou Wang and Yun Fu added by the version that became P00164); and the method described (a DNN substituting the objective function inside an online/self-directed learning loop coupled to a stochastic/simulated-annealing-type optimizer, applied to compliance minimization) is the same lineage across the v1 PDF I downloaded and skimmed and the P00164 abstract, differing only in maturity (v1: 'Generative Simulated Annealing', compliance only, >100x; final: 'SOLO', +fluid-structure, 2-5 orders of magnitude). Checked OpenAlex for P00164 (W4225541089, 2026-09-24): is_oa=true, oa_status='gold', CC-BY, full text at nature.com and PubMed Central -- the version of record is open access, so per the protocol's tie-break it is primary and is named here; this record (P00803), an earlier, now-superseded arXiv snapshot with an incomplete author list, is non-primary and is excluded as FT-DUPLICATE rather than coded. included.physics='compliance' and method_family='surrogate_mlp_gp' reflect the shared lineage's core method (DNN objective surrogate) and its best-attested physics (compliance minimization, present in every version seen); dim left 'unclear' since neither the v1 PDF's abstract nor this record's own abstract states 2D/3D. No author named Jun Wang in either author list (Changyu Deng, Can Qin, Wei Lu; also Yizhou Wang, Yun Fu on the later version)."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00740",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Image-Based Multiresolution Topology Optimization Using Deep Disjunctive Normal Shape Model",
+    "authors": "Vahid Keshavarzzadeh, Mitra Alirezaei, Tolga Tasdizen, Robert M. Kirby",
+    "year": 2021,
+    "venue": "Computer-Aided Design 130 (2021) 102947 (received 23 Sep 2019, accepted 20 Sep 2020; online 2020-09-28 per OpenAlex). Crossref lists an Elsevier open-archive licence for the accepted manuscript from 2021-09-29; OpenAlex labels it bronze open access",
+    "doi": "10.1016/j.cad.2020.102947",
+    "arxiv_id": "none found",
+    "version_coded": "Version of record, publisher PDF (27 pages; PDF metadata names CAD 130 (2021) 102947) from the University of Utah SCI Institute publications repository (publications.sci.utah.edu/publications/Kes2021a/), read in full as text; Tables 1-15 read from the page text layer. ScienceDirect returned HTTP 403; no arXiv version found"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screened I-UNCLEAR; the conclusion's quantitative classical comparison is total computational time against direct SIMP, Table 13)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "3D cantilever (40x20x4 elements): producing 10,000 high-resolution designs with DDNSM warm starts, counting data generation and training, takes 49.50 h versus 92.00 h for direct SIMP, about half.",
+    "key_phrase": "reduces the computational time to almost half",
+    "location": "Conclusion (Sec. 5), first quantitative classical comparison there, backed by Sec. 4.3 and Table 13 (p. 23). The abstract compares only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": 1.86,
+    "claimed_speedup_basis": "Derived from Table 13 (p. 23): 92.00 h (SIMP, 10,000 designs) / 49.50 h (DDNSM including dataset 8,836.42 s, training 3,237.20 s, evaluation 19.30 s and warm-started SIMP 166,129.24 s) = 1.86. The text says the time is reduced to almost half. Whether the 10,000-design times were measured or scaled from the 1000-design dataset is not stated.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 13 without training: 46.15 h vs 92.00 h (1.99x [derived]). (2) Table 13 without post-processing (raw DDNSM images, no SIMP refinement): 3.35 h vs 92.00 h (27.5x [derived]), at unmatched quality (e_Cini up to about 0.1). (3) Per-design inference vs direct SIMP: 0.002 s vs 2 s (L-bracket 64x64), 0.003 s vs 12.2 s (heat sink 128x128), 0.002 s vs 33 s (3D), 0.005 s vs 73 s (200x200), 0.003 s vs 312 s (3D, 40x20x10); the authors note their method uses the images as warm starts. (4) Totals with training: L-bracket 3.18 vs 5.61 h (Table 6), heat sink 21.11 vs 33.88 h (Table 9), 3D non-uniform load 55.96 vs 86.65 h for 1000 designs (Table 15). (5) Break-even counts in FE-cost units: L-bracket 297-1776 designs (Table 5), heat sink 789, 3D 85 (Eq. 30)."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization (thermal compliance for the heat sink) with the optimality-criteria update, started from a uniform density: the 88-line MATLAB code for 2D and the Liu-Tovar 3D MATLAB code, modified for varying parameters, for 3D (Sec. 2.2, 4.1, 4.3; refs [70], [79])",
+    "implementation": "MATLAB educational codes (88-line; Liu and Tovar 2014 3D code), run as sequential CPU processes (p. 14)",
+    "solver": "not stated (the published codes use a sparse direct solve [recalled, not verified in-session])",
+    "hardware_classical": "Intel i7-5930K at 3.5 GHz, 32 GB RAM (the text lists 12 cores), used for data generation and the convergence studies; sequential CPU processing (p. 14)",
+    "hardware_ml": "2x Intel E5-2660 (8 cores each) at 2.20 GHz, 64 GB RAM, 2x Nvidia K20 GPUs for training and evaluation; the warm-started SIMP also runs on sequential CPU (p. 14)",
+    "problem_size": "3D cantilever 40x20x4 brick elements, 12,915 DOF (low resolution 20x10x2, 2,079 DOF) (Sec. 4.3); also L-bracket 64x64 (and 200x200), heat sink 128x128, 3D 40x20x10",
+    "classical_iterations": "Convergence-based stopping of the codes (rule not stated); average 152.08 iterations for direct 3D SIMP from a uniform start (p. 22); 30.1975 (L-bracket), 243.32 (heat sink), 123.61 (200x200), 241.30 (3D, 40x20x10)",
+    "classical_time": "3D: 331,213.11 s = 92.00 h for 10,000 designs, about 33 s per design (p. 23; Table 13). L-bracket 5.61 h per 10,000 (Table 6); heat sink 33.88 h per 10,000 (Table 9); 3D 40x20x10: 86.65 h per 1000 (Table 15)",
+    "ml_time": "3D Case 6, 10,000 designs: network evaluation 19.30 s plus warm-started SIMP 166,129.24 s (p. 23); about 0.002 s per network evaluation; average 76.28 warm-started iterations (Table 12)",
+    "training_time": "3D: 3,237.20 s network training (p. 23); L-bracket 1,639.25 s; heat sink 6,068.00 s; 3D 40x20x10: 5,628.81 s",
+    "data_generation_cost": "3D Case 6 dataset (800 low + 240 high resolution designs): 8,836.42 s (p. 23), included in the 49.50 h total; also stated in FE-cost units (Eq. 30: 4.1365e5)",
+    "quality_metric": "Per test sample: iterations to convergence and relative compliance errors e_Cini (DDNSM image as initial guess) and e_Cfin (after SIMP refinement) against the directly optimized design, by FE; rates of success (RoS) in iterations and in compliance (Tables 1-4, 8, 10-12, 14; Figs. 10-31)",
+    "quality_gap": "3D Case 6: average iterations 76.28 vs 152.08 direct; RoS 83.5% in iterations and 83.0% in compliance (Table 12); e_Cini about 0.1 or lower almost consistently (Sec. 4.3); e_Cfin only plotted (Fig. 31), no summary value"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched [inferred]",
+      "evidence": "Sec. 4.3, Table 13: both pipelines end with the same SIMP optimizer and stopping rule, since DDNSM images serve only as initial guesses [inferred: same code, same volume constraint], and the time comparison counts that refinement. The stopping rule is not stated, and the final compliance gap is only plotted per sample (Fig. 31, e_Cfin); RoS in compliance is 83.0% for Case 6 with an unclear definition. Unsure, so pass; a verifier may choose partial (R1-loose). The 27.5x no-refinement variant (alternative 2) would fail R1, but it is not the emphasized claim."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "p. 14 and Sec. 4.3: the baseline is the 88-line code (2D) and the Liu-Tovar 3D code, vectorized educational MATLAB codes [recalled, not verified in-session], run sequentially on an i7-5930K; DDNSM training and evaluation run on K20 GPUs, but the warm-started SIMP also runs sequentially on CPU, and the authors discuss the hardware difference. 12,915 DOF is below 1e5, so (c) does not apply; (b) not observed (no abstract figure); (d) not applicable (convergence-based stopping). Pointer for (e): about 0.218 s per SIMP iteration at 12,915 DOF [derived: 331,213.11 s / 10,000 / 152.08]; 0.066 s at 64x64 and 0.59 s at 200x200 [derived]. Needs a re-test."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-full-accounting",
+      "evidence": "Tables 6, 9, 13 and 15 add dataset generation and network training to the DDNSM totals, and break-even counts are given (Eqs. 19, 22, 30; Table 5). Caveat: the 3D break-even is miscomputed. Eq. 30, 4.1365e5 + (76.28 x 8)n = (152.08 x 8)n, gives n = 682, not the stated 85 [derived]; the wall-clock break-even from the p. 23 times is about 731 designs [derived]."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Figs. 10-31 and Tables 1-4, 8, 10-12, 14: every test design (400 L-bracket, 200 heat-sink, 200 3D) is used as a SIMP initial guess, and the compliance of the initial guess and of the refined design is computed by FE against the direct design. The share of samples where the warm start did not help is reported (RoS in iterations, e.g. 83.5% success for 3D Case 6). The returned designs are SIMP outputs, so the volume constraint is enforced by the optimizer [inferred]."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3D: 200 test samples (20% of 1000); L-bracket: 400; heat sink: 200; 200x200 L-bracket: 200. Timings cover 10,000 designs (1000 for the 40x20x10 case) (Sec. 4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR (no abstract in the pool). Method: a fully connected network maps simulation parameters (load location and angle, support location, volume fraction, heat-sink location) to the coefficients of a disjunctive normal shape model, which renders the design at any resolution. It is trained mainly on cheap low- or medium-resolution SIMP designs plus a few high-resolution ones chosen by a polytope-overlap importance-sampling rule, and its images serve as SIMP warm starts. method_family = other (DDNSM). Primary outcome: the conclusion's statement that DDNSM halves the computational time in the 3D example (Table 13). Arithmetic check: the Table 13, 6, 9 and 15 totals match their stated time components [derived]. Findings for the verifier and for C3: (1) The 3D break-even is off by a factor of 8: Eq. 30 gives n = 682 in FE-cost units, not 85 [derived]. (2) Timings are reported only for the most favourable dataset case of each example (L-bracket Case 2, lowest break-even in Table 5; heat sink Case 4 and 3D Case 6, fewest iterations in Tables 8 and 12), so runtimes_all_cases = selective. (3) Stronger classical comparator in the article itself: a coarse-to-fine warm start without any ML, where a medium-resolution SIMP design seeds the high-resolution run, costs about 288 FE-cost units per L-bracket design, against 483 for direct SIMP and 240 for the DDNSM warm start (Sec. 4.1, Table 3). The timing tables compare DDNSM only with uniform-start SIMP. Against the coarse-to-fine warm start, the Case 4 data cost would need about 7,300 designs to break even [derived: 347,875 / (287.8 - 240.2)]. This is not an R2 marker, but it bears on baseline strength. (4) Table 7: for 1000 designs at 200x200, the single-resolution DDNSM total (24.68 h) exceeds direct SIMP at the stated 73 s per design (about 20.3 h [derived]); the multiresolution network (13.09 h) wins. Minor inconsistencies: Eq. 19 combines the Case 4 dataset cost with the importance-sampling iteration count (14.25, Table 4) to give 1363, while Table 5 lists 1431 for Case 4; the Table 9 caption says L-bracket for the heat-sink times; Sec. 4.1 refers to 400 training samples where the 400 test samples are meant; the 10,000-design times exceed the 1000-design datasets, so they may be scaled [not stated]. Access: publisher PDF from the University of Utah SCI Institute publications repository, an institutional copy; the article is also free to read on ScienceDirect (open-archive accepted manuscript), which blocked automated access. No code or data statement. Funding: DARPA TRADES. retest_candidate false: no public DDNSM code. A baseline-only re-test is feasible, because the 88-line and Liu-Tovar codes are public and the 3D problem is specified (40x20x4, volume fraction 0.35, filter radii 1.3 and 2.6 for the two resolutions; which radius belongs to which resolution is ambiguous in the text). No author named Jun Wang."
+}

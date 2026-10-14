@@ -1,0 +1,44 @@
+{
+  "pid": "P01788",
+  "citation": {
+    "title": "Physics-Data Structural Optimization: From Latent Spaces to Member Composition",
+    "authors": "Matteo Torzoni; Luca Rosafalco; Alberto Corigliano",
+    "year": 2025,
+    "venue": "Conference talk abstract (Politecnico di Milano institutional repository record; OpenAlex mislabels the host as 'Virtual Community of Pathological Anatomy (University of Castilla La Mancha)', which does not match the record's actual content or repository)",
+    "doi": "",
+    "arxiv_id": "",
+    "version_coded": "Full record read: the OpenAlex landing page (https://hdl.handle.net/11311/1310987) redirects to the Politecnico di Milano repository (https://re.public.polimi.it/handle/11311/1310987), whose own metadata classifies the document type as '04.2 Abstract in Atti di convegno' (conference-proceedings abstract). Downloaded and read in full (2 pp.: 1 page of text, 1 page with a single results figure) via PyMuPDF from the repository's open-access file DD29_Abs.pdf."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-TYPE",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded, presentation/abstract-only record). Headline: a 2-page conference-talk abstract summarizing two already-published methods by an overlapping author team -- real-time topology optimization via a learned latent-space mapping (ref. [1]) and truss optimization via a grammar-constrained Markov decision process with tree search (ref. [2]) -- with no original quantitative results, figures beyond one illustrative example, or numeric comparisons of its own.",
+    "location": "abstract (the entire 2-page document)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). The abstract's only efficiency language is qualitative ('real-time', 'virtually instantaneous inference', 'computational advantages'), with no number, percentage, or time given anywhere in the 2-page text."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded as FT-TYPE: the source repository itself classifies this document as a conference-proceedings abstract ('04.2 Abstract in Atti di convegno'), it opens with 'This talk presents...', and the 2-page PDF contains only a qualitative summary plus one exemplary figure -- matching the protocol's §4 exclusion for 'presentations ... abstracts-only records' directly, independent of the in-scope subject matter. The talk summarizes two separate, already-published papers, both cited in its 2-item reference list: [1] Garayalde, Torzoni, Bruggi & Corigliano, 'Real-time topology optimization via learnable mappings', IJNME 125(15):e7502 (2024), which IS separately present in this pool as P00090 (arXiv 2311.08473, doi 10.1002/nme.7502) and should be coded there on its own merits; and [2] Garayalde, Rosafalco, Torzoni & Corigliano, 'Mastering Truss Structure Optimization with Tree Search', ASME J. Mech. Des. 147(10):101702 (2025), which does not appear in audit/pool/pool.csv under this or any close title. Because this record spans a joint overview of two distinct papers rather than being another version of a single one of them, it is coded FT-TYPE rather than FT-DUPLICATE; the relationship to P00090 is noted here for the verifier rather than adopted as the exclusion reason. included.physics='compliance' and dim='unclear' reflect only the topology-optimization half of the talk (ref. [1]; real-time TO via learnable mappings is a compliance-type problem per its own title), since the truss/MDP half (ref. [2]) is a discrete member-sizing problem outside the density-field TO scope and the abstract gives no dimensionality for either. method_family='other' because the abstract itself proposes no single method, only summarizing two already-existing ones (a latent-space surrogate and a grammar-constrained MDP/tree-search generator). No author named Jun Wang (authors: Matteo Torzoni, Luca Rosafalco, Alberto Corigliano)."
+}

@@ -1,0 +1,15 @@
+# Tool check
+
+This session checks the tools before the real sessions run. Model: `{model}`. Work only inside this folder.
+
+1. Run `node fetch.js https://arxiv.org/abs/1706.03762 tmp/abs.html`. Note the HTTP status, and find the paper title
+   in the saved page.
+2. Run `node fetch.js https://arxiv.org/pdf/1706.03762 tmp/paper.pdf`, then
+   `pdftotext -enc UTF-8 -l 1 tmp/paper.pdf tmp/paper.txt`. A warning about a MiKTeX log file is harmless. Note the
+   first line of `tmp/paper.txt` that contains the word "Attention".
+3. Use your web search tool to find the arXiv identifier of the paper "Attention Is All You Need". Note whether the
+   search worked.
+4. Write `out/smoke.json` with exactly these keys:
+   `{"model": "{model}", "abs_status": <number>, "title": "<title>", "pdf_line": "<line>",
+   "web_search_ok": <true or false>, "arxiv_id_found": "<identifier or empty>"}`.
+5. Delete the files in `tmp/`. Reply with the line `SMOKE DONE`.

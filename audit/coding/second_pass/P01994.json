@@ -1,0 +1,43 @@
+{
+  "pid": "P01994",
+  "citation": {
+    "title": "Practical topology optimization with deep reinforcement learning",
+    "authors": "Tskhondia, Giorgi",
+    "year": 2025,
+    "venue": "ResearchGate preprint",
+    "doi": "10.13140/rg.2.2.16548.95369",
+    "version_coded": "Not read. This DOI (prefix 10.13140) resolves to a ResearchGate-hosted preprint page, which the task's access rules explicitly prohibit visiting ('Never use Sci-Hub, LibGen, ResearchGate or Scribd uploads'). No arXiv version or other legal host exists for this preprint. The exclusion below is made from bibliographic metadata (OpenAlex) and from the abstract of the primary (journal) version, not from this preprint's own text."
+  },
+  "access": "no_access",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "rl",
+    "physics": "other",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as a duplicate). This ResearchGate preprint by the sole author Giorgi Tskhondia appears to correspond to the deep-reinforcement-learning-only portion of the later, expanded journal article (pid P01997, see notes).",
+    "location": "not coded",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text/metadata stage, FT-DUPLICATE)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access: the DOI 10.13140/rg.2.2.16548.95369 (ResearchGate's own DOI prefix) resolves only to a ResearchGate-hosted page. Per the task's access rules, ResearchGate is never visited, so this preprint's own text was not read; no arXiv version, institutional repository copy, or author-page PDF was found for it (OpenAlex lists no other location - checked via the OpenAlex API, metadata lookup only, no ResearchGate page fetched). Duplicate determination: audit/pool/pool.csv was searched for 'Practical topology optimization' (case-insensitive) and returned exactly two pool records: this one (pid P01994, 'Practical topology optimization with deep reinforcement learning', Tskhondia, 2025, the ResearchGate DOI, no abstract stored in the pool) and pid P01997 ('Practical Topology Optimization with Deep Reinforcement Learning and Genetic Algorithms', Giorgi Tskhondia, American Journal of Applied Scientific Research, published 27 Jan 2026, DOI 10.11648/j.ajasr.20261201.11). Both are by the same sole author on the same topic, and P01997's own abstract (read from audit/pool/pool.csv) frames its first contribution as exactly the DRL-only 2D topology-optimization result this preprint's title describes ('it demonstrates substantial performance improvements by achieving a 12x12 grid resolution in two-dimensional topology optimization using a purely DRL-based approach'), before adding a hybrid DRL-GA method, a pseudo-3D formulation, and a rocket-nozzle case study as further contributions. This is consistent with P01994 being an earlier preprint of the DRL-only portion of the work that P01997 later expanded and formally published. P01997 was confirmed open access (OpenAlex: oa_status 'diamond', CC-BY, PDF at http://article.sciencepg.com/pdf/j.ajasr.20261201.11; the landing page at sciencepublishinggroup.com returned HTTP 200) via a metadata check only - its DOI/landing page was reached without any CAPTCHA, login, or bot-check, but I did not code its full content since it is a different pid, not in my assigned queue. Per the task's duplicate rule, the primary version is the version of record if open access, else the latest arXiv version; since no arXiv version of this work exists and P01997 is the open-access version of record, P01997 is primary and this pid (P01994, the non-primary ResearchGate preprint) is coded FT-DUPLICATE, naming P01997 as the other pid, as instructed. No author named Jun Wang (sole author: Giorgi Tskhondia). method_family/physics/dim above are best-effort labels inferred only from the title and from P01997's abstract (reinforcement learning; structural topology optimization physics, not one of the schema's named categories, hence 'other'; dimensionality unclear for this specific preprint, since the 2D-only DRL result and any 3D extension are not separable without reading its own text), and are not based on this article's own full text, which was never read."
+}

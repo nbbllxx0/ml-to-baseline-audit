@@ -1,0 +1,77 @@
+{
+  "note": "post hoc; the 'final' column is the reported result",
+  "codings": {
+    "first": {
+      "records": 110,
+      "G1": {
+        "n_speed_stratum": 20,
+        "complete": true,
+        "n_fail_R1_or_R2": 6,
+        "share": 0.3,
+        "ci95": [
+          0.1189315904057277,
+          0.5427891822762891
+        ],
+        "band": "ACME/SMO framing",
+        "stopped_at": null
+      },
+      "sample_speed_stratum": {
+        "n": 26,
+        "weak_R1_or_R2": 12,
+        "share": 0.46153846153846156,
+        "ci95": [
+          0.26587121742295106,
+          0.6662917815247077
+        ]
+      }
+    },
+    "second": {
+      "records": 110,
+      "G1": {
+        "n_speed_stratum": 20,
+        "complete": true,
+        "n_fail_R1_or_R2": 5,
+        "share": 0.25,
+        "ci95": [
+          0.08657146910143462,
+          0.49104587170795755
+        ],
+        "band": "ACME/SMO framing",
+        "stopped_at": null
+      },
+      "sample_speed_stratum": {
+        "n": 38,
+        "weak_R1_or_R2": 10,
+        "share": 0.2631578947368421,
+        "ci95": [
+          0.1340337230249736,
+          0.43100824370223956
+        ]
+      }
+    },
+    "final": {
+      "records": 110,
+      "G1": {
+        "n_speed_stratum": 20,
+        "complete": true,
+        "n_fail_R1_or_R2": 5,
+        "share": 0.25,
+        "ci95": [
+          0.08657146910143462,
+          0.49104587170795755
+        ],
+        "band": "ACME/SMO framing",
+        "stopped_at": null
+      },
+      "sample_speed_stratum": {
+        "n": 28,
+        "weak_R1_or_R2": 8,
+        "share": 0.2857142857142857,
+        "ci95": [
+          0.13223651257112512,
+          0.4866683154489405
+        ]
+      }
+    }
+  }
+}

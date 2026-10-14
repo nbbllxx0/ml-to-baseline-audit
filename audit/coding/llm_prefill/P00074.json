@@ -1,0 +1,88 @@
+{
+  "pid": "P00074",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Neural topology optimization: the good, the bad, and the ugly",
+    "authors": "Suryanarayanan Manoj Sanu, Alejandro M. Aragón, Miguel A. Bessa",
+    "year": 2024,
+    "venue": "arXiv preprint (cs.LG; math.NA). Version of record: Structural and Multidisciplinary Optimization 68, 213 (published 4 Oct 2025), doi 10.1007/s00158-025-04135-3 (arXiv related DOI; Crossref); subscription content per the Springer landing page (rights held by Springer Nature, no Creative Commons licence) and Crossref licence metadata, so not read",
+    "doi": "10.48550/arXiv.2407.13954",
+    "arxiv_id": "2407.13954",
+    "version_coded": "arXiv v1 (19 Jul 2024; only version on the abs page), full text including the supporting information (Appendices A-E, Tables 1-5) read from https://arxiv.org/html/2407.13954. The version of record was revised (received Feb 2025, revised Aug 2025); its public landing page shows appendix material that v1 lacks (an augmented-Lagrangian stress-constrained example; the thermal and compliant-mechanism problems moved to a main-text section), so the published text differs from v1."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Neural reparameterizations (MLP, SIREN, CNN) reach compliance close to the SIMP+MMA baseline but usually need more iterations to converge; over 18 compliance problems with MMA, median iteration ratios to the baseline are 1.69-16.56 (SIREN), 0.93-13.04 (MLP), 0.34-3.12 (CNN).",
+    "key_phrase": "neural TO usually requires more iterations to converge as compared to the baseline method",
+    "location": "Sec. 2, optimizer trajectories and Fig. 4 (first measured comparison with the classical baseline), quantified in Sec. 4 (Fig. 6) and SI Sec. E.4, Tables 4-5; the abstract, introduction and discussion compare only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up is claimed; neural TO is mostly slower, and no wall-clock time is reported. SI Tables 4-5 give iterations to convergence scaled to the baseline (ML/classical; each cell lists median, best and worst over six initializations [order inferred from SI E.4]). Median over the 18 problems of the per-problem medians [derived]: MMA - CNN 1.20, SIREN 5.21, MLP 4.80; Adam - CNN 1.46, SIREN 3.54, MLP 2.08, i.e., classical/ML about 0.19-0.83. Medians below 1 (network faster) [derived]: with MMA, CNN 8 of 18, MLP 3, SIREN 0; with Adam, CNN 8, MLP 6, SIREN 0.",
+    "direction": "underperform",
+    "alternatives": "(1) Sec. 1, Fig. 2 and SI A (first comparison in the main text; a two-variable stress-constrained truss illustration): plain MMA from (1,1) converges to the local optimum (0,1), while MMA on a 3-weight SIREN reparameterization reaches the global optimum (1,0), i.e., mass 0.6 vs 0.8 [derived from Eq. 3]; the SIREN and MMA settings were tuned with Optuna to reach the known global optimum. (2) Sec. 4: taking the best of six initializations, CNN+MMA matches the baseline objective and converges faster (Table 4 best iteration ratios 0.11-1.67 [derived]). (3) SI E.5, Fig. 19: MLP and SIREN outperform the baseline on the compliant-mechanism problem with Adam (values only in the figure). (4) SI Table 4 (MMA) medians over 18 problems [derived]: objective 0.95-1.10 (CNN), 0.96-1.41 (SIREN), 1.00-8.93 (MLP); thresholded compliance 0.99-1.16 (CNN), 0.53-1.10 (SIREN), 1.01-5.49 (MLP). (5) Discussion, qualitative: conventional TO has reached giga-voxel scale, neural TO has not."
+  },
+  "baseline": {
+    "classical_method": "Density-based SIMP (p = 3, density filter, no continuation) with MMA, re-implemented from the 88-line code (Sec. 6; SI B, E)",
+    "implementation": "Authors' in-house JAX TO library with a Python MMA implementation (ref. [47]); the baseline's MMA move limit and asymptote initialization were tuned per case with Optuna (TPE, 25 outer iterations) at 64x32 and reused at higher resolution, as for the networks (SI E.3)",
+    "solver": "direct LU solver (SI E)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated (GPU training is mentioned only for the expressivity study, Sec. 3 footnote)",
+    "problem_size": "576x288 elements for the 18-problem benchmark (Fig. 6 caption); 64x32 for the landscape and trajectory study (SI D); 544x272 and 544x544 for the SI E.5 problems",
+    "classical_iterations": "Objective metric: best value within a fixed budget of 200 function evaluations for every method. Convergence iteration: where the objective saturates within an unspecified percentage of each method's own best (Sec. 4, footnote 5)",
+    "classical_time": "not stated (iteration counts only)",
+    "ml_time": "not stated (iteration counts only)",
+    "training_time": "no offline training; each network is pretrained to output a uniform density with 300 Adam iterations, described as negligible (SI E.1); Optuna tuning cost not stated",
+    "data_generation_cost": "none (per-problem reparameterization)",
+    "quality_metric": "Best objective (compliance) within 200 evaluations, iterations to convergence, and FE compliance after thresholding to black and white, all scaled to the baseline; median, best and worst of six initializations (Fig. 6, Fig. 16, SI Tables 4-5)",
+    "quality_gap": "SI Table 4 (MMA) medians over 18 problems [derived]: objective 0.95-1.10 (CNN), 0.96-1.41 (SIREN), 1.00-8.93 (MLP); thresholded compliance 0.99-1.16 (CNN), 0.53-1.10 (SIREN), 1.01-5.49 (MLP; one median marked with a cross). SI Table 5 (Adam) thresholded-compliance medians: 1.00-1.34 (CNN), 0.97-1.08 (SIREN), 0.98-1.36 (MLP)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. 4 and SI E.4: all methods use the same FE model and volume constraint, the objective is compared at an equal budget of 200 function evaluations, and iteration counts are reported together with objective and thresholded compliance for all 18 problems (SI Tables 4-5). The speed finding goes against the ML method, so no inflated speed claim needs quality matching. For the alternative best-of-six CNN+MMA claim (Sec. 4), the ML side gets six initializations against one deterministic baseline run [inferred]."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 6 and SI E: the baseline is SIMP with MMA from the 88-line formulation, in the same JAX code and FE model (direct LU solver) as the networks, with its MMA hyperparameters tuned per case like theirs (SI E.3) and no continuation for either. The metric is an iteration count, so hardware does not bear. (b) the abstract gives no numbers; (c) no timing; (d) the convergence iteration is measured per run, not fixed. Nothing suggests a weak baseline."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Per-problem neural reparameterization with no offline data (Sec. 6); the uniform-density pretraining (300 Adam iterations, no FE analysis) is described as negligible (SI E.1). For C3: Optuna hyperparameter tuning (25 outer iterations per case at 64x32, SI E.3) is not costed for either method."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 4 and SI E.2, E.4: objective and thresholded compliance come from the FE model for every run, and volume is enforced by MMA, by the shifted sigmoid (Adam) or by thresholding to the target volume. Failures are not quantified: SI Tables 4-5 contain cross entries that the captions do not define [failed runs inferred], MMA is said to struggle with the volume constraint for the networks (SI C.2), and thresholded compliance is rescaled by a volume ratio when the thresholded volume deviates slightly (SI E.2)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "18 compliance problems (MBB, bridge, tensile x volume fraction 0.1-0.6) at 576x288, six initializations per network, 3 architectures x 2 optimizers (Sec. 4; SI Tables 4-5); landscape and trajectory study on tensile and Michell cases; expressivity study on MBB, Michell and cantilever at 4 resolutions; SI E.5 thermal-conduction and compliant-mechanism problems (six starts each); two-bar truss problem (Sec. 1)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR. Full text: included, speed stratum (iteration count to convergence as the cost proxy), direction underperform. The reason field says I-SPEED only because the primary outcome is a speed-proxy comparison; the article claims no speed advantage and states that superiority over other TO methods is not its point (introduction). Primary-outcome choice (PROTOCOL 5.1 rule 2): the abstract, introduction and discussion hold no quantitative classical comparison. The first comparison in the main text is the two-bar truss illustration (Sec. 1, Fig. 2); I treated it as categorical (which optimum each method reaches, with no measured performance difference printed) and took the first measured comparison (Sec. 2, Fig. 4), which Sec. 4 and SI Tables 4-5 quantify. If the verifier counts the two-bar result as the first quantitative comparison, the record moves to stratum Q with direction outperform; would-be verdicts: R1 partial (the SIREN and MMA settings were tuned with Optuna to reach the known global optimum, while the baseline was only tried with several settings and starts, SI A), R2 partial [judgment: plain MMA without the stress-constraint relaxation that the article itself cites as the analogous remedy, ref. [8]], R3 na, R4 pass (analytical objective and constraints). FT-TYPE was considered and not applied: this is an original analysis article with new experiments, not a review or survey (PROTOCOL 4); a verifier who reads screening code E-TYPE (benchmark-only paper with no method claim) as covering it would exclude it. Ambiguities: the cross entries in SI Tables 4-5 are not defined; the median/best/worst order of each cell is inferred from SI E.4; the SI Table 5 caption can be read as saying the baseline was optimized with Adam, while the Fig. 6 caption says the baseline used only MMA and SI Table 3 lists no Adam settings for it. Reporting locators: variance = six initializations (Fig. 6, SI E.4); budget and convergence definition = Sec. 4 and footnote 5; runtimes_all_cases = yes refers to iteration counts for all 18 problems (no wall-clock times anywhere). No code or data availability statement in v1; no public repository found by GitHub search on 2026-09-24; the version-of-record metadata says experimental details are in the appendix and supplementary information. retest_candidate false: no public code and no speed advantage claimed. No author overlap with Jun Wang (authors at TU Delft and Brown University)."
+}

@@ -1,0 +1,88 @@
+{
+    "pid": "P02476",
+    "citation": {
+        "title": "Deep generative modeling for mechanistic-based learning and design of metamaterial systems",
+        "authors": "Liwei Wang, Yu-Chin Chan, Faez Ahmed, Zhao Liu, Ping Zhu, Wei Chen",
+        "year": 2020,
+        "venue": "Computer Methods in Applied Mechanics and Engineering 372, 113377",
+        "doi": "10.1016/j.cma.2020.113377",
+        "arxiv_id": "2006.15274",
+        "version_coded": "version of record (NSF Public Access Repository copy)"
+    },
+    "access": "full_text",
+    "coder": {
+        "llm_model": "gpt-6-luna",
+        "llm_date": "2026-09-26",
+        "human_initials": null,
+        "human_date": null
+    },
+    "included": {
+        "decision": "exclude",
+        "reason": "FT-NOBASELINE",
+        "stratum": "none",
+        "method_family": "vae",
+        "physics": "metamaterial_homogenization",
+        "dim": "2d"
+    },
+    "claim": {
+        "primary_outcome_paraphrase": "",
+        "key_phrase": "",
+        "location": "",
+        "quantitative": false,
+        "claimed_speedup": null,
+        "claimed_speedup_basis": "",
+        "direction": "similar_or_mixed",
+        "alternatives": ""
+    },
+    "baseline": {
+        "classical_method": "not stated as a comparator in this article",
+        "implementation": "not stated",
+        "solver": "not stated",
+        "hardware_classical": "not stated",
+        "hardware_ml": "not stated",
+        "problem_size": "not stated",
+        "classical_iterations": "not stated",
+        "classical_time": "not stated",
+        "ml_time": "not stated",
+        "training_time": "not stated",
+        "data_generation_cost": "not stated",
+        "quality_metric": "not stated for a comparison to a classical optimizer",
+        "quality_gap": "not stated"
+    },
+    "rules": {
+        "R1": {
+            "verdict": "na",
+            "marker": "not-included",
+            "evidence": "Not applicable: excluded at full text."
+        },
+        "R2": {
+            "verdict": "na",
+            "marker": "not-included",
+            "evidence": "Not applicable: excluded at full text."
+        },
+        "R3": {
+            "verdict": "na",
+            "marker": "not-included",
+            "evidence": "Not applicable: excluded at full text."
+        },
+        "R4": {
+            "verdict": "na",
+            "marker": "not-included",
+            "evidence": "Not applicable: excluded at full text."
+        }
+    },
+    "reporting": {
+        "n_test_cases": "not stated",
+        "ood_test": "unclear",
+        "seeds_or_variance": "unclear",
+        "failure_rate_reported": "unclear",
+        "timing_protocol_stated": "no",
+        "runtimes_all_cases": "na",
+        "code_available": "no",
+        "data_available": "no",
+        "hardware_per_method_stated": "no"
+    },
+    "retest_candidate": false,
+    "notes": "Sections 1–5 discuss topology optimization as context and propose VAE plus latent-space/graph optimization for metamaterial design, but do not run, time, or cite a classical method's cost or result as a comparator. The NSF-hosted full text is at https://par.nsf.gov/servlets/purl/10197985.",
+    "stage": "cross_provider_pass"
+}

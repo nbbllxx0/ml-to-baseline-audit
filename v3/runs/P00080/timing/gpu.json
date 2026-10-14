@@ -1,0 +1,75 @@
+{
+ "meta": {
+  "mode": "gpu",
+  "pinning": {
+   "pinned": true,
+   "affinity_mask": "0xfff",
+   "priority": "HIGH_PRIORITY_CLASS"
+  },
+  "started_utc": "2026-09-25T15:44:07Z",
+  "finished_utc": "2026-09-25T15:48:42Z"
+ },
+ "target_compliance": 88.97945768755953,
+ "runs": [
+  {
+   "warmup": true,
+   "t_setup_s": 1.11211679992266,
+   "t_300_s": 67.61420790024567,
+   "c_final": 67.19672874719316,
+   "vol_final": 0.5000005788421172,
+   "first_iter_at_target": 9,
+   "t_to_target_s": 2.4678523000329733,
+   "fallbacks": 0
+  },
+  {
+   "warmup": false,
+   "t_setup_s": 0.6835407000035048,
+   "t_300_s": 67.72420230205171,
+   "c_final": 67.1967287474393,
+   "vol_final": 0.5000005788436698,
+   "first_iter_at_target": 9,
+   "t_to_target_s": 2.4462960998062044,
+   "fallbacks": 0
+  },
+  {
+   "warmup": false,
+   "t_setup_s": 0.6880239000311121,
+   "t_300_s": 67.73606449994259,
+   "c_final": 67.19672874726523,
+   "vol_final": 0.5000005788399616,
+   "first_iter_at_target": 9,
+   "t_to_target_s": 2.4454929003259167,
+   "fallbacks": 0
+  },
+  {
+   "warmup": false,
+   "t_setup_s": 0.6827274999814108,
+   "t_300_s": 67.74437529896386,
+   "c_final": 67.19672874735036,
+   "vol_final": 0.5000005788386774,
+   "first_iter_at_target": 9,
+   "t_to_target_s": 2.4469721998320892,
+   "fallbacks": 0
+  }
+ ],
+ "t_300": {
+  "median_s": 67.73606449994259,
+  "min_s": 67.72420230205171,
+  "max_s": 67.74437529896386,
+  "repeats_s": [
+   67.72420230205171,
+   67.73606449994259,
+   67.74437529896386
+  ]
+ },
+ "t_to_target": {
+  "median_s": 2.4462960998062044,
+  "min_s": 2.4454929003259167,
+  "max_s": 2.4469721998320892,
+  "repeats_s": [
+   2.4462960998062044,
+   2.4454929003259167,
+   2.4469721998320892
+  ]
+ }
+}

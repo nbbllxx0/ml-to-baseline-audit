@@ -1,0 +1,45 @@
+{
+  "pid": "P00860",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "AI-Based Topology Optimization of Freehand Sketches",
+    "authors": "Enno Garrelts, Marco F. Huber, Daniel Roth, Hansgeorg Binz",
+    "year": 2021,
+    "venue": "Procedia CIRP 104 (2021) 1316-1321 (Crossref; conference proceedings, CC BY 4.0 per Crossref and OpenAlex)",
+    "doi": "10.1016/j.procir.2021.11.221",
+    "arxiv_id": "",
+    "version_coded": "none: only the abstract was read (pool record from OpenAlex). Neither the version of record nor the Fraunhofer repository copy could be retrieved"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no accessible full text). Abstract only: a neural network reads photographed design sketches and generates lightweight structures matching the sketched load cases; the abstract states no comparison with a classical method.",
+    "location": "Abstract (the only text read)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded; the abstract gives no numbers and no comparison.",
+    "alternatives": "Abstract: the stated findings are an intuitive designer-AI interface, ways to implement the tool, and how to structure and train the network."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all with a generic User-Agent and no personal data: (1) the open copy OpenAlex lists, www.sciencedirect.com/science/article/pii/S2212827121011197/pdf: HTTP 403 with a captcha page (curl); the article page returned HTTP 403 via WebFetch. (2) The two Fraunhofer-Publica records OpenAlex lists (publica.fraunhofer.de/handle/publica/415303 and publica.fraunhofer.de/documents/N-646235.html, which redirects to the first) return an Anubis bot-check page. (3) arXiv API searches by title words and by author gave no preprint. No captcha or bot check was attempted. The article is open access (CC BY 4.0), so a human verifier can read it in a browser. Pointer from the abstract: it states no comparison with a classical method, speed or quality. Unless the full text runs, times or cites a classical TO result, FT-NOBASELINE is likely. Screening code was I-UNCLEAR. No author named Jun Wang."
+}

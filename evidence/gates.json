@@ -1,0 +1,2530 @@
+{
+  "G1": {
+    "n_speed_stratum": 20,
+    "n_target": 20,
+    "complete": true,
+    "stopped_at": null,
+    "n_fail_R1_or_R2": 5,
+    "share": 0.25,
+    "ci95": [
+      0.08657146910143462,
+      0.49104587170795755
+    ],
+    "band": "ACME/SMO framing",
+    "verified_records": 20,
+    "status": "decision-grade",
+    "detail": [
+      {
+        "pid": "P02328",
+        "role": "order 1",
+        "status": "not in speed stratum (FT-NOML)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00557",
+        "role": "order 2",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00751",
+        "role": "order 3",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00647",
+        "role": "order 4",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "pass",
+        "R4": "fail",
+        "weak": false,
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00170",
+        "role": "order 5",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00616",
+        "role": "order 6",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00607",
+        "role": "order 7",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00183",
+        "role": "order 8",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00627",
+        "role": "order 9",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01960",
+        "role": "order 10",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00786",
+        "role": "order 11",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00754",
+        "role": "order 12",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00732",
+        "role": "order 13",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01268",
+        "role": "order 14",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00165",
+        "role": "order 15",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00979",
+        "role": "order 16",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02179",
+        "role": "order 17",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00019",
+        "role": "order 18",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00140",
+        "role": "order 19",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00767",
+        "role": "order 20",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01429",
+        "role": "order 21",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01971",
+        "role": "order 22",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01132",
+        "role": "order 23",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00918",
+        "role": "order 24",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01258",
+        "role": "order 25",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00610",
+        "role": "order 26",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "pass",
+        "R4": "pass",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00804",
+        "role": "order 27",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00874",
+        "role": "order 28",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01870",
+        "role": "order 29",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P01214",
+        "role": "order 30",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P02042",
+        "role": "order 31",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01873",
+        "role": "order 32",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00576",
+        "role": "order 33",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00375",
+        "role": "order 34",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00875",
+        "role": "order 35",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00915",
+        "role": "order 36",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01859",
+        "role": "order 37",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00042",
+        "role": "order 38",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00548",
+        "role": "order 39",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00550",
+        "role": "order 40",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01500",
+        "role": "order 41",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00983",
+        "role": "order 42",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00605",
+        "role": "order 43",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P01151",
+        "role": "order 44",
+        "status": "skipped: full text not accessible (no_access)"
+      },
+      {
+        "pid": "P00808",
+        "role": "order 45",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "na",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00143",
+        "role": "order 46",
+        "status": "not in speed stratum (FT-DOMAIN)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00663",
+        "role": "order 47",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P01605",
+        "role": "order 48",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01517",
+        "role": "order 49",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "na",
+        "R4": "pass",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01928",
+        "role": "order 50",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00141",
+        "role": "order 51",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00858",
+        "role": "order 52",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00544",
+        "role": "order 53",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00833",
+        "role": "order 54",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00719",
+        "role": "order 55",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02398",
+        "role": "order 56",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01101",
+        "role": "order 57",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00092",
+        "role": "order 58",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01729",
+        "role": "order 59",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02490",
+        "role": "order 60",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00139",
+        "role": "order 61",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P02524",
+        "role": "order 62",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00687",
+        "role": "order 63",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02074",
+        "role": "order 64",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00553",
+        "role": "order 65",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01855",
+        "role": "order 66",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00934",
+        "role": "order 67",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00893",
+        "role": "order 68",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00860",
+        "role": "order 69",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00615",
+        "role": "order 70",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00613",
+        "role": "order 71",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01457",
+        "role": "order 72",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01994",
+        "role": "order 73",
+        "status": "skipped: full text not accessible (no_access)"
+      },
+      {
+        "pid": "P02361",
+        "role": "order 74",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00650",
+        "role": "order 75",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00335",
+        "role": "order 76",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00545",
+        "role": "order 77",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01100",
+        "role": "order 78",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00817",
+        "role": "order 79",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01856",
+        "role": "order 80",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00150",
+        "role": "order 81",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "pass",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00842",
+        "role": "order 82",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00755",
+        "role": "order 83",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00149",
+        "role": "order 84",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00925",
+        "role": "order 85",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00690",
+        "role": "order 86",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02135",
+        "role": "order 87",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00549",
+        "role": "order 88",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P02084",
+        "role": "order 89",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00889",
+        "role": "order 90",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01827",
+        "role": "order 91",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P01152",
+        "role": "order 92",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P01398",
+        "role": "order 93",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00922",
+        "role": "order 94",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00533",
+        "role": "order 95",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00178",
+        "role": "order 96",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "fail",
+        "weak": true,
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00373",
+        "role": "order 97",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00698",
+        "role": "order 98",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01016",
+        "role": "order 99",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00034",
+        "role": "order 100",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01133",
+        "role": "order 101",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00051",
+        "role": "order 102",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00543",
+        "role": "order 103",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00181",
+        "role": "order 104",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "fail",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01004",
+        "role": "order 105",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00709",
+        "role": "order 106",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00797",
+        "role": "order 107",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01390",
+        "role": "order 108",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P02479",
+        "role": "order 109",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P01232",
+        "role": "order 110",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00676",
+        "role": "order 111",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01905",
+        "role": "order 112",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00358",
+        "role": "order 113",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01105",
+        "role": "order 114",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01279",
+        "role": "order 115",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01382",
+        "role": "order 116",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02240",
+        "role": "order 117",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00938",
+        "role": "order 118",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00648",
+        "role": "order 119",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00523",
+        "role": "order 120",
+        "status": "not in speed stratum (FT-SCOPE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00003",
+        "role": "order 121",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P02336",
+        "role": "order 122",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01900",
+        "role": "order 123",
+        "status": "not in speed stratum (FT-DOMAIN)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00081",
+        "role": "order 124",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01277",
+        "role": "order 125",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02399",
+        "role": "order 126",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00309",
+        "role": "order 127",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00957",
+        "role": "order 128",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00536",
+        "role": "order 129",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00148",
+        "role": "order 130",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01217",
+        "role": "order 131",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P02292",
+        "role": "order 132",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01887",
+        "role": "order 133",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00822",
+        "role": "order 134",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P02306",
+        "role": "order 135",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P02476",
+        "role": "order 136",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00006",
+        "role": "order 137",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00176",
+        "role": "order 138",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01320",
+        "role": "order 139",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00774",
+        "role": "order 140",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02128",
+        "role": "order 141",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00551",
+        "role": "order 142",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01813",
+        "role": "order 143",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00902",
+        "role": "order 144",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00748",
+        "role": "order 145",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02006",
+        "role": "order 146",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00740",
+        "role": "order 147",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "pass",
+        "R4": "pass",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      }
+    ],
+    "pilot_note": "decision order over the complete screened pool (PROTOCOL \u00a711 decision-pilot row); inclusion is decided at full text (PROTOCOL \u00a711 screening-check row)"
+  },
+  "G1_planning_flags_excluded": {
+    "n_speed_stratum": 20,
+    "n_target": 20,
+    "complete": true,
+    "stopped_at": null,
+    "n_fail_R1_or_R2": 5,
+    "share": 0.25,
+    "ci95": [
+      0.08657146910143462,
+      0.49104587170795755
+    ],
+    "band": "ACME/SMO framing",
+    "verified_records": 20,
+    "status": "decision-grade",
+    "detail": [
+      {
+        "pid": "P02328",
+        "role": "order 1",
+        "status": "not in speed stratum (FT-NOML)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00557",
+        "role": "order 2",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00751",
+        "role": "order 3",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00647",
+        "role": "order 4",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "pass",
+        "R4": "fail",
+        "weak": false,
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00170",
+        "role": "order 5",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00616",
+        "role": "order 6",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00607",
+        "role": "order 7",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00183",
+        "role": "order 8",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00627",
+        "role": "order 9",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01960",
+        "role": "order 10",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00786",
+        "role": "order 11",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00754",
+        "role": "order 12",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00732",
+        "role": "order 13",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01268",
+        "role": "order 14",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00165",
+        "role": "order 15",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00979",
+        "role": "order 16",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02179",
+        "role": "order 17",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00019",
+        "role": "order 18",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00140",
+        "role": "order 19",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00767",
+        "role": "order 20",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01429",
+        "role": "order 21",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01971",
+        "role": "order 22",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01132",
+        "role": "order 23",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00918",
+        "role": "order 24",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01258",
+        "role": "order 25",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00610",
+        "role": "order 26",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "pass",
+        "R4": "pass",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00804",
+        "role": "order 27",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00874",
+        "role": "order 28",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01870",
+        "role": "order 29",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P01214",
+        "role": "order 30",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P02042",
+        "role": "order 31",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01873",
+        "role": "order 32",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00576",
+        "role": "order 33",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00375",
+        "role": "order 34",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00875",
+        "role": "order 35",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00915",
+        "role": "order 36",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01859",
+        "role": "order 37",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00042",
+        "role": "order 38",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00548",
+        "role": "order 39",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00550",
+        "role": "order 40",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01500",
+        "role": "order 41",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00983",
+        "role": "order 42",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00605",
+        "role": "order 43",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P01151",
+        "role": "order 44",
+        "status": "skipped: full text not accessible (no_access)"
+      },
+      {
+        "pid": "P00808",
+        "role": "order 45",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "na",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00143",
+        "role": "order 46",
+        "status": "not in speed stratum (FT-DOMAIN)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00663",
+        "role": "order 47",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P01605",
+        "role": "order 48",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01517",
+        "role": "order 49",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "na",
+        "R4": "pass",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01928",
+        "role": "order 50",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00141",
+        "role": "order 51",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00858",
+        "role": "order 52",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00544",
+        "role": "order 53",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00833",
+        "role": "order 54",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00719",
+        "role": "order 55",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02398",
+        "role": "order 56",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01101",
+        "role": "order 57",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00092",
+        "role": "order 58",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01729",
+        "role": "order 59",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02490",
+        "role": "order 60",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00139",
+        "role": "order 61",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P02524",
+        "role": "order 62",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00687",
+        "role": "order 63",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02074",
+        "role": "order 64",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00553",
+        "role": "order 65",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01855",
+        "role": "order 66",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00934",
+        "role": "order 67",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00893",
+        "role": "order 68",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00860",
+        "role": "order 69",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00615",
+        "role": "order 70",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00613",
+        "role": "order 71",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01457",
+        "role": "order 72",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01994",
+        "role": "order 73",
+        "status": "skipped: full text not accessible (no_access)"
+      },
+      {
+        "pid": "P02361",
+        "role": "order 74",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00650",
+        "role": "order 75",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00335",
+        "role": "order 76",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00545",
+        "role": "order 77",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01100",
+        "role": "order 78",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00817",
+        "role": "order 79",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01856",
+        "role": "order 80",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00150",
+        "role": "order 81",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "pass",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00842",
+        "role": "order 82",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00755",
+        "role": "order 83",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00149",
+        "role": "order 84",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00925",
+        "role": "order 85",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00690",
+        "role": "order 86",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02135",
+        "role": "order 87",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00549",
+        "role": "order 88",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P02084",
+        "role": "order 89",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00889",
+        "role": "order 90",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01827",
+        "role": "order 91",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P01152",
+        "role": "order 92",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P01398",
+        "role": "order 93",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00922",
+        "role": "order 94",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00533",
+        "role": "order 95",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00178",
+        "role": "order 96",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "fail",
+        "weak": true,
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00373",
+        "role": "order 97",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00698",
+        "role": "order 98",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01016",
+        "role": "order 99",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00034",
+        "role": "order 100",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01133",
+        "role": "order 101",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00051",
+        "role": "order 102",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00543",
+        "role": "order 103",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00181",
+        "role": "order 104",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "fail",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01004",
+        "role": "order 105",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00709",
+        "role": "order 106",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00797",
+        "role": "order 107",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01390",
+        "role": "order 108",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P02479",
+        "role": "order 109",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P01232",
+        "role": "order 110",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00676",
+        "role": "order 111",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01905",
+        "role": "order 112",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00358",
+        "role": "order 113",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01105",
+        "role": "order 114",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01279",
+        "role": "order 115",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01382",
+        "role": "order 116",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02240",
+        "role": "order 117",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00938",
+        "role": "order 118",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00648",
+        "role": "order 119",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00523",
+        "role": "order 120",
+        "status": "not in speed stratum (FT-SCOPE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00003",
+        "role": "order 121",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P02336",
+        "role": "order 122",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01900",
+        "role": "order 123",
+        "status": "not in speed stratum (FT-DOMAIN)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00081",
+        "role": "order 124",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01277",
+        "role": "order 125",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02399",
+        "role": "order 126",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00309",
+        "role": "order 127",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00957",
+        "role": "order 128",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00536",
+        "role": "order 129",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00148",
+        "role": "order 130",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01217",
+        "role": "order 131",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P02292",
+        "role": "order 132",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01887",
+        "role": "order 133",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00822",
+        "role": "order 134",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P02306",
+        "role": "order 135",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P02476",
+        "role": "order 136",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00006",
+        "role": "order 137",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00176",
+        "role": "order 138",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P01320",
+        "role": "order 139",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00774",
+        "role": "order 140",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02128",
+        "role": "order 141",
+        "status": "skipped: full text not accessible (abstract_only)"
+      },
+      {
+        "pid": "P00551",
+        "role": "order 142",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P01813",
+        "role": "order 143",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00902",
+        "role": "order 144",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00748",
+        "role": "order 145",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P02006",
+        "role": "order 146",
+        "status": "skipped: no accessible full text (paywalled per OpenAlex; not supplied by the user)"
+      },
+      {
+        "pid": "P00740",
+        "role": "order 147",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "pass",
+        "R4": "pass",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      }
+    ],
+    "note": "planning variant only: unverified records flagged as FT-NOBASELINE candidates (audit/coding/verifier_flags.csv) are treated as excluded; never a gate decision"
+  },
+  "G1_provisional_arxiv_pilot": {
+    "n_speed_stratum": 20,
+    "n_target": 20,
+    "complete": true,
+    "stopped_at": null,
+    "n_fail_R1_or_R2": 10,
+    "share": 0.5,
+    "ci95": [
+      0.2719578495607918,
+      0.7280421504392082
+    ],
+    "band": "NMI framing",
+    "verified_records": 5,
+    "status": "provisional (incomplete set, LLM prefill or partial verification)",
+    "detail": [
+      {
+        "pid": "P00002",
+        "role": "pilot 1",
+        "R1": "fail",
+        "R2": "na",
+        "R3": "partial",
+        "R4": "fail",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00015",
+        "role": "pilot 2",
+        "R1": "fail",
+        "R2": "na",
+        "R3": "partial",
+        "R4": "fail",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00047",
+        "role": "pilot 3",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00100",
+        "role": "pilot 4",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "na",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00139",
+        "role": "pilot 5",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00149",
+        "role": "pilot 6",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00152",
+        "role": "pilot 7",
+        "R1": "partial",
+        "R2": "fail",
+        "R3": "na",
+        "R4": "partial",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00178",
+        "role": "pilot 8",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "fail",
+        "weak": true,
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00182",
+        "role": "pilot 9",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00183",
+        "role": "pilot 10",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00214",
+        "role": "pilot 11",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00238",
+        "role": "pilot 12",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00239",
+        "role": "pilot 13",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00254",
+        "role": "pilot 14",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00309",
+        "role": "pilot 15",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00327",
+        "role": "pilot 16",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00358",
+        "role": "pilot 17",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00374",
+        "role": "pilot 18",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "na",
+        "R4": "partial",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00425",
+        "role": "pilot 19",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "na",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00519",
+        "role": "pilot 20",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00244",
+        "role": "top-up 1",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00054",
+        "role": "top-up 2",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00034",
+        "role": "top-up 3",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00143",
+        "role": "top-up 4",
+        "status": "not in speed stratum (FT-DOMAIN)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00156",
+        "role": "top-up 5",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00252",
+        "role": "top-up 6",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "pass",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00176",
+        "role": "top-up 7",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00428",
+        "role": "top-up 8",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00166",
+        "role": "top-up 9",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00313",
+        "role": "top-up 10",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00041",
+        "role": "top-up 11",
+        "R1": "partial",
+        "R2": "na",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00150",
+        "role": "top-up 12",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "pass",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00375",
+        "role": "top-up 13",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00512",
+        "role": "top-up 14",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "na",
+        "R4": "pass",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00064",
+        "role": "top-up 15",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00130",
+        "role": "top-up 16",
+        "R1": "fail",
+        "R2": "fail",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00208",
+        "role": "top-up 17",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00059",
+        "role": "top-up 18",
+        "R1": "partial",
+        "R2": "fail",
+        "R3": "na",
+        "R4": "partial",
+        "weak": true,
+        "stage": "llm_prefill"
+      }
+    ],
+    "pilot_note": "provisional arXiv-stratum pilot plus pre-registered top-ups"
+  },
+  "G1_provisional_arxiv_pilot_planning": {
+    "n_speed_stratum": 20,
+    "n_target": 20,
+    "complete": true,
+    "stopped_at": null,
+    "n_fail_R1_or_R2": 8,
+    "share": 0.4,
+    "ci95": [
+      0.19119006072530717,
+      0.6394574126925103
+    ],
+    "band": "NMI framing",
+    "verified_records": 5,
+    "status": "provisional (incomplete set, LLM prefill or partial verification)",
+    "detail": [
+      {
+        "pid": "P00002",
+        "role": "pilot 1",
+        "status": "dropped in planning variant (flagged FT-NOBASELINE candidate)"
+      },
+      {
+        "pid": "P00015",
+        "role": "pilot 2",
+        "status": "dropped in planning variant (flagged FT-NOBASELINE candidate)"
+      },
+      {
+        "pid": "P00047",
+        "role": "pilot 3",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00100",
+        "role": "pilot 4",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "na",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00139",
+        "role": "pilot 5",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00149",
+        "role": "pilot 6",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00152",
+        "role": "pilot 7",
+        "R1": "partial",
+        "R2": "fail",
+        "R3": "na",
+        "R4": "partial",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00178",
+        "role": "pilot 8",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "fail",
+        "weak": true,
+        "stage": "ai_agreed"
+      },
+      {
+        "pid": "P00182",
+        "role": "pilot 9",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00183",
+        "role": "pilot 10",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00214",
+        "role": "pilot 11",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00238",
+        "role": "pilot 12",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00239",
+        "role": "pilot 13",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00254",
+        "role": "pilot 14",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00309",
+        "role": "pilot 15",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00327",
+        "role": "pilot 16",
+        "status": "not in speed stratum (FT-MLONLY)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00358",
+        "role": "pilot 17",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00374",
+        "role": "pilot 18",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "na",
+        "R4": "partial",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00425",
+        "role": "pilot 19",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "na",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00519",
+        "role": "pilot 20",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00244",
+        "role": "top-up 1",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00054",
+        "role": "top-up 2",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "partial",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00034",
+        "role": "top-up 3",
+        "status": "not in speed stratum (FT-DUPLICATE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00143",
+        "role": "top-up 4",
+        "status": "not in speed stratum (FT-DOMAIN)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00156",
+        "role": "top-up 5",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00252",
+        "role": "top-up 6",
+        "status": "dropped in planning variant (flagged FT-NOBASELINE candidate)"
+      },
+      {
+        "pid": "P00176",
+        "role": "top-up 7",
+        "R1": "fail",
+        "R2": "pass",
+        "R3": "fail",
+        "R4": "pass",
+        "weak": true,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00428",
+        "role": "top-up 8",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00166",
+        "role": "top-up 9",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00313",
+        "role": "top-up 10",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00041",
+        "role": "top-up 11",
+        "status": "dropped in planning variant (flagged FT-NOBASELINE candidate)"
+      },
+      {
+        "pid": "P00150",
+        "role": "top-up 12",
+        "R1": "partial",
+        "R2": "pass",
+        "R3": "pass",
+        "R4": "partial",
+        "weak": false,
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00375",
+        "role": "top-up 13",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00512",
+        "role": "top-up 14",
+        "R1": "pass",
+        "R2": "partial",
+        "R3": "na",
+        "R4": "pass",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00064",
+        "role": "top-up 15",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00130",
+        "role": "top-up 16",
+        "R1": "fail",
+        "R2": "fail",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00208",
+        "role": "top-up 17",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00059",
+        "role": "top-up 18",
+        "R1": "partial",
+        "R2": "fail",
+        "R3": "na",
+        "R4": "partial",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00235",
+        "role": "top-up 19",
+        "R1": "fail",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "pass",
+        "weak": true,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00133",
+        "role": "top-up 20",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "na",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00518",
+        "role": "top-up 21",
+        "status": "not in speed stratum (FT-NOBASELINE)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00081",
+        "role": "top-up 22",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00073",
+        "role": "top-up 23",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00385",
+        "role": "top-up 24",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00174",
+        "role": "top-up 25",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00019",
+        "role": "top-up 26",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "ai_adjudicated"
+      },
+      {
+        "pid": "P00158",
+        "role": "top-up 27",
+        "R1": "partial",
+        "R2": "partial",
+        "R3": "fail",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00501",
+        "role": "top-up 28",
+        "status": "not in speed stratum (include/quality)",
+        "stage": "llm_prefill"
+      },
+      {
+        "pid": "P00074",
+        "role": "top-up 29",
+        "R1": "pass",
+        "R2": "pass",
+        "R3": "na",
+        "R4": "partial",
+        "weak": false,
+        "stage": "llm_prefill"
+      }
+    ],
+    "note": "planning variant only: unverified records flagged as FT-NOBASELINE candidates (audit/coding/verifier_flags.csv) are treated as excluded; never a gate decision"
+  },
+  "G2": {
+    "status": "provisional (standard formulation P1/P2; final G2 uses OAT generator settings)",
+    "threshold_headline_s": 13.66,
+    "per_problem": {
+      "P1_cantilever": {
+        "strong_baseline_s": 4.343264400027692,
+        "solver": "gpu",
+        "cpu_pinned": true,
+        "run_dir": "retest/runs/20260924T165109Z_gpu_P1_n256_pinned",
+        "vs_oat_simp_gpu_256_s": 68.3,
+        "ratio_oat_over_ours": 15.725499004749635,
+        "band": "headline"
+      },
+      "P2_mbb": {
+        "strong_baseline_s": 4.509377400507219,
+        "solver": "gpu",
+        "cpu_pinned": true,
+        "run_dir": "retest/runs/20260924T165224Z_gpu_P2_n256_pinned",
+        "vs_oat_simp_gpu_256_s": 68.3,
+        "ratio_oat_over_ours": 15.146215083332246,
+        "band": "headline"
+      }
+    },
+    "equivalence_all_pass": true,
+    "note": "Cross-hardware: our RTX 5090 / i5-14600KF vs OAT's RTX 4090 / i9-14900K. Not a same-machine comparison."
+  }
+}

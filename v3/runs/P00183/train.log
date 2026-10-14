@@ -1,0 +1,2252 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790351554.074216   33180 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790351556.079919   33180 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From E:\AI\ml-to-baseline-audit\v3\runs\P00183\work\main_1D.py:3: The name tf.disable_v2_behavior is deprecated. Please use tf.compat.v1.disable_v2_behavior instead.
+
+WARNING:tensorflow:From E:\AI\ml-to-baseline-audit\v3\.venv\census-tf\Lib\site-packages\tensorflow\python\compat\v2_compat.py:98: disable_resource_variables (from tensorflow.python.ops.resource_variables_toggle) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:tensorflow:From E:\AI\ml-to-baseline-audit\v3\runs\P00183\work\main_1D.py:106: The name tf.train.exponential_decay is deprecated. Please use tf.compat.v1.train.exponential_decay instead.
+
+I0000 00:00:1790351559.956071   33180 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1790351559.966336   33180 mlir_graph_optimization_pass.cc:437] MLIR V1 optimization pass is not enabled
+requirement doesn't match, current final_error=inf, keep sampling
+iteration:0, recon_loss:4509.3115234375
+iteration:5, recon_loss:2131.03125
+iteration:10, recon_loss:977.7929077148438
+iteration:15, recon_loss:385.2055358886719
+iteration:20, recon_loss:157.03634643554688
+iteration:25, recon_loss:81.75527954101562
+iteration:30, recon_loss:56.57442092895508
+iteration:35, recon_loss:46.45629119873047
+iteration:40, recon_loss:42.10322189331055
+iteration:45, recon_loss:39.7073974609375
+iteration:50, recon_loss:38.101810455322266
+iteration:55, recon_loss:37.04518127441406
+iteration:60, recon_loss:36.24806594848633
+iteration:65, recon_loss:35.59397888183594
+iteration:70, recon_loss:35.070037841796875
+iteration:75, recon_loss:34.625301361083984
+iteration:80, recon_loss:34.22918701171875
+iteration:85, recon_loss:33.85506820678711
+iteration:90, recon_loss:33.508338928222656
+iteration:95, recon_loss:33.177032470703125
+iteration:100, recon_loss:32.85742950439453
+iteration:105, recon_loss:32.538909912109375
+iteration:110, recon_loss:32.22637939453125
+iteration:115, recon_loss:31.927082061767578
+iteration:120, recon_loss:31.63556671142578
+iteration:125, recon_loss:31.346458435058594
+iteration:130, recon_loss:31.06196403503418
+iteration:135, recon_loss:30.778894424438477
+iteration:140, recon_loss:30.500444412231445
+iteration:145, recon_loss:30.224506378173828
+iteration:150, recon_loss:29.956920623779297
+iteration:155, recon_loss:29.690073013305664
+iteration:160, recon_loss:29.420955657958984
+iteration:165, recon_loss:29.15258026123047
+iteration:170, recon_loss:28.885635375976562
+iteration:175, recon_loss:28.620243072509766
+iteration:180, recon_loss:28.357402801513672
+iteration:185, recon_loss:28.096511840820312
+iteration:190, recon_loss:27.83835792541504
+iteration:195, recon_loss:27.581815719604492
+iteration:200, recon_loss:27.326759338378906
+iteration:205, recon_loss:27.071998596191406
+iteration:210, recon_loss:26.821727752685547
+iteration:215, recon_loss:26.573877334594727
+iteration:220, recon_loss:26.330867767333984
+iteration:225, recon_loss:26.090160369873047
+iteration:230, recon_loss:25.851455688476562
+iteration:235, recon_loss:25.616024017333984
+iteration:240, recon_loss:25.383808135986328
+iteration:245, recon_loss:25.155193328857422
+iteration:250, recon_loss:24.929981231689453
+iteration:255, recon_loss:24.70766830444336
+iteration:260, recon_loss:24.489004135131836
+iteration:265, recon_loss:24.271236419677734
+iteration:270, recon_loss:24.054676055908203
+iteration:275, recon_loss:23.840999603271484
+iteration:280, recon_loss:23.62860870361328
+iteration:285, recon_loss:23.419017791748047
+iteration:290, recon_loss:23.21188735961914
+iteration:295, recon_loss:23.006650924682617
+iteration:300, recon_loss:22.803958892822266
+iteration:305, recon_loss:22.605072021484375
+iteration:310, recon_loss:22.409461975097656
+iteration:315, recon_loss:22.215587615966797
+iteration:320, recon_loss:22.02562141418457
+iteration:325, recon_loss:21.837604522705078
+iteration:330, recon_loss:21.65082359313965
+iteration:335, recon_loss:21.465259552001953
+iteration:340, recon_loss:21.28178596496582
+iteration:345, recon_loss:21.10083770751953
+iteration:350, recon_loss:20.92184829711914
+iteration:355, recon_loss:20.744565963745117
+iteration:360, recon_loss:20.569053649902344
+iteration:365, recon_loss:20.391660690307617
+iteration:370, recon_loss:20.211990356445312
+iteration:375, recon_loss:20.031660079956055
+iteration:380, recon_loss:19.85257339477539
+iteration:385, recon_loss:19.67580223083496
+iteration:390, recon_loss:19.501277923583984
+iteration:395, recon_loss:19.327816009521484
+iteration:400, recon_loss:19.1551570892334
+iteration:405, recon_loss:18.983135223388672
+iteration:410, recon_loss:18.811885833740234
+iteration:415, recon_loss:18.642864227294922
+iteration:420, recon_loss:18.47607421875
+iteration:425, recon_loss:18.310213088989258
+iteration:430, recon_loss:18.143352508544922
+iteration:435, recon_loss:17.97805404663086
+iteration:440, recon_loss:17.81277847290039
+iteration:445, recon_loss:17.649036407470703
+iteration:450, recon_loss:17.487144470214844
+iteration:455, recon_loss:17.32757568359375
+iteration:460, recon_loss:17.169109344482422
+iteration:465, recon_loss:17.0109920501709
+iteration:470, recon_loss:16.854904174804688
+iteration:475, recon_loss:16.699039459228516
+iteration:480, recon_loss:16.545503616333008
+iteration:485, recon_loss:16.393030166625977
+iteration:490, recon_loss:16.241390228271484
+iteration:495, recon_loss:16.091032028198242
+iteration:500, recon_loss:15.940773010253906
+iteration:505, recon_loss:15.791238784790039
+iteration:510, recon_loss:15.642199516296387
+iteration:515, recon_loss:15.494924545288086
+iteration:520, recon_loss:15.348746299743652
+iteration:525, recon_loss:15.203959465026855
+iteration:530, recon_loss:15.059661865234375
+iteration:535, recon_loss:14.91684341430664
+iteration:540, recon_loss:14.774507522583008
+iteration:545, recon_loss:14.63334846496582
+iteration:550, recon_loss:14.491962432861328
+iteration:555, recon_loss:14.352209091186523
+iteration:560, recon_loss:14.213424682617188
+iteration:565, recon_loss:14.074501037597656
+iteration:570, recon_loss:13.938749313354492
+iteration:575, recon_loss:13.801924705505371
+iteration:580, recon_loss:13.666776657104492
+iteration:585, recon_loss:13.533435821533203
+iteration:590, recon_loss:13.402139663696289
+iteration:595, recon_loss:13.272502899169922
+iteration:600, recon_loss:13.144636154174805
+iteration:605, recon_loss:13.017953872680664
+iteration:610, recon_loss:12.893407821655273
+iteration:615, recon_loss:12.770660400390625
+iteration:620, recon_loss:12.64460277557373
+iteration:625, recon_loss:12.521409034729004
+iteration:630, recon_loss:12.399442672729492
+iteration:635, recon_loss:12.28070068359375
+iteration:640, recon_loss:12.161514282226562
+iteration:645, recon_loss:12.044780731201172
+iteration:650, recon_loss:11.929981231689453
+iteration:655, recon_loss:11.81679630279541
+iteration:660, recon_loss:11.704087257385254
+iteration:665, recon_loss:11.59024429321289
+iteration:670, recon_loss:11.480692863464355
+iteration:675, recon_loss:11.372108459472656
+iteration:680, recon_loss:11.26467514038086
+iteration:685, recon_loss:11.15970230102539
+iteration:690, recon_loss:11.05673599243164
+iteration:695, recon_loss:10.954964637756348
+iteration:700, recon_loss:10.85391902923584
+iteration:705, recon_loss:10.754779815673828
+iteration:710, recon_loss:10.658164024353027
+iteration:715, recon_loss:10.564919471740723
+iteration:720, recon_loss:10.47212028503418
+iteration:725, recon_loss:10.382213592529297
+iteration:730, recon_loss:10.295434951782227
+iteration:735, recon_loss:10.205737113952637
+iteration:740, recon_loss:10.117269515991211
+iteration:745, recon_loss:10.031373977661133
+iteration:750, recon_loss:9.949695587158203
+iteration:755, recon_loss:9.8685302734375
+iteration:760, recon_loss:9.787952423095703
+iteration:765, recon_loss:9.711423873901367
+iteration:770, recon_loss:9.634521484375
+iteration:775, recon_loss:9.558870315551758
+iteration:780, recon_loss:9.485454559326172
+iteration:785, recon_loss:9.414268493652344
+iteration:790, recon_loss:9.343626976013184
+iteration:795, recon_loss:9.276068687438965
+iteration:800, recon_loss:9.208660125732422
+iteration:805, recon_loss:9.14343547821045
+iteration:810, recon_loss:9.077980041503906
+iteration:815, recon_loss:9.014391899108887
+iteration:820, recon_loss:8.950724601745605
+iteration:825, recon_loss:8.889445304870605
+iteration:830, recon_loss:8.827323913574219
+iteration:835, recon_loss:8.767480850219727
+iteration:840, recon_loss:8.705812454223633
+iteration:845, recon_loss:8.643895149230957
+iteration:850, recon_loss:8.583333969116211
+iteration:855, recon_loss:8.524514198303223
+iteration:860, recon_loss:8.466560363769531
+iteration:865, recon_loss:8.410895347595215
+iteration:870, recon_loss:8.354106903076172
+iteration:875, recon_loss:8.299980163574219
+iteration:880, recon_loss:8.24576187133789
+iteration:885, recon_loss:8.191962242126465
+iteration:890, recon_loss:8.1386137008667
+iteration:895, recon_loss:8.085214614868164
+iteration:900, recon_loss:8.03201675415039
+iteration:905, recon_loss:7.9822893142700195
+iteration:910, recon_loss:7.933266639709473
+iteration:915, recon_loss:7.884318828582764
+iteration:920, recon_loss:7.834650993347168
+iteration:925, recon_loss:7.787040710449219
+iteration:930, recon_loss:7.740378379821777
+iteration:935, recon_loss:7.693836212158203
+iteration:940, recon_loss:7.648636817932129
+iteration:945, recon_loss:7.602046012878418
+iteration:950, recon_loss:7.557705402374268
+iteration:955, recon_loss:7.5136213302612305
+iteration:960, recon_loss:7.467682361602783
+iteration:965, recon_loss:7.423957824707031
+iteration:970, recon_loss:7.380265235900879
+iteration:975, recon_loss:7.335175514221191
+iteration:980, recon_loss:7.290185928344727
+iteration:985, recon_loss:7.246264934539795
+iteration:990, recon_loss:7.202295303344727
+iteration:995, recon_loss:7.158143043518066
+iteration:1000, recon_loss:7.116602897644043
+iteration:1005, recon_loss:7.073486328125
+iteration:1010, recon_loss:7.029441833496094
+iteration:1015, recon_loss:6.986135482788086
+iteration:1020, recon_loss:6.945982933044434
+iteration:1025, recon_loss:6.904561996459961
+iteration:1030, recon_loss:6.862161159515381
+iteration:1035, recon_loss:6.821665287017822
+iteration:1040, recon_loss:6.782218933105469
+iteration:1045, recon_loss:6.7415361404418945
+iteration:1050, recon_loss:6.702664375305176
+iteration:1055, recon_loss:6.661659240722656
+iteration:1060, recon_loss:6.6243391036987305
+iteration:1065, recon_loss:6.587529182434082
+iteration:1070, recon_loss:6.552857398986816
+iteration:1075, recon_loss:6.511786460876465
+iteration:1080, recon_loss:6.47525691986084
+iteration:1085, recon_loss:6.439822196960449
+iteration:1090, recon_loss:6.4029035568237305
+iteration:1095, recon_loss:6.366604804992676
+iteration:1100, recon_loss:6.3297319412231445
+iteration:1105, recon_loss:6.292346954345703
+iteration:1110, recon_loss:6.254978179931641
+iteration:1115, recon_loss:6.220941543579102
+iteration:1120, recon_loss:6.184232711791992
+iteration:1125, recon_loss:6.149925231933594
+iteration:1130, recon_loss:6.115114688873291
+iteration:1135, recon_loss:6.078674793243408
+iteration:1140, recon_loss:6.043434143066406
+iteration:1145, recon_loss:6.009631156921387
+iteration:1150, recon_loss:5.975048065185547
+iteration:1155, recon_loss:5.942560195922852
+iteration:1160, recon_loss:5.9083251953125
+iteration:1165, recon_loss:5.876579761505127
+iteration:1170, recon_loss:5.843391418457031
+iteration:1175, recon_loss:5.811478614807129
+iteration:1180, recon_loss:5.779176712036133
+iteration:1185, recon_loss:5.746291637420654
+iteration:1190, recon_loss:5.717755317687988
+iteration:1195, recon_loss:5.684966087341309
+iteration:1200, recon_loss:5.653433799743652
+iteration:1205, recon_loss:5.624695777893066
+iteration:1210, recon_loss:5.591444969177246
+iteration:1215, recon_loss:5.560847282409668
+iteration:1220, recon_loss:5.5289154052734375
+iteration:1225, recon_loss:5.498448371887207
+iteration:1230, recon_loss:5.468160629272461
+iteration:1235, recon_loss:5.437583923339844
+iteration:1240, recon_loss:5.40995979309082
+iteration:1245, recon_loss:5.379812240600586
+iteration:1250, recon_loss:5.351140022277832
+iteration:1255, recon_loss:5.322674751281738
+iteration:1260, recon_loss:5.294855117797852
+iteration:1265, recon_loss:5.265827178955078
+iteration:1270, recon_loss:5.237175941467285
+iteration:1275, recon_loss:5.211215972900391
+iteration:1280, recon_loss:5.182735919952393
+iteration:1285, recon_loss:5.154915809631348
+iteration:1290, recon_loss:5.128121852874756
+iteration:1295, recon_loss:5.102358341217041
+iteration:1300, recon_loss:5.075945854187012
+iteration:1305, recon_loss:5.048177719116211
+iteration:1310, recon_loss:5.024026870727539
+iteration:1315, recon_loss:4.997299671173096
+iteration:1320, recon_loss:4.970649242401123
+iteration:1325, recon_loss:4.9419050216674805
+iteration:1330, recon_loss:4.916334629058838
+iteration:1335, recon_loss:4.890127182006836
+iteration:1340, recon_loss:4.864873886108398
+iteration:1345, recon_loss:4.8408613204956055
+iteration:1350, recon_loss:4.819619178771973
+iteration:1355, recon_loss:4.794267177581787
+iteration:1360, recon_loss:4.768760681152344
+iteration:1365, recon_loss:4.739900588989258
+iteration:1370, recon_loss:4.715473175048828
+iteration:1375, recon_loss:4.692028999328613
+iteration:1380, recon_loss:4.667991638183594
+iteration:1385, recon_loss:4.6412529945373535
+iteration:1390, recon_loss:4.619894981384277
+iteration:1395, recon_loss:4.591848373413086
+iteration:1400, recon_loss:4.569812297821045
+iteration:1405, recon_loss:4.544680118560791
+iteration:1410, recon_loss:4.520014762878418
+iteration:1415, recon_loss:4.503925323486328
+iteration:1420, recon_loss:4.473650932312012
+iteration:1425, recon_loss:4.451482772827148
+iteration:1430, recon_loss:4.424525260925293
+iteration:1435, recon_loss:4.404750823974609
+iteration:1440, recon_loss:4.379861831665039
+iteration:1445, recon_loss:4.354315757751465
+iteration:1450, recon_loss:4.330173015594482
+iteration:1455, recon_loss:4.311457633972168
+iteration:1460, recon_loss:4.287022113800049
+iteration:1465, recon_loss:4.265293598175049
+iteration:1470, recon_loss:4.239197731018066
+iteration:1475, recon_loss:4.219846725463867
+iteration:1480, recon_loss:4.19563627243042
+iteration:1485, recon_loss:4.174582481384277
+iteration:1490, recon_loss:4.1527323722839355
+iteration:1495, recon_loss:4.128783226013184
+iteration:1500, recon_loss:4.108859539031982
+iteration:1505, recon_loss:4.085988521575928
+iteration:1510, recon_loss:4.067428112030029
+iteration:1515, recon_loss:4.048557758331299
+iteration:1520, recon_loss:4.0240678787231445
+iteration:1525, recon_loss:4.007140159606934
+iteration:1530, recon_loss:3.988206386566162
+iteration:1535, recon_loss:3.963125705718994
+iteration:1540, recon_loss:3.942580223083496
+iteration:1545, recon_loss:3.9293274879455566
+iteration:1550, recon_loss:3.901348352432251
+iteration:1555, recon_loss:3.879352331161499
+iteration:1560, recon_loss:3.858333110809326
+iteration:1565, recon_loss:3.833920955657959
+iteration:1570, recon_loss:3.8118419647216797
+iteration:1575, recon_loss:3.8069608211517334
+iteration:1580, recon_loss:3.781416654586792
+iteration:1585, recon_loss:3.756460428237915
+iteration:1590, recon_loss:3.737926959991455
+iteration:1595, recon_loss:3.715601682662964
+iteration:1600, recon_loss:3.7051587104797363
+iteration:1605, recon_loss:3.675485610961914
+iteration:1610, recon_loss:3.6682190895080566
+iteration:1615, recon_loss:3.642219066619873
+iteration:1620, recon_loss:3.625520944595337
+iteration:1625, recon_loss:3.6038572788238525
+iteration:1630, recon_loss:3.5828511714935303
+iteration:1635, recon_loss:3.5767765045166016
+iteration:1640, recon_loss:3.5473415851593018
+iteration:1645, recon_loss:3.5384907722473145
+iteration:1650, recon_loss:3.509803295135498
+iteration:1655, recon_loss:3.498208522796631
+iteration:1660, recon_loss:3.4755892753601074
+iteration:1665, recon_loss:3.457562208175659
+iteration:1670, recon_loss:3.4406988620758057
+iteration:1675, recon_loss:3.418178081512451
+iteration:1680, recon_loss:3.40838360786438
+iteration:1685, recon_loss:3.3792459964752197
+iteration:1690, recon_loss:3.368049144744873
+iteration:1695, recon_loss:3.353015422821045
+iteration:1700, recon_loss:3.3319687843322754
+iteration:1705, recon_loss:3.316603183746338
+iteration:1710, recon_loss:3.2916998863220215
+iteration:1715, recon_loss:3.274744987487793
+iteration:1720, recon_loss:3.2757670879364014
+iteration:1725, recon_loss:3.241971492767334
+iteration:1730, recon_loss:3.2269651889801025
+iteration:1735, recon_loss:3.2118639945983887
+iteration:1740, recon_loss:3.1971659660339355
+iteration:1745, recon_loss:3.1818647384643555
+iteration:1750, recon_loss:3.1686477661132812
+iteration:1755, recon_loss:3.1504616737365723
+iteration:1760, recon_loss:3.1357715129852295
+iteration:1765, recon_loss:3.113569498062134
+iteration:1770, recon_loss:3.089618682861328
+iteration:1775, recon_loss:3.0713648796081543
+iteration:1780, recon_loss:3.0629935264587402
+iteration:1785, recon_loss:3.0501747131347656
+iteration:1790, recon_loss:3.0328123569488525
+iteration:1795, recon_loss:3.018416166305542
+iteration:1800, recon_loss:3.0009889602661133
+iteration:1805, recon_loss:2.9896562099456787
+iteration:1810, recon_loss:2.9709341526031494
+iteration:1815, recon_loss:2.9491324424743652
+iteration:1820, recon_loss:2.9258365631103516
+iteration:1825, recon_loss:2.9311094284057617
+iteration:1830, recon_loss:2.9103481769561768
+iteration:1835, recon_loss:2.903822898864746
+iteration:1840, recon_loss:2.8734045028686523
+iteration:1845, recon_loss:2.856715440750122
+iteration:1850, recon_loss:2.8423166275024414
+iteration:1855, recon_loss:2.8295106887817383
+iteration:1860, recon_loss:2.824190616607666
+iteration:1865, recon_loss:2.8007750511169434
+iteration:1870, recon_loss:2.7919082641601562
+iteration:1875, recon_loss:2.7622928619384766
+iteration:1880, recon_loss:2.749142646789551
+iteration:1885, recon_loss:2.746007204055786
+iteration:1890, recon_loss:2.71333646774292
+iteration:1895, recon_loss:2.700345039367676
+iteration:1900, recon_loss:2.7014358043670654
+iteration:1905, recon_loss:2.680802345275879
+iteration:1910, recon_loss:2.6801724433898926
+iteration:1915, recon_loss:2.6547975540161133
+iteration:1920, recon_loss:2.6308388710021973
+iteration:1925, recon_loss:2.6337621212005615
+iteration:1930, recon_loss:2.5952906608581543
+iteration:1935, recon_loss:2.5944674015045166
+iteration:1940, recon_loss:2.5815160274505615
+iteration:1945, recon_loss:2.5778422355651855
+iteration:1950, recon_loss:2.552347183227539
+iteration:1955, recon_loss:2.536442995071411
+iteration:1960, recon_loss:2.5287091732025146
+iteration:1965, recon_loss:2.4983184337615967
+iteration:1970, recon_loss:2.508300542831421
+iteration:1975, recon_loss:2.477778911590576
+iteration:1980, recon_loss:2.4763689041137695
+iteration:1985, recon_loss:2.449592113494873
+iteration:1990, recon_loss:2.4500441551208496
+iteration:1995, recon_loss:2.4144625663757324
+iteration:2000, recon_loss:2.431483745574951
+iteration:2005, recon_loss:2.3897666931152344
+iteration:2010, recon_loss:2.403548240661621
+iteration:2015, recon_loss:2.3702433109283447
+iteration:2020, recon_loss:2.3642067909240723
+iteration:2025, recon_loss:2.358339786529541
+iteration:2030, recon_loss:2.3381054401397705
+iteration:2035, recon_loss:2.3352227210998535
+iteration:2040, recon_loss:2.2981300354003906
+iteration:2045, recon_loss:2.2839019298553467
+iteration:2050, recon_loss:2.3192830085754395
+iteration:2055, recon_loss:2.265465021133423
+iteration:2060, recon_loss:2.271472215652466
+iteration:2065, recon_loss:2.2324743270874023
+iteration:2070, recon_loss:2.2358505725860596
+iteration:2075, recon_loss:2.2225568294525146
+iteration:2080, recon_loss:2.204338788986206
+iteration:2085, recon_loss:2.2409873008728027
+iteration:2090, recon_loss:2.1826233863830566
+iteration:2095, recon_loss:2.2012112140655518
+iteration:2100, recon_loss:2.1680469512939453
+iteration:2105, recon_loss:2.1401662826538086
+iteration:2110, recon_loss:2.1398329734802246
+iteration:2115, recon_loss:2.1058387756347656
+iteration:2120, recon_loss:2.0983965396881104
+iteration:2125, recon_loss:2.181255578994751
+iteration:2130, recon_loss:2.1414244174957275
+iteration:2135, recon_loss:2.082087516784668
+iteration:2140, recon_loss:2.0713040828704834
+iteration:2145, recon_loss:2.063399314880371
+iteration:2150, recon_loss:2.0388660430908203
+iteration:2155, recon_loss:2.0666916370391846
+iteration:2160, recon_loss:2.0173795223236084
+iteration:2165, recon_loss:2.0418496131896973
+iteration:2170, recon_loss:1.9998074769973755
+iteration:2175, recon_loss:1.9856607913970947
+iteration:2180, recon_loss:1.9668489694595337
+iteration:2185, recon_loss:2.000194549560547
+iteration:2190, recon_loss:1.93868088722229
+iteration:2195, recon_loss:1.9558485746383667
+iteration:2200, recon_loss:1.9248454570770264
+iteration:2205, recon_loss:1.917775273323059
+iteration:2210, recon_loss:1.940972924232483
+iteration:2215, recon_loss:1.9104338884353638
+iteration:2220, recon_loss:1.9104790687561035
+iteration:2225, recon_loss:1.9107444286346436
+iteration:2230, recon_loss:1.853541612625122
+iteration:2235, recon_loss:1.8701269626617432
+iteration:2240, recon_loss:1.84954035282135
+iteration:2245, recon_loss:1.9487621784210205
+iteration:2250, recon_loss:1.8565312623977661
+iteration:2255, recon_loss:1.8155744075775146
+iteration:2260, recon_loss:1.8292937278747559
+iteration:2265, recon_loss:1.814796805381775
+iteration:2270, recon_loss:1.7771928310394287
+iteration:2275, recon_loss:1.7568941116333008
+iteration:2280, recon_loss:1.8231110572814941
+iteration:2285, recon_loss:1.7394241094589233
+iteration:2290, recon_loss:1.7732048034667969
+iteration:2295, recon_loss:1.7983758449554443
+iteration:2300, recon_loss:1.7418562173843384
+iteration:2305, recon_loss:1.7373874187469482
+iteration:2310, recon_loss:1.7065404653549194
+iteration:2315, recon_loss:1.7212704420089722
+iteration:2320, recon_loss:1.6949193477630615
+iteration:2325, recon_loss:1.6857185363769531
+iteration:2330, recon_loss:1.6946629285812378
+iteration:2335, recon_loss:1.7099817991256714
+iteration:2340, recon_loss:1.6571483612060547
+iteration:2345, recon_loss:1.6786675453186035
+iteration:2350, recon_loss:1.68869948387146
+iteration:2355, recon_loss:1.6414320468902588
+iteration:2360, recon_loss:1.6365783214569092
+iteration:2365, recon_loss:1.6577427387237549
+iteration:2370, recon_loss:1.6068751811981201
+iteration:2375, recon_loss:1.626796007156372
+iteration:2380, recon_loss:1.6056716442108154
+iteration:2385, recon_loss:1.6026543378829956
+iteration:2390, recon_loss:1.6003259420394897
+iteration:2395, recon_loss:1.552391767501831
+iteration:2400, recon_loss:1.5749964714050293
+iteration:2405, recon_loss:1.5456008911132812
+iteration:2410, recon_loss:1.5230538845062256
+iteration:2415, recon_loss:1.5242140293121338
+iteration:2420, recon_loss:1.5301554203033447
+iteration:2425, recon_loss:1.5751564502716064
+iteration:2430, recon_loss:1.5451194047927856
+iteration:2435, recon_loss:1.5396373271942139
+iteration:2440, recon_loss:1.559619426727295
+iteration:2445, recon_loss:1.4827775955200195
+iteration:2450, recon_loss:1.515621542930603
+iteration:2455, recon_loss:1.4584996700286865
+iteration:2460, recon_loss:1.4331880807876587
+iteration:2465, recon_loss:1.4554164409637451
+iteration:2470, recon_loss:1.5363409519195557
+iteration:2475, recon_loss:1.470062494277954
+iteration:2480, recon_loss:1.4242147207260132
+iteration:2485, recon_loss:1.401947021484375
+iteration:2490, recon_loss:1.3958336114883423
+iteration:2495, recon_loss:1.432861328125
+iteration:2500, recon_loss:1.4105594158172607
+iteration:2505, recon_loss:1.3908462524414062
+iteration:2510, recon_loss:1.3663169145584106
+iteration:2515, recon_loss:1.3469467163085938
+iteration:2520, recon_loss:1.3506348133087158
+iteration:2525, recon_loss:1.3653085231781006
+iteration:2530, recon_loss:1.386469841003418
+iteration:2535, recon_loss:1.41408109664917
+iteration:2540, recon_loss:1.3775355815887451
+iteration:2545, recon_loss:1.3364577293395996
+iteration:2550, recon_loss:1.370124101638794
+iteration:2555, recon_loss:1.3413612842559814
+iteration:2560, recon_loss:1.3128776550292969
+iteration:2565, recon_loss:1.2848997116088867
+iteration:2570, recon_loss:1.3565800189971924
+iteration:2575, recon_loss:1.274794101715088
+iteration:2580, recon_loss:1.311058759689331
+iteration:2585, recon_loss:1.252587080001831
+iteration:2590, recon_loss:1.2879371643066406
+iteration:2595, recon_loss:1.2869597673416138
+iteration:2600, recon_loss:1.2304723262786865
+iteration:2605, recon_loss:1.228005290031433
+iteration:2610, recon_loss:1.2229527235031128
+iteration:2615, recon_loss:1.3934519290924072
+iteration:2620, recon_loss:1.2362817525863647
+iteration:2625, recon_loss:1.2853400707244873
+iteration:2630, recon_loss:1.2442188262939453
+iteration:2635, recon_loss:1.1955262422561646
+iteration:2640, recon_loss:1.1760321855545044
+iteration:2645, recon_loss:1.2089439630508423
+iteration:2650, recon_loss:1.154807686805725
+iteration:2655, recon_loss:1.182098388671875
+iteration:2660, recon_loss:1.2853378057479858
+iteration:2665, recon_loss:1.2198741436004639
+iteration:2670, recon_loss:1.198036789894104
+iteration:2675, recon_loss:1.1560049057006836
+iteration:2680, recon_loss:1.1211844682693481
+iteration:2685, recon_loss:1.1241652965545654
+iteration:2690, recon_loss:1.1290030479431152
+iteration:2695, recon_loss:1.2884827852249146
+iteration:2700, recon_loss:1.1450386047363281
+iteration:2705, recon_loss:1.1707563400268555
+iteration:2710, recon_loss:1.122509241104126
+iteration:2715, recon_loss:1.1151649951934814
+iteration:2720, recon_loss:1.0860004425048828
+iteration:2725, recon_loss:1.078790545463562
+iteration:2730, recon_loss:1.1365009546279907
+iteration:2735, recon_loss:1.0719358921051025
+iteration:2740, recon_loss:1.0581856966018677
+iteration:2745, recon_loss:1.1132276058197021
+iteration:2750, recon_loss:1.2449519634246826
+iteration:2755, recon_loss:1.0963594913482666
+iteration:2760, recon_loss:1.0949571132659912
+iteration:2765, recon_loss:1.081262230873108
+iteration:2770, recon_loss:1.0341362953186035
+iteration:2775, recon_loss:1.042389154434204
+iteration:2780, recon_loss:1.0683541297912598
+iteration:2785, recon_loss:1.0170707702636719
+iteration:2790, recon_loss:1.0332655906677246
+iteration:2795, recon_loss:1.0397692918777466
+iteration:2800, recon_loss:1.0899800062179565
+iteration:2805, recon_loss:1.0828113555908203
+iteration:2810, recon_loss:1.023514747619629
+iteration:2815, recon_loss:1.0323550701141357
+iteration:2820, recon_loss:1.0831952095031738
+iteration:2825, recon_loss:1.0015407800674438
+iteration:2830, recon_loss:1.0190025568008423
+iteration:2835, recon_loss:1.0817245244979858
+iteration:2840, recon_loss:1.011303186416626
+iteration:2845, recon_loss:0.9861335754394531
+iteration:2850, recon_loss:0.963963508605957
+iteration:2855, recon_loss:0.95148766040802
+iteration:2860, recon_loss:0.9951701760292053
+iteration:2865, recon_loss:0.9628567695617676
+iteration:2870, recon_loss:0.9260732531547546
+iteration:2875, recon_loss:0.937764048576355
+iteration:2880, recon_loss:0.890813946723938
+iteration:2885, recon_loss:0.8941797614097595
+iteration:2890, recon_loss:0.9435021877288818
+iteration:2895, recon_loss:1.4606235027313232
+iteration:2900, recon_loss:1.199350357055664
+iteration:2905, recon_loss:1.028659462928772
+iteration:2910, recon_loss:0.9643575549125671
+iteration:2915, recon_loss:0.8911672830581665
+iteration:2920, recon_loss:0.8700070977210999
+iteration:2925, recon_loss:0.8876228928565979
+iteration:2930, recon_loss:0.8592606782913208
+iteration:2935, recon_loss:0.8606380224227905
+iteration:2940, recon_loss:0.8651391267776489
+iteration:2945, recon_loss:0.9759413003921509
+iteration:2950, recon_loss:0.8775237798690796
+iteration:2955, recon_loss:0.8673772215843201
+iteration:2960, recon_loss:0.8509262204170227
+iteration:2965, recon_loss:0.8548187613487244
+iteration:2970, recon_loss:0.8823553323745728
+iteration:2975, recon_loss:0.8331378698348999
+iteration:2980, recon_loss:0.8222217559814453
+iteration:2985, recon_loss:0.8139694929122925
+iteration:2990, recon_loss:0.8633873462677002
+iteration:2995, recon_loss:0.8428311944007874
+iteration:3000, recon_loss:0.8507519960403442
+iteration:3005, recon_loss:0.8755933046340942
+iteration:3010, recon_loss:0.8194183707237244
+iteration:3015, recon_loss:0.8064186573028564
+iteration:3020, recon_loss:0.8074364066123962
+iteration:3025, recon_loss:0.9103162884712219
+iteration:3030, recon_loss:0.9793252944946289
+iteration:3035, recon_loss:0.8602264523506165
+iteration:3040, recon_loss:0.835059642791748
+iteration:3045, recon_loss:0.7998095750808716
+iteration:3050, recon_loss:0.7767496109008789
+iteration:3055, recon_loss:0.7633932828903198
+iteration:3060, recon_loss:0.7380867004394531
+iteration:3065, recon_loss:0.7421417832374573
+iteration:3070, recon_loss:0.8185634613037109
+iteration:3075, recon_loss:1.0235481262207031
+iteration:3080, recon_loss:0.8883534073829651
+iteration:3085, recon_loss:0.8428261280059814
+iteration:3090, recon_loss:0.8013178706169128
+iteration:3095, recon_loss:0.7460765838623047
+iteration:3100, recon_loss:0.726304829120636
+iteration:3105, recon_loss:0.7351032495498657
+iteration:3110, recon_loss:0.8161591291427612
+iteration:3115, recon_loss:0.7287039756774902
+iteration:3120, recon_loss:0.7200319766998291
+iteration:3125, recon_loss:0.7265286445617676
+iteration:3130, recon_loss:0.7406845092773438
+iteration:3135, recon_loss:0.7011524438858032
+iteration:3140, recon_loss:0.6921349167823792
+iteration:3145, recon_loss:0.6947352886199951
+iteration:3150, recon_loss:0.7416583299636841
+iteration:3155, recon_loss:0.8313825130462646
+iteration:3160, recon_loss:0.7520814538002014
+iteration:3165, recon_loss:0.7078583240509033
+iteration:3170, recon_loss:0.7263056039810181
+iteration:3175, recon_loss:0.7768040895462036
+iteration:3180, recon_loss:0.705142617225647
+iteration:3185, recon_loss:0.690522313117981
+iteration:3190, recon_loss:0.6812636256217957
+iteration:3195, recon_loss:0.7177906036376953
+iteration:3200, recon_loss:0.6875249147415161
+iteration:3205, recon_loss:0.7296242117881775
+iteration:3210, recon_loss:0.7379136085510254
+iteration:3215, recon_loss:0.6854081153869629
+iteration:3220, recon_loss:0.6730830669403076
+iteration:3225, recon_loss:0.6515456438064575
+iteration:3230, recon_loss:0.6610056161880493
+iteration:3235, recon_loss:0.8208878636360168
+iteration:3240, recon_loss:0.9807330369949341
+iteration:3245, recon_loss:0.8578881025314331
+iteration:3250, recon_loss:0.7576565146446228
+iteration:3255, recon_loss:0.6949044466018677
+iteration:3260, recon_loss:0.6795648336410522
+iteration:3265, recon_loss:0.6320573687553406
+iteration:3270, recon_loss:0.6088228225708008
+iteration:3275, recon_loss:0.6103312969207764
+iteration:3280, recon_loss:0.5910816788673401
+iteration:3285, recon_loss:0.6781934499740601
+iteration:3290, recon_loss:0.8705384135246277
+iteration:3295, recon_loss:0.8097974061965942
+iteration:3300, recon_loss:0.7474135160446167
+iteration:3305, recon_loss:0.6553130149841309
+iteration:3310, recon_loss:0.6428689956665039
+iteration:3315, recon_loss:0.5908622145652771
+iteration:3320, recon_loss:0.5795296430587769
+iteration:3325, recon_loss:0.608674943447113
+iteration:3330, recon_loss:0.7343263030052185
+iteration:3335, recon_loss:0.5967918634414673
+iteration:3340, recon_loss:0.6099374294281006
+iteration:3345, recon_loss:0.5891513824462891
+iteration:3350, recon_loss:0.57063889503479
+iteration:3355, recon_loss:0.5603139400482178
+iteration:3360, recon_loss:0.5596026182174683
+iteration:3365, recon_loss:0.5849363803863525
+iteration:3370, recon_loss:0.7206317782402039
+iteration:3375, recon_loss:0.6489128470420837
+iteration:3380, recon_loss:0.5988102555274963
+iteration:3385, recon_loss:0.5908082723617554
+iteration:3390, recon_loss:0.5511813163757324
+iteration:3395, recon_loss:0.5418574213981628
+iteration:3400, recon_loss:0.533960223197937
+iteration:3405, recon_loss:0.5462442636489868
+iteration:3410, recon_loss:0.6652360558509827
+iteration:3415, recon_loss:0.932873547077179
+iteration:3420, recon_loss:0.725479245185852
+iteration:3425, recon_loss:0.6214196681976318
+iteration:3430, recon_loss:0.5899911522865295
+iteration:3435, recon_loss:0.5443515777587891
+iteration:3440, recon_loss:0.5336453914642334
+iteration:3445, recon_loss:0.5113219022750854
+iteration:3450, recon_loss:0.5085629224777222
+iteration:3455, recon_loss:0.5913134813308716
+iteration:3460, recon_loss:0.7317742705345154
+iteration:3465, recon_loss:0.6304641962051392
+iteration:3470, recon_loss:0.6066917181015015
+iteration:3475, recon_loss:0.5769375562667847
+iteration:3480, recon_loss:0.5370150208473206
+iteration:3485, recon_loss:0.503026008605957
+iteration:3490, recon_loss:0.5007012486457825
+iteration:3495, recon_loss:0.4910634756088257
+iteration:3500, recon_loss:0.4805052876472473
+iteration:3505, recon_loss:0.4761418104171753
+iteration:3510, recon_loss:0.5699789524078369
+iteration:3515, recon_loss:0.7110496759414673
+iteration:3520, recon_loss:0.7065746784210205
+iteration:3525, recon_loss:0.6703691482543945
+iteration:3530, recon_loss:0.5581057071685791
+iteration:3535, recon_loss:0.5473164319992065
+iteration:3540, recon_loss:0.5024399757385254
+iteration:3545, recon_loss:0.4871591329574585
+iteration:3550, recon_loss:0.47993040084838867
+iteration:3555, recon_loss:0.4861539602279663
+iteration:3560, recon_loss:0.48791345953941345
+iteration:3565, recon_loss:0.5195695757865906
+iteration:3570, recon_loss:0.48964327573776245
+iteration:3575, recon_loss:0.5262805223464966
+iteration:3580, recon_loss:0.5848252773284912
+iteration:3585, recon_loss:0.58418208360672
+iteration:3590, recon_loss:0.5123286247253418
+iteration:3595, recon_loss:0.46474629640579224
+iteration:3600, recon_loss:0.4497222900390625
+iteration:3605, recon_loss:0.44969600439071655
+iteration:3610, recon_loss:0.48336488008499146
+iteration:3615, recon_loss:0.7610992193222046
+iteration:3620, recon_loss:0.570600688457489
+iteration:3625, recon_loss:0.6704973578453064
+iteration:3630, recon_loss:0.52986079454422
+iteration:3635, recon_loss:0.4853939712047577
+iteration:3640, recon_loss:0.455396443605423
+iteration:3645, recon_loss:0.4448006749153137
+iteration:3650, recon_loss:0.42517825961112976
+iteration:3655, recon_loss:0.42005831003189087
+iteration:3660, recon_loss:0.4175945520401001
+iteration:3665, recon_loss:0.45358601212501526
+iteration:3670, recon_loss:0.4692080020904541
+iteration:3675, recon_loss:0.4521203637123108
+iteration:3680, recon_loss:0.4406658411026001
+iteration:3685, recon_loss:0.4323500990867615
+iteration:3690, recon_loss:0.4394517242908478
+iteration:3695, recon_loss:0.5006021857261658
+iteration:3700, recon_loss:0.762277364730835
+iteration:3705, recon_loss:0.606467068195343
+iteration:3710, recon_loss:0.5433685779571533
+iteration:3715, recon_loss:0.46740853786468506
+iteration:3720, recon_loss:0.4330753982067108
+iteration:3725, recon_loss:0.4108969271183014
+iteration:3730, recon_loss:0.4032646417617798
+iteration:3735, recon_loss:0.4059852957725525
+iteration:3740, recon_loss:0.40972375869750977
+iteration:3745, recon_loss:0.47160303592681885
+iteration:3750, recon_loss:0.4583882689476013
+iteration:3755, recon_loss:0.44164329767227173
+iteration:3760, recon_loss:0.42542001605033875
+iteration:3765, recon_loss:0.42067962884902954
+iteration:3770, recon_loss:0.403943806886673
+iteration:3775, recon_loss:0.4047212302684784
+iteration:3780, recon_loss:0.42710861563682556
+iteration:3785, recon_loss:0.5130971074104309
+iteration:3790, recon_loss:0.5905721187591553
+iteration:3795, recon_loss:0.5214982032775879
+iteration:3800, recon_loss:0.4595024585723877
+iteration:3805, recon_loss:0.4278222322463989
+iteration:3810, recon_loss:0.3944765627384186
+iteration:3815, recon_loss:0.37263917922973633
+iteration:3820, recon_loss:0.36963319778442383
+iteration:3825, recon_loss:0.40744394063949585
+iteration:3830, recon_loss:0.5544271469116211
+iteration:3835, recon_loss:0.5157753825187683
+iteration:3840, recon_loss:0.4418841004371643
+iteration:3845, recon_loss:0.4486600160598755
+iteration:3850, recon_loss:0.4144551753997803
+iteration:3855, recon_loss:0.38960954546928406
+iteration:3860, recon_loss:0.36785686016082764
+iteration:3865, recon_loss:0.3590390682220459
+iteration:3870, recon_loss:0.35955893993377686
+iteration:3875, recon_loss:0.38808149099349976
+iteration:3880, recon_loss:0.5451209545135498
+iteration:3885, recon_loss:0.8101445436477661
+iteration:3890, recon_loss:0.5703029632568359
+iteration:3895, recon_loss:0.5849352478981018
+iteration:3900, recon_loss:0.4741773307323456
+iteration:3905, recon_loss:0.4284493923187256
+iteration:3910, recon_loss:0.3843367397785187
+iteration:3915, recon_loss:0.3680059015750885
+iteration:3920, recon_loss:0.3498120903968811
+iteration:3925, recon_loss:0.3411211371421814
+iteration:3930, recon_loss:0.33884739875793457
+iteration:3935, recon_loss:0.3425789177417755
+iteration:3940, recon_loss:0.3460378050804138
+iteration:3945, recon_loss:0.37241291999816895
+iteration:3950, recon_loss:0.4782581925392151
+iteration:3955, recon_loss:0.5489132404327393
+iteration:3960, recon_loss:0.49394652247428894
+iteration:3965, recon_loss:0.41603899002075195
+iteration:3970, recon_loss:0.39029812812805176
+iteration:3975, recon_loss:0.35618799924850464
+iteration:3980, recon_loss:0.33278095722198486
+iteration:3985, recon_loss:0.32339414954185486
+iteration:3990, recon_loss:0.3199642598628998
+iteration:3995, recon_loss:0.34391194581985474
+iteration:4000, recon_loss:0.47225069999694824
+iteration:4005, recon_loss:0.4089334011077881
+iteration:4010, recon_loss:0.42667698860168457
+iteration:4015, recon_loss:0.39304012060165405
+iteration:4020, recon_loss:0.3421021103858948
+iteration:4025, recon_loss:0.31712794303894043
+iteration:4030, recon_loss:0.31192269921302795
+iteration:4035, recon_loss:0.30120551586151123
+iteration:4040, recon_loss:0.3038784861564636
+iteration:4045, recon_loss:0.30998939275741577
+iteration:4050, recon_loss:0.34835147857666016
+iteration:4055, recon_loss:0.34461426734924316
+iteration:4060, recon_loss:0.6136130690574646
+iteration:4065, recon_loss:1.059072732925415
+iteration:4070, recon_loss:0.7339595556259155
+iteration:4075, recon_loss:0.6701595783233643
+iteration:4080, recon_loss:0.5325137376785278
+iteration:4085, recon_loss:0.44313010573387146
+iteration:4090, recon_loss:0.37607938051223755
+iteration:4095, recon_loss:0.34110552072525024
+iteration:4100, recon_loss:0.3169296979904175
+iteration:4105, recon_loss:0.29938799142837524
+iteration:4110, recon_loss:0.2902790606021881
+iteration:4115, recon_loss:0.2899627685546875
+iteration:4120, recon_loss:0.3014335632324219
+iteration:4125, recon_loss:0.27960318326950073
+iteration:4130, recon_loss:0.29161933064460754
+iteration:4135, recon_loss:0.27636128664016724
+iteration:4140, recon_loss:0.2960776388645172
+iteration:4145, recon_loss:0.28965097665786743
+iteration:4150, recon_loss:0.29628443717956543
+iteration:4155, recon_loss:0.2873316705226898
+iteration:4160, recon_loss:0.31243109703063965
+iteration:4165, recon_loss:0.3109836280345917
+iteration:4170, recon_loss:0.29816070199012756
+iteration:4175, recon_loss:0.35114943981170654
+iteration:4180, recon_loss:0.4030919671058655
+iteration:4185, recon_loss:0.47940242290496826
+iteration:4190, recon_loss:0.5154948234558105
+iteration:4195, recon_loss:0.43495118618011475
+iteration:4200, recon_loss:0.35732775926589966
+iteration:4205, recon_loss:0.3459393382072449
+iteration:4210, recon_loss:0.29485923051834106
+iteration:4215, recon_loss:0.27445918321609497
+iteration:4220, recon_loss:0.2707979083061218
+iteration:4225, recon_loss:0.25689491629600525
+iteration:4230, recon_loss:0.2556537985801697
+iteration:4235, recon_loss:0.2533261179924011
+iteration:4240, recon_loss:0.2549157440662384
+iteration:4245, recon_loss:0.26382189989089966
+iteration:4250, recon_loss:0.2600873112678528
+iteration:4255, recon_loss:0.28401389718055725
+iteration:4260, recon_loss:0.3955247104167938
+iteration:4265, recon_loss:1.668347954750061
+iteration:4270, recon_loss:1.1813764572143555
+iteration:4275, recon_loss:0.8753125667572021
+iteration:4280, recon_loss:0.5994752645492554
+iteration:4285, recon_loss:0.4927709102630615
+iteration:4290, recon_loss:0.38232287764549255
+iteration:4295, recon_loss:0.3410564661026001
+iteration:4300, recon_loss:0.3065793812274933
+iteration:4305, recon_loss:0.282190203666687
+iteration:4310, recon_loss:0.2679145336151123
+iteration:4315, recon_loss:0.2594270706176758
+iteration:4320, recon_loss:0.2529546022415161
+iteration:4325, recon_loss:0.24938757717609406
+iteration:4330, recon_loss:0.2564789652824402
+iteration:4335, recon_loss:0.2572334408760071
+iteration:4340, recon_loss:0.2613559663295746
+iteration:4345, recon_loss:0.2554088234901428
+iteration:4350, recon_loss:0.24607975780963898
+iteration:4355, recon_loss:0.2510720491409302
+iteration:4360, recon_loss:0.2626482844352722
+iteration:4365, recon_loss:0.2582283616065979
+iteration:4370, recon_loss:0.24389594793319702
+iteration:4375, recon_loss:0.24418792128562927
+iteration:4380, recon_loss:0.2413918524980545
+iteration:4385, recon_loss:0.25866955518722534
+iteration:4390, recon_loss:0.2600908875465393
+iteration:4395, recon_loss:0.26632159948349
+iteration:4400, recon_loss:0.267088919878006
+iteration:4405, recon_loss:0.25511932373046875
+iteration:4410, recon_loss:0.25349363684654236
+iteration:4415, recon_loss:0.2688322365283966
+iteration:4420, recon_loss:0.262280136346817
+iteration:4425, recon_loss:0.24653242528438568
+iteration:4430, recon_loss:0.2648504674434662
+iteration:4435, recon_loss:0.30469974875450134
+iteration:4440, recon_loss:0.2793150544166565
+iteration:4445, recon_loss:0.2650047540664673
+iteration:4450, recon_loss:0.24727462232112885
+iteration:4455, recon_loss:0.2516634464263916
+iteration:4460, recon_loss:0.24879518151283264
+iteration:4465, recon_loss:0.23786765336990356
+iteration:4470, recon_loss:0.24134381115436554
+iteration:4475, recon_loss:0.26961803436279297
+iteration:4480, recon_loss:0.33257436752319336
+iteration:4485, recon_loss:0.31104135513305664
+iteration:4490, recon_loss:0.31385108828544617
+iteration:4495, recon_loss:0.3064073920249939
+iteration:4500, recon_loss:0.32702118158340454
+iteration:4505, recon_loss:0.3278164863586426
+iteration:4510, recon_loss:0.24894964694976807
+iteration:4515, recon_loss:0.2390306293964386
+iteration:4520, recon_loss:0.22650966048240662
+iteration:4525, recon_loss:0.21227899193763733
+iteration:4530, recon_loss:0.2123803347349167
+iteration:4535, recon_loss:0.2231288105249405
+iteration:4540, recon_loss:0.2468792349100113
+iteration:4545, recon_loss:0.23459598422050476
+iteration:4550, recon_loss:0.23404493927955627
+iteration:4555, recon_loss:0.3194512128829956
+iteration:4560, recon_loss:0.4326193034648895
+iteration:4565, recon_loss:0.3929171562194824
+iteration:4570, recon_loss:0.3207276165485382
+iteration:4575, recon_loss:0.3035127520561218
+iteration:4580, recon_loss:0.26276060938835144
+iteration:4585, recon_loss:0.2314712554216385
+iteration:4590, recon_loss:0.2129659503698349
+iteration:4595, recon_loss:0.20537391304969788
+iteration:4600, recon_loss:0.2112465500831604
+iteration:4605, recon_loss:0.2223256528377533
+iteration:4610, recon_loss:0.21780109405517578
+iteration:4615, recon_loss:0.21785451471805573
+iteration:4620, recon_loss:0.2252596914768219
+iteration:4625, recon_loss:0.26258522272109985
+iteration:4630, recon_loss:0.40632981061935425
+iteration:4635, recon_loss:0.3870667815208435
+iteration:4640, recon_loss:0.37447625398635864
+iteration:4645, recon_loss:0.3120466470718384
+iteration:4650, recon_loss:0.24256911873817444
+iteration:4655, recon_loss:0.2275385856628418
+iteration:4660, recon_loss:0.2084341049194336
+iteration:4665, recon_loss:0.19277112185955048
+iteration:4670, recon_loss:0.19218528270721436
+iteration:4675, recon_loss:0.20760664343833923
+iteration:4680, recon_loss:0.20981238782405853
+iteration:4685, recon_loss:0.18694934248924255
+iteration:4690, recon_loss:0.19482740759849548
+iteration:4695, recon_loss:0.22075937688350677
+iteration:4700, recon_loss:0.41924530267715454
+iteration:4705, recon_loss:0.3619126081466675
+iteration:4710, recon_loss:0.42235642671585083
+iteration:4715, recon_loss:0.3577543795108795
+iteration:4720, recon_loss:0.32740673422813416
+iteration:4725, recon_loss:0.2478170394897461
+iteration:4730, recon_loss:0.2244313359260559
+iteration:4735, recon_loss:0.20577186346054077
+iteration:4740, recon_loss:0.19656774401664734
+iteration:4745, recon_loss:0.1796540915966034
+iteration:4750, recon_loss:0.17596928775310516
+iteration:4755, recon_loss:0.16958722472190857
+iteration:4760, recon_loss:0.17188650369644165
+iteration:4765, recon_loss:0.17381435632705688
+iteration:4770, recon_loss:0.17278766632080078
+iteration:4775, recon_loss:0.21466094255447388
+iteration:4780, recon_loss:0.29275891184806824
+iteration:4785, recon_loss:0.4192084074020386
+iteration:4790, recon_loss:0.4388297200202942
+iteration:4795, recon_loss:0.42364686727523804
+iteration:4800, recon_loss:0.2989821135997772
+iteration:4805, recon_loss:0.2648080587387085
+iteration:4810, recon_loss:0.21704673767089844
+iteration:4815, recon_loss:0.19920696318149567
+iteration:4820, recon_loss:0.18051311373710632
+iteration:4825, recon_loss:0.17149761319160461
+iteration:4830, recon_loss:0.16511037945747375
+iteration:4835, recon_loss:0.16342909634113312
+iteration:4840, recon_loss:0.17253172397613525
+iteration:4845, recon_loss:0.1711411327123642
+iteration:4850, recon_loss:0.19509732723236084
+iteration:4855, recon_loss:0.2403302788734436
+iteration:4860, recon_loss:0.24368412792682648
+iteration:4865, recon_loss:0.28009411692619324
+iteration:4870, recon_loss:0.4018361270427704
+iteration:4875, recon_loss:0.36371609568595886
+iteration:4880, recon_loss:0.264788955450058
+iteration:4885, recon_loss:0.2240203619003296
+iteration:4890, recon_loss:0.20245185494422913
+iteration:4895, recon_loss:0.17039111256599426
+iteration:4900, recon_loss:0.16384893655776978
+iteration:4905, recon_loss:0.15867173671722412
+iteration:4910, recon_loss:0.15330249071121216
+iteration:4915, recon_loss:0.1530417650938034
+iteration:4920, recon_loss:0.15127967298030853
+iteration:4925, recon_loss:0.15695799887180328
+iteration:4930, recon_loss:0.18185819685459137
+iteration:4935, recon_loss:0.2925955653190613
+iteration:4940, recon_loss:0.33151644468307495
+iteration:4945, recon_loss:0.2805005609989166
+iteration:4950, recon_loss:0.22121238708496094
+iteration:4955, recon_loss:0.1941654086112976
+iteration:4960, recon_loss:0.1754835993051529
+iteration:4965, recon_loss:0.16329222917556763
+iteration:4970, recon_loss:0.1532404124736786
+iteration:4975, recon_loss:0.1594952642917633
+iteration:4980, recon_loss:0.16203920543193817
+iteration:4985, recon_loss:0.1636001169681549
+iteration:4990, recon_loss:0.17571961879730225
+iteration:4995, recon_loss:0.20482420921325684
+iteration:5000, recon_loss:0.2045532613992691
+iteration:5005, recon_loss:0.23177362978458405
+iteration:5010, recon_loss:0.30845868587493896
+iteration:5015, recon_loss:0.3701304793357849
+iteration:5020, recon_loss:0.2987687885761261
+iteration:5025, recon_loss:0.23286934196949005
+iteration:5030, recon_loss:0.19375726580619812
+iteration:5035, recon_loss:0.17632079124450684
+iteration:5040, recon_loss:0.15707677602767944
+iteration:5045, recon_loss:0.14691583812236786
+iteration:5050, recon_loss:0.14173290133476257
+iteration:5055, recon_loss:0.1383204162120819
+iteration:5060, recon_loss:0.13414257764816284
+iteration:5065, recon_loss:0.13397201895713806
+iteration:5070, recon_loss:0.16035933792591095
+iteration:5075, recon_loss:0.1829949915409088
+iteration:5080, recon_loss:0.2819482088088989
+iteration:5085, recon_loss:0.5189440846443176
+iteration:5090, recon_loss:1.070430874824524
+iteration:5095, recon_loss:1.1224591732025146
+iteration:5100, recon_loss:0.6588212251663208
+iteration:5105, recon_loss:0.5183411836624146
+iteration:5110, recon_loss:0.41495227813720703
+iteration:5115, recon_loss:0.31111010909080505
+iteration:5120, recon_loss:0.23669154942035675
+iteration:5125, recon_loss:0.20018760859966278
+iteration:5130, recon_loss:0.17760063707828522
+iteration:5135, recon_loss:0.16023409366607666
+iteration:5140, recon_loss:0.14885547757148743
+iteration:5145, recon_loss:0.14286908507347107
+iteration:5150, recon_loss:0.13780909776687622
+iteration:5155, recon_loss:0.13396628201007843
+iteration:5160, recon_loss:0.13164912164211273
+iteration:5165, recon_loss:0.13509556651115417
+iteration:5170, recon_loss:0.14688284695148468
+iteration:5175, recon_loss:0.13604384660720825
+iteration:5180, recon_loss:0.13857495784759521
+iteration:5185, recon_loss:0.14430269598960876
+iteration:5190, recon_loss:0.13273949921131134
+iteration:5195, recon_loss:0.13114643096923828
+iteration:5200, recon_loss:0.1273198425769806
+iteration:5205, recon_loss:0.12474789470434189
+iteration:5210, recon_loss:0.12410802394151688
+iteration:5215, recon_loss:0.1328270435333252
+iteration:5220, recon_loss:0.16133998334407806
+iteration:5225, recon_loss:0.14225587248802185
+iteration:5230, recon_loss:0.15220120549201965
+iteration:5235, recon_loss:0.1424381136894226
+iteration:5240, recon_loss:0.13323858380317688
+iteration:5245, recon_loss:0.1342190057039261
+iteration:5250, recon_loss:0.1336323469877243
+iteration:5255, recon_loss:0.13538318872451782
+iteration:5260, recon_loss:0.13010969758033752
+iteration:5265, recon_loss:0.1275303065776825
+iteration:5270, recon_loss:0.1325499713420868
+iteration:5275, recon_loss:0.12552160024642944
+iteration:5280, recon_loss:0.1279398798942566
+iteration:5285, recon_loss:0.15553434193134308
+iteration:5290, recon_loss:0.22869984805583954
+iteration:5295, recon_loss:0.37666431069374084
+iteration:5300, recon_loss:0.40130358934402466
+iteration:5305, recon_loss:0.36707377433776855
+iteration:5310, recon_loss:0.2325088530778885
+iteration:5315, recon_loss:0.1826549917459488
+iteration:5320, recon_loss:0.1663508117198944
+iteration:5325, recon_loss:0.1411161571741104
+iteration:5330, recon_loss:0.12637606263160706
+iteration:5335, recon_loss:0.1196327805519104
+iteration:5340, recon_loss:0.11522024869918823
+iteration:5345, recon_loss:0.11498460918664932
+iteration:5350, recon_loss:0.12147438526153564
+iteration:5355, recon_loss:0.12049822509288788
+iteration:5360, recon_loss:0.12089996039867401
+iteration:5365, recon_loss:0.12315836548805237
+iteration:5370, recon_loss:0.12388036400079727
+iteration:5375, recon_loss:0.15190932154655457
+iteration:5380, recon_loss:0.24187695980072021
+iteration:5385, recon_loss:0.422540545463562
+iteration:5390, recon_loss:0.676166296005249
+iteration:5395, recon_loss:0.9447284936904907
+iteration:5400, recon_loss:0.7281787991523743
+iteration:5405, recon_loss:0.4778691232204437
+iteration:5410, recon_loss:0.33949339389801025
+iteration:5415, recon_loss:0.2616965174674988
+iteration:5420, recon_loss:0.20033222436904907
+iteration:5425, recon_loss:0.16444990038871765
+iteration:5430, recon_loss:0.14329522848129272
+iteration:5435, recon_loss:0.12991085648536682
+iteration:5440, recon_loss:0.12120816856622696
+iteration:5445, recon_loss:0.11398229002952576
+iteration:5450, recon_loss:0.10978411138057709
+iteration:5455, recon_loss:0.10694121569395065
+iteration:5460, recon_loss:0.10495670139789581
+iteration:5465, recon_loss:0.10323294997215271
+iteration:5470, recon_loss:0.10201261937618256
+iteration:5475, recon_loss:0.10188081860542297
+iteration:5480, recon_loss:0.10159534215927124
+iteration:5485, recon_loss:0.10157227516174316
+iteration:5490, recon_loss:0.10449782013893127
+iteration:5495, recon_loss:0.10268475115299225
+iteration:5500, recon_loss:0.1059923768043518
+iteration:5505, recon_loss:0.10844779014587402
+iteration:5510, recon_loss:0.10648214817047119
+iteration:5515, recon_loss:0.11151115596294403
+iteration:5520, recon_loss:0.10420700907707214
+iteration:5525, recon_loss:0.10600115358829498
+iteration:5530, recon_loss:0.11885318160057068
+iteration:5535, recon_loss:0.12023043632507324
+iteration:5540, recon_loss:0.1109173595905304
+iteration:5545, recon_loss:0.11119230091571808
+iteration:5550, recon_loss:0.10911399871110916
+iteration:5555, recon_loss:0.10960131138563156
+iteration:5560, recon_loss:0.14262786507606506
+iteration:5565, recon_loss:0.21688683331012726
+iteration:5570, recon_loss:0.18468588590621948
+iteration:5575, recon_loss:0.14271432161331177
+iteration:5580, recon_loss:0.11568296700716019
+iteration:5585, recon_loss:0.11108658462762833
+iteration:5590, recon_loss:0.10542819648981094
+iteration:5595, recon_loss:0.09790156781673431
+iteration:5600, recon_loss:0.1024889200925827
+iteration:5605, recon_loss:0.11023042351007462
+iteration:5610, recon_loss:0.1413266807794571
+iteration:5615, recon_loss:0.18087974190711975
+iteration:5620, recon_loss:0.2377965748310089
+iteration:5625, recon_loss:0.19947299361228943
+iteration:5630, recon_loss:0.19700250029563904
+iteration:5635, recon_loss:0.16793371737003326
+iteration:5640, recon_loss:0.14601394534111023
+iteration:5645, recon_loss:0.1176856979727745
+iteration:5650, recon_loss:0.10485635697841644
+iteration:5655, recon_loss:0.09367343783378601
+iteration:5660, recon_loss:0.09193716198205948
+iteration:5665, recon_loss:0.08874323219060898
+iteration:5670, recon_loss:0.09127531945705414
+iteration:5675, recon_loss:0.12208379805088043
+iteration:5680, recon_loss:0.18747246265411377
+iteration:5685, recon_loss:0.32408612966537476
+iteration:5690, recon_loss:0.559521496295929
+iteration:5695, recon_loss:0.6519358158111572
+iteration:5700, recon_loss:0.3492817282676697
+iteration:5705, recon_loss:0.3008710741996765
+iteration:5710, recon_loss:0.2659772038459778
+iteration:5715, recon_loss:0.17849892377853394
+iteration:5720, recon_loss:0.13174603879451752
+iteration:5725, recon_loss:0.11895474791526794
+iteration:5730, recon_loss:0.10373541712760925
+iteration:5735, recon_loss:0.09564331918954849
+iteration:5740, recon_loss:0.08870507776737213
+iteration:5745, recon_loss:0.08549104630947113
+iteration:5750, recon_loss:0.08248138427734375
+iteration:5755, recon_loss:0.08076351881027222
+iteration:5760, recon_loss:0.07958995550870895
+iteration:5765, recon_loss:0.0793832391500473
+iteration:5770, recon_loss:0.08227695524692535
+iteration:5775, recon_loss:0.0889141634106636
+iteration:5780, recon_loss:0.08468755334615707
+iteration:5785, recon_loss:0.09422808140516281
+iteration:5790, recon_loss:0.08779951930046082
+iteration:5795, recon_loss:0.1175171285867691
+iteration:5800, recon_loss:0.11158812046051025
+iteration:5805, recon_loss:0.09597422182559967
+iteration:5810, recon_loss:0.11019307374954224
+iteration:5815, recon_loss:0.13025334477424622
+iteration:5820, recon_loss:0.13558022677898407
+iteration:5825, recon_loss:0.09660329669713974
+iteration:5830, recon_loss:0.08928687870502472
+iteration:5835, recon_loss:0.0863284170627594
+iteration:5840, recon_loss:0.08042682707309723
+iteration:5845, recon_loss:0.07749324291944504
+iteration:5850, recon_loss:0.07601691782474518
+iteration:5855, recon_loss:0.07922552525997162
+iteration:5860, recon_loss:0.10910360515117645
+iteration:5865, recon_loss:0.27263492345809937
+iteration:5870, recon_loss:1.2339982986450195
+iteration:5875, recon_loss:1.770102858543396
+iteration:5880, recon_loss:1.163062334060669
+iteration:5885, recon_loss:0.7683019042015076
+iteration:5890, recon_loss:0.5183495283126831
+iteration:5895, recon_loss:0.36961933970451355
+iteration:5900, recon_loss:0.2677518129348755
+iteration:5905, recon_loss:0.19749952852725983
+iteration:5910, recon_loss:0.1630634367465973
+iteration:5915, recon_loss:0.13963085412979126
+iteration:5920, recon_loss:0.12036973983049393
+iteration:5925, recon_loss:0.11013001948595047
+iteration:5930, recon_loss:0.10264404118061066
+iteration:5935, recon_loss:0.09719187021255493
+iteration:5940, recon_loss:0.09331221878528595
+iteration:5945, recon_loss:0.09047088772058487
+iteration:5950, recon_loss:0.08807205408811569
+iteration:5955, recon_loss:0.08594463765621185
+iteration:5960, recon_loss:0.08475406467914581
+iteration:5965, recon_loss:0.08419761061668396
+iteration:5970, recon_loss:0.0833931416273117
+iteration:5975, recon_loss:0.08248589187860489
+iteration:5980, recon_loss:0.08118194341659546
+iteration:5985, recon_loss:0.08142237365245819
+iteration:5990, recon_loss:0.0812055841088295
+iteration:5995, recon_loss:0.08309155702590942
+iteration:6000, recon_loss:0.08111851662397385
+iteration:6005, recon_loss:0.08257855474948883
+iteration:6010, recon_loss:0.0828586146235466
+iteration:6015, recon_loss:0.08386622369289398
+iteration:6020, recon_loss:0.08482417464256287
+iteration:6025, recon_loss:0.09110742807388306
+iteration:6030, recon_loss:0.07964642345905304
+iteration:6035, recon_loss:0.07753792405128479
+iteration:6040, recon_loss:0.08102012425661087
+iteration:6045, recon_loss:0.08522600680589676
+iteration:6050, recon_loss:0.1035584956407547
+iteration:6055, recon_loss:0.15035642683506012
+iteration:6060, recon_loss:0.09480509161949158
+iteration:6065, recon_loss:0.10434970259666443
+iteration:6070, recon_loss:0.09241492301225662
+iteration:6075, recon_loss:0.0848497599363327
+iteration:6080, recon_loss:0.08151787519454956
+iteration:6085, recon_loss:0.08052247762680054
+iteration:6090, recon_loss:0.08192417025566101
+iteration:6095, recon_loss:0.08948804438114166
+iteration:6100, recon_loss:0.107403963804245
+iteration:6105, recon_loss:0.10190611332654953
+iteration:6110, recon_loss:0.10712383687496185
+iteration:6115, recon_loss:0.08456723392009735
+iteration:6120, recon_loss:0.0807998925447464
+iteration:6125, recon_loss:0.07654669880867004
+iteration:6130, recon_loss:0.07370327413082123
+iteration:6135, recon_loss:0.07536551356315613
+iteration:6140, recon_loss:0.07176579535007477
+iteration:6145, recon_loss:0.0713055431842804
+iteration:6150, recon_loss:0.12700651586055756
+iteration:6155, recon_loss:0.9770981669425964
+iteration:6160, recon_loss:0.8294532299041748
+iteration:6165, recon_loss:0.794624388217926
+iteration:6170, recon_loss:0.5834506154060364
+iteration:6175, recon_loss:0.35203221440315247
+iteration:6180, recon_loss:0.24039971828460693
+iteration:6185, recon_loss:0.18051312863826752
+iteration:6190, recon_loss:0.1340816617012024
+iteration:6195, recon_loss:0.1101127415895462
+iteration:6200, recon_loss:0.09301906824111938
+iteration:6205, recon_loss:0.08290424942970276
+iteration:6210, recon_loss:0.07655785977840424
+iteration:6215, recon_loss:0.071602962911129
+iteration:6220, recon_loss:0.06873472034931183
+iteration:6225, recon_loss:0.06637802720069885
+iteration:6230, recon_loss:0.0646965503692627
+iteration:6235, recon_loss:0.06359967589378357
+iteration:6240, recon_loss:0.06267306953668594
+iteration:6245, recon_loss:0.06392380595207214
+iteration:6250, recon_loss:0.06481391191482544
+iteration:6255, recon_loss:0.0620269849896431
+iteration:6260, recon_loss:0.06221805512905121
+iteration:6265, recon_loss:0.06237991899251938
+iteration:6270, recon_loss:0.06276191771030426
+iteration:6275, recon_loss:0.0661250650882721
+iteration:6280, recon_loss:0.06241115555167198
+iteration:6285, recon_loss:0.06461746245622635
+iteration:6290, recon_loss:0.06294532120227814
+iteration:6295, recon_loss:0.06988412141799927
+iteration:6300, recon_loss:0.07596443593502045
+iteration:6305, recon_loss:0.0668194442987442
+iteration:6310, recon_loss:0.058264922350645065
+iteration:6315, recon_loss:0.06080279126763344
+iteration:6320, recon_loss:0.06274963915348053
+iteration:6325, recon_loss:0.06954596936702728
+iteration:6330, recon_loss:0.070686936378479
+iteration:6335, recon_loss:0.06119837984442711
+iteration:6340, recon_loss:0.062286291271448135
+iteration:6345, recon_loss:0.06044462323188782
+iteration:6350, recon_loss:0.0645991638302803
+iteration:6355, recon_loss:0.06551273167133331
+iteration:6360, recon_loss:0.06894645094871521
+iteration:6365, recon_loss:0.06936006993055344
+iteration:6370, recon_loss:0.06355087459087372
+iteration:6375, recon_loss:0.08035309612751007
+iteration:6380, recon_loss:0.1052551418542862
+iteration:6385, recon_loss:0.10239563882350922
+iteration:6390, recon_loss:0.08065858483314514
+iteration:6395, recon_loss:0.07035958766937256
+iteration:6400, recon_loss:0.07070891559123993
+iteration:6405, recon_loss:0.0714319571852684
+iteration:6410, recon_loss:0.09513380378484726
+iteration:6415, recon_loss:0.07003249228000641
+iteration:6420, recon_loss:0.06860119104385376
+iteration:6425, recon_loss:0.05879157781600952
+iteration:6430, recon_loss:0.05580774322152138
+iteration:6435, recon_loss:0.05656212940812111
+iteration:6440, recon_loss:0.07070505619049072
+iteration:6445, recon_loss:0.1208854466676712
+iteration:6450, recon_loss:0.09109532833099365
+iteration:6455, recon_loss:0.11678880453109741
+iteration:6460, recon_loss:0.12010926753282547
+iteration:6465, recon_loss:0.16070695221424103
+iteration:6470, recon_loss:0.1453709900379181
+iteration:6475, recon_loss:0.11524857580661774
+iteration:6480, recon_loss:0.0891934186220169
+iteration:6485, recon_loss:0.06468888372182846
+iteration:6490, recon_loss:0.06344365328550339
+iteration:6495, recon_loss:0.055256541818380356
+iteration:6500, recon_loss:0.05189955234527588
+iteration:6505, recon_loss:0.05059995502233505
+converges, saving the model.....
+average testing error is: 2.1650259494781494
+evaluating sample 1 
+evaluating sample 2 
+evaluating sample 3 
+evaluating sample 4 
+evaluating sample 5 
+evaluating sample 6 
+evaluating sample 7 
+evaluating sample 8 
+evaluating sample 9 
+evaluating sample 10 
+evaluating sample 11 
+evaluating sample 12 
+evaluating sample 13 
+evaluating sample 14 
+evaluating sample 15 
+evaluating sample 16 
+evaluating sample 17 
+evaluating sample 18 
+evaluating sample 19 
+evaluating sample 20 
+evaluating sample 21 
+evaluating sample 22 
+evaluating sample 23 
+evaluating sample 24 
+evaluating sample 25 
+evaluating sample 26 
+evaluating sample 27 
+evaluating sample 28 
+evaluating sample 29 
+evaluating sample 30 
+evaluating sample 31 
+evaluating sample 32 
+evaluating sample 33 
+evaluating sample 34 
+evaluating sample 35 
+evaluating sample 36 
+evaluating sample 37 
+evaluating sample 38 
+evaluating sample 39 
+evaluating sample 40 
+evaluating sample 41 
+evaluating sample 42 
+evaluating sample 43 
+evaluating sample 44 
+evaluating sample 45 
+evaluating sample 46 
+evaluating sample 47 
+evaluating sample 48 
+evaluating sample 49 
+evaluating sample 50 
+evaluating sample 51 
+evaluating sample 52 
+evaluating sample 53 
+evaluating sample 54 
+evaluating sample 55 
+evaluating sample 56 
+evaluating sample 57 
+evaluating sample 58 
+evaluating sample 59 
+evaluating sample 60 
+evaluating sample 61 
+evaluating sample 62 
+evaluating sample 63 
+evaluating sample 64 
+evaluating sample 65 
+evaluating sample 66 
+evaluating sample 67 
+evaluating sample 68 
+evaluating sample 69 
+evaluating sample 70 
+evaluating sample 71 
+evaluating sample 72 
+evaluating sample 73 
+evaluating sample 74 
+evaluating sample 75 
+evaluating sample 76 
+evaluating sample 77 
+evaluating sample 78 
+evaluating sample 79 
+evaluating sample 80 
+evaluating sample 81 
+evaluating sample 82 
+evaluating sample 83 
+evaluating sample 84 
+evaluating sample 85 
+evaluating sample 86 
+evaluating sample 87 
+evaluating sample 88 
+evaluating sample 89 
+evaluating sample 90 
+evaluating sample 91 
+evaluating sample 92 
+evaluating sample 93 
+evaluating sample 94 
+evaluating sample 95 
+evaluating sample 96 
+evaluating sample 97 
+evaluating sample 98 
+evaluating sample 99 
+evaluating sample 100 
+requirement doesn't match, current final_error=2.1650259494781494, keep sampling
+iteration:0, recon_loss:10.673192024230957
+iteration:5, recon_loss:4.753011703491211
+iteration:10, recon_loss:3.977311611175537
+iteration:15, recon_loss:6.026002407073975
+iteration:20, recon_loss:5.356057167053223
+iteration:25, recon_loss:4.578271865844727
+iteration:30, recon_loss:3.0328028202056885
+iteration:35, recon_loss:3.0427939891815186
+iteration:40, recon_loss:2.0193328857421875
+iteration:45, recon_loss:2.1625633239746094
+iteration:50, recon_loss:1.9117224216461182
+iteration:55, recon_loss:1.6156976222991943
+iteration:60, recon_loss:1.3272056579589844
+iteration:65, recon_loss:1.3822169303894043
+iteration:70, recon_loss:1.4329733848571777
+iteration:75, recon_loss:1.2846993207931519
+iteration:80, recon_loss:1.0128636360168457
+iteration:85, recon_loss:1.0645431280136108
+iteration:90, recon_loss:0.9630521535873413
+iteration:95, recon_loss:0.7015804052352905
+iteration:100, recon_loss:0.8768067955970764
+iteration:105, recon_loss:0.8332594037055969
+iteration:110, recon_loss:0.8153128623962402
+iteration:115, recon_loss:0.5997680425643921
+iteration:120, recon_loss:0.7648851871490479
+iteration:125, recon_loss:0.6830098032951355
+iteration:130, recon_loss:0.622527003288269
+iteration:135, recon_loss:0.673484206199646
+iteration:140, recon_loss:0.7106868028640747
+iteration:145, recon_loss:0.6363463997840881
+iteration:150, recon_loss:0.6416300535202026
+iteration:155, recon_loss:0.6381915807723999
+iteration:160, recon_loss:0.7609132528305054
+iteration:165, recon_loss:0.9010006189346313
+iteration:170, recon_loss:0.870188295841217
+iteration:175, recon_loss:0.7054281830787659
+iteration:180, recon_loss:0.5766326189041138
+iteration:185, recon_loss:0.5233724117279053
+iteration:190, recon_loss:0.5669825077056885
+iteration:195, recon_loss:0.4875589609146118
+iteration:200, recon_loss:0.46378159523010254
+iteration:205, recon_loss:0.47519567608833313
+iteration:210, recon_loss:0.39057546854019165
+iteration:215, recon_loss:0.44761693477630615
+iteration:220, recon_loss:0.4110572040081024
+iteration:225, recon_loss:0.4004558324813843
+iteration:230, recon_loss:0.417525053024292
+iteration:235, recon_loss:0.3898821473121643
+iteration:240, recon_loss:0.38424152135849
+iteration:245, recon_loss:0.35255932807922363
+iteration:250, recon_loss:0.37258684635162354
+iteration:255, recon_loss:0.3550088703632355
+iteration:260, recon_loss:0.2934475541114807
+iteration:265, recon_loss:0.33806198835372925
+iteration:270, recon_loss:0.3309720754623413
+iteration:275, recon_loss:0.340191513299942
+iteration:280, recon_loss:0.3275071680545807
+iteration:285, recon_loss:0.30871710181236267
+iteration:290, recon_loss:0.3249182105064392
+iteration:295, recon_loss:0.3134470582008362
+iteration:300, recon_loss:0.29443782567977905
+iteration:305, recon_loss:0.29848718643188477
+iteration:310, recon_loss:0.3058844804763794
+iteration:315, recon_loss:0.2953566014766693
+iteration:320, recon_loss:0.31729236245155334
+iteration:325, recon_loss:0.3337516784667969
+iteration:330, recon_loss:0.2909514307975769
+iteration:335, recon_loss:0.293093204498291
+iteration:340, recon_loss:0.3197343945503235
+iteration:345, recon_loss:0.28231215476989746
+iteration:350, recon_loss:0.31091734766960144
+iteration:355, recon_loss:0.28778350353240967
+iteration:360, recon_loss:0.3033486604690552
+iteration:365, recon_loss:0.26891767978668213
+iteration:370, recon_loss:0.2635541558265686
+iteration:375, recon_loss:0.29083317518234253
+iteration:380, recon_loss:0.33364245295524597
+iteration:385, recon_loss:0.2832743525505066
+iteration:390, recon_loss:0.4928637444972992
+iteration:395, recon_loss:0.37225455045700073
+iteration:400, recon_loss:0.2927173674106598
+iteration:405, recon_loss:0.25061583518981934
+iteration:410, recon_loss:0.29720157384872437
+iteration:415, recon_loss:0.26391977071762085
+iteration:420, recon_loss:0.2494877278804779
+iteration:425, recon_loss:0.25670066475868225
+iteration:430, recon_loss:0.2428017556667328
+iteration:435, recon_loss:0.24007287621498108
+iteration:440, recon_loss:0.21288660168647766
+iteration:445, recon_loss:0.21582119166851044
+iteration:450, recon_loss:0.20526626706123352
+iteration:455, recon_loss:0.19221216440200806
+iteration:460, recon_loss:0.17821846902370453
+iteration:465, recon_loss:0.18980765342712402
+iteration:470, recon_loss:0.1830606460571289
+iteration:475, recon_loss:0.18823343515396118
+iteration:480, recon_loss:0.19258427619934082
+iteration:485, recon_loss:0.2181684374809265
+iteration:490, recon_loss:0.18717941641807556
+iteration:495, recon_loss:0.1868952065706253
+iteration:500, recon_loss:0.21420042216777802
+iteration:505, recon_loss:0.17105919122695923
+iteration:510, recon_loss:0.18185417354106903
+iteration:515, recon_loss:0.21386918425559998
+iteration:520, recon_loss:0.18853327631950378
+iteration:525, recon_loss:0.1676751673221588
+iteration:530, recon_loss:0.200049489736557
+iteration:535, recon_loss:0.219399094581604
+iteration:540, recon_loss:0.2819977402687073
+iteration:545, recon_loss:0.4640827178955078
+iteration:550, recon_loss:0.3216466009616852
+iteration:555, recon_loss:0.29522866010665894
+iteration:560, recon_loss:0.28972727060317993
+iteration:565, recon_loss:0.23846471309661865
+iteration:570, recon_loss:0.22250452637672424
+iteration:575, recon_loss:0.22174769639968872
+iteration:580, recon_loss:0.34376704692840576
+iteration:585, recon_loss:0.2603982985019684
+iteration:590, recon_loss:0.2047298550605774
+iteration:595, recon_loss:0.17138540744781494
+iteration:600, recon_loss:0.19068840146064758
+iteration:605, recon_loss:0.21328482031822205
+iteration:610, recon_loss:0.16788820922374725
+iteration:615, recon_loss:0.1702783703804016
+iteration:620, recon_loss:0.1527804434299469
+iteration:625, recon_loss:0.1448782980442047
+iteration:630, recon_loss:0.13053223490715027
+iteration:635, recon_loss:0.12599346041679382
+iteration:640, recon_loss:0.1343739628791809
+iteration:645, recon_loss:0.13783931732177734
+iteration:650, recon_loss:0.13541275262832642
+iteration:655, recon_loss:0.1358751356601715
+iteration:660, recon_loss:0.1332123875617981
+iteration:665, recon_loss:0.1304536759853363
+iteration:670, recon_loss:0.13128423690795898
+iteration:675, recon_loss:0.12477365136146545
+iteration:680, recon_loss:0.12184099853038788
+iteration:685, recon_loss:0.12908592820167542
+iteration:690, recon_loss:0.1172393187880516
+iteration:695, recon_loss:0.11190805584192276
+iteration:700, recon_loss:0.1188759133219719
+iteration:705, recon_loss:0.11876494437456131
+iteration:710, recon_loss:0.11718184500932693
+iteration:715, recon_loss:0.11862151324748993
+iteration:720, recon_loss:0.12680892646312714
+iteration:725, recon_loss:0.12335965037345886
+iteration:730, recon_loss:0.1313505619764328
+iteration:735, recon_loss:0.12181001156568527
+iteration:740, recon_loss:0.1117188036441803
+iteration:745, recon_loss:0.11322704702615738
+iteration:750, recon_loss:0.111545130610466
+iteration:755, recon_loss:0.11263720691204071
+iteration:760, recon_loss:0.14184872806072235
+iteration:765, recon_loss:0.14863494038581848
+iteration:770, recon_loss:0.14933906495571136
+iteration:775, recon_loss:0.13159656524658203
+iteration:780, recon_loss:0.13000592589378357
+iteration:785, recon_loss:0.20484845340251923
+iteration:790, recon_loss:0.1974623203277588
+iteration:795, recon_loss:0.17029209434986115
+iteration:800, recon_loss:0.1813373863697052
+iteration:805, recon_loss:0.17498472332954407
+iteration:810, recon_loss:0.14313501119613647
+iteration:815, recon_loss:0.1218157410621643
+iteration:820, recon_loss:0.12508845329284668
+iteration:825, recon_loss:0.10759272426366806
+iteration:830, recon_loss:0.09696023166179657
+iteration:835, recon_loss:0.10620997101068497
+iteration:840, recon_loss:0.10379838943481445
+iteration:845, recon_loss:0.08968958258628845
+iteration:850, recon_loss:0.08665622770786285
+iteration:855, recon_loss:0.09322339296340942
+iteration:860, recon_loss:0.09430763125419617
+iteration:865, recon_loss:0.10030228644609451
+iteration:870, recon_loss:0.12071141600608826
+iteration:875, recon_loss:0.10668391734361649
+iteration:880, recon_loss:0.08892197906970978
+iteration:885, recon_loss:0.09509239345788956
+iteration:890, recon_loss:0.09354916214942932
+iteration:895, recon_loss:0.08374816179275513
+iteration:900, recon_loss:0.08207245916128159
+iteration:905, recon_loss:0.0829649418592453
+iteration:910, recon_loss:0.09010167419910431
+iteration:915, recon_loss:0.09411559253931046
+iteration:920, recon_loss:0.07517644762992859
+iteration:925, recon_loss:0.08976153284311295
+iteration:930, recon_loss:0.07269276678562164
+iteration:935, recon_loss:0.08316740393638611
+iteration:940, recon_loss:0.08833485096693039
+iteration:945, recon_loss:0.10626792907714844
+iteration:950, recon_loss:0.1009458601474762
+iteration:955, recon_loss:0.36785799264907837
+iteration:960, recon_loss:0.17123264074325562
+iteration:965, recon_loss:0.106165811419487
+iteration:970, recon_loss:0.1236979216337204
+iteration:975, recon_loss:0.11387263238430023
+iteration:980, recon_loss:0.10463152825832367
+iteration:985, recon_loss:0.1111016720533371
+iteration:990, recon_loss:0.129778653383255
+iteration:995, recon_loss:0.1895204484462738
+iteration:1000, recon_loss:0.1965876668691635
+iteration:1005, recon_loss:0.17262046039104462
+iteration:1010, recon_loss:0.14237937331199646
+iteration:1015, recon_loss:0.12221293151378632
+iteration:1020, recon_loss:0.11575073003768921
+iteration:1025, recon_loss:0.12656104564666748
+iteration:1030, recon_loss:0.09754996001720428
+iteration:1035, recon_loss:0.1455152928829193
+iteration:1040, recon_loss:0.10836850106716156
+iteration:1045, recon_loss:0.1066310778260231
+iteration:1050, recon_loss:0.09098785370588303
+iteration:1055, recon_loss:0.09557658433914185
+iteration:1060, recon_loss:0.09160342812538147
+iteration:1065, recon_loss:0.09018731117248535
+iteration:1070, recon_loss:0.08170250803232193
+iteration:1075, recon_loss:0.08037974685430527
+iteration:1080, recon_loss:0.08198746293783188
+iteration:1085, recon_loss:0.08109159022569656
+iteration:1090, recon_loss:0.08499208837747574
+iteration:1095, recon_loss:0.09376699477434158
+iteration:1100, recon_loss:0.06861075758934021
+iteration:1105, recon_loss:0.06792723387479782
+iteration:1110, recon_loss:0.06376324594020844
+iteration:1115, recon_loss:0.07696375250816345
+iteration:1120, recon_loss:0.07618503272533417
+iteration:1125, recon_loss:0.0652727410197258
+iteration:1130, recon_loss:0.062302831560373306
+iteration:1135, recon_loss:0.05465772747993469
+iteration:1140, recon_loss:0.06546318531036377
+iteration:1145, recon_loss:0.06482923775911331
+iteration:1150, recon_loss:0.0584738627076149
+iteration:1155, recon_loss:0.06340797990560532
+iteration:1160, recon_loss:0.0639420747756958
+iteration:1165, recon_loss:0.0639290064573288
+iteration:1170, recon_loss:0.0650060772895813
+iteration:1175, recon_loss:0.06869645416736603
+iteration:1180, recon_loss:0.06537066400051117
+iteration:1185, recon_loss:0.07574260979890823
+iteration:1190, recon_loss:0.08797258138656616
+iteration:1195, recon_loss:0.6033112406730652
+iteration:1200, recon_loss:0.23489905893802643
+iteration:1205, recon_loss:0.3444747030735016
+iteration:1210, recon_loss:0.38471096754074097
+iteration:1215, recon_loss:0.2502661347389221
+iteration:1220, recon_loss:0.2638949453830719
+iteration:1225, recon_loss:0.18690703809261322
+iteration:1230, recon_loss:0.13306240737438202
+iteration:1235, recon_loss:0.14746013283729553
+iteration:1240, recon_loss:0.12071771919727325
+iteration:1245, recon_loss:0.11843270063400269
+iteration:1250, recon_loss:0.14052030444145203
+iteration:1255, recon_loss:0.11915809661149979
+iteration:1260, recon_loss:0.20205211639404297
+iteration:1265, recon_loss:0.1360875368118286
+iteration:1270, recon_loss:0.23085911571979523
+iteration:1275, recon_loss:0.1815228909254074
+iteration:1280, recon_loss:0.13305208086967468
+iteration:1285, recon_loss:0.1301783174276352
+iteration:1290, recon_loss:0.11765751242637634
+iteration:1295, recon_loss:0.12960673868656158
+iteration:1300, recon_loss:0.10321507602930069
+iteration:1305, recon_loss:0.07477743178606033
+iteration:1310, recon_loss:0.07303586602210999
+iteration:1315, recon_loss:0.06830738484859467
+iteration:1320, recon_loss:0.05862672999501228
+iteration:1325, recon_loss:0.053498439490795135
+iteration:1330, recon_loss:0.05102107673883438
+iteration:1335, recon_loss:0.05582307279109955
+converges, saving the model.....
+average testing error is: 1.2923206090927124
+evaluating sample 1 
+evaluating sample 2 
+evaluating sample 3 
+evaluating sample 4 
+evaluating sample 5 
+evaluating sample 6 
+evaluating sample 7 
+evaluating sample 8 
+evaluating sample 9 
+evaluating sample 10 
+evaluating sample 11 
+evaluating sample 12 
+evaluating sample 13 
+evaluating sample 14 
+evaluating sample 15 
+evaluating sample 16 
+evaluating sample 17 
+evaluating sample 18 
+evaluating sample 19 
+evaluating sample 20 
+evaluating sample 21 
+evaluating sample 22 
+evaluating sample 23 
+evaluating sample 24 
+evaluating sample 25 
+evaluating sample 26 
+evaluating sample 27 
+evaluating sample 28 
+evaluating sample 29 
+evaluating sample 30 
+evaluating sample 31 
+evaluating sample 32 
+evaluating sample 33 
+evaluating sample 34 
+evaluating sample 35 
+evaluating sample 36 
+evaluating sample 37 
+evaluating sample 38 
+evaluating sample 39 
+evaluating sample 40 
+evaluating sample 41 
+evaluating sample 42 
+evaluating sample 43 
+evaluating sample 44 
+evaluating sample 45 
+evaluating sample 46 
+evaluating sample 47 
+evaluating sample 48 
+evaluating sample 49 
+evaluating sample 50 
+evaluating sample 51 
+evaluating sample 52 
+evaluating sample 53 
+evaluating sample 54 
+evaluating sample 55 
+evaluating sample 56 
+evaluating sample 57 
+evaluating sample 58 
+evaluating sample 59 
+evaluating sample 60 
+evaluating sample 61 
+evaluating sample 62 
+evaluating sample 63 
+evaluating sample 64 
+evaluating sample 65 
+evaluating sample 66 
+evaluating sample 67 
+evaluating sample 68 
+evaluating sample 69 
+evaluating sample 70 
+evaluating sample 71 
+evaluating sample 72 
+evaluating sample 73 
+evaluating sample 74 
+evaluating sample 75 
+evaluating sample 76 
+evaluating sample 77 
+evaluating sample 78 
+evaluating sample 79 
+evaluating sample 80 
+evaluating sample 81 
+evaluating sample 82 
+evaluating sample 83 
+evaluating sample 84 
+evaluating sample 85 
+evaluating sample 86 
+evaluating sample 87 
+evaluating sample 88 
+evaluating sample 89 
+evaluating sample 90 
+evaluating sample 91 
+evaluating sample 92 
+evaluating sample 93 
+evaluating sample 94 
+evaluating sample 95 
+evaluating sample 96 
+evaluating sample 97 
+evaluating sample 98 
+evaluating sample 99 
+evaluating sample 100 
+requirement doesn't match, current final_error=1.2923206090927124, keep sampling
+iteration:0, recon_loss:0.048022083938121796
+converges, saving the model.....
+average testing error is: 1.2923064231872559
+evaluating sample 1 
+evaluating sample 2 
+evaluating sample 3 
+evaluating sample 4 
+evaluating sample 5 
+evaluating sample 6 
+evaluating sample 7 
+evaluating sample 8 
+evaluating sample 9 
+evaluating sample 10 
+evaluating sample 11 
+evaluating sample 12 
+evaluating sample 13 
+evaluating sample 14 
+evaluating sample 15 
+evaluating sample 16 
+evaluating sample 17 
+evaluating sample 18 
+evaluating sample 19 
+evaluating sample 20 
+evaluating sample 21 
+evaluating sample 22 
+evaluating sample 23 
+evaluating sample 24 
+evaluating sample 25 
+evaluating sample 26 
+evaluating sample 27 
+evaluating sample 28 
+evaluating sample 29 
+evaluating sample 30 
+evaluating sample 31 
+evaluating sample 32 
+evaluating sample 33 
+evaluating sample 34 
+evaluating sample 35 
+evaluating sample 36 
+evaluating sample 37 
+evaluating sample 38 
+evaluating sample 39 
+evaluating sample 40 
+evaluating sample 41 
+evaluating sample 42 
+evaluating sample 43 
+evaluating sample 44 
+evaluating sample 45 
+evaluating sample 46 
+evaluating sample 47 
+evaluating sample 48 
+evaluating sample 49 
+evaluating sample 50 
+evaluating sample 51 
+evaluating sample 52 
+evaluating sample 53 
+evaluating sample 54 
+evaluating sample 55 
+evaluating sample 56 
+evaluating sample 57 
+evaluating sample 58 
+evaluating sample 59 
+evaluating sample 60 
+evaluating sample 61 
+evaluating sample 62 
+evaluating sample 63 
+evaluating sample 64 
+evaluating sample 65 
+evaluating sample 66 
+evaluating sample 67 
+evaluating sample 68 
+evaluating sample 69 
+evaluating sample 70 
+evaluating sample 71 
+evaluating sample 72 
+evaluating sample 73 
+evaluating sample 74 
+evaluating sample 75 
+evaluating sample 76 
+evaluating sample 77 
+evaluating sample 78 
+evaluating sample 79 
+evaluating sample 80 
+evaluating sample 81 
+evaluating sample 82 
+evaluating sample 83 
+evaluating sample 84 
+evaluating sample 85 
+evaluating sample 86 
+evaluating sample 87 
+evaluating sample 88 
+evaluating sample 89 
+evaluating sample 90 
+evaluating sample 91 
+evaluating sample 92 
+evaluating sample 93 
+evaluating sample 94 
+evaluating sample 95 
+evaluating sample 96 
+evaluating sample 97 
+evaluating sample 98 
+evaluating sample 99 
+evaluating sample 100 
+requirement doesn't match, current final_error=1.2923064231872559, keep sampling
+iteration:0, recon_loss:0.04637708514928818
+converges, saving the model.....
+average testing error is: 1.2911779880523682
+evaluating sample 1 
+evaluating sample 2 
+evaluating sample 3 
+evaluating sample 4 
+evaluating sample 5 
+evaluating sample 6 
+evaluating sample 7 
+evaluating sample 8 
+evaluating sample 9 
+evaluating sample 10 
+evaluating sample 11 
+evaluating sample 12 
+evaluating sample 13 
+evaluating sample 14 
+evaluating sample 15 
+evaluating sample 16 
+evaluating sample 17 
+evaluating sample 18 
+evaluating sample 19 
+evaluating sample 20 
+evaluating sample 21 
+evaluating sample 22 
+evaluating sample 23 
+evaluating sample 24 
+evaluating sample 25 
+evaluating sample 26 
+evaluating sample 27 
+evaluating sample 28 
+evaluating sample 29 
+evaluating sample 30 
+evaluating sample 31 
+evaluating sample 32 
+evaluating sample 33 
+evaluating sample 34 
+evaluating sample 35 
+evaluating sample 36 
+evaluating sample 37 
+evaluating sample 38 
+evaluating sample 39 
+evaluating sample 40 
+evaluating sample 41 
+evaluating sample 42 
+evaluating sample 43 
+evaluating sample 44 
+evaluating sample 45 
+evaluating sample 46 
+evaluating sample 47 
+evaluating sample 48 
+evaluating sample 49 
+evaluating sample 50 
+evaluating sample 51 
+evaluating sample 52 
+evaluating sample 53 
+evaluating sample 54 
+evaluating sample 55 
+evaluating sample 56 
+evaluating sample 57 
+evaluating sample 58 
+evaluating sample 59 
+evaluating sample 60 
+evaluating sample 61 
+evaluating sample 62 
+evaluating sample 63 
+evaluating sample 64 
+evaluating sample 65 
+evaluating sample 66 
+evaluating sample 67 
+evaluating sample 68 
+evaluating sample 69 
+evaluating sample 70 
+evaluating sample 71 
+evaluating sample 72 
+evaluating sample 73 
+evaluating sample 74 
+evaluating sample 75 
+evaluating sample 76 
+evaluating sample 77 
+evaluating sample 78 
+evaluating sample 79 
+evaluating sample 80 
+evaluating sample 81 
+evaluating sample 82 
+evaluating sample 83 
+evaluating sample 84 
+evaluating sample 85 
+evaluating sample 86 
+evaluating sample 87 
+evaluating sample 88 
+evaluating sample 89 
+evaluating sample 90 
+evaluating sample 91 
+evaluating sample 92 
+evaluating sample 93 
+evaluating sample 94 
+evaluating sample 95 
+evaluating sample 96 
+evaluating sample 97 
+evaluating sample 98 
+evaluating sample 99 
+evaluating sample 100 
+requirement doesn't match, current final_error=1.2911779880523682, keep sampling
+iteration:0, recon_loss:24.970394134521484
+iteration:5, recon_loss:25.14087677001953
+iteration:10, recon_loss:14.556519508361816
+iteration:15, recon_loss:11.900546073913574
+iteration:20, recon_loss:8.450428009033203
+iteration:25, recon_loss:6.066523551940918
+iteration:30, recon_loss:3.3159127235412598
+iteration:35, recon_loss:2.817683458328247
+iteration:40, recon_loss:3.6334354877471924
+iteration:45, recon_loss:3.6724796295166016
+iteration:50, recon_loss:4.05171537399292
+iteration:55, recon_loss:2.787774085998535
+iteration:60, recon_loss:2.3791661262512207
+iteration:65, recon_loss:2.2451131343841553
+iteration:70, recon_loss:2.154637575149536
+iteration:75, recon_loss:2.4760513305664062
+iteration:80, recon_loss:1.89778470993042
+iteration:85, recon_loss:1.8813788890838623
+iteration:90, recon_loss:1.356629490852356
+iteration:95, recon_loss:1.4107885360717773
+iteration:100, recon_loss:1.1612602472305298
+iteration:105, recon_loss:1.12465238571167
+iteration:110, recon_loss:1.384228229522705
+iteration:115, recon_loss:1.0415608882904053
+iteration:120, recon_loss:1.0275667905807495
+iteration:125, recon_loss:0.9216415882110596
+iteration:130, recon_loss:0.9616958498954773
+iteration:135, recon_loss:0.9372138381004333
+iteration:140, recon_loss:0.8487286567687988
+iteration:145, recon_loss:0.8618831634521484
+iteration:150, recon_loss:0.8095144033432007
+iteration:155, recon_loss:1.911539077758789
+iteration:160, recon_loss:1.2162950038909912
+iteration:165, recon_loss:1.0664169788360596
+iteration:170, recon_loss:1.2331650257110596
+iteration:175, recon_loss:3.511225938796997
+iteration:180, recon_loss:1.9682681560516357
+iteration:185, recon_loss:2.0182933807373047
+iteration:190, recon_loss:1.2839086055755615
+iteration:195, recon_loss:0.7664937376976013
+iteration:200, recon_loss:0.8668683767318726
+iteration:205, recon_loss:1.1590964794158936
+iteration:210, recon_loss:0.78597092628479
+iteration:215, recon_loss:0.5492075681686401
+iteration:220, recon_loss:0.8331277370452881
+iteration:225, recon_loss:0.5811437368392944
+iteration:230, recon_loss:0.5596306920051575
+iteration:235, recon_loss:0.42393866181373596
+iteration:240, recon_loss:0.5953760743141174
+iteration:245, recon_loss:0.48582491278648376
+iteration:250, recon_loss:0.5731623768806458
+iteration:255, recon_loss:0.4658975601196289
+iteration:260, recon_loss:0.5801964998245239
+iteration:265, recon_loss:0.5693715810775757
+iteration:270, recon_loss:0.44547218084335327
+iteration:275, recon_loss:0.5606162548065186
+iteration:280, recon_loss:0.5024763345718384
+iteration:285, recon_loss:0.5231325030326843
+iteration:290, recon_loss:0.3710341453552246
+iteration:295, recon_loss:0.3801710307598114
+iteration:300, recon_loss:0.31156548857688904
+iteration:305, recon_loss:0.3105844557285309
+iteration:310, recon_loss:0.39143937826156616
+iteration:315, recon_loss:0.40457239747047424
+iteration:320, recon_loss:0.34028369188308716
+iteration:325, recon_loss:0.3828490972518921
+iteration:330, recon_loss:0.3377871513366699
+iteration:335, recon_loss:0.29599815607070923
+iteration:340, recon_loss:0.3878101408481598
+iteration:345, recon_loss:0.4021666646003723
+iteration:350, recon_loss:0.2818361520767212
+iteration:355, recon_loss:0.37540724873542786
+iteration:360, recon_loss:0.2838517725467682
+iteration:365, recon_loss:0.3039020299911499
+iteration:370, recon_loss:0.3100837469100952
+iteration:375, recon_loss:0.2947295308113098
+iteration:380, recon_loss:0.21928147971630096
+iteration:385, recon_loss:0.2858063876628876
+iteration:390, recon_loss:0.3377562165260315
+iteration:395, recon_loss:0.27974987030029297
+iteration:400, recon_loss:0.2442115843296051
+iteration:405, recon_loss:0.2819417715072632
+iteration:410, recon_loss:0.24716204404830933
+iteration:415, recon_loss:0.26971399784088135
+iteration:420, recon_loss:0.21829381585121155
+iteration:425, recon_loss:0.31697481870651245
+iteration:430, recon_loss:0.19182932376861572
+iteration:435, recon_loss:0.23430182039737701
+iteration:440, recon_loss:0.21961355209350586
+iteration:445, recon_loss:0.25462451577186584
+iteration:450, recon_loss:0.2347605675458908
+iteration:455, recon_loss:0.24463070929050446
+iteration:460, recon_loss:0.22645992040634155
+iteration:465, recon_loss:0.23671399056911469
+iteration:470, recon_loss:0.2176722288131714
+iteration:475, recon_loss:0.19113799929618835
+iteration:480, recon_loss:0.31783097982406616
+iteration:485, recon_loss:0.2557753026485443
+iteration:490, recon_loss:0.23648616671562195
+iteration:495, recon_loss:0.1984969675540924
+iteration:500, recon_loss:0.2286270707845688
+iteration:505, recon_loss:0.20458772778511047
+iteration:510, recon_loss:0.1804531216621399
+iteration:515, recon_loss:0.19792112708091736
+iteration:520, recon_loss:0.19513580203056335
+iteration:525, recon_loss:0.16235587000846863
+iteration:530, recon_loss:0.19013401865959167
+iteration:535, recon_loss:0.2609420418739319
+iteration:540, recon_loss:0.16261659562587738
+iteration:545, recon_loss:0.22175993025302887
+iteration:550, recon_loss:0.2263413816690445
+iteration:555, recon_loss:0.19928422570228577
+iteration:560, recon_loss:0.17127320170402527
+iteration:565, recon_loss:0.18150125443935394
+iteration:570, recon_loss:0.14242729544639587
+iteration:575, recon_loss:0.17883136868476868
+iteration:580, recon_loss:0.18360689282417297
+iteration:585, recon_loss:0.1878056824207306
+iteration:590, recon_loss:0.1960277408361435
+iteration:595, recon_loss:0.15574833750724792
+iteration:600, recon_loss:0.20936577022075653
+iteration:605, recon_loss:0.16489766538143158
+iteration:610, recon_loss:0.16950723528862
+iteration:615, recon_loss:0.17156431078910828
+iteration:620, recon_loss:0.19885525107383728
+iteration:625, recon_loss:0.16908523440361023
+iteration:630, recon_loss:0.17121057212352753
+iteration:635, recon_loss:0.1932520866394043
+iteration:640, recon_loss:0.16693751513957977
+iteration:645, recon_loss:0.1413014680147171
+iteration:650, recon_loss:0.19102147221565247
+iteration:655, recon_loss:0.1758784055709839
+iteration:660, recon_loss:0.14379441738128662
+iteration:665, recon_loss:0.12800873816013336
+iteration:670, recon_loss:0.14456798136234283
+iteration:675, recon_loss:0.13769873976707458
+iteration:680, recon_loss:0.15410394966602325
+iteration:685, recon_loss:0.12006738781929016
+iteration:690, recon_loss:0.132740780711174
+iteration:695, recon_loss:0.10932613909244537
+iteration:700, recon_loss:0.1501489281654358
+iteration:705, recon_loss:0.14344847202301025
+iteration:710, recon_loss:0.13071435689926147
+iteration:715, recon_loss:0.1314898580312729
+iteration:720, recon_loss:0.16856366395950317
+iteration:725, recon_loss:0.1342446357011795
+iteration:730, recon_loss:0.15093255043029785
+iteration:735, recon_loss:0.11282700300216675
+iteration:740, recon_loss:0.14671102166175842
+iteration:745, recon_loss:0.10732898116111755
+iteration:750, recon_loss:0.1627531796693802
+iteration:755, recon_loss:0.12940239906311035
+iteration:760, recon_loss:0.12530624866485596
+iteration:765, recon_loss:0.13755366206169128
+iteration:770, recon_loss:0.1515311598777771
+iteration:775, recon_loss:0.1271667629480362
+iteration:780, recon_loss:0.15725915133953094
+iteration:785, recon_loss:0.13013143837451935
+iteration:790, recon_loss:0.15209536254405975
+iteration:795, recon_loss:0.15954893827438354
+iteration:800, recon_loss:0.14270509779453278
+iteration:805, recon_loss:0.1426887810230255
+iteration:810, recon_loss:0.12724223732948303
+iteration:815, recon_loss:0.14448079466819763
+iteration:820, recon_loss:0.13608011603355408
+iteration:825, recon_loss:0.09349941462278366
+iteration:830, recon_loss:0.12380813807249069
+iteration:835, recon_loss:0.09662055969238281
+iteration:840, recon_loss:0.13638249039649963
+iteration:845, recon_loss:0.13086847960948944
+iteration:850, recon_loss:0.1029239296913147
+iteration:855, recon_loss:0.11497429013252258
+iteration:860, recon_loss:0.1112014651298523
+iteration:865, recon_loss:0.09129687398672104
+iteration:870, recon_loss:0.08354738354682922
+iteration:875, recon_loss:0.11632215976715088
+iteration:880, recon_loss:0.12081900984048843
+iteration:885, recon_loss:0.11197498440742493
+iteration:890, recon_loss:0.12351131439208984
+iteration:895, recon_loss:0.08320046216249466
+iteration:900, recon_loss:0.16653862595558167
+iteration:905, recon_loss:0.12076444923877716
+iteration:910, recon_loss:0.11833636462688446
+iteration:915, recon_loss:0.08136023581027985
+iteration:920, recon_loss:0.10388525575399399
+iteration:925, recon_loss:0.11633656919002533
+iteration:930, recon_loss:0.1539071649312973
+iteration:935, recon_loss:0.1278063952922821
+iteration:940, recon_loss:0.12636759877204895
+iteration:945, recon_loss:0.11353608220815659
+iteration:950, recon_loss:0.10144879668951035
+iteration:955, recon_loss:0.1424439251422882
+iteration:960, recon_loss:0.13408257067203522
+iteration:965, recon_loss:0.09971131384372711
+iteration:970, recon_loss:0.14932414889335632
+iteration:975, recon_loss:0.13161011040210724
+iteration:980, recon_loss:0.12910592555999756
+iteration:985, recon_loss:0.2988477945327759
+iteration:990, recon_loss:0.15111127495765686
+iteration:995, recon_loss:0.1352907419204712
+iteration:1000, recon_loss:0.28068506717681885
+iteration:1005, recon_loss:0.2013707309961319
+iteration:1010, recon_loss:0.2719975709915161
+iteration:1015, recon_loss:0.1584010124206543
+iteration:1020, recon_loss:0.38679635524749756
+iteration:1025, recon_loss:0.21414944529533386
+iteration:1030, recon_loss:0.34336140751838684
+iteration:1035, recon_loss:0.23686277866363525
+iteration:1040, recon_loss:0.7552682757377625
+iteration:1045, recon_loss:0.6780287027359009
+iteration:1050, recon_loss:0.671189546585083
+iteration:1055, recon_loss:0.4835839867591858
+iteration:1060, recon_loss:0.32482650876045227
+iteration:1065, recon_loss:0.31904831528663635
+iteration:1070, recon_loss:0.21412056684494019
+iteration:1075, recon_loss:0.2573167085647583
+iteration:1080, recon_loss:0.2307291477918625
+iteration:1085, recon_loss:0.12225787341594696
+iteration:1090, recon_loss:0.10406726598739624
+iteration:1095, recon_loss:0.22726500034332275
+iteration:1100, recon_loss:0.19224971532821655
+iteration:1105, recon_loss:0.20959240198135376
+iteration:1110, recon_loss:0.15614058077335358
+iteration:1115, recon_loss:0.10879497230052948
+iteration:1120, recon_loss:0.09806828945875168
+iteration:1125, recon_loss:0.14481130242347717
+iteration:1130, recon_loss:0.09920734912157059
+iteration:1135, recon_loss:0.10195024311542511
+iteration:1140, recon_loss:0.14008882641792297
+iteration:1145, recon_loss:0.1093648374080658
+iteration:1150, recon_loss:0.08805392682552338
+iteration:1155, recon_loss:0.1154387891292572
+iteration:1160, recon_loss:0.13029401004314423
+iteration:1165, recon_loss:0.12498925626277924
+iteration:1170, recon_loss:0.10384473949670792
+iteration:1175, recon_loss:0.1570982038974762
+iteration:1180, recon_loss:0.1510956734418869
+iteration:1185, recon_loss:0.1045253723859787
+iteration:1190, recon_loss:0.1203344464302063
+iteration:1195, recon_loss:0.11880127340555191
+iteration:1200, recon_loss:0.11379506438970566
+iteration:1205, recon_loss:0.08942853659391403
+iteration:1210, recon_loss:0.1271447241306305
+iteration:1215, recon_loss:0.0599701963365078
+iteration:1220, recon_loss:0.07160311937332153
+iteration:1225, recon_loss:0.09163062274456024
+iteration:1230, recon_loss:0.08191706240177155
+iteration:1235, recon_loss:0.1105358898639679
+iteration:1240, recon_loss:0.09815439581871033
+iteration:1245, recon_loss:0.08938445150852203
+converges, saving the model.....
+average testing error is: 0.9439845085144043
+exit 0

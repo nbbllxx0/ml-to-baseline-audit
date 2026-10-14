@@ -1,0 +1,29 @@
+{
+ "meta": {
+  "mode": "homog",
+  "pinning": {
+   "pinned": true,
+   "affinity_mask": "0xfff",
+   "priority": "HIGH_PRIORITY_CLASS"
+  },
+  "started_utc": "2026-09-25T15:37:30Z",
+  "finished_utc": "2026-09-25T15:37:35Z"
+ },
+ "micro_mesh": [
+  40,
+  40
+ ],
+ "unit": {
+  "median_s": 0.03687217999831773,
+  "min_s": 0.036525375000201164,
+  "max_s": 0.03704273499897681,
+  "repeats_s": [
+   0.03687217999831773,
+   0.036525375000201164,
+   0.03704273499897681
+  ]
+ },
+ "projection_concurrent_min": 147.48871999327093,
+ "article_unit_s": 0.132,
+ "article_projection_min": 528
+}

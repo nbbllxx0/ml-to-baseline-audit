@@ -1,0 +1,14 @@
+{
+  "pid": "P00170",
+  "citation": {"title": "Machine Learning based parameter tuning strategy for MMC based topology optimization", "authors": "Xinchao Jiang, Hu Wang, Yu Li, Kangjia Mo", "year": 2020, "doi": "10.1016/j.advengsoft.2020.102841", "arxiv_id": "1910.07227", "version_coded": "arXiv preprint"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-NOBASELINE", "stratum": "none", "method_family": "other", "physics": "compliance", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "not stated", "direction": "outperform", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion."}, "R2": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion."}, "R3": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion."}, "R4": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion."}},
+  "reporting": {"n_test_cases": "not coded (full-text exclusion)", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Sections 4.2 and 5 evaluate classifier accuracy and show outcomes of the proposed ET plus PSO tuning on two beams. Manual tuning is discussed as motivation, but no classical tuning run, timing, or comparative result is reported. Fig. 2 only illustrates feasible versus infeasible MMC results, not a stated result from a comparator run. Code link appears after conclusion."
+}

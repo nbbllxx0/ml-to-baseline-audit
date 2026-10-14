@@ -1,0 +1,88 @@
+{
+  "pid": "P00235",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Physics-Informed Transformer for Real-Time High-Fidelity Topology Optimization",
+    "authors": "Aaron Lutheran, Srijan Das, Alireza Tabarraei",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.CE; the manuscript header names Structural and Multidisciplinary Optimization). Version of record: Structural and Multidisciplinary Optimization 69(5):133, published online 16 May 2026, doi 10.1007/s00158-026-04342-6 (Crossref). Not open access per the Springer article-page metadata checked 2026-09-24; not accessed",
+    "doi": "10.48550/arXiv.2604.03522",
+    "arxiv_id": "2604.03522",
+    "version_coded": "arXiv v1 (4 Apr 2026; only version), full HTML text read from https://arxiv.org/html/2604.03522. Earlier version of the same study: arXiv 2509.05800 (pool P00034, coded FT-DUPLICATE); its v2 Sec. 5 was checked on 2026-09-24 for the timing statements cited in the notes"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; primary record of the study; the earlier version P00034 = arXiv 2509.05800 is the duplicate)",
+    "stratum": "speed",
+    "method_family": "transformer",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Once trained, the transformer generates a dynamic-load design in about 1.26 s (0.36 s preloaded) versus about 8900 s for classical SIMP-based dynamic TO (more than 1000×), with 4.81% mean compliance error and 48.0% floating material.",
+    "key_phrase": "reducing inference time by multiple orders of magnitude compared to classical methods",
+    "location": "Conclusion (Sec. 6, para. 2), quantified only in Sec. 5.5 (paragraph after Table 7) for the dynamic case, with accuracy in Table 7. The abstract is qualitative. If the verifier reads the conclusion as qualitative, §5.1 rule 4 selects the same Sec. 5.5 comparison over the Sec. 5.1 static compliance-error tables, because the abstract and conclusion stress real-time generation and cost reduction",
+    "quantitative": true,
+    "claimed_speedup": 7063,
+    "claimed_speedup_basis": "Stated in Sec. 5.5 as more than three orders of magnitude. Derived: 8900 s ÷ 1.26 s (full pipeline: model loading, initial FEA, forward pass) = 7,063; with the model preloaded 8900 ÷ 0.36 = 24,722. The classical time is an approximate figure; neither side's hardware is stated. No static-case timing appears in this version.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.1, Tables 3-4 (first main-text quantitative classical comparison, quality only): static compliance error vs SIMP ground truth; best ViT-Small with patch size 4: CE 1.86%, 2.20% of samples above 30% CE, median 0.32%, VFE 1.27%, FM 6.60%; after floating-material post-processing CE 1.75%, FM 0.80% (Table 6). (2) Sec. 5.5 with the model preloaded: 24,722× [derived]. (3) Abstract, ML vs ML: higher fidelity than diffusion models (ViT-Small-4 1.86% vs TopoDiff 4.39%, the latter taken from the TopoDiff paper). (4) Abstract, qualitative: real-time, single-pass design with large savings in computational cost."
+  },
+  "baseline": {
+    "classical_method": "SIMP-based dynamic topology optimization with time-domain dynamic compliance and MMA (Sec. 2.2), the generator of the dynamic dataset (Sec. 4.4); static data from SIMP (Sec. 4.1). Time integrator, time-step count, damping values, filter, penalty and stopping rule are not stated",
+    "implementation": "not stated (the 88-line MATLAB paper is listed in the references but not cited in the text [inferred from the missing backlink in the HTML reference list])",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "64×64 elements (Sec. 4.1) [≈8.5×10³ DOFs, derived]; the dynamic grid is not stated separately [64×64 inferred from the model input]",
+    "classical_iterations": "not stated",
+    "classical_time": "about 8900 s per dynamic optimization, given as an approximate figure (Sec. 5.5); no static SIMP time in this version",
+    "ml_time": "about 1.26 s for the full pipeline (model loading, initial FEA, forward pass) or 0.36 s with the model preloaded (Sec. 5.5); hardware not stated",
+    "training_time": "not stated; 800,000 training iterations per model at batch size 256 (Sec. 5), then fine-tuned for the dynamic case (Sec. 5.5); 5 ViT sizes, 4 extra patch-size variants and 3 transfer strategies were trained (Tables 3, 4, 7)",
+    "data_generation_cost": "not stated; 30,000 static SIMP samples (expanded 8× by rotation and mirroring) and about 6,000 dynamic samples, the latter described as much more expensive (Sec. 4.1, 4.4) [inferred ≈14,800 h for the dynamic set at about 8900 s each: 6,000 × 8,900 s = 5.34×10^7 s]",
+    "quality_metric": "Absolute relative compliance error vs the SIMP ground truth (Eq. 29), averaged with samples above 100% excluded; share of samples above 30% CE; median CE with those samples excluded; volume-fraction error; load discrepancy; floating-material share; all on a fixed 500-sample validation subset (Sec. 5). The compliance evaluator and any thresholding are not described",
+    "quality_gap": "Dynamic, best model (decoder-layer fine-tuning): CE 4.81%, 16.6% of samples above 30% CE, median 0.22%, VFE 4.38%, load discrepancy 9.20%, floating material 48.0% (Table 7). Static ViT-Small-4: CE 1.86%, 2.20% above 30%, FM 6.60% (Table 4)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Sec. 5.5 and Table 7: about 1.26 s of inference is set against complete SIMP-based dynamic optimizations (about 8900 s), while the dynamic outputs are measurably worse: mean CE 4.81% (samples above 100% excluded, count not given), 16.6% of samples above 30% CE, VFE 4.38%, load discrepancy 9.20%, floating material 48.0%. No matching at equal quality or equal time is attempted, and the classical stopping rule and settings are not stated. Alternative: partial if the 4.81% is read as the method's reported error."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unjustified; R2-inefficient-impl [inferred]",
+      "evidence": "Secs. 2.2, 4.4, 5.5: implementation, solver, time integration, time-step and iteration counts, stopping rule and hardware are stated for neither the classical dynamic TO nor the transformer, and the classical time is approximate. (b) is not observed (no baseline figure in the abstract); (c) does not apply (64×64, ≈8.5×10³ DOFs [derived]); (d) and (e) are not derivable. The earlier version of this study (P00034, arXiv 2509.05800 v2 Sec. 5) timed its static SIMP at 66 s per 64×64 run; the project's provisional 150-iteration 64² CPU runs took 0.73-13.4 s (figures/data/baseline_timings.csv; cross-hardware), so the authors' classical code looks slow [inferred]. That static figure is absent from this version. Alternative: pass (R2-none-established) if only this version's text is weighed (unsure → pass)."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Sec. 5 and 5.5: neither training cost (800,000 iterations per model, plus fine-tuning) nor data-generation cost (30,000 static and about 6,000 dynamic SIMP runs, Sec. 4.1, 4.4) is reported, and no break-even is given. The dynamic data alone imply about 5.34×10^7 s of classical optimization at the stated 8900 s per run [derived]."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified [FE inferred]",
+      "evidence": "Sec. 5: compliance error is computed for the predicted topologies against the ground truth on a fixed 500-sample validation subset, which requires an FE analysis of each prediction [inferred; the evaluator is not described]. Volume error, load discrepancy and floating-material share are reported, and failures are counted as the share above 30% CE (Tables 3, 4, 7). Caveat: the mean CE excludes samples above 100% without giving their number; a verifier who weighs this may choose partial (R4-filtered-outliers)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Fixed 500-sample validation subset used for all models (Sec. 5), static and dynamic; plus a volume-fraction sweep on one validation sample (Fig. 9) and one internal-load example (Fig. 10)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "selective",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Coded as the primary record of the study; P00034 (arXiv 2509.05800 v2) is its earlier version, excluded as FT-DUPLICATE. The Springer version of record is closed access (article-page metadata), so this arXiv v1 is the most complete accessible text. Differences checked in 2509.05800 v2 on 2026-09-24: that version reported 60,000 static samples (30,000 here) and a static timing of 66 s per SIMP run vs about 2 s per sample (33×), and gave the dynamic SIMP time as an 8900 s average vs about 2 s sampling (4,450×). This version drops the static timing, gives the dynamic time as an approximate figure, and reports 1.26 s or 0.36 s for inference. Every value of the dynamic results table here (Table 7) also appears in the earlier text, which suggests the dynamic results were carried over unchanged [inferred]. The abstract's ML-vs-ML claim (higher fidelity than diffusion models) relies on TopoDiff reference values copied from the TopoDiff paper; this article labels the 0.83 value as the share above 30% CE, while P00208 labels the same value as median CE [which is right is unverified]. Other observations: static models with patch size 8 have 14.2-44.0% floating material (Table 3); the volume-fraction sweep shows systematic errors outside the 0.3-0.5 training range (Sec. 5.4). Reporting locators: OOD = Sec. 5.4 (volume-fraction extrapolation, internal load; single examples); failure rate = CE above 30% and floating-material columns; timing = Sec. 5.5 only (no hardware, warm-up or repeats; classical time approximate); code, model parameters and data on request (Declarations). retest_candidate false: code only on request."
+}

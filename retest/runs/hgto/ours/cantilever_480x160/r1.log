@@ -1,0 +1,13 @@
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+{
+  "case": "cantilever_480x160",
+  "C_raw": 171.58414907971564,
+  "volume": 0.5000000000440185,
+  "termination": "converged",
+  "state_evaluations": 291,
+  "wall_s": 19.15582850005012,
+  "setup_s": 0.5329390000551939,
+  "pcg_iterations_total": 8360,
+  "pcg_fallbacks": 0
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00371",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Aligning Optimization Trajectories with Diffusion Models for Constrained Design Generation",
+    "authors": "Giorgio Giannone, Akash Srivastava, Ole Winther, Faez Ahmed",
+    "year": 2023,
+    "venue": "NeurIPS 2023 (Advances in Neural Information Processing Systems 36, main conference track); proceedings DOI 10.52202/075280-2258 per the proceedings page. Preprint: arXiv 2305.18470 v1 (29 May 2023)",
+    "doi": "10.52202/075280-2258",
+    "arxiv_id": "2305.18470",
+    "version_coded": "Version of record, open access: NeurIPS 2023 proceedings PDF (32 pages incl. appendices A-G; PDF dated 20 Dec 2023) from proceedings.neurips.cc (paper hash a2fe4bb50fc6f3564cee1551d6309fea); Tables 3, 5 and 8 checked on the rendered pages 9, 10 and 18. Key numbers cross-checked against arXiv v1 HTML: identical (the inference-time table is Table 7 in v1 and Table 8 in the version of record)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On the in-distribution 64×64 test set, DOM with trajectory alignment (100 sampling steps) yields designs with 4.44% mean (0.74% median) compliance error versus the SIMP-optimized designs, 1.52% volume-fraction error and 6.72% floating material.",
+    "key_phrase": "as measured by compliance error (CE) wrt the optimized SIMP solution",
+    "location": "Sec. 4 (Evaluation; In-Distribution Constraints), Table 3, p. 9 (first quantitative comparison with a classical method; the abstract, conclusion and introduction compare quantitatively only with deep generative models)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Primary outcome is quality only. Derivable for the alternative in App. B.2, Table 8 (100 steps or iterations each): SIMP 18.12 s vs DOM 2.35 s at 64×64 [derived 7.7×] and 316.02 s vs 8.09 s at 256×256 [derived 39.1×]; SIMP ran on CPU and the diffusion models on GPU (caption); the 256×256 models were trained for only 10k steps (App. B.2).",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) App. B.2, Table 8: inference time DOM 2.35 s vs SIMP 18.12 s (64×64) and 8.09 s vs 316.02 s (256×256), SIMP on CPU and diffusion models on GPU; the only quantitative speed comparison with a classical method, placed in the appendix, with no quality reported for the 256×256 models. (2) Abstract: TA beats deep generative models in distribution and halves inference cost relative to them (ML-only). (3) Table 4 (few-step sampling): DOM 10 steps, CE 4.44% mean / 0.57% median, 0.35 s (in distribution). (4) Table 5 (out of distribution): DOM median CE 3.47%; DOM + 5 or + 10 SIMP steps 1.89% / 1.15%, with FM 10.19% / 2.61%."
+  },
+  "baseline": {
+    "classical_method": "SIMP-optimized reference topologies from the dataset attributed to [66, 62] (TopoDiff), used as ground truth for compliance error (Sec. 4 Dataset and Evaluation); App. B.2 also runs SIMP for 100 iterations at 64×64 and 256×256 for timing (Table 8); SIMP is also used for 5 or 10 refinement steps (Table 5)",
+    "implementation": "not stated (neither for the reference designs nor for the Table 8 timing run)",
+    "solver": "not stated",
+    "hardware_classical": "CPU, model not stated (Table 8 caption)",
+    "hardware_ml": "GPU, model not stated (Table 8 caption)",
+    "problem_size": "64×64 for all main results (Sec. 4 Setup) [derived ≈8.5×10^3 DOFs]; 256×256 only in Table 8 [derived ≈1.3×10^5 DOFs]; both assume 4-node elements",
+    "classical_iterations": "not stated for the reference designs; 100 iterations in Table 8; 5 or 10 SIMP refinement steps in Table 5",
+    "classical_time": "18.12 s (64×64) and 316.02 s (256×256) for 100 SIMP iterations on CPU (Table 8)",
+    "ml_time": "DOM 2.35 s at 64×64 (0.12 s kernel preprocessing + 2.23 s for 100 sampling steps; Tables 3 and 8); 8.09 s at 256×256 (Table 8); 0.17, 0.24 and 0.35 s for 2, 5 and 10 steps (Table 4)",
+    "training_time": "not stated; 200k steps, batch 64, Adam, learning rate 2e-4 (Sec. 4 Setup; Table 11); the 256×256 models of Table 8 were trained for 10k steps only (App. B.2)",
+    "data_generation_cost": "not stated; training uses 30k optimized 64×64 topologies plus a 150K set of intermediate SIMP iterates (Table 11); App. F lists 50K + 60K optimized and 250K + 300K intermediate topologies",
+    "quality_metric": "Compliance error (mean and median) relative to the SIMP-optimized design, volume-fraction error, floating material (Sec. 4 Evaluation; Tables 3-5); Table 4 adds unsolvable-configuration and load-disrespect rates; generated configurations with high compliance are filtered out before averaging, threshold not stated",
+    "quality_gap": "In distribution (Table 3, 100 steps): DOM w/ TA mean CE 4.44%, median 0.74%, VFE 1.52%, FM 6.72%. Out of distribution (Table 5): DOM median CE 3.47%; DOM + 5 / + 10 SIMP steps 1.89% / 1.15%. No compliance error is reported for the 256×256 models timed in Table 8"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table 3 and Sec. 4 Evaluation: generated designs are compared with SIMP-optimized designs for the same loads, BCs and prescribed volume fraction, but volume is only approximately matched (VFE 1.52%), generated configurations with high compliance are filtered out before averaging (threshold and count not stated), and budgets are not matched: DOM uses 100 sampling steps (2.35 s), while the iteration count and time of the SIMP reference runs are not stated."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 4 Dataset: the SIMP references come from an existing dataset whose SIMP settings are not stated in this article; nothing indicates a weakened classical reference. Quality stratum; unsure, so pass. For the Table 8 alternative, SIMP runs on CPU and the diffusion models on GPU at 256×256 [derived ≈1.3×10^5 DOFs]; the caption notes the device difference but does not justify it, so R2(c) would apply if Table 8 were primary."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Quality-stratum primary outcome. For C3: 200k training steps on 30k optimized 64×64 topologies plus 150K intermediate SIMP iterates (Sec. 4 Setup; Table 11); training time, hardware and data-generation cost are not reported."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-filtered-outliers",
+      "evidence": "Sec. 4 Evaluation, Tables 3-5: compliance error against the SIMP optimum, volume-fraction error and floating material are reported, and Table 4 adds unsolvable and load-disrespect rates; compliance of generated designs presumably from FE analysis [inferred; procedure not described]. High-compliance samples are filtered out before averaging with no threshold or count, and Fig. 12 shows examples labelled as good performers without a selection rule."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1,800 test configurations for the 64×64 models (Table 11); in- and out-of-distribution sets (Tables 3-5), out-of-distribution set size not stated; Table 8 timing at 64×64 and 256×256",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; the full text gives stratum Q. Coded the NeurIPS 2023 version of record (open access). Primary-outcome judgment, the main issue for the verifier: in reading order the first quantitative comparison with a classical method is Table 3, whose compliance error is defined against the SIMP-optimized design (same convention as the sibling paper P00375). The only SIMP timing is in App. B.2, Table 8, where the caption itself flags the CPU-versus-GPU difference. If the verifier takes Table 8 as primary, the record moves to the speed stratum with 7.7× (64×64) and 39.1× (256×256) [derived], and the provisional verdicts would be R1 fail (no quality for the 256×256 models trained 10k steps; at 64×64 the ML designs are worse than SIMP, mean CE 4.44%, and no matching is attempted), R2 fail under (c) (GPU diffusion vs CPU SIMP at ≈1.3×10^5 DOFs [derived], not justified), R3 fail (no training or data cost) and R4 partial. Other points: the Dataset paragraph cites [66, 62] for the SIMP data, but [66] is the Nichol and Dhariwal diffusion paper, so the data presumably come from TopoDiff [62] [inferred]. Dataset sizes differ between the contributions list (120k optimal and 600K suboptimal topologies) and App. F (50K + 60K optimized, 250K + 300K intermediate). C4: every speed comparison in the abstract, Sec. 4 and Table 4 is against ML baselines (TopoDiff, TopoDiff-GUIDED, TopologyGAN, conditional DDPM, Consistency Model); the conclusion concedes that without a few SIMP steps DOM underperforms FEM-conditioned, guided ML methods out of distribution. Reporting locators: n = Table 11; OOD = Tables 4-6; failure indicators = FM, UNS and LD columns (Tables 3-5); confidence intervals = Fig. 11, over test configurations [inferred], with no seeds; timing = Table 8 caption (device class only). Code: https://github.com/georgosgeorgos/trajectory-alignment-diffusion (GitHub API 2026-09-24: public, no licence declared; training and sampling scripts; evaluation relies on the TopoDiff benchmark; FE mesh files and a topodiff_analysis.py module suggest FE-based compliance evaluation [inferred from file names]; no SIMP optimizer or timing script and no trained checkpoints in the file listing). Data: the 64×64 dataset is a GitHub release asset (30,218,316 bytes); no 256×256 release found. retest_candidate false: quality primary outcome, no licence, and no checkpoints or SIMP timing script. COI check: no author named Jun Wang."
+}

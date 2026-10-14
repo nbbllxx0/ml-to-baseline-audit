@@ -1,0 +1,65 @@
+{
+ "pid": "P01268",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Application of a Machine Learning-Based Topology Optimization Method on an Automotive B-Pillar for Crashworthy Lightweight Design",
+  "authors": "Jirair Aroyan, Johannes Sperber, Christopher Ortmann, Axel Schumacher",
+  "year": 2026,
+  "venue": "MATEC Web of Conferences 422, 03010 (2026); conference paper, CC BY 4.0 per Crossref licence metadata (licence start 2026-09-09). The DOAJ PDF file name refers to EngOpt 2026 [inferred from the file name]",
+  "doi": "10.1051/matecconf/202642203010",
+  "arxiv_id": "",
+  "version_coded": "none; only the abstract was read (pool record, OpenAlex and DOAJ metadata)"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no full text). The abstract reports voidML cut the B-pillar patch mass from 2.413 to 2.141 kg (11.3%) in 48 iterations and 191 crash analyses, with force-intrusion curves close to the reference; no classical comparator is named.",
+  "location": "abstract only",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "not coded (no full text); the abstract states no time or speed comparison with a classical method",
+  "alternatives": "not assessed (no full text)"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Screening code was I-UNCLEAR. Access attempts on 2026-09-24, all with a generic User-Agent and no login: (1) doi.org, which redirects to www.matec-conferences.org, returned HTTP 403 with a DataDome CAPTCHA page (one earlier attempt failed on DNS, then resolved); (2) the /pdf URL listed by OpenAlex and Crossref returned 403 with the same CAPTCHA page; (3) the DOAJ full-text link (articles/matecconf/pdf/2026/04/matecconf_engopt2026_03010.pdf) returned 403; (4) the full_html and abs pages returned 403; (5) WebFetch on the PDF returned 403. No CAPTCHA bypass was attempted. OpenAlex reports no repository copy (any_repository_has_fulltext false); a web search found no other legal copy; no arXiv version was found. Content known from the abstract: gradient-boosted decision trees predict a displacement-field deviation for candidate voids in a crash-loaded thin-walled patch, and a design tree runs several candidate designs in parallel. The abstract names no classical comparator; if the full text also has none, FT-NOBASELINE would apply. Scope note for the verifier: crash (explicit nonlinear dynamics with plasticity and contact) is not in the protocol's physics list (\u00a73.1), but it is not in the excluded list either. Related record: P00879 (Structural and Multidisciplinary Optimization 2026, doi 10.1007/s00158-026-04348-0, same four authors) is the voidML method article, a different paper, so it is not a duplicate of this application paper. No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P01268.json",
+  "result": "full agreement"
+ }
+}

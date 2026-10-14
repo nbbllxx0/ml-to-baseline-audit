@@ -1,0 +1,88 @@
+{
+  "pid": "P00003",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Adversarial Agents on Topology Optimization: Understanding the Fragility and Robustness of Deep Learning-based and Physics-Based Design Models under Adversarial Perturbation",
+    "authors": "Hoang Anh Nguyen, Yuan Hong, Hongyi Xu",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.LG); no journal reference on the arXiv record",
+    "doi": "10.48550/arXiv.2608.22606",
+    "arxiv_id": "2608.22606",
+    "version_coded": "arXiv v1 (23 Aug 2026; the only version per the arXiv API), PDF (33 pp.) read in full as text; no arXiv HTML exists (HTTP 404)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the ML-vs-classical comparisons are FE compliance of surrogate designs against SIMP designs, clean and under attack; no time of any method is reported)",
+    "stratum": "quality",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Under bounded perturbations (ε = 0.10) of the initial-density input, the most fragile surrogate's compliance rises by a median 132.65× over its clean prediction, while SIMP re-run from the same attacked initializations returns a median 1.000× of the SIMP reference.",
+    "key_phrase": "restores near-optimal structural performance in the large majority of cases",
+    "location": "Sec. 6 Conclusion, pp. 24-25 (first quantitative ML-vs-classical comparison; the abstract states the same contrast without numbers, §5.1 rule 2); numbers from Table 1 (p. 18) and Table 3 (p. 23)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no time of any method is reported. The speed of DL surrogates appears only as motivation (abstract; Sec. 1).",
+    "direction": "underperform",
+    "alternatives": "(1) Sec. 5.1 and Table A.1: clean surrogate designs reach median compliance 1.00-1.05× the SIMP reference (text: 0.999-1.047×), pixel accuracy 93.5-95.5% and IoU 0.867-0.905 (quality, ML about equal). (2) Table 3 and Sec. 5.4: across 405 source-instance pairs, SIMP re-runs exceed 1.05× the reference in 14 (3.5%) and 1.10× in 6 (1.5%), worst 1.353×. (3) Appendix A.5, Table A.5: intrusive attacks inside the Top88 SIMP loop raise final compliance from about 203.3 to about 1,127.6, 56,949.0 and 147,017.8 (classical method under another threat model; no ML comparison). (4) Abstract, qualitative: surrogates are adopted for their speed; not measured."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with penalty 3, convolution sensitivity filter and optimality-criteria updates (Sec. 2.1). It supplies the reference designs and the gradient input channels, and it is re-run from each attacked initialization with the same load, supports, volume target and solver settings (Sec. 5.4)",
+    "implementation": "Top88 (88-line) SIMP code per Appendix A.5 (Table A.5); language and port not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "20 × 60 finite-element grid (Sec. 4); the Appendix A.5 runs use a 20 × 60 half-MBB beam with volume fraction 0.5 [derived: 2,562 nodal DOFs]",
+    "classical_iterations": "Not stated for the dataset and the re-runs (same solver settings as the reference run, Sec. 5.4); the clean Top88 half-MBB baseline converged in 94 iterations (Table A.5)",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; U-Net 40 epochs; nn4topopt-style and TopologyGAN-style models up to 200 epochs with early stopping (Sec. 4)",
+    "data_generation_cost": "not stated; 300 SIMP samples split 210/45/45 (seed 0), 300 accepted of 300 attempts (Sec. 4)",
+    "quality_metric": "FE compliance of the thresholded surrogate prediction or SIMP re-run under the original problem, as ratios to the SIMP reference (R_clean, R_adv, R_pair, Δlog; Eqs. 13-16), with exceedance counts at 1.05×, 1.10×, 2×, 10× and 100× (Tables 3, A.2, A.3); image metrics for clean predictions (Table A.1)",
+    "quality_gap": "Clean: median surrogate/SIMP compliance 1.00-1.05× (Table A.1). Attacked (ε = 0.10), median paired ratio for the selected attack: UNet1 132.65×, GAN1 36.19×, GAN0 4.62×, UNet0 1.48×, UNet5 1.38×, nn4topopt family 1.03-1.16×, GAN5 1.07× (Table A.2). SIMP re-run from the same attacked inputs: median 1.000× the reference for all nine sources, maximum 1.353× (Table 3)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Tables 1 and 3, Sec. 5.4: surrogate predictions and SIMP re-runs start from the same attacked initialization with the same load, supports, volume target and solver settings, and both are scored by FE compliance against the same SIMP reference over the same 45 test problems. No speed claim is made. The surrogate threshold value and the achieved volumes are not stated."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "No run time is reported for any method; the comparison concerns design compliance and robustness only. SIMP is the Top88 code on a 20 × 60 grid (Appendix A.5), so criteria (a)-(e) do not apply."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "Speed appears only as motivation (abstract; Sec. 1). For C3: neither the cost of the 300 SIMP samples nor any training time is reported (Sec. 4)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-volume-check",
+      "evidence": "Tables 1-3, A.2 and A.3: compliance of every returned (thresholded) surrogate design and every SIMP re-run is computed by FE under the original problem for all 45 test problems, and failures are counted by exceedance thresholds, with disconnected designs showing up as near-singular ratios (Sec. 3.4, 5.2). The threshold value and the volume fraction of the thresholded predictions are not reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "45 held-out test problems (seed-0 split of 300 samples) × 9 surrogates × 4 attacks (Table 1); 9 × 9 transfer pairs (Table 2); 405 SIMP re-runs (Table 3); 4 perturbation budgets (Table A.4); 3 intrusive attacks on one half-MBB case (Table A.5)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Inclusion and stratum judgment for the verifier: this is an evaluation study of three established surrogate families (U-Net, nn4topopt-style, TopologyGAN-style) under an adversarial initial-density perturbation. It proposes no new ML-for-TO method and makes no speed claim. It is kept as a quality-stratum include with direction underperform, because its ML-vs-classical comparisons are FE compliance comparisons with SIMP (clean designs, and attacked predictions vs SIMP re-runs); this matters for the C4 claim-direction tally. Alternative: FT-TYPE, if an evaluation-only study without an ML-for-TO method claim is read as a benchmark-only paper. Scope notes from the article itself: the attacks are crafted against each surrogate (white-box) and only handed to SIMP, and the initial-density channel is an input added for this study that the original U-Net, nn4topopt and TopologyGAN designs do not use (Sec. 3.2, Sec. 4). seeds_or_variance = no: one data split and one training seed; results are medians with exceedance counts, not seed variance. Internal inconsistencies: GAN0 under Adam is 4.63× in Table 1 and Sec. 5.2 but 4.62× in Tables 2, 3, A.2 and A.4; Sec. 5.1 gives clean/GT medians of 0.999-1.047× while Table A.1 lists 1.00-1.05× (rounding [inferred]). Data availability: data and models on email request after acceptance; no code link. Duplicate check: no other pool record or prefill of this study (other 'adversarial' titles in the pool are GAN papers). No author named Jun Wang. Screening code was I-UNCLEAR."
+}

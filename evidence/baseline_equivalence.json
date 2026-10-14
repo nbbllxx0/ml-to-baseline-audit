@@ -1,0 +1,110 @@
+[
+  {
+    "problem": "P1_cantilever",
+    "n": 64,
+    "solver": "gpu",
+    "ref": "superlu",
+    "rel_dc_last": 3.455833112319581e-09,
+    "max_abs_dxphys": 3.03766392151239e-07,
+    "pass": true
+  },
+  {
+    "problem": "P1_cantilever",
+    "n": 64,
+    "solver": "pardiso",
+    "ref": "superlu",
+    "rel_dc_last": 2.3730651527997045e-13,
+    "max_abs_dxphys": 4.3891890122438326e-11,
+    "pass": true
+  },
+  {
+    "problem": "P1_cantilever",
+    "n": 64,
+    "solver": "superlu",
+    "ref": "superlu",
+    "rel_dc_last": 0.0,
+    "max_abs_dxphys": 0.0,
+    "pass": true
+  },
+  {
+    "problem": "P1_cantilever",
+    "n": 256,
+    "solver": "gpu",
+    "ref": "superlu",
+    "rel_dc_last": 4.448676712994085e-10,
+    "max_abs_dxphys": 5.031234340258095e-08,
+    "pass": true
+  },
+  {
+    "problem": "P1_cantilever",
+    "n": 256,
+    "solver": "pardiso",
+    "ref": "superlu",
+    "rel_dc_last": 3.2395053662525104e-12,
+    "max_abs_dxphys": 6.544464969948649e-11,
+    "pass": true
+  },
+  {
+    "problem": "P1_cantilever",
+    "n": 256,
+    "solver": "superlu",
+    "ref": "superlu",
+    "rel_dc_last": 0.0,
+    "max_abs_dxphys": 0.0,
+    "pass": true
+  },
+  {
+    "problem": "P2_mbb",
+    "n": 64,
+    "solver": "gpu",
+    "ref": "superlu",
+    "rel_dc_last": 8.697942044802986e-10,
+    "max_abs_dxphys": 3.680318825249884e-07,
+    "pass": true
+  },
+  {
+    "problem": "P2_mbb",
+    "n": 64,
+    "solver": "pardiso",
+    "ref": "superlu",
+    "rel_dc_last": 9.292663296109316e-12,
+    "max_abs_dxphys": 5.48705836322938e-09,
+    "pass": true
+  },
+  {
+    "problem": "P2_mbb",
+    "n": 64,
+    "solver": "superlu",
+    "ref": "superlu",
+    "rel_dc_last": 0.0,
+    "max_abs_dxphys": 0.0,
+    "pass": true
+  },
+  {
+    "problem": "P2_mbb",
+    "n": 256,
+    "solver": "gpu",
+    "ref": "superlu",
+    "rel_dc_last": 2.0836313725127324e-11,
+    "max_abs_dxphys": 1.2972677299050162e-07,
+    "pass": true
+  },
+  {
+    "problem": "P2_mbb",
+    "n": 256,
+    "solver": "pardiso",
+    "ref": "superlu",
+    "rel_dc_last": 1.028515446104264e-11,
+    "max_abs_dxphys": 2.565100909457385e-09,
+    "pass": true
+  },
+  {
+    "problem": "P2_mbb",
+    "n": 256,
+    "solver": "superlu",
+    "ref": "superlu",
+    "rel_dc_last": 0.0,
+    "max_abs_dxphys": 0.0,
+    "pass": true
+  }
+]

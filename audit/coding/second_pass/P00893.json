@@ -1,0 +1,44 @@
+{
+  "pid": "P00893",
+  "citation": {
+    "title": "Deep learning-aided topology design of metasurfaces for Rayleigh waves",
+    "authors": "Cheng Zhao; Chen-Xu Liu; Gui-Lan Yu",
+    "year": 2024,
+    "venue": "Journal of Computational Design and Engineering, vol. 11, issue 3, pp. 56-71",
+    "doi": "10.1093/jcde/qwae037",
+    "arxiv_id": "",
+    "version_coded": "Version of record (open access), full text read from https://academic.oup.com/jcde/article/11/3/56/7649376"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "vae",
+    "physics": "other",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: a VAE compresses discrete metasurface topologies into a continuous latent space, and a conditional tandem neural network designs latent vectors to hit target Rayleigh-wave bandgaps under varying soil conditions, validated on 100 test cases (R2 > 0.99, mean relative error 1.5%, about 5.4 s per design); no classical (gradient-based or evolutionary) optimizer is run, timed, or cited with a specific cost for this problem.",
+    "location": "Abstract; Introduction (para. 2-3); Section 5.1",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No classical-method run time is stated or cited anywhere in the article; the only timing comparison found is an internal ablation of the authors' own pipeline ('the topology design model without VAE is hard to design a required topology in several hours', Section 5.1) against their full VAE+cTNN pipeline's ~5.4 s, which is not a classical, non-learned comparator."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 and the 2026-09-24 FT-NOBASELINE clarification: the article never runs, times, or cites a specific cost/result for a classical (non-learned) optimization method on this design problem. Introduction para. 2 names the comparators explicitly - 'Gradient-based or evolutionary algorithms, such as the level set method or genetic algorithm, are commonly combined with numerical simulations to design metasurfaces' - and states only the generic, qualitative motivation that 'the process for each design typically demands significant computational resources and time,' citing Nesterov & Spokoiny (2017) and Nguyen et al. (2022), which are generic optimization-theory references, not a specific timed/costed classical run on a metasurface problem. This is precisely the 'TO is slow, with no classical run and no timing' case the deviations log describes as FT-NOBASELINE. The only concrete timing comparison the article makes (Section 5.1: 'the average design only costs about 5.4 s, but the topology design model without VAE is hard to design a required topology in several hours') is an ablation of the authors' own DL pipeline (with vs. without the VAE latent-space step), not a classical non-learned comparator - so it does not satisfy §3's 'comparison...with a classical, non-learned optimization method' either directly or as an FT-MLONLY-style ML-vs-ML comparison (there is no separate rival ML/DL baseline benchmarked, only an internal component ablation). A full-article search for any number (seconds/minutes/hours/iterations) tied to a gradient-based, adjoint, level-set, or genetic-algorithm run anywhere in the text (abstract, methods, results, discussion, conclusion, captions) found none. Elastic surface (Rayleigh) wave metasurface design in soil is elasticity/elastodynamics and within scope per the 2026-09-24 physics-scope clarification (not the 'acoustic' exclusion, which is sound in fluids), so FT-DOMAIN does not apply; the topology-generation/optimization method (VAE + conditional tandem network shaping discrete unit-cell topologies to hit target bandgaps) is TO-like inverse design, so FT-SCOPE and FT-FORWARD do not apply either (this is not forward-analysis-only). Datasets: 300,000 rule-generated topologies (Dataset A, no FE required) and 80,000 samples with bandgaps computed by FE simulation in COMSOL Multiphysics 5.4 (Dataset B); no generation time/cost, training time, or hardware (CPU/GPU) is stated anywhere for either dataset or for network training. Design outputs are checked against target bandgaps via the same FE-based evaluation pipeline and validated on 100 held-out cases (R2 0.996-0.998, mean relative error 1.5%), but no failure/infeasibility rate is reported. No code or data availability statement is given. No author named Jun Wang (authors: Cheng Zhao, Chen-Xu Liu, Gui-Lan Yu). No duplicate of this title/DOI was found elsewhere in audit/pool/pool.csv."
+}

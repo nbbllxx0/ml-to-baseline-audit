@@ -1,0 +1,45 @@
+{
+  "pid": "P01152",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Deep learning accelerated topology optimization of linear and nonlinear structures",
+    "authors": "Diab W. Abueidda, Seid Koric, Nahil A. Sobh",
+    "year": 2020,
+    "venue": "arXiv preprint 2002.01896 v3 (17 Mar 2020); the pool record from OpenAlex carries no identifier. Same arXiv record: v1-v2 titled 'Machine learning accelerated topology optimization of nonlinear structures' (pool P00867) and v4 (13 Apr 2020) titled 'Topology optimization of 2D structures with nonlinearities using deep learning' (pool P00165). Version of record: Computers & Structures 237 (2020) 106283, doi 10.1016/j.compstruc.2020.106283 (per P00165; not open access)",
+    "doi": "10.48550/arXiv.2002.01896",
+    "arxiv_id": "2002.01896",
+    "version_coded": "arXiv v3 (17 Mar 2020), PDF (39 pages), read for the duplicate check (title page, abstract, data-generation, training and test-result passages) and compared with v4 (41 pages) on the same passages; titles of v1-v4 confirmed on the arXiv abs pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as an earlier version of P00165). This version reports the same results as v4: CNN predictions reach mean Dice similarity 0.958 (linear), 0.964 (neo-Hookean) and 0.984 (stress-constrained) against the TO designs, and each optimization takes about 25 min on a PC.",
+    "location": "Abstract (qualitative: no iterative scheme, negligible time); data generation and test results in the main text",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). As in P00165, the ML inference time is not quantified, so no speed ratio is derivable; the only classical times are data-generation costs (0.31 and 3.2 min per data point with ten tasks in parallel; about 25 and 90 min per task on a Core i5 vPro PC).",
+    "direction": "outperform"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00165)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00165)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00165)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00165)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (duplicates) and the closed list (FT-DUPLICATE first). Primary record: P00165 (arXiv 2002.01896 v4, already coded, stratum Q; its coder also named P01152 and P00867 as duplicate candidates). Evidence: the pool record's title, authors and date (2020-01-31, the v1 submission date) match arXiv 2002.01896 v3, whose title page carries exactly this title (abs page of v3 and the v3 PDF, 2026-09-24). v3 and v4 share the abstract text and the reported numbers checked: Dice 0.958, 0.964 and 0.984; 0.31 and 3.2 min per data point; about 25 and 90 min per task on a PC; a single NVIDIA V100 for training; ABAQUS-driven data generation and an in-house MATLAB MMA code. v4 is the later, retitled text (41 vs 39 pages). Differences seen: v4 adds a methods passage naming TOSCA with its sensitivity-based MMA solver (v3 lists TOSCA only in its references) and changes one author affiliation; the texts were not compared line by line. The Computers & Structures version of record is closed access (per P00165), so the latest arXiv version (v4, P00165) is the primary version, per the FT-DUPLICATE definition. P00867 (v1-v2 title) is a third pool record of the same preprint and should also be FT-DUPLICATE of P00165. Screening flagged P01152 as a possible duplicate of P00867 (audit/pool/possible_duplicates.csv). COI check: no author named Jun Wang."
+}

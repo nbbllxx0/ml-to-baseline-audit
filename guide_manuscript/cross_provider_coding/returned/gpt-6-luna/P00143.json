@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00143",
+    "citation":  {
+                     "title":  "Improving Solar Cell Metallization Designs using Convolutional Neural Networks",
+                     "authors":  "S. Bhattacharya, D. Arya, D. Bhowmick, R.M. Thomas, D.K. Gupta",
+                     "year":  2021,
+                     "venue":  "ICLR 2021 SimDL workshop",
+                     "doi":  "10.48550/arXiv.2104.04017",
+                     "arxiv_id":  "2104.04017",
+                     "version_coded":  "arXiv v1"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "exclude",
+                     "reason":  "FT-DOMAIN",
+                     "stratum":  "none",
+                     "method_family":  "neural_reparam",
+                     "physics":  "other",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "SolarNet improves solar-cell metallization efficiency compared with conventional density-based topology optimization.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No speed-up factor reported.",
+                  "direction":  "outperform",
+                  "alternatives":  "Results section reports relative efficiency improvement up to 3.5%."
+              },
+    "baseline":  {
+                     "classical_method":  "density-based topology optimization",
+                     "implementation":  "not stated",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "200 x 200 output grid",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "not stated",
+                     "quality_metric":  "solar-cell efficiency",
+                     "quality_gap":  "up to 0.42 percentage points absolute efficiency increase (3.5% relative), Results"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "full-text exclusion"
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "full-text exclusion"
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "full-text exclusion"
+                         },
+                  "R4":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "full-text exclusion"
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "2 cell shapes and 4 busbar configurations; Experiments",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "yes",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "FT-DOMAIN: the optimized system is solar-cell electrical metallization, evaluated through current-conduction physics, outside the protocol physics scope (elasticity, heat conduction and compliant mechanisms); the paper focuses on electrical performance.",
+    "stage":  "cross_provider_pass"
+}

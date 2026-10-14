@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00890",
+    "citation":  {
+                     "title":  "Learning hyperparameter predictors for similarity-based multidisciplinary topology optimization",
+                     "authors":  "Mariusz Bujny, Muhammad Salman Yousaf, Nathan Zurbrugg, Duane Detwiler, Stefan Menzel, Satchit Ramnath, Thiago Rios, Fabian Duddeck",
+                     "year":  2023,
+                     "venue":  "Scientific Reports",
+                     "doi":  "10.1038/s41598-023-42009-0",
+                     "arxiv_id":  "",
+                     "version_coded":  "Version of record (open-access publisher PDF)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "surrogate_mlp_gp",
+                     "physics":  "multiphysics",
+                     "dim":  "both"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "A learned hyperparameter predictor replaces repeated similarity-based TO sampling with prediction from one standard TO run, reducing the computational work needed to choose a target similarity level.",
+                  "key_phrase":  "at minimal computational cost",
+                  "location":  "Abstract; Conclusion",
+                  "quantitative":  true,
+                  "claimed_speedup":  12,
+                  "claimed_speedup_basis":  "Results report that the approach has 12 times lower computation time than the previous approach at the sampling resolution used (Results, Fig. 8 discussion).",
+                  "direction":  "outperform",
+                  "alternatives":  "Abstract also reports generalization from a linear-elastic training problem to nonlinear crash and industrial car-hood optimization."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP with Energy Scaling Method; repeated TO runs across energy-scaling hyperparameters",
+                     "implementation":  "SIMP and Hybrid Cellular Automata (HCA) implementations described in Methods/results",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "Training benchmark uses 100×100 elements; car hood is 3D industrial-scale (Methods; Figs. 4, 13)",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "Previous repeated-sampling approach reported as 12× higher computation time for the experimental sampling resolution (Results, Fig. 8 discussion)",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "600 case-reference pairs; 7,800 TO runs generate 7,200 training samples (Methods, training data generation)",
+                     "quality_metric":  "Similarity dissimilarity metric s; crash and car-hood results use TO performance criteria (Results)",
+                     "quality_gap":  "Model test-set R²=0.96 and RMSE=0.027 for predicted s(p) curves (Results)."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "fail",
+                             "marker":  "R1-unmatched",
+                             "evidence":  "Abstract and Conclusion: lower computation cost is claimed for predicting similarity levels without an equal-quality, matched-time or matched-evaluation comparison."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Methods and Results: no R2 criterion establishing a weak classical solver or hardware mismatch."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-amortization",
+                             "evidence":  "Methods reports 7,800 TO runs used to generate 7,200 samples, but training/data costs are not fully timed and no break-even is reported."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-no-failure-rate",
+                             "evidence":  "Results report similarity-based TO outputs and their performance, but do not report infeasible or failed design rates."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "60 held-out test pairs from 600 pairs; further nonlinear 2D crash and 3D car-hood demonstrations (Results; Methods).",
+                      "ood_test":  "yes",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "selective",
+                      "code_available":  "yes",
+                      "data_available":  "on_request",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "stage":  "cross_provider_pass",
+    "notes":  "Data and simulation models are available from the corresponding author on reasonable request; ESM source code is publicly linked, but public runnable code for the full benchmark was not established."
+}

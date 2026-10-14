@@ -1,0 +1,61 @@
+{
+  "pid": "P00712",
+  "citation": {
+    "title": "DL-Scale: Deep Learning for model upgrading in topology optimization",
+    "authors": "Nikos Ath. Kallioras, Nikos D. Lagaros",
+    "year": 2020,
+    "venue": "Procedia Manufacturing, vol. 44, pp. 433-440",
+    "doi": "10.1016/j.promfg.2020.02.273",
+    "version_coded": "Abstract only, from OpenAlex metadata (abstract_inverted_index for https://doi.org/10.1016/j.promfg.2020.02.273); the version of record could not be read. OpenAlex marks the article 'diamond' open access with its only location at https://www.sciencedirect.com/science/article/pii/S235197892030860X/pdf and 'any_repository_has_fulltext: false' (no mirror elsewhere). That ScienceDirect URL returned HTTP 403 to a generic-UA curl request, and inspection of the returned page showed the words 'Captcha'/'captcha' -- a bot check, not a paywall notice -- so it was not attempted further; the abstract HTML page at the same pii also returned HTTP 403 to WebFetch. No arXiv version exists for this article."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Per the abstract only: a Deep Belief Network (DBN), trained once on a reference SIMP topology-optimization problem, is combined with SIMP in an iterative 'model-upgrading' scheme that replaces one fine-mesh run with a sequence of coarser sub-problems of identical loads/supports. The abstract claims only qualitatively, across all test cases, that the computational load and the number of SIMP iterations needed on the dense mesh are 'vastly reduced'; no numeric factor, timing, or iteration count is given.",
+    "key_phrase": "iterations that SIMP needs to perform on a dense meshed model are vastly reduced",
+    "location": "abstract (read via OpenAlex abstract_inverted_index; full text not accessible)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The abstract gives no numeric speed-up factor, runtime, or iteration count; the claim ('vastly reduced' computational load and iterations) is stated only qualitatively.",
+    "direction": "outperform",
+    "alternatives": "none stated beyond the single general qualitative claim; the abstract gives no other candidate outcome"
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material with Penalization) run directly on the dense/fine mesh without model-upgrading -- the implicit comparator against which 'vastly reduced' iterations are claimed [inferred from abstract wording]",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated (abstract mentions only 'fine discretized meshes' and 'several known to literature problems', with no sizes given)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated (abstract states the DBN 'is trained once on a typical topology optimization reference problem', with no cost given)",
+    "data_generation_cost": "not stated",
+    "quality_metric": "not stated",
+    "quality_gap": "not stated"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Nikos Ath. Kallioras, Nikos D. Lagaros, both National Technical University of Athens). Duplicate check: audit/pool/pool.csv has exactly one row for this exact title/DOI (P00712); no arXiv or repeated copy of this specific article exists in the pool, so FT-DUPLICATE does not apply. Note for the verifier: the pool separately contains a closely related, but textually distinct, publication by the same two authors -- P00665, 'DL-SCALE: a novel deep learning-based model order upscaling scheme for solving topology optimization problems' (Neural Computing and Applications, doi 10.1007/s00521-020-05480-8, 2020-11-10) -- which reads as an extended journal version of this conference paper (same DL-SCALE method/acronym, same author order, ~8 months later). This is not coded as FT-DUPLICATE here because it is a separate pool pid outside this queue with its own DOI and (presumably) expanded content, matching how the pool itself already distinguishes the two; a reviewer with access to both full texts should confirm whether the journal version simply reports the same experiments in more detail or adds new ones. Access: exhausted the routes available -- the DOI's only known host (ScienceDirect) returned a CAPTCHA/bot-check page (HTTP 403) to both a direct request and WebFetch, and OpenAlex confirms no alternate repository holds the full text; Procedia Manufacturing articles are not typically mirrored outside ScienceDirect. ResearchGate hosts a copy but was not used (excluded access route per task rules). Per the task's abstract-only rule, the record is coded include, stratum 'none', with all rule verdicts na, rather than excluded. Key uncertainty for a coder with full-text access: whether the fine-mesh SIMP baseline and the DL-Scale/DBN pipeline are compared at matched design quality (R1) and whether the DBN's one-time training cost is amortised or reported at all (R3) -- none of this is visible from the abstract. dim was left 'unclear' because the abstract does not state 2D/3D or problem size for any test case."
+}

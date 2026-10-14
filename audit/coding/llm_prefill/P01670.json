@@ -1,0 +1,44 @@
+{
+  "pid": "P01670",
+  "citation": {
+    "title": "Composite 3D-printed Plate-based Mechanical Metamaterials",
+    "authors": "Aya Hosoi, Jier Wang, Yuki Fujita, Tatsuo Tanaka, Junichi Takahashi, Ajit Panesar",
+    "year": 2025,
+    "venue": "24th International Conference on Composite Materials (ICCM-24), Baltimore, 4-8 August 2025, session 'Design, Repair and Lifecycle'; conference paper deposited in the ICCM-24 Zenodo community (record 18597654, CC BY-SA 4.0)",
+    "doi": "10.5281/zenodo.18597653",
+    "arxiv_id": "none found (arXiv API title search, 2026-09-24)",
+    "version_coded": "Conference paper PDF ICCM24_Final_Paper_054.pdf (9 pages) from Zenodo record 18597654, the record the pool's concept DOI resolves to; read in full"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: low-resolution SIMP, per-element stiffness-tensor optimization and an MLP inverse generator give graded lattices whose simulated three-point-bending specific stiffness beats uniform lattices (165.1 vs 162.5 Nylon; 335.6 vs 229.4 Onyx).",
+    "location": "Abstract; Sec. 3, Tables 3-5; Sec. 4",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No runtime of any method is reported."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 and the 2026-09-24 FT-NOBASELINE clarification. The only comparisons are graded (optimal) lattices vs uniform lattices of the same cell type (Table 4, FEA of a three-point-bending test in Abaqus) and truss-based vs plate-based BCC cells from the same pipeline (Table 5: 143.9 vs 671.4). No classical optimizer (inverse homogenization, dehomogenization or full-scale TO) is run, timed or cited for its cost or result; these appear only as background (Sec. 1). The low-resolution SIMP step is part of the proposed pipeline, not a comparator. Earlier codes checked: FT-SCOPE does not apply (multiscale TO with ML-based lattice inverse generation is in scope); FT-TYPE does not apply (a full conference paper, eligible under §3.3); FT-FORWARD does not apply (the MLP maps a target stiffness tensor and volume fraction to cell parameters, an inverse design step); FT-MLONLY does not apply (no ML comparator either). Method details: MLP inverse generator trained on 5,000 random unit cells with numerically homogenized stiffness tensors (Sec. 2.1.2); volume fraction 0.5; penalty 2.6 (2D) and 3 (3D) (Sec. 2.1). The authors note that the optimization boundary conditions (half MBB beam, fixed) differ from the validation (three-point bending with contact), and orthotropy was not modelled in the FEA validation (Secs. 2.2 and 3.1). Related but distinct: P00589 (Wang and Panesar 2022, the 2D method this paper extends). Access: Zenodo record via its public API and file link, generic User-Agent, no personal data. Author 'Jier Wang' is not Jun Wang; no author named Jun Wang. Screening code was I-UNCLEAR."
+}

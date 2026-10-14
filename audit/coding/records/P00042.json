@@ -1,0 +1,65 @@
+{
+ "pid": "P00042",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Variational Quantum Latent Encoding for Topology Optimization",
+  "authors": "Alireza Tabarraei",
+  "year": 2025,
+  "venue": "arXiv preprint (cs.CE; CC BY-NC-ND 4.0). Version of record: Engineering with Computers 41(6) 4549-4573 (2025), doi 10.1007/s00366-025-02208-x, published 2025-09-30; closed access per OpenAlex, not read",
+  "doi": "10.1007/s00366-025-02208-x",
+  "arxiv_id": "2506.17487",
+  "version_coded": "arXiv v1 (20 Jun 2025; the only arXiv version), full text read from https://arxiv.org/html/2506.17487v1"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "exclude",
+  "reason": "FT-MLONLY",
+  "stratum": "none",
+  "method_family": "neural_reparam",
+  "physics": "compliance",
+  "dim": "2d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (excluded). Headline: over 10 runs each on three 60x30 benchmarks, quantum-circuit latents give compliance and design diversity close to Gaussian latents in the same neural-field pipeline, with small differences in both directions (e.g. compliance 90.83 vs 92.60 with 5 qubits, Table 1).",
+  "location": "Abstract; Sec. 5, Tables 1-3; Sec. 6 Conclusion",
+  "quantitative": true,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "Not coded (excluded at full text). No run time of any method is reported; the comparison of loss-based regularization with density filtering plus Heaviside projection is in iterations only (about 200 vs up to 500; Sec. 5.2).",
+  "direction": "similar_or_mixed"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-MLONLY)"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-MLONLY)"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-MLONLY)"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-MLONLY)"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Excluded as ML-only (PROTOCOL \u00a74; closed list order 7). The baseline the article calls classical is a Gaussian-sampled latent vector fed to the same trainable projection and coordinate-based neural decoder (Sec. 3.2.1, Sec. 5). That is a neural-reparameterization method, not a non-learned optimizer. Every comparison is between ML variants: quantum vs Gaussian latents with 3 or 5 qubits (Tables 1-3), loss-based regularization vs density filtering plus Heaviside projection inside the same neural pipeline (Sec. 5.2, Table 2), and with vs without a symmetry penalty (Sec. 5.3, Table 3). No SIMP, level-set or other non-learned TO run, time or result appears. Traditional TO is mentioned only as motivation: it is called deterministic, with one solution per run, and costly at high resolution (Abstract; Sec. 1-2). Codes checked in order: FT-DUPLICATE does not apply (the other Tabarraei records in the pool, e.g. P00012, P00034, P00035, P00235, P00281, are different studies on transformers, diffusion or GNNs [titles]). FT-SCOPE, FT-TYPE, FT-DOMAIN, FT-NOML and FT-FORWARD do not apply either: 2D compliance TO with a neural decoder, method paper. FT-NOBASELINE would also hold, but FT-MLONLY comes first in the list. Judgment call for the verifier: if the Gaussian-latent pipeline is read as an internal ablation rather than 'another ML method', FT-NOBASELINE is the alternative code; the record is excluded either way. For the C4 tally: 60x30 Q4 mesh, volume fraction 0.4, 10 independent runs per configuration, mean \u00b1 std compliance at iteration 200 (e.g. tip-loaded cantilever: 91.12 \u00b1 3.53 classical vs 94.05 \u00b1 4.08 quantum with 3 qubits; 92.60 \u00b1 3.70 vs 90.83 \u00b1 3.11 with 5 qubits, Table 1); no hardware, run time, code or data statement found. Inconsistencies for the verifier (text vs captions): Sec. 5.1 cites Figure 5 both for loss and volume-fraction histories and for 10-run average compliance, and Figure 6(c)-(d) for latent-size comparisons, while the Figure 5 and 6 captions describe training-loss plots for 5 qubits; Figure 10's sub-caption (a) names the simply supported beam with distributed load, while its main caption says (a) shows the mid-point loaded cantilever; the text presents Figure 11 as the result of the soft symmetry penalty, while its caption says the designs use density filtering with Heaviside projection. Screening code was I-UNCLEAR. COI check: single author, no Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00042.json",
+  "result": "full agreement"
+ }
+}

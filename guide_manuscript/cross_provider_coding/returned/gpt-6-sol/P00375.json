@@ -1,0 +1,19 @@
+{
+  "pid": "P00375",
+  "citation": {"title": "Diffusing the Optimal Topology: A Generative Optimization Approach", "authors": "Giorgio Giannone; Faez Ahmed", "year": 2023, "venue": "arXiv preprint; ASME DETC 2023 DOI", "doi": "10.1115/detc2023-116595", "arxiv_id": "2303.09760", "version_coded": "arXiv v1"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "diffusion_flow", "physics": "compliance", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "On the out-of-distribution task, diffusion followed by five SIMP iterations had lower mean compliance and compliance error than five SIMP iterations alone.", "key_phrase": "", "location": "Section 5.7, Table 9", "quantitative": true, "claimed_speedup": null, "claimed_speedup_basis": "No classical runtime is reported; Table 9 compares design quality after equal SIMP iteration counts.", "direction": "outperform", "alternatives": "Table 9 also compares ten-iteration results. Introduction contribution reports faster inference relative to other generative models, not a classical optimization run."},
+  "baseline": {"classical_method": "SIMP (Section 5.7, Table 9)", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "64x64 domain (Section 5, Setup)", "classical_iterations": "5 and 10 SIMP iterations (Section 5.7, Table 9); convergence rule not stated", "classical_time": "not stated", "ml_time": "TopoDiff-FF + SIMP inference 2.55 s, including 2.23 s sampling and 0.32 s processing, for each task (Tables 5-7); no pure classical timing", "training_time": "200k training steps; wall time not stated (Section 5, Setup)", "data_generation_cost": "30,000 SIMP-optimized training topologies; generation time not stated (Section 5, Setup/Dataset)", "quality_metric": "FE-based compliance, compliance error relative to SIMP, volume fraction error and floating material (Section 5, Evaluation; Tables 5-7)", "quality_gap": "Task 2, five SIMP iterations: mean compliance 8.67 hybrid vs 9.87 SIMP; compliance error 20.34% vs 35.13% (Table 9)."},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-stratum", "evidence": "Section 5.7, Table 9: primary classical comparison is design quality after equal iteration counts; no classical speed comparison."},
+    "R2": {"verdict": "na", "marker": "R2-quality-stratum", "evidence": "Section 5.7, Table 9: classical SIMP is compared on quality, without classical runtime or per-iteration time."},
+    "R3": {"verdict": "na", "marker": "R3-quality-stratum", "evidence": "Section 5.7, Table 9: primary classical outcome concerns quality, so speed-claim amortization does not apply."},
+    "R4": {"verdict": "pass", "marker": "R4-verified-outputs", "evidence": "Section 5, Evaluation; Tables 5-7 and Section 5.8: compliance of returned designs, volume-fraction error and floating material are evaluated; Task 3 retains high-compliance outliers and Section 5.8 evaluates manufacturable fraction."}
+  },
+  "reporting": {"n_test_cases": "not stated; results averaged over five runs (Tables 5-7)", "ood_test": "yes", "seeds_or_variance": "yes", "failure_rate_reported": "yes", "timing_protocol_stated": "partial", "runtimes_all_cases": "yes", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Tables 5-6 exclude samples with compliance greater than 100; Table 7 includes them. Inference times in Tables 5-7 compare generative models, not full classical SIMP. No public code or dataset link appears in the paper."
+}

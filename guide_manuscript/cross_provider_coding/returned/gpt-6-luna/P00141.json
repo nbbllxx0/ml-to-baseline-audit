@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00141",
+    "citation":  {
+                     "title":  "GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning",
+                     "authors":  "Mohammad Mahdi Behzadi; Horea T. Ilieș",
+                     "year":  2022,
+                     "venue":  "Journal of Mechanical Design, 144(2), 021711",
+                     "doi":  "10.1115/1.4052757",
+                     "arxiv_id":  "2105.03045",
+                     "version_coded":  "arXiv v1 (2105.03045)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "gan",
+                     "physics":  "compliance",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The authors present GANTL as enabling real-time design-space exploration by reusing a low-resolution GAN for high-resolution target models, with fewer fine-tuning cases.",
+                  "key_phrase":  "supports real-time generative design space explorations",
+                  "location":  "Introduction, Section 2.1 and Conclusion",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No classical-to-ML runtime ratio is reported. The 1.85 s per iteration figure in the introduction is a background value for a separate SIMP solver, not a paired GANTL timing.",
+                  "direction":  "outperform",
+                  "alternatives":  "Conclusion reports 11,000 low-resolution source cases and 1,500 high-resolution target cases; tables compare pixel accuracy/compliance to SIMP for selected examples."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP",
+                     "implementation":  "Freely available MATLAB 88-line SIMP code cited for ground-truth generation",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated; Introduction cites 1.85 s/iteration for a 300 × 100 MMB problem without hardware",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "40 × 80 source and up to 200 × 400 test domains",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "1.85 s per iteration is cited for a separate SIMP solver in the Introduction; no runtime for this paper\u0027s paired tests",
+                     "ml_time":  "not stated; described qualitatively as real-time",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "11,000 low-resolution and 1,500 high-resolution training cases; time/cost not reported here (Conclusion)",
+                     "quality_metric":  "binary accuracy, MSE, compliance error, standard deviation and topological connectivity; Tables 2–5",
+                     "quality_gap":  "Tabled errors are for displayed examples; authors report lower confidence on thin members and additional-force tests (Sections 4.1–4.2)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "partial",
+                             "marker":  "R1-unmatched",
+                             "evidence":  "Sections 4.1–4.2 compare predictions with SIMP using compliance and image metrics, but report selected examples and do not establish a matched quality or equal-compute comparison for the real-time claim."
+                         },
+                  "R2":  {
+                             "verdict":  "partial",
+                             "marker":  "R2-hardware-unjustified",
+                             "evidence":  "The Introduction cites a MATLAB SIMP iteration time, but the paper gives no paired hardware or timing protocol for the GANTL comparison."
+                         },
+                  "R3":  {
+                             "verdict":  "fail",
+                             "marker":  "R3-no-cost",
+                             "evidence":  "The Conclusion gives training case counts but no training or data-generation time, amortization, or explicit per-query-only scope."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-FE-no-failure-rate",
+                             "evidence":  "Sections 4.1–4.2 report compliance errors against SIMP for predictions, but do not report FE verification/constraint status and failure rates across the test set."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Multiple test scenarios; one reported scenario contains 250 cases with five and ten applied forces (Section 4.2)",
+                      "ood_test":  "yes",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The article refers readers to a prior paper for data-generation computational costs but does not report them in this paper.",
+    "stage":  "cross_provider_pass"
+}

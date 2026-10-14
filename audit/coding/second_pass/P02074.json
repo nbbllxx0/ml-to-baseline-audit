@@ -1,0 +1,88 @@
+{
+  "pid": "P02074",
+  "citation": {
+    "title": "UDHF-SMERO: a unified deep hybrid framework for co-evolutionary smart material design and energy-adaptive structural optimizations",
+    "authors": "Rajesh M. Bhagat, Mangesh P. Bhorkar, Rajesh M. Dhoble, Buddharatna J. Godboley, Amar Jain, Hemant V. Hajare, Prashant B. Pande",
+    "year": 2026,
+    "venue": "Journal of Building Pathology and Rehabilitation, vol. 11, article 165 (published 23 May 2026, open access)",
+    "doi": "10.1007/s41024-026-00833-7",
+    "arxiv_id": "",
+    "version_coded": "Version of record (open access), fetched from Springer Link (https://link.springer.com/article/10.1007/s41024-026-00833-7) and read in full; the 10 result tables are not inlined on the main article page (captions only, linked to per-table sub-pages) and were separately fetched from https://link.springer.com/article/10.1007/s41024-026-00833-7/tables/2 (and equivalent /tables/N) to recover the actual numeric data"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (no speed/computational-cost comparison with any classical method is found anywhere in the full text; the only numeric comparison table, Table 2, is an accuracy/R2 comparison naming 'Method [3]', of which reference [3] is described in the article's own literature review as a classical bi-directional evolutionary structural optimization (BESO) method)",
+    "stratum": "quality",
+    "method_family": "other",
+    "physics": "multiphysics",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For 'Topology-to-Performance Prediction' (R2 accuracy of predicting structural/energy performance from a topology under uniform, concentrated and harmonic loads), UDHF-SMERO reports R2 = 0.94-0.97 (average 0.96), versus R2 = 0.78-0.91 (averages 0.82-0.86) for three baselines the article labels only 'Method [3]', 'Method [8]' and 'Method [25]', reusing citation numbers from its own unrelated 40-reference literature review.",
+    "key_phrase": "The results confirm UDHF-SMERO as being far above the rest concerning predictability",
+    "location": "Section 4 ('Comparative result analysis'), Table 2 and its discussion in Section 4.1 (main text). No quantitative comparison with a named classical method appears in the Abstract, Conclusion, or Introduction; those sections give only the framework's own internal performance metrics (R2, percent errors, episode counts) with no baseline named or quantified",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable. No wall-clock, iteration-count, or computational-cost comparison against a classical, non-learned optimization method appears anywhere in the full text (checked throughout for 'faster', 'speed', 'time', 'hour', 'second', 'runtime', 'real-time'). The only 'episode'-based comparisons (Sec. 4.1, Table 8) are an ablation of the article's own reinforcement-learning module (with vs. without adaptive feedback: '180 iterations... instead of fewer than 80'), not a comparison against a classical method.",
+    "direction": "outperform",
+    "alternatives": "(1) Tables 3-7 report the same style of accuracy/error comparison (energy dissipation error, inverse design accuracy, displacement/frequency prediction error, failure-localization fidelity) against the same 'Method [3]/[8]/[25]' labels; all are quality-only. (2) Sec. 4.1 compares the full framework against an ablated version of itself without the reinforcement-learning module (convergence in under 80 vs. over 180 iterations) -- an internal ablation, not a classical-method comparison. (3) Abstract, Conclusion and Introduction state only the framework's own internal metrics with no named baseline of any kind, so none of them supplies a qualifying primary outcome under section 5.1 rule 1."
+  },
+  "baseline": {
+    "classical_method": "Not clearly a genuine re-implementation. Table 2 (and, by the same convention, Tables 3-7) labels its three comparators only as 'Method [3]', 'Method [8]' and 'Method [25]', reusing citation numbers from the article's own literature-review section (Sec. 2) rather than describing them as implemented baselines. Checked against the reference list: ref. [3] = Lai, Li, Liu et al. (2024), 'Application of bi-directional evolutionary structural optimization to the design of an innovative pedestrian bridge' (AI Civ. Eng.) -- a genuine classical, non-learned TO method (BESO), but for an unrelated bridge-design problem; ref. [8] = Wang J. (2023), 'Smart grid-based manufacturing by nanoparticle analysis with evolutionary optimization probability detection' (Int J Adv Manuf Technol) -- an evolutionary-optimization study on nanoparticle/smart-grid manufacturing, also unrelated; ref. [25] = Ghali, Prudhvi Nadh, Kumar et al. (2024), antenna design/optimization (Wirel Pers Commun) -- also unrelated. None of these three cited studies performs the SMA/piezoelectric-composite thermomechanical 'topology-to-performance prediction' task that Table 2 reports R2 scores for, and no description is given anywhere of how their methods were re-implemented, retrained or re-run on this article's own dataset/split",
+    "implementation": "Not stated for any comparator. UDHF-SMERO's own five modules are specified with hyperparameter detail (Sec. 4: attention layers, learning rates, batch sizes, epoch counts) but no code, framework or library is named for any part of the pipeline",
+    "solver": "not stated; 'physical FEM models' / 'FEM simulations' are named repeatedly as a ground-truth source for training and validation, with no solver type (direct/iterative/multigrid) given",
+    "hardware_classical": "not stated for Method [3]/[8]/[25]",
+    "hardware_ml": "'NVIDIA RTX-class GPUs with mixed-precision training' for all UDHF-SMERO modules (Sec. 4); no specific GPU model given",
+    "problem_size": "Initial design tensor M0(x,y,z,mu) in R^(64x64x16x6) (Sec. 4: a 64x64x16 spatial grid with 6 material-property channels), but the Limitations section (Sec. 6) separately states the QEPM-LA module's latent encodings 'have been restricted to 2D strain fields' -- an internal inconsistency between the nominally 3D-shaped design tensor and at least one 2D-only module",
+    "classical_iterations": "not stated for Method [3]/[8]/[25]. UDHF-SMERO's own modules: Co-PIGT trained 200 epochs (batch 16, lr 2e-4); IDG-PRA GAN trained 150 epochs (batch 32); CDRDI reinforcement policy reported to converge in 'under 100 episodes' (Abstract), 'after 74 episodes' (Sec. 4), and 'in 71 episodes' (Sec. 4.2) -- three different figures given in different places in the same article for what is presented as the same result",
+    "classical_time": "not stated anywhere for any comparator",
+    "ml_time": "not stated anywhere in absolute wall-clock terms",
+    "training_time": "not stated in wall-clock terms for any module; only epoch/episode counts and hyperparameters are given (Sec. 4)",
+    "data_generation_cost": "not stated in compute terms; the (single, reused) dataset is described as 'more than 50,000 samples', 'in part synthesized, and in part based on existing open-source material topology databases (e.g., TopOpt benchmark sets)' (Sec. 4)",
+    "quality_metric": "R2 scores and percentage errors between UDHF-SMERO/comparator outputs and a stated ground truth (FEM simulations or analytical targets), reported per module in Tables 2-9; this is a surrogate/predictive-accuracy metric, not an FE analysis of an actual returned/optimized design",
+    "quality_gap": "Table 2 (average R2 across uniform/concentrated/harmonic load scenarios, fetched from the table sub-page): Method [3] = 0.82, Method [8] = 0.84, Method [25] = 0.86, UDHF-SMERO = 0.96. Narrative text (Sec. 4.1) additionally states UDHF-SMERO reaches R2 = 0.96 on this task, >92% inverse-design reconstruction fidelity, <3% energy-dissipation error, <2.5% natural-frequency error, >88% failure-localization accuracy, and a composite end-to-end score of 0.93 (Table 10); comparator-specific values for Tables 3-10 were not individually re-extracted given the concerns already documented about what 'Method [3]/[8]/[25]' represent"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-incoherent-baseline",
+      "evidence": "The primary comparison (Table 2) reports 'Topology-to-Performance Prediction' R2 accuracy against 'Method [3]', 'Method [8]' and 'Method [25]', which are the same numbers used to cite three unrelated published studies (a bridge BESO paper, a smart-grid nanoparticle-manufacturing paper, and an antenna-optimization paper) in the article's own literature review (Sec. 2); none of those three studies performs this article's own SMA/piezoelectric-composite thermomechanical prediction task, and no method, code, or re-training procedure is described for how their 'results' were obtained on this article's dataset. The text's only fairness statement ('All tests were done in the same experimental conditions, dividing the datasets into a second train (70%), a second validation (15%), and a second test (15%)', Sec. 4) cannot be verified against unrelated cited papers whose original studies used different data, tasks and domains entirely. This goes beyond 'loose matching' to an apparently incoherent comparison, so it is scored fail rather than partial."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome (Table 2) is a quality/accuracy comparison, not a speed or computational-cost claim, so R2's efficiency criteria do not bear on it. For the record, no solver type, hardware, or efficiency detail is stated for any comparator method."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim against a classical method exists anywhere in the article (see claim.claimed_speedup_basis). UDHF-SMERO's own training cost is given only as epoch/episode counts on unspecified 'NVIDIA RTX-class' GPUs (Sec. 4), not in wall-clock or amortized terms; data-generation cost for the >50,000-sample dataset is not quantified."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-surrogate-predicted",
+      "evidence": "The primary outcome is explicitly a surrogate-prediction accuracy metric -- Table 2 is titled 'Topology-to-performance prediction accuracy (R2 scores)', i.e. how well a learned model predicts performance from a topology, not an FE analysis of an actual returned/optimized design compared under a stated feasibility rule. This matches R4's fail condition ('quality rests only on... surrogate-predicted performance') directly. No volume/constraint satisfaction or failure/infeasibility rate is reported for the design(s) underlying this comparison for any method."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "A single dataset of >50,000 samples split 70/15/15 (train/validation/test) is used across all modules (Sec. 4); Table 2 covers 3 load-scenario categories (uniform, concentrated, harmonic). Sec. 4.2 separately mentions validation on 'never-seen complex structures with... functionally graded lattices and smart segments embedded in cantilever beams' without clarifying how this relates to the 70/15/15 split",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang among P02074's own authors (Rajesh M. Bhagat, Mangesh P. Bhorkar, Rajesh M. Dhoble, Buddharatna J. Godboley, Amar Jain, Hemant V. Hajare, Prashant B. Pande; affiliations include Yeshwantrao Chavan College of Engineering, Dept. of Civil Engineering, per Springer's citation_author/affiliation metadata). Note for the record: a cited reference, [8] Wang J. (2023) 'Smart grid-based manufacturing by nanoparticle analysis...', has the initials 'Wang J', but this is a bibliography entry, not an author of the coded article, so it is not the 'Jun Wang' the instructions ask about. No duplicate pool entry found: audit/pool/pool.csv has exactly one row for this title (P02074), with no arXiv id. Access: the article is gold open access on Springer Link and was read in full without any bot-check, CAPTCHA or paywall encountered; only a generic browser User-Agent was used and no personal data was sent. Data-integrity concern for the adjudicator: this article shows multiple internal-consistency problems beyond the R1/R4 fails already scored -- (a) all 10 result tables are numeric-only images/sub-pages with no methodological description of how the three comparator 'methods' were obtained; (b) the same three citation numbers ([3],[8],[25]) recur as comparators across a topology-to-performance-prediction task, an inverse-design task, a frequency-prediction task, a failure-localization task, etc., despite the cited papers being single, narrow, domain-specific studies (bridge BESO, smart-grid nanoparticles, antenna design) that could not plausibly have produced all of these different results; (c) the CDRDI reinforcement-learning convergence-episode count is reported as three different numbers (under 100 in the Abstract, 74 in Sec. 4, 71 in Sec. 4.2); (d) the data-availability statement ('not publicly available due to privacy and personal work') is inconsistent with the dataset being described elsewhere as synthetic/procedurally generated; (e) the prose contains pervasive, unusual filler phrasing ('...sets in process', '...in process') and a mismatch between the authors' apparent home discipline (civil engineering / building pathology) and the paper's highly specific deep-learning/quantum-inspired claims. None of this is proof of fabrication, but taken together it substantially undermines confidence in the reported comparison, which is why R1 and R4 are scored fail (not partial) with detailed evidence rather than 'unsure means pass'; this pattern is exactly the kind of reporting-quality concern the audit's C4 indicators are meant to surface, and it may be worth a dedicated qualitative flag beyond the numeric fields captured here."
+}

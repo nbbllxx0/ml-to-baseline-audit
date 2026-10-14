@@ -1,0 +1,20 @@
+{
+  "size": 64,
+  "k": 5,
+  "iters": 150,
+  "solvers": "SPSOLVE",
+  "optimizers": "OC",
+  "void": 1e-09,
+  "heavyside": false,
+  "mg_levels": 3,
+  "mg_coarse": "splu",
+  "problem_ids": [
+    15,
+    676,
+    839,
+    935,
+    961
+  ],
+  "split": "NITO_test",
+  "oat_commit": "dc5e817497eb7d5517f93b7c79ea463ab2761082"
+}

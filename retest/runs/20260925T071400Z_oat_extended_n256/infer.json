@@ -1,0 +1,761 @@
+{
+ "cpu_pinning": {
+  "pinned": true,
+  "affinity_mask": "0xfff",
+  "priority": "HIGH_PRIORITY_CLASS"
+ },
+ "torch": "2.11.0+cu128",
+ "device": "NVIDIA GeForce RTX 5090",
+ "results": [
+  {
+   "problem_id": 1015,
+   "seed": 20261924,
+   "time_s": 0.47677039995323867,
+   "primary": true
+  },
+  {
+   "problem_id": 1015,
+   "seed": 20262924,
+   "time_s": 0.5103998000267893,
+   "primary": true
+  },
+  {
+   "problem_id": 1015,
+   "seed": 20263924,
+   "time_s": 0.5173324000206776,
+   "primary": true
+  },
+  {
+   "problem_id": 1015,
+   "seed": 20264924,
+   "time_s": 0.5146250000107102,
+   "primary": true
+  },
+  {
+   "problem_id": 1015,
+   "seed": 20265924,
+   "time_s": 0.5195729999686591,
+   "primary": true
+  },
+  {
+   "problem_id": 1676,
+   "seed": 20261924,
+   "time_s": 0.44906069996068254,
+   "primary": true
+  },
+  {
+   "problem_id": 1676,
+   "seed": 20262924,
+   "time_s": 0.4823698999825865,
+   "primary": true
+  },
+  {
+   "problem_id": 1676,
+   "seed": 20263924,
+   "time_s": 0.4772553999791853,
+   "primary": true
+  },
+  {
+   "problem_id": 1676,
+   "seed": 20264924,
+   "time_s": 0.47697819996392354,
+   "primary": true
+  },
+  {
+   "problem_id": 1676,
+   "seed": 20265924,
+   "time_s": 0.48383499996270984,
+   "primary": true
+  },
+  {
+   "problem_id": 1839,
+   "seed": 20261924,
+   "time_s": 0.4481563000008464,
+   "primary": true
+  },
+  {
+   "problem_id": 1839,
+   "seed": 20262924,
+   "time_s": 0.4795215000049211,
+   "primary": true
+  },
+  {
+   "problem_id": 1839,
+   "seed": 20263924,
+   "time_s": 0.47643380000954494,
+   "primary": true
+  },
+  {
+   "problem_id": 1839,
+   "seed": 20264924,
+   "time_s": 0.4778754999861121,
+   "primary": true
+  },
+  {
+   "problem_id": 1839,
+   "seed": 20265924,
+   "time_s": 0.5493257999769412,
+   "primary": true
+  },
+  {
+   "problem_id": 1935,
+   "seed": 20261924,
+   "time_s": 0.4506202000193298,
+   "primary": true
+  },
+  {
+   "problem_id": 1935,
+   "seed": 20262924,
+   "time_s": 0.480871899984777,
+   "primary": true
+  },
+  {
+   "problem_id": 1935,
+   "seed": 20263924,
+   "time_s": 0.4752316999947652,
+   "primary": true
+  },
+  {
+   "problem_id": 1935,
+   "seed": 20264924,
+   "time_s": 0.4729382999939844,
+   "primary": true
+  },
+  {
+   "problem_id": 1935,
+   "seed": 20265924,
+   "time_s": 0.47695039998507127,
+   "primary": true
+  },
+  {
+   "problem_id": 1961,
+   "seed": 20261924,
+   "time_s": 0.4512053999933414,
+   "primary": true
+  },
+  {
+   "problem_id": 1961,
+   "seed": 20262924,
+   "time_s": 0.552733900025487,
+   "primary": true
+  },
+  {
+   "problem_id": 1961,
+   "seed": 20263924,
+   "time_s": 0.4739261000067927,
+   "primary": true
+  },
+  {
+   "problem_id": 1961,
+   "seed": 20264924,
+   "time_s": 0.48022709996439517,
+   "primary": true
+  },
+  {
+   "problem_id": 1961,
+   "seed": 20265924,
+   "time_s": 0.48980469995876774,
+   "primary": true
+  },
+  {
+   "problem_id": 1086,
+   "seed": 20261924,
+   "time_s": 0.4516578000038862,
+   "primary": false
+  },
+  {
+   "problem_id": 1086,
+   "seed": 20262924,
+   "time_s": 0.47629860002780333,
+   "primary": false
+  },
+  {
+   "problem_id": 1086,
+   "seed": 20263924,
+   "time_s": 0.47348410001723096,
+   "primary": false
+  },
+  {
+   "problem_id": 1086,
+   "seed": 20264924,
+   "time_s": 0.47792309999931604,
+   "primary": false
+  },
+  {
+   "problem_id": 1086,
+   "seed": 20265924,
+   "time_s": 0.4734022000338882,
+   "primary": false
+  },
+  {
+   "problem_id": 1121,
+   "seed": 20261924,
+   "time_s": 0.4532240999978967,
+   "primary": false
+  },
+  {
+   "problem_id": 1121,
+   "seed": 20262924,
+   "time_s": 0.47415550000732765,
+   "primary": false
+  },
+  {
+   "problem_id": 1121,
+   "seed": 20263924,
+   "time_s": 0.47423150000395253,
+   "primary": false
+  },
+  {
+   "problem_id": 1121,
+   "seed": 20264924,
+   "time_s": 0.4805651000351645,
+   "primary": false
+  },
+  {
+   "problem_id": 1121,
+   "seed": 20265924,
+   "time_s": 0.47681089997058734,
+   "primary": false
+  },
+  {
+   "problem_id": 1134,
+   "seed": 20261924,
+   "time_s": 0.45159830001648515,
+   "primary": false
+  },
+  {
+   "problem_id": 1134,
+   "seed": 20262924,
+   "time_s": 0.47438640001928434,
+   "primary": false
+  },
+  {
+   "problem_id": 1134,
+   "seed": 20263924,
+   "time_s": 0.47764090000418946,
+   "primary": false
+  },
+  {
+   "problem_id": 1134,
+   "seed": 20264924,
+   "time_s": 0.480487999971956,
+   "primary": false
+  },
+  {
+   "problem_id": 1134,
+   "seed": 20265924,
+   "time_s": 0.4726717999437824,
+   "primary": false
+  },
+  {
+   "problem_id": 1241,
+   "seed": 20261924,
+   "time_s": 0.45000299997627735,
+   "primary": false
+  },
+  {
+   "problem_id": 1241,
+   "seed": 20262924,
+   "time_s": 0.4728983999812044,
+   "primary": false
+  },
+  {
+   "problem_id": 1241,
+   "seed": 20263924,
+   "time_s": 0.47836799995275214,
+   "primary": false
+  },
+  {
+   "problem_id": 1241,
+   "seed": 20264924,
+   "time_s": 0.48210580000886694,
+   "primary": false
+  },
+  {
+   "problem_id": 1241,
+   "seed": 20265924,
+   "time_s": 0.5088570999796502,
+   "primary": false
+  },
+  {
+   "problem_id": 1338,
+   "seed": 20261924,
+   "time_s": 0.45026490004966035,
+   "primary": false
+  },
+  {
+   "problem_id": 1338,
+   "seed": 20262924,
+   "time_s": 0.47712410002714023,
+   "primary": false
+  },
+  {
+   "problem_id": 1338,
+   "seed": 20263924,
+   "time_s": 0.4801564999506809,
+   "primary": false
+  },
+  {
+   "problem_id": 1338,
+   "seed": 20264924,
+   "time_s": 0.4743163999519311,
+   "primary": false
+  },
+  {
+   "problem_id": 1338,
+   "seed": 20265924,
+   "time_s": 0.4766861999523826,
+   "primary": false
+  },
+  {
+   "problem_id": 1403,
+   "seed": 20261924,
+   "time_s": 0.46924780000699684,
+   "primary": false
+  },
+  {
+   "problem_id": 1403,
+   "seed": 20262924,
+   "time_s": 0.4787184000015259,
+   "primary": false
+  },
+  {
+   "problem_id": 1403,
+   "seed": 20263924,
+   "time_s": 0.47830290003912523,
+   "primary": false
+  },
+  {
+   "problem_id": 1403,
+   "seed": 20264924,
+   "time_s": 0.5475336000090465,
+   "primary": false
+  },
+  {
+   "problem_id": 1403,
+   "seed": 20265924,
+   "time_s": 0.48081949999323115,
+   "primary": false
+  },
+  {
+   "problem_id": 1443,
+   "seed": 20261924,
+   "time_s": 0.4501120999921113,
+   "primary": false
+  },
+  {
+   "problem_id": 1443,
+   "seed": 20262924,
+   "time_s": 0.48574599996209145,
+   "primary": false
+  },
+  {
+   "problem_id": 1443,
+   "seed": 20263924,
+   "time_s": 0.47639429999981076,
+   "primary": false
+  },
+  {
+   "problem_id": 1443,
+   "seed": 20264924,
+   "time_s": 0.483240699977614,
+   "primary": false
+  },
+  {
+   "problem_id": 1443,
+   "seed": 20265924,
+   "time_s": 0.49870100000407547,
+   "primary": false
+  },
+  {
+   "problem_id": 1499,
+   "seed": 20261924,
+   "time_s": 0.4737502000061795,
+   "primary": false
+  },
+  {
+   "problem_id": 1499,
+   "seed": 20262924,
+   "time_s": 0.5818972000270151,
+   "primary": false
+  },
+  {
+   "problem_id": 1499,
+   "seed": 20263924,
+   "time_s": 0.5045458999811672,
+   "primary": false
+  },
+  {
+   "problem_id": 1499,
+   "seed": 20264924,
+   "time_s": 0.49128509999718517,
+   "primary": false
+  },
+  {
+   "problem_id": 1499,
+   "seed": 20265924,
+   "time_s": 0.48112539999419823,
+   "primary": false
+  },
+  {
+   "problem_id": 1523,
+   "seed": 20261924,
+   "time_s": 0.4534747000434436,
+   "primary": false
+  },
+  {
+   "problem_id": 1523,
+   "seed": 20262924,
+   "time_s": 0.48364199994830415,
+   "primary": false
+  },
+  {
+   "problem_id": 1523,
+   "seed": 20263924,
+   "time_s": 0.48107189999427646,
+   "primary": false
+  },
+  {
+   "problem_id": 1523,
+   "seed": 20264924,
+   "time_s": 0.48784339998383075,
+   "primary": false
+  },
+  {
+   "problem_id": 1523,
+   "seed": 20265924,
+   "time_s": 0.47767949994886294,
+   "primary": false
+  },
+  {
+   "problem_id": 1530,
+   "seed": 20261924,
+   "time_s": 0.45584140002029017,
+   "primary": false
+  },
+  {
+   "problem_id": 1530,
+   "seed": 20262924,
+   "time_s": 0.4782038999837823,
+   "primary": false
+  },
+  {
+   "problem_id": 1530,
+   "seed": 20263924,
+   "time_s": 0.47522469999967143,
+   "primary": false
+  },
+  {
+   "problem_id": 1530,
+   "seed": 20264924,
+   "time_s": 0.4782112999819219,
+   "primary": false
+  },
+  {
+   "problem_id": 1530,
+   "seed": 20265924,
+   "time_s": 0.47761800000444055,
+   "primary": false
+  },
+  {
+   "problem_id": 1580,
+   "seed": 20261924,
+   "time_s": 0.4555913000367582,
+   "primary": false
+  },
+  {
+   "problem_id": 1580,
+   "seed": 20262924,
+   "time_s": 0.47522269998444244,
+   "primary": false
+  },
+  {
+   "problem_id": 1580,
+   "seed": 20263924,
+   "time_s": 0.47801700001582503,
+   "primary": false
+  },
+  {
+   "problem_id": 1580,
+   "seed": 20264924,
+   "time_s": 0.4814626000006683,
+   "primary": false
+  },
+  {
+   "problem_id": 1580,
+   "seed": 20265924,
+   "time_s": 0.47687280003447086,
+   "primary": false
+  },
+  {
+   "problem_id": 1581,
+   "seed": 20261924,
+   "time_s": 0.46300769998924807,
+   "primary": false
+  },
+  {
+   "problem_id": 1581,
+   "seed": 20262924,
+   "time_s": 0.4833165999734774,
+   "primary": false
+  },
+  {
+   "problem_id": 1581,
+   "seed": 20263924,
+   "time_s": 0.47651649999897927,
+   "primary": false
+  },
+  {
+   "problem_id": 1581,
+   "seed": 20264924,
+   "time_s": 0.48342260002391413,
+   "primary": false
+  },
+  {
+   "problem_id": 1581,
+   "seed": 20265924,
+   "time_s": 0.48349979997146875,
+   "primary": false
+  },
+  {
+   "problem_id": 1629,
+   "seed": 20261924,
+   "time_s": 0.4604441999690607,
+   "primary": false
+  },
+  {
+   "problem_id": 1629,
+   "seed": 20262924,
+   "time_s": 0.4758909999509342,
+   "primary": false
+  },
+  {
+   "problem_id": 1629,
+   "seed": 20263924,
+   "time_s": 0.48036749998573214,
+   "primary": false
+  },
+  {
+   "problem_id": 1629,
+   "seed": 20264924,
+   "time_s": 0.6073983999667689,
+   "primary": false
+  },
+  {
+   "problem_id": 1629,
+   "seed": 20265924,
+   "time_s": 0.48190240003168583,
+   "primary": false
+  },
+  {
+   "problem_id": 1681,
+   "seed": 20261924,
+   "time_s": 0.45627079997211695,
+   "primary": false
+  },
+  {
+   "problem_id": 1681,
+   "seed": 20262924,
+   "time_s": 0.47615840000798926,
+   "primary": false
+  },
+  {
+   "problem_id": 1681,
+   "seed": 20263924,
+   "time_s": 0.48444069997640327,
+   "primary": false
+  },
+  {
+   "problem_id": 1681,
+   "seed": 20264924,
+   "time_s": 0.478595900000073,
+   "primary": false
+  },
+  {
+   "problem_id": 1681,
+   "seed": 20265924,
+   "time_s": 0.49410660000285134,
+   "primary": false
+  },
+  {
+   "problem_id": 1760,
+   "seed": 20261924,
+   "time_s": 0.4526668000034988,
+   "primary": false
+  },
+  {
+   "problem_id": 1760,
+   "seed": 20262924,
+   "time_s": 0.4779552999534644,
+   "primary": false
+  },
+  {
+   "problem_id": 1760,
+   "seed": 20263924,
+   "time_s": 0.49314729997422546,
+   "primary": false
+  },
+  {
+   "problem_id": 1760,
+   "seed": 20264924,
+   "time_s": 0.4779628000105731,
+   "primary": false
+  },
+  {
+   "problem_id": 1760,
+   "seed": 20265924,
+   "time_s": 0.47383390000322834,
+   "primary": false
+  },
+  {
+   "problem_id": 1788,
+   "seed": 20261924,
+   "time_s": 0.45313949999399483,
+   "primary": false
+  },
+  {
+   "problem_id": 1788,
+   "seed": 20262924,
+   "time_s": 0.47885740001220256,
+   "primary": false
+  },
+  {
+   "problem_id": 1788,
+   "seed": 20263924,
+   "time_s": 0.4831887000473216,
+   "primary": false
+  },
+  {
+   "problem_id": 1788,
+   "seed": 20264924,
+   "time_s": 0.5121041999664158,
+   "primary": false
+  },
+  {
+   "problem_id": 1788,
+   "seed": 20265924,
+   "time_s": 0.5053843999630772,
+   "primary": false
+  },
+  {
+   "problem_id": 1817,
+   "seed": 20261924,
+   "time_s": 0.4524597999989055,
+   "primary": false
+  },
+  {
+   "problem_id": 1817,
+   "seed": 20262924,
+   "time_s": 0.48079859995050356,
+   "primary": false
+  },
+  {
+   "problem_id": 1817,
+   "seed": 20263924,
+   "time_s": 0.4821898000082001,
+   "primary": false
+  },
+  {
+   "problem_id": 1817,
+   "seed": 20264924,
+   "time_s": 0.48048169998219237,
+   "primary": false
+  },
+  {
+   "problem_id": 1817,
+   "seed": 20265924,
+   "time_s": 0.4836405999958515,
+   "primary": false
+  },
+  {
+   "problem_id": 1972,
+   "seed": 20261924,
+   "time_s": 0.4543944000033662,
+   "primary": false
+  },
+  {
+   "problem_id": 1972,
+   "seed": 20262924,
+   "time_s": 0.48664580000331625,
+   "primary": false
+  },
+  {
+   "problem_id": 1972,
+   "seed": 20263924,
+   "time_s": 0.4850915999850258,
+   "primary": false
+  },
+  {
+   "problem_id": 1972,
+   "seed": 20264924,
+   "time_s": 0.4813164999941364,
+   "primary": false
+  },
+  {
+   "problem_id": 1972,
+   "seed": 20265924,
+   "time_s": 0.4819394000223838,
+   "primary": false
+  },
+  {
+   "problem_id": 1974,
+   "seed": 20261924,
+   "time_s": 0.45306849997723475,
+   "primary": false
+  },
+  {
+   "problem_id": 1974,
+   "seed": 20262924,
+   "time_s": 0.4821576999966055,
+   "primary": false
+  },
+  {
+   "problem_id": 1974,
+   "seed": 20263924,
+   "time_s": 0.4756596999941394,
+   "primary": false
+  },
+  {
+   "problem_id": 1974,
+   "seed": 20264924,
+   "time_s": 0.4815043999697082,
+   "primary": false
+  },
+  {
+   "problem_id": 1974,
+   "seed": 20265924,
+   "time_s": 0.4894040999934077,
+   "primary": false
+  },
+  {
+   "problem_id": 1985,
+   "seed": 20261924,
+   "time_s": 0.45393160003004596,
+   "primary": false
+  },
+  {
+   "problem_id": 1985,
+   "seed": 20262924,
+   "time_s": 0.4791720000212081,
+   "primary": false
+  },
+  {
+   "problem_id": 1985,
+   "seed": 20263924,
+   "time_s": 0.47448149998672307,
+   "primary": false
+  },
+  {
+   "problem_id": 1985,
+   "seed": 20264924,
+   "time_s": 0.473842799954582,
+   "primary": false
+  },
+  {
+   "problem_id": 1985,
+   "seed": 20265924,
+   "time_s": 0.4798251999891363,
+   "primary": false
+  }
+ ]
+}

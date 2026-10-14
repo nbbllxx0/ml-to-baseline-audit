@@ -1,0 +1,350 @@
+pid,possible_duplicate_of,jaccard,title,title_earlier
+P00093,P00081,0.60,TOaCNN: Adaptive Convolutional Neural Network for Multidisciplinary Topology Optimization,PyTOaCNN: Topology optimization using an adaptive convolutional neural network in Python
+P00123,P00113,0.60,GM-TOuNN: Graded Multiscale Topology Optimization using Neural Networks,FluTO: Graded Multiscale Fluid Topology Optimization using Neural Networks
+P00204,P00188,0.78,A Generalized Shape Function Approach for Multimaterial Topology Optimization,Topology optimization of multimaterial aircraft pylons using generalized shape function approach
+P00296,P00190,0.77,Level-set topology optimisation with unfitted finite elements and automatic shape differentiation,Shape calculus and automatic differentiation for multi-phase level-set topology optimisation with unfitted finite elements
+P00483,P00472,0.67,Canonical Duality Theory for Topology Optimization,On Topology Optimization and Canonical Duality Method
+P00524,P00123,0.62,TOuNN: Topology Optimization using Neural Networks,GM-TOuNN: Graded Multiscale Topology Optimization using Neural Networks
+P00526,P00165,0.62,Deep learning for topology optimization of 2D metamaterials,Topology optimization of 2D structures with nonlinearities using deep learning
+P00533,P00527,0.80,A complete Physics-Informed Neural Network-based framework for structural topology optimization,A Physics-Informed Neural Network-based Topology Optimization (PINNTO) framework for structural optimization
+P00536,P00176,0.80,A deep convolutional neural network for topology optimization with perceptible generalization ability,A deep Convolutional Neural Network for topology optimization with strong generalization ability
+P00538,P00156,0.90,Accelerating gradient-based topology optimization design with dual-model artificial neural networks,Accelerating gradient-based topology optimization design with dual-model neural networks
+P00541,P00113,0.75,Graded multiscale topology optimization using neural networks,FluTO: Graded Multiscale Fluid Topology Optimization using Neural Networks
+P00541,P00123,0.75,Graded multiscale topology optimization using neural networks,GM-TOuNN: Graded Multiscale Topology Optimization using Neural Networks
+P00544,P00148,0.90,A Parametric Level Set Method for Topology Optimization Based on Deep Neural Network,A Parametric Level Set Method for Topology Optimization based on Deep Neural Network (DNN)
+P00546,P00171,1.00,"Efficient, high-resolution topology optimization method based on convolutional neural networks",An efficient and high-resolution topology optimization method based on convolutional neural networks
+P00552,P00133,0.73,Approximate Length Scale Filter in Topology Optimization using Fourier Enhanced Neural Networks,Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks
+P00592,P00081,0.62,Topology Optimization Using Convolutional Neural Network,PyTOaCNN: Topology optimization using an adaptive convolutional neural network in Python
+P00592,P00093,0.62,Topology Optimization Using Convolutional Neural Network,TOaCNN: Adaptive Convolutional Neural Network for Multidisciplinary Topology Optimization
+P00638,P00537,0.71,Structural topology optimization based on deep learning,Non-iterative structural topology optimization using deep learning
+P00645,P00560,0.60,Real-time stress-based topology optimization via deep learning,Deep learning driven real time topology optimisation based on initial stress learning
+P00652,P00125,0.60,An adaptive and scalable artificial neural network-based model-order-reduction method for large-scale topology optimization designs,An Adaptive and Scalable ANN-based Model-Order-Reduction Method for Large-Scale TO Designs
+P00662,P00645,0.60,Real-time topology optimization based on deep learning for moving morphable components,Real-time stress-based topology optimization via deep learning
+P00667,P00144,0.62,Topology optimization via implicit neural representations,NTopo: Mesh-free Topology Optimization using Implicit Neural Representations
+P00676,P00133,1.00,Length Scale Control in Topology Optimization using Fourier Enhanced\n Neural Networks,Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks
+P00676,P00552,0.73,Length Scale Control in Topology Optimization using Fourier Enhanced\n Neural Networks,Approximate Length Scale Filter in Topology Optimization using Fourier Enhanced Neural Networks
+P00682,P00180,0.60,Deep Learning for Stress Field Prediction Using Convolutional Neural Networks.,Stress Field Prediction in Cantilevered Structures Using Convolutional Neural Networks
+P00703,P00543,0.62,Accurate and real-time structural topology prediction driven by deep learning under moving morphable component-based framework,Machine Learning-Driven Real-Time Topology Optimization Under Moving Morphable Component-Based Framework
+P00814,P00151,0.67,Physics-consistent deep learning for structural topology optimization.,Algorithmically-Consistent Deep Learning Frameworks for Structural Topology Optimization
+P00824,P00694,0.80,Towards the Rapid Design of Engineered Systems Through Deep Neural Networks,Toward the Rapid Design of Engineered Systems Through Deep Neural Networks
+P00826,P00526,0.62,Gyroid-like metamaterials: Topology optimization and Deep Learning,Deep learning for topology optimization of 2D metamaterials
+P00838,P00095,0.69,TOMAS: topology optimization of multiscale fluid flow devices using variational auto-encoders and super-shapes,TOMAS: Topology Optimization of Multiscale Fluid Devices using Variational Autoencoders and Super-Shapes
+P00843,P00638,0.67,Isogeometric Topology Optimization Based on Deep Learning,Structural topology optimization based on deep learning
+P00851,P00151,0.75,Deep learning frameworks for structural topology optimization,Algorithmically-Consistent Deep Learning Frameworks for Structural Topology Optimization
+P00851,P00814,0.62,Deep learning frameworks for structural topology optimization,Physics-consistent deep learning for structural topology optimization.
+P00887,P00050,0.64,Neural Topology Optimization Via Active Learning for Efficient Channel Design in Turbulent Mass Transfer,Efficient neural topology optimization via active learning for enhancing turbulent mass transfer in fluid channels
+P00925,P00158,0.64,Generative Design by Reinforcement Learning: Maximizing Diversity of Topology Optimized Designs.,Generative Design by Reinforcement Learning: Enhancing the Diversity of Topology Optimization Designs
+P00978,P00095,0.91,TOMAS: Topology Optimization of Multiscale Fluid-Flow Devices using Variational Autoencoders and Super-Shapes,TOMAS: Topology Optimization of Multiscale Fluid Devices using Variational Autoencoders and Super-Shapes
+P00978,P00838,0.77,TOMAS: Topology Optimization of Multiscale Fluid-Flow Devices using Variational Autoencoders and Super-Shapes,TOMAS: topology optimization of multiscale fluid flow devices using variational auto-encoders and super-shapes
+P00996,P00876,0.64,Multi-Head Self-Attention GANs for Multiphysics Topology Optimization,Multi-Head Self-Attention Generative Adversarial Networks for Multiphysics Topology Optimization
+P01000,P00933,0.64,Two-Scale Deep Learning Model for Polysilicon MEMS Sensors,A Two-Scale Multi-Physics Deep Learning Model for Smart MEMS Sensors
+P01004,P00183,0.91,One-Shot Optimal Topology Generation through Theory-Driven Machine Learning.,One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning
+P01017,P00040,0.71,Data-driven multiscale nonlinear topology optimization of functionally graded soft composites under large deformations,Data-Driven Multiscale Topology Optimization of Soft Functionally Graded Materials with Large Deformations
+P01035,P01034,0.67,Adaptive Neural Network Topology Optimization,Neural Network Topology Optimization Algorithm
+P01036,P01034,0.67,Neural Network Dynamic Topology Optimization,Neural Network Topology Optimization Algorithm
+P01036,P01035,0.67,Neural Network Dynamic Topology Optimization,Adaptive Neural Network Topology Optimization
+P01037,P01036,0.67,Dynamic Topology Optimization of Neural Networks,Neural Network Dynamic Topology Optimization
+P01038,P01034,0.67,Dynamic Neural Network Topology Optimization,Neural Network Topology Optimization Algorithm
+P01038,P01035,0.67,Dynamic Neural Network Topology Optimization,Adaptive Neural Network Topology Optimization
+P01038,P01036,1.00,Dynamic Neural Network Topology Optimization,Neural Network Dynamic Topology Optimization
+P01038,P01037,0.67,Dynamic Neural Network Topology Optimization,Dynamic Topology Optimization of Neural Networks
+P01039,P01034,0.67,Neural Network Adaptive Topology Optimization,Neural Network Topology Optimization Algorithm
+P01039,P01035,1.00,Neural Network Adaptive Topology Optimization,Adaptive Neural Network Topology Optimization
+P01039,P01036,0.67,Neural Network Adaptive Topology Optimization,Neural Network Dynamic Topology Optimization
+P01039,P01038,0.67,Neural Network Adaptive Topology Optimization,Dynamic Neural Network Topology Optimization
+P01040,P01034,0.67,Neural Network Topology Optimization Framework,Neural Network Topology Optimization Algorithm
+P01040,P01035,0.67,Neural Network Topology Optimization Framework,Adaptive Neural Network Topology Optimization
+P01040,P01036,0.67,Neural Network Topology Optimization Framework,Neural Network Dynamic Topology Optimization
+P01040,P01038,0.67,Neural Network Topology Optimization Framework,Dynamic Neural Network Topology Optimization
+P01040,P01039,0.67,Neural Network Topology Optimization Framework,Neural Network Adaptive Topology Optimization
+P01043,P01035,0.83,Neural Network Adaptive Topology Optimization (NNAUTO),Adaptive Neural Network Topology Optimization
+P01043,P01039,0.83,Neural Network Adaptive Topology Optimization (NNAUTO),Neural Network Adaptive Topology Optimization
+P01044,P01037,0.83,Dynamic Graph Neural Networks for Topology Optimization,Dynamic Topology Optimization of Neural Networks
+P01045,P01036,0.67,Dynamic Topology Optimization via Neural Networks,Neural Network Dynamic Topology Optimization
+P01045,P01037,1.00,Dynamic Topology Optimization via Neural Networks,Dynamic Topology Optimization of Neural Networks
+P01045,P01038,0.67,Dynamic Topology Optimization via Neural Networks,Dynamic Neural Network Topology Optimization
+P01045,P01044,0.83,Dynamic Topology Optimization via Neural Networks,Dynamic Graph Neural Networks for Topology Optimization
+P01046,P01037,0.83,Dynamic Topology Optimization for Artificial Neural Networks,Dynamic Topology Optimization of Neural Networks
+P01046,P01044,0.71,Dynamic Topology Optimization for Artificial Neural Networks,Dynamic Graph Neural Networks for Topology Optimization
+P01046,P01045,0.83,Dynamic Topology Optimization for Artificial Neural Networks,Dynamic Topology Optimization via Neural Networks
+P01048,P01036,0.83,Dynamic Neural Network Topology Optimization (DNTO),Neural Network Dynamic Topology Optimization
+P01048,P01038,0.83,Dynamic Neural Network Topology Optimization (DNTO),Dynamic Neural Network Topology Optimization
+P01049,P01044,0.71,Title: Topology Optimization & Graph Neural Networks,Dynamic Graph Neural Networks for Topology Optimization
+P01049,P01047,0.71,Title: Topology Optimization & Graph Neural Networks,Title: Adaptive Topology Optimization for Neural Networks
+P01051,P01034,0.83,Adaptive Neural Network Topology Optimization Algorithm,Neural Network Topology Optimization Algorithm
+P01051,P01035,0.83,Adaptive Neural Network Topology Optimization Algorithm,Adaptive Neural Network Topology Optimization
+P01051,P01039,0.83,Adaptive Neural Network Topology Optimization Algorithm,Neural Network Adaptive Topology Optimization
+P01051,P01043,0.71,Adaptive Neural Network Topology Optimization Algorithm,Neural Network Adaptive Topology Optimization (NNAUTO)
+P01053,P01037,0.67,Topology Optimization of Neural Networks Based on Biofeedback,Dynamic Topology Optimization of Neural Networks
+P01053,P01045,0.67,Topology Optimization of Neural Networks Based on Biofeedback,Dynamic Topology Optimization via Neural Networks
+P01054,P01035,0.83,Neural Network Topology Optimization and Adaptive Growth,Adaptive Neural Network Topology Optimization
+P01054,P01039,0.83,Neural Network Topology Optimization and Adaptive Growth,Neural Network Adaptive Topology Optimization
+P01054,P01043,0.71,Neural Network Topology Optimization and Adaptive Growth,Neural Network Adaptive Topology Optimization (NNAUTO)
+P01054,P01051,0.71,Neural Network Topology Optimization and Adaptive Growth,Adaptive Neural Network Topology Optimization Algorithm
+P01056,P01037,0.83,Dynamic Topology Optimization for Adaptive Neural Networks,Dynamic Topology Optimization of Neural Networks
+P01056,P01044,0.71,Dynamic Topology Optimization for Adaptive Neural Networks,Dynamic Graph Neural Networks for Topology Optimization
+P01056,P01045,0.83,Dynamic Topology Optimization for Adaptive Neural Networks,Dynamic Topology Optimization via Neural Networks
+P01056,P01046,0.71,Dynamic Topology Optimization for Adaptive Neural Networks,Dynamic Topology Optimization for Artificial Neural Networks
+P01056,P01047,0.71,Dynamic Topology Optimization for Adaptive Neural Networks,Title: Adaptive Topology Optimization for Neural Networks
+P01060,P01035,0.71,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Adaptive Neural Network Topology Optimization
+P01060,P01036,0.71,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Neural Network Dynamic Topology Optimization
+P01060,P01038,0.71,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Dynamic Neural Network Topology Optimization
+P01060,P01039,0.71,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Neural Network Adaptive Topology Optimization
+P01060,P01043,0.62,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Neural Network Adaptive Topology Optimization (NNAUTO)
+P01060,P01048,0.62,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Dynamic Neural Network Topology Optimization (DNTO)
+P01060,P01051,0.62,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Adaptive Neural Network Topology Optimization Algorithm
+P01060,P01054,0.62,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Neural Network Topology Optimization and Adaptive Growth
+P01060,P01056,0.62,Neural Network Dynamic Topology Optimization and Adaptive Emergence,Dynamic Topology Optimization for Adaptive Neural Networks
+P01064,P01036,0.71,Title: Dynamic Topology Optimization for Neural Network Architectures,Neural Network Dynamic Topology Optimization
+P01064,P01038,0.71,Title: Dynamic Topology Optimization for Neural Network Architectures,Dynamic Neural Network Topology Optimization
+P01064,P01048,0.62,Title: Dynamic Topology Optimization for Neural Network Architectures,Dynamic Neural Network Topology Optimization (DNTO)
+P01065,P01035,0.83,Neural Network Topology Optimization via Adaptive Learning,Adaptive Neural Network Topology Optimization
+P01065,P01039,0.83,Neural Network Topology Optimization via Adaptive Learning,Neural Network Adaptive Topology Optimization
+P01065,P01043,0.71,Neural Network Topology Optimization via Adaptive Learning,Neural Network Adaptive Topology Optimization (NNAUTO)
+P01065,P01051,0.71,Neural Network Topology Optimization via Adaptive Learning,Adaptive Neural Network Topology Optimization Algorithm
+P01065,P01054,0.71,Neural Network Topology Optimization via Adaptive Learning,Neural Network Topology Optimization and Adaptive Growth
+P01065,P01060,0.62,Neural Network Topology Optimization via Adaptive Learning,Neural Network Dynamic Topology Optimization and Adaptive Emergence
+P01067,P01036,0.71,Title: Dynamic Topology Optimization for Neural Network Sparsity,Neural Network Dynamic Topology Optimization
+P01067,P01038,0.71,Title: Dynamic Topology Optimization for Neural Network Sparsity,Dynamic Neural Network Topology Optimization
+P01067,P01048,0.62,Title: Dynamic Topology Optimization for Neural Network Sparsity,Dynamic Neural Network Topology Optimization (DNTO)
+P01067,P01064,0.75,Title: Dynamic Topology Optimization for Neural Network Sparsity,Title: Dynamic Topology Optimization for Neural Network Architectures
+P01068,P01065,0.71,Neural Network Topology Optimization via Reinforcement Learning,Neural Network Topology Optimization via Adaptive Learning
+P01075,P01034,0.62,Neural Network Connection Weight Dynamic Topology Optimization Algorithm,Neural Network Topology Optimization Algorithm
+P01075,P01036,0.62,Neural Network Connection Weight Dynamic Topology Optimization Algorithm,Neural Network Dynamic Topology Optimization
+P01075,P01038,0.62,Neural Network Connection Weight Dynamic Topology Optimization Algorithm,Dynamic Neural Network Topology Optimization
+P01079,P01037,0.71,Dynamic Topology Optimization for Neural Networks via Evolutionary Algorithms,Dynamic Topology Optimization of Neural Networks
+P01079,P01044,0.62,Dynamic Topology Optimization for Neural Networks via Evolutionary Algorithms,Dynamic Graph Neural Networks for Topology Optimization
+P01079,P01045,0.71,Dynamic Topology Optimization for Neural Networks via Evolutionary Algorithms,Dynamic Topology Optimization via Neural Networks
+P01079,P01046,0.62,Dynamic Topology Optimization for Neural Networks via Evolutionary Algorithms,Dynamic Topology Optimization for Artificial Neural Networks
+P01079,P01056,0.62,Dynamic Topology Optimization for Neural Networks via Evolutionary Algorithms,Dynamic Topology Optimization for Adaptive Neural Networks
+P01081,P01078,0.88,Dataset for Fail-Safe Topology Optimization using Artificial Neural Networks,Fail-safe topology optimization using artificial neural networks
+P01085,P01060,0.60,Neural Network Adaptive Topology Optimization and Dynamic Neuromorphic Hardware Acceleration,Neural Network Dynamic Topology Optimization and Adaptive Emergence
+P01090,P00035,0.64,Topology Optimization Using Graph Neural Network in Additive Manufacturing Constraint,Graph Neural Network-Based Topology Optimization for Self-Supporting Structures in Additive Manufacturing
+P01102,P01052,0.60,Self-Organizing Neural Networks (SOM) Dynamic Topology Optimization for Data Compression,Self-Organizing Neural Networks: Topology Optimization
+P01111,P01091,0.70,Acceleration of topology optimization-based bone microstructure reconstruction using artificial neural networks,Topology optimization-based bone microstructure reconstruction complemented by neural networks
+P01112,P00579,0.82,Fast Topology Optimization of PM Motor Using Variational Autoencoder and Neural Networks with Dropout,Fast Topology Optimization for PM Motors Using Variational Autoencoder and Neural Networks With Dropout
+P01117,P00528,0.80,Topology Optimization using Deep Learning,Topology Optimization Accelerated by Deep Learning
+P01129,P00528,0.67,An Effective Topology Optimization Based on Deep Learning,Topology Optimization Accelerated by Deep Learning
+P01129,P01117,0.80,An Effective Topology Optimization Based on Deep Learning,Topology Optimization using Deep Learning
+P01143,P00534,0.67,Quantum Machine Learning Topology Optimization,Universal machine learning for topology optimization
+P01146,P01136,0.92,Neural network-driven multi-material topology optimization for orthotropic structures using the element-free Galerkin method,Topology Optimization of Orthotropic Multi-material Structures Based on Neural Network and Element-Free Galerkin Method
+P01152,P00867,0.67,Deep learning accelerated topology optimization of linear and nonlinear structures,Machine learning accelerated topology optimization of nonlinear structures.
+P01153,P01034,0.67,Neural Network Topology Adaptive Optimization,Neural Network Topology Optimization Algorithm
+P01153,P01035,1.00,Neural Network Topology Adaptive Optimization,Adaptive Neural Network Topology Optimization
+P01153,P01036,0.67,Neural Network Topology Adaptive Optimization,Neural Network Dynamic Topology Optimization
+P01153,P01038,0.67,Neural Network Topology Adaptive Optimization,Dynamic Neural Network Topology Optimization
+P01153,P01039,1.00,Neural Network Topology Adaptive Optimization,Neural Network Adaptive Topology Optimization
+P01153,P01040,0.67,Neural Network Topology Adaptive Optimization,Neural Network Topology Optimization Framework
+P01153,P01043,0.83,Neural Network Topology Adaptive Optimization,Neural Network Adaptive Topology Optimization (NNAUTO)
+P01153,P01051,0.83,Neural Network Topology Adaptive Optimization,Adaptive Neural Network Topology Optimization Algorithm
+P01153,P01054,0.83,Neural Network Topology Adaptive Optimization,Neural Network Topology Optimization and Adaptive Growth
+P01153,P01060,0.71,Neural Network Topology Adaptive Optimization,Neural Network Dynamic Topology Optimization and Adaptive Emergence
+P01153,P01065,0.83,Neural Network Topology Adaptive Optimization,Neural Network Topology Optimization via Adaptive Learning
+P01154,P01140,0.71,Quantum Machine Learning for Dynamic Topology Optimization,Dynamic Topology Optimization for Adaptive Machine Learning
+P01154,P01143,0.83,Quantum Machine Learning for Dynamic Topology Optimization,Quantum Machine Learning Topology Optimization
+P01156,P00534,0.67,Dynamic Topology Optimization via Machine Learning,Universal machine learning for topology optimization
+P01156,P01140,0.83,Dynamic Topology Optimization via Machine Learning,Dynamic Topology Optimization for Adaptive Machine Learning
+P01156,P01143,0.67,Dynamic Topology Optimization via Machine Learning,Quantum Machine Learning Topology Optimization
+P01156,P01154,0.83,Dynamic Topology Optimization via Machine Learning,Quantum Machine Learning for Dynamic Topology Optimization
+P01158,P01037,0.67,Dynamic Topology for Graph Neural Networks,Dynamic Topology Optimization of Neural Networks
+P01158,P01044,0.83,Dynamic Topology for Graph Neural Networks,Dynamic Graph Neural Networks for Topology Optimization
+P01158,P01045,0.67,Dynamic Topology for Graph Neural Networks,Dynamic Topology Optimization via Neural Networks
+P01159,P01140,0.71,Dynamic Topology Optimization for Machine Learning Algorithms,Dynamic Topology Optimization for Adaptive Machine Learning
+P01159,P01154,0.71,Dynamic Topology Optimization for Machine Learning Algorithms,Quantum Machine Learning for Dynamic Topology Optimization
+P01159,P01156,0.83,Dynamic Topology Optimization for Machine Learning Algorithms,Dynamic Topology Optimization via Machine Learning
+P01161,P01036,0.67,Dynamic Neural Network Topology Learning,Neural Network Dynamic Topology Optimization
+P01161,P01038,0.67,Dynamic Neural Network Topology Learning,Dynamic Neural Network Topology Optimization
+P01162,P01037,0.67,Dynamic Topology Adaptive Neural Networks,Dynamic Topology Optimization of Neural Networks
+P01162,P01045,0.67,Dynamic Topology Adaptive Neural Networks,Dynamic Topology Optimization via Neural Networks
+P01162,P01056,0.83,Dynamic Topology Adaptive Neural Networks,Dynamic Topology Optimization for Adaptive Neural Networks
+P01162,P01158,0.67,Dynamic Topology Adaptive Neural Networks,Dynamic Topology for Graph Neural Networks
+P01163,P00645,0.62,Stress-based topology optimization method using deep learning,Real-time stress-based topology optimization via deep learning
+P01165,P01035,0.83,Neural Network Topology Dynamic Adaptive Optimization,Adaptive Neural Network Topology Optimization
+P01165,P01036,0.83,Neural Network Topology Dynamic Adaptive Optimization,Neural Network Dynamic Topology Optimization
+P01165,P01038,0.83,Neural Network Topology Dynamic Adaptive Optimization,Dynamic Neural Network Topology Optimization
+P01165,P01039,0.83,Neural Network Topology Dynamic Adaptive Optimization,Neural Network Adaptive Topology Optimization
+P01165,P01043,0.71,Neural Network Topology Dynamic Adaptive Optimization,Neural Network Adaptive Topology Optimization (NNAUTO)
+P01165,P01048,0.71,Neural Network Topology Dynamic Adaptive Optimization,Dynamic Neural Network Topology Optimization (DNTO)
+P01165,P01051,0.71,Neural Network Topology Dynamic Adaptive Optimization,Adaptive Neural Network Topology Optimization Algorithm
+P01165,P01054,0.71,Neural Network Topology Dynamic Adaptive Optimization,Neural Network Topology Optimization and Adaptive Growth
+P01165,P01056,0.71,Neural Network Topology Dynamic Adaptive Optimization,Dynamic Topology Optimization for Adaptive Neural Networks
+P01165,P01060,0.86,Neural Network Topology Dynamic Adaptive Optimization,Neural Network Dynamic Topology Optimization and Adaptive Emergence
+P01165,P01064,0.62,Neural Network Topology Dynamic Adaptive Optimization,Title: Dynamic Topology Optimization for Neural Network Architectures
+P01165,P01065,0.71,Neural Network Topology Dynamic Adaptive Optimization,Neural Network Topology Optimization via Adaptive Learning
+P01165,P01067,0.62,Neural Network Topology Dynamic Adaptive Optimization,Title: Dynamic Topology Optimization for Neural Network Sparsity
+P01165,P01085,0.67,Neural Network Topology Dynamic Adaptive Optimization,Neural Network Adaptive Topology Optimization and Dynamic Neuromorphic Hardware Acceleration
+P01165,P01153,0.83,Neural Network Topology Dynamic Adaptive Optimization,Neural Network Topology Adaptive Optimization
+P01170,P01162,0.67,The Impact of Adaptive Topology in Adaptive Neural Networks,Dynamic Topology Adaptive Neural Networks
+P01174,P01140,0.62,Dynamic Topology Optimization for Machine Learning Model Tuning,Dynamic Topology Optimization for Adaptive Machine Learning
+P01174,P01154,0.62,Dynamic Topology Optimization for Machine Learning Model Tuning,Quantum Machine Learning for Dynamic Topology Optimization
+P01174,P01156,0.71,Dynamic Topology Optimization for Machine Learning Model Tuning,Dynamic Topology Optimization via Machine Learning
+P01174,P01159,0.62,Dynamic Topology Optimization for Machine Learning Model Tuning,Dynamic Topology Optimization for Machine Learning Algorithms
+P01177,P01140,0.62,Adaptive Topology Optimization – Machine Learning and Quantum Computing,Dynamic Topology Optimization for Adaptive Machine Learning
+P01177,P01143,0.71,Adaptive Topology Optimization – Machine Learning and Quantum Computing,Quantum Machine Learning Topology Optimization
+P01177,P01154,0.62,Adaptive Topology Optimization – Machine Learning and Quantum Computing,Quantum Machine Learning for Dynamic Topology Optimization
+P01181,P01040,0.83,Neural Network Topology Automated Optimization Framework,Neural Network Topology Optimization Framework
+P01188,P01035,0.67,Adaptive Neural Network-Based Complex Network Topology,Adaptive Neural Network Topology Optimization
+P01188,P01039,0.67,Adaptive Neural Network-Based Complex Network Topology,Neural Network Adaptive Topology Optimization
+P01188,P01153,0.67,Adaptive Neural Network-Based Complex Network Topology,Neural Network Topology Adaptive Optimization
+P01193,P01156,0.62,Dynamic Topology Optimization Framework for Machine Learning Model Performance,Dynamic Topology Optimization via Machine Learning
+P01193,P01174,0.67,Dynamic Topology Optimization Framework for Machine Learning Model Performance,Dynamic Topology Optimization for Machine Learning Model Tuning
+P01197,P01056,0.71,Dynamic Topology Adaptive Neural Networks (D-TANet),Dynamic Topology Optimization for Adaptive Neural Networks
+P01197,P01162,0.83,Dynamic Topology Adaptive Neural Networks (D-TANet),Dynamic Topology Adaptive Neural Networks
+P01210,P01035,0.62,Neural Network Topology Adaptive Generation and Dynamic Path Optimization,Adaptive Neural Network Topology Optimization
+P01210,P01036,0.62,Neural Network Topology Adaptive Generation and Dynamic Path Optimization,Neural Network Dynamic Topology Optimization
+P01210,P01038,0.62,Neural Network Topology Adaptive Generation and Dynamic Path Optimization,Dynamic Neural Network Topology Optimization
+P01210,P01039,0.62,Neural Network Topology Adaptive Generation and Dynamic Path Optimization,Neural Network Adaptive Topology Optimization
+P01210,P01060,0.67,Neural Network Topology Adaptive Generation and Dynamic Path Optimization,Neural Network Dynamic Topology Optimization and Adaptive Emergence
+P01210,P01153,0.62,Neural Network Topology Adaptive Generation and Dynamic Path Optimization,Neural Network Topology Adaptive Optimization
+P01210,P01165,0.75,Neural Network Topology Adaptive Generation and Dynamic Path Optimization,Neural Network Topology Dynamic Adaptive Optimization
+P01219,P00645,0.60,Real-time multi-objective topology optimization method via deep learning,Real-time stress-based topology optimization via deep learning
+P01223,P01192,0.90,Correction: Machine Learning Assisted Topology Optimization of Fluid-Thermal-Structural Systems,Machine Learning Assisted Topology Optimization of Fluid-Thermal-Structural Systems
+P01238,P00668,0.69,Machine-learning-aided heat conductive topology optimization with stochastic gradient descent optimizer,Machine-learning topology optimization with stochastic gradient descent optimizer for heat conduction problems
+P01240,P00185,0.67,Reconstruction of Simulation-Based Physical Field with Limited Samples by Reconstruction Neural Network,Reconstruction of Simulation-Based Physical Field by Reconstruction Neural Network Method
+P01243,P00056,0.64,Finite volume neural network (FVNN) with reduced derivative order for incompressible flows,Finite Volume Physical Informed Neural Network (FV-PINN) with Reduced Derivative Order for Incompressible Flows
+P01254,P01036,0.60,Dynamic Topology Optimization,Neural Network Dynamic Topology Optimization
+P01254,P01037,0.60,Dynamic Topology Optimization,Dynamic Topology Optimization of Neural Networks
+P01254,P01038,0.60,Dynamic Topology Optimization,Dynamic Neural Network Topology Optimization
+P01254,P01045,0.60,Dynamic Topology Optimization,Dynamic Topology Optimization via Neural Networks
+P01254,P01156,0.60,Dynamic Topology Optimization,Dynamic Topology Optimization via Machine Learning
+P01273,P01270,0.60,Adaptive Neuron Topology Optimization,Neuron Network Topology Optimization
+P01280,P01254,0.75,Dynamic Neuron Topology Optimization,Dynamic Topology Optimization
+P01280,P01270,0.60,Dynamic Neuron Topology Optimization,Neuron Network Topology Optimization
+P01280,P01273,0.60,Dynamic Neuron Topology Optimization,Adaptive Neuron Topology Optimization
+P01284,P01035,0.60,Adaptive Topology Optimization,Adaptive Neural Network Topology Optimization
+P01284,P01039,0.60,Adaptive Topology Optimization,Neural Network Adaptive Topology Optimization
+P01284,P01153,0.60,Adaptive Topology Optimization,Neural Network Topology Adaptive Optimization
+P01284,P01273,0.75,Adaptive Topology Optimization,Adaptive Neuron Topology Optimization
+P01287,P01254,0.60,Dynamic Neuron Topology Optimization (DNTO),Dynamic Topology Optimization
+P01287,P01280,0.80,Dynamic Neuron Topology Optimization (DNTO),Dynamic Neuron Topology Optimization
+P01291,P01254,0.60,Adaptive Neuron Dynamic Topology Optimization,Dynamic Topology Optimization
+P01291,P01273,0.80,Adaptive Neuron Dynamic Topology Optimization,Adaptive Neuron Topology Optimization
+P01291,P01280,0.80,Adaptive Neuron Dynamic Topology Optimization,Dynamic Neuron Topology Optimization
+P01291,P01284,0.60,Adaptive Neuron Dynamic Topology Optimization,Adaptive Topology Optimization
+P01291,P01287,0.67,Adaptive Neuron Dynamic Topology Optimization,Dynamic Neuron Topology Optimization (DNTO)
+P01293,P01036,0.67,Dynamic Neural Topology Optimization (NTO),Neural Network Dynamic Topology Optimization
+P01293,P01037,0.67,Dynamic Neural Topology Optimization (NTO),Dynamic Topology Optimization of Neural Networks
+P01293,P01038,0.67,Dynamic Neural Topology Optimization (NTO),Dynamic Neural Network Topology Optimization
+P01293,P01045,0.67,Dynamic Neural Topology Optimization (NTO),Dynamic Topology Optimization via Neural Networks
+P01293,P01254,0.60,Dynamic Neural Topology Optimization (NTO),Dynamic Topology Optimization
+P01299,P01273,0.60,Adaptive Topology Optimization Matrix,Adaptive Neuron Topology Optimization
+P01299,P01284,0.75,Adaptive Topology Optimization Matrix,Adaptive Topology Optimization
+P01303,P01273,0.60,Adaptive Topology Optimization (ASO),Adaptive Neuron Topology Optimization
+P01303,P01284,0.75,Adaptive Topology Optimization (ASO),Adaptive Topology Optimization
+P01303,P01299,0.60,Adaptive Topology Optimization (ASO),Adaptive Topology Optimization Matrix
+P01304,P00926,0.94,"Correction: Physics-informed machine learning: technological trends in turbulence flow, topology optimization, and convergence enhancement with temporal causality consideration","Physics-informed machine learning: technological trends in turbulence flow, topology optimization, and convergence enhancement with temporal causality consideration"
+P01308,P01254,0.75,Dynamic Topology Optimization Algorithm,Dynamic Topology Optimization
+P01308,P01280,0.60,Dynamic Topology Optimization Algorithm,Dynamic Neuron Topology Optimization
+P01308,P01301,0.60,Dynamic Topology Optimization Algorithm,Quantum Topology Optimization Algorithm
+P01309,P01273,0.60,Topology Geometry Adaptive Topology Optimization,Adaptive Neuron Topology Optimization
+P01309,P01284,0.75,Topology Geometry Adaptive Topology Optimization,Adaptive Topology Optimization
+P01309,P01299,0.60,Topology Geometry Adaptive Topology Optimization,Adaptive Topology Optimization Matrix
+P01309,P01303,0.60,Topology Geometry Adaptive Topology Optimization,Adaptive Topology Optimization (ASO)
+P01326,P01254,0.60,Dynamic Topology Optimization Algorithm (DTO),Dynamic Topology Optimization
+P01326,P01308,0.80,Dynamic Topology Optimization Algorithm (DTO),Dynamic Topology Optimization Algorithm
+P01327,P01276,0.76,Supplementary document for Compact topology-optimized wavelength demultiplexers with flat-top response enabled by deep learning-based fabrication correction - 7769934.pdf,Compact topology-optimized wavelength demultiplexers with flat-top response enabled by deep learning-based fabrication correction
+P01348,P00013,0.67,Accelerating Topology Optimization on AMD Versal AIE-ML Engines,Accelerating CRONet on AMD Versal AIE-ML Engines
+P01378,P00048,0.70,Physics-Informed Gaussian Processes With Localized Features for Topology Optimization,Localized Physics-informed Gaussian Processes with Curriculum Training for Topology Optimization
+P01378,P00068,0.60,Physics-Informed Gaussian Processes With Localized Features for Topology Optimization,Simultaneous and Meshfree Topology Optimization with Physics-informed Gaussian Processes
+P01408,P01240,0.67,Reconstruction of Simulation-Based Physical Field with Limited Samples by ReConNN.,Reconstruction of Simulation-Based Physical Field with Limited Samples by Reconstruction Neural Network
+P01435,P01377,0.62,Problem-Independent Transfer Learning (PITL) for Efficient 3D Topology Optimization on Complex Design Domains,Problem-independent transfer learning for complex-domain 3D topology optimization
+P01438,P01156,0.67,Dynamic Topology Structures in Machine Learning,Dynamic Topology Optimization via Machine Learning
+P01439,P00172,0.75,Dataless training of generative models for the inverse design of metasurfaces.,Simulator-based training of generative models for the inverse design of metasurfaces
+P01443,P01437,0.85,Skeleton-Reinforced Neural Style Transfer-Assisted Topology Optimization Method for the Aesthetic and Manufacturable Design,Skeleton-Reinforced Neural Style Transfer Assisted Topology Optimization Method for the Aesthetics and Manufacturable Design
+P01451,P01156,0.67,Dynamic Topology and Machine Learning Co-Learning,Dynamic Topology Optimization via Machine Learning
+P01451,P01438,0.67,Dynamic Topology and Machine Learning Co-Learning,Dynamic Topology Structures in Machine Learning
+P01468,P00141,1.00,GANTL: Towards Practical and Real-Time Topology Optimization with\n Conditional GANs and Transfer Learning,GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning
+P01472,P01140,0.71,Dynamic Topology for Quantum Machine Learning Optimization,Dynamic Topology Optimization for Adaptive Machine Learning
+P01472,P01143,0.83,Dynamic Topology for Quantum Machine Learning Optimization,Quantum Machine Learning Topology Optimization
+P01472,P01154,1.00,Dynamic Topology for Quantum Machine Learning Optimization,Quantum Machine Learning for Dynamic Topology Optimization
+P01472,P01156,0.83,Dynamic Topology for Quantum Machine Learning Optimization,Dynamic Topology Optimization via Machine Learning
+P01472,P01159,0.71,Dynamic Topology for Quantum Machine Learning Optimization,Dynamic Topology Optimization for Machine Learning Algorithms
+P01472,P01174,0.62,Dynamic Topology for Quantum Machine Learning Optimization,Dynamic Topology Optimization for Machine Learning Model Tuning
+P01472,P01177,0.62,Dynamic Topology for Quantum Machine Learning Optimization,Adaptive Topology Optimization – Machine Learning and Quantum Computing
+P01489,P01373,0.60,From Data to Decisions: Portfolio Topology Optimization Framework Case study: Automotive Industry,From Data to Decisions: Portfolio Topology Optimization Framework
+P01499,P00594,0.62,Geometric Topology and Machine Learning: A Joint Optimization Framework,A machine-learning framework for isogeometric topology optimization
+P01502,P01140,0.71,Adaptive Topology Structure Based on Machine Learning Optimization,Dynamic Topology Optimization for Adaptive Machine Learning
+P01502,P01177,0.62,Adaptive Topology Structure Based on Machine Learning Optimization,Adaptive Topology Optimization – Machine Learning and Quantum Computing
+P01512,P01140,0.62,Dynamic Topology-Based Adaptive Machine Learning Model Training,Dynamic Topology Optimization for Adaptive Machine Learning
+P01512,P01511,0.67,Dynamic Topology-Based Adaptive Machine Learning Model Training,Dynamic Topology for Adaptive Machine Learning: A Nonlinear Model Fusion
+P01534,P00956,0.62,Machine Learning Assisted Photonics: From Metasurface Design and Materials to Quantum Photonics,Machine learning assisted quantum photonics
+P01539,P00131,0.64,Stiffness optimisation of graded microstructal configurations using asymptotic analysis and machine learning.,Stiffness minimisation of graded microstructural configurations using asymptotic analysis and machine learning
+P01578,P00427,1.00,Automatic pulmonary artery-vein separation in CT images using a twin-pipe network and topology reconstruction,Automatic Pulmonary Artery-Vein Separation in CT Images using Twin-Pipe Network and Topology Reconstruction
+P01583,P01465,0.67,A new shape optimization approach for lightweighting electric machines inspired by additive manufacturing,A Boundary Topology Optimization Approach for Lightweighting Electric Machines Inspired by Additive Manufacturing
+P01649,P01273,0.60,Adaptive Neuron Topology Generation,Adaptive Neuron Topology Optimization
+P01657,P01284,0.60,Neuro-Topology Adaptive Optimization (NTAO),Adaptive Topology Optimization
+P01659,P01273,0.60,Adaptive Neuron Topology Learning,Adaptive Neuron Topology Optimization
+P01659,P01649,0.60,Adaptive Neuron Topology Learning,Adaptive Neuron Topology Generation
+P01664,P01161,0.67,Dynamic Topology Network Learning and Evolution,Dynamic Neural Network Topology Learning
+P01673,P01659,0.75,Adaptive Topology Learning,Adaptive Neuron Topology Learning
+P01749,P01659,0.60,Adaptive Topology Learning Framework,Adaptive Neuron Topology Learning
+P01749,P01673,0.75,Adaptive Topology Learning Framework,Adaptive Topology Learning
+P01757,P01668,0.62,Dynamic Topology Neuro-Morphic Computing Architecture (DTNCA),Dynamic Neuro-Morphic Architecture Adaptive Topology
+P01761,P01433,1.00,MADE3D: Enabling the Next-Generation High-Torque- Density Wind Generators by Additive Design and 3D Printing,MADE3D: Enabling the next generation of high-torque density wind generators by additive design and 3D printing
+P01781,P00137,0.67,Data-Driven Design via Scalable Gaussian Processes for Multi-Response Big Data With Qualitative Factors,Scalable Gaussian Processes for Data-Driven Design using Big Data with Categorical Factors
+P01798,P01465,0.62,A New Shape Optimization Approach for Lightweighting Electric Machines Inspired by Additive Manufacturing: Preprint,A Boundary Topology Optimization Approach for Lightweighting Electric Machines Inspired by Additive Manufacturing
+P01798,P01583,0.91,A New Shape Optimization Approach for Lightweighting Electric Machines Inspired by Additive Manufacturing: Preprint,A new shape optimization approach for lightweighting electric machines inspired by additive manufacturing
+P01838,P01834,1.00,Isurwars/Correlation: Correlation 3.7.0,Isurwars/Correlation: Correlation 3.7
+P01840,P01834,1.00,Isurwars/Correlation: Correlation 3.7.2,Isurwars/Correlation: Correlation 3.7
+P01840,P01838,1.00,Isurwars/Correlation: Correlation 3.7.2,Isurwars/Correlation: Correlation 3.7.0
+P01850,P01834,1.00,Isurwars/Correlation: Correlation 3.8.6,Isurwars/Correlation: Correlation 3.7
+P01850,P01838,1.00,Isurwars/Correlation: Correlation 3.8.6,Isurwars/Correlation: Correlation 3.7.0
+P01850,P01840,1.00,Isurwars/Correlation: Correlation 3.8.6,Isurwars/Correlation: Correlation 3.7.2
+P01888,P00799,0.82,Machine-Iearning-Assisted Topology Optimization for Highly Efficient Thermal Emitter Design,Machine-learning-assisted topology optimization for highly efficient thermal emitter design
+P01902,P00174,0.67,Generative Design Exploration by Integrating Deep Generative Models and Topology Optimization.,Deep Generative Design: Integration of Topology Optimization and Generative Models
+P01905,P00242,1.00,Scaling atom-by-atom inverse design using nano-topology optimization and diffusion models,Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models
+P01908,P00242,0.82,"Author response for ""Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models""",Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models
+P01908,P01905,0.82,"Author response for ""Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models""",Scaling atom-by-atom inverse design using nano-topology optimization and diffusion models
+P01925,P00193,1.00,Zero-shot rib design: Merging a training-free generative prior with topology optimization,Zero-shot rib design: merging training-free generative prior with topology optimization
+P01937,P01894,0.88,Data-Driven Multifidelity Topology Design With a Latent Crossover Operation,Latent Crossover for Data-Driven Multifidelity Topology Design
+P01968,P01957,0.83,Multi-agent reinforcement learning based dynamic self-coordinated topology optimization for wireless mesh networks,Multi-Agent Reinforcement Learning for Dynamic Topology Optimization of Mesh Wireless Networks
+P01973,P00121,0.62,Deep reinforcement learning based topology optimization of triangular meshes,Network Topology Optimization via Deep Reinforcement Learning
+P01995,P01065,0.71,Adaptive Network Topology Optimization Based on Reinforcement Learning,Neural Network Topology Optimization via Adaptive Learning
+P01995,P01068,0.71,Adaptive Network Topology Optimization Based on Reinforcement Learning,Neural Network Topology Optimization via Reinforcement Learning
+P01997,P01994,0.75,Practical Topology Optimization with Deep Reinforcement Learning and Genetic Algorithms,Practical topology optimization with deep reinforcement learning
+P02002,P00144,0.80,"Simulation Code for ""NTopo: Mesh-free Topology Optimization using Implicit Neural Representations""",NTopo: Mesh-free Topology Optimization using Implicit Neural Representations
+P02013,P02011,0.83,Design Strategies for Stress-and Compliance-Driven Topology Optimization Using Graph-Based Deep Reinforcement Learning,Design Strategies for Stress- and Compliance-Driven Topology Optimization Using Graph-BasedDeep Reinforcement Learning
+P02019,P01273,0.60,Adaptive Topology Optimization (ATO),Adaptive Neuron Topology Optimization
+P02019,P01284,0.75,Adaptive Topology Optimization (ATO),Adaptive Topology Optimization
+P02019,P01299,0.60,Adaptive Topology Optimization (ATO),Adaptive Topology Optimization Matrix
+P02019,P01303,0.60,Adaptive Topology Optimization (ATO),Adaptive Topology Optimization (ASO)
+P02019,P01309,0.60,Adaptive Topology Optimization (ATO),Topology Geometry Adaptive Topology Optimization
+P02021,P01273,0.60,Adaptive Dataflow Topology Optimization,Adaptive Neuron Topology Optimization
+P02021,P01284,0.75,Adaptive Dataflow Topology Optimization,Adaptive Topology Optimization
+P02021,P01299,0.60,Adaptive Dataflow Topology Optimization,Adaptive Topology Optimization Matrix
+P02021,P01303,0.60,Adaptive Dataflow Topology Optimization,Adaptive Topology Optimization (ASO)
+P02021,P01309,0.60,Adaptive Dataflow Topology Optimization,Topology Geometry Adaptive Topology Optimization
+P02021,P02019,0.60,Adaptive Dataflow Topology Optimization,Adaptive Topology Optimization (ATO)
+P02022,P01284,0.60,Adaptive Information Flow Topology Optimization,Adaptive Topology Optimization
+P02024,P01254,0.60,Dynamic Topology Optimization for Quantum Circuits,Dynamic Topology Optimization
+P02025,P01036,0.67,Dynamic Semantic Network Topology Optimization,Neural Network Dynamic Topology Optimization
+P02025,P01038,0.67,Dynamic Semantic Network Topology Optimization,Dynamic Neural Network Topology Optimization
+P02025,P01254,0.60,Dynamic Semantic Network Topology Optimization,Dynamic Topology Optimization
+P02025,P01756,0.67,Dynamic Semantic Network Topology Optimization,Based on Dynamic Topology for Semantic Network Computation
+P02028,P01349,0.62,Title: Dynamic Topology Optimization for Complex Systems,Title: Information-Theoretic Topology Optimization for Complex Systems
+P02029,P02025,0.83,Dynamic Semantic Network Topology Optimization (DSNO),Dynamic Semantic Network Topology Optimization
+P02031,P01051,0.71,Dynamic Adaptive Network Topology Optimization Algorithm,Adaptive Neural Network Topology Optimization Algorithm
+P02031,P01060,0.62,Dynamic Adaptive Network Topology Optimization Algorithm,Neural Network Dynamic Topology Optimization and Adaptive Emergence
+P02031,P01165,0.71,Dynamic Adaptive Network Topology Optimization Algorithm,Neural Network Topology Dynamic Adaptive Optimization
+P02031,P01308,0.67,Dynamic Adaptive Network Topology Optimization Algorithm,Dynamic Topology Optimization Algorithm
+P02032,P01308,0.67,Dynamic Topology Optimization Network Routing Algorithm,Dynamic Topology Optimization Algorithm
+P02032,P02031,0.71,Dynamic Topology Optimization Network Routing Algorithm,Dynamic Adaptive Network Topology Optimization Algorithm
+P02059,P01254,0.60,Dynamic Topology for Parallel Algorithm Optimization,Dynamic Topology Optimization
+P02059,P01308,0.80,Dynamic Topology for Parallel Algorithm Optimization,Dynamic Topology Optimization Algorithm
+P02059,P01326,0.67,Dynamic Topology for Parallel Algorithm Optimization,Dynamic Topology Optimization Algorithm (DTO)
+P02072,P00507,1.00,Titan: A Parallel Asynchronous Library for Multi-Agent and Soft-Body\n Robotics using NVIDIA CUDA,Titan: A Parallel Asynchronous Library for Multi-Agent and Soft-Body Robotics using NVIDIA CUDA
+P02076,P02052,0.77,Ders Participation in Tso-Dso Coordinated Operation Considering Dynamic Topology Adjustment of Distribution Networks,DERs participation in TSO-DSO coordinated operation considering dynamic reconfiguration of distribution networks
+P02195,P02191,0.86,"Rapid, Approximate Multi-Axis Vibration Testing","Rapid, Approximate Multi-Axis Vibration Testing [Thesis]"
+P02196,P02166,0.77,"Real-Time Generative Design of Diverse, ""Truly"" Optimized Structures With Controllable Structural Complexities",Real-time generative design of diverse optimized structures with controllable structural complexities and high quality
+P02258,P02218,0.71,Graph neural networks for full waveform inversion,On the use of neural networks for full waveform inversion
+P02278,P02191,0.75,"Rapid, Approximate Multi-Axis Vibration Testing [Slides]","Rapid, Approximate Multi-Axis Vibration Testing [Thesis]"
+P02278,P02195,0.86,"Rapid, Approximate Multi-Axis Vibration Testing [Slides]","Rapid, Approximate Multi-Axis Vibration Testing"
+P02343,P00344,0.89,From density to geometry: Instance segmentation for reverse engineering of optimized structures,From Density to Geometry: YOLOv8 Instance Segmentation for Reverse Engineering of Optimized Structures
+P02381,P02209,0.67,The Future of Deep Learning in Computational Mechanics,Deep learning in computational mechanics: a review
+P02509,P02437,0.67,Radial basis functions and level set method for structural topology optimization,A level set method for structural topology optimization
+P02538,P02438,0.67,Topology Optimization,Topology optimization approaches
+P02546,P00141,0.60,Gantl: Toward practical and real-time topology optimization with conditional generative adversarial networks and transfer learning,GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning
+P02546,P01468,0.60,Gantl: Toward practical and real-time topology optimization with conditional generative adversarial networks and transfer learning,GANTL: Towards Practical and Real-Time Topology Optimization with\n Conditional GANs and Transfer Learning
+P02569,P00086,0.89,"Nito: Neural implicit fields for resolution-free topology optimization, 2024a",NITO: Neural Implicit Fields for Resolution-free Topology Optimization
+P02580,P02579,0.80,"Proximal policy optimization algorithms, 2017b",Proximal policy optimization algorithms
+P02581,P02438,0.60,Topology optimization approaches: A comparative review,Topology optimization approaches

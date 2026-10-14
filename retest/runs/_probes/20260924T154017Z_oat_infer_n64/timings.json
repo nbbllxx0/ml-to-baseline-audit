@@ -1,0 +1,22 @@
+{
+ "config": {
+  "size": 64,
+  "k": 1,
+  "steps": 20,
+  "repeats": 2,
+  "compile": "not requested",
+  "seed": 20260924,
+  "problem_ids": [
+   15
+  ],
+  "torch": "2.11.0+cu128",
+  "device": "NVIDIA GeForce RTX 5090"
+ },
+ "results": [
+  {
+   "problem_id": 15,
+   "error": "TypeError: Got unsupported ScalarType BFloat16",
+   "traceback": "Traceback (most recent call last):\n  File \"E:\\AI\\ml-to-baseline-audit\\retest\\oat_harness\\run_oat_inference.py\", line 105, in main\n    arr = sample.float().cpu().numpy() if hasattr(sample, \"float\") else np.asarray(sample, dtype=np.float32)\n                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\<user>\\anaconda3\\envs\\oat\\Lib\\site-packages\\torch\\_tensor.py\", line 1255, in __array__\n    return self.numpy().astype(dtype, copy=False)\n           ^^^^^^^^^^^^\nTypeError: Got unsupported ScalarType BFloat16\n"
+  }
+ ]
+}

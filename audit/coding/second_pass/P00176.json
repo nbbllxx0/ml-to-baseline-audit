@@ -1,0 +1,88 @@
+{
+  "pid": "P00176",
+  "citation": {
+    "title": "A deep Convolutional Neural Network for topology optimization with strong generalization ability",
+    "authors": "Yiquan Zhang, Bo Peng, Xiaoyi Zhou, Cheng Xiang, Dalei Wang",
+    "year": 2019,
+    "venue": "arXiv preprint (never formally published; no journal-ref field on the abs page, checked 2026-09-24)",
+    "doi": "10.48550/arxiv.1901.07761",
+    "arxiv_id": "1901.07761",
+    "version_coded": "arXiv v3 (latest of 3 versions on the abs page), full text and references read from the PDF (https://arxiv.org/pdf/1901.07761)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (first quantitative comparison with SIMP is an explicit per-sample wall-clock time comparison in the main text)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On 8000 cantilever test cases (40x80 mesh), a single CNN forward pass averages 0.001s versus 3.913s for classical SIMP (99.97% time saved, Table 1), excluding the 4.12% of samples with structural disconnection from the reported 4.16% average compliance error.",
+    "key_phrase": "the proposed method can solve the problem in negligible time",
+    "location": "Section 5 (Performance evaluation) and Table 1 -- main text; the Abstract and Conclusion (Sec. 8) state the efficiency gain only qualitatively ('a significant reduction in computation cost', 'negligible time')",
+    "quantitative": true,
+    "claimed_speedup": 3913,
+    "claimed_speedup_basis": "Derived directly from Sec. 5's stated averages: 'The average computation time with the conventional method is 3.913s, while the proposed takes 0.001s in average.' 3.913 / 0.001 = 3913 [derived]. Consistent with Table 1's own reported 'Calculation time saved' of 99.97% for the same comparison (1 - 1/3913 = 99.97%).",
+    "direction": "outperform",
+    "alternatives": "Table 2: on two out-of-distribution boundary conditions (simply supported beam, continuous beam) never seen in training, compliance error roughly doubles (7.14-7.63%) and the disconnection rate roughly triples (11.50-13.64%) relative to the in-distribution cantilever case; timing is not re-measured for these cases."
+  },
+  "baseline": {
+    "classical_method": "SIMP (density-based compliance minimization), penalty factor 3, sensitivity-filter radius 1.5, via the widely used '88 lines of MATLAB code' reference implementation (Andreassen et al. 2011)",
+    "implementation": "Andreassen et al. (2011) 88-line MATLAB SIMP code -- a standard, publicly available educational/reference implementation, not a bespoke optimised industrial code",
+    "solver": "Not stated beyond the standard 88-line code's default (MATLAB direct solve); not independently confirmed in this article",
+    "hardware_classical": "Per Sec. 5: 'Intel(R) Core(TM) i7-8700k CPU and an NVIDIA GeForce GTX1080 Ti GPU' -- the same machine named for the CNN. The text does not disambiguate whether the SIMP timing itself used only the CPU",
+    "hardware_ml": "Same machine (Intel Core i7-8700k CPU, NVIDIA GTX 1080 Ti GPU), Keras framework (Sec. 4.2); CNN inference for the 0.001s figure is not explicitly stated to run on the GPU, though this is the natural implication",
+    "problem_size": "40x80-element cantilever-beam mesh (41x81 nodes; a 41x81x6 input tensor), volume fraction 0.2-0.8, 1-10 point forces in +/-X/+/-Y directions (Sec. 4.1); the two generalisation cases (simply supported beam, two-span continuous beam) use the same mesh size",
+    "classical_iterations": "Not stated (the 88-line code's default convergence criterion is used implicitly and not restated here)",
+    "classical_time": "3.913 s on average (Sec. 5, over the 8000-case test set)",
+    "ml_time": "0.001 s on average (Sec. 5, same 8000-case test set) -- a single forward pass, no iteration",
+    "training_time": "Not stated in wall-clock terms; trained for up to ~80 epochs with the validation loss stabilising by ~50 epochs (Fig. 3), Adam optimiser, L2 weight 1e-5, initial learning rate 0.001 (Sec. 4.2)",
+    "data_generation_cost": "80,000 SIMP-generated samples (Sec. 4.1), each presumably of similar per-sample cost to the 3.913s classical timing figure (same 40x80 problem family), which would put raw data-generation compute on the order of 80,000 x ~4s = roughly 87 core-hours [inferred, not stated by the authors]. The article gives no time or compute figure for this step and explicitly excludes it from the headline comparison: 'the considerable time of generating the dataset and training the neural network are not included, because... these times are negligible as the number of the solved problems increases' (Sec. 5) -- no break-even number of uses is given",
+    "quality_metric": "Compliance error, pixel-values error and volume-fraction error, each computed by comparing the CNN-predicted structure to the SIMP-optimised structure on the same 8000-case test set (Table 1); a separate structural-disconnection rate is reported for the samples excluded from these averages",
+    "quality_gap": "Table 1 (disconnected samples excluded, footnoted): compliance error 4.16%, pixel-values error 4.53%, volume-fraction error 0.13%, calculation time saved 99.97%. Sec. 5: 4.12% of test-set samples show structural disconnection and are excluded from these averages. Table 2 (out-of-distribution conditions, disconnected samples likewise excluded): simply supported beam compliance error 7.63%, disconnection rate 13.64%; continuous beam compliance error 7.14%, disconnection rate 11.50%."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "SIMP is run to its normal full convergence while the CNN is a single 0.001s forward pass, with no time/iteration matching attempted. The CNN output is measurably worse in the reported metric itself (4.16% average compliance error, Table 1), and this very average explicitly excludes the 4.12% of test samples that failed outright (structural disconnection, Sec. 5) -- so the headline 99.97%-time-saved / 4.16%-error comparison is computed only over the subset of cases the method did not fail on, without a corresponding adjustment to the speed side."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unjustified",
+      "evidence": "The classical comparator is the field-standard '88 lines' MATLAB reference/teaching implementation (Andreassen et al. 2011), not shown to be artificially weakened, and the problem size (40x80 elements, well under 1e5 DOF) is too small to trigger the protocol's explicit GPU-vs-CPU criterion R2(c). However, Sec. 5 names one machine with both a CPU and a GPU for 'all the calculations' without stating which device ran the SIMP timing versus the CNN timing, so the hardware basis for the 3913x figure is not fully justified or disambiguated."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-data-cost",
+      "evidence": "Sec. 5 explicitly acknowledges both data-generation and training cost exist ('the considerable time of generating the dataset and training the neural network') but excludes both from the headline comparison with a purely qualitative amortisation argument ('these times are negligible as the number of the solved problems increases') and no numbers for either cost and no break-even number of uses -- the protocol's example of a speed claim with no training or data cost at all."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Quality is not judged by image similarity alone: compliance error (a genuine FE-based physical metric) and volume-fraction error are reported alongside pixel-values error (Table 1), and a structural-disconnection (failure) rate is explicitly measured and reported for both the main test set (4.12%, Sec. 5) and the two generalisation cases (11.50-13.64%, Table 2) -- satisfying the protocol's requirement that infeasible/failed designs be counted, even though (per R1 above) these failures are then excluded from the headline average statistics."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "8000 test-set cases for the in-distribution cantilever condition (Table 1), plus 8000 each for two out-of-distribution boundary conditions (simply supported beam, continuous beam; Table 2) = 24,000 evaluated cases; plus a 22-point dataset-size sensitivity sweep (3000-80,000 samples, Sec. 7.1) and an input-channel/architecture ablation (Sec. 7.2-7.3)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Included as a clear speed-stratum case: Sec. 5 states the average per-sample time directly (3.913s SIMP vs 0.001s CNN), the first quantitative classical comparison in the article (abstract and conclusion are qualitative only). method_family = cnn (a U-Net-style encoder-decoder CNN predicting the final density field directly from an FE-derived initial-condition tensor, in one forward pass, following Sosnovik & Oseledets 2017 and Yu et al. 2018 in spirit); this is a one-shot predictive model, not per-problem neural reparameterisation, so R3's per-problem 'na' exception does not apply and the dataset/training cost genuinely needed accounting. seeds_or_variance is coded 'yes' on the strength of Sec. 7.1's explicit 3-repeat averaging for the sample-size ablation ('The accuracy at each point was the average result of three same experiments'); the headline Table 1/2 results themselves do not report repeat/seed variance. runtimes_all_cases is 'selective' because only an aggregate average time is given (no distribution or per-case timing breakdown) even though it is computed over the full 8000-case test set. The single most important cross-cutting finding for this record is the interaction between R1 and R4: the paper is unusually transparent in measuring and reporting a real failure mode (structural disconnection, an FE/topological property, not merely a pixel metric) at 4.12%-13.64% depending on boundary condition, which is good practice and satisfies R4; but the same failed cases are then excluded from the headline quality and speed-saving averages (Table 1 footnote 1: 'Samples with structural disconnection are not included'), which is what drives the R1 fail verdict. No author named Jun Wang (authors: Yiquan Zhang, Bo Peng, Xiaoyi Zhou, Cheng Xiang, Dalei Wang). Duplicate check: audit/pool/pool.csv searched by title on 2026-09-24; no second pool record found for this article (a single pid, P00176, arXiv-only, never published in a journal)."
+}

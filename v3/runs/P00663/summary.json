@@ -1,0 +1,40 @@
+{
+ "classic_s": [
+  48.87184865300003,
+  49.39477000999989,
+  48.9695667819999
+ ],
+ "cnn_s": [
+  42.75601223400008,
+  43.245721362999916,
+  42.417929492999974
+ ],
+ "classic_median_s": 48.9695667819999,
+ "cnn_median_s": 42.75601223400008,
+ "ratio": 1.1453258670147617,
+ "classic": {
+  "alg": "classic",
+  "seconds": 48.87184865300003,
+  "iterations": 538,
+  "J": 1231.7390261637458,
+  "compliance": 1173.2252426366663,
+  "vertices": 15262
+ },
+ "cnn": {
+  "alg": "cnn",
+  "seconds": 42.75601223400008,
+  "iterations": 441,
+  "J": 1206.4849562896804,
+  "compliance": 1148.6579849383493,
+  "vertices": 15455
+ },
+ "article": {
+  "classic_s": 283,
+  "cnn_s": 245,
+  "classic_iterations": 538,
+  "cnn_iterations": 441,
+  "classic_compliance": 1173.22,
+  "cnn_compliance": 1148.66,
+  "ratio": 1.1551020408163266
+ }
+}

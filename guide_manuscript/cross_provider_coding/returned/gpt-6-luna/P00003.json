@@ -1,0 +1,60 @@
+{
+  "stage": "cross_provider_pass",
+  "pid": "P00003",
+  "citation": {
+    "title": "Adversarial Agents on Topology Optimization: Understanding the Fragility and Robustness of Deep Learning-based and Physics-Based Design Models under Adversarial Perturbation",
+    "authors": "Hoang Anh Nguyen, Yuan Hong, Hongyi Xu",
+    "year": 2026,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2608.22606",
+    "arxiv_id": "2608.22606",
+    "version_coded": "arXiv v1"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "cnn", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "On 45 held-out problems, rerunning SIMP from attacked surrogate initializations returned median compliance at 1.000 times the reference for every tested model, with 14 of 405 reruns above a 1.05 penalty.",
+    "key_phrase": "median SIMP-rerun compliance ratio of 1.000 ×",
+    "location": "Conclusion; Section 5.4, Table 3",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No quantitative speed-up against a classical method is claimed for the primary outcome.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Abstract: bounded perturbations caused multi-order compliance degradation in some surrogates; unperturbed surrogate quality is described as near baseline (Section 5.1)."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization; optimality-criteria updates",
+    "implementation": "Article's own SIMP dataset generator and rerun implementation; code not publicly available in article",
+    "solver": "Finite-element equilibrium solve; solver type not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "20 × 60 finite-element grid (Section 4)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "Thresholded finite-element compliance; paired adv/clean or SIMP-rerun/GT compliance ratio",
+    "quality_gap": "Median SIMP-rerun/GT ratio 1.000 × for all nine sources; 14/405 reruns exceeded 1.05 × (Section 5.4, Table 3)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-not-speed-outcome", "evidence": "The coded primary outcome compares compliance quality, not speed or a matched-time comparison (Section 5.4)."},
+    "R2": {"verdict": "na", "marker": "R2-not-speed-outcome", "evidence": "No primary speed comparison requiring assessment of baseline efficiency is made (Section 5.4)."},
+    "R3": {"verdict": "na", "marker": "R3-not-speed-outcome", "evidence": "The coded outcome concerns compliance recovery and does not claim a measured speed advantage (Conclusion; Section 5.4)."},
+    "R4": {"verdict": "partial", "marker": "R4-constraint-reporting-incomplete", "evidence": "Sections 5.1–5.4 evaluate returned predictions with thresholded FE compliance and report test-set exceedance counts, but do not report constraint satisfaction for the returned designs (Tables 1–3)."}
+  },
+  "reporting": {
+    "n_test_cases": "45 held-out problems (Sections 4–5)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "The authors state that data and model will be available upon email request (Appendix); no public code link or permission to run is reported. Source: https://arxiv.org/pdf/2608.22606"
+}

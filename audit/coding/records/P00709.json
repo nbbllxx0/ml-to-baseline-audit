@@ -1,0 +1,57 @@
+{
+  "pid": "P00709",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "On demand design of two-dimensional phononic crystal bandgap based on machine learning and multi-objective topology optimization",
+    "authors": "Nansha Gao, Jiacheng Guo, Mou Wang, Yilin Qu, Xingguang Peng, Ye Tang, Xiao Liang, Guang Pan",
+    "year": 2025,
+    "venue": "Mechanical Systems and Signal Processing 242 (issue dated January 2026) 113670 (Crossref; published online 2025-11-26 per the pool record). Hybrid open access, CC BY, per OpenAlex and Semantic Scholar; Crossref licence metadata lists only Elsevier text-mining and STM policy URLs",
+    "doi": "10.1016/j.ymssp.2025.113670",
+    "arxiv_id": "",
+    "version_coded": "none: only the abstract was read (pool record from OpenAlex). The version of record (ScienceDirect PII S0888327025013718) could not be retrieved by script; the adjudicator's own attempts on 2026-09-24 (article page and its pdfft PDF link) also met a captcha page, which was not bypassed"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "vae",
+    "physics": "other",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no accessible full text). Abstract only: VAE, MLP and twin networks predict bandgaps and inverse designs of 2D phononic crystals with five-fold cross-validated accuracy; a twin-network loss balances weight and bandgap targets. No classical comparison.",
+    "location": "Abstract (the only text read)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent and no personal data: (1) doi.org redirects to linkinghub.elsevier.com and ScienceDirect PII S0888327025013718. The article page answered curl with HTTP 403 and a captcha page ('Are you a robot?'), and WebFetch with HTTP 403. No challenge was attempted. (2) Crossref lists only Elsevier text-mining API links (api.elsevier.com), which need an API key; none was used. (3) OpenAlex (W4416683798): hybrid OA, CC BY, publisher version only, any_repository_has_fulltext false. Semantic Scholar lists the DOI as its only open PDF (status HYBRID, licence CCBY). (4) arXiv API: no preprint for title words (phononic + bandgap + demand; phononic + 'twin neural'), the abstract phrase 'twin neural network' with phononic, or the author name Gao Nansha. (5) The CORE search page answered HTTP 403 with a JavaScript and cookie challenge; not pursued. (6) A web search for the exact title found only the ScienceDirect page. Free to read in a browser: yes, per OpenAlex and Semantic Scholar (CC BY hybrid open access), so a human verifier can open it on ScienceDirect. Pointers from the abstract for the verifier: the abstract reports only the method's own five-fold cross-validation accuracy (90% of forward-prediction accuracy values at or above 0.98; 98% of inverse-prediction values at or above 0.95) and names no classical optimizer, run time or cost. The title's 'multi-objective topology optimization' may refer to the twin-network loss that weighs lightweight and bandgap targets [inferred]. At full text, check for a classical TO or genetic-algorithm run, timing or cited result; without one, FT-NOBASELINE applies (or FT-FORWARD if the networks only predict bandgaps and are not used to optimize). Domain: elastic-wave bandgap design of 2D phononic crystals. The task brief flagged FT-DOMAIN (acoustic) as an open scope question; the PROTOCOL §11 clarification dated 2026-09-24 (physics scope: elastic waves) now places elastic-wave and phononic design in solids in scope, with 'acoustic' meaning sound in fluids, so FT-DOMAIN does not apply unless the full text shows fluid acoustics (same area as P00549 and P00605). Duplicate check: no other pool record or prefill with this title or first author. Screening code was I-UNCLEAR. No author named Jun Wang (Mou Wang is a co-author). Adjudication (2026-09-24): the adjudicator repeated the legal routes anonymously. The ScienceDirect article page and its pdfft PDF link both answered HTTP 403 with a captcha page (not bypassed); OpenAlex (queried without mailto) lists the publisher version as the only location (any_repository_has_fulltext false); an exact-title web search found only the ScienceDirect page. No coder read the full text, so the record keeps its screening decision (PROTOCOL §11, 2026-09-24, full-text coding without full text).",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "decision": {
+        "first": "include",
+        "second": "exclude",
+        "decision": "include",
+        "reason": "Both coders and the adjudicator read only the abstract: the ScienceDirect version of record (PII S0888327025013718, page and pdfft link) serves a captcha, and OpenAlex lists no other copy. Under PROTOCOL §11 (2026-09-24) a full-text exclusion needs the full text, so the second coder's abstract-based FT-NOBASELINE cannot stand; the record stays include, 'I-UNCLEAR (no accessible full text)', stratum none, all verdicts na."
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "pid": "P00676",
+  "citation": {
+    "title": "Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks",
+    "authors": "Aaditya Chandrasekhar and Krishnan Suresh",
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arxiv.2109.01861",
+    "arxiv_id": "2109.01861",
+    "version_coded": "arXiv v1 (4 September 2021)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR", "stratum": "quality", "method_family": "neural_reparam", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "On four benchmark problems, Fourier-TOuNN produced lower compliance values than SIMP while adding approximate minimum and maximum length-scale control.",
+    "key_phrase": "lower (better) than both SIMP and TOuNN",
+    "location": "Section 5.1, Figure 9 and accompanying text",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The article reports no head-to-head wall-clock speed-up factor. Fourier-TOuNN example runtimes are 4–6 seconds, described as consistent with mesh-based methods.",
+    "direction": "outperform",
+    "alternatives": "Section 5.1 reports 4–6 seconds for Figure 9 examples and describes this as consistent with mesh-based implementations; it does not claim a speed advantage over SIMP."
+  },
+  "baseline": {
+    "classical_method": "SIMP",
+    "implementation": "88-line SIMP implementation [50] with filter radius 1.4 (Section 5.1)",
+    "solver": "Finite-element analysis; solver type not stated",
+    "hardware_classical": "Intel i7-6700 CPU at 2.6 GHz, 16 GB RAM (Section 5)",
+    "hardware_ml": "Intel i7-6700 CPU at 2.6 GHz, 16 GB RAM (Section 5)",
+    "problem_size": "Four 2D benchmarks; default mesh 60×30 (Section 5.1)",
+    "classical_iterations": "119, 98, 131, and 96 iterations for Figure 9 examples (Figure 9)",
+    "classical_time": "not stated",
+    "ml_time": "4–6 seconds across Figure 9 examples (Section 5.1)",
+    "training_time": "Per-problem optimization; 150 minimum and 500 maximum iterations (Section 5)",
+    "data_generation_cost": "not stated; no offline training dataset used",
+    "quality_metric": "Compliance and target volume fraction (Section 5.1, Figure 9)",
+    "quality_gap": "Figure 9 reports lower compliance for Fourier-TOuNN than SIMP across four benchmarks; exact pairs appear in Figure 9."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-only", "evidence": "Section 5.1, Figure 9: primary comparison is compliance quality; the paper does not claim a speed advantage over SIMP."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 5 states both approaches ran on the same CPU; no R2 efficiency criterion is established."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "Section 5 describes per-problem optimization with no offline training or data-generation stage."},
+    "R4": {"verdict": "partial", "marker": "R4-unreported-failures", "evidence": "Section 5.1 reports compliance and volume targets; Section 5.5 notes disconnected topologies for a setting, but no failure or infeasibility rate is reported."}
+  },
+  "reporting": {
+    "n_test_cases": "Four benchmark problems in Figure 9, followed by additional single- and multi-material design experiments (Sections 5.1–5.6).",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "The article gives total times for Figure 9 examples but not separate SIMP times, so no speed-up can be derived. The article states that Python code is available online; its license is not specified in the paper."
+}

@@ -1,0 +1,107 @@
+{
+  "pid": "P00193",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Zero-shot rib design: merging training-free generative prior with topology optimization",
+    "authors": "Yongmin Kwon, Namwoo Kang",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.LG; also physics.app-ph), CC BY-NC-ND 4.0; page footer 'Preprint submitted to Elsevier'. Version of record: Advanced Engineering Informatics 77, article 105276, doi 10.1016/j.aei.2026.105276, retitled 'Zero-shot rib design: Merging a training-free generative prior with topology optimization' (Crossref); pool record P01925. Crossref lists only Elsevier TDM and STM policy licences, and OpenAlex marks the work open only through arXiv, so the version of record is not open access and was not read",
+    "doi": "10.48550/arXiv.2609.10643",
+    "arxiv_id": "2609.10643",
+    "version_coded": "arXiv v1 (9 Sep 2026; the only version on the abs page), PDF (41 pages including Appendices A-D) read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screening code confirmed at full text; §5.1 rule 1)",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Across 245 SDS runs (four domains; mechanical and thermoelastic compliance), 38 of 49 prompt-domain combinations beat the single Adam-SIMP baseline on all five seeds, with reductions up to 31.5% (mechanical, best run) and 23.0% (thermoelastic, five-seed mean).",
+    "key_phrase": "38 of 49 prompt–domain combinations achieved statistically significant compliance reductions",
+    "location": "Abstract (first quantitative comparison with a classical method, §5.1 rule 1); numbers in Sec. 5.1 and Table 5 (mechanical) and Sec. 5.5 and Table 7 (thermoelastic)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed claim against a classical method. The SDS runs are slower: about 44 min per 1,000-iteration run on an RTX 4090, about 3 min (7%) more than the pure-SIMP baseline (Sec. 4). The cost claims against data-driven diffusion models (Table 1, estimated GPU-hours) are ML-only.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.2, Table 6: against a tuned MMA baseline at 1,000 iterations, the best SDS run is worse in D_Rect (7.886 vs 7.721, +2.1%) and better in D_Circle (2.522 vs 2.598, -2.9%) and D_Hole (43.20 vs 48.848, -11.6%) [derived]; all ten prompt means are above MMA in D_Rect and D_Circle, and seven of ten are below it in D_Hole [derived from Tables 5-6]. (2) App. D.1, Table D.1: the best of 50 SDS runs is lower than the best of 50 multi-start or perturbation SIMP runs in all three plate domains. (3) Sec. 7, Table 11: for heat conduction, SDS matches or worsens the Adam baseline (3.718-3.973 vs 3.547). (4) App. B.4, Table B.1: OC is 1.84-3.22 times worse than Adam."
+  },
+  "baseline": {
+    "classical_method": "Primary: SIMP compliance minimization (penalty 3, density filter r_min 5, Heaviside projection with beta doubled every 50 iterations up to 64, maximum-thickness filter, exact bisection volume projection) updated by Adam without SDS for 1,000 iterations. Also: tuned MMA, OC, multi-start SIMP (50 random starts), periodic-perturbation SIMP and image-guided TO (Sec. 3, Sec. 5.2, App. B.4, App. D.1)",
+    "implementation": "authors' own code; language and libraries not stated; code available on request (Data availability)",
+    "solver": "sparse Cholesky (Algorithm 1, line 8); MITC4 Mindlin-Reissner plate elements for three domains and 4-node plane-stress elements for D_Link (Sec. 3.2)",
+    "hardware_classical": "not stated; App. D.1 says SDS and SIMP use different CPU/GPU resources",
+    "hardware_ml": "NVIDIA RTX 4090, 24 GB (Sec. 4)",
+    "problem_size": "150 x 150 elements (Table 3); plate domains with 3 DOFs per node, about 68,400 DOFs [derived: 151 x 151 x 3]; volume fraction 0.20 (0.30 for D_Link)",
+    "classical_iterations": "1,000, fixed (Adam baseline and MMA; Table 3, Sec. 5.2)",
+    "classical_time": "Adam-SIMP 2.34 s per iteration and MMA 4.90 s per iteration (Sec. 5.2), i.e. about 39 and 82 min per 1,000-iteration run [derived]; Sec. 4 implies about 41 min for a pure-SIMP run [derived: 44 - 3 min]",
+    "ml_time": "about 44 min per 1,000-iteration SDS run on an RTX 4090 (Sec. 4)",
+    "training_time": "none: frozen pretrained Stable Diffusion 2.1 without training or fine-tuning (Sec. 1, Sec. 3)",
+    "data_generation_cost": "none (Data availability)",
+    "quality_metric": "Final FE compliance of the returned physical density field at exactly the target volume; mean and std over 5 seeds; significance = all 5 seeds below the single baseline value (one-sided binomial, p = 0.031), with a Benjamini-Hochberg check (Sec. 4, Sec. 8, Tables 5 and 7); 3D solid re-analysis of extruded designs for ranking only (App. D.8)",
+    "quality_gap": "Against Adam-SIMP (Tables 5 and 7): D_Hole Spiderweb 45.22 vs 63.113 (-28.4%), best run 43.20 (-31.5%); D_Circle Diamond 2.804 vs 3.308 (-15.2%); D_Rect Spiderweb 8.02 vs 9.106 (-11.9%); D_Link Voronoi 4.70 vs 5.258 (-10.6%); thermoelastic D_Rect Spiderweb 472.5 vs 613.6 (-23.0%)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Stratum Q; R1 applies as written (PROTOCOL §11, 2026-09-24). Sec. 3-5, App. B.3, App. D.1: each SDS run and the Adam-SIMP baseline share mesh, filters, projection schedule, exact volume and 1,000 iterations, and per-run wall-clock is close (about 44 vs 39-41 min [derived]). The headline is loosely matched: significance compares five SDS seeds with one deterministic baseline run; 'up to -31.5%' is the best of 50 runs per domain, while the best of 50 run-matched multi-start SIMP runs (47.434, Table D.1, p. 32) leaves a D_Hole gain of -8.9% [derived]; and prompts, the SDS weight per domain and the schedule were chosen on pilot runs (App. D.1, D.6), a tuning budget the baseline does not get. App. D.1 matches run counts only for the multi-start and perturbation baselines."
+    },
+    "R2": {
+      "verdict": "fail",
+      "marker": "R2(b)",
+      "evidence": "Stratum Q; R2 applies through criterion (b) (PROTOCOL §11, 2026-09-24). Abstract (p. 1) vs Sec. 5.2 and Table 6 (p. 13): every figure in the abstract (38 of 49 significant; up to -31.5% and -23.0%) is measured against the Adam-SIMP baseline (Tables 5 and 7), and the abstract says SDS outperforms gradient-based baselines. Table 6 reports a tuned MMA baseline, which the text calls a standard strong baseline; its compliance is 15-23% below Adam's [derived], and it beats the best SDS run in D_Rect. Against MMA the best D_Hole gain falls from -31.5% to -11.6%, and no prompt mean beats MMA in D_Rect or D_Circle [derived from Tables 5-6]. The authors note that MMA used about twice the compute per iteration (4.90 vs 2.34 s, p. 13)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "The primary outcome is quality only, and the method is per-problem optimization with a frozen pretrained prior, so there is no offline data or training cost (Sec. 1, Sec. 3, Data availability). For C3: each SDS run takes about 7% more wall-clock than the Adam-SIMP baseline (Sec. 4)."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Sec. 3.1, Sec. 6.4, Tables 5 and 7, App. B.3, App. D.1-D.4, App. D.8: compliance is the FE compliance of the returned physical density field (gray ratio below 3%) at exactly the target volume. Every seed is shown (Figs. D.2-D.4), and non-significant and degrading prompts and the heat-conduction negative result are reported. The CAD post-processing is not used for the reported compliance; the 3D solid re-analysis checks rankings only (r = 0.82-0.98). The MMA compliance in Fig. 5 is the best value over the run, not the final value."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "245 primary SDS runs = 49 prompt-domain combinations x 5 seeds (30 plate-bending, 10 plane-stress D_Link, 9 thermoelastic; Sec. 4-5, Tables 5 and 7); plus heat conduction 3 prompts x 5 seeds (Table 11), scheduling ablations (Table 10) and prompt ablations (App. D.5)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "on_request",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-QUALITY; the full text confirms stratum Q. Duplicates: P01925 is the Advanced Engineering Informatics version of record of this study (same authors, near-identical title; OpenAlex W7212234730 lists this arXiv copy as one of its locations). The version of record is not open access, so the latest arXiv version is the primary version: this record (decision order 192) is coded, and P01925 (decision order 387) should be coded FT-DUPLICATE naming P00193. Scope: a frozen text-to-image diffusion model (a learned model) supplies gradients that shape the TO designs, so §3.1 is met; the physics is elastic plate bending, plane stress and thermoelastic compliance, with heat conduction as a negative check. Reporting locators: seeds = Sec. 4, Tables 5 and 7, Figs. D.2-D.4; failure = significance counts (38 of 49), degrading prompts (Sec. 5.1, 5.3, 6.3) and Table 11; timing = Sec. 4 and Sec. 5.2 (RTX 4090 for SDS; baseline hardware not stated; no warm-up or repeat timing), hence partial; code = on request for non-commercial research use (Data availability); no data were generated; ood_test = no because this is per-problem optimization without a training distribution. retest_candidate false: code on request only, and there is no speed claim. Authors checked: no author named Jun Wang. Adjudicator check (2026-09-24): the arXiv v1 PDF (41 pages) was re-read in full; the abs page lists v1 only. The introduction (p. 2) also states that the gains consistently outperform all alternative baselines, which Table 6 contradicts for D_Rect.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "partial",
+        "second": "na",
+        "decision": "partial",
+        "reason": "The §11 stratum-Q clarification makes R1 apply as written, so na is not available (as for P00358). Each SDS run matches the Adam-SIMP run in mesh, filters, exact volume and 1,000 iterations (Sec. 3.5, App. B.3, Table 3), but the abstract's 'up to -31.5%' is the best of 50 SDS runs set against one baseline run; the run-matched multi-start best (47.434, Table D.1, p. 32) leaves -8.9% [derived], and prompts and SDS weights were chosen on pilot runs (App. D.1). That is the §5.3 R1 partial case, quality reported with loose matching."
+      },
+      "R2": {
+        "first": "fail",
+        "second": "na",
+        "decision": "fail",
+        "reason": "In stratum Q, R2 applies through criterion (b) (§11), and (b) holds: every figure in the abstract (p. 1) is measured against the Adam-SIMP baseline (Tables 5 and 7), while Sec. 5.2 and Table 6 (p. 13) report a tuned MMA baseline, called a standard strong baseline, that lowers compliance by 15-23% [derived] and beats the best SDS run in D_Rect. Disclosing the stronger baseline in the results does not cure (b), as decided for P00136."
+      }
+    }
+  }
+}

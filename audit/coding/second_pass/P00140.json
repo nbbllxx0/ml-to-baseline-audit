@@ -1,0 +1,88 @@
+{
+  "pid": "P00140",
+  "citation": {
+    "title": "De-homogenization using Convolutional Neural Networks",
+    "authors": "Martin O. Elingaard, Niels Aage, J. Andreas Baerentzen, Ole Sigmund",
+    "year": 2021,
+    "venue": "Computer Methods in Applied Mechanics and Engineering (CMAME); arXiv preprint (cs.LG, cs.CV)",
+    "doi": "10.1016/j.cma.2021.114197",
+    "arxiv_id": "2105.04232",
+    "version_coded": "arXiv v1 (submitted 2021-05-10, only version on the abs page), full text read from the downloaded PDF (https://arxiv.org/pdf/2105.04232); version of record is CMAME 378 (2021) 114197, not separately fetched (arXiv preprint accepted as an explicitly sanctioned equal-priority access route)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (abstract states 'the de-homogenized designs perform within 7-25% of the homogenization-based solution at a fraction of the computational cost', a quantitative quality comparison plus a cost claim against the classical homogenization-based / de-homogenization pipeline)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A fully convolutional network maps coarse homogenization-based lamination fields to fine one-scale designs, replacing the classical least-squares de-homogenization step. Across Michell-cantilever, double-clamped-beam and L-shaped-beam benchmarks the de-homogenized designs are within 7-25% of the homogenization-based reference compliance while running in about 1.3-24 s; the Conclusion quantifies this as roughly 5-10x faster than the prior state-of-the-art least-squares de-homogenization method (Groen et al.).",
+    "key_phrase": "a factor 5 to 10 faster than current state-of-the-art de-homogenization approaches",
+    "location": "Abstract (bundled quality+cost headline claim); quantified in Conclusion Sec. 5 and Sec. 4.2.1",
+    "quantitative": true,
+    "claimed_speedup": 7.5,
+    "claimed_speedup_basis": "Derived as the midpoint of the article's own stated range. Conclusion (Sec. 5) and Sec. 4.2.1: 'a factor 5 to 10 faster than current state-of-the-art de-homogenization approaches', based on comparing the CNN pipeline's ~1.3-2.2 s de-homogenization time against Groen et al.'s reported ~10 s for a similarly-scaled least-squares de-homogenization (80x40 -> 1600x800); the authors explicitly flag that the two studies used different, unspecified hardware, so this is their own estimate, not a direct same-machine measurement. 7.5 is the arithmetic mean of the stated 5-10 range (geometric mean 7.07); the article gives no single point value. A separate, same-hardware comparison against full top88 optimization yields a much larger and more precisely derivable ratio, recorded under alternatives.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 4.2.1: 'four orders of magnitude faster' than top88 (open-source 88-line MATLAB SIMP code) run to convergence (~1000 iterations, per Sigmund's own continuation-strategy convergence practice) at the same fine resolution and apparently the same CPU (16 s and 87 s per iteration -> ~16,000 s and ~87,000 s total, vs 1.3 s and 2.2 s for the CNN pipeline; derived ratios ~12,308x and ~39,545x). No quality-matching is attempted for this specific comparison (top88 is run 'to converge' toward a design of 'similar discretization and quality' to the homogenization reference, while the CNN output is 7-25% worse than that same reference); if this comparison is instead taken as primary, R1 = fail. (2) Table-by-table quality/cost pairs for all 34 tested configurations (Tables 1-5, Appendix A): tf ranges 1.26-24.02 s with case-specific (Cf*Vf)/(Cref*Vref) ratios of 1.07-1.53 (i.e. 7-53% worse per-case, 7-25% cited as the representative range). (3) Sec. 1/4.2: qualitative claim that a few-second de-homogenization 'could serve as a real-time evaluation tool'."
+  },
+  "baseline": {
+    "classical_method": "Homogenization-based (rank-2 laminate) topology optimization (Bendsoe & Kikuchi-type, Eq. 1) producing coarse-mesh lamination parameters, which classically require a large least-squares solve per lamination direction (Groen et al.) to realize a fine one-scale 'de-homogenized' design; also compared against running full high-resolution SIMP-type topology optimization directly (top88) instead of using homogenization + de-homogenization at all",
+    "implementation": "top88: open-source, vectorized 88-line MATLAB SIMP code (topopt.mek.dtu.dk, footnote 1); Groen et al.'s least-squares de-homogenization code (obtained from the author per Acknowledgements) for the other classical comparator; the homogenization-based TO stage (Eq. 1) is the authors' own implementation, solver not detailed",
+    "solver": "top88: not stated explicitly (standard direct sparse solve in the default 88-line code); text separately notes that at the largest de-homogenized resolution used in the paper (16.5M elements) 'direct solvers either become extremely memory consuming or break down entirely', requiring multigrid/parallel methods -- that largest case is not one where top88 was actually run for comparison. Groen et al. de-homogenization: constrained least-squares solve on an intermediate mesh (not detailed further here). CNN: forward convolutional pass plus post-processing (skeletonization, distance transform), no linear solve",
+    "hardware_classical": "top88 comparison: same single Intel Core i7 2.6 GHz CPU stated for all tabulated CNN de-homogenization times (Sec. 4.2; not explicitly restated for the top88 runs, but presented immediately alongside with no hardware caveat). Groen et al. comparison: an unspecified 'other hardware platform', explicitly flagged by the authors as making the two studies' times 'not directly comparable'",
+    "hardware_ml": "Network training: NVIDIA Titan X GPU. All tabulated de-homogenization (inference + post-processing) times: single Intel Core i7 2.6 GHz CPU, deliberately chosen 'to demonstrate that the proposed method also can be used on a standard CPU'; a GPU forward pass is stated to take 'only a few milli-seconds'",
+    "problem_size": "Michell cantilever: coarse inputs 60x30, 120x60, 240x120 de-homogenized to fine meshes 1440x720 / 2400x1200 / 2880x1440 / 5760x2880 (up to 16.5M elements); double-clamped beam: 200x50 coarse input to 4800x1200 / 8000x2000; L-shaped beam: 80x40-scale coarse input (combed) to 1920x1920 / 3200x3200",
+    "classical_iterations": "top88: ~1000 iterations to reach convergence at fine resolution, per a continuation strategy following Sigmund's standard Michell-beam practice (ref. [35]), not an inflated count. Groen et al. de-homogenization: a single least-squares solve (not iterative), ~10 s reported in that other paper for an 80x40 -> 1600x800 case",
+    "classical_time": "top88: ~16 s/iteration at 1440x720 and ~87 s/iteration at 2400x1200, i.e. ~16,000 s and ~87,000 s total for ~1000 iterations (Sec. 4.2.1). Groen et al. de-homogenization: ~10 s for an 80x40 -> 1600x800 case on different hardware",
+    "ml_time": "~1.3 s (1440x720) and ~2.2 s (2400x1200) for CNN de-homogenization of the 60x30 coarse solution (Sec. 4.2.1); full per-configuration times in Tables 1-5 range 1.26-24.02 s depending on resolution and periodicity",
+    "training_time": "~1 hour for the full 15-epoch two-step training procedure (10 epochs step 1, 5 epochs step 2) on an NVIDIA Titan X GPU, using a 20,000-sample synthetic dataset (Sec. 4.1); a trained forward pass then takes milliseconds on a GPU or is included in the ~1-24 s CPU times above",
+    "data_generation_cost": "Not separately timed. Training data are 20,000 synthetic orientation-field patches procedurally sampled from a superposition of low-frequency sine functions (Sec. 3, Table 1) -- no finite element analysis or optimization runs are used to generate training data. The Conclusion calls this training 'extremely inexpensive' but gives no time/compute figure for the sampling step itself",
+    "quality_metric": "Compliance Cf of the de-homogenized design (from the same equilibrium-based compliance functional, K u = f, used to define Cref for the homogenization-based solution, Eq. 1), and the ratio (Cf*Vf)/(Cref*Vref) normalized against the homogenization-based reference; volume fraction Vf is reported and compared with the reference Vref in every table",
+    "quality_gap": "7-25% worse (Cf*Vf ratio) than the homogenization-based reference across Tables 1-5: 25.7% average worse for the large-wavelength Michell case and 22.3% for the small-wavelength case at low input resolution (60x30), improving to within 13% at higher input resolution (240x120); double-clamped beam averages 22.4% worse; L-shaped beam within ~12%. Volume fraction overshoot on the Michell beam averages 5.7% (large wavelength) and 2.4% (small wavelength); the double-clamped beam's volume constraint 'is violated by an average of 2.3%'"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose-comparator-quality-unstated",
+      "evidence": "The paper's own quality gap vs. its homogenization-based reference is reported extensively and consistently (7-25% worse Cf*Vf, Tables 1-5), so quality is not hidden. But the headlined speed comparator for the primary outcome (Groen et al.'s least-squares de-homogenization, 'factor 5 to 10 faster', Sec. 5/Sec. 4.2.1) runs on different, unspecified hardware -- explicitly flagged by the authors as 'not directly comparable' -- and that comparator's own compliance/quality relative to the homogenization reference is never stated in this article, so matched-quality cannot be confirmed for the specific comparison used to produce the headline number. [For the verifier: the article's other comparison, 'four orders of magnitude faster' than top88 run to full convergence (Sec. 4.2.1), explicitly targets a full-convergence classical design of 'similar discretization and quality' to the (better) homogenization reference while the CNN output is 7-25% worse, with no quality-matching attempted for that pairing; if that comparison were instead treated as primary, R1 = fail.]"
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-mixed-implementation",
+      "evidence": "The classical comparator run alongside the CNN's own CPU timings, top88, is the standard open-source 88-line MATLAB SIMP code -- a widely used but basic, non-state-of-the-art educational implementation (direct-solver-based; the article itself notes direct solvers 'become extremely memory consuming or break down entirely' at the largest scales used in the paper), matching the R2 '!' condition for an implementation that 'looks inefficient... but no direct comparison is possible' (no re-test was performed for this record). No GPU-vs-CPU mismatch is used for the headline per-query claims: CNN inference/post-processing and the top88 comparison both appear to run on the same Intel Core i7 CPU, and GPU use is confined to the disclosed, amortized one-time training. Classical iteration count (~1000) matches the classical method's own stated convergence practice rather than being inflated (no R2(d) violation). Per-iteration classical times are derivable from the article (16 s and 87 s per iteration at 1440x720 / 2400x1200) as an input for a future R2(e) re-test, but no re-test was run for this record."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-datacost-unquantified",
+      "evidence": "Training cost is explicitly reported (~1 hour, NVIDIA Titan X GPU, 20,000-sample dataset, Sec. 4.1). Data-generation cost is described only qualitatively: training data are procedurally sampled synthetic sine-field patches (Sec. 3), not produced by FE analysis or optimization, and training overall is called 'extremely inexpensive' (Sec. 5) -- but no time or compute figure is given for the sampling step itself, and no break-even number of uses is computed. All reported speed comparisons (Tables 1-5, Sec. 4.2.1, Conclusion) are consistently framed as per-query de-homogenization time, separate from the one-time training cost, and the same trained network is reused, unmodified, across three different structural benchmarks -- so the per-query framing is real, but the ✓ bar's explicit data-generation cost figure is missing."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-partial-no-connectivity-check",
+      "evidence": "Compliance Cf is computed from the same equilibrium-based functional (K u = f) used throughout the article for Cref [inferred: the article does not explicitly restate 'we run an FE analysis of the fine-mesh post-processed design', but this is the only computation consistent with how Cf is defined and used]; this is evaluated on the actual de-homogenized, post-processed design in every table. Volume-fraction satisfaction is explicitly reported and quantified as a violation/overshoot rate (Michell beam: 5.7% and 2.4% average overshoot; double-clamped beam: 'volume constraint is violated by an average of 2.3%', Sec. 4.3). However, disconnection or floating-material failures -- named explicitly in the article only as a theoretical risk of a different, rejected (supervised) approach (Sec. 2.2) -- are never counted or reported as a rate for the actual unsupervised results in Tables 1-5, so feasibility reporting is incomplete relative to the ✓ bar."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 structural problem families (Michell cantilever at 3 input resolutions: 60x30, 120x60, 240x120; double-clamped beam at 1 input resolution with 2 wavelengths; L-shaped beam at 1 input resolution with 2 wavelengths), spanning 34 tabulated parameter configurations across Tables 1-5",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Included: a learned model (fully convolutional neural network) is used to accelerate/replace the classical de-homogenization step of a homogenization-based TO pipeline (PROTOCOL §3 Method), and the article makes an explicit quantitative+qualitative speed/cost comparison against classical de-homogenization and full TO (§3 Comparison, matching I-SPEED). Training data are entirely synthetic/procedural (low-frequency sine fields), never generated by running the classical method being replaced, which is itself a notable, favorable design choice the authors highlight (avoids expensive supervised-dataset generation, Sec. 2.2). ood_test = yes because training uses only synthetic sine-field patches while all reported tests are on three real structural benchmarks (Michell cantilever, double-clamped beam, L-shaped beam) never seen in training -- the paper's own central claim is this generalization ('robust and insensitive wrt. domain size, boundary conditions, and loading'). seeds_or_variance = no: no repeated-run statistics, random seeds, or variance are reported anywhere. code_available/data_available = no: no GitHub/repository/data-availability statement found anywhere in the article for the authors' own CNN implementation or trained models (only third-party classical codes -- top88, Groen et al.'s de-homogenization code -- are referenced as externally obtained). retest_candidate = false on this basis, even though the classical comparators (top88) are themselves public. Duplicate check: audit/pool/pool.csv has exactly one record for this title/arXiv id (P00140, pool row also lists type 'preprint' despite the CMAME journal DOI); no FT-DUPLICATE applies. No author of this article is named Jun Wang (authors: Martin O. Elingaard, Niels Aage, J. Andreas Baerentzen, Ole Sigmund)."
+}

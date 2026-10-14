@@ -1,0 +1,26 @@
+{
+  "status": "provisional (standard formulation P1/P2; final G2 uses OAT generator settings)",
+  "threshold_headline_s": 13.66,
+  "per_problem": {
+    "P1_cantilever": {
+      "strong_baseline_s": 4.343264400027692,
+      "solver": "gpu",
+      "cpu_pinned": true,
+      "run_dir": "retest/runs/20260924T165109Z_gpu_P1_n256_pinned",
+      "vs_oat_simp_gpu_256_s": 68.3,
+      "ratio_oat_over_ours": 15.725499004749635,
+      "band": "headline"
+    },
+    "P2_mbb": {
+      "strong_baseline_s": 4.509377400507219,
+      "solver": "gpu",
+      "cpu_pinned": true,
+      "run_dir": "retest/runs/20260924T165224Z_gpu_P2_n256_pinned",
+      "vs_oat_simp_gpu_256_s": 68.3,
+      "ratio_oat_over_ours": 15.146215083332246,
+      "band": "headline"
+    }
+  },
+  "equivalence_all_pass": true,
+  "note": "Cross-hardware: our RTX 5090 / i5-14600KF vs OAT's RTX 4090 / i9-14900K. Not a same-machine comparison."
+}

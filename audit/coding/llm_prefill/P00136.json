@@ -1,0 +1,88 @@
+{
+  "pid": "P00136",
+  "citation": {
+    "title": "Robust Topology Optimization Using Multi-Fidelity Variational Autoencoders",
+    "authors": "Rini Jasmine Gladstone, Mohammad Amin Nabian, Vahid Keshavarzzadeh, Hadi Meidani",
+    "year": 2021,
+    "venue": "arXiv preprint (cs.LG); no journal reference on arXiv",
+    "doi": "10.48550/arXiv.2107.10661",
+    "arxiv_id": "2107.10661",
+    "version_coded": "arXiv v2 (submitted 20 Aug 2024; PDF dated 22 Aug 2024; latest version per the arXiv API), 25-page PDF from arxiv.org/pdf/2107.10661v2 read in full; Figs. 11 and 17 checked as page images"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; the only quantitative classical comparison is on robust compliance)",
+    "stratum": "quality",
+    "method_family": "vae",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a 100×100 L-bracket with uncertain load angle, gradient search in a VAE latent space with a neural robust-compliance surrogate found a design with robust compliance 69.84, below the best of 1,000 deterministic SIMP designs (71.59).",
+    "key_phrase": "better performance measures compared to those observed in the training set",
+    "location": "Sec. 4.1.3 and Fig. 11 (first quantitative comparison with a classical method; the Abstract, Introduction and Sec. 5 have no quantitative one); key phrase from the Abstract",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no classical robust-TO run time and no time for the latent-space optimization are reported. The timings cover SIMP data generation and network training only, and compare multi- with single-fidelity ML variants (Secs. 4.1.4 and 4.2).",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 4.1.4, Fig. 11(g): multi-fidelity design 69.09 vs the best of its 20 high-resolution training designs (70.85) and the deterministic optimum (71.59). (2) Sec. 4.2, Fig. 17: four uncertain loads at 128×128, multi-fidelity 350.49 and single-fidelity 382.10 vs best training sample 388.01. (3) Sec. 4.1.3 and Sec. 5: the authors state the design cannot outperform the SIMP-based robust design, and could not be shown better than a finite-element approach (no value reported). (4) Abstract: the method bypasses the many FE evaluations of standard RTO (qualitative, no classical time). (5) Data-generation and training times compare multi- vs single-fidelity ML only."
+  },
+  "baseline": {
+    "classical_method": "Deterministic SIMP optima from the 88-line MATLAB code at 1,000 sampled load angles; the best robust compliance among them (71.59) is the comparator. A SIMP-based robust design is said to be better than the ML result, without value or settings (Sec. 4.1.3).",
+    "implementation": "88-line MATLAB code of Andreassen et al. [73] for all training designs (Sec. 4.1.1)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "NVIDIA GeForce RTX 3080 for training (Secs. 4.1.4 and 4.2)",
+    "problem_size": "L-bracket 100×100 image (10,000 design variables) with one uncertain load angle; 128×128 with four uncertain load angles; low-fidelity 30×30 (Secs. 4.1, 4.1.4, 4.2)",
+    "classical_iterations": "not stated",
+    "classical_time": "No classical robust-TO time. Deterministic SIMP data generation: 3.55 h for 600 designs at 100×100 (about 21 s each [derived]); 34 min for 700 designs at 30×30 plus 20 at 100×100; 12.75 h for 600 multi-load designs at 128×128; 1.9 h for 90 (Secs. 4.1.4 and 4.2)",
+    "ml_time": "Latent-space optimization time not stated (the best of 100 random latent samples, scored by the surrogate, starts the gradient descent; Sec. 4.1.3)",
+    "training_time": "Per training iteration only: single-fidelity VAE 0.17 s and compliance network 0.09 s; low-fidelity 0.04 s and 0.010 s; high-fidelity (multi-fidelity) 0.015 s and 0.010 s; multi-load case 1.2 s vs 0.18 s (RTX 3080; Secs. 4.1.4 and 4.2). Multi-fidelity networks trained for 5,000 iterations (Sec. 4.1.4).",
+    "data_generation_cost": "3.55 h (600 designs, 100×100) vs 34 min (multi-fidelity set); 12.75 h (600 multi-load designs, 128×128) vs 1.9 h (90); the single-fidelity pool holds 1,000 SIMP designs, about 5.9 h at the reported rate [derived] (Secs. 4.1.1, 4.1.4, 4.2)",
+    "quality_metric": "Robust compliance Qrob, a quadrature-weighted average of compliance at 7 load-angle points (Sec. 4.1.2); reported for returned designs with the exact-value notation Qrob rather than the surrogate QNN [FE evaluation inferred]. The λ weight of Eq. 2 is not given.",
+    "quality_gap": "Single load: 69.84 (single-fidelity, ntrain = 600), 71.74 (ntrain = 200) and 69.09 (multi-fidelity) vs 71.59 for the best deterministic SIMP design, i.e. -2.4%, +0.2% and -3.5% [derived]. Multi-load: 350.49 (multi-fidelity) and 382.10 (single-fidelity) vs 388.01 best training sample, i.e. -9.7% and -1.5% [derived]. The SIMP-based robust design is stated to be better, value not reported."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.1.3, Fig. 11: the comparator is the best of the 1,000 deterministic SIMP designs, which are also the method's training pool, so the ML pipeline's budget includes the comparator's full cost plus 7-point evaluation of every design and network training. No equal-budget or equal-time comparison is made, and the returned design's volume fraction is not reported (for generated samples, under 1% exceed 0.4 and the maximum is below 0.405, Sec. 4.1.1)."
+    },
+    "R2": {
+      "verdict": "fail",
+      "marker": "R2(b)",
+      "evidence": "Abstract vs Sec. 4.1.3 and Sec. 5: the abstract compares only with the training-set designs (better robust compliance) and with standard RTO only on the number of FE evaluations, while Sec. 4.1.3 states the ML design cannot outperform the SIMP-based robust design and Sec. 5 states it could not be shown better than a finite-element approach. The stronger classical baseline appears only in the results, and without a value."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Quality-stratum primary outcome. For C3: data generation is reported (3.55 h for 600 SIMP designs, about 21 s each [derived]) and training only per iteration; no classical robust-TO time and no break-even, although the abstract claims computational efficiency over standard RTO (Secs. 4.1.4 and 4.2)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Sec. 4.1.3, Figs. 11 and 17: robust compliance of the returned designs is reported with the exact-value notation Qrob, not the surrogate QNN [FE evaluation inferred]. The returned designs' volume fractions are not reported, Sec. 5 lists checking the structural integrity of the optimized designs as future work, and no failure rate is given."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 problems (L-bracket with one uncertain load at 100×100; four uncertain loads at 128×128), one optimized design per model variant (Secs. 4.1 and 4.2)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED. The full text gives stratum Q: no speed comparison with a classical method is quantified anywhere, so the first quantitative classical comparison (robust compliance, Sec. 4.1.3) is primary under §5.1 rule 2. Comparator choice: the deterministic SIMP optima are a classical method's results (88-line MATLAB SIMP at sampled load angles); a SIMP-based robust design is mentioned but not reported. C3 note [inferred]: the pipeline's own data generation (1,000 deterministic SIMP runs) likely costs more than one sampling-based robust SIMP run with 7 load samples, which weakens the abstract's efficiency claim; no such run is timed in the article. Reporting locators: training GPU and data-generation times = Secs. 4.1.4 and 4.2 (SIMP hardware and optimization time not stated, hence timing_protocol_stated = partial); no code or data statement. Inconsistency for the verifier: Sec. 4.1.1 says the 10 designs with the lowest robust compliance were removed from training, Sec. 4.1.4 says the 10 removed designs had the highest compliance. Related pool record: P01074 (Morressier, MMLDT-CSET 2021 presentation by the same four authors, 'Robust topology optimization using efficient neural network surrogates') is probably a conference talk on this work [inferred from title and authors]; P00136, the fuller arXiv version, is the one to code, so no FT-DUPLICATE here. Access: arXiv PDF, generic User-Agent, no personal data. No author named Jun Wang."
+}

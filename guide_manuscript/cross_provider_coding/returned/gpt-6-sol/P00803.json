@@ -1,0 +1,52 @@
+{
+  "pid": "P00803",
+  "citation": {"title": "Self-directed online machine learning for topology optimization", "authors": "Changyu Deng, Yizhou Wang, Can Qin, Yun Fu, Wei Lu", "year": 2022, "venue": "Nature Communications 13:388", "doi": "10.1038/s41467-021-27713-7", "arxiv_id": "2002.01927", "version_coded": "open-access version of record; queue title was an earlier title of arXiv 2002.01927"},
+  "access": "full_text",
+  "stage": "cross_provider_pass",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "surrogate_mlp_gp", "physics": "multiphysics", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "Across its test problems, online surrogate optimization is said to cut computation by roughly two to five orders of magnitude relative to direct heuristic optimization.",
+    "key_phrase": "reduced the computational time by 2 ~ 5 orders of magnitude",
+    "location": "Abstract, p. 1",
+    "quantitative": true,
+    "claimed_speedup": 100,
+    "claimed_speedup_basis": "Abstract, p. 1: two to five orders of magnitude means approximately 100 to 100,000 times; the numeric field records the stated lower endpoint. Discussion, p. 10 clarifies much of this is estimated FE-evaluation reduction.",
+    "direction": "outperform",
+    "alternatives": "Results, pp. 4-5: 501 versus estimated 200,000 FE calculations (400-fold) for coarse compliance, and 10,243 versus estimated 4 million (about 400-fold) for fine compliance; Discussion, p. 10 reports 2-4 orders for truss cases."
+  },
+  "baseline": {
+    "classical_method": "Abstract/Results: directly applied GSA for compliance, BBA for fluid, and BA for truss; an MMA benchmark is also shown for compliance (Figures 2-3).",
+    "implementation": "Methods, FEM and gradient-based baselines: COMSOL Multiphysics 5.4 computes FE objectives and MMA; Methods also specify heuristic algorithms. Public MATLAB/Python code is deposited per Code availability.",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Discussion, p. 9: compliance examples have 25 and 121 continuous design variables; fluid examples 160 and 640 binary variables; truss examples 72, 432 and 1008 bars (Figure 7).",
+    "classical_iterations": "Results, compliance pp. 4-5: direct GSA estimated at 200,000 and 4,000,000 objective/FE evaluations for coarse and fine problems; no matched observed stopping count stated.",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "Discussion, p. 10: online DNN training overhead described as almost negligible, with time profile in Supplementary Table 1; no main-text duration stated.",
+    "data_generation_cost": "Results and Discussion, pp. 4-5, 9: online FE calls are included as 501 for coarse compliance and 10,243 for fine compliance; no separate offline dataset.",
+    "quality_metric": "Results, compliance pp. 4-5: FE-computed dimensionless elastic energy; Fig. 2 reports returned design energy and volume constraint; other cases use pressure, charging time and truss weight.",
+    "quality_gap": "Results, compliance pp. 4-5: coarse SOLO energy 0.298 at 501 FE evaluations versus MMA benchmark 0.293 (about 1.7% higher [inferred]); fine SOLO 0.228 versus MMA 0.222 (about 2.7% higher [inferred])."
+  },
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-loose-quality", "evidence": "Abstract and compliance Results, pp. 4-5: headline speed range aggregates different tasks; compliance outputs have FE-reported objective but are above MMA benchmark, and direct GSA costs are estimated without a matched-quality observed run."},
+    "R2": {"verdict": "fail", "marker": "R2(b)", "evidence": "Abstract, p. 1, emphasizes direct heuristic baselines; compliance Results, pp. 4-5, also show MMA reaching lower FE-computed energy, but do not compare SOLO speed against that stronger classical optimizer."},
+    "R3": {"verdict": "na", "marker": "R3-online-learning", "evidence": "Results algorithm and Discussion, pp. 3 and 10: DNN is trained online from FE calls for each optimization; there is no offline amortized training set."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Methods, FEM and volume constraint, pp. 10-11: returned designs are scored by FE and volume is enforced for compliance; no aggregate rate of infeasible or failed designs is given."}
+  },
+  "reporting": {
+    "n_test_cases": "Introduction/Discussion, pp. 2 and 9: 8 problems total; 6 in-scope examples (2 compliance, 1 heat, 3 truss) and 2 fluid examples outside this audit's physics scope.",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": true,
+  "notes": "The queue's historical title is an earlier title of arXiv 2002.01927; the accessible Nature Communications version of record is coded. The paper includes fluid examples, but also includes in-scope solid compliance and thermal optimization. Its public repository has the example code and an MIT license; the truss benchmark is Python-only, while compliance uses COMSOL/MATLAB. The main speed range largely reflects estimated FE-call ratios, and the Discussion distinguishes estimated from observed direct heuristic tests."
+}

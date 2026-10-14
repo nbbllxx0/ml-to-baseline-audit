@@ -1,0 +1,55 @@
+{
+ "row": 438,
+ "L1_stopped": {
+  "iterations": 253,
+  "elapsed_s": 32075,
+  "start": "10:22:08",
+  "stop": "19:16:43",
+  "last_change": 0.026,
+  "stopping_rule": "change < 0.01 or 600 iterations",
+  "note": "stopped by user decision (CENSUS_PREREG \u00a79 dev17); overlapped other runs 10:48-18:17 (CONCURRENT.log)"
+ },
+ "unit_1thread": {
+  "per_iteration_s": [
+   129.109,
+   136.937,
+   124.454,
+   119.978,
+   111.93,
+   112.326,
+   112.671,
+   124.175,
+   110.357,
+   146.226
+  ],
+  "median_it2_10_s": 119.978
+ },
+ "unit_default_6threads": {
+  "per_iteration_s": [
+   40.073,
+   43.903,
+   40.519,
+   38.932,
+   36.541,
+   34.676,
+   31.484,
+   33.424,
+   29.992,
+   37.818
+  ],
+  "median_it2_10_s": 36.541
+ },
+ "published": {
+  "TO_s": 8640.0,
+  "prediction_s": 3.6,
+  "factor": 2400
+ },
+ "derived": {
+  "threading_speedup": 3.283380312525656,
+  "L1_lower_bound_factor_vs_published_prediction": 8909.722222222223,
+  "L2_projection_253_its_s": 9244.873,
+  "L2_projection_600_its_s": 21924.6,
+  "L1_projection_600_its_s": 71986.8,
+  "L2_253_factor_vs_published_prediction": 2568.0202777777777
+ }
+}

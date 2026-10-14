@@ -1,0 +1,88 @@
+{
+  "pid": "P00519",
+  "citation": {
+    "title": "Towards Signed Distance Function based Metamaterial Design: Neural Operator Transformer for Forward Prediction and Diffusion Model for Inverse Design",
+    "authors": "Qibang Liu, Seid Koric, Diab Abueidda, Hadi Meidani, Philippe Geubelle",
+    "year": 2025,
+    "venue": "arXiv preprint (physics.comp-ph)",
+    "doi": "",
+    "arxiv_id": "2504.01195",
+    "version_coded": "arXiv v3 (submitted 1 Apr 2025, last revised 28 May 2025; latest version), full text and supplementary sections (S0-S5) read from https://arxiv.org/html/2504.01195"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Supplementary Table S5: replacing a 2.3 min/sample Abaqus FE simulation (1 CPU) with the trained Neural Operator Transformer surrogate cuts per-solution evaluation to 1.0e-2 s (full field) or 1.6e-4 s (stress-strain curve only), at 10.3%/2.6% mean L2 error.",
+    "key_phrase": "FE simulation (1 cpu) 2.3 min/sample",
+    "location": "Supplementary Table S5 ('Computational efficiency', referenced from Sec. 3.4). No quantitative comparison with a classical method appears in the Abstract, Conclusions, or Introduction, which state only that traditional gradient-based topology optimization and genetic-algorithm approaches are 'computationally expensive' without giving numbers",
+    "quantitative": true,
+    "claimed_speedup": 13800,
+    "claimed_speedup_basis": "Derived from Table S5: FE simulation = 2.3 min/sample = 138 s/sample (1 CPU); NOT inference (full field) = 1.0e-2 s/solution. 138 / 0.01 = 13,800. The article states neither figure as an explicit 'speedup' factor - both are given only as raw per-sample/per-solution times.",
+    "direction": "outperform",
+    "alternatives": "Table S5 also gives NOT inference (stress-strain curve only) = 1.6e-4 s/solution, an even larger derived speedup of 138/1.6e-4 = 862,500x [derived] over the same FE baseline. 'Inverse design' (diffusion sampling) is reported at 0.46 s/solution, but no comparable classical inverse-design run (e.g. a full gradient-based topology optimization to the same target) is timed anywhere in the article for a direct ratio. Sec. 2.2 separately reports the surrogates' own prediction accuracy against FE ground truth (mean L2 error 2.6%, std 2.4%, for the stress-strain curve; 10.3%, std 4.6%, for the full field) - a quality, not speed, comparison, and arguably the paper's more emphasized result given it anchors Figs. 4-5."
+  },
+  "baseline": {
+    "classical_method": "Direct finite element (FE) simulation of the periodic unit cell (elasto-plastic material, large deformation, self-contact) in the commercial code Abaqus 2024, used both as the ground truth for accuracy checks and as the data-generation engine (Sec. 3.2). The Introduction separately names gradient-based topology optimization and genetic algorithms as the 'traditional' classical inverse-design comparators, but neither is implemented or timed in this article",
+    "implementation": "Commercial (Abaqus 2024) for FE simulation; authors' own PyTorch implementation for the NOT and diffusion models, publicly released",
+    "solver": "Abaqus implicit dynamic solver with a small virtual mass density (rho=1e-8) to mimic quasi-static compression while aiding convergence for large-deformation, elasto-plastic, self-contact behavior (Sec. 3.2); 51 load steps to a maximum compressive strain of 0.2",
+    "hardware_classical": "1 CPU (specific model not stated) on the DELTA machine at NCSA, University of Illinois (Sec. 3.2, Table S5)",
+    "hardware_ml": "Training: single NVIDIA H100 GPU, 90 GB memory, on the DeltaAI machine at NCSA (Sec. 3.4). Inference: single NVIDIA A100 GPU on the DELTA machine at NCSA (Sec. 3.5)",
+    "problem_size": "2D periodic unit cell, 1mm x 1mm square domain; geometry generated on a 64x64 Gaussian-random-field grid and represented as an SDF on a 120x120 grid; FE global mesh size 0.04 mm with mixed 1st-order quadrilateral/2nd-order triangular elements (a few thousand DOF [inferred], not stated exactly)",
+    "classical_iterations": "51 fixed load (strain) steps per FE simulation to reach 0.2 compressive strain (Sec. 3.2); not an iterative optimization loop, since no classical topology optimization is actually run in this article",
+    "classical_time": "2.3 min/sample (1 CPU), Table S5",
+    "ml_time": "NOT inference: 1.6e-4 s/solution (stress-strain curve), 1.0e-2 s/solution (full field). Diffusion-based inverse design: 0.46 s/solution. All from Table S5",
+    "training_time": "Derived from Table S5's per-epoch rates and the hyperparameter tables' epoch counts: NOT (stress-strain curve) 500 epochs x 16 s/epoch = ~8,000 s (~2.2 h); NOT (full field) 300 epochs x 96 s/epoch = ~28,800 s (~8.0 h); diffusion model 300 epochs x 47 s/epoch = ~14,100 s (~3.9 h) [derived]",
+    "data_generation_cost": "About 10,000 unique unit-cell geometries simulated by FE at 2.3 min/sample (1 CPU), roughly 23,000 CPU-minutes / ~383 CPU-hours [derived; actual wall-clock likely lower given HPC parallel execution, not stated]. Data augmentation (random periodic shifts, no extra FE cost) then expands this to about 73,000 training/testing samples (Sec. 2.1)",
+    "quality_metric": "L2 relative error (Eq. 10-11) between NOT-predicted and FE-simulated stress-strain curves and full-field Mises stress/displacement, over all strain steps (Sec. 3.6); for inverse-designed geometries, the generated design is independently re-simulated in Abaqus and compared to the target curve (closed-loop verification, Figs. 6b, 9b)",
+    "quality_gap": "Forward prediction: mean L2 relative error 2.6% (std 2.4%) for the stress-strain curve; 10.3% (std 4.6%) for full-field Mises stress/displacement, on held-out test data (Sec. 2.2); median-case full-field error 10.1% (Fig. 5)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "The surrogate's accuracy against the FE ground truth it replaces is thoroughly and transparently quantified (mean L2 error 2.6%/10.3% with standard deviations, plus best/median/99th-percentile and worst-case examples shown in the main text and supplementary figures, Sec. 2.2, Figs. 4-5, S6-S7), directly alongside the timing claim in the same supplementary section. This matches R1's own 'objective within the ML method's reported error of the classical result' pass condition rather than a hidden or unaddressed quality gap."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unjustified",
+      "evidence": "The classical baseline is the commercial, industry-grade Abaqus 2024 solver, not an inefficient implementation. However, Table S5 explicitly measures FE simulation on 1 CPU while NOT inference runs on a single NVIDIA A100 GPU (Sec. 3.5) - a GPU-vs-CPU comparison with no stated justification. The problem is small (a few thousand DOF [inferred]), well under the 1e5-DOF threshold for R2(c) to apply outright, but the hardware asymmetry itself is never addressed or justified in the text."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-per-query-with-costs",
+      "evidence": "Table S5 and the surrounding Methods sections report both data-generation cost (2.3 min/sample x ~10,000 FE simulations, 1 CPU, Sec. 3.2) and training cost (per-epoch rates for both NOT models and the diffusion model, Table S5, combined with the epoch counts in the hyperparameter tables of Sec. S3/S4). The efficiency claim is also clearly scoped to per-query inference: Table S5 separates 'training' rows (per-epoch) from 'inference'/'inverse design' rows (per-solution), and Sec. 3.5 gives inference its own dedicated protocol and hardware."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-fe-no-failure-rate",
+      "evidence": "Quality is verified against genuine FE simulation, not an image-similarity metric, for both the forward surrogate (Sec. 2.2, 3.6) and the inverse-designed geometries, which are independently re-simulated in Abaqus in a closed loop (Figs. 6b, 9b) - a strong verification practice. However, Sec. 3.5 states that generated samples with 'islands' or non-periodic geometry are filtered out before evaluation, without reporting what fraction of the 200-500 diffusion samples per target were discarded, so no failure/infeasibility rate is quantified."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Forward models: 20% of ~73,000 augmented samples held out for testing (~14,600 [derived], Sec. 3.4), from ~10,000 unique base geometries. Inverse design: 200 generated solutions per target for 2 in-distribution targets (Fig. 6), plus 500 generated solutions per target for 2 custom Ramberg-Osgood targets (Fig. 9); top 4 designs shown per target",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "yes",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "This is one of the most thoroughly reported papers in this queue on cost accounting: Supplementary Table S5 gives explicit per-sample/per-epoch/per-solution times with hardware named for every stage (1 CPU for FE, H100 GPU for training, A100 GPU for inference), letting both data-generation and training cost be checked against the inference speedup - unusually complete for R3. Primary-outcome choice required judgment: the Abstract/Conclusions never quantify a classical comparison (only 'computationally expensive' framing), so the first quantitative classical-vs-ML comparison in the document is Table S5, in the Supplementary Information; the paper's own narrative emphasis is arguably the forward-model accuracy result (Sec. 2.2, Figs. 4-5) and the one-to-many inverse-design demonstrations (Figs. 6-11), both quality-type results, which are recorded in full as alternatives. The classical comparators actually named in the Introduction (gradient-based topology optimization, genetic algorithms) are never implemented or timed in this article; only the FE-simulation-vs-surrogate speed comparison is directly measured. method_family is coded diffusion_flow because the paper's core generative/design contribution and title emphasis is the conditional diffusion model for inverse design; the Neural Operator Transformer is a supporting forward-surrogate (a transformer-based architecture) used for evaluation, not the design generator itself. Code (GitHub) and data (Zenodo) are both publicly released with clear reproduction intent, though no LICENSE file was found in the repository (checked 2026-09-24). No author named Jun Wang (authors: Qibang Liu, Seid Koric, Diab Abueidda, Hadi Meidani, Philippe Geubelle). No duplicate pool record found for this title or arXiv id (pool.csv has only P00519); note this is by the same University of Illinois NCSA group (Koric, Abueidda) as P00165 in this same queue, though the two are distinct articles on different methods."
+}

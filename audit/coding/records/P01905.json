@@ -1,0 +1,94 @@
+{
+  "pid": "P01905",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Scaling atom-by-atom inverse design using nano-topology optimization and diffusion models",
+    "authors": "Chun-Teh Chen, Denvid Lau",
+    "year": 2026,
+    "venue": "Materials Horizons (RSC), 2026, doi 10.1039/d6mh00986g (Crossref; volume and pages not yet listed). Not open access: the Crossref licence is the RSC terms of use, with an accepted-manuscript licence starting 2027-08-18; not accessed. Preprint of the same study: arXiv 2604.03276 v1, titled 'Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models' (pool P00242)",
+    "doi": "10.1039/d6mh00986g",
+    "arxiv_id": "2604.03276",
+    "version_coded": "arXiv 2604.03276 v1 (24 Mar 2026; the only version; CC BY 4.0), full HTML text including Methods and Supplementary Notes A.1-A.14, read from https://arxiv.org/html/2604.03276v1. The Materials Horizons version of record (this record's DOI) was not read: it is not open access. The adjudicator re-read the same arXiv HTML on 2026-09-24 and re-checked the arXiv API (v1 only) and the Crossref licence and review metadata of the version of record"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as the non-primary version of the study coded under P00242). Would-be primary outcome in the arXiv text: thickness-periodic aluminium nanocantilever at 59.60% mass ratio, a 32,000-sample TO-DDPM run gave mean normalized bending stiffness 0.809 and best 0.860, versus 0.820 for the best of 64 Nano-TO trials.",
+    "location": "Would-be: Results, subsection on c-DDPM design of thickness-periodic nanocantilevers (TO-DDPM paragraph) and Fig. 3b of arXiv 2604.03276 v1; the Nano-TO value 0.820 is from the preceding subsection and Fig. 2b",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). No runtime is reported for Nano-TO, for c-DDPM training or sampling, or for the atomistic evaluations in the arXiv text, so no factor is stated or derivable.",
+    "direction": "similar_or_mixed"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE; the study is coded under P00242)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE; the study is coded under P00242)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE; the study is coded under P00242)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE; the study is coded under P00242)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "FT-DUPLICATE: non-primary version of the study whose primary version is arXiv 2604.03276 v1, pool record P00242 (decision-order position 479; P01905 is at position 112, and audit/screening/pilot_final_order.csv already lists P00242 as its possible duplicate). Rule applied (screening_codes.md; adjudication instructions): the primary version is the version of record if it is open access, otherwise the latest arXiv version. The Materials Horizons version of record is not open access (Crossref licence: RSC terms of use, accepted-manuscript licence from 2027-08-18, checked 2026-09-24), and arXiv 2604.03276 has only v1 (arXiv API, 2026-09-24), so P00242 carries the coding, as P00235 did for P00034. The two records hold different versions (preprint v1 and a version of record that went through two review rounds, Crossref review DOIs v1 and v2), so the §11 same-version tie-break does not apply. Evidence that they are one study: same authors (Chun-Teh Chen, Denvid Lau); titles differ only in 'using' vs 'with'; the OpenAlex abstract of the version of record (truncated) is a verbatim suffix of the arXiv abstract (pool.csv, checked 2026-09-24); the pool also holds this DOI's review, author-response and decision-letter records (P01906, P01908, P01909) and the OSF code record P01942 'for the paper: Scaling Atom-by-Atom Inverse Design with Nano-Topology Optimization and Diffusion Models'. Access: the study's full text was read legally as the CC BY 4.0 arXiv preprint, so this is a full-text exclusion; the version of record itself was not read. For the coder of P00242, the first coder's full would-be coding of the arXiv text is preserved in audit/coding/llm_prefill/P01905.json: stratum Q (only design-quality comparisons with Nano-TO; no runtime of any method is reported), R1 partial (R1-loose: best of 32,000 generated samples after a 24-setting guidance sweep vs best of 64 Nano-TO trials, achieved mass ratio of generated designs not reported), R2 na, R3 na, R4 partial (R4-no-failure-rate: every generated design is evaluated atomistically, but achieved mass ratio and share of invalid samples are not reported). The adjudicator spot-checked in the arXiv HTML: mean 0.809 and best 0.860 for TO-DDPM, best Nano-TO 0.820 at 59.60% mass ratio, training on an NVIDIA RTX A6000, no runtime or wall-clock figure, code at github.com/chunteh/Diffusion-Nano-TO. Scope note from the first coder for P00242: Nano-TO is atomistic TO of aluminium nanostructures for bending stiffness, coded as in scope under §3.1 elasticity [judgment]. No author named Jun Wang. Screening code was I-UNCLEAR.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "access": {
+        "first": "full_text",
+        "second": "not_full_text",
+        "decision": "full_text",
+        "reason": "The first coder's legal route works: the study's full text is the CC BY 4.0 arXiv preprint 2604.03276 v1 (arxiv.org/html/2604.03276v1), which the adjudicator read. The Materials Horizons version of record is not open access (Crossref licence) and was not read, so version_coded names the preprint."
+      },
+      "decision": {
+        "first": "include",
+        "second": "exclude",
+        "decision": "exclude",
+        "reason": "This record is the version of record of the arXiv study held as P00242 (same authors, near-identical title, and the pool's truncated abstract of this record is a verbatim part of the arXiv abstract). The version of record is not open access, so the primary version is the latest arXiv version, v1 (arXiv API), and this record is FT-DUPLICATE with the coding under P00242, as P00235 carried P00034."
+      },
+      "stratum": {
+        "first": "quality",
+        "second": null,
+        "decision": "none",
+        "reason": "A full-text exclusion carries stratum none (adjudication instructions, step 3). The first coder's would-be stratum Q coding of the arXiv text (TO-DDPM 0.809 mean and 0.860 best vs Nano-TO 0.820, Results, Fig. 3b) is left for P00242."
+      },
+      "R1": {
+        "first": "partial",
+        "second": null,
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE, so all rule verdicts are na (adjudication instructions, step 3); the study is coded under P00242, and the would-be verdict is kept in notes."
+      },
+      "R2": {
+        "first": "na",
+        "second": null,
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE, so all rule verdicts are na (adjudication instructions, step 3); the study is coded under P00242."
+      },
+      "R3": {
+        "first": "na",
+        "second": null,
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE, so all rule verdicts are na (adjudication instructions, step 3); the study is coded under P00242."
+      },
+      "R4": {
+        "first": "partial",
+        "second": null,
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE, so all rule verdicts are na (adjudication instructions, step 3); the study is coded under P00242, and the would-be verdict is kept in notes."
+      }
+    }
+  }
+}

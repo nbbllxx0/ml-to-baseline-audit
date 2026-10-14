@@ -1,0 +1,46 @@
+size,stage,method,config,problem_id,time_s,c_last,status,pcg_its_median,pcg_its_max,run
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1015,37.25487849995261,9.858721832873249,ok,,,retest/runs/20260924T165342Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1676,37.2023676999961,5.298398217551856,ok,,,retest/runs/20260924T165342Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1839,36.828145499981474,35.87793375669292,ok,,,retest/runs/20260924T165342Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1935,20.695515399973374,5.6943398480313085,ok,,,retest/runs/20260924T165342Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1961,37.04258690000279,34.30088891616571,ok,,,retest/runs/20260924T165342Z_oat_simp_n256
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,15,27.068180300004315,5.6310292170230865,ok,,,retest/runs/20260924T165643Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,676,9.782303599989973,3.682007201750192,ok,,,retest/runs/20260924T165643Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,839,14.321297399990726,3.8329791938580007,ok,,,retest/runs/20260924T165643Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,935,14.637219900032505,9.657750630766204,ok,,,retest/runs/20260924T165643Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,961,38.49988439999288,25.483121114947973,ok,,,retest/runs/20260924T165643Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,15,46.43133639998268,5.631370513900565,ok,,,retest/runs/20260924T165837Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,676,43.50545339996461,3.681997954054405,ok,,,retest/runs/20260924T165837Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,839,44.365844499960076,3.8328004675597707,ok,,,retest/runs/20260924T165837Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,935,46.17725050001172,9.65419935411497,ok,,,retest/runs/20260924T165837Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,961,44.319226299994625,25.465110985489773,ok,,,retest/runs/20260924T165837Z_oat_simp_n64
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1015,3.221518299775198,8.138779947295454,ok,11.0,16,retest/runs/20260924T170236Z_ours_gpu_nito_n256
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1676,9.803132999455556,5.202169107528627,ok,44.0,67,retest/runs/20260924T170236Z_ours_gpu_nito_n256
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1839,13.613184799964074,34.84553596327935,ok,63.0,73,retest/runs/20260924T170236Z_ours_gpu_nito_n256
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1935,2.737439500167966,5.684062011375055,ok,8.0,28,retest/runs/20260924T170236Z_ours_gpu_nito_n256
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1961,8.449985099898186,34.052304058185555,ok,40.0,46,retest/runs/20260924T170236Z_ours_gpu_nito_n256
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",15,1.7351371996919625,5.622893692398693,ok,13.0,28,retest/runs/20260924T170436Z_ours_gpu_nito_n64
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",676,1.2322168003884144,3.6724664979843933,ok,6.0,12,retest/runs/20260924T170436Z_ours_gpu_nito_n64
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",839,1.5225570995244198,3.8323378115815374,ok,12.0,18,retest/runs/20260924T170436Z_ours_gpu_nito_n64
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",935,1.274274199968204,9.656141921023043,ok,7.0,14,retest/runs/20260924T170436Z_ours_gpu_nito_n64
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",961,2.792030700133182,25.793756476712296,ok,29.0,35,retest/runs/20260924T170436Z_ours_gpu_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",15,0.5905254003009759,5.622893698132311,ok,,,retest/runs/20260924T170506Z_ours_pardiso_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",676,0.6072915000841022,3.672466497987133,ok,,,retest/runs/20260924T170506Z_ours_pardiso_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",839,0.6376011003158055,3.8323378088967517,ok,,,retest/runs/20260924T170506Z_ours_pardiso_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",935,0.6314817006350495,9.656141925515238,ok,,,retest/runs/20260924T170506Z_ours_pardiso_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",961,0.6067126002162695,25.793756491240494,ok,,,retest/runs/20260924T170506Z_ours_pardiso_nito_n64
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1015,13.047415499750059,8.138779948367699,ok,,,retest/runs/20260924T170534Z_ours_pardiso_nito_n256
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1676,13.23636500001885,5.202169106632732,ok,,,retest/runs/20260924T170534Z_ours_pardiso_nito_n256
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1839,14.085954499372747,34.84553598333845,ok,,,retest/runs/20260924T170534Z_ours_pardiso_nito_n256
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1935,13.044655499688815,5.684062011980886,ok,,,retest/runs/20260924T170534Z_ours_pardiso_nito_n256
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1961,12.853847899765242,34.052303909818825,ok,,,retest/runs/20260924T170534Z_ours_pardiso_nito_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1015,0.47706735000247136,,ok,,,retest/runs/20260924T170945Z_oat_infer_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1676,0.501944799994817,,ok,,,retest/runs/20260924T170945Z_oat_infer_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1839,0.4654209500004072,,ok,,,retest/runs/20260924T170945Z_oat_infer_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1935,0.47120800003176555,,ok,,,retest/runs/20260924T170945Z_oat_infer_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1961,0.4711010000028182,,ok,,,retest/runs/20260924T170945Z_oat_infer_n256
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",15,0.4640946500294376,,ok,,,retest/runs/20260924T171023Z_oat_infer_n64
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",676,0.4683411499718204,,ok,,,retest/runs/20260924T171023Z_oat_infer_n64
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",839,0.485504399985075,,ok,,,retest/runs/20260924T171023Z_oat_infer_n64
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",935,0.45941139999195,,ok,,,retest/runs/20260924T171023Z_oat_infer_n64
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",961,0.4670831499970518,,ok,,,retest/runs/20260924T171023Z_oat_infer_n64

@@ -1,0 +1,88 @@
+{
+  "pid": "P00165",
+  "citation": {
+    "title": "Topology optimization of 2D structures with nonlinearities using deep learning",
+    "authors": "Diab W. Abueidda, Seid Koric, Nahil A. Sobh",
+    "year": 2020,
+    "venue": "arXiv preprint (cs.CE; also cs.LG). Related DOI on the arXiv abs page links to the version of record in Computers & Structures (Elsevier)",
+    "doi": "10.1016/j.compstruc.2020.106283",
+    "arxiv_id": "2002.01896",
+    "version_coded": "arXiv v4 (submitted 31 Jan 2020, last revised 13 Apr 2020; latest/only listed version besides v1-v3), full text and references read from the PDF at https://arxiv.org/pdf/2002.01896v4. Version of record not read: doi.org redirected to an Elsevier linkinghub/ScienceDirect permission chain, and a direct request to the ScienceDirect article page (www.sciencedirect.com/science/article/pii/S0045794920300869) returned HTTP 403 to scripted access"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Abstract claim: the ResUnet CNN models predict SIMP-optimized 2D topologies directly, without an iterative TOSCA/MATLAB optimization run and with negligible inference time; no matching numeric classical-vs-ML runtime pair appears anywhere in the article.",
+    "key_phrase": "without requiring an iterative scheme and with negligible inference computational time",
+    "location": "Abstract (identical qualitative claim repeated in Sec. 5 and 6; no quantitative comparison between the classical method and the ML method exists anywhere in the article, so no quantitative candidate outranks it)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable. The article never states a numeric ML inference time (only 'negligible' / 'instant'). The only numeric classical-side costs are per-training-sample data-generation times (Sec. 3.1-3.2: ~25 min/task on a personal computer, or 0.31 min/data point with 10 parallel HPC instances, for the linear-elastic dataset; ~90 min/task, or 3.2 min/data point in parallel, for the neo-Hookean dataset), which are never paired with a stated ML-side number.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5: mean test-set DSC = 0.958 (linear elastic), 0.964 (neo-Hookean), 0.984 (stress-constrained) - the only quantitative results in the paper, but they measure image similarity to the classical ground truth, not speed or compliance. (2) Sec. 5, Fig. 7: GPU vs CPU training time for the linear model, 1.25 hr vs 12.5 hr - an ML-internal hardware comparison, not ML vs classical TO."
+  },
+  "baseline": {
+    "classical_method": "SIMP-based TO solved with the commercial TOSCA module (sensitivity-based solver, method of moving asymptotes) called from Abaqus, for the linear-elastic and neo-Hookean hyperelastic datasets (Sec. 2.1); an unspecified in-house MATLAB code with adjoint-sensitivity MMA for the stress-constrained dataset (Sec. 2.2, 3.2). Objective is compliance minimization at a fixed volume fraction in all three cases",
+    "implementation": "Commercial (TOSCA/Abaqus) for the linear and hyperelastic cases; in-house MATLAB for the stress-constrained case (Sec. 2.1-2.2, 3.1-3.2)",
+    "solver": "not stated (neither TOSCA/Abaqus's internal FE solver nor the in-house MATLAB code's solver type is specified)",
+    "hardware_classical": "Bulk data generation on iForge HPC nodes (Intel/Skylake, 40 cores, 192 GB RAM; some nodes with NVIDIA V100 GPUs), 10 optimization tasks run in parallel; a single task separately benchmarked on 'a personal computer with CORE i5 vPro' (Sec. 3.1)",
+    "hardware_ml": "Training: single NVIDIA V100 GPU (32 GB) on an iForge GPU node, also compared with a CPU-only iForge Skylake node for a training-time benchmark (Sec. 5, Fig. 7). Inference/deployment: described only as 'any low-end computing platform such as a laptop' (Sec. 5-6), no model or specs given",
+    "problem_size": "Linear elastic (no stress constraint): 32x32 elements, 33x33 nodes. Neo-Hookean hyperelastic: 50x50 elements, 51x51 nodes. Linear elastic with stress constraint: 50x50 elements, 51x51 nodes. Design space 1 m x 1 m in all cases (Sec. 3.1-3.2)",
+    "classical_iterations": "not stated (no MMA/TOSCA convergence tolerance or iteration count is reported for any of the three datasets)",
+    "classical_time": "~25 min per optimization task on a personal computer (Core i5 vPro) for the linear-elastic dataset; ~90 min per task for the neo-Hookean dataset (Sec. 3.1). On iForge with 10 parallel instances, average data-generation rates were 0.31 min/data point (linear) and 3.2 min/data point (neo-Hookean) (Sec. 3.1, Fig. 4). No time is reported for the stress-constrained MATLAB code",
+    "ml_time": "not stated numerically anywhere; described only as 'negligible' and 'instant' (Abstract; Sec. 5-6)",
+    "training_time": "1.25 hr (linear case) and 1.5 hr (neo-Hookean case) on a single V100 GPU; 12.5 hr for the linear case on a CPU-only Skylake node (Sec. 5, Fig. 7). Training time for the stress-constrained model is not stated",
+    "data_generation_cost": "15,000 data pairs (linear elastic), 18,000 (neo-Hookean), 20,000 (stress-constrained), each generated by running the classical optimizer once per pair at the per-task/per-point rates given above (Sec. 3.1-3.2)",
+    "quality_metric": "Dice similarity coefficient (DSC, Eq. 17) between the predicted and classical ground-truth binary density images on the held-out test split; no FE re-analysis, compliance value, or volume-fraction error is reported for the predicted designs",
+    "quality_gap": "Mean test-set DSC = 0.958 (linear elastic), 0.964 (neo-Hookean), 0.984 (stress-constrained) (Sec. 5); no compliance or volume-fraction gap is reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.2, 5: the only quality check is DSC image similarity to the classical ground truth (mean 0.958-0.984); no compliance or volume-fraction comparison is made, and the classical TOSCA/MATLAB convergence tolerance and iteration count are never stated (Sec. 2.1, 3.1-3.2). The implicit speed claim ('negligible' ML inference vs a ~25-90 min classical run per instance) is therefore not matched against a stated classical stopping rule or an engineering quality metric, only a loose image-similarity check."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-commercial-module",
+      "evidence": "Sec. 2.1: the linear/hyperelastic baseline is the general-purpose commercial optimization module TOSCA (Abaqus), matching the rule's own example of a case where efficiency cannot be judged directly; Sec. 3.2's in-house MATLAB code has no stated solver. Problem sizes (<=2,601 nodes [inferred]) are far below the 1e5-DOF threshold for R2(c). No re-implementation re-test (a/e) was performed, and (b)/(d) are not evidenced in the text, so this is the 'implementation looks inefficient / no direct comparison possible' partial case."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-per-query-with-costs",
+      "evidence": "Sec. 3.1-3.2 report data-generation cost (15,000/18,000/20,000 classical optimizer runs at the stated per-task or per-point rates) and Sec. 5/Fig. 7 report training cost (1.25-1.5 hr GPU, 12.5 hr CPU for the linear case). The speed claim itself is explicitly scoped to post-training, per-query inference on a low-end machine (Sec. 5-6: 'after the training ... is complete ... the optimized solutions are found there instantly ... for any variation of input parameters'), i.e. it is limited to per-query inference rather than claiming the whole pipeline is cheaper."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Sec. 4.2 and 5: quality rests solely on the Dice similarity coefficient (an image-overlap metric) between predicted and ground-truth density images (mean 0.958/0.964/0.984). No FE re-analysis of the returned designs, no compliance or volume value for the ML output, and no systematic failure/infeasibility rate are reported; Sec. 5 only remarks anecdotally that disconnections were 'not encountered' for one case, with no rate given."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "~1,500 of 15,000 (linear elastic), ~1,800 of 18,000 (neo-Hookean), ~2,000 of 20,000 (stress-constrained), each the stated 10% test split [derived, Sec. 5]",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Full-text confirms inclusion: a learned CNN (ResUnet) replaces iterative TO, and the classical method (TOSCA/Abaqus MMA, or in-house MATLAB MMA) is actually run 15,000-20,000 times and timed for data generation, so this is not FT-NOBASELINE despite the primary claim being qualitative. Primary-outcome search: no quantitative comparison between the classical method and the ML method exists anywhere (abstract, conclusion, introduction, or main text) - the only classical-side numbers (25/90 min per task) are never paired with a stated ML-side number - so the first qualitative claim, in the abstract, is taken as the primary outcome per PROTOCOL Sec. 5.1 rule 3. R4 fails because the only reported quality metric (DSC) is an image-similarity measure; this is the main weak-baseline finding. R2 is partial rather than failing because problem sizes are small and no unjustified GPU-vs-CPU-at-scale pattern is shown; the concern is a general-purpose commercial TO module (TOSCA) used as the classical comparator, per the rule's own example. No repository or code-availability statement of any kind appears in the article (only a data-on-request statement), so code_available = no and retest_candidate = false. No author named Jun Wang. No duplicate pool record found for this title, DOI, or arXiv id (pool.csv has only P00165)."
+}

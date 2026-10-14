@@ -1,0 +1,72 @@
+{
+  "pid": "P00605",
+  "citation": {
+    "title": "Fast topology optimization of phononic crystal-based metastructures for vibration isolation by deep learning",
+    "authors": "Chen-Xu Liu, Gui-Lan Yu, Zhanli Liu",
+    "year": 2023,
+    "venue": "Computer-Aided Civil and Infrastructure Engineering (OpenAlex and audit/pool/pool.csv give the online-publication date as 2023-09-30; a secondary web-search citation snippet gives the print issue as 2024, vol. 39(5), pp. 776-790 -- not independently confirmed since the full text/publisher page could not be opened)",
+    "doi": "10.1111/mice.13100",
+    "arxiv_id": "",
+    "version_coded": "No version of the full text was accessible. Coded from the abstract, reconstructed from OpenAlex's stored metadata (api.openalex.org/works/https://doi.org/10.1111/mice.13100, work id W4387222506) and cross-checked word-for-word against the abstract already stored in audit/pool/pool.csv for this pid (identical)."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (abstract states an explicit quantitative speed comparison with a classical genetic algorithm: 'only requires 0.01% of the time GA costs'). Elastic-wave/phononic metamaterial design in solids is in scope per the PROTOCOL section-11 deviation on physics scope ('acoustic' in section 4 means sound in fluids; elastic-wave/phononic/seismic metamaterial design is elasticity and in scope)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "DLBO, a deep-learning-based optimization method for phononic-crystal metastructure topology, is reported to achieve bandgap results similar to or better than a genetic algorithm while needing only about 0.01% of the genetic algorithm's computation time.",
+    "key_phrase": "only requires 0.01% of the time GA costs",
+    "location": "abstract",
+    "quantitative": true,
+    "claimed_speedup": 10000,
+    "claimed_speedup_basis": "Abstract states DLBO 'only requires 0.01% of the time GA costs'; 1/0.0001 = 10,000x, taken directly as stated. No other numeric figures are available since the full text could not be accessed, so this cannot be cross-checked against a derivation from raw times.",
+    "direction": "outperform",
+    "alternatives": "The abstract also frames the same comparison qualitatively ('achieves similar or better results to genetic algorithm (GA)') and separately reports an application-validation claim (an economical metastructure customized for subway-induced vibrations, verified with a 3D finite element model) with no comparator or numbers attached. Full text is inaccessible, so introduction/conclusion/results sections could not be checked for other candidate primary outcomes."
+  },
+  "baseline": {
+    "classical_method": "Genetic algorithm (GA), per the abstract; no further detail (encoding, population size, fitness function) is available without full text",
+    "implementation": "not stated (abstract only)",
+    "solver": "not stated (abstract only)",
+    "hardware_classical": "not stated (abstract only)",
+    "hardware_ml": "not stated (abstract only)",
+    "problem_size": "not stated in the abstract beyond 'metastructures with different periodic constants and filling fractions'",
+    "classical_iterations": "not stated (abstract only)",
+    "classical_time": "not stated in absolute terms; only the relative figure '0.01% of the time GA costs' is given",
+    "ml_time": "not stated in absolute terms; see claimed_speedup_basis",
+    "training_time": "not stated (abstract only)",
+    "data_generation_cost": "not stated (abstract only); abstract states DLBO 'eliminates the need for pre-optimized data', which may mean training data are generated differently from a conventional supervised pipeline, but the mechanism is not described in the abstract",
+    "quality_metric": "not stated precisely; abstract says DLBO 'achieves similar or better results' than GA on bandgap-related objectives, and that a customized metastructure's vibration-isolation performance 'is verified through a 3D finite element model'",
+    "quality_gap": "not stated numerically in the abstract"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated in the abstract; full text inaccessible",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Chen-Xu Liu, Gui-Lan Yu, Zhanli Liu). No duplicate pool entry found: audit/pool/pool.csv has exactly one row for this title (P00605), with no arXiv id. Access attempts, all legal routes: (1) DOI (https://doi.org/10.1111/mice.13100) currently redirects via Crossref/linkinghub to an Elsevier ScienceDirect page (pii S1093968726016749) -- the journal appears to have moved from Wiley to Elsevier at some point, verified live via the DOI resolver rather than assumed; ScienceDirect returned a CAPTCHA/bot-check page (HTTP 403, page text contained 'Captcha' and 'Blocked'). (2) The Wiley Online Library abs page (onlinelibrary.wiley.com/doi/abs/10.1111/mice.13100) also exists and returned a Cloudflare 'Just a moment...' interstitial challenge page (HTTP 403). Both were abandoned without any bypass attempt, per the access rules. (3) No arXiv version exists (confirmed by the queue file). (4) Co-author Gui-Lan Yu's institutional faculty page (Beijing Jiaotong University, https://faculty.bjtu.edu.cn/5785/) lists this publication in a CV/publication list but links only to the same DOI, with no self-archived PDF. (5) No other institutional repository, funder repository or author-hosted PDF was found by web search; a ResearchGate profile page for co-author Zhanli Liu appeared in search results but was not used, per the rules (ResearchGate is on the disallowed list). Coded from the abstract only, per the protocol's abstract_only procedure: access='abstract_only', all four rule verdicts set to 'na' with evidence 'no full text'. The abstract states that code and data for this study are shared, but the actual repository location is not given in the abstract and could not be checked; a verifier with paywalled access should locate and assess it. No personal data was sent anywhere; only a generic browser User-Agent was used; no CAPTCHA, Cloudflare challenge or login was bypassed."
+}

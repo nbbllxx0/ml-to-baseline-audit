@@ -1,0 +1,46 @@
+{
+  "pid": "P01164",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Machine learning method in elastic plate topology optimization problems (Russian title: Primenenie metodov mashinnogo obucheniya v zadache topologicheskoi optimizatsii uprugoi plastiny)",
+    "authors": "D. V. Avdonyushkin, A. I. Matveeva, A. D. Novokshenov",
+    "year": 2023,
+    "venue": "PNRPU Mechanics Bulletin (Vestnik PNIPU. Mekhanika), 2023, no. 3, pp. 5-14 (Crossref; CC BY-NC 4.0; received 6 Mar 2023, accepted 15 Jun 2023)",
+    "doi": "10.15593/perm.mech/2023.3.01",
+    "arxiv_id": "",
+    "version_coded": "Version of record as full text on CyberLeninka (cyberleninka.ru, the Russian open-access repository; CC BY-NC 4.0 stated on the page), OCR text of the publisher PDF read in full. The body text is in Russian; the abstract, keywords, figure and table captions, reference list and funding note also appear in English. The journal's own PDF link (ered.pstu.ru, listed by OpenAlex and Crossref) timed out on 2026-09-24"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-OTHER",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as FT-OTHER, non-English full text). Would-be primary outcome: the trained networks return a plate layout in 0.24 s (one custom layer) or 0.16 s (three layers), versus 120 s for MMA optimization.",
+    "location": "Would-be: Sec. 5, Table 2 (the abstract claims a large time saving without numbers; the conclusion says only that the predictions agree with MMA)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded). Would-be: 120 s / 0.16 s = 750 (three-layer network) and 120 s / 0.24 s = 500 (one-layer network) [derived from Table 2]. Table 2 excludes training (21.7 and 41 min) and data generation (about 3 h 43 min for 30 MMA topologies), as the text states.",
+    "direction": "outperform",
+    "alternatives": "Would-be alternatives: (1) Table 1: mean error on the training set 29.85 (one layer) and 10.4 (three layers), i.e. 0.597% and 0.208% of the 10,000 elements with the wrong 0/1 value (about 60 and 20 elements). (2) Table 2: memory 23 and 29 MB vs 788 MB for MMA. (3) Figs. 7-9: visual comparison with MMA at three load positions (y = 0.805, 0.625, 0.185)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-OTHER: non-English full text)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-OTHER: non-English full text)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-OTHER: non-English full text)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-OTHER: non-English full text)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded as FT-OTHER because PROTOCOL §3.3 requires English and the body text is in Russian. Only the abstract, keywords, figure and table captions, reference list and funding note have English versions. Crossref lists a single full-text PDF (galley 3046); the CyberLeninka text appears to be that PDF [inferred from its matching header, pages 5-14 and DOI]. Codes checked in order: FT-DUPLICATE (no other version in the pool or in llm_prefill), FT-SCOPE, FT-TYPE, FT-DOMAIN, FT-NOML, FT-FORWARD, FT-MLONLY and FT-NOBASELINE do not apply. It is a 2D SIMP compliance problem with MMA as the classical comparator, run and timed. Language has no closed code, so FT-OTHER applies; screening excluded a comparable non-English record as E-OTHER (P01397, audit/screening/screening_agent_notes.md). If the verifier admits the article on its English abstract and captions, the would-be coding is stratum speed with the primary outcome above. R1 fail (R1-no-quality): only pixel errors against the MMA training layouts are reported, computed on the training set itself (Sec. 5, Table 1); no compliance of the predicted layouts and no held-out test set. R2 partial (R2-inefficient-impl): the baseline is ANSYS with DS Simulia Tosca Structure (MMA), a general-purpose commercial TO module (Sec. 3); hardware for either method is not stated; about 10,000 elements [100x100 inferred], so (c) does not apply. R3 partial (R3-no-amortization): training (21.7 and 41 min) and data generation (about 3 h 43 min) are reported but excluded from Table 2, and no break-even is given; the derived break-even is about 132 uses for the three-layer net [(13,380 + 2,460) s / (120 - 0.16) s]. R4 fail (R4-image-metric): quality rests on the share of wrongly assigned elements and on three pictured cases. Setup (Sec. 3): square plate of side 1 cm, one edge clamped, force 1 kN moved along the opposite edge; E = 0.1603 MPa and nu = 0.32 as printed; volume fraction 30%; 30 MMA topologies as training data; the network input is the load position and the output is the element-wise 0/1 layout. Inconsistency: 3 h 43 min for 30 topologies is about 446 s per MMA run [derived], against 120 s per MMA run in Table 2. Funding: Russian Science Foundation grant 22-71-00108. No code or data statement. Free to read in a browser: yes (CyberLeninka; the journal site was unreachable from here). No author named Jun Wang."
+}

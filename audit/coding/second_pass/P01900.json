@@ -1,0 +1,88 @@
+{
+  "pid": "P01900",
+  "citation": {
+    "title": "To Quantize or Not to Quantize: Effects on Generative Models for Topology Optimization Problems",
+    "authors": "Arthur Drake, Qiuyi Chen, Jun Wang, Ardalan Nejat, James K. Guest, Mark Fuge",
+    "year": 2026,
+    "venue": "Journal of Mechanical Design, vol. 148, issue 10, art. 101704 (published online 22 Apr 2026)",
+    "doi": "10.1115/1.4071440",
+    "arxiv_id": "",
+    "version_coded": "Version of record. The article is CC BY 4.0 open access (confirmed via Crossref licence metadata, VOR effective 2026-03-19), but the ASME Digital Collection DOI landing page returned an explicit Cloudflare 'Just a moment...' managed bot-check challenge (HTTP 403); this was not bypassed. Full text (identical PDF, filename md-25-1670.pdf) instead obtained from the ETH Zurich Research Collection institutional repository (OpenAlex-listed OA location, handle 20.500.11850/799453, deposited by co-author Mark Fuge, ETH Zurich), via that repository's public REST API (PID resolver to item to bundle to bitstream), a route that returned the article directly with no CAPTCHA or bot check. Only the main text and Appendix A (governing equations) were read in full; Appendices B-F and the Supplemental Materials on the ASME Digital Collection (including 'Supplemental Table 1', the withheld timing comparison) were not accessed."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (first quantitative comparison with the classical MTO method is a thermal-performance/validity comparison in the main text; the article's own speed claim against MTO is explicitly qualitative and deliberately not asserted as a definitive, quantitative result)",
+    "stratum": "quality",
+    "method_family": "transformer",
+    "physics": "multiphysics",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "VQGAN-based transformer-generated heat sinks beat the classical MTO test set on average power dissipation (e.g. 40.03 vs 46.50) but not mean temperature (15.59-15.72 vs 14.99), with 79-87% valid designs versus the MTO test set's 91.68% (Table 3).",
+    "key_phrase": "substantially reduced wall-clock time and compute cost compared to repeatedly solving the full MTO",
+    "location": "Table 3, Section 4.4 (main text) -- first quantitative comparison with the classical MTO-optimized test set. The Abstract compares only against other generative models (WGAN-GP), not the classical method; the Conclusion (Sec. 5) states a compute/time benefit over classical MTO only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up factor is given anywhere in the accessible text. Section 4.4 states explicitly: the authors ran 'a timing study' comparing VQGAN-based generation with repeatedly cold-starting the MTO solver, but 'its dependence on our specific HPC configuration and job scheduling prevents it from serving as a rigorously controlled, repeatable benchmark. Consequently, we refrain from making definitive quantitative speedup claims and instead present the detailed comparison in Supplemental Table 1' -- a supplemental file not included in the accessed PDF and not read. The Conclusion's 'substantially reduced wall-clock time and compute cost... compared to repeatedly solving the full MTO problem' is therefore qualitative only in the text actually read.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Table 3's Pareto-dominated-area metric (1-PDAs) also favours the VQGAN variants over the MTO test set (e.g. Online-147: 0.317 vs test-set 0.402, lower is better). Table 2's statistical/topological metrics (MMD, R-Div, VFE, SSE, NDFS) compare Stage-2 models against each other and against the training distribution, not a separately re-run classical optimizer. The withheld Supplemental Table 1 (Sec. 4.4) would be the natural speed-stratum candidate if it were accessible."
+  },
+  "baseline": {
+    "classical_method": "Density/RAMP-based multiphysics topology optimization (MTO) of the 2D heat sink (steady-state incompressible Navier-Stokes + energy conservation, Eq. A2-A3), solved to convergence ('cold-start', up to 200 optimization steps) via an OpenFOAM-based MTO solver; its held-out 20% test split (the 'Test set') is the classical comparator in Table 3, and post-hoc 'warm-starting' of ML-generated designs also uses this same solver for 20 further steps",
+    "implementation": "OpenFOAM-based MTO solver (open-source CFD), adapted from Yu et al. [57] (Sec. 3.1); run in parallel over thousands of Latin-Hypercube-sampled design conditions on a University of Maryland HPC cluster",
+    "solver": "OpenFOAM finite-volume CFD/conjugate-heat-transfer solver with a RAMP topology representation; direct vs. iterative linear solve not further specified",
+    "hardware_classical": "University of Maryland HPC cluster (hpcc.umd.edu); no per-node/CPU specification is given for the MTO runs",
+    "hardware_ml": "Single NVIDIA H100 GPU (Sec. 3.2.1, 4.1: VQGAN Stage 1 and transformer/WGAN training)",
+    "problem_size": "256x256-pixel 2D heat sink cross-sections; VQGAN latent grids of 16x16 with codebook sizes 30-1024 depending on variant (Sec. 4.1-4.2); 3 varied design conditions (Reynolds number 50-190; power-dissipation bound 50J1-75J1; fluid volume fraction 0.25-0.7); dataset of 5666 convergent, constraint-satisfying MTO designs from 10,000 sampled parameter groupings, split 75/5/20% train/val/test",
+    "classical_iterations": "200 optimization steps per MTO ('cold-start') design (Sec. 3.1: 421 of an initial 10,000 samples failed to reach this step count due to numerical instabilities); post-hoc warm-starting of a generated design instead uses only 20 further MTO steps (Sec. 4.4)",
+    "classical_time": "Not quantified in the accessible text; a timing study was run but its results (Supplemental Table 1) are explicitly withheld from any 'definitive quantitative' claim in the main text (Sec. 4.4) because of HPC/job-scheduling confounds",
+    "ml_time": "VQGAN Stage 1 (tuned baseline): under 2 h for 100 epochs on a single H100 GPU, stated to be 'over 40% faster' than the untuned predecessor configuration (Sec. 3.2.1, item 4); transformer (GPT-2/nanoGPT, Stage 2) trained up to 500 epochs and WGAN-GP baselines for 500 epochs, neither given in wall-clock time; C-VQGAN trained 1000 epochs, time not stated; post-generation warm-start is stated to take 'significantly less time than a full cold-start optimization' (Sec. 4.4) but is not separately timed",
+    "training_time": "Same figures as ml_time above: under 2 h / 100 epochs for the tuned VQGAN Stage 1 on one H100 GPU; other stages' epoch counts are given without wall-clock conversion",
+    "data_generation_cost": "5666 usable MTO designs obtained from 10,000 sampled parameter groupings (each up to 200 optimization steps), generated in parallel on a university HPC cluster (Sec. 3.1); no aggregate wall-clock or core-hour figure is given for this generation campaign in the accessible text",
+    "quality_metric": "Thermal/physical performance -- mean power dissipation (mu_J), mean temperature (mu_T), a Pareto-dominated-area complement (1-PDAs), and percent of valid designs (converged and constraint-compliant after warm-starting) -- each computed via the same MTO/OpenFOAM solver used to build the dataset (Table 3); Table 2 supplements this with statistical (MMD, R-Div) and topological (VFE, SSE, NDFS) metrics",
+    "quality_gap": "Table 3 (mean +/- 1 sigma across 5 random seeds, all after a 20-step warm-start): Test set (classical MTO) 1-PDAs=0.402, mu_J=46.50, mu_T=14.99, valid=91.68%. Best transformer variant, Online-147: 1-PDAs=0.317, mu_J=39.29, mu_T=15.66, valid=86.84%. Baseline VQGAN transformer: 1-PDAs=0.318, mu_J=40.03, mu_T=15.59, valid=85.94%. Weakest model, WGAN-AE: 1-PDAs=0.625, mu_J=52.03, mu_T=20.85, valid=2.26%."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "The quality comparison (Table 3) is detailed and multi-faceted (Pareto dominance, mean power dissipation, mean temperature, and an explicit valid-design percentage), computed with the same MTO/OpenFOAM solver for every model including the classical test set, so no quality shortfall is hidden. If anything the comparison is conservative toward the ML side: generated designs get only a 20-step warm-start versus the classical test set's full 200-step optimization, yet are still evaluated head-to-head on the same metrics."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "The primary outcome (Table 3) is a design-quality/validity comparison, not a speed claim, so criteria (a)-(e) do not bear on it directly. For the record: MTO runs on a CPU-based HPC cluster while VQGAN/transformer training uses a single H100 GPU (Sec. 3.2.1, 4.1), which would be relevant if the (explicitly withheld) timing comparison were being scored."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "The Conclusion (Sec. 5) makes a qualitative speed/compute-savings claim against repeated classical MTO. Training cost for the main model is reported (under 2 h / 100 epochs for VQGAN Stage 1 on one H100 GPU, Sec. 3.2.1), but the cost of generating the 5666-design training dataset (10,000 parallel HPC MTO runs, Sec. 3.1) is never given a time or compute figure, and no break-even number of uses is stated. Notably, the article is unusually transparent about this limitation: Sec. 4.4 explicitly states the authors ran a timing study but 'refrain from making definitive quantitative speedup claims' because their HPC/scheduling setup could not serve as a controlled benchmark -- a disclosed uncertainty rather than a silent omission."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Quality in Table 3 is computed by the real MTO/OpenFOAM physics solver on the returned (warm-started) design, not a surrogate prediction. Table 3's 'Valid designs (%)' column explicitly reports 'the proportion of designs that both converged to a stable solution and complied with the MTO constraints after warm-starting' for every model (2.26%-91.68%), which is exactly the protocol's failure/infeasibility-rate requirement; Supplemental Table 2 (not read) is cited as addressing failure modes in further detail (Sec. 4.4)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Just over 1100 generated heat sinks per Stage-2 model (7 models: WGAN-AE, WGAN-VQ, and 5 transformer variants -- Original/30 codes, Baseline/147, DAE/193, Online/147, Online/1024), evaluated against a shared ~1133-design MTO test set (20% of 5666 total), Tables 2-3",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": true,
+  "notes": "AUTHOR ALERT: co-author Jun Wang (Department of Mechanical Engineering, Santa Clara University) appears on this article -- flagged per task instructions. Included as quality-stratum: the first quantitative comparison with the classical, non-learned MTO method is the thermal-performance/validity grid in Table 3 (main text), which is a design-quality/validity metric; the article's speed/compute-savings claim against classical MTO (Conclusion, Sec. 5) is qualitative, and Sec. 4.4 explicitly states the authors deliberately withhold a 'definitive quantitative' speedup claim because their own timing study was confounded by HPC/job-scheduling factors -- a methodologically transparent disclosure directly relevant to the audit's C4 question (reporting practices that hide/inflate speed claims), here working in the opposite, more honest direction. method_family is coded 'transformer' because the novel-design-generation step evaluated in Table 3 is an autoregressive GPT-2/nanoGPT transformer operating on a VQGAN codebook; the full pipeline is a CNN/GAN encoder-decoder (VQGAN Stage 1) plus vector quantization plus a transformer (Stage 2), and a WGAN-GP (a GAN) is also directly compared as a baseline generative model (Table 2-3). physics is multiphysics (coupled Navier-Stokes and energy-conservation equations, Eq. A2-A3, explicitly termed 'multiphysics topology optimization' throughout); dim is 2d (explicitly named as a limitation in Sec. 5: 'the two-dimensional nature of the MTO dataset... Future work will therefore extend... to three-dimensional MTO problems'). Code and data: GitHub (github.com/IDEALLab/VQGAN-TO, 'entirely reworked codebase built for reproducibility') and Hugging Face (huggingface.co/datasets/IDEALLab/MTO-2D), both cited in an explicit Data Availability Statement; retest_candidate is true on this basis. DUPLICATE-ADJACENT, NOT CODED AS FT-DUPLICATE: audit/pool/pool.csv contains a related pool record, P01929, 'To Quantize or Not to Quantize: Effects on Generative Models for 2D Heat Sink Design' (ASME IDETC-CIE2024 conference paper, DETC2024-142052, 2024-08-25) -- a different title and a different DOI/venue. This journal article's own Introduction (Sec. 1) states 'we expand on our previous work [25]' and lists substantial new content versus that prior work: 'an entirely reworked codebase,' a newly published dataset and full pipeline, and re-run experiments 'with additional analysis to provide an even stronger argument.' This is a legitimate conference-to-journal extension with materially new content (per PROTOCOL/screening_codes.md, FT-DUPLICATE means another version of the SAME article, e.g. a preprint/journal pair of one manuscript), not a duplicate publication of identical content, so P01900 is coded as its own article and P01929 is left for the coder assigned to that pid to judge independently. No other pool record matches this article's own title. Access note: only the main text and Appendix A were read; Appendices B-F and the ASME Supplemental Materials (including the withheld 'Supplemental Table 1' timing comparison and 'Supplemental Table 2' failure-mode detail) were not accessed and could materially refine the speed-related fields above if a later pass obtains them."
+}

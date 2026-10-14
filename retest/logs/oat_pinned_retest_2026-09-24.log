@@ -1,0 +1,444 @@
+=== G2 gpu P1 64 ===
+rep 0: total 1.999 s  c_last 18.953275
+rep 1: total 2.015 s  c_last 18.953275
+rep 2: total 2.030 s  c_last 18.953275
+{
+  "solver": "gpu",
+  "problem": "P1_cantilever",
+  "n": 64,
+  "iters": 150,
+  "total_s_median": 2.0147931000683457,
+  "total_s_min": 1.9992650998174213,
+  "total_s_max": 2.0304431004915386,
+  "total_s_all": [
+    1.9992650998174213,
+    2.0147931000683457,
+    2.0304431004915386
+  ],
+  "setup_s": 0.1951330999727361,
+  "warmup_s": 0.6061359000159428,
+  "per_iter_s_median": 0.013517049985239282,
+  "solve_s_median": 0.008729299966944382,
+  "c_last": 18.95327453440754,
+  "vol_last": 0.40000247061918265,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.994444486281752e-09,
+  "pcg_its_median": 17.0,
+  "pcg_its_max": 19,
+  "fallbacks": 0,
+  "idle_power_w": 76.57934782608696,
+  "energy_j_median": 237.90749678485057,
+  "energy_above_idle_j_median": 75.42341257310721
+}
+run dir: retest/runs/20260924T165022Z_gpu_P1_n64_pinned
+=== G2 pardiso P1 64 ===
+rep 0: total 0.597 s  c_last 18.953274
+rep 1: total 0.570 s  c_last 18.953274
+rep 2: total 0.577 s  c_last 18.953274
+{
+  "solver": "pardiso",
+  "problem": "P1_cantilever",
+  "n": 64,
+  "iters": 150,
+  "total_s_median": 0.5766697995713912,
+  "total_s_min": 0.569785799481906,
+  "total_s_max": 0.5973996000830084,
+  "total_s_all": [
+    0.5973996000830084,
+    0.569785799481906,
+    0.5766697995713912
+  ],
+  "setup_s": 0.7485843999893405,
+  "warmup_s": 1.6853059999994002,
+  "per_iter_s_median": 0.0038315999845508486,
+  "solve_s_median": 0.0016183999832719564,
+  "c_last": 18.95327446890369,
+  "vol_last": 0.4000024720453004,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 1.65105408870982e-13
+}
+run dir: retest/runs/20260924T165039Z_pardiso_P1_n64_pinned
+=== G2 gpu P2 64 ===
+rep 0: total 1.991 s  c_last 27.804920
+rep 1: total 1.980 s  c_last 27.804920
+rep 2: total 1.983 s  c_last 27.804920
+{
+  "solver": "gpu",
+  "problem": "P2_mbb",
+  "n": 64,
+  "iters": 150,
+  "total_s_median": 1.9834919995628297,
+  "total_s_min": 1.9801114997826517,
+  "total_s_max": 1.9907672004774213,
+  "total_s_all": [
+    1.9907672004774213,
+    1.9801114997826517,
+    1.9834919995628297
+  ],
+  "setup_s": 0.08430819999193773,
+  "warmup_s": 0.6218935000360943,
+  "per_iter_s_median": 0.013361000019358471,
+  "solve_s_median": 0.008596050029154867,
+  "c_last": 27.804920120663574,
+  "vol_last": 0.4999961720582478,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.98675169556995e-09,
+  "pcg_its_median": 17.0,
+  "pcg_its_max": 19,
+  "fallbacks": 0,
+  "idle_power_w": 70.64282608695653,
+  "energy_j_median": 232.69909915733137,
+  "energy_above_idle_j_median": 85.2935335753877
+}
+run dir: retest/runs/20260924T165045Z_gpu_P2_n64_pinned
+=== G2 pardiso P2 64 ===
+rep 0: total 0.593 s  c_last 27.804920
+rep 1: total 0.615 s  c_last 27.804920
+rep 2: total 0.574 s  c_last 27.804920
+{
+  "solver": "pardiso",
+  "problem": "P2_mbb",
+  "n": 64,
+  "iters": 150,
+  "total_s_median": 0.5934905002359301,
+  "total_s_min": 0.5738363006385043,
+  "total_s_max": 0.6149720997200347,
+  "total_s_all": [
+    0.5934905002359301,
+    0.6149720997200347,
+    0.5738363006385043
+  ],
+  "setup_s": 0.748983999947086,
+  "warmup_s": 1.615002700011246,
+  "per_iter_s_median": 0.003851999994367361,
+  "solve_s_median": 0.001669149991357699,
+  "c_last": 27.804920096737398,
+  "vol_last": 0.49999617250072975,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 2.894929087918767e-13
+}
+run dir: retest/runs/20260924T165102Z_pardiso_P2_n64_pinned
+=== G2 gpu P1 256 ===
+rep 0: total 4.373 s  c_last 19.802823
+rep 1: total 4.343 s  c_last 19.802823
+rep 2: total 4.340 s  c_last 19.802823
+{
+  "solver": "gpu",
+  "problem": "P1_cantilever",
+  "n": 256,
+  "iters": 150,
+  "total_s_median": 4.343264400027692,
+  "total_s_min": 4.3400257001048885,
+  "total_s_max": 4.373005500121508,
+  "total_s_all": [
+    4.373005500121508,
+    4.343264400027692,
+    4.3400257001048885
+  ],
+  "setup_s": 0.10748529998818412,
+  "warmup_s": 0.7624199000420049,
+  "per_iter_s_median": 0.02940324996598065,
+  "solve_s_median": 0.021624150045681745,
+  "c_last": 19.802822843838243,
+  "vol_last": 0.4000001330961781,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.994782392261957e-09,
+  "pcg_its_median": 17.0,
+  "pcg_its_max": 18,
+  "fallbacks": 0,
+  "idle_power_w": 78.16695652173912,
+  "energy_j_median": 734.4159877419471,
+  "energy_above_idle_j_median": 384.9512832043482
+}
+run dir: retest/runs/20260924T165109Z_gpu_P1_n256_pinned
+=== G2 pardiso P1 256 ===
+rep 0: total 13.647 s  c_last 19.802823
+rep 1: total 13.600 s  c_last 19.802823
+rep 2: total 13.490 s  c_last 19.802823
+{
+  "solver": "pardiso",
+  "problem": "P1_cantilever",
+  "n": 256,
+  "iters": 150,
+  "total_s_median": 13.599723100021947,
+  "total_s_min": 13.490447400137782,
+  "total_s_max": 13.647210799739696,
+  "total_s_all": [
+    13.647210799739696,
+    13.599723100021947,
+    13.490447400137782
+  ],
+  "setup_s": 1.3676334000192583,
+  "warmup_s": 3.3698645000113174,
+  "per_iter_s_median": 0.08970459998818114,
+  "solve_s_median": 0.04254319999017753,
+  "c_last": 19.80282285271203,
+  "vol_last": 0.4000001329951238,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 6.775579113657244e-13
+}
+run dir: retest/runs/20260924T165133Z_pardiso_P1_n256_pinned
+=== G2 gpu P2 256 ===
+rep 0: total 4.529 s  c_last 32.481367
+rep 1: total 4.509 s  c_last 32.481367
+rep 2: total 4.507 s  c_last 32.481367
+{
+  "solver": "gpu",
+  "problem": "P2_mbb",
+  "n": 256,
+  "iters": 150,
+  "total_s_median": 4.509377400507219,
+  "total_s_min": 4.507002899830695,
+  "total_s_max": 4.528535699879285,
+  "total_s_all": [
+    4.528535699879285,
+    4.509377400507219,
+    4.507002899830695
+  ],
+  "setup_s": 0.10353500000201166,
+  "warmup_s": 0.7821716000325978,
+  "per_iter_s_median": 0.03046620002714917,
+  "solve_s_median": 0.02264910002122633,
+  "c_last": 32.481367134025604,
+  "vol_last": 0.4999985216221816,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.961448079070563e-09,
+  "pcg_its_median": 18.0,
+  "pcg_its_max": 20,
+  "fallbacks": 0,
+  "idle_power_w": 77.29934782608696,
+  "energy_j_median": 785.6490360224244,
+  "energy_above_idle_j_median": 424.23870758165475
+}
+run dir: retest/runs/20260924T165224Z_gpu_P2_n256_pinned
+=== G2 pardiso P2 256 ===
+rep 0: total 14.179 s  c_last 32.481367
+rep 1: total 14.111 s  c_last 32.481367
+rep 2: total 14.076 s  c_last 32.481367
+{
+  "solver": "pardiso",
+  "problem": "P2_mbb",
+  "n": 256,
+  "iters": 150,
+  "total_s_median": 14.111116699583363,
+  "total_s_min": 14.07552829978522,
+  "total_s_max": 14.178910200076643,
+  "total_s_all": [
+    14.178910200076643,
+    14.111116699583363,
+    14.07552829978522
+  ],
+  "setup_s": 1.378945600008592,
+  "warmup_s": 3.40346070000669,
+  "per_iter_s_median": 0.09362830000463873,
+  "solve_s_median": 0.04642404997139238,
+  "c_last": 32.48136713368289,
+  "vol_last": 0.49999852160487934,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 1.5789352101954926e-12
+}
+run dir: retest/runs/20260924T165249Z_pardiso_P2_n256_pinned
+=== OAT SIMP 256 CG+OC ===
+problem 1015 CG        OC :    37.25 s  c_last 9.85872
+problem 1676 CG        OC :    37.20 s  c_last 5.2984
+problem 1839 CG        OC :    36.83 s  c_last 35.8779
+problem 1935 CG        OC :    20.70 s  c_last 5.69434
+problem 1961 CG        OC :    37.04 s  c_last 34.3009
+run dir: retest/runs/20260924T165342Z_oat_simp_n256
+=== OAT SIMP 64 CG+OC ===
+problem 15 CG        OC :    27.07 s  c_last 5.63103
+problem 676 CG        OC :     9.78 s  c_last 3.68201
+problem 839 CG        OC :    14.32 s  c_last 3.83298
+problem 935 CG        OC :    14.64 s  c_last 9.65775
+problem 961 CG        OC :    38.50 s  c_last 25.4831
+run dir: retest/runs/20260924T165643Z_oat_simp_n64
+=== OAT SIMP 64 SPSOLVE+OC ===
+problem 15 SPSOLVE   OC :    46.43 s  c_last 5.63137
+problem 676 SPSOLVE   OC :    43.51 s  c_last 3.682
+problem 839 SPSOLVE   OC :    44.37 s  c_last 3.8328
+problem 935 SPSOLVE   OC :    46.18 s  c_last 9.6542
+problem 961 SPSOLVE   OC :    44.32 s  c_last 25.4651
+run dir: retest/runs/20260924T165837Z_oat_simp_n64
+=== ours GPU 256 ===
+problem 1015: median 3.222 s  c_last 8.13878  pcg med 11.0 max 16 fb 0
+problem 1676: median 9.803 s  c_last 5.20217  pcg med 44.0 max 67 fb 0
+problem 1839: median 13.613 s  c_last 34.8455  pcg med 63.0 max 73 fb 0
+problem 1935: median 2.737 s  c_last 5.68406  pcg med 8.0 max 28 fb 0
+problem 1961: median 8.450 s  c_last 34.0523  pcg med 40.0 max 46 fb 0
+run dir: retest/runs/20260924T170236Z_ours_gpu_nito_n256
+=== ours GPU 64 ===
+problem 15: median 1.735 s  c_last 5.62289  pcg med 13.0 max 28 fb 0
+problem 676: median 1.232 s  c_last 3.67247  pcg med 6.0 max 12 fb 0
+problem 839: median 1.523 s  c_last 3.83234  pcg med 12.0 max 18 fb 0
+problem 935: median 1.274 s  c_last 9.65614  pcg med 7.0 max 14 fb 0
+problem 961: median 2.792 s  c_last 25.7938  pcg med 29.0 max 35 fb 0
+run dir: retest/runs/20260924T170436Z_ours_gpu_nito_n64
+=== ours PARDISO 64 ===
+problem 15: median 0.591 s  c_last 5.62289
+problem 676: median 0.607 s  c_last 3.67247
+problem 839: median 0.638 s  c_last 3.83234
+problem 935: median 0.631 s  c_last 9.65614
+problem 961: median 0.607 s  c_last 25.7938
+run dir: retest/runs/20260924T170506Z_ours_pardiso_nito_n64
+=== ours PARDISO 256 ===
+problem 1015: median 13.047 s  c_last 8.13878
+problem 1676: median 13.236 s  c_last 5.20217
+problem 1839: median 14.086 s  c_last 34.8455
+problem 1935: median 13.045 s  c_last 5.68406
+problem 1961: median 12.854 s  c_last 34.0523
+run dir: retest/runs/20260924T170534Z_ours_pardiso_nito_n256
+=== OAT inference 256 ===
+There are modules in CTOPUNet that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Loading weights from local directory
+problem 1015: median 0.477 s  mean 0.478 s  shape (256, 256)
+problem 1676: median 0.502 s  mean 0.507 s  shape (256, 256)
+problem 1839: median 0.465 s  mean 0.475 s  shape (256, 256)
+problem 1935: median 0.471 s  mean 0.472 s  shape (256, 256)
+problem 1961: median 0.471 s  mean 0.491 s  shape (256, 256)
+run dir: retest/runs/20260924T170945Z_oat_infer_n256
+=== OAT inference 64 ===
+There are modules in CTOPUNet that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Loading weights from local directory
+problem 15: median 0.464 s  mean 0.467 s  shape (64, 64)
+problem 676: median 0.468 s  mean 0.473 s  shape (64, 64)
+problem 839: median 0.486 s  mean 0.491 s  shape (64, 64)
+problem 935: median 0.459 s  mean 0.462 s  shape (64, 64)
+problem 961: median 0.467 s  mean 0.490 s  shape (64, 64)
+run dir: retest/runs/20260924T171023Z_oat_infer_n64
+=== ttq run 256 ===
+problem 1015 K=  5: loop 0.122 s (with setup 0.232 s)
+problem 1015 K= 10: loop 0.246 s (with setup 0.361 s)
+problem 1015 K= 15: loop 0.348 s (with setup 0.462 s)
+problem 1015 K= 20: loop 0.464 s (with setup 0.585 s)
+problem 1015 K= 30: loop 0.677 s (with setup 0.788 s)
+problem 1015 K= 40: loop 0.900 s (with setup 1.032 s)
+problem 1015 K= 50: loop 1.245 s (with setup 1.375 s)
+problem 1015 K= 75: loop 1.838 s (with setup 1.992 s)
+problem 1015 K=100: loop 2.481 s (with setup 2.639 s)
+problem 1015 K=150: loop 3.706 s (with setup 3.910 s)
+problem 1676 K=  5: loop 0.192 s (with setup 0.345 s)
+problem 1676 K= 10: loop 0.461 s (with setup 0.591 s)
+problem 1676 K= 15: loop 0.950 s (with setup 1.080 s)
+problem 1676 K= 20: loop 1.444 s (with setup 1.637 s)
+problem 1676 K= 30: loop 2.248 s (with setup 2.387 s)
+problem 1676 K= 40: loop 3.030 s (with setup 3.174 s)
+problem 1676 K= 50: loop 3.831 s (with setup 3.982 s)
+problem 1676 K= 75: loop 5.939 s (with setup 6.080 s)
+problem 1676 K=100: loop 7.708 s (with setup 7.874 s)
+problem 1676 K=150: loop 9.950 s (with setup 10.098 s)
+problem 1839 K=  5: loop 0.216 s (with setup 0.323 s)
+problem 1839 K= 10: loop 0.612 s (with setup 0.720 s)
+problem 1839 K= 15: loop 1.061 s (with setup 1.171 s)
+problem 1839 K= 20: loop 1.503 s (with setup 1.613 s)
+problem 1839 K= 30: loop 2.448 s (with setup 2.558 s)
+problem 1839 K= 40: loop 3.381 s (with setup 3.492 s)
+problem 1839 K= 50: loop 4.314 s (with setup 4.430 s)
+problem 1839 K= 75: loop 6.590 s (with setup 6.708 s)
+problem 1839 K=100: loop 8.823 s (with setup 8.964 s)
+problem 1839 K=150: loop 12.766 s (with setup 12.912 s)
+problem 1935 K=  5: loop 0.150 s (with setup 0.276 s)
+problem 1935 K= 10: loop 0.260 s (with setup 0.371 s)
+problem 1935 K= 15: loop 0.363 s (with setup 0.471 s)
+problem 1935 K= 20: loop 0.457 s (with setup 0.566 s)
+problem 1935 K= 30: loop 0.642 s (with setup 0.753 s)
+problem 1935 K= 40: loop 0.825 s (with setup 0.940 s)
+problem 1935 K= 50: loop 1.008 s (with setup 1.122 s)
+problem 1935 K= 75: loop 1.450 s (with setup 1.568 s)
+problem 1935 K=100: loop 1.905 s (with setup 2.026 s)
+problem 1935 K=150: loop 2.809 s (with setup 2.946 s)
+problem 1961 K=  5: loop 0.178 s (with setup 0.295 s)
+problem 1961 K= 10: loop 0.368 s (with setup 0.485 s)
+problem 1961 K= 15: loop 0.674 s (with setup 0.812 s)
+problem 1961 K= 20: loop 1.006 s (with setup 1.121 s)
+problem 1961 K= 30: loop 1.648 s (with setup 1.767 s)
+problem 1961 K= 40: loop 2.196 s (with setup 2.309 s)
+problem 1961 K= 50: loop 2.835 s (with setup 2.950 s)
+problem 1961 K= 75: loop 4.383 s (with setup 4.506 s)
+problem 1961 K=100: loop 5.828 s (with setup 5.964 s)
+problem 1961 K=150: loop 8.626 s (with setup 8.762 s)
+run dir: retest/runs/20260924T171052Z_ttq_gpu_n256
+=== ttq run 64 ===
+problem 15 K=  5: loop 0.075 s (with setup 0.163 s)
+problem 15 K= 10: loop 0.137 s (with setup 0.228 s)
+problem 15 K= 15: loop 0.197 s (with setup 0.286 s)
+problem 15 K= 20: loop 0.249 s (with setup 0.340 s)
+problem 15 K= 30: loop 0.364 s (with setup 0.479 s)
+problem 15 K= 40: loop 0.480 s (with setup 0.575 s)
+problem 15 K= 50: loop 0.623 s (with setup 0.723 s)
+problem 15 K= 75: loop 0.997 s (with setup 1.117 s)
+problem 15 K=100: loop 1.300 s (with setup 1.437 s)
+problem 15 K=150: loop 1.966 s (with setup 2.109 s)
+problem 676 K=  5: loop 0.057 s (with setup 0.153 s)
+problem 676 K= 10: loop 0.111 s (with setup 0.208 s)
+problem 676 K= 15: loop 0.165 s (with setup 0.267 s)
+problem 676 K= 20: loop 0.212 s (with setup 0.326 s)
+problem 676 K= 30: loop 0.312 s (with setup 0.423 s)
+problem 676 K= 40: loop 0.408 s (with setup 0.519 s)
+problem 676 K= 50: loop 0.498 s (with setup 0.607 s)
+problem 676 K= 75: loop 0.728 s (with setup 0.850 s)
+problem 676 K=100: loop 0.937 s (with setup 1.066 s)
+problem 676 K=150: loop 1.365 s (with setup 1.504 s)
+problem 839 K=  5: loop 0.074 s (with setup 0.171 s)
+problem 839 K= 10: loop 0.141 s (with setup 0.238 s)
+problem 839 K= 15: loop 0.196 s (with setup 0.298 s)
+problem 839 K= 20: loop 0.261 s (with setup 0.357 s)
+problem 839 K= 30: loop 0.387 s (with setup 0.491 s)
+problem 839 K= 40: loop 0.492 s (with setup 0.607 s)
+problem 839 K= 50: loop 0.621 s (with setup 0.749 s)
+problem 839 K= 75: loop 0.927 s (with setup 1.043 s)
+problem 839 K=100: loop 1.237 s (with setup 1.376 s)
+problem 839 K=150: loop 1.737 s (with setup 1.894 s)
+problem 935 K=  5: loop 0.059 s (with setup 0.154 s)
+problem 935 K= 10: loop 0.116 s (with setup 0.229 s)
+problem 935 K= 15: loop 0.165 s (with setup 0.264 s)
+problem 935 K= 20: loop 0.210 s (with setup 0.311 s)
+problem 935 K= 30: loop 0.311 s (with setup 0.415 s)
+problem 935 K= 40: loop 0.401 s (with setup 0.502 s)
+problem 935 K= 50: loop 0.503 s (with setup 0.613 s)
+problem 935 K= 75: loop 0.734 s (with setup 0.853 s)
+problem 935 K=100: loop 0.967 s (with setup 1.098 s)
+problem 935 K=150: loop 1.445 s (with setup 1.593 s)
+problem 961 K=  5: loop 0.078 s (with setup 0.172 s)
+problem 961 K= 10: loop 0.194 s (with setup 0.291 s)
+problem 961 K= 15: loop 0.322 s (with setup 0.413 s)
+problem 961 K= 20: loop 0.447 s (with setup 0.539 s)
+problem 961 K= 30: loop 0.673 s (with setup 0.775 s)
+problem 961 K= 40: loop 0.904 s (with setup 1.012 s)
+problem 961 K= 50: loop 1.131 s (with setup 1.240 s)
+problem 961 K= 75: loop 1.663 s (with setup 1.784 s)
+problem 961 K=100: loop 2.206 s (with setup 2.334 s)
+problem 961 K=150: loop 3.217 s (with setup 3.373 s)
+run dir: retest/runs/20260924T171311Z_ttq_gpu_n64
+=== energy ours GPU 256 ===
+problem 1015: median 3.643 s  c_last 8.13878  pcg med 11.0 max 16 fb 0
+problem 1676: median 11.191 s  c_last 5.20217  pcg med 44.0 max 67 fb 0
+problem 1839: median 13.119 s  c_last 34.8455  pcg med 63.0 max 73 fb 0
+problem 1935: median 3.112 s  c_last 5.68406  pcg med 8.0 max 28 fb 0
+problem 1961: median 8.457 s  c_last 34.0523  pcg med 40.0 max 46 fb 0
+run dir: retest/runs/20260924T171354Z_ours_gpu_nito_n256_power
+=== energy ours GPU 64 ===
+problem 15: median 1.701 s  c_last 5.62289  pcg med 13.0 max 28 fb 0
+problem 676: median 1.236 s  c_last 3.67247  pcg med 6.0 max 12 fb 0
+problem 839: median 1.519 s  c_last 3.83234  pcg med 12.0 max 18 fb 0
+problem 935: median 1.264 s  c_last 9.65614  pcg med 7.0 max 14 fb 0
+problem 961: median 2.763 s  c_last 25.7938  pcg med 29.0 max 35 fb 0
+run dir: retest/runs/20260924T171610Z_ours_gpu_nito_n64_power
+=== energy OAT inference 256 ===
+There are modules in CTOPUNet that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Loading weights from local directory
+problem 1015: median 0.453 s  mean 0.459 s  shape (256, 256)
+problem 1676: median 0.447 s  mean 0.450 s  shape (256, 256)
+problem 1839: median 0.447 s  mean 0.450 s  shape (256, 256)
+problem 1935: median 0.450 s  mean 0.468 s  shape (256, 256)
+problem 1961: median 0.448 s  mean 0.448 s  shape (256, 256)
+run dir: retest/runs/20260924T171658Z_oat_infer_n256_power
+=== energy OAT inference 64 ===
+There are modules in CTOPUNet that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Loading weights from local directory
+problem 15: median 0.450 s  mean 0.461 s  shape (64, 64)
+problem 676: median 0.445 s  mean 0.467 s  shape (64, 64)
+problem 839: median 0.444 s  mean 0.445 s  shape (64, 64)
+problem 935: median 0.446 s  mean 0.459 s  shape (64, 64)
+problem 961: median 0.448 s  mean 0.464 s  shape (64, 64)
+run dir: retest/runs/20260924T171744Z_oat_infer_n64_power
+PINNED RETEST DONE

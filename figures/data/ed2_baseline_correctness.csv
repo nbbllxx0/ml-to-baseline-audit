@@ -1,0 +1,45 @@
+part,test,value,threshold,threshold_value,direction,pass,gating
+gpu,KE symmetry max|KE-KE^T|,2.7755575615628914e-17,<1e-14,1e-14,<,True,True
+gpu,KE: 3 zero eigenvalues (max |lambda_1..3|),1.705259457272858e-16,<1e-12,1e-12,<,True,True
+gpu,KE: 5 positive eigenvalues (min lambda_4..8),0.4945054945054943,>1e-3,0.001,>,True,True
+gpu,KE: rigid rotation in nullspace |KE r|,2.7755575615628914e-17,<1e-13,1e-13,<,True,True
+gpu,KE equals top88 closed form,1.6653345369377348e-16,<1e-14,1e-14,<,True,True
+gpu,patch test: interior forces under linear field,5.898059818321144e-17,<1e-14,1e-14,<,True,True
+gpu,"P1_cantilever n=32: GPU eager vs eager (nondeterminism floor), max |dxPhys|",5.7699790612097956e-08,recorded; must be <1e-6,1e-06,<,True,True
+gpu,"P1_cantilever n=32: GPU loop graph vs eager, max rel. compliance diff (40 its)",8.136881326909202e-13,<1e-10,1e-10,<,True,True
+gpu,"P1_cantilever n=32: GPU loop graph vs eager, max |dxPhys|",1.0717180709551855e-07,<1e-6 (floor-calibrated),1e-06,<,True,True
+gpu,"P1_cantilever n=32: GPU vs CPU top88-faithful port, rel. compliance diff at it 40",2.49710624651206e-10,<1e-5,1e-05,<,True,True
+gpu,"P1_cantilever n=32: GPU vs CPU top88-faithful port, max |dxPhys| at it 40",4.0170154513852196e-07,<1e-3,0.001,<,True,True
+gpu,"P2_mbb n=48: GPU eager vs eager (nondeterminism floor), max |dxPhys|",4.98895258438381e-10,recorded; must be <1e-6,1e-06,<,True,True
+gpu,"P2_mbb n=48: GPU loop graph vs eager, max rel. compliance diff (40 its)",1.3543572254999549e-12,<1e-10,1e-10,<,True,True
+gpu,"P2_mbb n=48: GPU loop graph vs eager, max |dxPhys|",1.0416822959768979e-09,<1e-6 (floor-calibrated),1e-06,<,True,True
+gpu,"P2_mbb n=48: GPU vs CPU top88-faithful port, rel. compliance diff at it 40",2.2574608617746133e-11,<1e-5,1e-05,<,True,True
+gpu,"P2_mbb n=48: GPU vs CPU top88-faithful port, max |dxPhys| at it 40",1.0958490404000543e-07,<1e-3,0.001,<,True,True
+gpu,P1_cantilever n=32: restriction = adjoint of prolongation,3.5493985497129373e-16,<1e-12,1e-12,<,True,True
+gpu,P1_cantilever n=32: element-local Galerkin = global P^T K P,2.404996681948121e-16,<1e-12,1e-12,<,True,True
+gpu,"P1_cantilever n=32 [uniform]: PCG vs sparse direct, rel. error in u",1.0030802349706048e-10,<1e-6,1e-06,<,True,True
+gpu,P1_cantilever n=32 [uniform]: PCG true residual without fallback,2.75302188895468e-09,<=1e-7,1e-07,<,True,True
+gpu,"P1_cantilever n=32 [random_no_void]: PCG vs sparse direct, rel. error in u",2.518725725211012e-10,<1e-6,1e-06,<,True,True
+gpu,P1_cantilever n=32 [random_no_void]: PCG true residual without fallback,7.928457783591799e-09,<=1e-7,1e-07,<,True,True
+gpu,"P1_cantilever n=32 [simp_design_it60]: PCG vs sparse direct, rel. error in u",6.870090886225757e-08,<1e-6,1e-06,<,True,True
+gpu,P1_cantilever n=32 [simp_design_it60]: PCG true residual without fallback,8.520020611588555e-09,<=1e-7,1e-07,<,True,True
+gpu,P1_cantilever n=32 [simp_design_it60]: CUDA-graph path equals eager path,3.1225037912561555e-15,<1e-12,1e-12,<,True,True
+gpu,P1_cantilever n=32 [stress_random_30pct_isolated_voids]: guarded solve true residual,9.87871498441186e-09,<=1e-7,1e-07,<,True,False
+gpu,P2_mbb n=64: restriction = adjoint of prolongation,5.572349285371169e-16,<1e-12,1e-12,<,True,True
+gpu,P2_mbb n=64: element-local Galerkin = global P^T K P,2.4361164865724537e-16,<1e-12,1e-12,<,True,True
+gpu,"P2_mbb n=64 [uniform]: PCG vs sparse direct, rel. error in u",3.383518278688434e-11,<1e-6,1e-06,<,True,True
+gpu,P2_mbb n=64 [uniform]: PCG true residual without fallback,3.2459045602877478e-09,<=1e-7,1e-07,<,True,True
+gpu,"P2_mbb n=64 [random_no_void]: PCG vs sparse direct, rel. error in u",9.596663892572019e-11,<1e-6,1e-06,<,True,True
+gpu,P2_mbb n=64 [random_no_void]: PCG true residual without fallback,7.138425551827961e-09,<=1e-7,1e-07,<,True,True
+gpu,"P2_mbb n=64 [simp_design_it60]: PCG vs sparse direct, rel. error in u",2.3879278573431264e-07,<1e-6,1e-06,<,True,True
+gpu,P2_mbb n=64 [simp_design_it60]: PCG true residual without fallback,4.092452001890986e-09,<=1e-7,1e-07,<,True,True
+gpu,P2_mbb n=64 [simp_design_it60]: CUDA-graph path equals eager path,4.218916976390565e-14,<1e-12,1e-12,<,True,True
+gpu,P2_mbb n=64 [stress_random_30pct_isolated_voids]: guarded solve true residual,3.22679459132876e-05,<=1e-7,1e-07,<,False,False
+pardiso,"P1_cantilever n=64 [uniform]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",1.629747413823884e-13,<1e-8,1e-08,<,True,True
+pardiso,"P1_cantilever n=64 [random_no_void]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",2.2900490025676005e-13,<1e-8,1e-08,<,True,True
+pardiso,"P1_cantilever n=64 [simp_design_it60]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",4.0330969343262755e-13,<1e-8,1e-08,<,True,True
+pardiso,"P1_cantilever n=64 [stress_random_30pct_isolated_voids]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",1.658694256140982e-08,<1e-8,1e-08,<,False,False
+pardiso,"P2_mbb n=64 [uniform]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",5.718432398543614e-13,<1e-8,1e-08,<,True,True
+pardiso,"P2_mbb n=64 [random_no_void]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",7.984632969016182e-13,<1e-8,1e-08,<,True,True
+pardiso,"P2_mbb n=64 [simp_design_it60]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",3.36475231088369e-13,<1e-8,1e-08,<,True,True
+pardiso,"P2_mbb n=64 [stress_random_30pct_isolated_voids]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",0.00010630457792588974,<1e-8,1e-08,<,False,False

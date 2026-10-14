@@ -1,0 +1,50 @@
+{
+  "pid": "P00676",
+  "citation": {
+    "title": "Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks",
+    "authors": "Aaditya Chandrasekhar; Krishnan Suresh", "year": 2021,
+    "venue": "arXiv preprint", "doi": "10.48550/arxiv.2109.01861",
+    "arxiv_id": "2109.01861", "version_coded": "arXiv v1"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "neural_reparam", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "For the tip cantilever benchmark, Fourier-TOuNN yields lower reported compliance than classical SIMP: 43.39 versus 48.45 at the stated target volume fraction of 0.75.",
+    "key_phrase": "", "location": "§5.1, Fig. 9", "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "§5.1 reports 4–6 s for Fourier-TOuNN and calls this consistent with mesh-based implementations, but gives no paired classical runtime from which to derive a factor.",
+    "direction": "outperform",
+    "alternatives": "Fig. 9 also gives three other SIMP, TOuNN, Fourier-TOuNN compliance comparisons; §5.1 says learned runs take 4–6 s and are comparable to mesh-based implementations; §5.2 compares length-scale topologies qualitatively."
+  },
+  "baseline": {
+    "classical_method": "Mesh-based SIMP with density filtering (§5.1)",
+    "implementation": "88-line SIMP implementation, filter radius 1.4 (§5.1)",
+    "solver": "not stated",
+    "hardware_classical": "Intel i7-6700 CPU at 2.6 GHz, 16 GB RAM (§5, all experiments)",
+    "hardware_ml": "Intel i7-6700 CPU at 2.6 GHz, 16 GB RAM (§5, all experiments)",
+    "problem_size": "Default 60 × 30 elements for four Fig. 9 benchmarks (§5.1)",
+    "classical_iterations": "Fig. 9 SIMP: 119 for tip cantilever, 92 mid cantilever, 119 MBB, 131 Michell",
+    "classical_time": "not stated",
+    "ml_time": "4–6 s across the four Fig. 9 examples (§5.1)",
+    "training_time": "Per-problem optimization takes 4–6 s across Fig. 9; no offline training (§5.1)",
+    "data_generation_cost": "not stated; no offline dataset is used (§4–5)",
+    "quality_metric": "Compliance evaluated with FE during optimization (§4, §5.1, Fig. 9)",
+    "quality_gap": "Tip cantilever: Fourier-TOuNN J = 43.39 versus SIMP J = 48.45 at target volume fraction 0.75 (§5.1, Fig. 9)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-stratum", "evidence": "§5.1 Fig. 9: primary comparison is compliance; no paired speed ratio is reported."},
+    "R2": {"verdict": "na", "marker": "R2-quality-stratum", "evidence": "§5.1 Fig. 9: primary comparison is compliance; no paired speed ratio is reported."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "§4–5: neural weights are optimized separately for each design problem without an offline training dataset."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "§4–5.1: compliance is based on FE calculations during optimization, but actual volume satisfaction and failed-design rates for the final high-resolution outputs are not reported."}
+  },
+  "reporting": {
+    "n_test_cases": "4 direct SIMP comparison benchmarks in Fig. 9, with further length-scale and multi-material examples (§5)",
+    "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial", "runtimes_all_cases": "selective",
+    "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Fig. 9 reports FE iterations of 151 for Fourier-TOuNN tip cantilever versus 119 for SIMP, while the qualitative computational-time statement gives only the Fourier-TOuNN range. The preprint's replication statement names public Python code."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00373",
+  "citation": {
+    "title": "Neural Level Set Topology Optimization Using Unfitted Finite Elements",
+    "authors": "Connor N. Mallon, Aaron W. Thornton, Matthew R. Hill, Santiago Badia",
+    "year": 2025,
+    "venue": "International Journal for Numerical Methods in Engineering; also arXiv preprint",
+    "doi": "10.1002/nme.70004",
+    "arxiv_id": "2303.13672",
+    "version_coded": "arXiv v2 (revised 22 Feb 2024; latest of 2 versions on the abs page), full text and references read from the PDF (https://arxiv.org/pdf/2303.13672). The version of record (Wiley, CC BY-NC-ND 4.0 open access per Crossref licence metadata, VOR effective 2025-03-19) was attempted at its DOI/onlinelibrary.wiley.com landing page, which returned an explicit Cloudflare 'Just a moment...' managed bot-check challenge (HTTP 403); this was not bypassed, and the article was coded from the latest arXiv version instead, per the access fallback rule."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (first quantitative comparison with classical methods is a relative-objective-value quality comparison in the main text; the article's own speed statements are qualitative and, if anything, unfavourable to the neural method)",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "multiphysics",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On 2D heat-conduction and MBB compliance benchmarks, a neural (U-Net) level-set method reaches within 0.0% (heat) or 2.6% (MBB) of the best objective value among itself, a classical pixel-based level set, and SIMP with and without the same neural prior (Fig. 7), with the neural methods giving visibly more regular geometries.",
+    "key_phrase": "more regular geometries and similar, in some cases better, performance",
+    "location": "Section 7.1.2, Figure 7 (main text) -- the first quantitative comparison with classical methods (Pixel-LS, Pixel-SIMP); the Abstract and Conclusion (Sec. 8) state the comparison only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up is claimed; the primary outcome is a design-quality comparison. The Conclusion (Sec. 8) states, qualitatively, the opposite: 'The method takes longer to converge than the SIMP method.' Section 7.1.3 (main text) adds, also qualitatively: for the MBB problem 'the SIMP methods converge much faster than the LS methods', and for heat conduction 'the pixel-SIMP method converges the fastest, albeit to an inferior solution.' No function-call counts or wall-clock times are stated as explicit numbers from which a factor could be derived.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Fig. 8 convergence plots (objective vs. number of objective-function-value calls, shown 0-1000) illustrate relative convergence speed without a stated numeric factor. Section 7.2's interface-coupled fluid-structure demonstration (beam support problem) has no classical comparator at all -- it is used only to show generality/applicability, not to support a fairness-relevant claim."
+  },
+  "baseline": {
+    "classical_method": "Pixel-LS: the same unfitted-FE level-set TO method but with the level-set FE function's own nodal DOF (not a neural network) as design variables, updated by MMA. Pixel-SIMP: standard density-based SIMP with element/pixel density values as design variables, also updated by MMA. Both are genuine non-learned classical comparators run by the authors themselves",
+    "implementation": "Authors' own implementation in Julia using the Gridap unfitted/finite-cell-method FE toolbox for all four compared methods; Flux (Julia ML library) for the two neural variants; MMA (Svanberg 1987) for the two pixel-based (classical) variants, ADAM for the two neural variants (Sec. 7.1)",
+    "solver": "Not stated (direct vs. iterative linear solve for the unfitted FE discretization is not specified)",
+    "hardware_classical": "Not stated",
+    "hardware_ml": "Not stated (same code/framework as the classical arms; no GPU is mentioned anywhere in the article)",
+    "problem_size": "Heat conduction: 95x95 mesh, volume fraction 0.4 (Sec. 7.1.1). MBB: 287x95 mesh (right half, by symmetry), volume fraction 0.4. Fluid-structure beam-support demo (no classical comparator): volume fraction 0.45 (Sec. 7.2)",
+    "classical_iterations": "Not a fixed count; compared by the number of objective-function-value calls (1:1 function:gradient-call ratio stated for both MMA and ADAM), plotted up to 1000 calls in Fig. 8 for both benchmarks; no explicit numeric convergence threshold is given",
+    "classical_time": "Not stated -- no wall-clock times are reported anywhere; only function-call counts (Fig. 8) and the qualitative convergence-speed statements quoted above",
+    "ml_time": "Not stated (same function-call-based reporting as the classical arms)",
+    "training_time": "Not applicable in the offline-dataset sense: this is per-problem neural reparameterization (a randomly-initialised U-Net is optimised directly on each problem instance by ADAM, with no pretraining dataset). The '100 random seeds' (Sec. 3) are 100 independent per-problem optimisation runs, from which the lowest-objective result is kept -- not separate training runs on a shared dataset",
+    "data_generation_cost": "None: no labelled training dataset is used anywhere in this article",
+    "quality_metric": "Objective function value (integral of temperature for heat conduction, Eq. 15; strain energy/compliance for MBB, Eq. 18), evaluated with the same unfitted FCM FE solver for all four compared methods. SIMP outputs are converted to a level set (0.5 iso-surface) and re-evaluated with the unfitted machinery, with an explicit bias correction applied so SIMP and LS objective values are comparable (Sec. 7.1.2-7.1.3)",
+    "quality_gap": "Fig. 7: objective value relative to the best-performing method in each row. Heat conduction: NN-LS 0.0% (best), NN-SIMP 5.8%, Pixel-SIMP 15.7%, Pixel-LS 20.3% (worst). MBB: Pixel-SIMP 0.0% (best), NN-SIMP 0.2%, Pixel-LS 1.7%, NN-LS 2.6% (worst)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "All four methods are evaluated with the same unfitted FE objective function, over a shared function-call range shown in Fig. 8 (0-1000 calls for both benchmarks), and the authors apply an explicit bias correction (Sec. 7.1.2-7.1.3) so that SIMP's density-based objective and the level-set methods' objective are directly comparable -- a deliberate fairness step for the quality comparison that is this article's primary outcome."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome compares design quality (relative objective value, Fig. 7) only; no classical speed/cost claim is made as the primary outcome (Sec. 8 in fact states the neural method is slower to converge), so criteria (a)-(e) do not bear on it."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "No speed claim is made to hold to a cost-accounting standard, and independently this is per-problem learning with no offline training or dataset (Sec. 3, 7.1): each benchmark is optimised from a freshly, randomly initialised U-Net, so any learning cost sits inside R1/R2 per the protocol's own neural-reparameterisation example."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Quality is computed by the actual unfitted FCM FE solver for the returned geometry in every case (not a surrogate prediction), and the volume constraint is enforced by construction (Sec. 4.4) for all methods. But no failure/infeasibility rate is reported across the 100 random seeds used per case (Sec. 3): only the single best-of-100 result is reported, with no count or rate of seeds that converged to poor/degenerate solutions."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 benchmark problems (heat conduction, 95x95; MBB, 287x95) x 4 compared methods (NN-LS, Pixel-LS, NN-SIMP, Pixel-SIMP) = 8 configurations (Figs. 7-8), plus 1 additional multiphysics demonstration (fluid-structure beam support, Sec. 7.2, NN-LS only, no classical comparator)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": true,
+  "notes": "Included as quality-stratum (I-QUALITY): the first quantitative comparison with a classical, non-learned method (Pixel-LS, Pixel-SIMP) is the relative-objective-value grid in Fig. 7 (main text), which is a design-quality metric, not a speed/cost one; the article's only speed-related statements (Sec. 7.1.3 main text and Sec. 8 conclusion) are qualitative and state the neural method converges more slowly than SIMP, so this cannot be coded as a speed-stratum outperformance claim. method_family = neural_reparam: the geometry (level set or, in the NN-SIMP variant, density) is generated by a U-Net whose parameters are optimised per-problem by gradient descent with no offline training set, directly building on Hoyer et al. 2019 (ref. [45], neural reparameterization) and Chandrasekhar & Suresh 2020 (TOuNN, ref. [44]). physics = multiphysics because the article's own framing ('a topology optimization method for general multiphysics problems', Abstract) and its benchmark set span thermal (Poisson/heat conduction) and structural (MBB compliance) physics, capped by an actual coupled fluid-structure interaction demonstration (Sec. 7.2); dim = 2d for every benchmark shown. direction is similar_or_mixed: the neural level-set method is best on the heat-conduction benchmark but is the worst of the four methods (by a small margin) on the MBB benchmark, and is explicitly described as slower to converge than SIMP. Code: 'All the codes being used in this paper are distributed as open-source software... publicly available... https://github.com/ConnorMallon/NLSTO' (Sec. 9, 'Replication of Results'), covering both the proposed method and the baseline drivers used for comparison; not downloaded or run. retest_candidate is true on this basis (public code, an explicitly reproducible 4-method benchmark, no stated licence restriction encountered). No author named Jun Wang (authors: Connor N. Mallon, Aaron W. Thornton, Matthew R. Hill, Santiago Badia). Duplicate check: audit/pool/pool.csv searched by title on 2026-09-24; no second pool record found for this article (a single pid, P00373, carries both the arXiv id and the journal DOI)."
+}

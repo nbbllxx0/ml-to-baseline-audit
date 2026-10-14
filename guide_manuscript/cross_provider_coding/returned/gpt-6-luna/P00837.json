@@ -1,0 +1,60 @@
+{
+  "stage": "cross_provider_pass",
+  "pid": "P00837",
+  "citation": {
+    "title": "Topology optimization for heat transfer problems: towards a finite element based neural network approach",
+    "authors": "Elisabetta Chimisso",
+    "year": 2020,
+    "venue": "Master's thesis, Politecnico di Milano",
+    "doi": "",
+    "arxiv_id": "",
+    "version_coded": "Institutional repository thesis"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "exclude", "reason": "FT-TYPE", "stratum": "none", "method_family": "neural_reparam", "physics": "thermal", "dim": "unclear"},
+  "claim": {
+    "primary_outcome_paraphrase": "not coded; excluded as a thesis",
+    "key_phrase": "",
+    "location": "Cover page",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "not coded",
+    "direction": "similar_or_mixed",
+    "alternatives": ""
+  },
+  "baseline": {
+    "classical_method": "not coded",
+    "implementation": "not coded",
+    "solver": "not coded",
+    "hardware_classical": "not coded",
+    "hardware_ml": "not coded",
+    "problem_size": "not coded",
+    "classical_iterations": "not coded",
+    "classical_time": "not coded",
+    "ml_time": "not coded",
+    "training_time": "not coded",
+    "data_generation_cost": "not coded",
+    "quality_metric": "not coded",
+    "quality_gap": "not coded"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "not-coded", "evidence": "Full-text excluded as a thesis (cover page)."},
+    "R2": {"verdict": "na", "marker": "not-coded", "evidence": "Full-text excluded as a thesis (cover page)."},
+    "R3": {"verdict": "na", "marker": "not-coded", "evidence": "Full-text excluded as a thesis (cover page)."},
+    "R4": {"verdict": "na", "marker": "not-coded", "evidence": "Full-text excluded as a thesis (cover page)."}
+  },
+  "reporting": {
+    "n_test_cases": "",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Excluded because the repository full text identifies this work as a Master's thesis (cover page), a full-text exclusion under FT-TYPE. Source: https://www.politesi.polimi.it/retrieve/a81cb05d-bf3f-616b-e053-1605fe0a889a/thesis_Elisabetta_Chimisso.pdf"
+}

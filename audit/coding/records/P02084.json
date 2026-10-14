@@ -1,0 +1,65 @@
+{
+ "pid": "P02084",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Hierarchical thermal design for battery packs using phase change materials",
+  "authors": "Matei C. Ignuta-Ciuncanu, Monica Marinescu, Ricardo Martinez-Botas",
+  "year": 2026,
+  "venue": "International Journal of Heat and Mass Transfer (2026), article 129081; hybrid open access, CC BY-NC-ND per OpenAlex",
+  "doi": "10.1016/j.ijheatmasstransfer.2026.129081",
+  "arxiv_id": "",
+  "version_coded": "none; only the abstract was read (pool record and OpenAlex metadata)"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "other",
+  "physics": "thermal",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no full text). The abstract says a generative latent-space fin design needs over 95% fewer design variables than pixel-wise TO, and claims gains in thermal performance and computational efficiency; no time comparison is given.",
+  "location": "abstract only",
+  "quantitative": true,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "not coded (no full text); the abstract's only quantitative comparison with pixel-wise TO is a design-variable reduction of over 95%, which is not a time ratio",
+  "alternatives": "not assessed (no full text)"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Screening code was I-SPEED. Access attempts on 2026-09-24, generic User-Agent, no login: (1) the ScienceDirect article page (PII S001793102600757X, the open-access copy that OpenAlex reports) returned HTTP 403 with an 'Are you a robot?' CAPTCHA page; no bypass was attempted. (2) The Elsevier text-mining endpoint listed in Crossref returned HTTP 401 (an API key is required; not used, because keys are credentials). (3) OpenAlex lists no other location. (4) arXiv API searches (author Ignuta-Ciuncanu; title words; 'generative constructal') found no version of this article. Scope questions for full-text coding: the workflow couples PCM-assisted conduction fins with multi-scale conjugate heat transfer and a porous-media flow model at pack level, so FT-DOMAIN (fluid flow) may apply to part or all of it; whether a classical TO run is timed or only cited as a design-variable count must be checked. Related records by the first author, different articles [inferred from titles]: P01907 (generative autoencoder for conductive pathways, 2025) and P01938 (SSRN preprint on generative-autoencoder heat sinks, 2023); P00018 (arXiv 2603.06762, ML prediction of porous-media flow) is a forward-prediction paper. No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P02084.json",
+  "result": "full agreement"
+ }
+}

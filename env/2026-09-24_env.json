@@ -1,0 +1,43 @@
+{
+  "captured_utc": "2026-09-24T14:15:33+00:00",
+  "os": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel(R) Core(TM) i5-14600KF",
+  "cpu_cores": "14",
+  "cpu_threads": "20",
+  "ram_gib": "95.8",
+  "gpu": "NVIDIA GeForce RTX 5090, 32607 MiB, 616.56, 600.00 W, 3090 MHz",
+  "envs": {
+    "torch5090": {
+      "python": "3.12.13",
+      "numpy": "2.4.3",
+      "scipy": "1.17.1",
+      "torch": "2.11.0+cu128",
+      "torch_cuda": "12.8",
+      "torch_cuda_available": true,
+      "torch_device": "NVIDIA GeForce RTX 5090",
+      "torch_capability": [
+        12,
+        0
+      ],
+      "pypardiso": null,
+      "matplotlib": "3.10.9",
+      "pandas": "3.0.2"
+    },
+    "Pytorch": {
+      "python": "3.10.18",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "torch": "2.5.1",
+      "torch_cuda": "12.1",
+      "torch_cuda_available": true,
+      "torch_device": "NVIDIA GeForce RTX 5090",
+      "torch_capability": [
+        12,
+        0
+      ],
+      "pypardiso": "0.4.7",
+      "matplotlib": "3.10.7",
+      "pandas": "2.3.3"
+    }
+  }
+}

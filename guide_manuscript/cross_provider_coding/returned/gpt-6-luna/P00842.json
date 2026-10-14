@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00842",
+    "citation":  {
+                     "title":  "Topology Optimization via Frequency Tuning of Neural Design Representations",
+                     "authors":  "Nikan Doosti; Julian Panetta; Vahid Babaei",
+                     "year":  2021,
+                     "venue":  "Symposium on Computational Fabrication (SCF \u002721), ACM",
+                     "doi":  "10.1145/3485114.3485124",
+                     "arxiv_id":  "",
+                     "version_coded":  "author-hosted version of the conference paper"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-QUALITY",
+                     "stratum":  "quality",
+                     "method_family":  "neural_reparam",
+                     "physics":  "compliance",
+                     "dim":  "both"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "Fourier-feature neural design representations produce mesh-independent structures and stiffness comparable to or better than voxel-based classical FEM optimization, with additional frequency-controlled designs.",
+                  "key_phrase":  "outperform or be on par with standard FEM-based solutions",
+                  "location":  "Section 7, Conclusion",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No speed-up claim is made; the authors state that their method takes longer to compute.",
+                  "direction":  "similar_or_mixed",
+                  "alternatives":  "Sections 5.4 and 6 report quality comparisons and that the proposed optimizer needs 5,000 iterations versus about 300 for voxel/CNN baselines."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP/voxel-based minimum-compliance topology optimization",
+                     "implementation":  "Authors\u0027 voxel baseline based on standard FEM/SIMP; comparison also includes CNN parameterization",
+                     "solver":  "Sparse Cholesky for 2D; multigrid-preconditioned conjugate gradient for 3D",
+                     "hardware_classical":  "AMD Ryzen 5950X CPU; 3D neural calculations used an NVIDIA Quadro RTX 8000 GPU",
+                     "hardware_ml":  "AMD Ryzen 5950X CPU and NVIDIA Quadro RTX 8000 GPU",
+                     "problem_size":  "2D MBB 300 × 100 and bridge 250 × 125; 3D bridge 320 × 160 × 80 and cantilever 256 × 128 × 128",
+                     "classical_iterations":  "Voxel-based and CNN baselines converge in about 300 iterations; Section 5.4",
+                     "classical_time":  "FE solve averages 0.161 s/iteration (300 × 100 MBB) and 0.164 s/iteration (250 × 125 bridge); Section 6",
+                     "ml_time":  "No total ML runtime. In 3D, network evaluation/backpropagation approaches but does not exceed the elasticity solve time per iteration; Section 6",
+                     "training_time":  "Per-problem optimization, generally 5,000 iterations; not offline training",
+                     "data_generation_cost":  "not applicable; no offline training dataset",
+                     "quality_metric":  "Compliance/stiffness and volume constraint; Sections 5–6",
+                     "quality_gap":  "Proposed method quantitatively matches or exceeds voxel/CNN results in stiffness; no single summary gap stated (Section 5.4)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "R1-not-speed-primary",
+                             "evidence":  "The primary outcome is design quality; Section 7 states that the method takes longer to converge than SIMP, so no speed advantage is asserted."
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "R2-not-speed-primary",
+                             "evidence":  "No speed advantage is claimed; Section 6 reports sparse Cholesky in 2D and multigrid-preconditioned CG in 3D for FE solves."
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "R3-per-problem-learning",
+                             "evidence":  "The network is optimized separately for each problem; there is no offline training cost (Sections 4–6)."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-FE-no-failure-rate",
+                             "evidence":  "Sections 5–6 evaluate compliance through FE solves and enforce volume with reported violation below 10⁻⁴, but do not report failure/infeasibility rates."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Multiple 2D and 3D benchmark/load examples; exact total not summarized",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "selective",
+                      "code_available":  "yes",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "This is a quality-stratum paper; it explicitly reports slower convergence than classical SIMP for simple problems.",
+    "stage":  "cross_provider_pass"
+}

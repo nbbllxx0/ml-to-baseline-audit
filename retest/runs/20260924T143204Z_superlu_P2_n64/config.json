@@ -1,0 +1,28 @@
+{
+  "args": {
+    "solver": "superlu",
+    "problem": "P2",
+    "n": 64,
+    "iters": 150,
+    "repeats": 3,
+    "warmup": 10,
+    "tag": ""
+  },
+  "problem": {
+    "name": "P2_mbb",
+    "nelx": 64,
+    "nely": 64,
+    "volfrac": 0.5,
+    "rmin": 1.5,
+    "penal": 3.0,
+    "Emin": 1e-09,
+    "nu": 0.3
+  },
+  "python": "3.12.13",
+  "executable": "C:\\Users\\<user>\\anaconda3\\envs\\torch5090\\python.exe",
+  "numpy": "2.4.3",
+  "scipy": "1.17.1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "manifest_sha256": "1a47b2067e9cadfa67ba20ec7ed4f7228346558c1e8aa359879ea8d5ff629f56",
+  "started_utc": "20260924T143204Z"
+}

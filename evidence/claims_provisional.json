@@ -1,0 +1,18 @@
+{
+  "mode": "provisional",
+  "n_speed_stratum": 28,
+  "n_with_numeric_claim": 21,
+  "median": 30.7,
+  "q25": 1.4,
+  "q75": 3913.0,
+  "min": 0.217,
+  "max": 300000.0,
+  "direction_counts": {
+    "outperform": 23,
+    "underperform": 2,
+    "similar_or_mixed": 3,
+    "null": 0
+  },
+  "n_below_1": 3,
+  "verified": 0
+}

@@ -1,0 +1,80 @@
+{
+ "voroto_fine_compliance_median": 88.97945768755953,
+ "voroto_fine_volume_fraction": [
+  0.55912109375,
+  0.55697890625,
+  0.5521890625
+ ],
+ "checkpoints": [
+  {
+   "iterations": 9,
+   "t_iterations_s": 2.238181999884546,
+   "penalized_compliance": 89.04006067447267,
+   "compliance": 79.12535364482198,
+   "volume_fraction": 0.47656875,
+   "pcg_its": 20,
+   "true_res": 7.945668041670375e-09,
+   "fallback": false
+  },
+  {
+   "iterations": 20,
+   "t_iterations_s": 5.032809000113048,
+   "penalized_compliance": 71.90171825829536,
+   "compliance": 65.70833926811508,
+   "volume_fraction": 0.4954875,
+   "pcg_its": 18,
+   "true_res": 4.6800393839051015e-09,
+   "fallback": false
+  },
+  {
+   "iterations": 30,
+   "t_iterations_s": 7.740227100206539,
+   "penalized_compliance": 68.12272494538826,
+   "compliance": 63.80617476036252,
+   "volume_fraction": 0.5014390625,
+   "pcg_its": 17,
+   "true_res": 9.157456049925677e-09,
+   "fallback": false
+  },
+  {
+   "iterations": 50,
+   "t_iterations_s": 12.548232299857773,
+   "penalized_compliance": 67.63423632994996,
+   "compliance": 63.414655606884985,
+   "volume_fraction": 0.501478125,
+   "pcg_its": 18,
+   "true_res": 5.892521007410799e-09,
+   "fallback": false
+  },
+  {
+   "iterations": 100,
+   "t_iterations_s": 24.21268249989953,
+   "penalized_compliance": 67.37889016592621,
+   "compliance": 63.1996852884967,
+   "volume_fraction": 0.5011671875,
+   "pcg_its": 18,
+   "true_res": 4.246283914480384e-09,
+   "fallback": false
+  },
+  {
+   "iterations": 150,
+   "t_iterations_s": 35.6062990995124,
+   "penalized_compliance": 67.29457615994379,
+   "compliance": 63.11098323459491,
+   "volume_fraction": 0.501225,
+   "pcg_its": 18,
+   "true_res": 6.9793028974844285e-09,
+   "fallback": false
+  },
+  {
+   "iterations": 300,
+   "t_iterations_s": 68.62168780027423,
+   "penalized_compliance": 67.19672874706657,
+   "compliance": 63.01418643156048,
+   "volume_fraction": 0.50125,
+   "pcg_its": 18,
+   "true_res": 8.83351102334617e-09,
+   "fallback": false
+  }
+ ]
+}

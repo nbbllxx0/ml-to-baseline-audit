@@ -1,0 +1,14 @@
+{
+  "pid": "P00624",
+  "citation": {"title": "Deep learning-based 3D multigrid topology optimization of manufacturable designs", "authors": "Jaydeep Rade, Anushrut Jignasu, Ethan Herron, Ashton Corpuz, Baskar Ganapathysubramanian, Soumik Sarkar, Aditya Balu, Adarsh Krishnamurthy", "year": 2023, "venue": "Engineering Applications of Artificial Intelligence 126, 107033", "doi": "10.1016/j.engappai.2023.107033", "arxiv_id": "", "version_coded": "publisher abstract only"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR (no accessible full text)", "stratum": "none", "method_family": "cnn", "physics": "compliance", "dim": "3d"},
+  "claim": {"primary_outcome_paraphrase": "The abstract reports more than fourfold faster distributed neural-network training than the non-distributed training setup, with similar model performance; it does not quantify improvement over classical topology optimization.", "key_phrase": "", "location": "abstract", "quantitative": true, "claimed_speedup": null, "claimed_speedup_basis": "The abstract's >4x factor compares ML training variants, not classical versus ML runtime.", "direction": "similar_or_mixed", "alternatives": "Abstract says 128^3 model outputs are enabled by multigrid training, and over 60,000 topology optimization examples are generated."},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "GPU supercomputing cluster (abstract)", "problem_size": "128^3 output grid (abstract)", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "over 60,000 optimization examples; computation cost not stated (abstract)", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "R1-no-full-text", "evidence": "no full text"}, "R2": {"verdict": "na", "marker": "R2-no-full-text", "evidence": "no full text"}, "R3": {"verdict": "na", "marker": "R3-no-full-text", "evidence": "no full text"}, "R4": {"verdict": "na", "marker": "R4-no-full-text", "evidence": "no full text"}},
+  "reporting": {"n_test_cases": "not stated", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "partial", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "Searches found a publisher abstract and author publication links pointing to the journal page, but no open full text. The abstract promises dataset release; availability was not verifiable. The >4x result is an ML-versus-ML training comparison."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00705",
+  "citation": {
+    "title": "A Machine Learning Approach for Mechanical Component Design Based on Topology Optimization Considering the Restrictions of Additive Manufacturing",
+    "authors": "Abid Ullah, Karim Asami, Lukas Holtz, Tim Röver, Kashif Azher, Katharina Bartsch, Claus Emmelmann",
+    "year": 2024,
+    "venue": "Journal of Manufacturing and Materials Processing 8(5), 220 (MDPI; published 1 October 2024; CC BY 4.0)",
+    "doi": "10.3390/jmmp8050220",
+    "arxiv_id": "none found (arXiv API title search, 2026-09-24)",
+    "version_coded": "Version of record: 26-page PDF from the publisher's file host mdpi-res.com (jmmp-08-00220.pdf?version=1727786464), read in full; Figs. 2 and 18 checked as page images"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A Pix2Pix cGAN replaces iterative ToPy SIMP runs (about 90 s each) with millisecond generation for a parameterized 100×100 cantilever; up to 91% of test outputs are artefact-free, judged only by pixel comparison with the TO images.",
+    "key_phrase": "the ML model can create optimum designs in milliseconds",
+    "location": "Abstract (eliminating the iterative TO steps; 91% reliability), Sec. 1 and Sec. 2.2 p. 6 (90 s per ToPy run vs milliseconds); 91% also in Sec. 3.1 and Sec. 6",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: the classical time is an average of 90 s per ToPy run (Sec. 2.2), but the ML time is stated only as milliseconds (Secs. 1 and 2.2), with no measured inference time.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract and Sec. 6: dependability up to 91% for artefact-free structures (9 of 100 test outputs with incomplete structures in Models 3 and 4; Sec. 3.1). (2) Sec. 3.1: mean pixel deviation from the TO images, e.g. 5.1% (Step 1, epoch 40) and 4.62% vs 5.95% (Step 5, 5,000 vs 2,000 pairs, epoch 100). (3) Sec. 3.3, Fig. 16: combined Model 2+3+4 vs Model 2 on the Step 2 test set, mean deviation 2.39% vs 2.74%. (4) Sec. 4: claims of greatly speeding up TO and lowering iterative computations (qualitative)."
+  },
+  "baseline": {
+    "classical_method": "SIMP via the ToPy Python library, fixed 70 iterations with the average function change at iteration 70 kept below 0.02; ToPy's recommended settings (Secs. 2.1-2.2, Fig. 2)",
+    "implementation": "ToPy (Python), Python 3.11 via Anaconda (Secs. 2.1-2.2)",
+    "solver": "not stated",
+    "hardware_classical": "A 12-core processor (model not stated); one ToPy run used 25% of it, so four runs were executed concurrently (Sec. 2.2)",
+    "hardware_ml": "not stated",
+    "problem_size": "2D cantilever, 100×100 elements (Sec. 2.1)",
+    "classical_iterations": "Fixed 70 iterations; average function change at iteration 70 constrained below 0.02 (Sec. 2.1)",
+    "classical_time": "Average 90 s per ToPy optimization (Sec. 2.2); about 1.29 s per iteration [derived: 90 s / 70 iterations]",
+    "ml_time": "Not measured; stated as milliseconds once trained (Secs. 1 and 2.2)",
+    "training_time": "not stated (epoch counts from 10 to 500 are reported, no wall-clock time; Sec. 3.1)",
+    "data_generation_cost": "10,000 training pairs took 250 h serially, 62.5 h with four concurrent runs (Sec. 2.2); the steps used 30 to 10,000 training pairs (Table 1)",
+    "quality_metric": "Pixel-by-pixel deviation between generated and ToPy images (mean, minimum, maximum, standard deviation), plus visual inspection; FEM validation explicitly not performed (Sec. 3.2)",
+    "quality_gap": "Mean pixel deviation from 2.39% (combined Model 2+3+4 on the Step 2 test set, Fig. 16) to 13.6% (Step 7, 70 pairs, epoch 50), single test pairs as low as 1.42% (Sec. 3.1, Figs. 8-12); outputs with incomplete or unconnected structures: 9 of 100 (Models 3 and 4), 32 of 200 (Model 5), over half (Model 6) (Sec. 3.1). No compliance comparison."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched; R1-no-quality (image-only)",
+      "evidence": "Secs. 1, 2.2, 3.1 and 3.2: millisecond ML generation is set against complete 70-iteration ToPy runs (about 90 s), while the ML outputs are measurably worse: 9% (Models 3-4) to over 50% (Model 6) of test outputs have artefacts or unconnected structures. Quality is compared only by pixel deviation, with no compliance evaluation (Sec. 3.2), and no equal-quality or equal-time matching is attempted."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl [inferred]; R2(e) re-test candidate",
+      "evidence": "Secs. 2.1-2.2: ToPy (Python SIMP, solver not stated) with a fixed 70 iterations took about 90 s per 100×100 design on an unnamed 12-core CPU at 25% utilization, about 1.29 s per iteration [derived]. Our strong baseline's median per-iteration time on a larger 256×256 cantilever (6.5 times more elements) is 0.336 s with PARDISO (retest/logs/g2_benchmark_2026-09-24.log), already 3.8 times faster [derived]; at 100×100 the gap is likely at least 10 times [inferred], so R2(e) needs our re-test at this size. (b), (c) and (d) are not established: about 2×10^4 DOFs, and 70 fixed iterations with a stated change criterion."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-training-cost; R3-no-amortization",
+      "evidence": "Sec. 2.2: data generation is reported (250 h serial, 62.5 h with four concurrent runs, for 10,000 pairs) and called a one-time cost, but training time is not reported and no break-even is given. For C3: the data alone cost the CPU time of 10,000 classical runs, so the model must serve at least 10,000 designs to recoup it, before training cost [derived]."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Sec. 3.2: validation is limited to pixel-by-pixel comparison with the ToPy images plus visual inspection, and the authors state that FEM validation was not performed. Artefact and disconnection counts are reported (Sec. 3.1), but no returned design is evaluated for compliance or volume."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Seven models (Steps 1-7) of one parameterized 100×100 cantilever; test sets of 100 pairs (Models 3 and 4) and 200 pairs (Model 5); other test-set sizes not stated (Table 1, Sec. 3.1)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; the full text confirms the speed stratum. Primary-outcome judgment: the abstract's only number (91% reliability) is the ML model's artefact-free rate against the TO references, not a performance comparison, so the primary outcome is the speed claim it qualifies (eliminating iterative TO; 90 s per ToPy run vs milliseconds, Sec. 2.2). Reporting locators: OOD = Sec. 3.1 and Fig. 14 (untrained passive-element shapes such as circles and free forms, imperfect results); variance = Figs. 8, 9 and 16 (minimum, maximum and standard deviation of pixel deviation across test pairs, not across training seeds); failure rate = Sec. 3.1 counts; timing = Sec. 2.2 (average ToPy time on an unnamed 12-core CPU, no ML timing, hence partial); runtimes_all_cases = no (no per-case runtime); Data Availability Statement = on request; no code statement. Sec. 2.2 describes the 250 h as the cost of training the model, but the same paragraph shows it is the data-generation time. Access on 2026-09-24: the version of record from the publisher's file host mdpi-res.com, generic User-Agent, no personal data. No author named Jun Wang. No other version found in the pool (title and author search)."
+}

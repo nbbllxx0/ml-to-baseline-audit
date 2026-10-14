@@ -1,0 +1,566 @@
+[
+  {
+    "pid": "P00005",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "NN surrogate constitutive model embedded in FE-based topology optimization for multimaterial printing; no classical-method comparison stated."
+  },
+  {
+    "pid": "P00046",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Metastructures designed by density-based topology optimization with autodiff; no trained/learned model described, classical TO only."
+  },
+  {
+    "pid": "P00067",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Topology optimization for antenna inverse design; electromagnetics is an excluded physics domain."
+  },
+  {
+    "pid": "P00071",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "\"Topology\" means memristor network connectivity for a spiking neural network, not structural or material design."
+  },
+  {
+    "pid": "P00085",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Neural architecture search; \"topology optimisation\" refers to network architecture, not structural/material design."
+  },
+  {
+    "pid": "P00117",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Topological data analysis plus hyperparameter tuning for tumor classification; not structural topology optimization."
+  },
+  {
+    "pid": "P00192",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Convective heat transfer topology optimization for liquid cooling under laminar/turbulent flow; fluid flow is an excluded domain."
+  },
+  {
+    "pid": "P00196",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Grammar-based topology search for integrated photonic spectrometers; photonics is an excluded physics domain."
+  },
+  {
+    "pid": "P00231",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Classical topology optimization of reinforced-concrete beams with fabrication and structural testing; no machine-learning model."
+  },
+  {
+    "pid": "P00251",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Penalty method and projected-gradient scheme for compliant-mechanism topology optimization; purely classical, no learned model."
+  },
+  {
+    "pid": "P00274",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "General reduced-order-model fixed-point acceleration method; TO is only a cited motivating field, illustration is cavity flow."
+  },
+  {
+    "pid": "P00306",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Immersed finite-element/isogeometric preprocessing algorithms and data structures; TO only mentioned as an application context."
+  },
+  {
+    "pid": "P00317",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Structure-adaptive topology optimization for photonic band gaps; photonics is an excluded physics domain."
+  },
+  {
+    "pid": "P00323",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Level-set inverse homogenization of piezoelectric metamaterials via classical iterative linear solvers; no learned model."
+  },
+  {
+    "pid": "P00363",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Adaptive phase-field method with a posteriori error estimators for compliance topology optimization; classical numerics only."
+  },
+  {
+    "pid": "P00390",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Variational quantum algorithm optimizes truss ground-structure topology; unclear if it counts as a learned model, no stated classical comparison."
+  },
+  {
+    "pid": "P00418",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "General convex-relaxation theory for discrete-valued optimal control problems; topology optimization is only a passing example."
+  },
+  {
+    "pid": "P00465",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Classical multigrid/barrier method compared against optimality-criteria and interior-point methods for compliance TO; no learned model."
+  },
+  {
+    "pid": "P00502",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Multi-agent LLM system for misinformation detection; \"topology optimization\" means agent communication topology, not structural design."
+  },
+  {
+    "pid": "P00612",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Neural-network-architecture \"topology optimization\" (adding/removing layers via genetic algorithm), not structural or material design."
+  },
+  {
+    "pid": "P00651",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Topology optimization of an electric motor using torque predictions; motor magnetics is an excluded electromagnetics domain."
+  },
+  {
+    "pid": "P00659",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Photovoltaic array electrical wiring/topology reconfiguration via quantum ML, not structural or material topology design."
+  },
+  {
+    "pid": "P00765",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Abstract self-identifies as a dissertation (VDI Verlag eBooks); theses are excluded regardless of otherwise relevant content."
+  },
+  {
+    "pid": "P00799",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "GAN-assisted metasurface design for spectral control of thermal blackbody radiation is a nanophotonics problem, an excluded domain."
+  },
+  {
+    "pid": "P00852",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "CNN-based robust topology optimization of porous heat exchangers with conjugate heat transfer and inlet velocity; fluid-flow domain excluded."
+  },
+  {
+    "pid": "P00876",
+    "decision": "exclude",
+    "code": "E-MLONLY",
+    "rationale": "Attention-GAN's only quantitative comparison is against a non-attention ML baseline; no classical TO comparator stated."
+  },
+  {
+    "pid": "P00929",
+    "decision": "exclude",
+    "code": "E-FORWARD",
+    "rationale": "Empty abstract; title indicates deep learning predicts impact load (forward prediction) for a cab structure, no optimization comparison."
+  },
+  {
+    "pid": "P00968",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Batched antenna topology optimization via acquisition function; antenna design is an excluded electromagnetics domain."
+  },
+  {
+    "pid": "P00973",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Deep-learning-guided topology optimization of an interior permanent magnet motor; motor magnetics is an excluded electromagnetics domain."
+  },
+  {
+    "pid": "P01003",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Title marked \"(Conference Presentation)\" and text reads as a talk (\"In this talk, I will discuss...\"), not a full paper."
+  },
+  {
+    "pid": "P01025",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Abstract self-identifies as a dissertation (Illinois IDEALS repository); theses are excluded regardless of relevant content."
+  },
+  {
+    "pid": "P01059",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Empty abstract; title's \"acoustic metaporous structures\" indicates sound-in-fluid acoustic metamaterial design, an excluded domain."
+  },
+  {
+    "pid": "P01124",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicit review article: \"provides an overview\" and \"a review of recent applications of quantum optimization methods.\""
+  },
+  {
+    "pid": "P01138",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Twin-DNN-accelerated topology optimization of microstrip lines via EM simulation; RF/electromagnetics is an excluded domain."
+  },
+  {
+    "pid": "P01189",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Power-grid network topology optimization (bus splitting for congestion management), not structural or material design."
+  },
+  {
+    "pid": "P01198",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Backpropagation-inspired optimization of nanophotonic gratings and a polarization beam splitter; photonics is an excluded domain."
+  },
+  {
+    "pid": "P01210",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Reinforcement learning adapts neural-network architecture topology and routing; not structural or material design."
+  },
+  {
+    "pid": "P01222",
+    "decision": "exclude",
+    "code": "E-OTHER",
+    "rationale": "Greek-language record (fails English requirement), reads as a university thesis (Νημερτής repository) using CMA-ES, not a learned model."
+  },
+  {
+    "pid": "P01262",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Title is \"EML webinar overview\"; a webinar summary, not a primary research article."
+  },
+  {
+    "pid": "P01308",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "RL learns an abstract \"system topology\" toward a generic objective; no structural, material, or physics context given."
+  },
+  {
+    "pid": "P01327",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Figshare \"supplementary-materials\" record (contouring/fabrication images) supporting a separate photonic-demultiplexer paper, not a standalone article."
+  },
+  {
+    "pid": "P01358",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Empty abstract; title confirms topology optimization of shielding structures but not whether a learned model or comparison is used."
+  },
+  {
+    "pid": "P01373",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "\"Portfolio Topology Optimization\" is financial asset-allocation structure for automotive portfolio management, not structural/material design."
+  },
+  {
+    "pid": "P01402",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Describes a conceptual AI/biomimicry framework and future workflow; implementation is deferred to subsequent publications, a perspective piece."
+  },
+  {
+    "pid": "P01412",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Concerns chemical composition/structure/interface co-design of light-driven micromotors; no topology-optimization or ML method described."
+  },
+  {
+    "pid": "P01432",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Empty abstract; title confirms moving-morphable-component topology optimization in solid mechanics, but learned-model use and comparison are unstated."
+  },
+  {
+    "pid": "P01453",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicit review analyzing 50 peer-reviewed studies on deep learning for structural simulation."
+  },
+  {
+    "pid": "P01485",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Deep-transfer-learning topology optimization targeting acoustic sound quality of acoustic-structural devices; acoustics is an excluded domain."
+  },
+  {
+    "pid": "P01535",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Uses PyTorch automatic differentiation for exact gradients in damper/topology optimization; an AD numerical technique, not a trained model."
+  },
+  {
+    "pid": "P01537",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Title states \"a comprehensive review\" of vibration control and optimization for CNC machine tools."
+  },
+  {
+    "pid": "P01552",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Reliability-based (probabilistic) parametric design optimization of retaining walls; not free-form topology optimization."
+  },
+  {
+    "pid": "P01574",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicit PRISMA systematic review of 65 studies on design for additive manufacturing."
+  },
+  {
+    "pid": "P01577",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Parameter optimization of battery vibration characteristics via hybrid ML/genetic algorithm; not topology or architected-material design."
+  },
+  {
+    "pid": "P01585",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Empty abstract; title confirms ML-integrated multi-objective lightweight structural design of a machine part, plausibly topology optimization."
+  },
+  {
+    "pid": "P01604",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Automates FEM simulation construction/data generation; topology optimization is only a cited motivating application, not the method."
+  },
+  {
+    "pid": "P01634",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Book chapter \"2 Fundamentals\" with abstract identical to dissertation P00765; not an independent research article."
+  },
+  {
+    "pid": "P01655",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "GLOnets generative network for inverse design of photonic thin-film devices; photonics is an excluded domain."
+  },
+  {
+    "pid": "P01680",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "GNN+DRL optimizes analog circuit topology (component wiring), an electronic circuit design task, not structural/material design."
+  },
+  {
+    "pid": "P01693",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicitly a dissertation (VTechWorks); excluded by type despite relevant spinodoid metamaterial and CNN-surrogate content."
+  },
+  {
+    "pid": "P01702",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Data-locality and network-topology optimization for neuromorphic computer architecture, not structural/material design."
+  },
+  {
+    "pid": "P01724",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Graph network refines human skeletal keypoint \"topology\" from radar signals; not structural or material design."
+  },
+  {
+    "pid": "P01741",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Memory-efficient differentiable FDTD solver for photonic inverse design; photonics is an excluded physics domain."
+  },
+  {
+    "pid": "P01772",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Self-described \"comprehensive review\" of SLM lattice structures for thermal management."
+  },
+  {
+    "pid": "P01774",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Self-described review systematically summarizing metallic topological bone-implant design and biology."
+  },
+  {
+    "pid": "P01787",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicit commentary offering \"a critical map of the field\" of generative AI in design; not an empirical study."
+  },
+  {
+    "pid": "P01804",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Network-on-Chip interconnect topology and routing for HPC hardware, not structural or material design."
+  },
+  {
+    "pid": "P01809",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Title states \"A review\"; a critical review synthesizing mechanical-metamaterial cell-design paradigms."
+  },
+  {
+    "pid": "P01872",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Empty abstract; title's battery \"cooling channels\" implies coolant fluid flow, a fluid-flow topology optimization domain excluded."
+  },
+  {
+    "pid": "P01884",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "GAN-assisted topology optimization of a thermophotovoltaic metasurface emitter for spectral control; a photonics domain problem."
+  },
+  {
+    "pid": "P01953",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicitly a dissertation (University of Alberta ERA repository); excluded by type despite an embedded SIMP/VAE topology-optimization chapter."
+  },
+  {
+    "pid": "P01983",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Multi-agent RL optimizes wireless sensor network routing topology, a graph/network problem, not structural design."
+  },
+  {
+    "pid": "P02003",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Implicit-neural-field nonlinear topology optimization of aerospace brackets; compares to a \"generative baseline\" of unclear classical vs. ML status."
+  },
+  {
+    "pid": "P02039",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Multi-agent RL optimizes complex network (Internet/power-grid) topology, not structural or material design."
+  },
+  {
+    "pid": "P02066",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Reinforcement learning reconfigures electrical distribution-grid topology for voltage control, not structural or material design."
+  },
+  {
+    "pid": "P02096",
+    "decision": "exclude",
+    "code": "E-MLONLY",
+    "rationale": "General CNN metamodel for high-dimensional problems, explicitly compared only against other metamodeling techniques, not a classical method."
+  },
+  {
+    "pid": "P02121",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "GAN-based parametric shape generator for ship hulls; a generative shape-representation tool, not topology optimization with a classical comparison."
+  },
+  {
+    "pid": "P02142",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "GAN-based generative design of tire tread surface patterns evaluated by tire performance functions; not elasticity/thermal topology optimization."
+  },
+  {
+    "pid": "P02156",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicit review and analysis of deep generative machine learning models in engineering design."
+  },
+  {
+    "pid": "P02165",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicitly surveys papers applying AI/ML to defect detection, surrogates, and generative design in metal additive manufacturing."
+  },
+  {
+    "pid": "P02197",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Empty abstract; title describes a general AI-based data analysis system with no topology-optimization or structural/material design content."
+  },
+  {
+    "pid": "P02209",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicit review providing an overview of deep learning methods in computational mechanics."
+  },
+  {
+    "pid": "P02212",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Empty abstract; title confirms a deep unsupervised-learning framework for truss-structure optimization, in-scope method and physics, comparison unstated."
+  },
+  {
+    "pid": "P02275",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Classical memory-efficient adjoint/superposition method for GPU sensitivity computation in wave-field and acoustic optimization; no learned model."
+  },
+  {
+    "pid": "P02282",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Physics-guided neural-network-based optimizer applied to AM fatigue-property design; whether it is topology optimization and any classical comparison are unstated."
+  },
+  {
+    "pid": "P02313",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Explicit perspective on opportunities and challenges of ML for multiscale computational modeling."
+  },
+  {
+    "pid": "P02335",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Classical topology optimization of snap-through lattice unit cells extended with buckling and self-contact physics; no learned model."
+  },
+  {
+    "pid": "P02358",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "BP neural network predicts river-basin runoff for water resource management; unrelated to structural/material topology optimization."
+  },
+  {
+    "pid": "P02388",
+    "decision": "exclude",
+    "code": "E-FORWARD",
+    "rationale": "Neural-network surrogate accelerates FE2 plasticity return-mapping forward simulation; a simulation speedup, not a design/optimization comparison."
+  },
+  {
+    "pid": "P02422",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Proof-of-concept optical design of light-absorbing lattice/minimal-surface geometry; no topology optimization or learned model described."
+  },
+  {
+    "pid": "P02432",
+    "decision": "exclude",
+    "code": "E-TYPE",
+    "rationale": "Title states \"A Review\" of generative-AI-driven architectural and structural engineering designs."
+  },
+  {
+    "pid": "P02519",
+    "decision": "exclude",
+    "code": "E-OTHER",
+    "rationale": "Published 2016-07-06, before the protocol's 2017-01-01 inclusion window (§3.4); excluded by date regardless of content."
+  },
+  {
+    "pid": "P02530",
+    "decision": "exclude",
+    "code": "E-OTHER",
+    "rationale": "Published 2015-09-02, before the protocol's 2017-01-01 inclusion window (§3.4); excluded by date regardless of content."
+  },
+  {
+    "pid": "P02541",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Empty abstract; title indicates a general non-convex optimization theory book chapter, no topology-optimization content indicated."
+  },
+  {
+    "pid": "P02571",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Reference-list entry for the DPO language-model alignment paper; unrelated to structural/material topology optimization."
+  }
+]

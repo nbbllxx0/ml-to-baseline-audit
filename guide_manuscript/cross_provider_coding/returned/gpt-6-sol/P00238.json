@@ -1,0 +1,34 @@
+{
+  "pid": "P00238",
+  "citation": {
+    "title": "AutoMS: Multi-Agent Evolutionary Search for Cross-Physics Inverse Microstructure Design",
+    "authors": "Zhenyuan Zhao; Yu Xing; Tianyang Xue; Lingxin Cao; Xin Yan; Lin Lu",
+    "year": 2026,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2603.27195",
+    "arxiv_id": "2603.27195",
+    "version_coded": "arXiv v2 (12 April 2026)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-MLONLY",
+    "stratum": "none",
+    "method_family": "llm_agent",
+    "physics": "multiphysics",
+    "dim": "3d"
+  },
+  "claim": {},
+  "baseline": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Full-text exclusion: the numerical baseline searches use the learned MIND geometry generator."},
+    "R2": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Full-text exclusion: the numerical baseline searches use the learned MIND geometry generator."},
+    "R3": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Full-text exclusion: the numerical baseline searches use the learned MIND geometry generator."},
+    "R4": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Full-text exclusion: the numerical baseline searches use the learned MIND geometry generator."}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Full text read at https://arxiv.org/html/2603.27195 . Section 4 Baselines explicitly states that NSGA-II optimizes conditioning parameters passed to the learned MIND generator and all baselines share that generator. Appendix B.2 confirms the numerical methods search its learned latent/conditioning space. Section 2 mentions classical topology and inverse-homogenization optimization only as background, without running, timing or citing a result from either as a comparator. The apparent traditional algorithm comparisons in Table 1 are therefore hybrid ML-pipeline comparisons, not classical topology or homogenization-based optimization comparisons."
+}

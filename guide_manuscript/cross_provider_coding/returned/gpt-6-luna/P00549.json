@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00549",
+    "citation":  {
+                     "title":  "Deep learning aided topology optimization of phononic crystals",
+                     "authors":  "Paweł Kudela, Abdalraheem Ijjeh, Maciej Radzienski, Marco Miniaci, Nicola Pugno, Wieslaw Ostachowicz",
+                     "year":  2023,
+                     "venue":  "Mechanical Systems and Signal Processing",
+                     "doi":  "10.1016/j.ymssp.2023.110636",
+                     "arxiv_id":  "none",
+                     "version_coded":  "version of record"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "cnn",
+                     "physics":  "metamaterial_homogenization",
+                     "dim":  "3d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "A surrogate deep model predicts phononic crystal dispersion diagrams far faster than the conventional FEM solver, enabling its use within genetic-algorithm topology optimization.",
+                  "key_phrase":  "ultrafast in predicting the dispersion diagrams",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  18000,
+                  "claimed_speedup_basis":  "The conclusion reports DL prediction in less than 100 ms and ordinary FEM calculation in approximately 0.5–1 h. Using the shorter FEM time and the upper bound of 0.1 s gives a conservative lower-bound ratio of 1,800 s / 0.1 s = 18,000; actual factor is greater.",
+                  "direction":  "outperform",
+                  "alternatives":  "Conclusion: DL predicts dispersion curves in under 100 ms versus approximately 0.5–1 h for FEM. Introduction: a 14,072-element, 134,040-DOF mesh took about 47 min to compute 24 eigenmodes."
+              },
+    "baseline":  {
+                     "classical_method":  "Finite element method (FEM) eigenvalue solution for phononic crystal dispersion curves",
+                     "implementation":  "COMSOL Multiphysics; mesh generated with GMSH; COMSOL automated through MATLAB Live-Link (Sections 2.1–2.3)",
+                     "solver":  "not stated",
+                     "hardware_classical":  "AMD Ryzen 7 1800X eight-core 3.8 GHz processor, 64 GB RAM (Section 2.1)",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "3D unit cell mesh with 14,072 tetrahedral elements and 134,040 degrees of freedom; 24 eigenmodes (Section 2.1); unit cell thickness 3 mm and width 8 mm (Section 2.2)",
+                     "classical_iterations":  "not applicable; eigenmodes computed for dispersion diagram",
+                     "classical_time":  "About 47 min for 24 eigenmodes in the stated mesh case (Section 2.1); ordinary FEM calculations approximately 0.5–1 h (Conclusion)",
+                     "ml_time":  "Less than 100 ms per dispersion diagram prediction (Sections 2.1 and 4. Conclusions)",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "9000 examples computed in COMSOL over about one month on a standard desktop computer (Section 2.3)",
+                     "quality_metric":  "MSE and maximum frequency error against FEM dispersion diagrams; gap prediction (Sections 2.6, 3.2)",
+                     "quality_gap":  "Testing MSE [kHz²]: 9.8 cross-like, 12.1 diagonal-like, 8.1 blot-like; maximum frequency errors in examples range 9.1–15.4 kHz (Section 2.6)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "partial",
+                             "marker":  "R1-unmatched",
+                             "evidence":  "Sections 2.6 and 3.2 compare DL predictions with FEM results and report error metrics, including FEM checks of optimized designs, but no equal-quality or equal-time optimization comparison is made; a selected F4 GA case has multiple bandgaps predicted incorrectly."
+                         },
+                  "R2":  {
+                             "verdict":  "partial",
+                             "marker":  "R2-hardware-justification",
+                             "evidence":  "Section 2.1 identifies COMSOL and a Ryzen CPU for FEM, but hardware for DL prediction is not reported, so the hardware comparison is not justified or matched."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-amortization",
+                             "evidence":  "Section 2.3 reports roughly one month to generate 9,000 FEM examples, while training time and break-even uses are absent; the introduction notes the training-time cost but does not quantify it."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-no-failure-rate",
+                             "evidence":  "Sections 2.6 and 3.2 check predicted dispersion diagrams against FEM, including selected optimized outputs, but do not report a failure or infeasibility rate; one selected F4 case has incorrect multiple-bandgap predictions."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "300 testing examples (100 per each of three cavity types; Section 2.6); two illustrative GA runs are reported for each of three selected objective functions (Section 3.2)",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "selective",
+                      "code_available":  "no",
+                      "data_available":  "yes",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "A dataset is linked via Zenodo DOI 10.5281/zenodo.8063241 (Section 2.3); no public code or code license is stated in the article.",
+    "stage":  "cross_provider_pass"
+}

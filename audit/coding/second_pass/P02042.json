@@ -1,0 +1,87 @@
+{
+  "pid": "P02042",
+  "citation": {
+    "title": "DQN-Based Pre-Optimization for Dual-Scale Collaborative Topology Optimization of Anisotropic Materials",
+    "authors": "Shuo Feng, Yuhao Yang, Ke Li, Qidong Han, Jinchen Cao, Junyi Du",
+    "year": 2026,
+    "venue": "Applied Sciences (MDPI), vol. 16, article 4080",
+    "doi": "10.3390/app16094080",
+    "version_coded": "Version of record, open access (CC BY), full text incl. all figures/tables read from the publisher PDF (downloaded from mdpi-res.com, MDPI's own file host, after www.mdpi.com and doi.org both returned an Akamai 'Access Denied' block)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (abstract states a quantitative structural-compliance reduction vs the classical BESO baseline; no speed/cost claim anywhere in the article)",
+    "stratum": "quality",
+    "method_family": "rl",
+    "physics": "multiphysics",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the MBB beam, running standard BESO from a DQN-generated pre-optimized initial density field converges to structural compliance 0.5754, a 22.463% reduction from 0.7421 when BESO is run unaided from a uniform 0.5 initial density, both under the same mesh, volume fraction and convergence tolerance.",
+    "key_phrase": "a reduction of 22.463%",
+    "location": "abstract; repeated in Sec. 1 (Introduction, p. 3) and Sec. 5.1 (p. 17), which is the article's most emphasized numerical result",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No wall-clock time, hardware, or per-iteration cost is reported anywhere in the article for either the DQN pre-optimization or the BESO stage, so no speed-up factor can be derived. Sec. 3.3 only claims qualitatively that DQN pre-optimization 'reduce[s] the number of iterations in the BESO stage,' with no baseline BESO-alone iteration count given to quantify it.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.2: anisotropic vs. isotropic material choice within the same DQN-BESO method (compliance 0.3272 vs 0.5754, a 43.1382% reduction) - an internal ablation of the material model, not a classical-method comparison. (2) Sec. 5.2: compliance across three microstructure-pair groups (0.3272, 0.6671, 1.3721) - a comparison among the method's own design choices, not vs. a classical baseline. (3) Sec. 5.3/5.5: mechanical/thermal compliance across four (MBB) or three (cantilever) weighting-factor settings - a sensitivity sweep, not a classical comparison. None of these compare against a classical, non-learned optimizer; the with/without-DQN-pre-optimization comparison in Sec. 5.1 is the only true ML-vs-classical numeric comparison in the article."
+  },
+  "baseline": {
+    "classical_method": "Standard BESO (Bidirectional Evolutionary Structural Optimization) with an OC-type update (Eq. 23), started from a uniform initial density (0.5) with no DQN pre-optimization; same governing equations, SIMP-type interpolation, mesh, volume-fraction constraint and convergence tolerance as the proposed method (Sec. 5.1, Table 4)",
+    "implementation": "Not stated for the FE/BESO stage (no software named). The DQN agent itself is implemented in PyTorch 2.6.0, CPU version (Sec. 3.4). Sec. 3.3 describes a 'cross-platform' split between an unnamed deep-learning environment and an unnamed 'numerical analysis' environment 'well-suited for implementing the BESO procedure,' but neither is named explicitly anywhere in the text.",
+    "solver": "Not stated (linear system K U = F for the elastic and thermal fields is never described as direct, iterative, or multigrid)",
+    "hardware_classical": "Not stated (no CPU/GPU model, no machine specification anywhere in the article)",
+    "hardware_ml": "Not stated beyond 'PyTorch 2.6.0 (CPU version)' for the DQN agent (Sec. 3.4); no CPU model given",
+    "problem_size": "Primary (Sec. 5, Table 4, 'unified' for all examples in that section): macro-scale 150x80 elements (volume fraction 0.4), micro-scale unit cell 50x50 elements (volume fraction 0.5). Note: Sec. 5.4 ('generalization validation') instead states the MBB beam mesh as 300x100 elements and the cantilever beam as 150x100 elements, inconsistent with Table 4's '150x80, unified for all numerical examples in this section' framing [observed inconsistency, flagged in notes]",
+    "classical_iterations": "Not stated for the without-DQN (classical BESO) run. Convergence tolerance change = 0.01 is given as a unified setting (Table 4) and is presumably shared by both arms, but this is not explicitly confirmed for the without-DQN run. For the full DQN-BESO method, Table 3 reports 60-180 iterations across 8 seeded runs",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated (the DQN agent trains online, concurrently with each optimization run - Sec. 3.4 - so there is no separate offline training phase to time, but no wall-clock figure is given for the combined process either)",
+    "data_generation_cost": "not applicable / not stated: no offline labeled dataset is used; the DQN agent learns online during each optimization run via experience replay (buffer capacity 10,000, batch size 32) rather than from a pre-generated dataset (Sec. 3.4)",
+    "quality_metric": "Normalized structural compliance c = U^T K U (Eq. 17) and thermal compliance c_H (Eq. 20-21), both computed by FE analysis inside the same optimization loop used to drive BESO for every case; not an image-similarity or surrogate-predicted metric",
+    "quality_gap": "MBB beam: c = 0.7421 (without DQN pre-optimization) vs 0.5754 (with DQN pre-optimization), a 22.463% reduction (Sec. 1, p. 3; Sec. 5.1, p. 17); Table 3 additionally shows 8 independent DQN-BESO runs converging to normalized compliance 105.51-109.14 (mean 108.23, SD 1.14) despite differing initial compliances (309.33-351.63), on a different (unnormalized-by-100) compliance scale than the 0.5754/0.7421 figures [the two scales are not reconciled in the text; treated as reported]"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 5.1 and Table 4: both arms (with/without DQN pre-optimization) use the same 150x80 mesh, 0.4 volume fraction, material properties and (nominally) the same convergence tolerance (change = 0.01, stated as unified for the section), and compliance is read from the same FE-based objective for both, so the setup looks matched. However, the number of iterations to convergence for the without-DQN (classical BESO) run is never stated - only the DQN-BESO combined method's iteration counts are given (Table 3, 60-180) - so whether the classical run was taken to the same stopping rule cannot be confirmed from the text; this matches the protocol's partial example of an unstated classical stopping rule."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "The primary outcome is a design-quality (compliance) comparison with no speed or cost claim, so the R2(a)-(e) efficiency criteria do not bear on it. For the record: no hardware, solver type, or timing is stated for either arm anywhere in the article, so an R2(c)/(e) assessment could not be made even if a speed claim existed. Problem sizes (150x80 macro elements, 50x50 micro elements) are far below the 10^5-DOF threshold in R2(c) in any case."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim is made against the classical BESO baseline anywhere in the article. For context: the DQN agent trains online/concurrently within each optimization run rather than offline on a pre-generated dataset (Sec. 3.4), and no training or data-generation cost is reported in any form."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Compliance for both arms is computed by genuine FE analysis inside the shared optimization loop (Eq. 17), not an image-similarity or surrogate-predicted metric, and the volume-fraction constraint is structurally enforced by the BESO update rule (Eq. 23) and stated as a fixed target (Table 4). However, the article never explicitly reports the achieved volume fraction, connectivity, or any failure/infeasibility rate for the returned designs, so constraint satisfaction is only enforced by construction, not verified and reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 boundary-condition benchmarks (MBB beam, cantilever beam), each explored across combinations of 6 microstructures (3 groups), 4 (MBB) or 3 (cantilever) mechanical/thermal weight settings, isotropic vs anisotropic material, and with/without DQN pre-optimization; plus 8 independently seeded DQN-BESO runs for the MBB beam (Table 3)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access: the DOI and www.mdpi.com/2076-3417/16/9/4080 (with or without the '?version=' query string, and with a normal Referer header) all returned an Akamai edge 'Access Denied' page (errors.edgesuite.net reference codes), and the DOAJ record page separately returned a Cloudflare interactive challenge; neither was bypassed. The article was instead retrieved as a PDF from mdpi-res.com (MDPI's own file-hosting CDN, explicitly listed as an allowed publisher file host), verified as a genuine PDF (%PDF-1.6 header, 3.5 MB, 26 pages) before text extraction with PyMuPDF; no CAPTCHA, login, or bot-check was ever encountered on that host. Full text read in full. No author named Jun Wang (authors: Shuo Feng, Yuhao Yang, Ke Li, Qidong Han, Jinchen Cao, Junyi Du; OpenAlex's parse of the second author's given name as 'Li K' is an OpenAlex metadata error - the article itself and its author-contribution statement give 'Ke Li'). Duplicate check: audit/pool/pool.csv searched for the distinctive phrase 'Dual-Scale Collaborative Topology Optimization' (case-insensitive) returned exactly one match (this record, pid P02042); no FT-DUPLICATE applies. Primary-outcome selection: the abstract itself states the 22.463% compliance-reduction comparison against 'traditional methods,' so per Sec. 5.1 rule 1 this is the primary outcome and the search stops there; it is a quality-only (no speed/cost) comparison, so stratum = quality and R2/R3 are na per the protocol's quality-stratum convention (matching the P00214 worked example). The 'without DQN pre-optimization' arm is standard BESO/OC started from a uniform 0.5 density (explicitly stated parameter, p. 17) using the same mesh, volume constraint, and compliance objective as the full method, so it functions as the classical, non-learned comparator despite the paper describing the comparison only as 'compared with traditional methods' rather than naming a specific prior baseline paper. Two internal inconsistencies are flagged for the record but do not change the primary-outcome numbers: (1) Table 4 states its parameters (including a 150x80 macro mesh) are 'unified' for 'all numerical examples in this section,' yet Sec. 5.4 gives different, larger mesh sizes (300x100 for the MBB beam, 150x100 for the cantilever) for its own 'generalization' sub-study; (2) Table 3's normalized compliance values (105.51-109.14) are on a visibly different scale than the 0.5754/0.7421 figures used for the headline 22.463% claim, and the text does not reconcile the two scales. Reporting locators: seeds/variance = Table 3 (8 seeds, mean 108.23, SD 1.14); OOD/generalization = Sec. 5.4-5.5, explicitly titled 'Generalization Validation Under Different Boundary Conditions,' testing the cantilever geometry that was not used to tune the reward-function coefficients (Sec. 3.2, tuned only via MBB-beam trial calculations) - counted as 'yes' in a loose sense (a structurally different geometry, not a held-out split of a pretrained model, since the DQN trains online per run); no code or dataset link anywhere, only a boilerplate Data Availability Statement ('included in the article... further inquiries to the corresponding author'); funding from NSFC grant 12571556; no conflicts of interest declared. retest_candidate = false: no code is available and no wall-clock timing or hardware is reported for either method, so the article's own numbers cannot be independently re-timed even in principle from what is published."
+}

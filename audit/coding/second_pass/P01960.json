@@ -1,0 +1,88 @@
+{
+  "pid": "P01960",
+  "citation": {
+    "title": "Reinforcement learning-based topology optimization for generative designed lightweight structures",
+    "authors": "Keerthi Kumar N; Manasa C M; Pavan Kumar B K; Manish Bali",
+    "year": 2025,
+    "venue": "MethodsX, vol. 15, article 103539",
+    "doi": "10.1016/j.mex.2025.103539",
+    "arxiv_id": "",
+    "version_coded": "Version of record (gold open access). Full text read via the PubMed Central mirror (PMC12355488), https://pmc.ncbi.nlm.nih.gov/articles/PMC12355488/, reached by web search after the ScienceDirect landing page (https://www.sciencedirect.com/science/article/pii/S2215016125003838) returned HTTP 403 to automated access. The PMC PDF download endpoint required solving a proof-of-work bot challenge (cloudpmc-viewer-pow) and was not attempted, per the no-bot-bypass rule; Table 6 is rendered as an image in the accessible HTML and its numeric contents could not be read as a result."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "rl",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On the paper's 2D 60x40 cantilever benchmark, a bar chart reports the trained PPO policy's inference time (about 2.1 s) against a SIMP run (about 18.4 s); no matching SIMP quality numbers are given for that same run.",
+    "key_phrase": "Efficient (∼2.1 s) despite using iterative physics-in-the-loop learning",
+    "location": "Results section, in-text bar chart described as comparing 'Inference Time...across models' (paper's own figure numbering is inconsistent in the accessible HTML, see notes). Selected over the Abstract's quantitative sentence because that sentence's number is not paired with a classical method's own result (see alternatives).",
+    "quantitative": true,
+    "claimed_speedup": 8.76,
+    "claimed_speedup_basis": "Derived, not stated as a ratio by the authors: SIMP ∼18.4 s ÷ PPO-RL ∼2.1 s = 8.76 [derived]. Both source numbers are approximate ('∼') bar-chart values; no exact table of these numbers was found in the accessible text.",
+    "direction": "outperform",
+    "alternatives": "Abstract: 'the method outperforms conventional approaches like SIMP and level-set techniques, achieving up to 40% weight reduction while maintaining compliance' — quantitative on its face and textually first, so a defensible alternative primary outcome. It was not selected because the same '40%' figure recurs later, tied to the wheel-hub case study, as a reduction 'over the conventional design' (i.e. an unoptimized/solid reference geometry), which reads as a before/after topology-optimization figure rather than a paired SIMP-vs-RL result on one problem [inferred]. If the abstract sentence is instead taken as primary, stratum would be 'quality' rather than 'speed' and R2/R3 would become 'na' as in a quality-stratum record. Also unresolved: Table 6 ('Comparative Analysis' of PPO-RL against prior studies on model structure, dataset, optimization goals and performance outcomes) is an image in the accessible HTML; its caption text gives no numeric values, so its contents could not be used."
+  },
+  "baseline": {
+    "classical_method": "SIMP; level-set is named only as a second traditional comparator, qualitatively, with no level-set numbers given anywhere in the accessible text",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "2D cantilever, 60x40 elements (2,400 elements); aluminium (E=70 GPa, ν=0.33, ρ=2700 kg/m³); 1000 N point load on the fixed edge (Problem Definition)",
+    "classical_iterations": "not stated: no convergence criterion, stopping rule or iteration count is given for the SIMP run",
+    "classical_time": "∼18.4 s (Results bar chart: 'SIMP (Traditional): Slowest (∼18.4 s), despite accuracy, due to intensive FEA loops')",
+    "ml_time": "∼2.1 s, explicitly labelled 'inference time' (Results bar chart: 'PPO-RL (Proposed Work): Efficient (∼2.1 s) despite using iterative physics-in-the-loop learning'). Two other ML baselines are also shown: Graph ANN ∼6.3 s, U-Net ∼0.8 s.",
+    "training_time": "not stated in any time unit. Training is described only as '100+ episodes until convergence (~70 episodes observed)' of PPO with FEA computed for reward on the fixed 60x40 problem (Training Parameters); this cost appears to be excluded from the reported ∼2.1 s figure, which the text separately labels 'inference time' [inferred].",
+    "data_generation_cost": "not stated. The 'Topology Optimization Dataset (ToD)' used for testing is cited as an external benchmark ('by Stanford University and ETH Zurich, https://topopt.mech.ethz.ch'), not generated by the authors; no sample count or generation cost is given.",
+    "quality_metric": "Von Mises stress, maximum displacement, volume fraction and compliance of the RL-designed layout, checked by FEA against stated constraints (≤300 MPa, ≤0.5 mm): Table 5 reports Vf 0.32, max displacement 0.49 mm, max stress 298 MPa, compliance 2.4e-5 N/mm.",
+    "quality_gap": "not stated: no matching SIMP compliance, volume-fraction or stress numbers are reported for the same 60x40 problem, so no direct quality gap between SIMP and PPO-RL can be computed from the article."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-training-excluded",
+      "evidence": "Results bar chart pairs SIMP's full optimization run (∼18.4 s) against a PPO-RL number the text explicitly calls 'inference time' (∼2.1 s); training is separately described as ∼70-100 FEA-coupled RL episodes (Training Parameters) with no time value given, so the two reported numbers likely do not represent equal computational budgets, but the article never states outright that training cost is excluded from the 2.1 s figure [inferred, not confirmed]. No paired SIMP quality numbers (compliance/volume fraction) are given for the same problem, so a quality gap cannot be checked either, leaving this 'likely not satisfied without enough evidence to be sure.'"
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unstated",
+      "evidence": "No hardware (CPU/GPU) is stated anywhere in the accessible text for either SIMP or PPO-RL, and SIMP's implementation and solver type are not described, so markers (b)/(c)/(d) cannot be confirmed or ruled out from the article and no re-test or per-iteration time is available for (a)/(e). Falls under '! hardware choice is not justified' (here: not stated at all)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "The PPO policy is trained specifically on the fixed 60x40 grid/load case (Problem Definition; Training Parameters), with no claim of a reusable pretrained model, consistent with per-problem learning; the paper's own stated limitation restricts the method to 2D per-instance scenarios. Per protocol this training cost sits inside R1 (see R1 evidence) rather than being scored under R3."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "The returned design's stress, displacement and volume fraction are checked by FEA against the stated constraints ('validate its structural feasibility using FEA'; Table 5), but no failure or infeasibility rate is reported for the ToD benchmark cases or the wheel-hub case, and no independent third-party FE evaluator distinct from the in-the-loop FEA is described."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "not clearly quantified: an unspecified number of cases from the external ToD benchmark, plus 1 additional case study (lightweight wheel hub)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access route and privacy/bot-check compliance: DOI resolved to the Elsevier/ScienceDirect landing page, which returned HTTP 403 to automated fetch; per the access rules this was treated as blocked and not retried or bypassed. A web search located an open PubMed Central mirror (PMC12355488) of this gold-OA MethodsX article, which was used for full-text coding. PMC's PDF endpoint presented a proof-of-work bot challenge (cloudpmc-viewer-pow); this was not solved, consistent with the never-bypass-a-bot-check rule, so coding relies on the PMC HTML rendering only, in which Table 6 ('Comparative Analysis') appears as an image whose numeric content is not recoverable from text; this is flagged as a residual access gap rather than resolved. No email address, login, API key, or mailto parameter was used anywhere; all fetches used generic tool user agents. No author named Jun Wang (authors: Keerthi Kumar N, Manasa C M, Pavan Kumar B K, Manish Bali, per the PMC byline). Note: audit/pool/pool.csv lists different author name forms for this same DOI/title (Kodanda Ramaiah G.N; C M Manasa; Pankaj Kumar; Manish Bali) — apparent metadata/name-parsing error upstream (only used to check for duplicates); no second pool record with this DOI or title was found, so no FT-DUPLICATE applies. Primary-outcome choice is a genuine judgment call, explained in claim.alternatives: the abstract's 'up to 40% weight reduction' is textually first and quantitative, but its number is tied elsewhere in the case study to a reduction relative to an unoptimized 'conventional design' rather than to a matched SIMP result, so the first-in-abstract rule was judged not satisfied and the main-text SIMP-vs-RL timing figure was coded as the primary outcome instead (stratum speed). A different, equally defensible reading would keep the abstract sentence as primary (stratum quality, R2/R3 na). The authors explicitly state the method 'is confined to two-dimensional topology optimization scenarios,' which set dim = 2d for the whole article including the wheel-hub case. No level-set numbers are given anywhere; it appears only as a named comparator. retest_candidate is false: no code repository is mentioned or found, and data is stated as available only on request."
+}

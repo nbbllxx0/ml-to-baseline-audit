@@ -1,0 +1,53 @@
+{
+  "pid": "P00003",
+  "citation": {
+    "title": "Adversarial Agents on Topology Optimization: Understanding the Fragility and Robustness of Deep Learning-based and Physics-Based Design Models under Adversarial Perturbation",
+    "authors": "Hoang Anh Nguyen, Yuan Hong, Hongyi Xu",
+    "year": 2026,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2608.22606",
+    "arxiv_id": "2608.22606",
+    "version_coded": "arXiv PDF accessed 2026-09-26"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "cnn; gan", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "Classical SIMP largely restores compliance after adversarial initializations that severely degrade learned surrogate designs; its median rerun-to-reference compliance ratio is 1.000 across tested models.",
+    "key_phrase": "median SIMP-rerun compliance ratio of 1.000",
+    "location": "Conclusion, paragraph 2; Section 5.4 and Table 3",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No measured timing comparison is reported.",
+    "direction": "underperform",
+    "alternatives": "Abstract qualitatively says SIMP recovers near-reference compliance; Section 5.1 reports clean surrogate/reference compliance ratios, and Section 5.2 reports attacked versus clean surrogate ratios."
+  },
+  "baseline": {
+    "classical_method": "SIMP with optimality-criteria updates and sensitivity filtering (Section 2.1)",
+    "implementation": "Top88/SIMP mentioned in Section 3 and Appendix A.5; implementation of main reference runs not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "20 × 60 finite-element grid (Section 4)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "300 SIMP target samples; generation time not stated (Section 4)",
+    "quality_metric": "Thresholded-design finite-element compliance relative to SIMP reference; IoU, F1, binary accuracy (Sections 3.4, 5.1)",
+    "quality_gap": "SIMP rerun median/reference compliance 1.000 across nine models; clean surrogate/reference medians 0.999–1.047 (Sections 5.1, 5.4; Table 3)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-no-speed-claim", "evidence": "Conclusion and Table 3 compare compliance after attack and rerun; no timed speed comparison is made."},
+    "R2": {"verdict": "na", "marker": "R2-no-speed-claim", "evidence": "Sections 5.1–5.4 use SIMP as a quality reference and do not compare runtimes."},
+    "R3": {"verdict": "na", "marker": "R3-no-speed-claim", "evidence": "Conclusion makes a mechanical robustness claim, without a measured speed claim."},
+    "R4": {"verdict": "partial", "marker": "R4-FE-no-volume-report", "evidence": "Sections 3.4 and 5.2–5.4 evaluate returned designs with finite-element compliance and count severe failures; target volume is specified in Section 4, but realized output volume or volume-constraint violations are not reported."}
+  },
+  "reporting": {
+    "n_test_cases": "45 held-out cases per model (Section 4); nine main model configurations (Section 5.4)",
+    "ood_test": "no", "seeds_or_variance": "yes", "failure_rate_reported": "yes", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "on_request", "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Section 4 gives seed-0 split and a common training seed; Section 5.4 counts residual compliance exceedances and Section 4 reports zero dataset solver failures. Data Availability promises data/model upon acceptance and email request, not current public code."
+}

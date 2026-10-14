@@ -1,0 +1,45 @@
+{
+  "pid": "P00803",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Deep-Learning-Enabled Simulated Annealing for Topology Optimization",
+    "authors": "Changyu Deng, Can Qin, Wei Lu",
+    "year": 2020,
+    "venue": "arXiv preprint (cs.CE), arXiv 2002.01927 v1. The same arXiv id was later retitled 'Self-Directed Online Machine Learning for Topology Optimization' (v8, 26 Jan 2022; authors Changyu Deng, Yizhou Wang, Can Qin, Yun Fu, Wei Lu) and published as Nature Communications 13:388 (2022), doi 10.1038/s41467-021-27713-7, CC BY 4.0 (Crossref); that version is pool record P00164",
+    "doi": "10.48550/arXiv.2002.01927",
+    "arxiv_id": "2002.01927",
+    "version_coded": "arXiv v1 (4 Feb 2020), PDF (12 pages) read for identity and the would-be primary outcome only. The pool record has no DOI or arXiv id; its OpenAlex work W3005255269 has one location, https://arxiv.org/pdf/2002.01927v1"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as an earlier version of P00164). Would-be primary outcome in v1: a DNN objective surrogate trained in a loop with generalized simulated annealing cut computing time by over two orders of magnitude on compliance minimization, compared with running the annealing directly.",
+    "location": "Would-be: v1 Abstract; numbers on pp. 5-6 (results) and p. 6 (Conclusions)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). Would-be values in v1: the abstract states over two orders of magnitude; p. 6 states 600 FE samples instead of about 2 x 10^5 function evaluations at about three times the cost per sample (about 111x [derived]) on the 25-variable case, and under 1% of the direct annealing cost on the 121-variable case.",
+    "direction": "outperform"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (duplicates) with code FT-DUPLICATE; the primary version is P00164. Evidence: the arXiv abs page of 2002.01927v1 shows this exact title and the three authors, submitted 4 Feb 2020 (the pool date); OpenAlex W3005255269 (this record) points only to arxiv.org/pdf/2002.01927v1; the current abs page of 2002.01927 (v8) carries the title 'Self-Directed Online Machine Learning for Topology Optimization' and the journal reference Nature Communications, doi 10.1038/s41467-021-27713-7, which is P00164 (arXiv id 2002.01927). The pool abstract of this record already describes the later versions (SOLO, 2-5 orders of magnitude, fluid-structure problems), not v1 [observed: it differs from the v1 abstract]. The Nature Communications version of record is open access (CC BY 4.0 per Crossref; gold per OpenAlex; also PMC8770634), so the study should be coded under P00164. For the analysis sample: P00164 sits at decision order 577, outside positions 1-200, so under the §11 rule this study is skipped rather than redrawn. For the verifier, the v1 comparisons: direct generalized simulated annealing (a non-learned heuristic) for cost, and MMA designs for quality (dimensionless energy 0.298 vs 0.293 on the 4 x 4 case; 0.228 vs 0.222 on the 11 x 11 case; pp. 5-6). Screening code was I-SPEED. Authors checked (v1 and v8): no author named Jun Wang."
+}

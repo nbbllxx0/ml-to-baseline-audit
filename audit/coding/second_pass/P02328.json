@@ -1,0 +1,44 @@
+{
+  "pid": "P02328",
+  "citation": {
+    "title": "Two-scale data-driven design for heat manipulation",
+    "authors": "Daicong Da, Wei Chen",
+    "year": 2023,
+    "venue": "International Journal of Heat and Mass Transfer; identical-title arXiv preprint (cs.CE)",
+    "doi": "10.1016/j.ijheatmasstransfer.2023.124823",
+    "arxiv_id": "2304.00747",
+    "version_coded": "Version of record (ScienceDirect PII S0017931023009687) returned HTTP 403 to automated fetch; coded from arXiv v1 (submitted 2023-04-03, only version on the abs page), full text read from the downloaded PDF (https://arxiv.org/pdf/2304.00747), title/authors/abstract confirmed identical to the version-of-record metadata in pool.csv"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOML",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: a brute-force-enumerated database of parametric RVEs (26x26x26 grid, deduplicated to 8,282), each characterized by numerical FE homogenization, is combined with gradient/sensitivity-based topology optimization on homogenized-conductivity design variables to produce multi-functional 2D thermal cloaks, concentrators and rotators; a nearest-neighbour 'geometric extraction' search maps optimized properties back to database geometries (MSE as low as 9.3e-6, R^2 up to 0.9998). No neural network, Gaussian process or other learned model appears anywhere, and no classical method is run, timed or cited for cost.",
+    "location": "Abstract; Introduction Sec. 1; Sec. 3 (Data-driven property design model); Conclusions Sec. 7",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No runtime, iteration count or hardware is reported for any method. The only comparison-like statement is an unquantified, qualitative design-dimensionality remark (Sec. 1: direct pixel-wise pseudo-density optimization 'within RVE would be dimensionally very expensive'; Sec. 7: their property variables 'significantly reduce the design dimensionality' versus 'the topology associated with each unit cell'), with no classical method actually run, timed, or with a specific cost/result cited."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOML)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOML)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOML)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOML)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §3 criterion 1 (Method): no learned model is used anywhere. The authors' own method is (1) a parametrically enumerated RVE database (three geometric parameters, 17,576 candidates deduplicated to 8,282), each scored by deterministic numerical FE homogenization (Sec. 3, Eq. 4); (2) classical gradient/sensitivity-based topology optimization run directly on the homogenized-conductivity components as design variables (Sec. 3-4); and (3) a nearest-neighbour 'geometric extraction' lookup in the pre-built database to realize a physical RVE for each optimized property value (Sec. 6, Figs. 20-24). None of these is a neural network, Gaussian process, RL agent, diffusion/flow model, GAN, VAE, transformer or LLM. Full-text search confirms 'machine learning', 'neural network' and 'surrogate model' occur only in Sec. 1's generic background on the field (lines 23, 28, 37-38) and once in a reference title (Woldseth et al. review); none describes the authors' own technique, which is called a 'data-driven property design model' only in the sense of using a lookup database, not a trained model. Screened records with keyword overlap on 'data-driven'/'topology optimization' can pass title/abstract screening (esp. I-UNCLEAR) without an actual learned model; full-text reading is the arbiter here (PROTOCOL §4, FT-NOML). Secondary reason for the verifier: FT-NOBASELINE would also apply if a learned model were somehow found elsewhere, since no classical method's cost, time or result is ever run, timed or cited anywhere in the article (checked via exhaustive keyword search: faster/speed/accelerat*/real-time/efficient/CPU/GPU/SIMP/MMA/baseline/conventional/classical/compare* all return only generic background text or non-comparative usage) -- the one dimensionality remark is unquantified and names no specific classical result, matching the protocol's own 'TO is slow' non-comparison example. Access: the version of record (linkinghub.elsevier.com/retrieve/pii/S0017931023009687 -> sciencedirect.com/science/article/pii/S0017931023009687) returned HTTP 403 to a generic-User-Agent fetch; this was treated as a bot block, not bypassed, and the identical-title, identical-author, sole-version arXiv preprint (2304.00747v1, cs.CE, submitted 2023-04-03) was read in full instead, per the protocol's explicit arXiv route. Duplicate check: audit/pool/pool.csv has exactly one record for this title (P02328); the arXiv preprint is not separately pooled, so FT-DUPLICATE does not apply. Funding: NSF CSSI program (Grant No. OAC 1835782); no conflicts of interest stated. No author of this article is named Jun Wang (authors: Daicong Da, Wei Chen); a cited reference (ref. [7], Ih-GAN) lists a 'J. Wang' as a co-author of a different paper, not of this one."
+}

@@ -1,0 +1,104 @@
+{
+ "meta": {
+  "mode": "voroto",
+  "pinning": {
+   "pinned": true,
+   "affinity_mask": "0xfff",
+   "priority": "HIGH_PRIORITY_CLASS"
+  },
+  "started_utc": "2026-09-25T15:27:11Z",
+  "finished_utc": "2026-09-25T15:37:19Z"
+ },
+ "runs": [
+  {
+   "warmup": true,
+   "t_topopt_s": 12.629476899979636,
+   "t_dehomogenize_s": 20.09741429996211,
+   "J_final": 79.24758496760451,
+   "vc_final": 0.01932847499847412,
+   "homog_volume_fraction": 0.5096642374992371,
+   "image_shape": [
+    1600,
+    800
+   ],
+   "compliance": 89.24729907914629,
+   "volume_fraction": 0.5558484375,
+   "pcg_its": 2000,
+   "true_res": 2.3838004737845048e-11,
+   "fallback": true
+  },
+  {
+   "warmup": false,
+   "t_topopt_s": 11.478459100006148,
+   "t_dehomogenize_s": 19.991319099906832,
+   "J_final": 78.63349998634064,
+   "vc_final": 0.01933741569519043,
+   "homog_volume_fraction": 0.5096687078475952,
+   "image_shape": [
+    1600,
+    800
+   ],
+   "compliance": 88.39336391347584,
+   "volume_fraction": 0.55912109375,
+   "pcg_its": 2000,
+   "true_res": 2.368422201553149e-11,
+   "fallback": true
+  },
+  {
+   "warmup": false,
+   "t_topopt_s": 11.377176699927077,
+   "t_dehomogenize_s": 20.5659434000263,
+   "J_final": 78.75946174914087,
+   "vc_final": 0.01884937286376953,
+   "homog_volume_fraction": 0.5094246864318848,
+   "image_shape": [
+    1600,
+    800
+   ],
+   "compliance": 88.97945768755953,
+   "volume_fraction": 0.55697890625,
+   "pcg_its": 2000,
+   "true_res": 2.3886857351127403e-11,
+   "fallback": true
+  },
+  {
+   "warmup": false,
+   "t_topopt_s": 11.487241900060326,
+   "t_dehomogenize_s": 20.5060868000146,
+   "J_final": 78.74227861406982,
+   "vc_final": 0.019297361373901367,
+   "homog_volume_fraction": 0.5096486806869507,
+   "image_shape": [
+    1600,
+    800
+   ],
+   "compliance": 89.02703525646795,
+   "volume_fraction": 0.5521890625,
+   "pcg_its": 2000,
+   "true_res": 2.3732142195433447e-11,
+   "fallback": true
+  }
+ ],
+ "topopt": {
+  "median_s": 11.478459100006148,
+  "min_s": 11.377176699927077,
+  "max_s": 11.487241900060326,
+  "repeats_s": [
+   11.478459100006148,
+   11.377176699927077,
+   11.487241900060326
+  ]
+ },
+ "dehomogenize": {
+  "median_s": 20.5060868000146,
+  "min_s": 19.991319099906832,
+  "max_s": 20.5659434000263,
+  "repeats_s": [
+   19.991319099906832,
+   20.5659434000263,
+   20.5060868000146
+  ]
+ },
+ "fine_compliance_median": 88.97945768755953,
+ "J_median": 78.74227861406982
+}

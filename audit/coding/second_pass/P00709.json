@@ -1,0 +1,44 @@
+{
+  "pid": "P00709",
+  "citation": {
+    "title": "On demand design of two-dimensional phononic crystal bandgap based on machine learning and multi-objective topology optimization",
+    "authors": "Nansha Gao, Jiacheng Guo, Mou Wang, Yilin Qu, X Peng, Ye Tang, Xiao Kang Liang, Guang Pan",
+    "year": 2025,
+    "venue": "Mechanical Systems and Signal Processing",
+    "doi": "10.1016/j.ymssp.2025.113670",
+    "arxiv_id": "",
+    "version_coded": "Abstract only (pool.csv abstract field). No full text was legally reachable: the version of record (linkinghub.elsevier.com/retrieve/pii/S0888327025013718 and sciencedirect.com/science/article/pii/S0888327025013718) returned HTTP 403 to automated fetch; no arXiv preprint exists (two targeted web searches for this exact title/author combination found none); no institutional-repository or author-page copy was found (search results surfaced only ResearchGate pages, an excluded route, and for a different, unrelated phononic-crystal paper by different authors). All 403 responses were treated as bot blocks and not bypassed"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "other",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded; abstract-only access). Headline: a variational autoencoder, multi-layer perceptron and twin/Siamese neural network are trained (five-fold cross-validated) to give high-precision forward (>=0.98 accuracy for 90% of cases) and inverse (>=0.95 accuracy for 98% of cases) predictions for 2D phononic crystal bandgap properties; a loss function combining lightweight and bandgap objectives in the twin network is presented as achieving 'high-precision, on-demand design with multiple objectives'. No classical (non-learned) topology optimization or multi-objective optimization method's cost, time or result is mentioned anywhere in the abstract as a comparator.",
+    "location": "Abstract (only section accessible)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text/abstract). The abstract reports only self-referential ML prediction-accuracy statistics (forward/inverse accuracy percentages from five-fold cross-validation) and a qualitative description of a multi-objective loss function; no classical topology-optimization method is named, run, timed or cited for comparison anywhere in the abstract, despite 'topology optimization' appearing in the title."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "abstract-only / excluded", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "abstract-only / excluded", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "abstract-only / excluded", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "abstract-only / excluded", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Domain check: two-dimensional phononic crystal bandgap design is elastic-wave (elastodynamic) metamaterial design in a solid, which PROTOCOL §11's 2026-09-24 deviation ('Elastic-wave, phononic and seismic metamaterial design in solids is elasticity (elastodynamics) and in scope; \"Acoustic\" in §4 means sound in fluids') explicitly keeps in scope, so this article is not excluded on physics-domain grounds (FT-DOMAIN does not apply). Exclusion reason: based on the abstract alone (full text not legally reachable -- see version_coded for the exhausted access routes: DOI/Elsevier/ScienceDirect all HTTP 403, no arXiv preprint, no institutional repository or non-ResearchGate author copy found), no classical, non-learned topology-optimization or multi-objective-optimization method is named, run, timed or cited as a comparator anywhere in the abstract. The title's phrase 'multi-objective topology optimization' most plausibly refers to the twin neural network's own multi-objective loss function (combining a lightweight/mass objective with bandgap performance) substituting for classical multi-objective TO, rather than an external classical method being benchmarked against -- consistent with the abstract's exclusive focus on forward/inverse prediction accuracy (cross-validated R²-type accuracy percentages) with no runtime, cost, or classical-baseline quality number anywhere. This mirrors the FT-NOBASELINE pattern in the P00518 format example (excluded from my format references) and the PROTOCOL's own worked case ('a qualitative motivation such as \"TO is slow\" is not a comparison'). However, this determination rests on the abstract only: a full-text reading could reveal a classical-method comparison not visible here (e.g. an internal validation of the network's on-demand designs against a directly-run classical multi-objective optimizer), so this exclusion should be treated as provisional and re-checked by a verifier with journal access if it materially affects the audit's counts. Duplicate check: audit/pool/pool.csv has exactly one record for this title/DOI (P00709); no FT-DUPLICATE applies. No author of this article is named Jun Wang (authors: Nansha Gao, Jiacheng Guo, Mou Wang, Yilin Qu, X Peng, Ye Tang, Xiao Kang Liang, Guang Pan)."
+}

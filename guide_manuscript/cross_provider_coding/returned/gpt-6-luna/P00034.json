@@ -1,0 +1,60 @@
+﻿{
+  "pid": "P00034",
+  "citation": {
+    "title": "Transformer-based Topology Optimization",
+    "authors": "Aaron Lutheran; Srijan Das; Alireza Tabarraei",
+    "year": 2025,
+    "venue": "arXiv preprint 2509.05800",
+    "doi": "10.48550/arXiv.2509.05800",
+    "arxiv_id": "2509.05800",
+    "version_coded": "arXiv v2, 17 September 2025"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "transformer", "physics": "compliance", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "The transformer reduces average static optimization time from 66 to about 2 seconds and dynamic optimization from 8,900 to 2 seconds, while compliance error increases.",
+    "key_phrase": "",
+    "location": "Section 5, runtime comparison",
+    "quantitative": true,
+    "claimed_speedup": 33,
+    "claimed_speedup_basis": "Section 5: static 66 s / 2 s = 33×; the same section reports dynamic 8,900 s / 2 s = 4,450× as an alternative case.",
+    "direction": "outperform",
+    "alternatives": "Dynamic optimization: 8,900 s classical / 2 s transformer (4,450×), with approximately 4.81% increased compliance error."
+  },
+  "baseline": {
+    "classical_method": "Original iterative topology optimization, described using SIMP formulations in Sections 2 and 5.",
+    "implementation": "Original topology optimization process; specific implementation not stated.",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Static and dynamic datasets; static dataset about 60,000 samples and dynamic dataset about 6,000 samples (Section 4).",
+    "classical_iterations": "Convergence-based original process; iteration count not stated (Section 5).",
+    "classical_time": "66 s static average; 8,900 s dynamic average (Section 5).",
+    "ml_time": "About 2 s sampling for both static and dynamic (Section 5).",
+    "training_time": "Each model trained for 800,000 iterations, batch size 256 (Section 4); wall-clock training time not stated.",
+    "data_generation_cost": "not stated",
+    "quality_metric": "Compliance error, volume-fraction error, floating-material percentage, load-discrepancy error (Abstract and Section 4).",
+    "quality_gap": "Static: average compliance-error increase 1.88%; dynamic: increased compliance error about 4.81% (Section 5)."
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-unmatched", "evidence": "Section 5 compares inference with the original optimization runtime while reporting compliance error increases of 1.88% static and 4.81% dynamic; no equal-quality or equal-budget match is attempted."},
+    "R2": {"verdict": "partial", "marker": "R2-hardware-unjustified", "evidence": "The original topology optimization is compared with transformer inference, but the runtime comparison does not specify hardware or solver details (Section 5)."},
+    "R3": {"verdict": "fail", "marker": "R3-no-cost", "evidence": "Section 4 reports 800,000 training iterations and dataset sizes, but not training or data-generation costs or an amortized break-even."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "The Abstract and Section 4 report compliance, volume, floating-material, and load-discrepancy metrics, but do not give an overall infeasible or failed-design rate."}
+  },
+  "reporting": {
+    "n_test_cases": "Static dataset about 60,000 samples; dynamic dataset about 6,000 samples (Section 4).",
+    "ood_test": "yes",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Section 4 says replication materials, model parameters, and code are available on request; the protocol's retest-candidate definition requires public code."
+}

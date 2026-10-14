@@ -1,0 +1,96 @@
+{
+  "frozen_utc": "2026-09-24",
+  "search_end_date": "2026-09-24",
+  "protocol": "plan/PROTOCOL.md v1.0 section 2",
+  "arxiv": [
+    {
+      "id": "AX1",
+      "query": "(abs:\"topology optimization\" OR abs:\"topology optimisation\" OR ti:\"topology optimization\" OR ti:\"topology optimisation\") AND (abs:\"deep learning\" OR abs:\"neural network\" OR abs:\"neural networks\" OR abs:\"machine learning\")"
+    },
+    {
+      "id": "AX2",
+      "query": "(abs:\"topology optimization\" OR abs:\"topology optimisation\") AND (abs:diffusion OR abs:GAN OR abs:\"generative adversarial\" OR abs:\"variational autoencoder\" OR abs:\"flow matching\" OR abs:generative)"
+    },
+    {
+      "id": "AX3",
+      "query": "(abs:\"topology optimization\" OR abs:\"topology optimisation\") AND (abs:\"large language model\" OR abs:\"large language models\" OR abs:LLM OR abs:LLMs OR abs:agent OR abs:agents)"
+    },
+    {
+      "id": "AX4",
+      "query": "(abs:\"topology optimization\" OR abs:\"topology optimisation\") AND abs:\"reinforcement learning\""
+    },
+    {
+      "id": "AX5",
+      "query": "(abs:\"topology optimization\" OR abs:\"topology optimisation\") AND (abs:\"physics-informed\" OR abs:\"implicit neural\" OR abs:reparameterization OR abs:reparametrization OR abs:\"neural field\" OR abs:\"neural fields\")"
+    },
+    {
+      "id": "AX6",
+      "query": "(abs:metamaterial OR abs:metamaterials OR abs:microstructure OR abs:\"architected material\" OR abs:\"architected materials\" OR abs:\"cellular material\" OR abs:lattice) AND abs:\"inverse design\" AND (abs:\"deep learning\" OR abs:\"neural network\" OR abs:\"machine learning\") AND (abs:\"topology optimization\" OR abs:homogenization)"
+    }
+  ],
+  "openalex": [
+    {
+      "id": "OA1",
+      "filter": "title_and_abstract.search:(\"topology optimization\" OR \"topology optimisation\") AND (\"deep learning\" OR \"neural network\" OR \"neural networks\" OR \"machine learning\"),from_publication_date:2017-01-01"
+    },
+    {
+      "id": "OA2",
+      "filter": "title_and_abstract.search:(\"topology optimization\" OR \"topology optimisation\") AND (\"generative adversarial\" OR \"diffusion model\" OR \"variational autoencoder\" OR \"generative model\" OR \"flow matching\"),from_publication_date:2017-01-01"
+    },
+    {
+      "id": "OA3",
+      "filter": "title_and_abstract.search:(\"topology optimization\" OR \"topology optimisation\") AND (\"large language model\" OR \"reinforcement learning\" OR \"physics-informed\" OR \"implicit neural\"),from_publication_date:2017-01-01"
+    }
+  ],
+  "forward_citation_anchors": [
+    {
+      "id": "FC1",
+      "title": "Neural networks for topology optimization",
+      "hint": "Sosnovik & Oseledets, arXiv 1709.09578; DOI added 2026-09-24 (v1.1) after the title fallback resolved a wrong work",
+      "doi": "10.1515/rnam-2019-0018"
+    },
+    {
+      "id": "FC2",
+      "title": "3D topology optimization using convolutional neural networks",
+      "hint": "Banga et al., arXiv 1808.07440"
+    },
+    {
+      "id": "FC3",
+      "doi": "10.1115/1.4049533",
+      "hint": "Nie et al. 2021 TopologyGAN, J. Mech. Des."
+    },
+    {
+      "id": "FC4",
+      "title": "TOuNN: Topology Optimization using Neural Networks",
+      "hint": "Chandrasekhar & Suresh 2021, SMO"
+    },
+    {
+      "id": "FC5",
+      "doi": "10.1007/s00158-022-03347-1",
+      "hint": "Woldseth et al. 2022, SMO"
+    },
+    {
+      "id": "FC6",
+      "title": "Diffusion Models Beat GANs on Topology Optimization",
+      "hint": "Maze & Ahmed, arXiv 2208.09591"
+    }
+  ],
+  "backward_citation_sources": [
+    {
+      "id": "BC1",
+      "doi": "10.1007/s00158-022-03347-1",
+      "hint": "Woldseth et al. 2022 reference list via OpenAlex referenced_works"
+    },
+    {
+      "id": "BC2",
+      "doi": "10.1007/s00158-025-04135-3",
+      "hint": "Sanu et al. 2025 reference list via OpenAlex referenced_works"
+    },
+    {
+      "id": "BC3",
+      "arxiv": "2510.23667",
+      "hint": "OAT reference list, from the arXiv HTML bibliography (OpenAlex W7197034560 has no referenced_works); titles matched to the pool, as PROTOCOL §2.3 specifies; added in v1.2 because v1.0 omitted it"
+    }
+  ],
+  "version": "1.2"
+}

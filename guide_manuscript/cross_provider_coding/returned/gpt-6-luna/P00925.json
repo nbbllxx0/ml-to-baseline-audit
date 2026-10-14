@@ -1,0 +1,60 @@
+﻿{
+  "pid": "P00925",
+  "citation": {
+    "title": "Generative Design by Reinforcement Learning: Enhancing the Diversity of Topology Optimization Designs",
+    "authors": "Seowoo Jang; Soyoung Yoo; Namwoo Kang",
+    "year": 2020,
+    "venue": "arXiv preprint; later published in Computer-Aided Design 153 (2022), 103225",
+    "arxiv_id": "2008.07119",
+    "doi": "10.1016/j.cad.2022.103225",
+    "version_coded": "arXiv v2 (open preprint)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "rl", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The authors report that a neural approximation of conventional wheel topology optimization generates designs in milliseconds rather than the optimizer's roughly ten-minute runtime.",
+    "key_phrase": "short inference time",
+    "location": "abstract",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The abstract gives only a qualitative speed comparison. The conclusion describes millisecond inference versus an order of 10 minutes, too imprecise for a numeric ratio.",
+    "direction": "outperform",
+    "alternatives": "Section 3 reports under 1 ms on an NVIDIA GeForce 1080 Ti against a conventional algorithm taking seconds for simple inputs; another conclusion comparison says milliseconds versus an order of 10 minutes."
+  },
+  "baseline": {
+    "classical_method": "Conventional iterative topology optimization used to generate wheel-design training data.",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "CPU; model not identified (abstract and Section 3).",
+    "hardware_ml": "NVIDIA GeForce GTX 1080 Ti for reported inference (Section 3); Intel i7 and GTX 1080 Ti for search comparison (Section 4).",
+    "problem_size": "Automotive wheel design; 639 reference images for TopOpNet/GDNet training and test in Section 4.",
+    "classical_iterations": "not stated",
+    "classical_time": "Order of 10 min in general (Conclusion); order of seconds for simple inputs (Section 3).",
+    "ml_time": "Less than 1 ms for simple inputs (Section 3); order of milliseconds in the Conclusion.",
+    "training_time": "not stated",
+    "data_generation_cost": "Conventional optimization is used to generate training data; its cost is described as heavy/time-demanding, but no total cost is quantified (Introduction and Section 3).",
+    "quality_metric": "Compliance, pixel difference, and design diversity (Sections 3–4).",
+    "quality_gap": "Section 3 reports compliance MAPE comparisons; no single gap stated for the speed claim."
+  },
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-quality-loose", "evidence": "Section 3 evaluates compliance and says TopOpNet resembles the conventional optimizer, but the abstract's speed comparison does not match output quality or state the classical stopping rule."},
+    "R2": {"verdict": "partial", "marker": "R2-hardware-unjustified", "evidence": "Section 3 compares GPU inference with a CPU-intensive conventional algorithm but does not specify the classical hardware or justify the hardware pairing."},
+    "R3": {"verdict": "fail", "marker": "R3-no-cost", "evidence": "The Introduction says classical TO generates training data and the Conclusion reports inference speed, but no training or data-generation cost or amortization is reported."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 3 compares compliance of predicted and classical designs; volume feasibility and failed-design rates are not reported as rates."}
+  },
+  "reporting": {
+    "n_test_cases": "500 reference images for training and 139 for testing in the cross-comparison (Section 4).",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "The queue title differs from the title on the accessible arXiv v2 and the later journal article. The open preprint was coded; its article-level results include both TopOpNet and the GDNet diversity framework."
+}

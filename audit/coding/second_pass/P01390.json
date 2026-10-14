@@ -1,0 +1,71 @@
+{
+  "pid": "P01390",
+  "citation": {
+    "title": "Structural and thermal generative design using reinforcement learning-based search strategy for additive manufacturing",
+    "authors": "Vysakh Venugopal, Sam Anand",
+    "year": 2023,
+    "venue": "Manufacturing Letters, Vol. 35, pp. 564-575",
+    "doi": "10.1016/j.mfglet.2023.08.030",
+    "version_coded": "Abstract only. OpenAlex records this article as hybrid open access (CC BY-NC-ND, publishedVersion) with no repository mirror ('any_repository_has_fulltext': false; 'pdf_url': null), so the only legitimate host is the ScienceDirect page itself, which returned HTTP 403 to every automated access attempt (the article landing page and two PDF-endpoint variants). Abstract text was reconstructed from OpenAlex's bibliographic metadata (abstract_inverted_index), a citation-data source, not the blocked full text"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR",
+    "stratum": "none",
+    "method_family": "rl",
+    "physics": "multiphysics",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Abstract only: a UCB exploration strategy perturbs a SIMP-based, DfAM-constrained TO model across compliance and thermal-conduction problems to generate diverse designs; the abstract claims improved computational scalability versus data-reliant deep-learning TO methods, without a quantitative classical-method comparison.",
+    "key_phrase": "fulfills a gap in computationally efficient methods for exploring generative designs",
+    "location": "abstract (only text accessible)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: full text is not accessible (see version_coded). The abstract gives no timing figure, speedup factor, or explicit quantitative comparison to a classical (non-learned) TO run; it states only a general claim of improved 'scalability to real-world and often computationally expensive part design applications' relative to 'other data-reliant deep learning methods used in TO.'",
+    "direction": "outperform",
+    "alternatives": "None identifiable without full text; the abstract does not name specific alternative candidate primary outcomes."
+  },
+  "baseline": {
+    "classical_method": "Solid Isotropic Material Penalization (SIMP)-based density topology optimization, perturbed via an Upper Confidence Bound (UCB) exploration parameter, with support-minimization and thin-feature-minimization Design-for-Additive-Manufacturing (DfAM) filters (per the abstract); further detail not available",
+    "implementation": "not stated (abstract only)",
+    "solver": "not stated (abstract only)",
+    "hardware_classical": "not stated (abstract only)",
+    "hardware_ml": "not stated (abstract only)",
+    "problem_size": "not stated (abstract only)",
+    "classical_iterations": "not stated (abstract only)",
+    "classical_time": "not stated (abstract only)",
+    "ml_time": "not stated (abstract only)",
+    "training_time": "Described in the abstract as a 'non-data-driven learning method ... based on historical TO iterations,' contrasted with 'data-reliant deep learning methods used in TO,' suggesting no separate offline training dataset, but no cost figure of any kind is given",
+    "data_generation_cost": "not stated (abstract only; the abstract's own framing suggests this method is not data-driven, but gives no cost figure)",
+    "quality_metric": "not stated (abstract only)",
+    "quality_gap": "not stated (abstract only)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated (abstract only)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Vysakh Venugopal, Sam Anand, University of Cincinnati). Duplicate check via audit/pool/pool.csv title search: only one matching row (P01390 itself); no duplicate found. Access: tried the DOI (redirects to linkinghub.elsevier.com, then to sciencedirect.com/science/article/pii/S2213846323000871), the ScienceDirect article page directly, and a ScienceDirect PDF-endpoint variant; all three returned HTTP 403 (bot-blocked; no CAPTCHA or login was bypassed, and none of these attempts used any personal data, email, or API key). OpenAlex's own metadata confirms this is a genuine hybrid-OA article (CC BY-NC-ND, publishedVersion) with no separate repository copy, so ScienceDirect is the only legal host and it is currently inaccessible to automated fetching; a web search for an author-hosted or institutional-repository copy found none. Coded from the abstract only, reconstructed from OpenAlex's bibliographic record (not from the blocked page). The inclusion call (I-UNCLEAR, stratum=none) is a provisional, abstract-level screening judgment: the method (UCB/RL-guided SIMP with DfAM filters) and physics (compliance and thermal conduction, both in scope per protocol Sec. 3.1) support inclusion, but the abstract does not clearly state whether the article's primary outcome compares speed/cost or only design quality/diversity against a classical run, so stratum cannot be assigned without full text. All R1-R4 verdicts are 'na' per the abstract-only rule. If full-text access becomes available later (e.g. via institutional access), this record should be recoded from the actual article rather than relying on this abstract-only placeholder."
+}

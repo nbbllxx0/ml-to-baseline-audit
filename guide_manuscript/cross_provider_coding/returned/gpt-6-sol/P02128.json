@@ -1,0 +1,34 @@
+{
+  "pid": "P02128",
+  "citation": {
+    "title": "Generative Lattice Units with 3D Diffusion for Inverse Design: GLU3D",
+    "authors": "Yayati Jadhav; Joeseph Berthel; Chunshan Hu; Rahul Panat; Jack Beuth; Amir Barati Farimani",
+    "year": 2024,
+    "venue": "Advanced Functional Materials 34, 2404165",
+    "doi": "10.1002/adfm.202404165",
+    "arxiv_id": "",
+    "version_coded": "open-access version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {},
+  "baseline": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion: no classical optimizer result or cost is compared."},
+    "R2": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion: no classical optimizer result or cost is compared."},
+    "R3": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion: no classical optimizer result or cost is compared."},
+    "R4": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion: no classical optimizer result or cost is compared."}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Full text read at https://www.researchgate.net/publication/381296609_Generative_Lattice_Units_with_3D_Diffusion_for_Inverse_Design_GLU3D . Introduction discusses topology optimization as motivation, but Sections 3-4 evaluate diffusion-generated lattices against conventional simple-cubic and body-centered-cubic unit-cell geometries and test desired versus obtained stiffness. No classical topology or homogenization-based optimization run, result, or timing is compared."
+}

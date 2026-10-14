@@ -1,0 +1,25 @@
+{
+ "meta": {
+  "mode": "cpu_iter",
+  "pinning": {
+   "pinned": true,
+   "affinity_mask": "0xfff",
+   "priority": "HIGH_PRIORITY_CLASS"
+  },
+  "started_utc": "2026-09-25T15:37:35Z",
+  "finished_utc": "2026-09-25T15:44:06Z"
+ },
+ "unit": {
+  "median_s": 90.54948469996452,
+  "min_s": 90.50662460003514,
+  "max_s": 90.73347019997891,
+  "repeats_s": [
+   90.54948469996452,
+   90.73347019997891,
+   90.50662460003514
+  ]
+ },
+ "projection_bruteforce_min": 452.7474234998226,
+ "article_unit_min": 16.62,
+ "article_projection_min": 4986
+}

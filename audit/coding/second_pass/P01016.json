@@ -1,0 +1,53 @@
+{
+  "pid": "P01016",
+  "citation": {
+    "title": "Designing Porous Structure with Optimized Topology using Machine Learning",
+    "authors": "Shradha Ghansiyal; Yi Li; Matthias Klar; Jan Christian Aurich",
+    "year": 2024,
+    "venue": "Procedia CIRP, vol. 125, pp. 190-195",
+    "doi": "10.1016/j.procir.2024.08.033",
+    "arxiv_id": "",
+    "version_coded": "abstract only (reconstructed from OpenAlex, https://api.openalex.org/works/W4402298820); no legal full-text route could be reached"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The abstract states that machine-learning models used in place of conventional numerical-simulation-based topology optimization give a significant decrease in computation time with comparable optimization performance to conventional methods, for porous structures aimed at biomedical prostheses/orthoses; no specific number is given.",
+    "key_phrase": "significant decrease in computation time, along with comparable optimization performance to conventional methods",
+    "location": "abstract (no fuller text accessible); qualitative comparison taken as primary outcome per §5.1 rule 3, since the abstract's comparison is not quantitative",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: the abstract states only a qualitative 'significant decrease in computation time', no numeric factor, baseline time, or ML time is given.",
+    "direction": "outperform",
+    "alternatives": "None identifiable from the abstract alone."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated (abstract only)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "runtimes_all_cases": "na"
+  },
+  "retest_candidate": false,
+  "notes": "Access exhausted every legal route found: (1) DOI resolved to the Elsevier/ScienceDirect landing page (linkinghub.elsevier.com -> sciencedirect.com/science/article/pii/S2212827124003871), which returned HTTP 403 to automated access on both the redirect target and the direct-pii URL. (2) OpenAlex lists only the publisher location for this CC-BY-NC-ND article, with pdf_url null. (3) The corresponding authors' institutional page (RPTU / Fachbereich Maschinenbau und Verfahrenstechnik, mv.rptu.de) lists the publication with a citation only, no PDF; a search for a green-OA copy in an institutional repository (KLUEDO/OPUS) found none. (4) A CORE.ac.uk API lookup by DOI returned HTTP 403 (no API key was used or sought, per the no-API-key rule). No CAPTCHA, Cloudflare check, login or paywall was bypassed anywhere; no personal data, email, mailto parameter, or login was used. Coded from the OpenAlex-reconstructed abstract only: access = abstract_only, all R1-R4 = na ('no full text'), and the screening decision is kept as include (I-SPEED, since the abstract explicitly claims a computation-time decrease versus 'conventional methods', a classical-method speed comparison, albeit qualitative) rather than excluded, per the access rules. included.stratum is set to 'none' rather than 'speed', per the record validator (audit.coding.validate_records), which treats stratum as undetermined for any record that is not read in full text; the abstract-level content still points to a speed-type primary outcome (see claim fields). method_family is coded 'other' because the abstract says only 'machine learning models' without naming a specific architecture (CNN, GAN, VAE, etc.); physics is coded 'compliance' as the most likely reading of a biomedical prosthesis/orthosis stiffness-driven topology optimization, but this is inferred from context, not stated explicitly; dim is 'unclear' (not stated). No author named Jun Wang (authors: Shradha Ghansiyal, Yi Li, Matthias Klar, Jan Christian Aurich — note pool.csv orders the second author's name as 'Yi Li', while institutional-page citations order it as 'L. Yi', likely the same person with surname/given-name order swapped between sources; not independently resolved). No duplicate of this title/DOI was found elsewhere in audit/pool/pool.csv."
+}

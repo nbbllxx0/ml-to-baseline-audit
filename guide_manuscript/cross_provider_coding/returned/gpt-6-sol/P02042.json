@@ -1,0 +1,19 @@
+{
+  "pid": "P02042",
+  "citation": {"title": "DQN-Based Pre-Optimization for Dual-Scale Collaborative Topology Optimization of Anisotropic Materials", "authors": "Shuo Feng, Yuhao Yang, Ke Li, Qidong Han, Jinchen Cao, Junyi Du", "year": 2026, "venue": "Applied Sciences", "doi": "10.3390/app16094080", "arxiv_id": "", "version_coded": "version of record"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "rl", "physics": "thermo-mechanical coupling", "dim": "2d (3d geometric extrusion only)"},
+  "claim": {"primary_outcome_paraphrase": "Adding DQN pre-optimization to BESO reduced the final MBB beam structural compliance by 22.463% relative to the conventional setting.", "key_phrase": "", "location": "abstract; numerical values in introduction and Section 5.1/Figure 8", "quantitative": true, "claimed_speedup": null, "claimed_speedup_basis": "No classical and ML runtime pair or numeric speed factor reported.", "direction": "outperform", "alternatives": "Abstract and conclusion also claim faster convergence qualitatively; Section 5.2 reports a 43.1382% compliance reduction using anisotropic rather than isotropic material, a material comparison."},
+  "baseline": {"classical_method": "BESO without DQN pre-optimization/fixed parameter setting (introduction; Section 5.1)", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "PyTorch 2.6.0 CPU version (Section 3.4); processor not stated", "problem_size": "150 x 80 macro elements and 50 x 50 micro elements (Table 4); later MBB generalization 300 x 100 and cantilever 150 x 100 (Section 5.4)", "classical_iterations": "not stated for the comparison in Figure 8", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated; DQN updated after each optimization iteration (Section 3.4)", "data_generation_cost": "not stated", "quality_metric": "normalized structural compliance (Section 5.1/Figure 8); volume fraction constraints 0.4 macro, 0.5 micro (Table 4)", "quality_gap": "0.7421 without pre-optimization versus 0.5754 with it, a stated 22.463% reduction (introduction; Section 5.1)"},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-primary", "evidence": "Abstract: primary quantitative classical comparison is compliance, without a numeric speed comparison."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Sections 3.4 and 5.1: no comparable hardware, classical solver, or runtimes establish an R2 failure condition."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "Section 3.4: DQN training is concurrent with topology optimization and updated each iteration; no offline training is described for the claim."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 2 and 5.1/Figure 8: compliance is computed through the method's FE optimization analysis; Table 4 states volume constraints, but achieved volume and failed or infeasible design counts are not reported."}
+  },
+  "reporting": {"n_test_cases": "MBB and cantilever beam boundary cases (Section 5.4); eight independent MBB runs (Table 3)", "ood_test": "yes", "seeds_or_variance": "yes", "failure_rate_reported": "no", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "on_request", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "The first quantitative classical comparison in the abstract concerns quality, so the primary stratum is quality despite qualitative convergence claims. Section 3.4 names CPU PyTorch; data availability permits inquiries to the corresponding author."
+}

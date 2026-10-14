@@ -1,0 +1,44 @@
+{
+  "pid": "P00042",
+  "citation": {
+    "title": "Variational Quantum Latent Encoding for Topology Optimization",
+    "authors": "Alireza Tabarraei",
+    "year": 2025,
+    "venue": "Engineering with Computers (Springer); arXiv preprint (cs.CE)",
+    "doi": "10.1007/s00366-025-02208-x",
+    "arxiv_id": "2506.17487",
+    "version_coded": "arXiv v1 (submitted 2025-06-20, only version on the abs page), full text read from the downloaded PDF (https://arxiv.org/pdf/2506.17487)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-MLONLY",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: a coordinate-based neural decoder (Fourier-feature MLP) generates topologies from either a variational-quantum-circuit-encoded or a Gaussian-sampled 'classical' latent vector, both optimized end-to-end by automatic differentiation against FE-computed compliance and a volume constraint, with no training dataset. Across cantilever and simply-supported-beam benchmarks, the quantum-encoded variant reaches modestly lower mean compliance and, in some configurations, higher design diversity than the Gaussian-latent variant of the same framework (e.g. Table 2: 29.56 vs 30.07 mean compliance, 3-qubit, no filtering). No classical, non-learned TO method (SIMP-OC, MMA, level set, BESO) is independently run, timed or cited as a comparator anywhere.",
+    "location": "Abstract; Secs. 5.1-5.3 and Tables 1-3 (main text); Conclusion Sec. 7",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No classical (non-learned) TO method's runtime or cost is ever run, timed or cited. The only comparisons throughout the article (Figs. 3-12, Tables 1-3) are between the quantum-latent and classical/Gaussian-latent variants of the authors' own neural-decoder framework, both trained per-problem by gradient descent with no offline dataset."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (FT-MLONLY): both compared 'encodings' are learned methods. The framework is a coordinate-based neural network decoder (Fourier-mapped spatial coordinates + a latent vector) trained end-to-end by automatic differentiation against physics-based losses (FE-computed compliance, volume constraint) -- a neural-reparameterization TO method in the sense of Hoyer et al./TOuNN/NTopo (all cited, refs [13],[15],[19]). The only difference between the two arms is how the low-dimensional latent input is produced: a variational quantum circuit (measured via PennyLane, simulated, not run on real quantum hardware) versus sampling from a standard Gaussian ('classical' in the authors' own terminology, meaning non-quantum, NOT non-learned). Both arms share the identical decoder network and are optimized the same way, so 'classical baseline' here never refers to a classical, non-learned optimization method (SIMP-OC/MMA/level-set/BESO) as PROTOCOL §3 defines it. Full-text and reference-list search confirms SIMP and level-set methods (Sec. 1, refs [6]-[8]) are cited only as background motivation (their limitations: mesh dependency, checkerboarding, local minima, single deterministic solution per run) and SIMP's density-stiffness interpolation formula is reused conceptually inside the authors' own density parameterization (Sec. 2) -- no classical method is independently run, timed, or cited with its own result numbers anywhere in the article, including the Conclusion (Sec. 7), which again only contrasts quantum vs. classical latent encodings and filtering-vs-loss-based regularization. This matches FT-MLONLY ('compares only with other ML methods; no classical comparator is run, timed or cited') rather than FT-NOBASELINE, since a real (ML-vs-ML) comparison with quantitative results (Tables 1-3) does exist, just not against a classical method. Single author (Alireza Tabarraei); not Jun Wang. No code or data availability statement found anywhere in the article (quantum circuits are simulated via PennyLane with PyTorch autograd; no GitHub/repository link). Funding: Institute of Digital Engineering (IDE); no conflicts of interest stated. Duplicate check: audit/pool/pool.csv has exactly one record for this title/arXiv id (P00042); no FT-DUPLICATE applies."
+}

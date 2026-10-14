@@ -1,0 +1,88 @@
+{
+    "pid":  "P00707",
+    "citation":  {
+                     "title":  "A stochastic gradient online learning and prediction method for accelerating structural topology optimization using recurrent neural network",
+                     "authors":  "Yi Xing; Liyong Tong",
+                     "year":  2025,
+                     "venue":  "Engineering Structures, 338, article 120507",
+                     "doi":  "10.1016/j.engstruct.2025.120507",
+                     "arxiv_id":  "none",
+                     "version_coded":  "Abstract only; version of record is open access, but publisher download returned 403"
+                 },
+    "access":  "abstract_only",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "stage":  "cross_provider_pass",
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED (no accessible full text)",
+                     "stratum":  "none",
+                     "method_family":  "other",
+                     "physics":  "compliance",
+                     "dim":  "both"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The abstract reports total computational-time savings of up to 99.3% for 2D and 90.9% for 3D topology optimization using online RNN predictions to skip some FEA and sensitivity-analysis steps.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  true,
+                  "claimed_speedup":  142.86,
+                  "claimed_speedup_basis":  "Derived from the abstract\u0027s maximum 99.3% time saving: classical time / ML time = 1 / (1 - 0.993) = 142.86. The abstract also reports up to 90.9% savings for 3D.",
+                  "direction":  "outperform",
+                  "alternatives":  "The abstract also says stochastic sampling reduces training-set size and RNN parameter count."
+              },
+    "baseline":  {
+                     "classical_method":  "not stated in accessible abstract",
+                     "implementation":  "not stated",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "2D and 3D topology optimization problems; sizes not stated in accessible abstract",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "not stated",
+                     "quality_metric":  "not stated in accessible abstract",
+                     "quality_gap":  "not stated in accessible abstract"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "no-full-text",
+                             "evidence":  "no full text"
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "no-full-text",
+                             "evidence":  "no full text"
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "no-full-text",
+                             "evidence":  "no full text"
+                         },
+                  "R4":  {
+                             "verdict":  "na",
+                             "marker":  "no-full-text",
+                             "evidence":  "no full text"
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "not stated in accessible abstract",
+                      "ood_test":  "unclear",
+                      "seeds_or_variance":  "unclear",
+                      "failure_rate_reported":  "unclear",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "no",
+                      "code_available":  "no",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Abstract is readable at the publisher and reports CC open access, but the publisher full-text download returned 403 and no legitimate alternative full text was found. Abstract-level coding only."
+}

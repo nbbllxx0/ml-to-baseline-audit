@@ -1,0 +1,9 @@
+indicator,k,n,share,ci_low,ci_high
+Code linked,14,57,0.2456,0.1413,0.3776
+Data linked,8,57,0.1404,0.0626,0.2579
+Seeds or variance,10,57,0.1754,0.0875,0.2991
+Failure rate,13,57,0.2281,0.1274,0.3584
+Out-of-distribution test,11,57,0.1930,0.1005,0.3191
+Hardware per method,6,28,0.2143,0.0830,0.4095
+Only selected runtimes,6,28,0.2143,0.0830,0.4095
+Full timing protocol,0,28,0.0000,0.0000,0.1234

@@ -1,0 +1,43 @@
+{
+ "config": {
+  "size": 64,
+  "k": 1,
+  "steps": 20,
+  "repeats": 2,
+  "compile": "not requested",
+  "seed": 20260924,
+  "power": true,
+  "problem_ids": [
+   15
+  ],
+  "torch": "2.11.0+cu128",
+  "device": "NVIDIA GeForce RTX 5090"
+ },
+ "results": [
+  {
+   "problem_id": 15,
+   "energy": {
+    "idle_w": 75.54586956521739,
+    "repeats": 2,
+    "window_s": 1.0435497760772705,
+    "board_j_per_design": 100.26206741571427,
+    "above_idle_j_per_design": 50.892835602967644
+   },
+   "times_s": [
+    0.518491199996788,
+    0.5251949999947101
+   ],
+   "median_s": 0.5218430999957491,
+   "mean_s": 0.5218430999957491,
+   "shape": [
+    64,
+    64
+   ],
+   "output_structure": "tuple/list/list",
+   "value_range": [
+    0.0,
+    1.0
+   ]
+  }
+ ]
+}

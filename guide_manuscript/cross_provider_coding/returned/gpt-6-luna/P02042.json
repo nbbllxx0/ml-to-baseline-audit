@@ -1,0 +1,88 @@
+{
+    "pid":  "P02042",
+    "citation":  {
+                     "title":  "DQN-Based Pre-Optimization for Dual-Scale Collaborative Topology Optimization of Anisotropic Materials",
+                     "authors":  "Shuo Feng; Yuhao Yang; Ke Li; Qidong Han; Jinchen Cao; Junyi Du",
+                     "year":  2026,
+                     "venue":  "Applied Sciences 16(9), 4080",
+                     "doi":  "10.3390/app16094080",
+                     "arxiv_id":  "none",
+                     "version_coded":  "version of record"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-QUALITY",
+                     "stratum":  "quality",
+                     "method_family":  "rl",
+                     "physics":  "multiphysics",
+                     "dim":  "both"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "For the MBB beam, DQN pre-optimization followed by BESO lowers reported structural compliance by 22.463% relative to the no-pre-optimization case.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  true,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No classical-to-ML time ratio is reported; the abstract comparison concerns compliance.",
+                  "direction":  "outperform",
+                  "alternatives":  "The abstract also qualitatively claims faster convergence and better thermal management; conclusion describes convergence efficiency advantages."
+              },
+    "baseline":  {
+                     "classical_method":  "BESO without DQN pre-optimization (fixed penalty settings); SIMP/BESO discussed as traditional methods",
+                     "implementation":  "BESO in numerical-analysis environment; exact implementation not stated",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "Main MBB case: macro 150×80 elements and micro 50×50 elements (Table 4); separate generalization MBB 300×100 and cantilever 150×100 (Section 5.4)",
+                     "classical_iterations":  "No-DQN comparator stopping rule/count not stated; DQN runs 60–180 iterations (Table 3)",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated; DQN training concurrent with topology optimization (Section 3.4)",
+                     "data_generation_cost":  "not stated",
+                     "quality_metric":  "mechanical compliance; thermal compliance also reported",
+                     "quality_gap":  "MBB: 0.7421 without pre-optimization vs 0.5754 with it, 22.463% reduction (Section 5.1)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "pass",
+                             "marker":  "R1-quality-comparison",
+                             "evidence":  "Abstract and Section 5.1: same MBB optimization comparison reports compliance and the reduction; Table 4 gives common macro/micro volume constraints."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Sections 3.3 and 5.1 describe cross-platform implementation and a no-DQN BESO comparison, but provide no solver, hardware comparison, or per-iteration classical timing."
+                         },
+                  "R3":  {
+                             "verdict":  "fail",
+                             "marker":  "R3-no-data-cost",
+                             "evidence":  "Sections 3.4 and 5.1 make training/convergence-efficiency claims, but no training duration, data-generation cost, or break-even accounting is reported."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-no-failure-rate",
+                             "evidence":  "Sections 4.2 and 5.1 report finite-element-based compliance; Table 4 specifies volume constraints, but failure or infeasibility rates are not reported."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Two named geometry cases (MBB and cantilever); eight independent MBB training runs; weighting and microstructure variants (Sections 3.4, 5.2–5.5)",
+                      "ood_test":  "yes",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "yes",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Article states CC BY license and includes software contribution, but no public code repository is identified; retrievable article text alone does not establish runnable public code.",
+    "stage":  "cross_provider_pass"
+}

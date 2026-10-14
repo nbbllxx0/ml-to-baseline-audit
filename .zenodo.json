@@ -1,0 +1,14 @@
+{
+  "title": "How the Classical Baseline Shapes Machine-Learning Speed Claims in Topology Optimization: code and data",
+  "upload_type": "software",
+  "description": "Audit records, analysis and re-test scripts, run summaries, figure data and Online Resources 1-6 for the paper 'How the Classical Baseline Shapes Machine-Learning Speed Claims in Topology Optimization' (arXiv:2610.16051). Code is released under the MIT licence; records, evidence files, figure data and the Online Resources under CC BY 4.0 (see LICENSE and LICENSE-DATA.md). Third-party code, data and weights are not included.",
+  "creators": [
+    {"name": "Yang, Shaoliang", "affiliation": "Santa Clara University"},
+    {"name": "Wang, Jun", "affiliation": "Santa Clara University"}
+  ],
+  "license": "cc-by-4.0",
+  "keywords": ["topology optimization", "machine learning", "benchmarking", "classical baseline", "reproducibility", "meta-research"],
+  "related_identifiers": [
+    {"identifier": "10.48550/arXiv.2610.16051", "relation": "isSupplementTo", "scheme": "doi"}
+  ]
+}

@@ -1,0 +1,1059 @@
+=== ids 64 ===
+run dir: retest/runs/20260925T070716Z_oat_extended_n64
+=== OAT inference 64 ===
+There are modules in CTOPUNet that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Loading weights from local directory
+problem 15 seed 20261924: 0.443 s
+problem 15 seed 20262924: 0.446 s
+problem 15 seed 20263924: 0.461 s
+problem 15 seed 20264924: 0.452 s
+problem 15 seed 20265924: 0.518 s
+problem 676 seed 20261924: 0.447 s
+problem 676 seed 20262924: 0.447 s
+problem 676 seed 20263924: 0.553 s
+problem 676 seed 20264924: 0.445 s
+problem 676 seed 20265924: 0.444 s
+problem 839 seed 20261924: 0.448 s
+problem 839 seed 20262924: 0.444 s
+problem 839 seed 20263924: 0.452 s
+problem 839 seed 20264924: 0.466 s
+problem 839 seed 20265924: 0.447 s
+problem 935 seed 20261924: 0.444 s
+problem 935 seed 20262924: 0.587 s
+problem 935 seed 20263924: 0.515 s
+problem 935 seed 20264924: 0.449 s
+problem 935 seed 20265924: 0.446 s
+problem 961 seed 20261924: 0.448 s
+problem 961 seed 20262924: 0.444 s
+problem 961 seed 20263924: 0.447 s
+problem 961 seed 20264924: 0.449 s
+problem 961 seed 20265924: 0.443 s
+problem 86 seed 20261924: 0.450 s
+problem 86 seed 20262924: 0.446 s
+problem 86 seed 20263924: 0.449 s
+problem 86 seed 20264924: 0.450 s
+problem 86 seed 20265924: 0.465 s
+problem 121 seed 20261924: 0.450 s
+problem 121 seed 20262924: 0.495 s
+problem 121 seed 20263924: 0.447 s
+problem 121 seed 20264924: 0.450 s
+problem 121 seed 20265924: 0.444 s
+problem 134 seed 20261924: 0.449 s
+problem 134 seed 20262924: 0.446 s
+problem 134 seed 20263924: 0.445 s
+problem 134 seed 20264924: 0.451 s
+problem 134 seed 20265924: 0.568 s
+problem 241 seed 20261924: 0.472 s
+problem 241 seed 20262924: 0.444 s
+problem 241 seed 20263924: 0.449 s
+problem 241 seed 20264924: 0.454 s
+problem 241 seed 20265924: 0.449 s
+problem 338 seed 20261924: 0.452 s
+problem 338 seed 20262924: 0.446 s
+problem 338 seed 20263924: 0.445 s
+problem 338 seed 20264924: 0.451 s
+problem 338 seed 20265924: 0.448 s
+problem 403 seed 20261924: 0.450 s
+problem 403 seed 20262924: 0.453 s
+problem 403 seed 20263924: 0.452 s
+problem 403 seed 20264924: 0.453 s
+problem 403 seed 20265924: 0.455 s
+problem 443 seed 20261924: 0.452 s
+problem 443 seed 20262924: 0.452 s
+problem 443 seed 20263924: 0.451 s
+problem 443 seed 20264924: 0.452 s
+problem 443 seed 20265924: 0.479 s
+problem 499 seed 20261924: 0.456 s
+problem 499 seed 20262924: 0.447 s
+problem 499 seed 20263924: 0.448 s
+problem 499 seed 20264924: 0.451 s
+problem 499 seed 20265924: 0.446 s
+problem 523 seed 20261924: 0.455 s
+problem 523 seed 20262924: 0.449 s
+problem 523 seed 20263924: 0.457 s
+problem 523 seed 20264924: 0.463 s
+problem 523 seed 20265924: 0.457 s
+problem 530 seed 20261924: 0.637 s
+problem 530 seed 20262924: 0.495 s
+problem 530 seed 20263924: 0.538 s
+problem 530 seed 20264924: 0.456 s
+problem 530 seed 20265924: 0.456 s
+problem 580 seed 20261924: 0.453 s
+problem 580 seed 20262924: 0.447 s
+problem 580 seed 20263924: 0.465 s
+problem 580 seed 20264924: 0.461 s
+problem 580 seed 20265924: 0.589 s
+problem 581 seed 20261924: 0.462 s
+problem 581 seed 20262924: 0.486 s
+problem 581 seed 20263924: 0.473 s
+problem 581 seed 20264924: 0.471 s
+problem 581 seed 20265924: 0.600 s
+problem 629 seed 20261924: 0.487 s
+problem 629 seed 20262924: 0.450 s
+problem 629 seed 20263924: 0.451 s
+problem 629 seed 20264924: 0.448 s
+problem 629 seed 20265924: 0.448 s
+problem 681 seed 20261924: 0.603 s
+problem 681 seed 20262924: 0.447 s
+problem 681 seed 20263924: 0.446 s
+problem 681 seed 20264924: 0.714 s
+problem 681 seed 20265924: 0.450 s
+problem 760 seed 20261924: 0.448 s
+problem 760 seed 20262924: 0.448 s
+problem 760 seed 20263924: 0.449 s
+problem 760 seed 20264924: 0.455 s
+problem 760 seed 20265924: 0.447 s
+problem 788 seed 20261924: 0.451 s
+problem 788 seed 20262924: 0.447 s
+problem 788 seed 20263924: 0.444 s
+problem 788 seed 20264924: 0.451 s
+problem 788 seed 20265924: 0.446 s
+problem 817 seed 20261924: 0.450 s
+problem 817 seed 20262924: 0.447 s
+problem 817 seed 20263924: 0.446 s
+problem 817 seed 20264924: 0.453 s
+problem 817 seed 20265924: 0.449 s
+problem 972 seed 20261924: 0.453 s
+problem 972 seed 20262924: 0.448 s
+problem 972 seed 20263924: 0.450 s
+problem 972 seed 20264924: 0.449 s
+problem 972 seed 20265924: 0.448 s
+problem 974 seed 20261924: 0.451 s
+problem 974 seed 20262924: 0.447 s
+problem 974 seed 20263924: 0.446 s
+problem 974 seed 20264924: 0.452 s
+problem 974 seed 20265924: 0.447 s
+problem 985 seed 20261924: 0.452 s
+problem 985 seed 20262924: 0.449 s
+problem 985 seed 20263924: 0.449 s
+problem 985 seed 20264924: 0.458 s
+problem 985 seed 20265924: 0.449 s
+=== ours GPU ttq 64 ===
+problem 15 K=  5: wall 0.156 s
+problem 15 K= 10: wall 0.219 s
+problem 15 K= 15: wall 0.277 s
+problem 15 K= 20: wall 0.336 s
+problem 15 K= 30: wall 0.452 s
+problem 15 K= 40: wall 0.569 s
+problem 15 K= 50: wall 0.699 s
+problem 15 K= 75: wall 0.992 s
+problem 15 K=100: wall 1.276 s
+problem 15 K=150: wall 1.839 s
+problem 676 K=  5: wall 0.139 s
+problem 676 K= 10: wall 0.184 s
+problem 676 K= 15: wall 0.232 s
+problem 676 K= 20: wall 0.273 s
+problem 676 K= 30: wall 0.360 s
+problem 676 K= 40: wall 0.456 s
+problem 676 K= 50: wall 0.525 s
+problem 676 K= 75: wall 0.744 s
+problem 676 K=100: wall 0.960 s
+problem 676 K=150: wall 1.344 s
+problem 839 K=  5: wall 0.147 s
+problem 839 K= 10: wall 0.208 s
+problem 839 K= 15: wall 0.264 s
+problem 839 K= 20: wall 0.320 s
+problem 839 K= 30: wall 0.427 s
+problem 839 K= 40: wall 0.534 s
+problem 839 K= 50: wall 0.642 s
+problem 839 K= 75: wall 0.909 s
+problem 839 K=100: wall 1.170 s
+problem 839 K=150: wall 1.647 s
+problem 935 K=  5: wall 0.154 s
+problem 935 K= 10: wall 0.201 s
+problem 935 K= 15: wall 0.248 s
+problem 935 K= 20: wall 0.294 s
+problem 935 K= 30: wall 0.376 s
+problem 935 K= 40: wall 0.446 s
+problem 935 K= 50: wall 0.535 s
+problem 935 K= 75: wall 0.762 s
+problem 935 K=100: wall 0.956 s
+problem 935 K=150: wall 1.375 s
+problem 961 K=  5: wall 0.152 s
+problem 961 K= 10: wall 0.254 s
+problem 961 K= 15: wall 0.363 s
+problem 961 K= 20: wall 0.465 s
+problem 961 K= 30: wall 0.680 s
+problem 961 K= 40: wall 0.895 s
+problem 961 K= 50: wall 1.056 s
+problem 961 K= 75: wall 1.553 s
+problem 961 K=100: wall 2.007 s
+problem 961 K=150: wall 2.913 s
+problem 86 K=  5: wall 0.138 s
+problem 86 K= 10: wall 0.190 s
+problem 86 K= 15: wall 0.239 s
+problem 86 K= 20: wall 0.288 s
+problem 86 K= 30: wall 0.383 s
+problem 86 K= 40: wall 0.471 s
+problem 86 K= 50: wall 0.563 s
+problem 86 K= 75: wall 0.796 s
+problem 86 K=100: wall 1.019 s
+problem 86 K=150: wall 1.417 s
+problem 121 K=  5: wall 0.142 s
+problem 121 K= 10: wall 0.214 s
+problem 121 K= 15: wall 0.288 s
+problem 121 K= 20: wall 0.363 s
+problem 121 K= 30: wall 0.499 s
+problem 121 K= 40: wall 0.636 s
+problem 121 K= 50: wall 0.769 s
+problem 121 K= 75: wall 1.099 s
+problem 121 K=100: wall 1.434 s
+problem 121 K=150: wall 2.085 s
+problem 134 K=  5: wall 0.163 s
+problem 134 K= 10: wall 0.319 s
+problem 134 K= 15: wall 0.477 s
+problem 134 K= 20: wall 0.627 s
+problem 134 K= 30: wall 0.909 s
+problem 134 K= 40: wall 1.175 s
+problem 134 K= 50: wall 1.458 s
+problem 134 K= 75: wall 2.065 s
+problem 134 K=100: wall 2.720 s
+problem 134 K=150: wall 3.844 s
+problem 241 K=  5: wall 0.136 s
+problem 241 K= 10: wall 0.183 s
+problem 241 K= 15: wall 0.229 s
+problem 241 K= 20: wall 0.269 s
+problem 241 K= 30: wall 0.367 s
+problem 241 K= 40: wall 0.441 s
+problem 241 K= 50: wall 0.507 s
+problem 241 K= 75: wall 0.693 s
+problem 241 K=100: wall 0.884 s
+problem 241 K=150: wall 1.257 s
+problem 338 K=  5: wall 0.143 s
+problem 338 K= 10: wall 0.192 s
+problem 338 K= 15: wall 0.238 s
+problem 338 K= 20: wall 0.288 s
+problem 338 K= 30: wall 0.374 s
+problem 338 K= 40: wall 0.462 s
+problem 338 K= 50: wall 0.550 s
+problem 338 K= 75: wall 0.755 s
+problem 338 K=100: wall 0.953 s
+problem 338 K=150: wall 1.353 s
+problem 403 K=  5: wall 0.152 s
+problem 403 K= 10: wall 0.224 s
+problem 403 K= 15: wall 0.283 s
+problem 403 K= 20: wall 0.339 s
+problem 403 K= 30: wall 0.452 s
+problem 403 K= 40: wall 0.562 s
+problem 403 K= 50: wall 0.665 s
+problem 403 K= 75: wall 0.926 s
+problem 403 K=100: wall 1.181 s
+problem 403 K=150: wall 1.687 s
+problem 443 K=  5: wall 0.151 s
+problem 443 K= 10: wall 0.226 s
+problem 443 K= 15: wall 0.307 s
+problem 443 K= 20: wall 0.387 s
+problem 443 K= 30: wall 0.544 s
+problem 443 K= 40: wall 0.693 s
+problem 443 K= 50: wall 0.840 s
+problem 443 K= 75: wall 1.224 s
+problem 443 K=100: wall 1.554 s
+problem 443 K=150: wall 2.217 s
+problem 499 K=  5: wall 0.138 s
+problem 499 K= 10: wall 0.186 s
+problem 499 K= 15: wall 0.232 s
+problem 499 K= 20: wall 0.274 s
+problem 499 K= 30: wall 0.359 s
+problem 499 K= 40: wall 0.439 s
+problem 499 K= 50: wall 0.519 s
+problem 499 K= 75: wall 0.720 s
+problem 499 K=100: wall 0.916 s
+problem 499 K=150: wall 1.328 s
+problem 523 K=  5: wall 0.137 s
+problem 523 K= 10: wall 0.184 s
+problem 523 K= 15: wall 0.230 s
+problem 523 K= 20: wall 0.279 s
+problem 523 K= 30: wall 0.371 s
+problem 523 K= 40: wall 0.456 s
+problem 523 K= 50: wall 0.543 s
+problem 523 K= 75: wall 0.765 s
+problem 523 K=100: wall 0.985 s
+problem 523 K=150: wall 1.425 s
+problem 530 K=  5: wall 0.162 s
+problem 530 K= 10: wall 0.294 s
+problem 530 K= 15: wall 0.424 s
+problem 530 K= 20: wall 0.557 s
+problem 530 K= 30: wall 0.812 s
+problem 530 K= 40: wall 1.072 s
+problem 530 K= 50: wall 1.309 s
+problem 530 K= 75: wall 1.917 s
+problem 530 K=100: wall 2.505 s
+problem 530 K=150: wall 3.687 s
+problem 580 K=  5: wall 0.158 s
+problem 580 K= 10: wall 0.258 s
+problem 580 K= 15: wall 0.346 s
+problem 580 K= 20: wall 0.442 s
+problem 580 K= 30: wall 0.620 s
+problem 580 K= 40: wall 0.797 s
+problem 580 K= 50: wall 0.951 s
+problem 580 K= 75: wall 1.372 s
+problem 580 K=100: wall 1.775 s
+problem 580 K=150: wall 2.594 s
+problem 581 K=  5: wall 0.153 s
+problem 581 K= 10: wall 0.231 s
+problem 581 K= 15: wall 0.279 s
+problem 581 K= 20: wall 0.323 s
+problem 581 K= 30: wall 0.407 s
+problem 581 K= 40: wall 0.488 s
+problem 581 K= 50: wall 0.573 s
+problem 581 K= 75: wall 0.767 s
+problem 581 K=100: wall 0.951 s
+problem 581 K=150: wall 1.336 s
+problem 629 K=  5: wall 0.141 s
+problem 629 K= 10: wall 0.218 s
+problem 629 K= 15: wall 0.302 s
+problem 629 K= 20: wall 0.397 s
+problem 629 K= 30: wall 0.576 s
+problem 629 K= 40: wall 0.750 s
+problem 629 K= 50: wall 0.913 s
+problem 629 K= 75: wall 1.334 s
+problem 629 K=100: wall 1.865 s
+problem 629 K=150: wall 2.568 s
+problem 681 K=  5: wall 0.142 s
+problem 681 K= 10: wall 0.188 s
+problem 681 K= 15: wall 0.233 s
+problem 681 K= 20: wall 0.275 s
+problem 681 K= 30: wall 0.360 s
+problem 681 K= 40: wall 0.441 s
+problem 681 K= 50: wall 0.525 s
+problem 681 K= 75: wall 0.739 s
+problem 681 K=100: wall 0.935 s
+problem 681 K=150: wall 1.320 s
+problem 760 K=  5: wall 0.152 s
+problem 760 K= 10: wall 0.230 s
+problem 760 K= 15: wall 0.307 s
+problem 760 K= 20: wall 0.382 s
+problem 760 K= 30: wall 0.525 s
+problem 760 K= 40: wall 0.675 s
+problem 760 K= 50: wall 0.794 s
+problem 760 K= 75: wall 1.120 s
+problem 760 K=100: wall 1.449 s
+problem 760 K=150: wall 2.066 s
+problem 788 K=  5: wall 0.147 s
+problem 788 K= 10: wall 0.198 s
+problem 788 K= 15: wall 0.244 s
+problem 788 K= 20: wall 0.283 s
+problem 788 K= 30: wall 0.399 s
+problem 788 K= 40: wall 0.468 s
+problem 788 K= 50: wall 0.536 s
+problem 788 K= 75: wall 0.749 s
+problem 788 K=100: wall 0.964 s
+problem 788 K=150: wall 1.351 s
+problem 817 K=  5: wall 0.143 s
+problem 817 K= 10: wall 0.209 s
+problem 817 K= 15: wall 0.283 s
+problem 817 K= 20: wall 0.361 s
+problem 817 K= 30: wall 0.516 s
+problem 817 K= 40: wall 0.668 s
+problem 817 K= 50: wall 0.815 s
+problem 817 K= 75: wall 1.187 s
+problem 817 K=100: wall 1.553 s
+problem 817 K=150: wall 2.283 s
+problem 972 K=  5: wall 0.150 s
+problem 972 K= 10: wall 0.216 s
+problem 972 K= 15: wall 0.279 s
+problem 972 K= 20: wall 0.339 s
+problem 972 K= 30: wall 0.458 s
+problem 972 K= 40: wall 0.577 s
+problem 972 K= 50: wall 0.698 s
+problem 972 K= 75: wall 1.030 s
+problem 972 K=100: wall 1.274 s
+problem 972 K=150: wall 1.809 s
+problem 974 K=  5: wall 0.132 s
+problem 974 K= 10: wall 0.179 s
+problem 974 K= 15: wall 0.219 s
+problem 974 K= 20: wall 0.263 s
+problem 974 K= 30: wall 0.346 s
+problem 974 K= 40: wall 0.423 s
+problem 974 K= 50: wall 0.499 s
+problem 974 K= 75: wall 0.691 s
+problem 974 K=100: wall 0.874 s
+problem 974 K=150: wall 1.273 s
+problem 985 K=  5: wall 0.140 s
+problem 985 K= 10: wall 0.193 s
+problem 985 K= 15: wall 0.260 s
+problem 985 K= 20: wall 0.296 s
+problem 985 K= 30: wall 0.399 s
+problem 985 K= 40: wall 0.505 s
+problem 985 K= 50: wall 0.588 s
+problem 985 K= 75: wall 0.827 s
+problem 985 K=100: wall 1.058 s
+problem 985 K=150: wall 1.525 s
+=== score 64 ===
+problem 15: OAT CE [6.07, 12.46, 47.09, 14.94, 1.96]
+problem 676: OAT CE [0.02, -0.12, 0.08, 0.08, 0.16]
+problem 839: OAT CE [0.01, 0.07, 0.06, -0.03, -0.01]
+problem 935: OAT CE [0.18, 0.59, 0.18, 0.61, -0.18]
+problem 961: OAT CE [2.04, 4.13, 4.63, 2.04, 6.44]
+problem 86: OAT CE [0.59, 0.35, 0.47, 0.47, 1.2]
+problem 121: OAT CE [0.45, 1.0, 0.2, -0.47, 0.74]
+problem 134: OAT CE [2.4, 1.11, 1.13, 1.06, 1.34]
+problem 241: OAT CE [-0.46, 0.06, 0.19, -0.06, 0.1]
+problem 338: OAT CE [0.52, 0.76, 0.4, -0.02, 0.05]
+problem 403: OAT CE [-0.03, -0.17, -1.08, 2.24, -0.01]
+problem 443: OAT CE [1.45, 33260.47, 0.7, 108.51, 0.17]
+problem 499: OAT CE [0.05, 0.27, 0.18, 0.16, 0.06]
+problem 523: OAT CE [0.97, 1.55, 1.47, -0.12, 1.38]
+problem 530: OAT CE [21.35, 4.48, 17.33, 12.28, 20.46]
+problem 580: OAT CE [2.59, 1.57, 1.62, 1.57, 3.07]
+problem 581: OAT CE [0.71, 0.03, 0.08, 1.14, -0.36]
+problem 629: OAT CE [1.25, 4.62, 9.11, 2.18, 8.66]
+problem 681: OAT CE [-0.02, -0.04, -0.04, 0.01, -0.02]
+problem 760: OAT CE [-0.01, 1.56, 0.8, 0.22, 1.18]
+problem 788: OAT CE [0.22, 0.68, 0.04, 0.09, 0.89]
+problem 817: OAT CE [-0.24, 1.44, 0.78, 0.43, 1.32]
+problem 972: OAT CE [-0.01, 0.02, 0.36, 0.01, 0.67]
+problem 974: OAT CE [0.1, 0.03, 0.1, 0.15, 0.18]
+problem 985: OAT CE [-0.02, 0.3, 0.03, 0.04, 0.1]
+=== ids 256 ===
+run dir: retest/runs/20260925T071400Z_oat_extended_n256
+=== OAT inference 256 ===
+There are modules in CTOPUNet that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Loading weights from local directory
+problem 1015 seed 20261924: 0.477 s
+problem 1015 seed 20262924: 0.510 s
+problem 1015 seed 20263924: 0.517 s
+problem 1015 seed 20264924: 0.515 s
+problem 1015 seed 20265924: 0.520 s
+problem 1676 seed 20261924: 0.449 s
+problem 1676 seed 20262924: 0.482 s
+problem 1676 seed 20263924: 0.477 s
+problem 1676 seed 20264924: 0.477 s
+problem 1676 seed 20265924: 0.484 s
+problem 1839 seed 20261924: 0.448 s
+problem 1839 seed 20262924: 0.480 s
+problem 1839 seed 20263924: 0.476 s
+problem 1839 seed 20264924: 0.478 s
+problem 1839 seed 20265924: 0.549 s
+problem 1935 seed 20261924: 0.451 s
+problem 1935 seed 20262924: 0.481 s
+problem 1935 seed 20263924: 0.475 s
+problem 1935 seed 20264924: 0.473 s
+problem 1935 seed 20265924: 0.477 s
+problem 1961 seed 20261924: 0.451 s
+problem 1961 seed 20262924: 0.553 s
+problem 1961 seed 20263924: 0.474 s
+problem 1961 seed 20264924: 0.480 s
+problem 1961 seed 20265924: 0.490 s
+problem 1086 seed 20261924: 0.452 s
+problem 1086 seed 20262924: 0.476 s
+problem 1086 seed 20263924: 0.473 s
+problem 1086 seed 20264924: 0.478 s
+problem 1086 seed 20265924: 0.473 s
+problem 1121 seed 20261924: 0.453 s
+problem 1121 seed 20262924: 0.474 s
+problem 1121 seed 20263924: 0.474 s
+problem 1121 seed 20264924: 0.481 s
+problem 1121 seed 20265924: 0.477 s
+problem 1134 seed 20261924: 0.452 s
+problem 1134 seed 20262924: 0.474 s
+problem 1134 seed 20263924: 0.478 s
+problem 1134 seed 20264924: 0.480 s
+problem 1134 seed 20265924: 0.473 s
+problem 1241 seed 20261924: 0.450 s
+problem 1241 seed 20262924: 0.473 s
+problem 1241 seed 20263924: 0.478 s
+problem 1241 seed 20264924: 0.482 s
+problem 1241 seed 20265924: 0.509 s
+problem 1338 seed 20261924: 0.450 s
+problem 1338 seed 20262924: 0.477 s
+problem 1338 seed 20263924: 0.480 s
+problem 1338 seed 20264924: 0.474 s
+problem 1338 seed 20265924: 0.477 s
+problem 1403 seed 20261924: 0.469 s
+problem 1403 seed 20262924: 0.479 s
+problem 1403 seed 20263924: 0.478 s
+problem 1403 seed 20264924: 0.548 s
+problem 1403 seed 20265924: 0.481 s
+problem 1443 seed 20261924: 0.450 s
+problem 1443 seed 20262924: 0.486 s
+problem 1443 seed 20263924: 0.476 s
+problem 1443 seed 20264924: 0.483 s
+problem 1443 seed 20265924: 0.499 s
+problem 1499 seed 20261924: 0.474 s
+problem 1499 seed 20262924: 0.582 s
+problem 1499 seed 20263924: 0.505 s
+problem 1499 seed 20264924: 0.491 s
+problem 1499 seed 20265924: 0.481 s
+problem 1523 seed 20261924: 0.453 s
+problem 1523 seed 20262924: 0.484 s
+problem 1523 seed 20263924: 0.481 s
+problem 1523 seed 20264924: 0.488 s
+problem 1523 seed 20265924: 0.478 s
+problem 1530 seed 20261924: 0.456 s
+problem 1530 seed 20262924: 0.478 s
+problem 1530 seed 20263924: 0.475 s
+problem 1530 seed 20264924: 0.478 s
+problem 1530 seed 20265924: 0.478 s
+problem 1580 seed 20261924: 0.456 s
+problem 1580 seed 20262924: 0.475 s
+problem 1580 seed 20263924: 0.478 s
+problem 1580 seed 20264924: 0.481 s
+problem 1580 seed 20265924: 0.477 s
+problem 1581 seed 20261924: 0.463 s
+problem 1581 seed 20262924: 0.483 s
+problem 1581 seed 20263924: 0.477 s
+problem 1581 seed 20264924: 0.483 s
+problem 1581 seed 20265924: 0.483 s
+problem 1629 seed 20261924: 0.460 s
+problem 1629 seed 20262924: 0.476 s
+problem 1629 seed 20263924: 0.480 s
+problem 1629 seed 20264924: 0.607 s
+problem 1629 seed 20265924: 0.482 s
+problem 1681 seed 20261924: 0.456 s
+problem 1681 seed 20262924: 0.476 s
+problem 1681 seed 20263924: 0.484 s
+problem 1681 seed 20264924: 0.479 s
+problem 1681 seed 20265924: 0.494 s
+problem 1760 seed 20261924: 0.453 s
+problem 1760 seed 20262924: 0.478 s
+problem 1760 seed 20263924: 0.493 s
+problem 1760 seed 20264924: 0.478 s
+problem 1760 seed 20265924: 0.474 s
+problem 1788 seed 20261924: 0.453 s
+problem 1788 seed 20262924: 0.479 s
+problem 1788 seed 20263924: 0.483 s
+problem 1788 seed 20264924: 0.512 s
+problem 1788 seed 20265924: 0.505 s
+problem 1817 seed 20261924: 0.452 s
+problem 1817 seed 20262924: 0.481 s
+problem 1817 seed 20263924: 0.482 s
+problem 1817 seed 20264924: 0.480 s
+problem 1817 seed 20265924: 0.484 s
+problem 1972 seed 20261924: 0.454 s
+problem 1972 seed 20262924: 0.487 s
+problem 1972 seed 20263924: 0.485 s
+problem 1972 seed 20264924: 0.481 s
+problem 1972 seed 20265924: 0.482 s
+problem 1974 seed 20261924: 0.453 s
+problem 1974 seed 20262924: 0.482 s
+problem 1974 seed 20263924: 0.476 s
+problem 1974 seed 20264924: 0.482 s
+problem 1974 seed 20265924: 0.489 s
+problem 1985 seed 20261924: 0.454 s
+problem 1985 seed 20262924: 0.479 s
+problem 1985 seed 20263924: 0.474 s
+problem 1985 seed 20264924: 0.474 s
+problem 1985 seed 20265924: 0.480 s
+=== ours GPU ttq 256 ===
+problem 1015 K=  5: wall 0.230 s
+problem 1015 K= 10: wall 0.345 s
+problem 1015 K= 15: wall 0.451 s
+problem 1015 K= 20: wall 0.584 s
+problem 1015 K= 30: wall 0.787 s
+problem 1015 K= 40: wall 1.006 s
+problem 1015 K= 50: wall 1.224 s
+problem 1015 K= 75: wall 1.762 s
+problem 1015 K=100: wall 2.284 s
+problem 1015 K=150: wall 3.332 s
+problem 1676 K=  5: wall 0.274 s
+problem 1676 K= 10: wall 0.523 s
+problem 1676 K= 15: wall 0.937 s
+problem 1676 K= 20: wall 1.344 s
+problem 1676 K= 30: wall 2.094 s
+problem 1676 K= 40: wall 2.809 s
+problem 1676 K= 50: wall 3.530 s
+problem 1676 K= 75: wall 5.454 s
+problem 1676 K=100: wall 6.901 s
+problem 1676 K=150: wall 9.905 s
+problem 1839 K=  5: wall 0.323 s
+problem 1839 K= 10: wall 0.719 s
+problem 1839 K= 15: wall 1.167 s
+problem 1839 K= 20: wall 1.634 s
+problem 1839 K= 30: wall 2.558 s
+problem 1839 K= 40: wall 3.500 s
+problem 1839 K= 50: wall 4.411 s
+problem 1839 K= 75: wall 6.713 s
+problem 1839 K=100: wall 8.945 s
+problem 1839 K=150: wall 12.864 s
+problem 1935 K=  5: wall 0.258 s
+problem 1935 K= 10: wall 0.369 s
+problem 1935 K= 15: wall 0.472 s
+problem 1935 K= 20: wall 0.566 s
+problem 1935 K= 30: wall 0.752 s
+problem 1935 K= 40: wall 0.943 s
+problem 1935 K= 50: wall 1.115 s
+problem 1935 K= 75: wall 1.574 s
+problem 1935 K=100: wall 2.004 s
+problem 1935 K=150: wall 2.856 s
+problem 1961 K=  5: wall 0.279 s
+problem 1961 K= 10: wall 0.459 s
+problem 1961 K= 15: wall 0.756 s
+problem 1961 K= 20: wall 1.078 s
+problem 1961 K= 30: wall 1.700 s
+problem 1961 K= 40: wall 2.303 s
+problem 1961 K= 50: wall 2.890 s
+problem 1961 K= 75: wall 4.345 s
+problem 1961 K=100: wall 5.774 s
+problem 1961 K=150: wall 8.552 s
+problem 1086 K=  5: wall 0.318 s
+problem 1086 K= 10: wall 0.474 s
+problem 1086 K= 15: wall 0.626 s
+problem 1086 K= 20: wall 0.784 s
+problem 1086 K= 30: wall 1.083 s
+problem 1086 K= 40: wall 1.403 s
+problem 1086 K= 50: wall 1.696 s
+problem 1086 K= 75: wall 2.446 s
+problem 1086 K=100: wall 3.159 s
+problem 1086 K=150: wall 4.619 s
+problem 1121 K=  5: wall 0.312 s
+problem 1121 K= 10: wall 0.571 s
+problem 1121 K= 15: wall 0.950 s
+problem 1121 K= 20: wall 1.249 s
+problem 1121 K= 30: wall 2.048 s
+problem 1121 K= 40: wall 2.849 s
+problem 1121 K= 50: wall 3.647 s
+problem 1121 K= 75: wall 5.481 s
+problem 1121 K=100: wall 7.367 s
+problem 1121 K=150: wall 11.089 s
+problem 1134 K=  5: wall 0.235 s
+problem 1134 K= 10: wall 0.361 s
+problem 1134 K= 15: wall 0.468 s
+problem 1134 K= 20: wall 0.576 s
+problem 1134 K= 30: wall 0.795 s
+problem 1134 K= 40: wall 1.014 s
+problem 1134 K= 50: wall 1.229 s
+problem 1134 K= 75: wall 1.763 s
+problem 1134 K=100: wall 2.302 s
+problem 1134 K=150: wall 3.341 s
+problem 1241 K=  5: wall 0.290 s
+problem 1241 K= 10: wall 0.496 s
+problem 1241 K= 15: wall 0.712 s
+problem 1241 K= 20: wall 0.921 s
+problem 1241 K= 30: wall 1.324 s
+problem 1241 K= 40: wall 1.708 s
+problem 1241 K= 50: wall 2.096 s
+problem 1241 K= 75: wall 3.046 s
+problem 1241 K=100: wall 3.983 s
+problem 1241 K=150: wall 5.778 s
+problem 1338 K=  5: wall 0.255 s
+problem 1338 K= 10: wall 0.449 s
+problem 1338 K= 15: wall 0.621 s
+problem 1338 K= 20: wall 0.875 s
+problem 1338 K= 30: wall 1.077 s
+problem 1338 K= 40: wall 1.368 s
+problem 1338 K= 50: wall 1.675 s
+problem 1338 K= 75: wall 2.356 s
+problem 1338 K=100: wall 3.049 s
+problem 1338 K=150: wall 4.378 s
+problem 1403 K=  5: wall 0.284 s
+problem 1403 K= 10: wall 0.511 s
+problem 1403 K= 15: wall 0.621 s
+problem 1403 K= 20: wall 0.722 s
+problem 1403 K= 30: wall 0.913 s
+problem 1403 K= 40: wall 1.105 s
+problem 1403 K= 50: wall 1.303 s
+problem 1403 K= 75: wall 1.796 s
+problem 1403 K=100: wall 2.326 s
+problem 1403 K=150: wall 3.365 s
+problem 1443 K=  5: wall 0.215 s
+problem 1443 K= 10: wall 0.311 s
+problem 1443 K= 15: wall 0.399 s
+problem 1443 K= 20: wall 0.483 s
+problem 1443 K= 30: wall 0.643 s
+problem 1443 K= 40: wall 0.801 s
+problem 1443 K= 50: wall 0.956 s
+problem 1443 K= 75: wall 1.348 s
+problem 1443 K=100: wall 1.742 s
+problem 1443 K=150: wall 2.477 s
+problem 1499 K=  5: wall 0.278 s
+problem 1499 K= 10: wall 0.647 s
+problem 1499 K= 15: wall 1.107 s
+problem 1499 K= 20: wall 1.603 s
+problem 1499 K= 30: wall 2.588 s
+problem 1499 K= 40: wall 3.593 s
+problem 1499 K= 50: wall 4.598 s
+problem 1499 K= 75: wall 6.807 s
+problem 1499 K=100: wall 8.844 s
+problem 1499 K=150: wall 12.861 s
+problem 1523 K=  5: wall 0.277 s
+problem 1523 K= 10: wall 0.428 s
+problem 1523 K= 15: wall 0.681 s
+problem 1523 K= 20: wall 0.932 s
+problem 1523 K= 30: wall 1.386 s
+problem 1523 K= 40: wall 1.811 s
+problem 1523 K= 50: wall 2.299 s
+problem 1523 K= 75: wall 3.398 s
+problem 1523 K=100: wall 4.308 s
+problem 1523 K=150: wall 6.190 s
+problem 1530 K=  5: wall 0.255 s
+problem 1530 K= 10: wall 0.461 s
+problem 1530 K= 15: wall 0.601 s
+problem 1530 K= 20: wall 0.802 s
+problem 1530 K= 30: wall 1.214 s
+problem 1530 K= 40: wall 1.656 s
+problem 1530 K= 50: wall 2.054 s
+problem 1530 K= 75: wall 3.144 s
+problem 1530 K=100: wall 4.204 s
+problem 1530 K=150: wall 6.338 s
+problem 1580 K=  5: wall 0.259 s
+problem 1580 K= 10: wall 0.398 s
+problem 1580 K= 15: wall 0.529 s
+problem 1580 K= 20: wall 0.651 s
+problem 1580 K= 30: wall 0.899 s
+problem 1580 K= 40: wall 1.163 s
+problem 1580 K= 50: wall 1.428 s
+problem 1580 K= 75: wall 2.091 s
+problem 1580 K=100: wall 2.776 s
+problem 1580 K=150: wall 4.107 s
+problem 1581 K=  5: wall 0.225 s
+problem 1581 K= 10: wall 0.331 s
+problem 1581 K= 15: wall 0.430 s
+problem 1581 K= 20: wall 0.517 s
+problem 1581 K= 30: wall 0.679 s
+problem 1581 K= 40: wall 0.841 s
+problem 1581 K= 50: wall 0.993 s
+problem 1581 K= 75: wall 1.397 s
+problem 1581 K=100: wall 1.847 s
+problem 1581 K=150: wall 2.699 s
+problem 1629 K=  5: wall 0.261 s
+problem 1629 K= 10: wall 0.409 s
+problem 1629 K= 15: wall 0.551 s
+problem 1629 K= 20: wall 0.679 s
+problem 1629 K= 30: wall 0.933 s
+problem 1629 K= 40: wall 1.194 s
+problem 1629 K= 50: wall 1.431 s
+problem 1629 K= 75: wall 2.021 s
+problem 1629 K=100: wall 2.606 s
+problem 1629 K=150: wall 3.746 s
+problem 1681 K=  5: wall 0.292 s
+problem 1681 K= 10: wall 0.494 s
+problem 1681 K= 15: wall 0.630 s
+problem 1681 K= 20: wall 0.792 s
+problem 1681 K= 30: wall 1.103 s
+problem 1681 K= 40: wall 1.406 s
+problem 1681 K= 50: wall 1.712 s
+problem 1681 K= 75: wall 2.460 s
+problem 1681 K=100: wall 3.196 s
+problem 1681 K=150: wall 4.679 s
+problem 1760 K=  5: wall 0.214 s
+problem 1760 K= 10: wall 0.312 s
+problem 1760 K= 15: wall 0.399 s
+problem 1760 K= 20: wall 0.481 s
+problem 1760 K= 30: wall 0.651 s
+problem 1760 K= 40: wall 0.825 s
+problem 1760 K= 50: wall 0.995 s
+problem 1760 K= 75: wall 1.508 s
+problem 1760 K=100: wall 1.816 s
+problem 1760 K=150: wall 2.591 s
+problem 1788 K=  5: wall 0.286 s
+problem 1788 K= 10: wall 0.535 s
+problem 1788 K= 15: wall 0.898 s
+problem 1788 K= 20: wall 1.280 s
+problem 1788 K= 30: wall 1.927 s
+problem 1788 K= 40: wall 2.514 s
+problem 1788 K= 50: wall 3.082 s
+problem 1788 K= 75: wall 4.435 s
+problem 1788 K=100: wall 5.557 s
+problem 1788 K=150: wall 7.919 s
+problem 1817 K=  5: wall 0.281 s
+problem 1817 K= 10: wall 0.614 s
+problem 1817 K= 15: wall 0.834 s
+problem 1817 K= 20: wall 0.911 s
+problem 1817 K= 30: wall 1.337 s
+problem 1817 K= 40: wall 1.732 s
+problem 1817 K= 50: wall 2.127 s
+problem 1817 K= 75: wall 3.096 s
+problem 1817 K=100: wall 4.037 s
+problem 1817 K=150: wall 5.960 s
+problem 1972 K=  5: wall 0.307 s
+problem 1972 K= 10: wall 0.492 s
+problem 1972 K= 15: wall 0.665 s
+problem 1972 K= 20: wall 0.860 s
+problem 1972 K= 30: wall 1.216 s
+problem 1972 K= 40: wall 1.574 s
+problem 1972 K= 50: wall 1.945 s
+problem 1972 K= 75: wall 2.824 s
+problem 1972 K=100: wall 3.677 s
+problem 1972 K=150: wall 5.379 s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "E:\AI\ml-to-baseline-audit\retest\oat_harness\extended.py", line 177, in <module>
+    main()
+  File "E:\AI\ml-to-baseline-audit\retest\oat_harness\extended.py", line 173, in main
+    {"ids": ids, "infer": infer, "ttq": ttq, "score": score}[args.mode](args)
+  File "E:\AI\ml-to-baseline-audit\retest\oat_harness\extended.py", line 128, in ttq
+    simp_gpu.run(prob, iters=10, return_x=True)             # warm-up, as time_to_quality.py
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\AI\ml-to-baseline-audit\retest\baseline\simp_gpu.py", line 146, in run
+    raise RuntimeError("OC bisection did not converge within BISECT_STEPS")
+RuntimeError: OC bisection did not converge within BISECT_STEPS
+=== resume after baseline clamp fix: ours GPU ttq 256 ===
+problem 1015 K=  5: wall 0.230 s
+problem 1015 K= 10: wall 0.346 s
+problem 1015 K= 15: wall 0.452 s
+problem 1015 K= 20: wall 0.565 s
+problem 1015 K= 30: wall 0.786 s
+problem 1015 K= 40: wall 1.008 s
+problem 1015 K= 50: wall 1.216 s
+problem 1015 K= 75: wall 1.747 s
+problem 1015 K=100: wall 2.286 s
+problem 1015 K=150: wall 3.335 s
+problem 1676 K=  5: wall 0.275 s
+problem 1676 K= 10: wall 0.518 s
+problem 1676 K= 15: wall 0.934 s
+problem 1676 K= 20: wall 1.347 s
+problem 1676 K= 30: wall 2.084 s
+problem 1676 K= 40: wall 2.806 s
+problem 1676 K= 50: wall 3.525 s
+problem 1676 K= 75: wall 5.366 s
+problem 1676 K=100: wall 6.927 s
+problem 1676 K=150: wall 9.896 s
+problem 1839 K=  5: wall 0.323 s
+problem 1839 K= 10: wall 0.718 s
+problem 1839 K= 15: wall 1.163 s
+problem 1839 K= 20: wall 1.607 s
+problem 1839 K= 30: wall 2.568 s
+problem 1839 K= 40: wall 3.482 s
+problem 1839 K= 50: wall 4.403 s
+problem 1839 K= 75: wall 6.681 s
+problem 1839 K=100: wall 8.922 s
+problem 1839 K=150: wall 12.869 s
+problem 1935 K=  5: wall 0.257 s
+problem 1935 K= 10: wall 0.367 s
+problem 1935 K= 15: wall 0.466 s
+problem 1935 K= 20: wall 0.564 s
+problem 1935 K= 30: wall 0.750 s
+problem 1935 K= 40: wall 0.933 s
+problem 1935 K= 50: wall 1.114 s
+problem 1935 K= 75: wall 1.575 s
+problem 1935 K=100: wall 2.003 s
+problem 1935 K=150: wall 2.857 s
+problem 1961 K=  5: wall 0.277 s
+problem 1961 K= 10: wall 0.459 s
+problem 1961 K= 15: wall 0.755 s
+problem 1961 K= 20: wall 1.069 s
+problem 1961 K= 30: wall 1.690 s
+problem 1961 K= 40: wall 2.297 s
+problem 1961 K= 50: wall 2.904 s
+problem 1961 K= 75: wall 4.379 s
+problem 1961 K=100: wall 5.792 s
+problem 1961 K=150: wall 8.570 s
+problem 1086 K=  5: wall 0.300 s
+problem 1086 K= 10: wall 0.471 s
+problem 1086 K= 15: wall 0.628 s
+problem 1086 K= 20: wall 0.778 s
+problem 1086 K= 30: wall 1.084 s
+problem 1086 K= 40: wall 1.395 s
+problem 1086 K= 50: wall 1.693 s
+problem 1086 K= 75: wall 2.444 s
+problem 1086 K=100: wall 3.157 s
+problem 1086 K=150: wall 4.616 s
+problem 1121 K=  5: wall 0.294 s
+problem 1121 K= 10: wall 0.570 s
+problem 1121 K= 15: wall 0.902 s
+problem 1121 K= 20: wall 1.247 s
+problem 1121 K= 30: wall 2.046 s
+problem 1121 K= 40: wall 2.827 s
+problem 1121 K= 50: wall 3.632 s
+problem 1121 K= 75: wall 5.440 s
+problem 1121 K=100: wall 7.356 s
+problem 1121 K=150: wall 11.031 s
+problem 1134 K=  5: wall 0.236 s
+problem 1134 K= 10: wall 0.355 s
+problem 1134 K= 15: wall 0.467 s
+problem 1134 K= 20: wall 0.577 s
+problem 1134 K= 30: wall 0.814 s
+problem 1134 K= 40: wall 1.014 s
+problem 1134 K= 50: wall 1.235 s
+problem 1134 K= 75: wall 1.780 s
+problem 1134 K=100: wall 2.291 s
+problem 1134 K=150: wall 3.345 s
+problem 1241 K=  5: wall 0.287 s
+problem 1241 K= 10: wall 0.495 s
+problem 1241 K= 15: wall 0.708 s
+problem 1241 K= 20: wall 0.919 s
+problem 1241 K= 30: wall 1.323 s
+problem 1241 K= 40: wall 1.726 s
+problem 1241 K= 50: wall 2.095 s
+problem 1241 K= 75: wall 3.050 s
+problem 1241 K=100: wall 3.991 s
+problem 1241 K=150: wall 5.806 s
+problem 1338 K=  5: wall 0.255 s
+problem 1338 K= 10: wall 0.447 s
+problem 1338 K= 15: wall 0.626 s
+problem 1338 K= 20: wall 0.778 s
+problem 1338 K= 30: wall 1.076 s
+problem 1338 K= 40: wall 1.369 s
+problem 1338 K= 50: wall 1.662 s
+problem 1338 K= 75: wall 2.405 s
+problem 1338 K=100: wall 3.048 s
+problem 1338 K=150: wall 4.384 s
+problem 1403 K=  5: wall 0.283 s
+problem 1403 K= 10: wall 0.510 s
+problem 1403 K= 15: wall 0.622 s
+problem 1403 K= 20: wall 0.721 s
+problem 1403 K= 30: wall 0.914 s
+problem 1403 K= 40: wall 1.104 s
+problem 1403 K= 50: wall 1.303 s
+problem 1403 K= 75: wall 1.795 s
+problem 1403 K=100: wall 2.314 s
+problem 1403 K=150: wall 3.355 s
+problem 1443 K=  5: wall 0.216 s
+problem 1443 K= 10: wall 0.312 s
+problem 1443 K= 15: wall 0.398 s
+problem 1443 K= 20: wall 0.482 s
+problem 1443 K= 30: wall 0.681 s
+problem 1443 K= 40: wall 0.800 s
+problem 1443 K= 50: wall 0.956 s
+problem 1443 K= 75: wall 1.349 s
+problem 1443 K=100: wall 1.736 s
+problem 1443 K=150: wall 2.480 s
+problem 1499 K=  5: wall 0.277 s
+problem 1499 K= 10: wall 0.646 s
+problem 1499 K= 15: wall 1.127 s
+problem 1499 K= 20: wall 1.592 s
+problem 1499 K= 30: wall 2.625 s
+problem 1499 K= 40: wall 3.582 s
+problem 1499 K= 50: wall 4.601 s
+problem 1499 K= 75: wall 6.845 s
+problem 1499 K=100: wall 8.868 s
+problem 1499 K=150: wall 12.821 s
+problem 1523 K=  5: wall 0.276 s
+problem 1523 K= 10: wall 0.429 s
+problem 1523 K= 15: wall 0.701 s
+problem 1523 K= 20: wall 0.953 s
+problem 1523 K= 30: wall 1.389 s
+problem 1523 K= 40: wall 1.810 s
+problem 1523 K= 50: wall 2.238 s
+problem 1523 K= 75: wall 3.264 s
+problem 1523 K=100: wall 4.241 s
+problem 1523 K=150: wall 6.146 s
+problem 1530 K=  5: wall 0.330 s
+problem 1530 K= 10: wall 0.458 s
+problem 1530 K= 15: wall 0.658 s
+problem 1530 K= 20: wall 0.917 s
+problem 1530 K= 30: wall 1.297 s
+problem 1530 K= 40: wall 1.674 s
+problem 1530 K= 50: wall 2.072 s
+problem 1530 K= 75: wall 3.252 s
+problem 1530 K=100: wall 4.256 s
+problem 1530 K=150: wall 6.358 s
+problem 1580 K=  5: wall 0.257 s
+problem 1580 K= 10: wall 0.391 s
+problem 1580 K= 15: wall 0.525 s
+problem 1580 K= 20: wall 0.652 s
+problem 1580 K= 30: wall 0.985 s
+problem 1580 K= 40: wall 1.171 s
+problem 1580 K= 50: wall 1.416 s
+problem 1580 K= 75: wall 2.086 s
+problem 1580 K=100: wall 2.782 s
+problem 1580 K=150: wall 4.107 s
+problem 1581 K=  5: wall 0.227 s
+problem 1581 K= 10: wall 0.331 s
+problem 1581 K= 15: wall 0.425 s
+problem 1581 K= 20: wall 0.513 s
+problem 1581 K= 30: wall 0.679 s
+problem 1581 K= 40: wall 0.835 s
+problem 1581 K= 50: wall 1.012 s
+problem 1581 K= 75: wall 1.401 s
+problem 1581 K=100: wall 1.843 s
+problem 1581 K=150: wall 2.800 s
+problem 1629 K=  5: wall 0.260 s
+problem 1629 K= 10: wall 0.409 s
+problem 1629 K= 15: wall 0.553 s
+problem 1629 K= 20: wall 0.677 s
+problem 1629 K= 30: wall 0.938 s
+problem 1629 K= 40: wall 1.175 s
+problem 1629 K= 50: wall 1.423 s
+problem 1629 K= 75: wall 2.018 s
+problem 1629 K=100: wall 2.608 s
+problem 1629 K=150: wall 3.771 s
+problem 1681 K=  5: wall 0.291 s
+problem 1681 K= 10: wall 0.494 s
+problem 1681 K= 15: wall 0.644 s
+problem 1681 K= 20: wall 0.790 s
+problem 1681 K= 30: wall 1.107 s
+problem 1681 K= 40: wall 1.409 s
+problem 1681 K= 50: wall 1.712 s
+problem 1681 K= 75: wall 2.457 s
+problem 1681 K=100: wall 3.193 s
+problem 1681 K=150: wall 4.692 s
+problem 1760 K=  5: wall 0.213 s
+problem 1760 K= 10: wall 0.309 s
+problem 1760 K= 15: wall 0.396 s
+problem 1760 K= 20: wall 0.483 s
+problem 1760 K= 30: wall 0.651 s
+problem 1760 K= 40: wall 0.822 s
+problem 1760 K= 50: wall 0.987 s
+problem 1760 K= 75: wall 1.410 s
+problem 1760 K=100: wall 1.805 s
+problem 1760 K=150: wall 2.588 s
+problem 1788 K=  5: wall 0.284 s
+problem 1788 K= 10: wall 0.535 s
+problem 1788 K= 15: wall 0.894 s
+problem 1788 K= 20: wall 1.277 s
+problem 1788 K= 30: wall 1.922 s
+problem 1788 K= 40: wall 2.511 s
+problem 1788 K= 50: wall 3.083 s
+problem 1788 K= 75: wall 4.361 s
+problem 1788 K=100: wall 5.551 s
+problem 1788 K=150: wall 7.889 s
+problem 1817 K=  5: wall 0.274 s
+problem 1817 K= 10: wall 0.509 s
+problem 1817 K= 15: wall 0.707 s
+problem 1817 K= 20: wall 0.910 s
+problem 1817 K= 30: wall 1.331 s
+problem 1817 K= 40: wall 1.727 s
+problem 1817 K= 50: wall 2.124 s
+problem 1817 K= 75: wall 3.109 s
+problem 1817 K=100: wall 4.038 s
+problem 1817 K=150: wall 5.926 s
+problem 1972 K=  5: wall 0.322 s
+problem 1972 K= 10: wall 0.483 s
+problem 1972 K= 15: wall 0.690 s
+problem 1972 K= 20: wall 0.867 s
+problem 1972 K= 30: wall 1.221 s
+problem 1972 K= 40: wall 1.582 s
+problem 1972 K= 50: wall 1.939 s
+problem 1972 K= 75: wall 2.830 s
+problem 1972 K=100: wall 3.687 s
+problem 1972 K=150: wall 5.357 s
+problem 1974 K=  5: wall 0.315 s
+problem 1974 K= 10: wall 0.536 s
+problem 1974 K= 15: wall 0.796 s
+problem 1974 K= 20: wall 1.067 s
+problem 1974 K= 30: wall 1.600 s
+problem 1974 K= 40: wall 2.226 s
+problem 1974 K= 50: wall 2.671 s
+problem 1974 K= 75: wall 3.996 s
+problem 1974 K=100: wall 5.323 s
+problem 1974 K=150: wall 7.825 s
+problem 1985 K=  5: wall 0.266 s
+problem 1985 K= 10: wall 0.415 s
+problem 1985 K= 15: wall 0.530 s
+problem 1985 K= 20: wall 0.655 s
+problem 1985 K= 30: wall 0.894 s
+problem 1985 K= 40: wall 1.149 s
+problem 1985 K= 50: wall 1.394 s
+problem 1985 K= 75: wall 2.012 s
+problem 1985 K=100: wall 2.617 s
+problem 1985 K=150: wall 3.774 s
+=== score 256 ===
+problem 1015: OAT CE [-6.15, -4.93, -1.59, -4.27, -4.26]
+problem 1676: OAT CE [0.41, 0.2, 0.06, 0.65, 0.17]
+problem 1839: OAT CE [1.29, 1.64, 10.86, 7.36, 4.51]
+problem 1935: OAT CE [0.17, 0.52, 0.59, -0.13, -0.98]
+problem 1961: OAT CE [3.79, 3.83, 2.51, 3.37, 2.04]
+problem 1086: OAT CE [0.26, 0.29, 0.25, 0.23, 0.66]
+problem 1121: OAT CE [4.03, 2.55, 4.99, 6.63, 4.6]
+problem 1134: OAT CE [0.12, 0.35, 0.41, 0.1, 0.19]
+problem 1241: OAT CE [1.07, 0.62, 0.95, 1.05, 0.4]
+problem 1338: OAT CE [0.45, 0.36, -0.27, 0.32, 0.3]
+problem 1403: OAT CE [2.79, -0.18, -0.22, -0.14, -0.31]
+problem 1443: OAT CE [-0.07, -0.07, 0.15, -0.08, 0.02]
+problem 1499: OAT CE [0.62, 0.1, 1.1, 1.22, 0.46]
+problem 1523: OAT CE [0.12, 1.52, 0.23, 1.17, 0.29]
+problem 1530: OAT CE [0.36, 2.64, 2.5, 0.76, 1.16]
+problem 1580: OAT CE [1.31, 2.05, 2.3, 1.8, 1.2]
+problem 1581: OAT CE [0.37, 0.23, 0.49, 0.34, 0.52]
+problem 1629: OAT CE [0.24, 2.01, 0.74, 0.03, 1.0]
+problem 1681: OAT CE [1.97, 2.55, 1.92, 2.87, 2.93]
+problem 1760: OAT CE [-0.03, -0.02, 0.07, -0.01, -0.02]
+problem 1788: OAT CE [3.7, 5.19, 3.12, 3.11, 2.42]
+problem 1817: OAT CE [0.39, 2.17, 0.78, 1.32, 1.74]
+problem 1972: OAT CE [0.27, 0.39, 0.1, 0.24, 0.58]
+problem 1974: OAT CE [0.81, 3.38, 1.07, 0.72, 2.48]
+problem 1985: OAT CE [0.41, 2.04, 1.31, 0.36, 1.5]
+EXTENDED DONE (resumed)

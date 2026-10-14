@@ -1,0 +1,88 @@
+{
+  "pid": "P00150",
+  "citation": {
+    "title": "An AI-Assisted Design Method for Topology Optimization Without Pre-Optimized Training Data",
+    "authors": "Alex Halle, L. Flavio Campanile, Alexander Hasse",
+    "year": 2021,
+    "venue": "Applied Sciences (MDPI, open access); arXiv preprint (cs.LG)",
+    "doi": "10.3390/app11199041",
+    "arxiv_id": "2012.06384",
+    "version_coded": "arXiv v2 (revised 2021-07-27; supersedes v1 of 2020-12-11), full text read from the downloaded PDF (https://arxiv.org/pdf/2012.06384v2). The MDPI version of record (www.mdpi.com/2076-3417/11/19/9041) returned HTTP 403 ('Access Denied') to automated fetch both via WebFetch and direct download; treated as a bot block and not bypassed, per access rules. arXiv v2's dateline (28 July 2021) matches the MDPI publication window, so v2 is very likely the peer-reviewed version's content"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (Sec. 3.2-3.3 report the first quantitative classical comparison: ~8.4 ms for the trained predictor vs ~1.9 s for conventional top88 SIMP-TO on the same 100 validation cases, 'roughly 225 times slower', plus a break-even-point calculation)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A convolutional 'Predictor-Evaluator-Network' (PEN) is trained with no pre-optimized (SIMP-generated) dataset at all: training inputs (boundary conditions, degree of filling) are randomly sampled, and a differentiable FEM-based compliance/mass/filter evaluator supplies the training loss directly. On 100 held-out random validation cases at 64x64 resolution, the trained predictor reproduces a compliance close to the top88 SIMP reference (Fig. 14b) in about 8.4 ms on average, versus 1.9 s for top88 -- about 225x faster -- and the article explicitly computes a break-even point of 5,612 predictions needed to amortize training cost against always running top88.",
+    "key_phrase": "roughly 225 times slower",
+    "location": "Main text, Sec. 3.2 'Computing time comparison' (Fig. 14, Table 4) and Sec. 3.3 (Table 5, break-even point); abstract and conclusion give only the qualitative claim of requiring 'a small fraction of the computational effort'",
+    "quantitative": true,
+    "claimed_speedup": 225,
+    "claimed_speedup_basis": "Article's own stated value (Sec. 3.2): 'roughly 225 times slower' for the conventional method, from tp = 8.4 ms (PEN, average over 100 validation cases) vs tTO = 1.9 s (top88, same cases) -- precise ratio 1900/8.4 = 226.2 [derived], rounded by the authors to 225.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 3.3: 'the PEN method is by orders of magnitude faster than top88' (qualitative restatement of the same finding). (2) Table 5's break-even point eBEP = 5,612 predictions (computed from eBEP = Tp/(tTO - tp)), which implies a one-time training cost Tp = eBEP x (tTO - tp) = 5,612 x 1.8916 s = ~10,617 s = ~2.95 h [derived; not stated directly as a raw number]. (3) Abstract/Conclusion: qualitative-only claims ('small fraction of the computational effort', 'much faster'). (4) Sec. 3.4: a public interactive online demo is offered as a practical/usability claim, not a quantitative one."
+  },
+  "baseline": {
+    "classical_method": "SIMP-based topology optimization ('conventional TO according to Sigmund or Andreassen')",
+    "implementation": "top88, the openly published 88-line MATLAB SIMP code of Andreassen et al. 2011 (ref. [15], [30])",
+    "solver": "top88's standard direct solve (appropriate and efficient at this problem size; not separately specified in this article)",
+    "hardware_classical": "Not separately restated for the top88 comparison runs specifically; presumed to be the same workstation as Table 1 (not 100% explicit)",
+    "hardware_ml": "Training and inference hardware (Table 1): GPU Nvidia Titan RTX (24 GB), CPU AMD Ryzen Threadripper 2950X (16-core), 128 GB RAM, TensorFlow 2.5.0, Python 3.7.3, Windows 10",
+    "problem_size": "64x64-element design domain (Lambda = 4, the final/highest of 4 progressively-grown resolution levels; ~8,450 DOF [inferred]), well below the 1e5-DOF threshold in R2(c)",
+    "classical_iterations": "Not stated explicitly for the top88 comparison runs (standard SIMP convergence, run to completion for each of the 100 validation cases); 1.9 s is presented as the total time for one complete optimization, not a per-iteration figure",
+    "classical_time": "1.9 s on average per case (100 validation cases), Table 5 / Sec. 3.2",
+    "ml_time": "8.4 ms on average per case (100 validation cases), Table 5 / Sec. 3.2; this already includes the predictor's forward pass only (a one-time, amortized training cost is accounted for separately via the break-even calculation)",
+    "training_time": "Not stated as a raw number; derivable from Table 5 as Tp = eBEP x (tTO - tp) = 5,612 x 1.8916 s = ~10,617 s = ~2.95 h [derived]. The training-level growing scheme (Lambda = 1..4, increasing resolution) is described qualitatively as reducing overall training time versus training only at full resolution (Sec. 2)",
+    "data_generation_cost": "None in the conventional sense: the paper's central contribution is that no pre-optimized (SIMP-generated) dataset is built at all. Training inputs (boundary conditions, degree of filling) are sampled uniformly at random at each training batch and scored on-the-fly by a differentiable FEM-based evaluator (Sec. 2, 'Evaluator: Compliance'); this cost is already folded into the reported training time / break-even point, not a separate offline data-generation phase",
+    "quality_metric": "Compliance c computed by a differentiable FEM-based evaluator (Sec. 2, using the displacement vector from an assembled stiffness matrix) applied to the predictor's returned density field, compared against top88's FEM-computed compliance for the same instance (Fig. 14b scatter, 100 cases); supplementary density-field indicators mse, mae, kappa_0.01 (share of elements within 0.01 density of the reference) and kappa (Table 4, aggregated over all 100 cases) also reported. A degree-of-filling (volume) evaluator output M and checkerboard/filter evaluator output F are reported for 6 illustrative examples (Table 3) but not aggregated as a violation rate over all 100 cases",
+    "quality_gap": "Table 4 (100-case average): mse = 0.093 (SD 0.07), mae = 0.114 (SD 0.075), kappa_0.01 = 79.7% (SD 10.1%), kappa = 86.3% (SD 8.0%) -- i.e. 79.7% of elements within 1% density difference of the conventional result. Six illustrative examples (Table 3 vs Fig. 15 captions) give per-case compliance: PEN 1.071/0.320/0.148/0.486/0.399/0.507 vs top88 1.163/0.302/0.144/0.461/0.384/0.502 -- PEN better by ~7.9% on example 1, worse by ~1.0-6.0% on the other five [derived]. Qualitatively, some predictions are 'noisy and contain undesirable elements, which do not contribute to the stiffness'"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched-paired-validation",
+      "evidence": "The 8.4 ms vs 1.9 s timing comparison and the compliance comparison (Fig. 14 a and b) are computed on the identical 100 held-out validation cases, i.e. speed and quality are reported for the same instances side by side, not cherry-picked separately. The aggregate quality gap is quantified (Table 4: kappa_0.01 = 79.7%, kappa = 86.3%) and per-example compliance differences are modest (~1-8%, Table 3 vs Fig. 15), with PEN occasionally better than top88. No evidence of comparing a degraded ML output against a full-convergence classical run without disclosure; both sides are evaluated at the same instance and reported together."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-small-scale-direct-solver",
+      "evidence": "top88 is the standard, openly published Andreassen et al. MATLAB SIMP code, which uses a sparse direct solve -- the efficient class per R2's own elliptic-PDE criterion -- and is entirely appropriate/efficient at this problem's small scale (64x64 elements, ~8,450 DOF [inferred], far below the 1e5-DOF threshold where R2(c)'s GPU-vs-CPU concern would apply). No inflated iteration count or hidden weaker-baseline pattern is evident (1.9 s reads as a total per-instance optimization time at this small size, consistent with a direct solver run to normal convergence). Hardware for the top88 comparison run is not separately re-stated from Table 1's training configuration, a minor gap, but with no indication of a GPU/CPU mismatch given the problem size."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-break-even-reported",
+      "evidence": "Sec. 3.3 and Table 5 explicitly define and report a Break-Even Point (eBEP = 5,612 predictions) at which the amortized cost of training plus per-query inference equals always running the conventional method -- exactly the R3 ✓ criterion ('gives the break-even number of uses'). Data-generation cost in the TO sense is structurally absent (the paper's contribution is eliminating the pre-optimized dataset entirely; training samples are generated on-the-fly and scored by the same FEM-based evaluator used for the loss, Sec. 2), and training cost, while not stated as a raw number, is fully accounted for inside the break-even formula (Eq. 37-38)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-partial-no-aggregate-constraint-check",
+      "evidence": "Compliance is genuinely FEM-based (Sec. 2, 'Evaluator: Compliance', using an assembled stiffness matrix and displacement vector), not an image-similarity proxy, and is computed for the predictor's own returned density field and compared against top88's FEM compliance for all 100 validation cases (Fig. 14b). However, degree-of-filling (volume) deviation and the checkerboard/filter evaluator output are reported only for 6 illustrative examples (Table 3), not aggregated as a violation rate over the full 100-case validation set, and disconnected/floating-material failures are discussed only qualitatively ('noisy and contain undesirable elements, which do not contribute to the stiffness') without a quantified rate."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "100 randomly generated validation cases (held out from training) for the timing/compliance/accuracy comparison (Fig. 14, Tables 4-5); 6 illustrative examples detailed in Table 3 and Fig. 15",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Included: a learned model (CNN-based Predictor-Evaluator-Network) accelerates/replaces iterative TO (PROTOCOL §3 Method), and Sec. 3.2-3.3 give an explicit, paired quantitative speed and quality comparison against top88 (§3 Comparison), so stratum = speed. This is a notably transparent article on R3: it is one of the few in this domain to compute and report an explicit break-even number of uses (5,612), directly matching the protocol's R3 ✓ criterion, and its central contribution (training without any pre-optimized/SIMP-generated dataset) structurally removes the usual R3 data-generation-cost concern. Primary-outcome search: abstract and conclusion contain only the qualitative claim of needing 'a small fraction of the computational effort' / being 'much faster'; the introduction does not restate specific timing numbers; the first genuine quantitative comparison with top88 is in the main text, Sec. 3.2 (Fig. 14, Table 4) and Sec. 3.3 (Table 5), which was therefore taken as the primary outcome per PROTOCOL §5.1 step 2. An interactive online demo of the trained predictor is offered (https://www.tu-chemnitz.de/mb/mp/forschung/ai-design/TODL/) but this is not source code or data release, so code_available = data_available = no; retest_candidate = false accordingly (no public code/data, even though top88 itself is public). Duplicate check: audit/pool/pool.csv has exactly one record for this title/arXiv id (P00150); no FT-DUPLICATE applies. No author of this article is named Jun Wang (authors: Alex Halle, L. Flavio Campanile, Alexander Hasse)."
+}

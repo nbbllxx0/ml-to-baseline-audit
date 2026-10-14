@@ -1,0 +1,254 @@
+pid,title,date,venue,type,abstract,possible_duplicate_of
+P01030,Intelligent lightweight design of bolted spherical joints in spatial grid structures based on topology optimization with 3D-LSGAN predictor,2026-02-11,Engineering Structures,article,,
+P01031,Deep reinforcement learning for heat exchanger shape optimization,2022-06-11,International Journal of Heat and Mass Transfer,article,,
+P01032,Neural network based topology optimisation for metasurfaces,2025-01-01,,conference-paper,,
+P01033,Topologically optimal design and failure prediction using conditional generative adversarial networks,2021-08-19,International Journal for Numerical Methods in Engineering,article,,
+P01034,Neural Network Topology Optimization Algorithm,2026-09-06,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01035,Adaptive Neural Network Topology Optimization,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01034
+P01036,Neural Network Dynamic Topology Optimization,2026-08-29,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01034;P01035
+P01037,Dynamic Topology Optimization of Neural Networks,2026-09-03,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01036
+P01038,Dynamic Neural Network Topology Optimization,2026-08-28,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01034;P01035;P01036;P01037
+P01039,Neural Network Adaptive Topology Optimization,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01034;P01035;P01036;P01038
+P01040,Neural Network Topology Optimization Framework,2026-09-03,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01034;P01035;P01036;P01038;P01039
+P01041,Computational design of mechanical metamaterials,2024-08-27,Nature Computational Science,article,,
+P01042,Intelligent nanochannel topology engineering via integrated machine learning and optimization for high-performance osmotic energy conversion,2025-12-22,Desalination,article,,
+P01043,Neural Network Adaptive Topology Optimization (NNAUTO),2026-09-05,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01035;P01039
+P01044,Dynamic Graph Neural Networks for Topology Optimization,2026-09-05,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01037
+P01045,Dynamic Topology Optimization via Neural Networks,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01036;P01037;P01038;P01044
+P01046,Dynamic Topology Optimization for Artificial Neural Networks,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01037;P01044;P01045
+P01047,Title: Adaptive Topology Optimization for Neural Networks,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01048,Dynamic Neural Network Topology Optimization (DNTO),2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01036;P01038
+P01049,Title: Topology Optimization & Graph Neural Networks,2026-09-03,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01044;P01047
+P01050,Neural Network-based Topology Optimization for Manufacturing,2025-01-01,Figshare,dissertation,,
+P01051,Adaptive Neural Network Topology Optimization Algorithm,2026-09-04,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01034;P01035;P01039;P01043
+P01052,Self-Organizing Neural Networks: Topology Optimization,2026-09-06,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01053,Topology Optimization of Neural Networks Based on Biofeedback,2026-09-05,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01037;P01045
+P01054,Neural Network Topology Optimization and Adaptive Growth,2026-09-05,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01035;P01039;P01043;P01051
+P01055,Biofeedback-Driven Neural Network Topology Optimization,2026-09-02,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01056,Dynamic Topology Optimization for Adaptive Neural Networks,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01037;P01044;P01045;P01046;P01047
+P01057,"Quantum–Classical Synergies in Topology Optimization for 3D-Printed UHPC Bridge Structures: A Critical Review of Computational Paradigms, Sustainability Metrics, and Scalability Barriers",2025-06-26,International Journal of Emerging Science and Engineering,article,,
+P01058,Node-link representation-based deep learning method for reconstructing trabecular bone from low-resolution images,2024-12-25,Expert Systems with Applications,article,,
+P01059,Accelerated inverse design of customizable acoustic metaporous structures using a CNN-GA-based hybrid optimization framework,2023-06-03,Applied Acoustics,article,,
+P01060,Neural Network Dynamic Topology Optimization and Adaptive Emergence,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01035;P01036;P01038;P01039;P01043;P01048;P01051;P01054;P01056
+P01061,Data-driven metamaterial design with Laplace-Beltrami spectrum as “shape-DNA”,2020-02-19,Structural and Multidisciplinary Optimization,article,,
+P01062,Quantum Neural Networks: Topology Optimization of Neuronal Connections,2026-09-03,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01063,Investigation of 2D Topology Optimization Using Neural Networks,2023-01-01,Comillas Repository (Comillas Pontifical University),dissertation,,
+P01064,Title: Dynamic Topology Optimization for Neural Network Architectures,2026-09-04,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01036;P01038;P01048
+P01065,Neural Network Topology Optimization via Adaptive Learning,2026-08-29,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01035;P01039;P01043;P01051;P01054;P01060
+P01066,Topology Optimization in Neural Networks for Deep Reinforcement Learning,2026-08-01,Lecture notes in networks and systems,conference-paper,,
+P01067,Title: Dynamic Topology Optimization for Neural Network Sparsity,2026-09-07,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01036;P01038;P01048;P01064
+P01068,Neural Network Topology Optimization via Reinforcement Learning,2026-09-01,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01065
+P01069,Nature-Inspired Topology Optimization of Recurrent Neural Networks,2020-01-01,RIT Scholar Works (Rochester Institute of Technology),dissertation,,
+P01070,Topology optimization in spatially distributed cellular neural network,2025-05-30,"Library, Museums and Press - UDSpace (University of Delaware)",dissertation,,
+P01071,Density Topology Optimization Method Based on Neural Network,2023-02-06,Frontiers in artificial intelligence and applications,book-chapter,,
+P01072,Dynamic recognition and mirage using neuro-metamaterials,2022-05-16,Nature Communications,article,,
+P01073,Neural Networks for Direct Material Distribution in Frequency Topology Optimization,2026-06-23,Zenodo (CERN European Organization for Nuclear Research),dataset,,
+P01074,Robust topology optimization using efficient neural network surrogates,2021-09-10,,other,,
+P01075,Neural Network Connection Weight Dynamic Topology Optimization Algorithm,2026-09-06,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01034;P01036;P01038
+P01076,Topology Optimization Using Neural Network for Stress Constrained Problems,2023-10-29,,conference-paper,,
+P01077,Multiscale Topology Optimization Via Artificial Neural Networks and Displacement-Driven Topology-Optimized Microstructures,2023-01-01,SSRN Electronic Journal,preprint,,
+P01078,Fail-safe topology optimization using artificial neural networks,2026-06-01,Structural and Multidisciplinary Optimization,article,,
+P01079,Dynamic Topology Optimization for Neural Networks via Evolutionary Algorithms,2026-09-05,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01037;P01044;P01045;P01046;P01056
+P01080,Efficient Structural Topology Optimization Based on Artificial Neural Networks,2025-01-01,,dissertation,,
+P01081,Dataset for Fail-Safe Topology Optimization using Artificial Neural Networks,2026-05-11,,dataset,,P01078
+P01082,Deep Learning-Based Graph Neural Networks for Large-Scale Wireless Network Topology Optimization and Dynamic Resource Allocation,2025-10-24,,conference-paper,,
+P01083,Global topology optimization neural networks for metasurface design (Conference Presentation),2020-03-10,,conference-paper,,
+P01084,Optimization of magnetic field-assisted phase transition in bamboo shoots driven by response surface methodology and machine learning: Process modeling and transition time prediction,2026-04-25,Industrial Crops and Products,article,,
+P01085,Neural Network Adaptive Topology Optimization and Dynamic Neuromorphic Hardware Acceleration,2026-09-02,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01060
+P01086,A Deep Convolutional Neural Network Approach as Surrogate Model for Topology Optimization,2022-01-01,15th World Congress on Computational Mechanics (WCCM-XV) and 8th Asian Pacific Congress on Computational Mechanics (APCOM-VIII),conference-paper,,
+P01087,Topology optimization of heat conduction based on U-ResNet neural network,2026-02-09,Mathematics and Computers in Simulation,article,,
+P01088,The Electromagnetic Topology Optimization Algorithm Based on BP Neural Network Technology,2022-10-12,2022 IEEE 4th International Conference on Civil Aviation Safety and Information Technology (ICCASIT),conference-paper,,
+P01089,Neural Network Topology Optimization via Neuro-Inspired Self-Organization,2026-09-05,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01090,Topology Optimization Using Graph Neural Network in Additive Manufacturing Constraint,2025-11-16,,conference-paper,,P00035
+P01091,Topology optimization-based bone microstructure reconstruction complemented by neural networks,2018-01-01,,article,,
+P01092,Topology Design With Conditional Generative Adversarial Networks,2019-08-18,,conference-paper,,
+P01093,Recent advances in peridynamic theory: A review,2024-01-01,AIMS Materials Science,article,,
+P01094,Typical advances of artificial intelligence in civil engineering,2022-11-03,Advances in Structural Engineering,article,,
+P01095,Advancing statistical learning and artificial intelligence in nanophotonics inverse design,2021-12-22,Nanophotonics,article,,
+P01096,SmartTRO: Optimizing topology robustness for Internet of Things via deep reinforcement learning with graph convolutional networks,2022-09-27,Computer Networks,article,,
+P01097,Multi-material topology optimization using neural networks for plates with variable thickness,2026-07-03,Vietnam Journal of Mechanics,article,,
+P01098,Topology Optimization of Neural Networks as an Integrated Process in Training with Control Theory Methods,2025-06-03,,conference-paper,,
+P01099,Topology Optimization of Brake Pedal with Lattice Structures Using Artificial Neural Networks,2025-01-01,SSRN Electronic Journal,preprint,,
+P01100,Topology Optimization Through Deep Neural Network for Different Mechanical and Thermomechanical Problems,2022-10-30,"Volume 9: Mechanics of Solids, Structures, and Fluids; Micro- and Nano-Systems Engineering and Packaging; Safety Engineering, Risk, and Reliability Analysis; Research Posters",conference-paper,,
+P01101,Topology optimization of piezoelectric structures based on multi-modal input neural network,2026-05-30,Engineering Applications of Artificial Intelligence,article,,
+P01102,Self-Organizing Neural Networks (SOM) Dynamic Topology Optimization for Data Compression,2026-09-01,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01052
+P01103,Tree-Based Codification in Neural Architecture Search for Medical Image Segmentation,2024-01-11,IEEE Transactions on Evolutionary Computation,article,,
+P01104,Sensor Topology Optimization in Dense IoT Environments by Applying Neural Network Configuration,2023-06-08,Sensors,article,,
+P01105,Optimisation of three-dimensional hierarchical structures with tailored lattice metamaterial anisotropy,2021-09-01,Materials & Design,article,,
+P01106,Quantum Neural Network-Assisted Topology Optimization: Concept and Implementation with Parameterized Quantum Circuits,2025-01-01,SSRN Electronic Journal,preprint,,
+P01107,Topology-optimization guided neural network for fast inverse design of acoustic attenuation structures,2026-08-14,Applied Acoustics,article,,
+P01108,Mass Optimization Of 3D-Printed Composites Using Topology Optimization And Artificial Neural Network,2021-06-27,Progress in Canadian Mechanical Engineering. Volume 4,conference-paper,,
+P01109,Topology optimization based thermal management of biped robot abdomen with neural network prediction,2026-09-11,Case Studies in Thermal Engineering,article,,
+P01110,Topology Optimization for Self-Adjoint Problems Using Neural Network-Based Analysis and Design,2024-01-01,SSRN Electronic Journal,preprint,,
+P01111,Acceleration of topology optimization-based bone microstructure reconstruction using artificial neural networks,2019-05-20,,article,,P01091
+P01112,Fast Topology Optimization of PM Motor Using Variational Autoencoder and Neural Networks with Dropout,2022-10-24,2022 IEEE 20th Biennial Conference on Electromagnetic Field Computation (CEFC),conference-paper,,P00579
+P01113,Homogenisation-based topology optimisation for convection-dominated heat transfer incorporated with neural network surrogate modelling,2025-08-27,HAL (Le Centre pour la Communication Scientifique Directe),preprint,,
+P01114,Enhancing Distributed Workflow Optimization with Graph Neural Networks and Deep Learning Techniques,2025-03-20,Journal of Information Systems Engineering & Management,article,,
+P01115,Topological design of thermal conductors using functionally graded materials,2023-03-28,Finite Elements in Analysis and Design,article,,
+P01116,Improving efficiency in structural optimization using RBFNN and MMA-Adam hybrid method,2024-10-01,Advanced Engineering Informatics,article,,
+P01117,Topology Optimization using Deep Learning,2020-11-30,IEEJ Transactions on Power and Energy,article,,P00528
+P01118,A Novel Framework for Direct Topology Optimization Based on Graph Neural Networks through Graph Generation,2025-01-01,SSRN Electronic Journal,preprint,,
+P01119,Feature extraction and topology optimization of periodic lattice structures using extended convolutional neural network,2026-03-02,Computers & Structures,article,,
+P01120,Multi-resolution enhanced physics-informed radial basis deep neural network for topology optimization,2025-01-01,SSRN Electronic Journal,preprint,,
+P01121,Topological Nanofibers Enhanced Piezoelectric Membranes for Soft Bioelectronics,2022-09-30,Advanced Functional Materials,article,,
+P01122,"Decentralized Federated Learning with Non-IID Data: Challenges, Trends, and Future Opportunities",2025-12-19,ACM Computing Surveys,article,,
+P01123,Recent Advances on the Design Automation for Performance-Optimized Fiber Reinforced Polymer Composite Components,2020-05-29,Journal of Composites Science,article,,
+P01124,Opportunities and Challenges of Quantum Computing for Engineering Optimization,2023-07-18,Journal of Computing and Information Science in Engineering,article,,
+P01125,Uncertainty Quantification of Microstructures: A Perspective on Forward and Inverse Problems for Mechanical Properties of Aerospace Materials,2024-11-08,Advanced Engineering Materials,article,,
+P01126,Data-driven design of topologically optimized auxetic metamaterials for tailored stress–strain and Poisson’s ratio-strain behaviors,2025-06-23,Materials & Design,article,,
+P01127,Overview of Methods and Software for the Design of Functionally Graded Lattice Structures,2022-08-06,Advanced Engineering Materials,article,,
+P01128,Mechanical MNIST: A benchmark dataset for mechanical metamodels,2020-03-09,Extreme Mechanics Letters,article,,
+P01129,An Effective Topology Optimization Based on Deep Learning,2018-01-01,Keisan Rikigaku Koenkai koen ronbunshu/Keisan Rikigaku Kouenkai kouen rombunshuu,conference-abstract,,P00528;P01117
+P01130,CarHoods10k: An Industry-Grade Data Set for Representation Learning and Design Optimization in Engineering Applications,2022-01-28,IEEE Transactions on Evolutionary Computation,article,,
+P01131,Graph Neural Network-Enhanced Multi-Agent Reinforcement Learning for Emergency Mesh Network Topology Optimization,2025-10-24,,conference-paper,,
+P01132,"Optimization of Electric-Bike’s Frame Using Topology Optimization, Back Propagation Neural Network and Genetic Algorithm",2025-01-01,Lecture notes in electrical engineering,conference-paper,,
+P01133,A new level set structual topology optimization framework enhanced by nested physical informed neural network,2026-05-07,Acta Mechanica Sinica,article,,
+P01134,A Framework for Predicting Loading Forces Applied on Fish Vertebrae Based on Topology Optimization and Deep Neural Network,2025-05-16,HAL (Le Centre pour la Communication Scientifique Directe),conference-paper,,
+P01135,Multi-Physics Topology Optimization and Neural Network–Based Design of Experiments for Lightweight Automotive Cast Components,2026-04-07,SAE technical papers on CD-ROM/SAE technical paper series,conference-paper,,
+P01136,Topology Optimization of Orthotropic Multi-material Structures Based on Neural Network and Element-Free Galerkin Method,2026-01-01,Mechanisms and machine science,conference-paper,,
+P01137,Data-driven Clinical Decision Support System Using Neural Network Topology Optimization for PCOS Diagnosis,2024-12-18,Journal of Soft Computing and Data Mining,article,,
+P01138,Topology Optimization of Microstrip Lines Using Twin Deep Neural Networks for Performance Prediction and Accuracy Evaluation,2025-02-17,IEICE Transactions on Electronics,article,,
+P01139,"Simultaneous Shape, Size, and Topology Optimization of Truss Structures Using Graph Neural Networks and Metaheuristic Algorithms",2026-04-30,,dissertation,,
+P01140,Dynamic Topology Optimization for Adaptive Machine Learning,2026-09-04,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01141,Enhancing 3D Printing Workflows through Multi-Objective Optimization and Reinforcement Learning Techniques,2025-04-03,Engineering Technology & Applied Science Research,article,,
+P01142,Distributed Network Intrusion Detection System in Satellite-Terrestrial Integrated Networks Using Federated Learning,2020-01-01,IEEE Access,article,,
+P01143,Quantum Machine Learning Topology Optimization,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P00534
+P01144,Dynamic Topologically-Dependent Neural Networks,2026-09-05,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01145,Robust Networking: Dynamic Topology Evolution Learning for Internet of Things,2021-06-21,ACM Transactions on Sensor Networks,article,,
+P01146,Neural network-driven multi-material topology optimization for orthotropic structures using the element-free Galerkin method,2026-08-29,Engineering With Computers,article,,P01136
+P01147,Toward Automated Topology Optimization: Identification of Non-Design Features of CAD Models Using Graph Neural Networks,2023-09-12,Springer tracts in additive manufacturing,conference-paper,,
+P01148,Artificial neural network-based surrogate modelling methods in accelerating topology optimization process for large-scale designs,2022-01-01,,dissertation,,
+P01149,Design of patterns in tubular robots using DNN-metaheuristics optimization,2023-03-23,International Journal of Mechanical Sciences,article,,
+P01150,Inverse Design and Fabrication of a Vanadium Dioxide Optical Device using a Dual Neural Network Topology Optimization Approach,2023-07-01,,conference-paper,,
+P01151,Two-scale topology optimization of multiscale structures and materials via deep neural networks for local and global buckling,2026-05-09,Computer Methods in Applied Mechanics and Engineering,article,,
+P01152,Deep learning accelerated topology optimization of linear and nonlinear structures,2020-01-31,arXiv (Cornell University),preprint,,P00867
+P01153,Neural Network Topology Adaptive Optimization,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01034;P01035;P01036;P01038;P01039;P01040;P01043;P01051;P01054;P01060;P01065
+P01154,Quantum Machine Learning for Dynamic Topology Optimization,2026-09-06,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01140;P01143
+P01155,Enhancing topology optimization through machine learning models,2025-07-14,"Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT)",dissertation,,
+P01156,Dynamic Topology Optimization via Machine Learning,2026-09-01,Zenodo (CERN European Organization for Nuclear Research),preprint,,P00534;P01140;P01143;P01154
+P01157,Applying machine learning in network topology optimization,2021-08-20,ITU Journal on Future and Evolving Technologies,article,,
+P01158,Dynamic Topology for Graph Neural Networks,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01037;P01044;P01045
+P01159,Dynamic Topology Optimization for Machine Learning Algorithms,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01140;P01154;P01156
+P01160,"Integrated Neuromorphic Photonic Computing for AI Acceleration: Emerging Devices, Network Architectures, and Future Paradigms",2025-10-21,Advanced Materials,article,,
+P01161,Dynamic Neural Network Topology Learning,2026-09-02,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01036;P01038
+P01162,Dynamic Topology Adaptive Neural Networks,2026-08-28,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01037;P01045;P01056;P01158
+P01163,Stress-based topology optimization method using deep learning,2022-06-27,"Bridge Safety, Maintenance, Management, Life-Cycle, Resilience and Sustainability",book-chapter,,P00645
+P01164,MACHINE LEARNING METHOD IN ELASTIC PLATE TOPOLOGY OPTIMIZATION PROBLEMS,2023-12-15,PNRPU Mechanics Bulletin,article,,
+P01165,Neural Network Topology Dynamic Adaptive Optimization,2026-09-04,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01035;P01036;P01038;P01039;P01043;P01048;P01051;P01054;P01056;P01060;P01064;P01065;P01067;P01085;P01153
+P01166,Deep reinforcement learning for the rapid on-demand design of mechanical metamaterials with targeted nonlinear deformation responses,2023-09-16,Engineering Applications of Artificial Intelligence,article,,
+P01167,Collaborative optimization design of process parameter and structural topology for laser additive manufacturing,2021-12-29,Chinese Journal of Aeronautics,article,,
+P01168,Determination of the Optimal Parting Line and Drawing Direction During the Casting Process for Topology-optimized Structures Accelerated by Deep Neural Network,2025-01-01,SSRN Electronic Journal,preprint,,
+P01169,Adaptive Dual-Channel Neural Network with Triangulation Topology Optimization for Kidney Cancer Diagnosis and Surgery Planning Using Clinical Metadata,2025-11-26,Sensing and Imaging,article,,
+P01170,The Impact of Adaptive Topology in Adaptive Neural Networks,2026-09-06,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01162
+P01171,Adaptive Topology Generation for Neural Network Architectures,2026-09-07,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01172,Model-and-data-driven robust concurrent optimization for structural topology and device layout integrating load location and non-design domain effects,2025-12-25,Aerospace Science and Technology,article,,
+P01173,Artificial intelligence for operation and control: The case of microgrids,2020-12-09,The Electricity Journal,article,,
+P01174,Dynamic Topology Optimization for Machine Learning Model Tuning,2026-09-02,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01140;P01154;P01156;P01159
+P01175,Sketch driven machine-learning based topology optimization,2023-08-17,Civil-comp conferences,conference-paper,,
+P01176,A Deep Reinforcement Learning Model-based Optimization Method for Graphic Design,2024-04-08,Informatica,article,,
+P01177,Adaptive Topology Optimization – Machine Learning and Quantum Computing,2026-09-07,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01140;P01143;P01154
+P01178,Prediction of Motor Characteristic Using Deep Learning and Acceleration of Topology Optimization,2022-01-01,Journal of the Japan Society of Applied Electromagnetics and Mechanics,article,,
+P01179,Title: Adaptive Topology for Neural Network Architecture,2026-09-03,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01180,LEGO-Motif: Enhancing IoT Topology Robustness With Evolutionary Motif-Based Generation,2026-01-12,IEEE Transactions on Systems Man and Cybernetics Systems,article,,
+P01181,Neural Network Topology Automated Optimization Framework,2026-09-02,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01040
+P01182,Dynamic Topology-Dependent Neural Networks (DTNN),2026-09-01,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01183,Deep learning Based Topology Optimization of Marine Satellite-to-Ground Network,2025-03-21,,conference-paper,,
+P01184,Optimal Design of IPM Rotor Shape Using Generative Adversarial Networks,2021-10-31,2021 24th International Conference on Electrical Machines and Systems (ICEMS),conference-paper,,
+P01185,Topology optimization in mobile wireless networks using machine learning,2025-10-13,,dissertation,,
+P01186,Topology Optimization of Industrial Equipment: A Deep Learning Approach and Software Implement,2024-07-24,,conference-paper,,
+P01187,Structures for deep learning and topology optimization of functions on 3D shapes,2020-04-15,,dissertation,,
+P01188,Adaptive Neural Network-Based Complex Network Topology,2026-09-04,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01035;P01039;P01153
+P01189,Machine Learning Methods as Fast Heuristics for Network Topology Optimization,2024-06-25,,conference-paper,,
+P01190,Design Domain Distribution for Topology Optimization using Machine Learning,2024-01-01,,conference-paper,,
+P01191,Machine-learning assisted topology optimization with structural gene inheritance,2023-08-17,Civil-comp conferences,conference-paper,,
+P01192,Machine Learning Assisted Topology Optimization of Fluid-Thermal-Structural Systems,2026-06-04,,conference-paper,,
+P01193,Dynamic Topology Optimization Framework for Machine Learning Model Performance,2026-09-07,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01156;P01174
+P01194,Investigation of a topology optimization method using machine learning technologies,2021-01-01,The Proceedings of Conference of Hokuriku-Shinetsu Branch,conference-paper,,
+P01195,Self-Organizing Fractal Neural Networks for Pattern Recognition,2026-09-07,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01196,Nonlinear Topological Optimization of Dynamic Spanning Neural Networks,2026-09-06,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01197,Dynamic Topology Adaptive Neural Networks (D-TANet),2026-09-05,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01056;P01162
+P01198,Neural network inspired backpropagation algorithm for nanophotonic optimization,2025-11-28,Chinese Optics Letters,article,,
+P01199,Machine Learning-Enhanced Topology Optimization for Beam-Stiffened Hybrid-Element Structures,2026-02-26,Journal of Mechanical Design,article,,
+P01200,Research on Management Efficiency and Dynamic Relationship in Intelligent Management of Tourism Engineering Based on Industry 4.0,2022-01-22,Computational Intelligence and Neuroscience,article,,
+P01201,Computational mathematics approaches to deep neural network architecture design,2026-05-01,,dissertation,,
+P01202,A Review of Thermal Management and Heat Transfer of Lithium-Ion Batteries,2024-08-06,Energies,article,,
+P01203,Leveraging automatic differentiation in modern machine learning frameworks for (neural) topology optimization,2026-05-01,Structural and Multidisciplinary Optimization,article,,
+P01204,Analysis and Optimization of Dynamic and Static Characteristics of Machining Center Direct-Drive Turntable,2022-09-21,Applied Sciences,article,,
+P01205,Integrating Deep Learning and Topology Optimization for Next-Generation Nanophotonic Devices,2025-05-04,,conference-paper,,
+P01206,Data‐Driven Approaches Toward Smarter Additive Manufacturing,2021-07-23,Advanced Intelligent Systems,article,,
+P01207,"Advancements in diabetic foot insoles: a comprehensive review of design, manufacturing, and performance evaluation",2024-07-15,Frontiers in Bioengineering and Biotechnology,article,,
+P01208,Global topology optimization of supersonic airfoil using machine learning technologies,2021-01-01,Keisan Rikigaku Koenkai koen ronbunshu/Keisan Rikigaku Kouenkai kouen rombunshuu,conference-abstract,,
+P01209,Recent advances in the inverse design of silicon photonic devices and related platforms using deep generative models,2025-06-11,PeerJ Computer Science,article,,
+P01210,Neural Network Topology Adaptive Generation and Dynamic Path Optimization,2026-09-06,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01035;P01036;P01038;P01039;P01060;P01153;P01165
+P01211,A learning-based proactive scheme for improving distribution systems resilience against windstorms,2022-12-07,International Journal of Electrical Power & Energy Systems,article,,
+P01212,Deep learning-enabled generative acceleration for topology-optimized structures in 2D and 3D domain,2026-01-11,Discover Artificial Intelligence,article,,
+P01213,Hybrid Graph Signal Processing Deep Learning Framework for Adaptive Network Topology Optimization,2026-01-30,Journal of Computer and Communication Networks,article,,
+P01214,Deep learning-based topology optimization design method for bridge structures guided by aesthetics,2025-06-30,,book-chapter,,
+P01215,ADGCL-FFNN: A Deep Learning Approach for Device to Device (D2D) Topology Optimization in 6G Network,2025-08-21,,conference-paper,,
+P01216,Improving data-efficiency of deep generative model for fast design synthesis,2024-04-01,Journal of Mechanical Science and Technology,article,,
+P01217,Enhancing Structural Topology Optimization with Deep Learning: A Stress Field-Based Approach,2023-06-04,Zenodo (CERN European Organization for Nuclear Research),article,,
+P01218,A review of structural diversity design and optimization for lattice metamaterials,2024-10-01,AIP Advances,article,,
+P01219,Real-time multi-objective topology optimization method via deep learning,2024-07-12,,book-chapter,,P00645
+P01220,Research on the efficiency of combined convolutional neural network and traditional optimization methods,2023-10-10,,conference-paper,,
+P01221,Artificial Intelligence-Aided Design (AIAD) for Structures and Engineering: A State-of-the-Art Review and Future Perspectives,2025-03-18,Archives of Computational Methods in Engineering,article,,
+P01222,Topology optimization of 3D printed lattice structures using machine learning algorithms,2023-10-11,Νημερτής,article,,
+P01223,Correction: Machine Learning Assisted Topology Optimization of Fluid-Thermal-Structural Systems,2026-06-08,,erratum,,P01192
+P01224,Data-Driven Topology Optimization of Additively Manufactured Parts Using Deep Learning,2026-09-03,Additive manufacturing,book-chapter,,
+P01225,Real-Time Network Topology Optimization Using Dynamic Machine Learning Adaptation,2025-01-31,International Journal for Research in Applied Science and Engineering Technology,article,,
+P01226,Surrogate-assisted machine learning method for reliability-based continuum topology optimization,2022-01-01,,dissertation,,
+P01227,Numerical Modeling and Optimization of Fractured Structures via Machine Learning and Topology Optimization,2024-09-12,,other,,
+P01228,Fast Performance Evaluation for Switched-Capacitor Converter Based on Convolutional Neural Networks,2022-08-04,Applied Sciences,article,,
+P01229,Accelerated Topology Optimization of Phononic Crystals via Deep Learning Surrogate Modeling and Simulated Annealing,2026-01-01,SSRN Electronic Journal,preprint,,
+P01230,Prediction and Optimization of the Design and Process Parameters of a Hybrid DED Product Using Artificial Intelligence,2022-05-16,Applied Sciences,article,,
+P01231,Efficient design of sandwich panels with cellular truss cores and large phononic band gaps using surrogate modeling and global optimization,2024-04-16,Frontiers in Mechanical Engineering,article,,
+P01232,Research on topology optimization of carbon fiber reinforced composite electric vehicle helmet based on deep learning,2024-07-01,Journal of Physics Conference Series,conference-paper,,
+P01233,Integrated Machine Learning and Topology Optimization for Predictive Design of Railway Bogie Frame Mounting Brackets,2026-01-01,Zenodo (CERN European Organization for Nuclear Research),article,,
+P01234,High efficiency metasurface design based on deep generative models,2019-07-29,,article,,
+P01235,S2TE: Staged Scale-Free Topology Evolution for Sparse Spiking Neural Networks,2026-03-01,Machine Learning,article,,
+P01236,A parameter-aware graph neural network for estimation of manufacturing resources in additive manufacturing,2026-03-30,The International Journal of Advanced Manufacturing Technology,article,,
+P01237,Machine Learning Accelerated Topology Optimization and its Applications in Pneumatic Soft Actuator Design,2023-01-01,The Sydney eScholarship Repository (The University of Sydney),dissertation,,
+P01238,Machine-learning-aided heat conductive topology optimization with stochastic gradient descent optimizer,2024-10-24,HAL (Le Centre pour la Communication Scientifique Directe),conference-paper,,P00668
+P01239,Neural Dynamics of Spiking Neural Networks: Topological Learning through Synaptic Plasticity,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01240,Reconstruction of Simulation-Based Physical Field with Limited Samples by Reconstruction Neural Network,2018-04-19,arXiv (Cornell University),preprint,,P00185
+P01241,Machine learning-based surrogate modelling using topology optimization data for two-dimensional compliant structure,2026-01-01,DR-NTU (Nanyang Technological University),dissertation,,
+P01242,Wind power compound model-free adaptive predictive control based on full wind speed,2020-01-01,CSEE Journal of Power and Energy Systems,article,,
+P01243,Finite volume neural network (FVNN) with reduced derivative order for incompressible flows,2025-11-29,Espace ÉTS (ETS),conference-paper,,
+P01244,Bi-EvoGAN: Bi-level Evolutionary Approach for Generative Adversarial Networks,2023-08-14,Applied Soft Computing,article,,
+P01245,Intelligent Form Finding for Lightweight Large-Span Structures Based on Topology Optimization and Deep Learning,2026-04-07,,conference-paper,,
+P01246,Intelligent Computation and Analysis of Mechanical Behaviour in Piezoelectric Metamaterials Based on Physics-Informed Neural Networks,2026-01-22,Journal of advances in engineering and technology.,article,,
+P01247,Topology Optimization and Machine Learning based Parametric Optimization Techniques: A Comparative Study With Physical Validation,2024-12-18,Research Square,preprint,,
+P01248,Problem-independent machine learning-accelerated fail-safe topology optimization of 3D continuum structures,2026-09-01,Structural and Multidisciplinary Optimization,article,,
+P01249,Modeling and Optimization of Irregular Cellular Materials Using Parametric Physics-Augmented Neural Networks,2026-01-01,Lecture notes in computational science and engineering,conference-paper,,
+P01250,Feature Extraction Based on a Convolutional Neural Network for Magnetic Circuit Design of Electric Machine,2022-01-01,Journal of the Japan Society of Applied Electromagnetics and Mechanics,article,,
+P01251,Intelligent generation method for innovative structures of the main truss in a steel bridge,2023-02-03,Soft Computing,article,,
+P01252,Inference on the Edge: Performance Analysis of an Image Classification Task Using Off-The-Shelf CPUs and Open-Source ConvNets,2019-10-01,,conference-paper,,
+P01253,Core Claim: Develop a novel adaptive topology optimization algorithm based on graph neural networks (GNNs) that automatically adjusts topology structures based on system topology and achieves high efficiency of optimization.,2026-08-31,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01254,Dynamic Topology Optimization,2026-09-02,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01036;P01037;P01038;P01045;P01156
+P01255,NeuroFabric: Hardware and ML Model Co-Design for A Priori Sparse Neural Network Training,2022-10-01,2022 IEEE 40th International Conference on Computer Design (ICCD),conference-paper,,
+P01256,"Neuro-Symbolic Generative Design for Additive Manufacturing in Microgravity Environments: Physics-Informed Graph Neural Networks, Variable Gravitational Topology Optimization, and In-Situ Resource Utilization (ISRU) for Deep-Space Exploration",2025-07-21,Zenodo (CERN European Organization for Nuclear Research),article,,
+P01257,Neural Network-Based Integrated Design and Adaptive Control Framework for Robotic Mechanical Structures,2025-12-10,,conference-paper,,
+P01258,Generative design and optimization of lightweight mechanical structures based on physics-constrained neural networks,2026-01-01,IET conference proceedings.,conference-paper,,
+P01259,Research and application of an intelligent mechanical structure generation algorithm integrating recurrent neural network,2026-04-01,Engineering Research Express,article,,
+P01260,Huntrace: Graph Neural Network Based APT Intrusion Detection on Homogeneous Provenance Graphs,2025-08-15,,conference-paper,,
+P01261,Graph-Transformer-based Surrogate Model for Accelerated Converter Circuit Topology Design,2024-06-23,,conference-paper,,
+P01262,EML webinar overview: Elastic Strain Engineering for unprecedented properties,2021-07-14,Extreme Mechanics Letters,article,,
+P01263,Lightweight Structure Design of Crossover Equipment Based On Deep Learning and Topology Optimization-Control Integrated Algorithm,2026-01-01,Procedia Computer Science,conference-paper,,
+P01264,Topology Optimization of Brake Disc Inner Carrier and Development of a Parametric Predictive Model Using Machine Learning,2026-09-17,Dynamics,article,,
+P01265,Machine Learning-Powered Geometry-Aware Filter: A Novel Human-Informed Approach for Advanced Topology Optimization,2025-08-21,Civil-comp conferences,conference-paper,,
+P01266,An Artificial Intelligence Framework to Design Radiation Shielding for Spacecraft and Satellites Using Machine Learning and Topology Optimization,2023-05-12,,dissertation,,
+P01267,Research on topology optimization algorithm in additive manufacturing of continuous fiber reinforced composites based on deep learning,2025-05-01,Journal of Physics Conference Series,conference-paper,,
+P01268,Application of a Machine Learning-Based Topology Optimization Method on an Automotive B-Pillar for Crashworthy Lightweight Design,2026-01-01,MATEC Web of Conferences,conference-paper,,
+P01269,Autoencoder Based Optimization for Electromagnetics Problems,2019-12-01,The Applied Computational Electromagnetics Society Journal (ACES),article,,
+P01270,Neuron Network Topology Optimization,2026-08-28,Zenodo (CERN European Organization for Nuclear Research),preprint,,
+P01271,Design of Anisotropic Patterns in a Continuum Tubular Robot Using Metaheuristics Optimization with a Deep Neural Network,2023-01-01,SSRN Electronic Journal,preprint,,
+P01272,Scalable and Flexible Deep Bayesian Optimization with Auxiliary Information for Scientific Problems.,2021-04-23,arXiv (Cornell University),preprint,,
+P01273,Adaptive Neuron Topology Optimization,2026-08-29,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01270
+P01274,Research on spatial correlation prediction of regional power load based on graph neural networks (GNN),2026-05-23,,conference-abstract,,
+P01275,Deep-Learning-Based Topology Generation of Compliant Mechanisms without Pre-Optimized Training Data: A faster Alternative to Classical Topology Optimization,2026-01-01,SSRN Electronic Journal,preprint,,
+P01276,Compact topology-optimized wavelength demultiplexers with flat-top response enabled by deep learning-based fabrication correction,2026-01-16,Optics Express,article,,
+P01277,A high-performance parallel algorithm based on problem independent machine learning (PIML) for large-scale topology optimization,2026-01-14,Acta Mechanica Sinica,article,,
+P01278,AI-Accelerated Isogeometric Multi-Scale Topology Optimisation for Mechanical Metamaterials,2025-12-12,Zenodo (CERN European Organization for Nuclear Research),article,,
+P01279,A novel approach for topology optimization mirroring human intention: Introducing a pattern-embedded filter built by machine learning,2026-03-05,Computer Methods in Applied Mechanics and Engineering,article,,
+P01280,Dynamic Neuron Topology Optimization,2026-09-01,Zenodo (CERN European Organization for Nuclear Research),preprint,,P01254;P01270;P01273
+P01281,Topology optimization dataset,2023-06-10,Zenodo (CERN European Organization for Nuclear Research),dataset,,
+P01282,Optimizing Node Selection and Path Optimization of Urban Logistics Distribution Network Using Graph Neural Network,2025-12-26,International Journal of Intelligent Transportation Systems Research,article,,

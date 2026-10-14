@@ -1,0 +1,82 @@
+{
+  "per_update_first_50": {
+    "cantilever_120x40": {
+      "updates_compared": 50,
+      "max_relative_difference": 3.9233757718317176e-11,
+      "pass": true
+    },
+    "half_mbb": {
+      "updates_compared": 50,
+      "max_relative_difference": 8.027038281766855e-11,
+      "pass": true
+    },
+    "inclined_cantilever": {
+      "updates_compared": 50,
+      "max_relative_difference": 3.547587338752256e-11,
+      "pass": true
+    }
+  },
+  "final": {
+    "cantilever_120x40": {
+      "C_oc2": 175.0823293512004,
+      "C_port": 175.08232934281386,
+      "relative_difference": 4.790052737620241e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 298,
+      "updates_port": 298,
+      "pass": true
+    },
+    "half_mbb": {
+      "C_oc2": 191.493158987081,
+      "C_port": 191.49315900103417,
+      "relative_difference": 7.286517999552823e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 292,
+      "updates_port": 292,
+      "pass": true
+    },
+    "inclined_cantilever": {
+      "C_oc2": 132.7216582362833,
+      "C_port": 132.72165822971493,
+      "relative_difference": 4.948981819162077e-11,
+      "termination_oc2": "max_stage_steps",
+      "termination_port": "max_stage_steps",
+      "updates_oc2": 1000,
+      "updates_port": 1000,
+      "pass": true
+    },
+    "cantilever_240x80": {
+      "C_oc2": 175.76509800138618,
+      "C_port": 175.76509799938964,
+      "relative_difference": 1.1359136967806e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 208,
+      "updates_port": 208,
+      "pass": true
+    },
+    "cantilever_480x160": {
+      "C_oc2": 171.58414908369124,
+      "C_port": 171.5841490880218,
+      "relative_difference": 2.5238689270647843e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 291,
+      "updates_port": 291,
+      "pass": true
+    },
+    "cantilever_960x320": {
+      "C_oc2": 168.55524524688354,
+      "C_port": 168.55524525464529,
+      "relative_difference": 4.604864986787707e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 571,
+      "updates_port": 571,
+      "pass": true
+    }
+  },
+  "gate_pass": true
+}

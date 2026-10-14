@@ -1,0 +1,46 @@
+{
+  "pid": "P01004",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "One-Shot Optimal Topology Generation through Theory-Driven Machine Learning",
+    "authors": "Ruijin Cang, Hope Yao (Houpu Yao in OpenAlex), Yi Ren",
+    "year": 2018,
+    "venue": "arXiv preprint 1807.10787 v1 (the pool record is OpenAlex W2884778159, a MAG record with no DOI whose only location is export.arxiv.org/pdf/1807.10787). Later versions of the same arXiv record: v2 (19 Nov 2018) and v3 (27 Dec 2018), retitled 'One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning' (pool P00183). Version of record: Computer-Aided Design 109 (2019) 12-21, doi 10.1016/j.cad.2018.12.008 (per P00183; not open access)",
+    "doi": "10.48550/arXiv.1807.10787",
+    "arxiv_id": "1807.10787",
+    "version_coded": "arXiv v1 (27 Jul 2018), PDF (18 pages), read in full as text for the duplicate check; v1 title and the version history confirmed on the arXiv abs page of v1, and the current title on the arXiv abs page (2026-09-24)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as arXiv v1 of P00183). Would-be primary outcome in v1: generator compliance error against the augmented-Lagrangian TO ground truth on 100 unseen loads (mean 6.2 in Case 1, 20.1 in Case 2), a quality comparison.",
+    "location": "Sec. 5.4, pp. 9-10 and Figs. 4 and 6 (v1). The abstract and conclusion of v1 compare only with ML benchmarks (static and heuristic data selection); v1 has no timing statement",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). v1 reports no run time for the generator or the TO solver, so no speed-up is stated or derivable in this version. The speed paragraph coded for P00183 (about 10^-2 s vs 10^2-10^3 s) appears only in the later version.",
+    "direction": "similar_or_mixed",
+    "alternatives": "v1, Sec. 5.4 p. 12: mean global volume violation 8.76% (generator) vs 4.89% (ground truth) in Case 1 and 5.00% vs 3.44% in Case 2; no local-constraint violation. The main quantitative results (abstract, Sec. 5.4) are ML-vs-ML: mean compliance error 26.5 / 10.4 / 6.2 (Case 1) and 45.9 / 42.7 / 20.1 (Case 2) for benchmark I, benchmark II and the proposed method"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00183)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00183)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00183)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00183)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (duplicates) and the closed list (FT-DUPLICATE first). Primary record: P00183 (arXiv 1807.10787 v3, already coded, stratum speed). Identity check (2026-09-24): the pool record P01004 is OpenAlex W2884778159; it has no DOI, its only location is export.arxiv.org/pdf/1807.10787, and its title, authors and date (2018-07-27) match arXiv 1807.10787 v1 exactly (arXiv abs page of v1). The current arXiv title is the P00183 title. The study is the same: a CNN generator is trained by theory-driven active learning, where the deviation from the TO optimality conditions selects new training problems, compared with a static dataset (benchmark I) and heuristic selection (benchmark II) on 2D compliance problems on a 40x120 mesh (Sec. 5). P00183 notes the CAD version of record as not open access, so the latest arXiv version (v3, P00183) is the primary version per the FT-DUPLICATE definition. Differences that matter for the verifier: (1) v1 has no timing statement at all; the speed comparison that P00183 codes as primary outcome (Sec. 5.4 of v3) was added later. A v1-only coding would take the compliance gap to the AL ground truth as primary outcome (stratum quality). (2) v1 Case 2 uses |S0| = 2000, |St| = 100, |Dstatic| = 4500 and reports mean errors with large standard deviations (20.1 +/- 35.9 for the proposed method), whereas the P00183 record codes a median gap of 5.2 over 1000 test inputs (v3 Table 1; not re-read here). (3) v1 volume violations for Case 2 (5.00% vs 3.44% ground truth) differ from the v3 values coded in P00183 (1.6% vs 3.0%). (4) Code link in the v1 conclusion: github.com/DesignInformaticsLab/Theory_Driven_TO (same as P00183). Screening flagged this record as a possible duplicate of P00183 (audit/pool/possible_duplicates.csv). COI check: no author named Jun Wang (authors Cang, Yao, Ren)."
+}

@@ -1,0 +1,155 @@
+[
+  {
+    "pid": "P00005",
+    "access": "full_text",
+    "decision": "exclude",
+    "code": "FT-FORWARD",
+    "rationale": "Sections 2.1–2.3 and Fig. 3: the network supplies a constitutive law; the design updates use adjoint sensitivities and MMA, with no learned optimizer compared against a classical optimizer.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P00069",
+    "access": "full_text",
+    "decision": "exclude",
+    "code": "FT-FORWARD",
+    "rationale": "Sections 3–4 and conclusion: the network predicts lattice material properties inside a gradient-based topology optimizer; comparisons assess optimized designs, not a learned optimization method against classical optimization.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P00110",
+    "access": "full_text",
+    "decision": "include",
+    "code": "I-QUALITY",
+    "rationale": "Section 4.2, Table 3: the neural-network-based data-driven optimization is compared with constitutive-model-based topology optimization on final compliance; the reported differences are under 3%, without a primary speed comparison.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P00390",
+    "access": "full_text",
+    "decision": "exclude",
+    "code": "FT-NOML",
+    "rationale": "Methods, Eqs. 23–31, and Fig. 3: parametrized quantum circuits solve equilibrium and search over structures, but the article does not use a learned model for topology optimization.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P00586",
+    "access": "full_text",
+    "decision": "include",
+    "code": "I-SPEED",
+    "rationale": "Section 4, computational-cost comparison: conventional FE² requires 2,646 minutes per cantilever iteration and an estimated 551 days for 300 iterations; the neural surrogate design took 300 minutes.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P00869",
+    "access": "abstract_only",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Abstract: the learned latent geometry guides lattice optimization, while a classical topology-optimization comparison is suggested but no comparable outcome is stated; the full article was unavailable.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P00972",
+    "access": "full_text",
+    "decision": "include",
+    "code": "I-QUALITY",
+    "rationale": "Section 4.2, Table 5: the VAE latent-space optimizer benchmarks final compliance against published classical multi-material topology optimizers, finding results within 5% of those methods.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P01017",
+    "access": "full_text",
+    "decision": "include",
+    "code": "I-QUALITY",
+    "rationale": "Section 7.1, Table 1: neural-network-based multiscale optimization is compared with single-scale classical topology optimization on final compliance under the same nominal stiff-material constraint.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P01358",
+    "access": "abstract_only",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Abstract: gamma-ray shielding topology is optimized with an analytical attenuation model; machine learning appears only as background, and the publisher full text requires payment.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P01375",
+    "access": "abstract_only",
+    "decision": "exclude",
+    "code": "E-DOMAIN",
+    "rationale": "Abstract: the proposed topology optimizer designs ferromagnetic composites for magnetic actuators, an electromagnetic application outside the protocol's physics scope; full text was not reachable.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P01432",
+    "access": "abstract_only",
+    "decision": "include",
+    "code": "I-UNCLEAR",
+    "rationale": "Abstract: a neural network converts users' sketches into topology-optimization variables, but the stated numerical examples do not establish a classical-method comparison; full text is paywalled.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P01585",
+    "access": "abstract_only",
+    "decision": "exclude",
+    "code": "E-OTHER",
+    "rationale": "SSRN abstract and protocol §11: this is an SSRN-only preprint, whereas eligible preprints must be on arXiv; the linked full-text PDF returned access denied.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P02003",
+    "access": "full_text",
+    "decision": "exclude",
+    "code": "FT-TYPE",
+    "rationale": "Title page and results, Table 2: this is an Engineering Archive preprint without an arXiv version, a preprint type excluded by protocol §11.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P02211",
+    "access": "full_text",
+    "decision": "exclude",
+    "code": "FT-SCOPE",
+    "rationale": "Section 3, Eq. 21: only the cross-sectional areas of a fixed truss are optimized; neither its member connectivity nor material topology is redesigned.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P02212",
+    "access": "full_text",
+    "decision": "exclude",
+    "code": "FT-SCOPE",
+    "rationale": "Section 2: the neural network parameterizes cross-sectional areas in a fixed truss for weight minimization, which is member sizing rather than topology optimization.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P02282",
+    "access": "abstract_only",
+    "decision": "exclude",
+    "code": "E-SCOPE",
+    "rationale": "Abstract: the method solves general neural-network objective optimization and an additive-manufacturing fatigue example; no topology or architected-material inverse-design problem is described.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  },
+  {
+    "pid": "P02535",
+    "access": "abstract_only",
+    "decision": "exclude",
+    "code": "E-NOML",
+    "rationale": "Abstract: the density field is represented with a truncated Fourier basis and optimized classically; no learned model is used, and publisher full text is paywalled.",
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26"
+  }
+]

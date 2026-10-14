@@ -1,0 +1,88 @@
+{
+  "pid": "P00152",
+  "citation": {
+    "title": "Scalable Deep-Learning-Accelerated Topology Optimization for Additively Manufactured Materials",
+    "authors": "Sirui Bi, Jiaxin Zhang, Guannan Zhang",
+    "year": 2020,
+    "venue": "NeurIPS 2020 Workshop on Machine Learning for Engineering Modeling, Simulation and Design (arXiv preprint)",
+    "doi": "10.48550/arXiv.2011.14177",
+    "arxiv_id": "2011.14177",
+    "version_coded": "arXiv v1 (28 Nov 2020; only version), PDF"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "thermal",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a 1024×1024 two-material heat-conduction design run for 200 iterations, SDL-TO on 128 Summit nodes reaches a design close to sequential MMA-based TO on one CPU, with about 8.6× shorter time-to-solution.",
+    "key_phrase": "a speed up of around 8.6x over the standard TO implementation",
+    "location": "abstract (also introduction and conclusion); quantified in Section 3 and Fig. 6b, p. 6",
+    "quantitative": true,
+    "claimed_speedup": 8.6,
+    "claimed_speedup_basis": "Stated: abstract and Fig. 6b give 8.6× (label 8.60× at 128 Summit nodes vs the single-CPU sequential TO, heat conduction 1024×1024, 200 iterations). Absolute times are shown only as bars.",
+    "direction": "outperform",
+    "alternatives": "(1) Speed-ups 1.08×, 2.23×, 4.58× at 16, 32, 64 nodes (Section 3, Fig. 6b). (2) Bridge example: time-to-solution vs node count shown only as bars (Fig. 4d); objectives SDL-TO 7.7708E5 vs Seq-TO 7.7592E5 (480×160) and 3.2146E6 vs 3.2221E6 (960×320) (Fig. 3). (3) Heat conduction uses only 12 gradient learning steps out of 200 updates (Fig. 5 caption)."
+  },
+  "baseline": {
+    "classical_method": "Modified SIMP density TO with adjoint gradients and MMA, run sequentially (Seq-TO) (Section 2)",
+    "implementation": "Authors' own NumPy implementation on a single CPU (Section 2, TO baseline method paragraph)",
+    "solver": "not stated (FEM solve of the state equation; linear solver type not given)",
+    "hardware_classical": "a single CPU; model not stated (Section 2)",
+    "hardware_ml": "ORNL OLCF Summit, 16/32/64/128 nodes, each 2 IBM Power9 CPUs + 6 NVIDIA V100 GPUs with NVLink; mpi4py for parallel simulations, Horovod for distributed GPU training (Section 2)",
+    "problem_size": "Heat conduction 1024×1024 mesh (Section 3, Fig. 5); bridge 480×160 and 960×320 (Fig. 3)",
+    "classical_iterations": "fixed 200 iterations for heat conduction (Section 3); bridge histories shown to 200 iterations (Fig. 4a)",
+    "classical_time": "not printed; Fig. 6b bar about 6×10³ s for Seq-TO heat conduction [read from chart]; bridge times only as bars (Fig. 4d)",
+    "ml_time": "not printed; Fig. 6b speed-up labels 1.08×, 2.23×, 4.58×, 8.60× at 16, 32, 64, 128 nodes; 128-node bar about 0.7×10³ s [read from chart]",
+    "training_time": "not stated separately; the surrogate is trained online inside the run (12 learning steps for heat conduction, Fig. 5 caption); whether the reported time includes training is not stated [inferred: it does, as time-to-solution]",
+    "data_generation_cost": "no offline data; local samples are generated online around the current design (Section 2, Eq. 3); samples per learning step not stated",
+    "quality_metric": "objective histories and final objective vs Seq-TO; visual comparison of designs (Figs. 3–6)",
+    "quality_gap": "Bridge: SDL-TO 7.7708E5 vs Seq-TO 7.7592E5 at 480×160 (+0.15% [derived]); 3.2146E6 vs 3.2221E6 at 960×320 (−0.23% [derived]) (Fig. 3). Heat conduction: no final value printed; Fig. 6a inset shows SDL-TO slightly above Seq-TO [read from plot]"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Section 3, Figs. 5–6: both methods run a fixed 200 iterations on the 1024×1024 problem. Quality is shown only as objective histories and design images, with no printed final objective (Fig. 6a inset suggests SDL-TO slightly higher [read from plot]). Matching is at equal iteration count, not at equal quality, wall-clock or FE-evaluation budget (SDL-TO adds parallel local-sample FE runs at 12 learning steps; sample count not stated). Bridge objectives agree within 0.15–0.23% (Fig. 3), but bridge timing is only in bars (Fig. 4d)."
+    },
+    "R2": {
+      "verdict": "fail",
+      "marker": "R2(c)",
+      "evidence": "Section 2: the baseline is the authors' NumPy MMA code on a single CPU; SDL-TO uses up to 128 Summit nodes with 6 NVIDIA V100 GPUs each (distributed GPU training) plus parallel CPU simulations. The 8.6× (Fig. 6b) is at 128 nodes on a 1024×1024 mesh (≈1.05×10⁶ nodal DOFs [inferred], above 10⁵). The only rationale is that parallel solvers and physics are outside the study's scope (Section 2), which does not justify the hardware asymmetry; at 16 nodes the gain is 1.08× (Fig. 6b)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-per-problem",
+      "evidence": "Section 2, Figs. 1–2: the gradient surrogate is trained online on local samples from the same optimization run; there is no offline dataset or pre-training. Its cost sits inside the reported time-to-solution [inferred; not broken out], so it is judged under R1/R2."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Figs. 3, 4a–c, 6a: objectives of the returned designs are reported (bridge numerically, heat conduction as curves). FE evaluation of the final SDL-TO designs is not described but is needed to compute these objectives [inferred]. Volume-constraint satisfaction and any failed runs are not reported; the heat-conduction final objective is not given as a number."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 design problems: bridge at 480×160 and 960×320, heat conduction at 1024×1024 (Section 3); one run each",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Only arXiv v1 exists (workshop paper). The R2(c) verdict depends on not accepting the authors' scope statement (parallel solvers and physics out of scope) as a justification; if a verifier accepts it, R2 drops to partial (single-CPU NumPy baseline, solver not stated). Reading Fig. 6b gives about 6×10³ s for 200 Seq-TO iterations, i.e. about 30 s per iteration at 1024×1024 [inferred from chart]; this is a candidate for an R2(e) re-test once our strong baseline is timed. No code or data statement in the article."
+}

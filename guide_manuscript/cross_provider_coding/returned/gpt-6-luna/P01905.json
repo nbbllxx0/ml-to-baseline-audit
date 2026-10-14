@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P01905",
+    "citation":  {
+                     "title":  "Scaling atom-by-atom inverse design using nano-topology optimization and diffusion models",
+                     "authors":  "Chun-Teh Chen, Denvid Lau",
+                     "year":  2026,
+                     "venue":  "Materials Horizons",
+                     "doi":  "10.1039/d6mh00986g",
+                     "arxiv_id":  "2604.03276",
+                     "version_coded":  "arXiv v1 (full text with supplementary notes; March 24, 2026)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "stage":  "cross_provider_pass",
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-QUALITY",
+                     "stratum":  "quality",
+                     "method_family":  "diffusion_flow",
+                     "physics":  "compliance",
+                     "dim":  "3d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "At a target mass ratio of 59.60%, the generic Gaussian diffusion model\u0027s best candidate reaches normalized stiffness 0.736, below the best Nano-TO design\u0027s 0.820.",
+                  "key_phrase":  "remains below the best Nano-TO design",
+                  "location":  "Results, Design of nanocantilevers under thickness-periodic boundary conditions using c-DDPM",
+                  "quantitative":  true,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No speed-up is stated or derivable from reported runtimes.",
+                  "direction":  "underperform",
+                  "alternatives":  "The separate TO-DDPM production run reaches 0.860 against Nano-TO\u0027s 0.820; Supplementary Note A.10 also reports a selected TO-DDPM design at 0.822, 0.28% above the Nano-TO best (Results; Supplementary Note A.10)."
+              },
+    "baseline":  {
+                     "classical_method":  "Atom-by-atom Nano-TO using non-learned stiffness optimization; the primary comparator is its best design at the same 59.60% mass ratio (Results, c-DDPM section).",
+                     "implementation":  "LAMMPS atomistic simulation with the Mishin embedded-atom method potential and conjugate-gradient relaxation (Methods).",
+                     "solver":  "Conjugate-gradient energy minimization for atomistic relaxation (Methods).",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "NVIDIA RTX A6000 GPU for c-DDPM training (Methods).",
+                     "problem_size":  "150,480 atoms (148,500 active) for thickness-periodic nanocantilevers; c-DDPM represents the cross-section as an image (Results; Methods).",
+                     "classical_iterations":  "Nano-TO uses 64 independent trials per target mass ratio; max 100,000 minimization iterations per energy minimization (Results; Methods).",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "TO-DDPM training samples are reused from a pool of 48,000 Nano-TO designs; runtime to generate this pool is not stated (Results).",
+                     "quality_metric":  "Normalized bending stiffness from atomistic energy-curvature calculations, at a fixed mass ratio (Results; Methods).",
+                     "quality_gap":  "Gaussian-DDPM best 0.736 versus Nano-TO best 0.820 at mass ratio 59.60% (Results)."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "R1-no-speed-comparison",
+                             "evidence":  "The primary outcome compares design stiffness at equal target mass ratio; it makes no speed claim (Results, c-DDPM section)."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Methods identify LAMMPS with conjugate-gradient atomistic relaxation, but no timing comparison establishes an inefficient classical baseline."
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "R3-no-speed-claim",
+                             "evidence":  "The diffusion-model result is a quality comparison, with no speed claim to assess for cost accounting (Results, c-DDPM section)."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-no-failure-rate",
+                             "evidence":  "Results state that generated designs are converted to atomistic models and evaluated for bending stiffness at the target mass ratio; a failure or infeasibility rate for generated outputs is not reported."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Nano-TO: 64 trials per target mass ratio; Gaussian-DDPM training set: 32,000 layouts; TO-DDPM training pool: 48,000 designs, 32,000 retained; production generation: 32,000 samples (Results).",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "yes",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "yes",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The paper reports disconnected layouts removed from Nano-TO training data and transient floating atoms during Nano-TO optimization, but gives no invalid-output rate for generated diffusion candidates. Code is stated to be public; no reuse license or benchmark runtime is stated in the article."
+}

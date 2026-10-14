@@ -1,0 +1,88 @@
+{
+  "pid": "P00015",
+  "citation": {
+    "title": "Multiscale topology optimization of compressible and nearly incompressible anisotropic hyperelastic structures using physics-augmented neural networks",
+    "authors": "Asghar A. Jadoon, Aryan Tyagi, L. River Spencer, Reese E. Jones, Manuel K. Rausch, Ryan Alberdi, D. Thomas Seidl, Jan N. Fuhg",
+    "year": 2026,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 461, article 119270 (2026), per Crossref; preprint arXiv:2604.06519",
+    "doi": "10.1016/j.cma.2026.119270",
+    "arxiv_id": "2604.06519",
+    "version_coded": "DOE accepted manuscript on OSTI (record 3547204, SAND2026-25661J, 88 pp.) as the most complete accessible version, checked by full-text search and targeted reading; arXiv v1 (7 Apr 2026, HTML) read in full. The version of record (Elsevier) is not open access per Crossref licence metadata [inferred] and was not read. Page numbers below refer to the accepted manuscript (AM)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Using physics-augmented neural-network constitutive surrogates in place of microscale RVE solves is said to cut computational cost markedly relative to classical FE2 concurrent multiscale TO; no FE2 run, timing or cost figure is reported.",
+    "key_phrase": "significantly reducing computational cost compared to classical FE2 approaches",
+    "location": "abstract, penultimate sentence (AM p. 2); restated in Sec. 6 para 3 (AM p. 56)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No times, solve counts or speed-up factors are reported (arXiv v1 read in full; AM searched for timing and hardware terms).",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.1.2 (AM p. 51) and App. C (AM p. 68): optimizing inclusion volume fraction together with density lowers end compliance by more than 6 % (App. C: about 6 %; Fig. C.2 label 6.2 %) versus a fixed-microstructure design; arXiv v1 printed about 8 %. Both arms use the PANN surrogate, so this is an internal ablation, not a classical comparison. (2) App. D (AM p. 71): fixed fiber orientation gives a 19.1 % higher final compliance; internal ablation. (3) App. B (AM pp. 63-67): single-scale TO with an ISNN trained on synthetic data versus the analytical Neo-Hookean and Mooney-Rivlin laws; qualitative agreement only, with slight differences in the incompressible case. (4) Sec. 1 (AM p. 3): FE2 is described as needing on the order of hundreds of thousands of RVE solves per optimization iteration; background, not a measurement."
+  },
+  "baseline": {
+    "classical_method": "Implicit comparator only: classical FE2 concurrent multiscale TO, never run. The optimization itself is density-based SIMP with a linear filter, Heaviside projection and continuation, solved with MMA (Sec. 4, 4.3.2, 5).",
+    "implementation": "No FE2 baseline implemented. ISNN surrogates in PyTorch (Sec. 3, AM p. 20); the TO code is not named.",
+    "solver": "No classical baseline. The method's Newton linear systems use a direct sparse solver (Sec. 5, AM p. 40).",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated; TACC is acknowledged for computing resources (Acknowledgments)",
+    "problem_size": "Simply supported beam: 50 × 3 × 15 mesh (Sec. 5.1.1, AM p. 43); 3D cantilever with cubic RVE: 40 × 20 × 20 mesh (Sec. 5.1.2, AM p. 50); nearly incompressible cantilever: 60 × 15 × 15 mesh (Sec. 5.2, AM p. 53); mesh of the Sec. 5.1.1 cantilever not stated",
+    "classical_iterations": "No classical run. The method uses continuation steps of 20 to 50 iterations, advancing early when the objective changes less than 0.1 % over five iterations (Sec. 5, AM p. 39); the simply supported beam design settled by iteration 190 (Sec. 5.1.1, Fig. 4, AM p. 45).",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; Adam for 10^5 epochs, full batch, learning rates 10^-3 (weights and biases) and 10^-4 (rotation parameters) (Sec. 3, AM p. 20)",
+    "data_generation_cost": "not stated. Only the cubic-RVE set is sized: N_F = 200 deformation gradients by Latin hypercube sampling up to 20 % strain, phi_max = 0.25, number of phi levels not stated (Sec. 5.1.2, AM p. 48). The fiber-RVE set (phi from 0 % to 50 %) and the nearly incompressible set are not sized (Sec. 5.1.1, 5.2). Synthetic App. B sets: N = 500 each (AM pp. 63, 65).",
+    "quality_metric": "End compliance from nonlinear FE with the PANN constitutive law (Figs. 4, 5, 7, 9); surrogate fit shown only as parity plots without numbers (Figs. 2, 6, 8).",
+    "quality_gap": "not stated versus FE2; App. B reports only qualitative agreement with TO using analytical constitutive laws"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-no-quality-comparison",
+      "evidence": "Abstract (AM p. 2) and Sec. 6 (AM p. 56): the FE2 cost claim has no design-quality comparison with FE2 or with any directly homogenized design. App. B compares single-scale synthetic cases, qualitatively only."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-no-classical-run",
+      "evidence": "Full text: FE2 is never run or timed; its cost appears only as a description (Sec. 1, AM p. 3; Sec. 3), so baseline efficiency and hardware cannot be judged. [judgment] pass would also be defensible."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "Sec. 3 (AM p. 20): training is given only as a 10^5-epoch budget. Data-generation effort is sized for one of three surrogates, and only per phi level (Sec. 5.1.2). No times, no break-even. [judgment] fail is arguable because no cost is given in time or compute units."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-surrogate-predicted",
+      "evidence": "Sec. 5, Figs. 3-9: every multiscale compliance value comes from FE with the PANN surrogate as the material law. The returned designs get no FE2 or direct-homogenization check, and volume and inclusion-mass constraint values are not reported. App. B.2 (AM p. 67) attributes small compliance-history differences to surrogate error building up during optimization. [judgment] partial is the lenient reading if FE with a learned material law counts as FE-verified."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5 TO runs in Sec. 5 (2 with the fiber RVE, 1 with the cubic RVE, 2 nearly incompressible at eta = 0.15 and 0.2) plus appendix runs (App. B: 2; App. C: 2; App. D: 1; App. E: load sweep, count shown only in Fig. E.1)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Versions: the AM differs from arXiv v1 in the ablation gain (about 6 % versus about 8 %), in App. B.1 (now run on the Sec. 5.1.2 cantilever instead of the Sec. 5.1.1 beam), in an added App. B.2 paragraph on surrogate error, and in added RVE material details in Sec. 5.1.1. The primary claim and all cost statements are identical in both versions. Code: the AM (p. 59) promises release after acceptance; no URL in the article and none found by web search on 2026-09-24. Borderline points for the verifier: the 6 % ablation could be read as a quality comparison with a classical fixed-microstructure setting, which would move the article to stratum quality, but both arms use the learned surrogate; R4 fail rests on treating FE with a learned material law as surrogate-predicted performance. Figure images were not inspected."
+}

@@ -1,0 +1,72 @@
+{
+  "pid": "P00698",
+  "citation": {
+    "title": "Novel Artificial Neural Network Aided Structural Topology Optimization",
+    "authors": "Xiangrui Kong, Yuching Wu, Peng Zhu, Peng Zhi, Qianfan Yang (all: College of Civil Engineering, Tongji University, Shanghai, China, per Crossref affiliations; audit/pool/pool.csv lists the fourth author's name in a different word order, 'Zhi Jian Peng', likely a name-order transcription difference for the same person, 'Peng Zhi')",
+    "year": 2024,
+    "venue": "Applied Sciences (MDPI), published 8 December 2024",
+    "doi": "10.3390/app142311416",
+    "arxiv_id": "",
+    "version_coded": "No version of the full text was accessible. Coded from the abstract obtained via the public Crossref API (api.crossref.org/works/10.3390/app142311416), identical to the abstract already stored in audit/pool/pool.csv for this pid."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The abstract states that finite-element computation makes up more than 90% of the total run time of the classical SIMP method, but only about 40% of the total run time once the proposed neural-network-aided method is used, and describes this as considerably improved computational efficiency; the abstract does not give absolute times for either method.",
+    "key_phrase": "it decreases to 40%",
+    "location": "abstract",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable from the abstract alone. The abstract gives the FE-computation share of total run time for SIMP (>90%) and for the proposed method (40%), which describes how time is split between FE calls and other operations within each method, but gives no absolute time for either method, so a classical-time/ML-time ratio cannot be computed without the full text.",
+    "direction": "outperform",
+    "alternatives": "None identifiable from the abstract alone; full text is inaccessible."
+  },
+  "baseline": {
+    "classical_method": "SIMP, per the abstract; no further detail available",
+    "implementation": "not stated (abstract only)",
+    "solver": "not stated (abstract only)",
+    "hardware_classical": "not stated (abstract only)",
+    "hardware_ml": "not stated (abstract only)",
+    "problem_size": "not stated beyond the named benchmark problems: cantilever beam, MBB beam, L-shape beam, column, rod-supported bridge, 'with different meshes, partition numbers, and parameters'",
+    "classical_iterations": "not stated (abstract only)",
+    "classical_time": "not stated in absolute terms; only the FE-computation time share (>90% of total SIMP time) is given",
+    "ml_time": "not stated in absolute terms; only the FE-computation time share (40% of total time) is given",
+    "training_time": "not stated (abstract only)",
+    "data_generation_cost": "not stated (abstract only)",
+    "quality_metric": "not stated precisely; abstract states 'the accuracy is acceptable' with no metric named",
+    "quality_gap": "not stated numerically in the abstract"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated precisely in the abstract; 5 named benchmark problem types are mentioned (cantilever beam, MBB beam, L-shape beam, column, rod-supported bridge), each apparently run with 'different meshes, partition numbers, and parameters'",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Xiangrui Kong, Yuching Wu, Peng Zhu, Peng Zhi, Qianfan Yang). No duplicate pool entry found: audit/pool/pool.csv has exactly one row for this title (P00698), with no arXiv id. Access attempts, all legal routes: (1) DOI (https://doi.org/10.3390/app142311416) resolves to https://www.mdpi.com/2076-3417/14/23/11416, which returned an Akamai edge 'Access Denied' bot-check page (HTTP 403, reference #18.21a7cb17...) to a direct fetch with a standard browser User-Agent; the MDPI direct-PDF path (.../11416/pdf) returned the identical Akamai block. Both were abandoned without any bypass attempt. (2) The public Crossref API (api.crossref.org) was queried for bibliographic metadata and returned title, authors/affiliations, venue, date and an abstract (JATS abstract field) -- this is the abstract used for this record. (3) The Wayback Machine (web.archive.org) has one archived snapshot of the MDPI article page (20250923060348) and was fetched as a legitimate mirror of the already-open-access page (not a bypass of MDPI's block, since archive.org is a different server); however, MDPI's article page loads its full text/body via JavaScript, so the static archived snapshot contained only the same abstract and citation/reference metadata already obtained from Crossref, with a visible 'you seem to have javascript disabled' notice -- no article body (Introduction, Methods, Results, Conclusion) was recovered. No PDF snapshot of this article exists in the Wayback Machine. No arXiv version exists. Given no full text could be legally obtained, this record follows the coordinator's clarification for such cases: included.decision = 'include', reason = 'I-UNCLEAR (no accessible full text)', stratum = 'none', access = 'abstract_only', and all four rule verdicts set to 'na' with evidence 'no full text', rather than assigning a stratum or exclusion code that would require full-text verification. No personal data was sent anywhere; only a generic browser User-Agent was used; no CAPTCHA, Cloudflare/Akamai challenge or login was bypassed."
+}

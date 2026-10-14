@@ -1,0 +1,88 @@
+{
+  "pid": "P00176",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "A deep Convolutional Neural Network for topology optimization with strong generalization ability",
+    "authors": "Yiquan Zhang, Bo Peng, Xiaoyi Zhou, Cheng Xiang, Dalei Wang",
+    "year": 2019,
+    "venue": "arXiv preprint (cs.LG; also stat.ML). A retitled version with a partly different author list is Engineering Optimization 54(6) 973-988, doi 10.1080/0305215X.2021.1902998 (Crossref) [same work inferred from title, overlapping authors and publisher abstract; paywalled, not accessed]",
+    "doi": "10.48550/arXiv.1901.07761",
+    "arxiv_id": "1901.07761",
+    "version_coded": "arXiv v3 (31 Mar 2020; v1 23 Jan 2019, v2 23 Apr 2019), PDF; Tables 1-3 checked on the rendered pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On 8000 held-out 40×80 cantilever problems, the U-Net predicts a layout in 0.001 s on average versus 3.913 s for SIMP (88-line code), with mean compliance error 4.16% after excluding the 4.12% of outputs that are disconnected.",
+    "key_phrase": "a significant reduction in computation cost was achieved with little sacrifice on the performance",
+    "location": "Sec. 5, p. 7, and Table 1 (first quantitative classical comparison; the abstract, conclusion and introduction make only qualitative claims)",
+    "quantitative": true,
+    "claimed_speedup": 3913,
+    "claimed_speedup_basis": "Derived: 3.913 s (SIMP) ÷ 0.001 s (CNN), average times over the test set (Sec. 5, p. 7) = 3913; Table 1 states 99.97% calculation time saved. The authors exclude dataset generation and training. Whether the FE solve that builds each input tensor (Sec. 4.1) is inside the 0.001 s is not stated.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract, qualitative: much lower computation cost with little loss of design performance vs SIMP. (2) Conclusion, qualitative: the method solves the problem in negligible time. (3) OOD boundary conditions (Table 2, Sec. 6): compliance error 7.63% (simply supported) and 7.14% (continuous beam), disconnection 13.64% and 11.50%; no times given. (4) Sec. 5: about 8% of test outputs have lower compliance at a smaller volume fraction than SIMP (no numbers)."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with the 88-line MATLAB code (Andreassen et al. 2011); cantilever, penalty 3, filter radius 1.5, volume fraction 0.2-0.8, 1-10 point loads in X+, X-, Y+ or Y- (Sec. 4.1)",
+    "implementation": "MATLAB 88-line educational code (Sec. 4.1); the timed conventional method in Sec. 5 is taken to be the same code [inferred]",
+    "solver": "not stated (the published 88-line code uses a sparse direct solve [recalled, not verified in-session])",
+    "hardware_classical": "one PC with an Intel Core i7-8700K CPU and an NVIDIA GTX 1080 Ti GPU for all calculations (Sec. 5, p. 7); the device used by SIMP is not stated [CPU inferred]",
+    "hardware_ml": "same PC (i7-8700K + GTX 1080 Ti), Keras (p. 5 and Sec. 5); the device per method is not stated",
+    "problem_size": "40×80 elements; input tensor 41×81×6 (Sec. 4.1) [derived: 6,642 nodal DOFs]",
+    "classical_iterations": "not stated",
+    "classical_time": "3.913 s average per test problem (Sec. 5, p. 7)",
+    "ml_time": "0.001 s average per test problem (Sec. 5, p. 7); batch size and inclusion of the input-tensor FE solve not stated",
+    "training_time": "not stated; validation loss about 0.15 after 50 epochs (p. 7, Fig. 3); the authors state that training time is excluded (Sec. 5)",
+    "data_generation_cost": "not stated; 80,000 SIMP samples (Sec. 4.1), explicitly excluded from the time comparison (Sec. 5) [inferred ≈87 h at the 3.913 s mean: 80,000 × 3.913 s = 313,040 s], plus one FE solve per sample for the input tensor",
+    "quality_metric": "compliance error, pixel-value error and volume-fraction error vs SIMP, averaged over test samples without disconnection; share of structurally disconnected outputs (Tables 1-2; Sec. 5-6); error definitions not given",
+    "quality_gap": "Cantilever test set (8000): compliance error 4.16%, pixel error 4.53%, volume-fraction error 0.13% (disconnected samples excluded); 4.12% of samples disconnected with huge compliance errors (Table 1, Sec. 5). OOD: simply supported 7.63% / 8.05% / 1.22%, disconnection 13.64%; continuous beam 7.14% / 7.47% / 0.93%, disconnection 11.50% (Table 2)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Sec. 5 p. 7 and Table 1: mean CNN inference time (0.001 s) is compared with mean SIMP time (3.913 s) on the same test problems, while the CNN designs are measurably worse than the SIMP designs they imitate: mean compliance error 4.16%, and 4.12% of outputs are disconnected with huge compliance errors and are excluded from all averages. No matching is attempted (e.g., SIMP stopped at equal compliance); the SIMP stopping rule is not stated."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 4.1 and 5: SIMP is the 88-line MATLAB code, run on a PC with an i7-8700K CPU and a GTX 1080 Ti GPU; the device for each method is not stated. The problem has about 6.6×10³ DOFs [derived], below 10⁵, so (c) does not apply. The abstract gives no baseline figure (b). No iteration count or stopping rule is given, so (d) and (e) cannot be derived. The 88-line code is a vectorized educational code [recalled, not verified in-session]; no inefficiency is evident. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Sec. 5 p. 7: the authors state that the considerable dataset-generation and training times are not included and argue that they become negligible over many uses; neither is quantified and no break-even is given. Dataset: 80,000 SIMP samples (Sec. 4.1) [inferred ≈87 h at the 3.913 s mean], plus one FE solve per sample for the input tensor; training time not stated."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Table 1 and Sec. 5: compliance, pixel and volume-fraction errors are computed for all 8000 test designs against SIMP (compliance by FE analysis [inferred]; error definitions not given). Volume-fraction error (0.13%) is reported, and disconnected outputs are counted (4.12%; 13.64% and 11.50% for the OOD sets, Table 2), although they are excluded from the averages. Figures show examples, but the numbers cover the full test sets."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "8000 cantilever test samples (Sec. 5); 8000 samples each for simply supported and continuous beams (Sec. 6); Sec. 7.2 refers to 10000 test samples for Sec. 6",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Primary outcome: the first quantitative ML-vs-classical comparison, in the main text (Sec. 5); the abstract, conclusion and introduction are qualitative. R1 = fail treats the SIMP runs as converged reference designs (they are the training targets); the SIMP stopping rule is not stated, so a verifier who weighs that more heavily may choose partial (R1-loose). The disconnected 4.12% are excluded from all quality averages (Table 1 footnote), while the time average covers all samples [inferred]. Internal inconsistencies: simply supported pixel error 8.05% in Table 2 vs 7.96% for the same 6-channel input in Table 3; Sec. 6 says 8000 samples per OOD case, while Sec. 7.2 says 10000 test samples. Sec. 7.1 averages three repeats per training-set size but reports no variance, so seeds_or_variance = no. runtimes_all_cases = yes because the time is an average over the whole cantilever test set; no times are given for the OOD sets. C3: the data cost alone implies a break-even of about 80,000 uses [derived: 313,040 s ÷ (3.913 - 0.001) s], before training cost. Version: arXiv v3 coded; the Engineering Optimization article (authors Wang, Xiang, Pan, Chen, Zhou, Zhang per Crossref) appears to be the retitled version of record and was not accessed (paywalled). No code or data statement. retest_candidate false: no public CNN code. The classical side is fully specified and the 88-line code is public, so a baseline-only re-test at 40×80 is possible, but the article gives no iteration count, so a per-iteration time for R2(e) is not derivable. Screening code was I-SPEED."
+}

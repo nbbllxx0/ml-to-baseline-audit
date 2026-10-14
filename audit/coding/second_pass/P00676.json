@@ -1,0 +1,88 @@
+{
+  "pid": "P00676",
+  "citation": {
+    "title": "Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks",
+    "authors": "Aaditya Chandrasekhar; Krishnan Suresh",
+    "year": 2021,
+    "venue": "arXiv preprint (Department of Mechanical Engineering, University of Wisconsin-Madison)",
+    "doi": "10.48550/arxiv.2109.01861",
+    "arxiv_id": "2109.01861",
+    "version_coded": "arXiv v1 (4 Sep 2021; only version on the abs page), full text read from https://arxiv.org/html/2109.01861"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On four 60x30-mesh benchmarks (mid-cantilever, MBB beam, L-bracket, Michell) at matched volume fraction, Fourier-TOuNN with explicit minimum/maximum length-scale control (lmin=6, lmax=30) reaches lower (better) compliance than both an unconstrained 88-line SIMP baseline and unconstrained TOuNN, all run on the same CPU; exact compliance numbers are listed only inside the Figure 9 graphic and were not recoverable as text.",
+    "key_phrase": "the compliance values are lower (better) than both SIMP and TOuNN",
+    "location": "Section 5.2 (main text, discussing Figure 9). Selected over the abstract/conclusion (neither has a comparison of any kind) and over a Section 5.1 timing remark (see alternatives).",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable. Section 5.1 gives Fourier-TOuNN's own aggregate total time (4-6 s across the Figure 9 examples) and a timing-composition remark ('FE accounts for 41%... in contrast to SIMP implementations where FE accounts for...about 96% as reported in [51]'), but no absolute SIMP wall-clock time is reported for the Figure 9 problems themselves (only SIMP's FE-iteration count is listed there), so no speed ratio can be computed for this article's own SIMP run.",
+    "direction": "outperform",
+    "alternatives": "Section 5.1's remark that Fourier-TOuNN spends 41% of its time on FE analysis 'in contrast to' a ~96% figure cited from a different reference [51] for generic SIMP implementations. This is quantitative and involves a classical method (cited, per the FT-NOBASELINE clarification's 'runs, times or cites' test), so a different coder could read it as the primary outcome instead, giving stratum 'speed'. It was not selected as primary here because it compares each method's internal time COMPOSITION rather than their relative TOTAL wall-clock time, gives no directional 'faster/slower' verdict, and is not this paper's own matched SIMP run (it borrows a percentage from a different paper) [inferred distinction]. Also: Section 5.2 additionally compares against an external reference [53] (Xia & Shi 2015) for the MBB beam, but states compliance values were 'not compared...since it was not reported' there, so no number is available from that comparison."
+  },
+  "baseline": {
+    "classical_method": "SIMP, filter radius 1.4 (checkerboard/minimum-length-scale filtering only, no explicit additional length-scale control imposed)",
+    "implementation": "the '88-line' MATLAB SIMP implementation of Andreassen et al. 2011 [ref 50]",
+    "solver": "direct (MATLAB backslash sparse solve, per the 88-line code); not restated explicitly in this paper's own text beyond citing [50]",
+    "hardware_classical": "Intel i7-6700 CPU @ 2.6 GHz, 16 GB RAM — stated as used for 'all experiments' (i.e. SIMP, TOuNN and Fourier-TOuNN alike)",
+    "hardware_ml": "same: Intel i7-6700 CPU @ 2.6 GHz, 16 GB RAM (no GPU used anywhere in the paper)",
+    "problem_size": "60x30-element mesh (default) for the four Figure 9 benchmarks; additional cases include a tensile bar, a distributed-load problem, and single/multi-material Michell structures",
+    "classical_iterations": "not fixed a priori: 'the final compliance values and the number of finite element iterations are also listed' (in the Figure 9 graphic; exact count not recoverable as text) for the SIMP run, implying a stated convergence criterion rather than a fixed count, though SIMP's own stopping rule is not restated in the accessible prose beyond citing the 88-line reference implementation",
+    "classical_time": "not stated as an absolute number for the Figure 9 problems (only FE-iteration count, in the figure); a ~96% FE-time-share figure for generic SIMP is cited from a different reference [51], not measured by this paper's own SIMP run",
+    "ml_time": "aggregate 4-6 s total across the four Figure 9 problems (Section 5.1), decomposed as FE 41%, forward propagation 20%, backward propagation 27%, other 13%; this total already includes the network's per-problem optimization (there is no separate offline training stage)",
+    "training_time": "not applicable as a separate figure: Fourier-TOuNN is optimized from scratch per design case ('a fresh neural network from scratch for each design case'), and this per-problem optimization is exactly what the reported 4-6 s covers",
+    "data_generation_cost": "none: no training dataset is used; each case is solved by per-instance optimization",
+    "quality_metric": "Compliance from finite element analysis (the same FE evaluation used inside each method's own optimization loop), at a matched, stated volume fraction for each benchmark; convergence tracked via a gray-element-fraction criterion (threshold 0.0025) under a SIMP-penalty continuation scheme (p from 1 to 8)",
+    "quality_gap": "Qualitative only, as printed in the prose: Fourier-TOuNN's compliance is 'lower (better) than both SIMP and TOuNN' on all four Figure 9 benchmarks; the exact numeric values are listed only inside the Figure 9 graphic and could not be extracted as text from the accessible HTML."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Section 5.2: SIMP, TOuNN and Fourier-TOuNN are compared on the same 60x30 mesh, the same stated 'desired volume fraction' per benchmark, and the same CPU hardware; compliance is evaluated by the same style of FE analysis for all three. Fourier-TOuNN additionally satisfies explicit length-scale bounds (lmin=6, lmax=30) that the other two methods are not required to meet, and still reports lower (better) compliance, which if anything is a conservative (not inflated) basis for the comparison [inferred]."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome compares design quality (compliance) only; no matched, self-run absolute-time comparison against the classical SIMP baseline is made for the same problems, so efficiency criteria (a)-(e) do not bear on it. For the record: the 88-line SIMP implementation [50] uses a direct sparse solve and both methods share identical CPU hardware, so nothing in the article suggests an unjustified hardware or solver disparity."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Section 4/5: a fresh neural network is optimized from scratch for each design case, with no offline training or reusable pretrained model; this per-problem cost is already inside the reported 4-6 s total time (Section 5.1), consistent with the R1 evidence above."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Compliance is computed by FE analysis (not an image-similarity or surrogate-predicted metric) at a stated, tracked volume fraction (continuation scheme with a gray-element convergence threshold), satisfying the FE-verification requirement, but across the paper's 11 benchmark problems there is no discussion of failure or infeasibility rates (e.g. disconnected or floating material)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "11 distinct benchmark problems overall (mid-cantilever, MBB beam, L-bracket and Michell in Fig. 9; plus a tensile bar, a distributed-load case, single/multi-material Michell variants, and the length-scale and frequency parameter studies)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Duplicate pool entry found (not a version-of-record vs. preprint situation, but an apparent double-ingestion of the identical single-version arXiv preprint): audit/pool/pool.csv contains P00133 with the exact same title, date (2021-09-04), authors and arXiv id (2109.01861) as this record, but with blank venue and DOI fields; the arXiv abs page confirms only one version (v1, 4 Sep 2021) exists, so P00133 and P00676 are the same document, not different versions. Because P00676 carries the fuller/correct metadata (resolved DOI, OpenAlex linkage, venue) and is the pid actually assigned to this queue, it is coded here in full rather than marked as the FT-DUPLICATE record; P00133 is flagged here as the redundant pool entry for the audit team's attention, since excluding both would silently drop an otherwise includable article. Primary-outcome selection required judgment, explained in claim.alternatives: this paper never states a matched, self-run, directional SIMP-vs-Fourier-TOuNN timing comparison (only a borrowed FE-time-percentage citation and SIMP's iteration count, not its wall-clock time, for the Figure 9 problems), so the clearly directional, matched-setup compliance comparison in Section 5.2 was coded as the primary outcome instead (stratum quality); a coder who treats the Section 5.1 timing remark as sufficient could instead code stratum speed. Access and privacy: the arXiv HTML page was read directly with no login, CAPTCHA, or bot check encountered; no personal data was sent. No author named Jun Wang (authors: Aaditya Chandrasekhar, Krishnan Suresh, University of Wisconsin-Madison). Code is public at https://github.com/UW-ERSL/Fourier-TOuNN under CC BY 4.0, supporting retest_candidate = true; no training dataset is used (per-instance optimization), so data_available is coded 'no' rather than 'on_request'."
+}

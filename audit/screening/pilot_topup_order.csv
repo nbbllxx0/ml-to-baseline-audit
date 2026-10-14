@@ -1,0 +1,99 @@
+order,pid,arxiv_id,llm_code,title
+1,P00244,2603.18960,I-UNCLEAR,Sketch2Topo: Using Hand-Drawn Inputs for Diffusion-Based Topology Optimization
+2,P00054,2502.01830,I-SPEED,Meta-neural Topology Optimization: Knowledge Infusion with Meta-learning
+3,P00034,2509.05800,I-SPEED,Transformer-based Topology Optimization
+4,P00143,2104.04017,I-QUALITY,Improving Solar Cell Metallization Designs using Convolutional Neural Networks
+5,P00156,2009.06245,I-SPEED,Accelerating gradient-based topology optimization design with dual-model neural networks
+6,P00252,2602.22430,I-SPEED,TopoEdit: Fast Post-Optimization Editing of Topology Optimized Structures
+7,P00176,1901.07761,I-SPEED,A deep Convolutional Neural Network for topology optimization with strong generalization ability
+8,P00428,2103.02588,I-QUALITY,IH-GAN: A Conditional Generative Model for Implicit Surface-Based Inverse Design of Cellular Structures
+9,P00166,2001.00635,I-QUALITY,Convolutional Neural Network-based Topology Optimization (CNN-TO) By Estimating Sensitivity of Compliance from Material Distribution
+10,P00313,2412.11112,I-SPEED,Populating cellular metamaterials on the extrema of attainable elasticity through neuroevolution
+11,P00041,2506.23420,I-SPEED,Data-Driven Topology Optimization for Multiscale Biomimetic Spinodal Design
+12,P00150,2012.06384,I-SPEED,An AI-Assisted Design Method for Topology Optimization Without Pre-Optimized Training Data
+13,P00375,2303.09760,I-SPEED,Diffusing the Optimal Topology: A Generative Optimization Approach
+14,P00512,2609.15001,I-UNCLEAR,HGTO: A Unified Graph-Based Physics-Informed Formulation for Structural Topology Optimization
+15,P00064,2408.13843,I-SPEED,Consistent machine learning for topology optimization with microstructure-dependent neural network material models
+16,P00130,2112.02506,I-SPEED,Enhancing Data-driven Multiscale Topology Optimization with Generalized De-homogenization
+17,P00208,2607.07233,I-UNCLEAR,HPG-Diff: Hierarchical physics-guided diffusion with differentiable connectivity constraints for topology optimization
+18,P00059,2410.14342,I-SPEED,A dual physics-informed neural network for topology optimization
+19,P00235,2604.03522,I-SPEED,Physics-Informed Transformer for Real-Time High-Fidelity Topology Optimization
+20,P00133,2109.01861,I-UNCLEAR,Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks
+21,P00518,2602.20173,I-UNCLEAR,Machine learning-enabled inverse design of bimaterial thermoelastic lattice metamaterials
+22,P00081,2404.12244,I-SPEED,PyTOaCNN: Topology optimization using an adaptive convolutional neural network in Python
+23,P00073,2407.20251,I-QUALITY,An Uncertainty-aware Deep Learning Framework-based Robust Design Optimization of Metamaterial Units
+24,P00385,2210.01659,I-SPEED,Conceptual Design of Cellular Auxetic Systems with Passive Adaptation to Loading
+25,P00174,1903.01548,I-UNCLEAR,Deep Generative Design: Integration of Topology Optimization and Generative Models
+26,P00019,2602.17783,I-UNCLEAR,Multi-material Multi-physics Topology Optimization with Physics-informed Gaussian Process Priors
+27,P00158,2008.07119,I-SPEED,Generative Design by Reinforcement Learning: Enhancing the Diversity of Topology Optimization Designs
+28,P00501,2603.25099,I-QUALITY,Large Language Models as Optimization Controllers: Adaptive Continuation for SIMP Topology Optimization
+29,P00074,2407.13954,I-UNCLEAR,"Neural topology optimization: the good, the bad, and the ugly"
+30,P00326,2409.04692,I-UNCLEAR,Data-driven multifidelity topology design with multi-channel variational auto-encoder for concurrent optimization of multiple design variable fields
+31,P00141,2105.03045,I-SPEED,GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning
+32,P00125,2203.10515,I-SPEED,An Adaptive and Scalable ANN-based Model-Order-Reduction Method for Large-Scale TO Designs
+33,P00371,2305.18470,I-UNCLEAR,Aligning Optimization Trajectories with Diffusion Models for Constrained Design Generation
+34,P00020,2602.13513,I-SPEED,Learning Gradient Flow: Using Equation Discovery to Accelerate Engineering Optimization
+35,P00335,2406.16066,I-SPEED,Constructing Boundary-identical Microstructures via Guided Diffusion for Fast Multiscale Topology Optimization
+36,P00210,2607.01812,I-UNCLEAR,TO-Master: an LLM-agent framework for automated topology optimization
+37,P00004,2607.22019,I-UNCLEAR,PIML-OFEM: A New Large-Scale Structural Analysis Method Based on Problem-Independent Machine Learning and Overlapping Finite Element Technique
+38,P00006,2607.00438,I-UNCLEAR,Explainable quantum neural networks for multi-material topology optimization
+39,P00131,2110.06458,I-SPEED,Stiffness minimisation of graded microstructural configurations using asymptotic analysis and machine learning
+40,P00122,2204.06684,I-UNCLEAR,Multifidelity deep neural operators for efficient learning of partial differential equations with application to fast inverse design of nanoscale heat transport
+41,P00177,1901.07675,I-SPEED,A New CGAN Technique for Constrained Topology Design Optimization
+42,P00144,2102.10782,I-UNCLEAR,NTopo: Mesh-free Topology Optimization using Implicit Neural Representations
+43,P00123,2204.06682,I-UNCLEAR,GM-TOuNN: Graded Multiscale Topology Optimization using Neural Networks
+44,P00438,2009.10072,I-UNCLEAR,Topology Optimization through Differentiable Finite Element Solver
+45,P00145,2102.07657,I-SPEED,Real-Time Topology Optimization in 3D via Deep Transfer Learning
+46,P00022,2601.10859,I-QUALITY,AI-Guided Human-In-the-Loop Inverse Design of High Performance Engineering Structures
+47,P00076,2407.07288,I-QUALITY,Structural Design Through Reinforcement Learning
+48,P00086,2402.05073,I-SPEED,NITO: Neural Implicit Fields for Resolution-free Topology Optimization
+49,P00209,2607.04123,I-SPEED,"CertMix: Certified, Data-Efficient Metamaterial Design by Affine Mixing of Aligned Neural-Implicit Weight Spaces"
+50,P00523,2010.00041,I-UNCLEAR,A Supervised Machine Learning Approach for Accelerating the Design of Particulate Composites: Application to Thermal Conductivity
+51,P00030,2510.23667,I-SPEED,Optimize Any Topology: A Foundation Model for Shape- and Resolution-Free Structural Topology Optimization
+52,P00186,1801.05463,I-SPEED,Deep learning for determining a near-optimal topological design without any iteration
+53,P00027,2511.14623,I-UNCLEAR,A Unified Phase-Field Fourier Neural Network Framework for Topology Optimization
+54,P00232,2604.21315,I-UNCLEAR,TopoStyle: Supporting Iterative Design with Generative AI for 2.5D Topology Optimization
+55,P00057,2411.13869,I-SPEED,Topology optimization of periodic lattice structures for specified mechanical properties using machine learning considering member connectivity
+56,P00373,2303.13672,I-QUALITY,Neural Level Set Topology Optimization Using Unfitted Finite Elements
+57,P00012,2605.02158,I-SPEED,Diffusion Transformers with Hybrid Conditioning for Structural Optimization
+58,P00007,2606.19921,I-SPEED,eCNNTO: A Highly Generalizable ConvNet for Accelerating Topology Optimization
+59,P00321,2410.23295,I-UNCLEAR,Simultaneous Topology Optimization of Differentiable and Non-Differentiable Objectives via Morphology Learning: Stiffness and Cell Growth on Scaffold
+60,P00277,2509.10277,I-UNCLEAR,Morphogenetic mechanical metamaterials: Emerging tensor properties from self-organized structures
+61,P00170,1910.07227,I-UNCLEAR,Machine Learning based parameter tuning strategy for MMC based topology optimization
+62,P00093,2310.02069,I-SPEED,TOaCNN: Adaptive Convolutional Neural Network for Multidisciplinary Topology Optimization
+63,P00148,2101.03286,I-UNCLEAR,A Parametric Level Set Method for Topology Optimization based on Deep Neural Network (DNN)
+64,P00164,2002.01927,I-SPEED,Self-Directed Online Machine Learning for Topology Optimization
+65,P00517,2403.04937,I-SPEED,Gradient-free neural topology optimization: Towards effective fracture-resistant designs
+66,P00090,2311.08473,I-SPEED,Real-time topology optimization via learnable mappings
+67,P00080,2404.18300,I-SPEED,VoroTO: Multiscale Topology Optimization of Voronoi Structures using Surrogate Neural Networks
+68,P00136,2107.10661,I-SPEED,Robust Topology Optimization Using Multi-Fidelity Variational Autoencoders
+69,P00161,2004.05461,I-SPEED,Deep learning-based topological optimization for representing a user-specified design area
+70,P00116,2207.03072,I-QUALITY,Deep energy method in topology optimization applications
+71,P00187,1709.09578,I-SPEED,Neural networks for topology optimization
+72,P00079,2405.06248,I-UNCLEAR,Adversarial neural network methods for topology optimization of eigenvalue problems
+73,P00042,2506.17487,I-UNCLEAR,Variational Quantum Latent Encoding for Topology Optimization
+74,P00001,2609.27216,I-SPEED,KATOsuper: Surrogate-accelerated neural topology optimization with sensitivity-consistent Fourier neural operators
+75,P00249,2603.08233,I-QUALITY,Computationally Efficient Data-Driven Topology Design Independent from High-Infoentropy Initial Dataset
+76,P00171,2001.04350,I-SPEED,An efficient and high-resolution topology optimization method based on convolutional neural networks
+77,P00089,2312.06993,I-SPEED,Dynamically configured physics-informed neural network in topology optimization applications
+78,P00271,2510.07057,I-UNCLEAR,TOMATOES: Topology and Material Optimization for Latent Heat Thermal Energy Storage Devices
+79,P00406,2112.00648,I-UNCLEAR,Remixing Functionally Graded Structures: Data-Driven Topology Optimization with Multiclass Shape Blending
+80,P00140,2105.04232,I-SPEED,De-homogenization using Convolutional Neural Networks
+81,P00333,2407.06746,I-QUALITY,Maximum stress minimization via data-driven multifidelity topology design
+82,P00129,2112.04552,I-SPEED,PATO: Producibility-Aware Topology Optimization using Deep Learning for Metal Additive Manufacturing
+83,P00003,2608.22606,I-UNCLEAR,Adversarial Agents on Topology Optimization: Understanding the Fragility and Robustness of Deep Learning-based and Physics-Based Design Models under Adversarial Perturbation
+84,P00119,2205.03737,I-UNCLEAR,FRC-TOuNN: Topology Optimization of Continuous Fiber Reinforced Composites using Neural Network
+85,P00207,2607.07682,I-UNCLEAR,Neural Operator-enabled Topology-informed Evolutionary Strategy for PDE-Constrained Optimization
+86,P00029,2511.04795,I-SPEED,Accelerating metamaterial topology optimization using deep super-resolution networks
+87,P00154,2010.11833,I-UNCLEAR,Shape related constraints aware generation of Mechanical Designs through Deep Convolutional GAN
+88,P00181,1808.07440,I-SPEED,3D Topology Optimization using Convolutional Neural Networks
+89,P00497,2605.19110,I-QUALITY,IterSIMP-σ: Evaluating LLM-Assisted Spatial Interventions in Stress-Aware Topology Optimization
+90,P00092,2310.15506,I-UNCLEAR,Topology Optimization with Text-Guided Stylization
+91,P00281,2508.05624,I-SPEED,Latent Space Diffusion for Topology Optimization
+92,P00370,2306.12047,I-UNCLEAR,Residual-Based Error Corrector Operator to Enhance Accuracy and Reliability of Neural Operator Surrogates of Nonlinear Variational Boundary-Value Problems
+93,P00242,2604.03276,I-UNCLEAR,Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models
+94,P00165,2002.01896,I-SPEED,Topology optimization of 2D structures with nonlinearities using deep learning
+95,P00045,2504.14790,I-QUALITY,Enhanced Data-driven Topology Design Methodology with Multi-level Mesh and Correlation-based Mutation for Stress-related Multi-objective Optimization
+96,P00193,2609.10643,I-QUALITY,Zero-shot rib design: merging training-free generative prior with topology optimization
+97,P00051,2502.13174,I-UNCLEAR,Diverse Topology Optimization using Modulated Neural Fields
+98,P00138,2106.13652,I-SPEED,A mechanistic-based data-driven approach to accelerate structural topology optimization through finite element convolutional neural network (FE-CNN)

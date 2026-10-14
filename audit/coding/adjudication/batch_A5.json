@@ -1,0 +1,220 @@
+[
+ {
+  "pid": "P01164",
+  "disagreements": {
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-OTHER",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P01217",
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R4": [
+    "fail",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P01232",
+  "disagreements": {
+   "R1": [
+    "partial",
+    null
+   ],
+   "R2": [
+    "na",
+    null
+   ],
+   "R3": [
+    "na",
+    null
+   ],
+   "R4": [
+    "fail",
+    null
+   ],
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "stratum": [
+    "quality",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P01320",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R4": [
+    "pass",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P01517",
+  "disagreements": {
+   "R2": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P01813",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R2": [
+    "na",
+    "partial"
+   ],
+   "R3": [
+    "na",
+    "pass"
+   ],
+   "R4": [
+    "fail",
+    "partial"
+   ],
+   "claimed_speedup": [
+    null,
+    40000
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P01900",
+  "disagreements": {
+   "R1": [
+    null,
+    "pass"
+   ],
+   "R2": [
+    null,
+    "na"
+   ],
+   "R3": [
+    null,
+    "partial"
+   ],
+   "R4": [
+    null,
+    "pass"
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-DOMAIN",
+    null
+   ],
+   "stratum": [
+    null,
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P01905",
+  "disagreements": {
+   "R1": [
+    "partial",
+    null
+   ],
+   "R2": [
+    "na",
+    null
+   ],
+   "R3": [
+    "na",
+    null
+   ],
+   "R4": [
+    "partial",
+    null
+   ],
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "decision": [
+    "include",
+    "exclude"
+   ],
+   "stratum": [
+    "quality",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P01960",
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R2": [
+    "na",
+    "partial"
+   ],
+   "claimed_speedup": [
+    null,
+    8.76
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P01971",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R3": [
+    "na",
+    "partial"
+   ],
+   "claimed_speedup": [
+    null,
+    0.00093
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ }
+]

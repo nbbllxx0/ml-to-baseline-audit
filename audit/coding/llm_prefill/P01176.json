@@ -1,0 +1,44 @@
+{
+  "pid": "P01176",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "A Deep Reinforcement Learning Model-based Optimization Method for Graphic Design",
+    "authors": "Qi Guo, Zhen Wang",
+    "year": 2024,
+    "venue": "Informatica (Slovenia) 48(5), 2024, pp. 121-134 (pages from the PDF header; volume and issue from Crossref; online 2024-04-08). Diamond open access, CC BY per OpenAlex",
+    "doi": "10.31449/inf.v48i5.5295",
+    "arxiv_id": "",
+    "version_coded": "Version of record: publisher PDF (14 pages) from informatica.si, the open copy that OpenAlex lists, read in full as text; pp. 126 and 130 also checked on the rendered pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "stress",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as FT-NOBASELINE). The article describes neural-network density fields for compliance and stress-constrained TO but reports no TO result; its only comparisons are computation-time percentages, accuracy, precision and recall against three interior-layout methods (MDP, VR, AI).",
+    "location": "Abstract; Sec. 4.2-4.5 (method); Sec. 5, Tables 3-6 and Figs. 5-8 (results); Sec. 7 (conclusion)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded). Table 3 lists 'computation time (%)' of 61 for the proposed method vs 91, 73 and 81 for MDP, VR and AI, with no definition, unit base or problem; the abstract restates it as 61 s."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 and the FT-NOBASELINE clarification of 2026-09-24. Codes checked in order. FT-DUPLICATE: no other version in the pool (title searched). FT-SCOPE: not applied, because the proposed method (Sec. 4.2-4.5) is density-based TO with a feed-forward network density field, a compliance objective and a p-norm stress constraint, although the results concern graphic and interior layout; a verifier may prefer FT-SCOPE on that basis. FT-TYPE, FT-DOMAIN, FT-NOML and FT-FORWARD: do not apply. FT-MLONLY: does not apply, because the article calls two of its three comparators 'conventional' or 'standard' methods (Sec. 5.1-5.2). FT-NOBASELINE applies: no classical TO or homogenization-based method is run, timed or cited with a cost or result. The comparators are MDP = Ran & Dong 2022 (multiobjective building-interior design), VR = Wu 2022 (interior layout with VR and 5G) and AI = Di & Yu 2021 (multi-agent RL furniture layout) [from the reference list]. They address interior layout, not TO, and are scored on accuracy, precision and recall defined from true and false positives (Eqs. 18-20), which have no TO meaning. The 2D and 3D compliance and stress-constrained results that the abstract announces appear nowhere in the text: no design, compliance value, volume or iteration count is reported, and Figs. 3-4 show network diagrams and building images. SIMP appears only as qualitative motivation (Sec. 4.2), and conclusion (a) says the network needs far fewer design variables than voxel-based optimization, without numbers. The abstract gives the computation time as 61 s, while Table 3 gives 61 (%). Hardware: 64-bit Intel Xeon Gold 2.10 GHz server, Python 3.7, TensorFlow 2.0.0 (Sec. 5). Screening code was I-UNCLEAR. Authors checked: no author named Jun Wang."
+}

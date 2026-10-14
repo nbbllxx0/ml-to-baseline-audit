@@ -1,0 +1,45 @@
+{
+  "pid": "P00034",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Transformer-based Topology Optimization",
+    "authors": "Aaron Lutheran, Srijan Das, Alireza Tabarraei",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.CE); the manuscript header names Structural and Multidisciplinary Optimization",
+    "doi": "10.48550/arXiv.2509.05800",
+    "arxiv_id": "2509.05800",
+    "version_coded": "arXiv v2 (17 Sep 2025; v1 6 Sep 2025), full HTML text read from https://arxiv.org/html/2509.05800. Later version of the same study: arXiv 2604.03522 v1 (4 Apr 2026, pool P00235), published as Structural and Multidisciplinary Optimization 69(5):133 (doi 10.1007/s00158-026-04342-6; closed access per Unpaywall, not read)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE (earlier version of P00235 = arXiv 2604.03522; version of record doi 10.1007/s00158-026-04342-6)",
+    "stratum": "none",
+    "method_family": "transformer",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as an earlier version of P00235). Would-be primary outcome in this version: static 64×64 designs in about 2 s vs 66 s average for the original topology-optimization runs (33×) at a 1.88% mean compliance error.",
+    "location": "Section 5, last paragraph (abstract, introduction and conclusion hold only qualitative classical comparisons)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). Would-be values, both stated in Section 5: static 66 s ÷ about 2 s = 33; dynamic 8900 s ÷ 2 s = 4,450.",
+    "direction": "outperform"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "excluded at full text"},
+    "R2": {"verdict": "na", "evidence": "excluded at full text"},
+    "R3": {"verdict": "na", "evidence": "excluded at full text"},
+    "R4": {"verdict": "na", "evidence": "excluded at full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (duplicates: code the version of record when accessible, otherwise the most complete preprint; record both IDs). Evidence that 2509.05800 and 2604.03522 are versions of one study: same three authors; both manuscripts carry a Structural and Multidisciplinary Optimization header; same method (ViT with a class/conditioning token, strain-energy and von Mises input fields, auxiliary volume, load and floating-material losses, FFT encoding and transfer learning for dynamic loads); same dataset construction (64×64, six load angles, one to four supports, volume fraction 30-50%); same dynamic classical time (8900 s); the SMO version of record (Crossref, published online 16 May 2026) has the 2604.03522 title. The version of record is closed access (Unpaywall, 2026-09-24), so 2604.03522 v1, the longer and later text, is the most complete preprint; the study should be coded once, under P00235. Differences seen in 2604.03522 (targeted reading of its abstract and Sections 4.1, 5.5 and 6 only; not coded here): 30,000 static samples (60,000 here), inference 1.26 s with model loading or 0.36 s preloaded (Section 5.5), and an abstract claiming fidelity beyond diffusion models. Verifier: if P00034 is kept instead of P00235, would-be coding of this version is: stratum speed; primary outcome Section 5 (33× static at 1.88% mean compliance error; alternative 4,450× dynamic at 4.81%, Table 3 decoder-layers model), chosen under §5.1 rule 4 over the earlier Table 2 quality comparison because the abstract and conclusion stress real-time, iteration-free generation against classical solvers. R1 fail (R1-unmatched): about 2 s inference vs full optimization runs while ViT-Small outputs are measurably worse (Table 2: mean compliance error 1.88%, 5.2% of samples above 30% error, volume-fraction error 1.01%, floating material 12.2%); no matching; partial if the stated 1.88% is read as the method's reported error. R2 partial (R2-inefficient-impl [inferred]; hardware unstated): implementation, solver, iteration count and hardware are not stated for either method; 66 s per 64×64 static run looks slow [inferred]; (c) n/a (64×64). R3 fail (R3-no-cost): training is 800,000 iterations at batch 256 with no time; 60,000 static and about 6,000 dynamic samples are never costed [inferred ≈1,100 h and ≈14,800 h at 66 s and 8,900 s per run]; no break-even. R4 pass (R4-verified [FE inferred]): compliance error, volume-fraction error, load discrepancy, floating-material share and the share above 30% error are reported for 500 validation samples, the same samples for all models (Section 5); the compliance evaluator is not described. Reporting (this version): n = 500 validation samples; OOD no; seeds no; failure rate yes (Table 2); timing protocol no; runtimes: dataset averages only; code and data on request (Declarations); hardware not stated. Screening code was I-SPEED."
+}

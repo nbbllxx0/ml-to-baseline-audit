@@ -1,0 +1,88 @@
+{
+  "pid": "P00181",
+  "citation": {
+    "title": "3D Topology Optimization using Convolutional Neural Networks",
+    "authors": "Saurabh Banga, Harsh Gehani, Sanket Bhilare, Sagar Jitendra Patel, Levent Burak Kara",
+    "year": 2018,
+    "venue": "arXiv preprint (cs.LG; also physics.comp-ph, stat.ML). Comment on the abs page: 'under review in Special issue on Computer-Aided Design on Advances in Generative Design'; no later published version was found in this record's identifiers",
+    "doi": "10.48550/arxiv.1808.07440",
+    "arxiv_id": "1808.07440",
+    "version_coded": "arXiv v1 (submitted 22 Aug 2018; only version), full text and appendices read from the PDF at https://arxiv.org/pdf/1808.07440v1"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Abstract/Conclusion: running the open-source SIMP solver TopOpt to an intermediate iteration, then predicting the converged 3D voxel structure with a 3D CNN, cuts overall computation time by about 40% while matching the fully-converged structure at 96.2% binary voxel accuracy.",
+    "key_phrase": "40% reduction in overall computation time",
+    "location": "Abstract, restated in the Conclusion (Sec. 6) with the same 40% figure alongside 96.2% binary and 79.7% RMS test-set accuracies",
+    "quantitative": true,
+    "claimed_speedup": 1.67,
+    "claimed_speedup_basis": "Converted directly from the article's own stated '40% reduction in overall computation time' (Abstract; Sec. 5.4: 'nearly 40-45% average reduction'; Sec. 6: '40% reduction in time over the conventional approach'): a 40% time reduction corresponds to a speed-up factor of 1/(1-0.40) = 1.67. No absolute times (seconds/minutes) are given for either the full TopOpt run or the hybrid pipeline, so only this percentage-derived factor is available.",
+    "direction": "outperform",
+    "alternatives": "Sec. 5.4, Tables 5-6: a full density-iteration x gradient-iteration sensitivity sweep (iterations 5-35) shows binary accuracy ranging from about 80% (very early hand-off) to 97.2% (density iteration 35, closest to the 70-100-iteration convergence point). The chosen '20th iteration' hand-off is a mid-range operating point from this sweep, explicitly traded off against the additional classical-solver time later iterations would cost, not the single highest-accuracy option. No comparison anywhere in the article reports compliance or volume-fraction error of the predicted structures relative to the SIMP-optimal ones; only the two image-based accuracy metrics (binary, RMS) are used throughout."
+  },
+  "baseline": {
+    "classical_method": "SIMP-based compliance minimization solved with the open-source 'TopOpt' PETSc-based parallel solver (Aage, Andreassen & Lazarov 2014, ref. [31]), run to convergence (70-100 iterations, problem-dependent) to produce the ground truth; the same solver is also run partially, to iteration 20, to produce the hybrid method's CNN input",
+    "implementation": "Open-source (TopOpt, PETSc-based) for the classical baseline and for generating training/ground-truth data; the 3D CNN is the authors' own implementation (deep-learning framework not named)",
+    "solver": "TopOpt's underlying solver is described only as 'PETSc-based, fully parallel' (ref. [31]); no linear-solver type (direct/iterative/multigrid) or optimizer (OC/MMA) is stated in this paper itself",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated (no GPU/CPU model given anywhere for CNN training or inference)",
+    "problem_size": "Rectangular beam domain, 24x12x12 elements (3,456 elements total), physical dimensions 2m x 1m x 1m, minimum element size 0.083 m (Sec. 4.1); 3D MBB-beam variants across 4 boundary-condition subtypes (cantilever, simply supported, modified simply supported, constrained cantilever)",
+    "classical_iterations": "70-100 iterations to convergence, problem-dependent (Sec. 4.1); the hybrid strategy hands off to the CNN at density iteration 20 (gradient computed at iteration 15), chosen via the spatial-gradient cutoff analysis of Sec. 4.4 (cutoff |grad(filtered density)| <= 0.05)",
+    "classical_time": "not stated in absolute units (seconds/minutes) anywhere; only iteration counts are given",
+    "ml_time": "not stated in absolute units; CNN inference is described as 'virtually instantaneous' (Sec. 4). The reported outcome is a relative '40-45% average reduction in overall computation time' for the combined partial-TopOpt-plus-CNN pipeline versus a full TopOpt run (Sec. 5.4, Sec. 6)",
+    "training_time": "not stated (30 epochs on 4,500 samples using SGD with momentum, no mini-batching, Appendix A; no wall-clock duration or hardware is given)",
+    "data_generation_cost": "6,000 problem instances were each run through TopOpt for 70-100 iterations to build the dataset (on average about 6,000 x 85 density arrays generated, Sec. 4.1); no wall-clock time or compute-hardware cost is given for this data-generation effort",
+    "quality_metric": "Binary accuracy (per-voxel match after thresholding at 0.5, against the TopOpt ground truth) and RMS accuracy (1 minus the RMS error of float density values vs. the TopOpt ground truth), Sec. 5; no compliance, volume-fraction error, or other FE-based structural performance metric is computed for the predicted structures anywhere in the article",
+    "quality_gap": "Best network (trained on the density-iteration~Poisson(lambda=30) dataset): mean test-set binary accuracy 96.2%, RMS accuracy 79.7% (Sec. 5.1, 5.4, 6). The density-iteration x gradient-iteration sweep (Tables 5-6) ranges from about 80% to 97.2% binary accuracy and about 68% to 80.8% RMS accuracy depending on how late the classical solver is stopped before hand-off"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "The reported 40% time saving compares a partial classical run (20 of 70-100 iterations) plus CNN inference against a full classical run to convergence, while the CNN's output is measurably worse than that full-convergence result (96.2% binary accuracy, i.e. about 3.8% of voxels differ; RMS accuracy only 79.7%). No compliance, volume-fraction, or other engineering-quality check is used to establish that this voxel-level gap is negligible, and no attempt is made to match quality between the two arms - this is the rule's own illustrative fail case (inference/hybrid time vs. full-convergence time, with a measurably worse and unverified-in-engineering-terms output)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-efficient-small-problem",
+      "evidence": "The classical baseline, TopOpt (ref. [31]), is an established, PETSc-based, 'fully parallel' open-source TO framework, not an inefficient or unvectorized implementation. The domain is tiny (3,456 elements, far under the 1e5-DOF threshold for R2(c)), so no GPU-vs-CPU-at-scale concern arises, and no hardware is stated for either method (so no asymmetry is evidenced). The 70-100 iteration classical run is described as its natural, problem-dependent convergence count, not an inflated fixed count."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost-accounting",
+      "evidence": "The article explicitly names the trade-off ('this utility can be seen as an approach that exchanges the cost of a large corpus of off-line training data and potential inaccuracy against run-time performance,' Sec. 4) but never quantifies either side: the 6,000-sample data-generation effort (each sample run through 70-100 classical iterations) and the 30-epoch training process (Appendix A) are given no wall-clock time or hardware cost anywhere, so the claimed 40% speed-up cannot be checked against these amortized costs."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Sec. 5: the only two evaluation metrics used throughout the article are binary (per-voxel thresholded) accuracy and RMS (float density) accuracy against the classical solver's output - both image-similarity metrics. No compliance, volume-fraction error, or structural performance value is computed for the returned designs, and no failure/infeasibility rate (e.g. disconnected structures, floating material) is reported anywhere."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1,000 test samples (of 6,000 total generated: 4,500 train, 500 cross-validation, 1,000 test), Sec. 4.3",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "This is one of the protocol's own anchor papers (PROTOCOL Sec. 2, forward-citation search anchor 'Banga et al. 2018'), read directly rather than via the masked protocol's anchor list. Key uncertainty worth flagging: skipping from iteration 20 to full convergence (70-100 iterations) should nominally skip roughly 70-80% of the classical iterations, yet the measured/reported time saving is only 40-45% (Sec. 5.4); the article does not explain this gap (e.g. whether later iterations are cheaper per-step, whether CNN inference and data-transfer overhead consume part of the saving, or how 'computation time' was measured), which limits how literally the 40% figure can be taken as an apples-to-apples wall-clock comparison. R1 and R4 both fail for closely related reasons: quality is judged only by voxel-level image metrics against the fully-converged solver output, and the resulting ~4% voxel mismatch (96.2% binary accuracy) is never translated into an engineering quality check (compliance, volume, feasibility) before the time saving is reported. No author named Jun Wang (authors: Banga, Gehani, Bhilare, Patel, Kara; an unrelated 'Wang' appears only in reference [3], a cited prior work). No duplicate pool record found for this title or arXiv id (pool.csv has only P00181)."
+}

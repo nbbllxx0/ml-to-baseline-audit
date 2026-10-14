@@ -1,0 +1,49 @@
+{
+  "pid": "P00698",
+  "citation": {
+    "title": "Novel Artificial Neural Network Aided Structural Topology Optimization",
+    "authors": "Xiangrui Kong; Yuching Wu; Peng Zhu; Peng Zhi; Qianfan Yang",
+    "year": 2024, "venue": "Applied Sciences", "doi": "10.3390/app142311416",
+    "arxiv_id": "none", "version_coded": "open-access version of record (updated PDF)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "cnn", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The paper reports that FE computation takes over 90% of the SIMP run time but about 40% of the neural-assisted method's run time, as a proxy for reduced computational cost.",
+    "key_phrase": "", "location": "abstract; Figs. 13–14", "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The percentages are shares of each method's own runtime; total classical and ML runtimes are not printed, so no overall speed factor follows.",
+    "direction": "outperform",
+    "alternatives": "§6 says final structural performance differs by less than 10% and efficiency improves; §5.1–5.4 shows objective curves and FE time shares for multiple meshes."
+  },
+  "baseline": {
+    "classical_method": "SIMP density optimization (§2.1, §5)",
+    "implementation": "not stated",
+    "solver": "sparse matrix equation solver, type not stated (§5.4)",
+    "hardware_classical": "not stated", "hardware_ml": "not stated",
+    "problem_size": "2D grids including 60 × 60, 120 × 120, 240 × 240 and 480 × 480 elements for timing-share plots (§5.4, Figs. 13–14)",
+    "classical_iterations": "20 iterations fixed in the numerical examples (§4.4–4.5); most examples converge in 10–20 steps (§5.1, Fig. 11)",
+    "classical_time": "not stated; FE work is over 90% of total SIMP time (abstract, §5.4)",
+    "ml_time": "not stated; FE work is about 40% of neural-assisted total time (abstract, §5.4)",
+    "training_time": "A validation/training procedure is described as approximately 30 min end to end (§3.3); training-only time not separated",
+    "data_generation_cost": "SIMP generates training density, displacement and sensitivity maps (§3.2); generation time not separated from the approximately 30 min procedure (§3.3)",
+    "quality_metric": "Optimization objective/compliance curves, density and sensitivity maps (§5.1, Figs. 11–12)",
+    "quality_gap": "Final structural performance difference reported as less than 10% (§6); casewise numerical FE-verified gap not stated"
+  },
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-loose-match", "evidence": "§5.1 and §6 compare objective curves and report a structural-performance difference below 10%, but do not establish equal physical-field volume and quality within reported error at the timing point."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "§5.1/§5.4: no hardware, solver type, per-iteration time, or baseline overrun of at least twice an established convergence threshold is shown."},
+    "R3": {"verdict": "partial", "marker": "R3-no-amortization", "evidence": "§3.2–3.3 describes SIMP-generated training data and an approximately 30 min procedure, but the abstract and §5.4 compare run-time shares without separating upstream costs or computing break-even uses."},
+    "R4": {"verdict": "fail", "marker": "R4-surrogate-predicted", "evidence": "§5.1–5.3 compares optimization objective curves and density maps; no separate FE analysis of the returned neural-assisted design or failure-rate accounting is reported."}
+  },
+  "reporting": {
+    "n_test_cases": "5 named numerical structures: cantilever, MBB, L-shape, column, rod-supported bridge (§4)",
+    "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no",
+    "timing_protocol_stated": "no", "runtimes_all_cases": "no",
+    "code_available": "no", "data_available": "on_request", "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "The abstract percentages are not an overall speedup. The publisher PDF was accessible through MDPI's own mdpi-res.com file host after mdpi.com returned HTTP 403."
+}

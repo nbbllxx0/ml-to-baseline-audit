@@ -1,0 +1,14 @@
+{
+  "pid": "P01788",
+  "citation": {"title": "Physics-Data Structural Optimization: From Latent Spaces to Member Composition", "authors": "Matteo Torzoni, Luca Rosafalco, Alberto Corigliano", "year": 2025, "venue": "29th International Conference on Domain Decomposition Methods, abstract", "doi": "", "arxiv_id": "", "version_coded": "institutional repository conference abstract"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-TYPE", "stratum": "none", "method_family": "other", "physics": "compliance", "dim": "unclear"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "R1-excluded", "evidence": "institutional repository labels this item a conference abstract"}, "R2": {"verdict": "na", "marker": "R2-excluded", "evidence": "institutional repository labels this item a conference abstract"}, "R3": {"verdict": "na", "marker": "R3-excluded", "evidence": "institutional repository labels this item a conference abstract"}, "R4": {"verdict": "na", "marker": "R4-excluded", "evidence": "institutional repository labels this item a conference abstract"}},
+  "reporting": {"n_test_cases": "not stated", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The Politecnico di Milano institutional repository classifies this exact item as '04.2 Abstract in Atti di convegno', and its title/abstract describes a talk presenting two earlier frameworks. Protocol §4 excludes abstracts-only records. The repository's abstract was readable; its PDF endpoint returned 403."
+}

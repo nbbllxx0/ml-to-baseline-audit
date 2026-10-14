@@ -1,0 +1,88 @@
+{
+  "pid": "P00166",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Convolutional Neural Network-based Topology Optimization (CNN-TO) By Estimating Sensitivity of Compliance from Material Distribution",
+    "authors": "Yusuke Takahashi, Yoshiro Suzuki, Akira Todoroki",
+    "year": 2019,
+    "venue": "arXiv preprint (cs.LG; also cs.CE); p. 1 says the paper is under review at the ASME Journal of Computing and Information Science in Engineering; no version of record found (web search 2026-09-24)",
+    "doi": "10.48550/arXiv.2001.00635",
+    "arxiv_id": "2001.00635",
+    "version_coded": "arXiv v1 (23 Dec 2019; only version), PDF"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screened I-QUALITY; the first quantitative classical comparison in the full text is a computation-time comparison, §5.1 rule 2)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For 40 density updates on a 16×32 cantilever, CNN-TO took 33.5 s on a Xeon PC with four GPUs, versus 7.28 s for FEM-based SIMP on a 1.60 GHz Core i5 PC; the ML method is about 4.6× slower [derived].",
+    "key_phrase": "the proposed method requires more computation time than the previous method",
+    "location": "Sec. 5.2.1 and Table 2, p. 7 (first quantitative comparison with the classical method; the abstract, conclusion and introduction are qualitative, so §5.1 rule 2 applies)",
+    "quantitative": true,
+    "claimed_speedup": 0.217,
+    "claimed_speedup_basis": "Derived: 7.28 s (SIMP, 40 updates) ÷ 33.5 s (CNN-TO, 40 updates) = 0.217 (Table 2), i.e. CNN-TO is about 4.6× slower; per update 0.182 s vs 0.84 s [derived]. Different machines: SIMP on a Core i5-4500U PC without GPU, CNN-TO on a Xeon Silver 4112 PC with 4× GTX 1080 Ti (Sec. 4).",
+    "direction": "underperform",
+    "alternatives": "(1) Quality, Table 3 (the result behind the abstract's claim of a little higher performance [inferred]): dimensionless compliance 1,287 (CNN-TO) vs 1,294 (SIMP), initial design 5,974; 0.54% lower [derived]. (2) Speed proxy, qualitative (conclusion; Sec. 5.2.1, 5.3.3; Figs. 12-13): CNN-TO reaches the structure outline in fewer updates (outline after 5 updates). (3) Qualitative (abstract, conclusion; Sec. 5.2.2): CNN-TO finds a topology that SIMP from random starts did not find; Appendix 2 shows that SIMP restarted from the CNN-TO design barely changes it."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization (p = 3, volume limit 50%) with optimality-criteria updates from FEM sensitivities, uniform initial density, followed by threshold filtering and floating-island removal (Sec. 2.2-2.4, 4)",
+    "implementation": "not stated for SIMP specifically; the article lists Python with TensorFlow for the CNN and NumPy/SciPy for other calculations (Sec. 4) [SIMP inferred to use NumPy/SciPy]",
+    "solver": "not stated",
+    "hardware_classical": "PC with 8 GB RAM and an Intel Core i5-4500U @ 1.60 GHz, no GPU (Sec. 4)",
+    "hardware_ml": "128 GB PC with an Intel Xeon Silver 4112 @ 2.60 GHz; CNN run in parallel on 4× NVIDIA GTX 1080 Ti (Sec. 4)",
+    "problem_size": "16×32 elements, cantilever (Sec. 4) [derived: 1,122 nodal DOFs]",
+    "classical_iterations": "fixed 40 density updates for both methods in the comparison (Table 2; Fig. 11 caption); Sec. 2.4 describes a change-based stopping rule whose threshold is not stated",
+    "classical_time": "7.28 s for 40 updates (Table 2)",
+    "ml_time": "33.5 s for 40 updates (Table 2)",
+    "training_time": "not stated (Adam, learning rate 0.00005; two CNNs trained from different initial weights, Sec. 4, 5.3.2)",
+    "data_generation_cost": "not stated; training data are random bar-system structures with FEM-computed sensitivities; sample count not stated (Sec. 3.2.1-3.2.2)",
+    "quality_metric": "dimensionless compliance of the filtered final designs (Table 3); compliance histories (Fig. 13); visual comparison (Figs. 11-12, 14)",
+    "quality_gap": "1,287 (CNN-TO) vs 1,294 (SIMP) after different filters, initial design 5,974 (Table 3); 0.54% lower [derived]; final volumes not reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched-iterations",
+      "evidence": "Table 2 and Sec. 5.2.1: both methods are timed for the same 40 density updates, and the filtered final compliances are nearly equal (1,294 vs 1,287, Table 3). Matching is not exact: different post-processing filters (Appendix 1), a SIMP threshold set only to give a volume close to CNN-TO's (Sec. 2.3), unreported final volumes, and no statement on whether filtering time is in Table 2. Unsure, so pass; a stricter reading gives partial (R1-loose)."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unjustified; R2-inefficient-impl [inferred]",
+      "evidence": "Sec. 4: SIMP ran on a PC with a Core i5-4500U @ 1.60 GHz and 8 GB RAM, without GPU; CNN-TO ran on a 128 GB Xeon Silver 4112 PC with four GTX 1080 Ti GPUs; the choice is not justified. SIMP needs 0.182 s per update at 16×32 [derived: 7.28 s ÷ 40], which suggests an unoptimized implementation (NumPy/SciPy [inferred]; solver not stated); this is an R2(e) candidate that needs our per-iteration timing at this size. (c) does not apply (about 1.1×10³ DOFs [derived]); (b) and (d) are not established. The asymmetry penalizes the classical side, so it cannot explain the ML method's slower time."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Sec. 3.2.1-3.2.2 and 4: neither the CNN training time nor the cost of generating the bar-system training structures and their FEM sensitivities is reported (sample count not stated), and no break-even is given; Table 2 covers only the 40 updates. The omission favours the ML side, which is still slower."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Table 3 and Fig. 11: the compliance of the filtered final designs is reported for both methods (FE analysis [inferred]). Final volumes are not reported, although the authors note that hole filling can break the mass constraint (Sec. 3.2.4). Raw CNN-TO outputs contain disconnected parts that the filter removes (Fig. 7). One example only; no failure count."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1 problem (16×32 cantilever); CNN-TO repeated with two CNNs trained from different initial weights (Fig. 14) and several runs with one CNN (Appendix 3, Fig. 17); SIMP run from random initial designs more than once, results not tabulated (Sec. 5.2.2)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Primary-outcome choice is a judgment call. Read strictly, §5.1 rule 2 selects the first quantitative classical comparison in the main text, Table 2 (time, ML slower), which gives stratum speed with direction underperform. The screening code (I-QUALITY) and the abstract's emphasis point to Table 3 (compliance 1,287 vs 1,294); under §5.1 rule 4 a verifier may pick that instead, which gives stratum Q with R3 = na. The conclusion's claim of fewer update steps is a speed proxy shown only graphically (Figs. 12-13); CNN-TO would need fewer than about 8.7 updates to match SIMP's 40-update time [derived: 7.28 s ÷ 0.8375 s per update], and no time-to-quality comparison is reported. The hardware asymmetry favours the ML side, which is still slower. The FEM settings print Poisson's ratio ν = 1.0 (Sec. 4), which is not admissible for isotropic plane elasticity [inferred; likely a typo]. The two methods use different post-processing filters (Appendix 1). seeds_or_variance = yes: Sec. 5.3.2 shows that two training seeds give different optima (qualitative only; no compliance given for CNN 2). The Appendix 3 text cites Fig. 16 where Fig. 17 is meant. No code or data statement. retest_candidate false: no public code. The problem is tiny (16×32) and fully specified, so a baseline-only R2(e) check of the 0.182 s per-update SIMP time is possible once our strong baseline is timed at this size. Reporting locators: hardware and timing = Sec. 4 and Table 2; n = Sec. 4, 5.3.2 and Appendix 3."
+}

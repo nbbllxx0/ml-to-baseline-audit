@@ -1,0 +1,107 @@
+{
+  "pid": "P00755",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Artificial neural network supported design of a lattice-based artificial spinal disc for restoring patient-specific anisotropic behaviors",
+    "authors": "Zhiyang Yu, Prakash Thakolkaran, Kristina Shea, Tino Stanković",
+    "year": 2023,
+    "venue": "Computers in Biology and Medicine 152 (2023) 106475 (available online 23 Dec 2022; open access, CC BY 4.0)",
+    "doi": "10.1016/j.compbiomed.2022.106475",
+    "arxiv_id": "",
+    "version_coded": "version of record: the publisher PDF (15 journal pages) deposited in the ETH Zurich Research Collection (doi 10.3929/ethz-b-000589651, listed by OpenAlex), read in full as text; journal pp. 7, 9 and 10 also checked on the rendered pages. Page locators are journal page numbers. The adjudicator re-read the same repository PDF in full on 2026-09-24 (fetched through the repository's public item-bundle-bitstream REST route) and checked Figs. 8, 9, 12 and 13 (pp. 10 and 13) on the rendered pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; the only classical comparison is an estimated run time of the same GA with FE fitness evaluation, Sec. 5.2)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "With the ANN replacing beam FE analysis as the GA fitness evaluator, one lattice-disc topology optimization finishes in about 40 s, versus an estimated 24 h for the same optimization driven by FE analysis.",
+    "key_phrase": "significantly more efficient compared to a FE-analysis-based optimization process",
+    "location": "Sec. 5.2, p. 10 (first quantitative comparison with a classical method; the abstract, introduction and conclusion claim efficiency only qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": 2160,
+    "claimed_speedup_basis": "Derived, not stated: about 24 h (86,400 s) ÷ about 40 s = 2,160 (Sec. 5.2, p. 10). The 24 h is an expected time, stated in the future tense; no FE-based optimization run is reported, and its basis (evaluations, time per FE analysis) is not stated. Data generation and training are excluded.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.2, p. 10, qualitative: with solid rather than beam elements, FE-based optimization would take several days. (2) Sec. 4.2-4.3, p. 8: each topology optimization finishes within 1 min (no comparator). (3) Sec. 5.3, p. 12, qualitative: data generation is a one-time cost for the ML method, while an optimization-based method pays for each new patient. (4) Abstract, qualitative: the ML-based method improves the computational efficiency of the automated design process."
+  },
+  "baseline": {
+    "classical_method": "The same genetic-algorithm topology optimization of the unit-cell distribution with FE analysis as the fitness evaluator (Sec. 3.3, 5.2); referred to only as an expected time, with no run reported [inferred from the future-tense wording]",
+    "implementation": "In-house MATLAB script for the FE analysis (1D Euler beam elements, linear elastic PEEK, six rotational load cases; Sec. 3.1.4); GA via the open-source Python library PyGAD (Sec. 3.3)",
+    "solver": "not stated",
+    "hardware_classical": "Intel Core i7-8550U CPU, 16 GB RAM, the machine for all computational tasks (Sec. 3, p. 3)",
+    "hardware_ml": "Same machine for training and optimization (Sec. 3, p. 3)",
+    "problem_size": "Grid of 15×3×2 = 90 grid-units (design variables), three unit-cell types per library (Sec. 3.1, Table 2); number of beam elements and DOFs not stated; a denser 25×4×2 grid is also tested (Sec. 5.1)",
+    "classical_iterations": "GA settings (Table 2, p. 7): population 50, 500 generations, 7 parents, steady-state selection, single-point crossover, 10% gene mutation [derived: up to 25,000 fitness evaluations]; whether the 24 h estimate uses these settings is not stated. Fig. 8 shows the ANN-driven objective flat after about 100-150 generations [read from plot]",
+    "classical_time": "about 24 h, stated as the expected time of an FE-analysis-based optimization; several days with solid elements (Sec. 5.2, p. 10)",
+    "ml_time": "about 40 s per optimization (Sec. 5.2, p. 10); within 1 min (Sec. 4.2 and 4.3, p. 8)",
+    "training_time": "about 17 min (MLP) and about 23 min (CNN) per library (Sec. 4.2, 4.3, p. 8); 500 epochs, Adam, learning rate 1e-4, batch 128 (Sec. 3.2)",
+    "data_generation_cost": "not stated; 600,000 FE-analysed random designs per library, two libraries (Sec. 3.1.4, p. 5)",
+    "quality_metric": "Squared error between normalized rotational stiffnesses of the design and the target disc (Eq. 4); FE-computed vs ANN-predicted stiffnesses of the optimized designs (Figs. 9, 12, 14); surrogate r² and MAE on 120,000 verification samples (Table 4)",
+    "quality_gap": "No FE-driven optimization result exists, so there is no gap to the comparator. Optimized designs: FE and ANN stiffnesses agree closely (Figs. 9, 12) [read from plots]; Library A designs miss the target torsional stiffnesses (Fig. 9; Sec. 5.1), Library B designs match (Fig. 12). Surrogate r² 0.975-0.999 (Table 4)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-no-quality",
+      "evidence": "Sec. 5.2, p. 10: the 40 s ANN-driven optimization is set against an FE-driven optimization that 'will take' about 24 h, an estimate with no reported run, so no classical design or objective exists to compare with. The ANN designs are checked by FE only against the IVD target stiffnesses and against the ANN's own predictions for the same design (Figs. 9, 12, 14), not against an FE-driven GA result at matched quality or matched budget. A speed claim with no quality comparison is a §5.3 R1 fail marker."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 3 and 5.2: both methods would use the same GA settings [inferred] and the same laptop-class CPU (i7-8550U), and no GPU is used, so (c) does not apply; (b) is not observed (no abstract figure). The 24 h estimate has no stated basis: if it assumes all 25,000 evaluations of Table 2 [derived], it implies about 3.5 s per six-load-case beam analysis [inferred], and Fig. 8 suggests that 100-150 of the 500 generations would suffice [read from plot]. But the same generation count applies to the 40 s run, so the ratio does not depend on it, and (d) is not established. The beam-model size is not stated, so efficiency cannot be judged. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "Training times are reported (about 17 and 23 min per library, Sec. 4.2-4.3), but the cost of the 600,000 FE-analysed training designs per library (Sec. 3.1.4) is not, and no break-even is given; Sec. 5.3 only argues that data generation is a one-time cost. [derived] One library's 600,000 FE analyses equal 24 times the at most 25,000 fitness evaluations of one GA run (population 50 × 500 generations, Table 2), so break-even needs at least about 24 designs per library, before training time."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Sec. 3.3 (p. 7) and Figs. 9, 12, 14: every optimized design is re-analysed with the FE beam model ('Optimized true') and plotted next to the ANN prediction; all six runs are shown, including the Library A designs that miss the torsional targets (Fig. 9; Sec. 5.1, p. 8). The problem has no volume constraint, and the cubic unit cells guarantee connectivity between grid-units by construction (Sec. 3.1.2, p. 4); member sizes are checked against the printer resolution (Sec. 5.1). Whether the post-sizing stiffnesses of Fig. 13 come from FE or from the uniform scaling rule is not stated. Unsure, so pass."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 patient targets (L2-L3, L4-L5) × 2 unit-cell libraries, plus a denser 25×4×2 grid for Library A (Figs. 8-14), one GA run each [inferred]; surrogate verification on 120,000 samples per library (Sec. 3.2, Table 4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; kept. Judgment call for the verifier: the only classical comparison is an expected time of about 24 h, stated in the future tense (Sec. 5.2), for an FE-driven version of the same GA; no such run, timing log or basis is reported. It is coded as a stated classical cost, like P00130's extrapolated fine-mesh time. If the verifier holds that an unexplained estimate neither runs nor times a classical method, the record becomes FT-NOBASELINE (PROTOCOL §11 clarification). Scope: inverse design of a lattice (architected-material) disc by GA over unit-cell assignments, which the authors call topology optimization; the ANN replaces FE inside the optimization loop, and the comparison is at the optimization level, so FT-FORWARD does not apply. The comparator is a GA with FE fitness evaluation, not density-based TO or homogenization-based optimization, so §3.1's architected-material clause is met only loosely. Physics: linear elastic beam lattice matched to six rotational stiffnesses; coded as in screening (metamaterial_homogenization); the code other is also defensible. The ANN is an MLP (Library A) or CNN (Library B), selected by verification accuracy (Sec. 4.2-4.3). C3: one library's training data equal at least 24 FE-driven GA runs in FE analyses [derived from Table 2 and Sec. 3.1.4]; the authors' amortization argument (Sec. 5.3) is not quantified. Caption inconsistency: the text says Library B used the CNN (Sec. 4.3), while the Fig. 12 caption says the predictions come from the MLP. Reporting locators: hardware p. 3; GA settings Table 2, p. 7; times pp. 8 and 10. No code or data availability statement was found. retest_candidate false: no public code. No author named Jun Wang. Adjudication (2026-09-24): both coders read the full text and agree on stratum, speed-up, R2 and R3; the disputes on R1 and R4 were settled from Sec. 3.1.2, 3.3, 5.1-5.2 and Figs. 9, 12-13 of the ETH repository copy. The FT-NOBASELINE question above was not raised by either coder's decision (both include), and the estimate is a stated classical cost, so the record stays an include.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "fail",
+        "second": "partial",
+        "decision": "fail",
+        "reason": "The classical comparator is only an expected time ('will take around 24 h', Sec. 5.2, p. 10); no FE-driven GA run or design is reported, so the ANN designs are never compared with a classical result, only with the IVD targets and with FE re-analysis of themselves (Figs. 9, 12). That is the §5.3 fail marker 'a speed claim is made with no quality comparison'; the partial case presupposes a classical result whose matching is loose."
+      },
+      "R4": {
+        "first": "pass",
+        "second": "partial",
+        "decision": "pass",
+        "reason": "Every returned design is re-analysed by FE ('Optimized true', Sec. 3.3, p. 7; Figs. 9, 12, 14) and all six runs are shown, including the Library A misses (Sec. 5.1, p. 8). The failure modes the rule counts cannot occur here: there is no volume constraint and cubic cells guarantee connectivity (Sec. 3.1.2, p. 4). Only the source of the post-sizing stiffnesses (Fig. 13) is unstated; unsure means pass."
+      }
+    }
+  }
+}

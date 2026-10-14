@@ -1,0 +1,56 @@
+{
+  "pid": "P00786",
+  "citation": {
+    "title": "Multi-scale topology optimization of multi-material heterogeneous microstructures based on deep learning",
+    "authors": "Jiaxiang Luo, Yu Li, Weien Zhou, Zeyu Zhang, Wen Yao",
+    "year": 2025,
+    "venue": "Journal of Computational Design and Engineering (Oxford University Press, gold OA journal)",
+    "doi": "10.1093/jcde/qwaf064",
+    "arxiv_id": "",
+    "version_coded": "Not read; abstract only (OpenAlex metadata, reconstructed from abstract_inverted_index; Semantic Scholar Graph API confirms the same title/DOI as gold OA CC BY-NC). Full text at https://doi.org/10.1093/jcde/qwaf064 (resolves to academic.oup.com) returned HTTP 403 with a Cloudflare managed challenge ('cf-mitigated: challenge') on 2026-09-24; no repository or alternate-host copy exists (OpenAlex any_repository_has_fulltext = false; Semantic Scholar's openAccessPdf points back to the same OUP DOI URL); a title-exact web search for a PDF found no alternate host."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (full text inaccessible; per protocol access rules, screening decision is kept rather than excluded for lack of access)",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Abstract only: proposes MMTO-DL, a multi-material multi-scale TO framework using a neural-reparameterization network (level-set height/material fields) plus a surrogate network linking height variables to microstructure mechanical properties, demonstrated on compliance-minimization and shape-matching examples. The abstract states the surrogate model 'substantially cut[s] computational needs for microstructure analysis' but names no classical optimization method and gives no number for any comparison.",
+    "key_phrase": "substantially cutting computational needs for microstructure analysis",
+    "location": "abstract",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: the abstract's only efficiency statement compares the learned surrogate to direct microstructure FE analysis (a forward-analysis speedup), not the TO method to a classical optimizer. Full text (which would hold the primary outcome per protocol §5.1) is inaccessible.",
+    "alternatives": "None identifiable from the abstract alone."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated (abstract only)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access: DOI resolves to academic.oup.com, which returned HTTP 403 with a Cloudflare managed challenge (headers show 'Cf-Mitigated: challenge', 'Server: cloudflare') to a plain scripted GET with a generic browser User-Agent on 2026-09-24. Per the access rules this counts as a bot check and was not bypassed; the request was not retried with any evasion technique. Alternative legal routes tried and exhausted: (1) OpenAlex work record for the DOI — open_access.is_oa=true, oa_status='gold', licence CC BY-NC, but best_oa_location.pdf_url is null and its only location is the same academic.oup.com DOI URL; any_repository_has_fulltext=false, i.e. OpenAlex itself finds no repository/green-OA mirror. (2) Semantic Scholar Graph API (DOI lookup) — isOpenAccess=true but openAccessPdf.url is the same doi.org/OUP link, no independent host. (3) Web search for the exact title restricted away from disallowed hosts — no alternate PDF found (only unrelated arXiv papers on similar topics). No arXiv preprint of this article exists (pool record and OpenAlex both show no arXiv id). Concluded no legal, accessible full text exists for this coder; coded from the OpenAlex-reconstructed abstract only, per the access rules (access='abstract_only', all R1-R4 = na, decision kept as include with screening code I-UNCLEAR rather than an FT- exclusion). Classification fields are best-effort from the abstract and are uncertain: method_family='neural_reparam' [inferred: the abstract describes a per-problem reparameterization network for the level-set height/material fields plus a separate surrogate network, resembling TOuNN/GM-TOuNN-style neural reparameterization rather than a trained generative or discriminative model]; physics='compliance' [inferred: the only named examples are 'compliance minimization and shape matching problems']; dim left 'unclear' because the abstract does not state 2D vs 3D. Stratum could not be assigned (set to 'none') because the abstract makes no explicit speed-vs-classical or quality-vs-classical claim; this must be revisited if full text becomes reachable. No author named Jun Wang (authors: Jiaxiang Luo, Yu Li, Weien Zhou, Zeyu Zhang, Wen Yao, per OpenAlex). Duplicate check: pool.csv searched by title on 2026-09-24; only one matching record (P00786 itself) — no duplicate found."
+}

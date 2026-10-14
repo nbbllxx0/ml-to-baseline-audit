@@ -1,0 +1,44 @@
+{
+  "pid": "P01004",
+  "citation": {
+    "title": "One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning (titled \"One-Shot Optimal Topology Generation through Theory-Driven Machine Learning.\" in this pool record)",
+    "authors": "Ruijin Cang, Hope (Houpu) Yao, Yi Ren",
+    "year": 2018,
+    "venue": "arXiv preprint (cs.LG; stat.ML); accepted to Computer-Aided Design",
+    "doi": "10.1016/j.cad.2018.12.008",
+    "arxiv_id": "1807.10787",
+    "version_coded": "Identified via OpenAlex (api.openalex.org/works/W2884778159, the ID behind this pool record): its primary_location is arxiv.org, and the ID resolves to arXiv 1807.10787. The arXiv abs page (checked 2026-09-24) shows 3 versions (v1 27 Jul 2018 under a title close to this pool record's; v2 19 Nov 2018; v3 27 Dec 2018, current title 'One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning'), 'Accepted to Computer-Aided Design'. The Elsevier version of record (DOI 10.1016/j.cad.2018.12.008) was checked via its ASU institutional-repository record (asu.elsevierpure.com), which offers no PDF and links only to the paywalled DOI; not read. The full text of arXiv v3 (https://arxiv.org/pdf/1807.10787v3) was downloaded and read in full to confirm this identification and the duplicate finding below."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded in this record (duplicate). Headline, for reference: a feedforward-network 'solution generator' is trained by theory-driven active learning (using deviation from TO optimality conditions to pick new training points) to predict near-optimal 2D compliance-minimization topologies in one shot; the paper reports generation taking about 0.01 s/topology on an Intel Xeon E5-1620 CPU versus about 100-1,000 s/topology for the classical Augmented Lagrangian TO solver, explicitly noting this excludes training/data-acquisition cost, alongside failure-rate and compliance-gap comparisons against the same classical solver's ground truth (0.16% vs 5.12%-14% failure rate; Table 1).",
+    "location": "Section 5.4, 'Comparison on solution generation speed' (main text)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). For reference, the article's own order-of-magnitude figures (0.01 s vs 100-1,000 s per topology, same CPU) imply roughly 10,000x-100,000x, but the article states these only as orders of magnitude, not precise numbers."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "IMPORTANT DUPLICATE FINDING (second such case in this queue; see also P01152/P00165): pool.csv contains two separate entries for the same article. P01004 (this queue item; title 'One-Shot Optimal Topology Generation through Theory-Driven Machine Learning.', DOI and arxiv_id columns empty, OpenAlex W2884778159, 1 cited_by) and P00183 (title 'One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning', DOI 10.1016/j.cad.2018.12.008, arxiv_id 1807.10787, OpenAlex W2906904540, 70 cited_by) share identical authors (Ruijin Cang, Hope/Houpu Yao, Yi Ren) and an identical pool date (2018-07-27). OpenAlex's own record for W2884778159 (the ID behind P01004) has primary_location on arxiv.org and resolves to the same arXiv paper (1807.10787) that P00183's arxiv_id field names; I read the full text of the latest arXiv version (v3) to confirm this identification before concluding it is the same article, once submitted under a title close to P01004's pool title (v1, Jul 2018) and later finalized to P00183's title for v2/v3 and the Computer-Aided Design publication. Per the task's duplicate rule, the primary version is the version of record if open access, else the latest arXiv version; the Computer-Aided Design version of record is not open access to this coder (the ASU institutional-repository page for it offers no PDF and links only to the paywalled Elsevier DOI, not attempted further), so the primary version is arXiv v3. Between the two redundant pool pids for that version, P00183 carries the complete, current, and verifiably correct bibliographic record (correct title, DOI, arxiv_id, 70 citations tracked), while P01004's own pool metadata is a stale, differently-titled capture with no DOI or arxiv_id and only 1 citation recorded (likely because citation-tracking services attribute citations to the canonical W2906904540 record, not W2884778159). I am therefore coding THIS record (P01004) as the non-primary duplicate (FT-DUPLICATE), naming P00183 as the other pid holding the primary version, so the article is not double-counted in the audit's pooled statistics; substantive R1-R4/baseline coding is left to whichever record ends up representing P00183, and is not repeated here. Given this is the second identical stale-OpenAlex-ID duplicate pattern found in a 10-article queue, the audit team may want to sweep pool.csv for other pids with empty doi/arxiv_id columns that share an author set and date with a fully-populated pid, since this pattern appears systematic rather than a one-off. No author of this article is named Jun Wang (authors: Ruijin Cang, Hope/Houpu Yao, Yi Ren)."
+}

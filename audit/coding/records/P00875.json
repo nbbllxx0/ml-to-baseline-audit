@@ -1,0 +1,61 @@
+{
+ "pid": "P00875",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Learning topology optimization process via convolutional long\u2010short\u2010term memory autoencoder\u2010decoder",
+  "authors": "Qiaochu Ma, Edward C. DeMeter, Saurabh Basu",
+  "year": 2023,
+  "venue": "International Journal for Numerical Methods in Engineering 124(11) (2023) 2571-2588 (Crossref; hybrid open access, CC BY 4.0 per Crossref and OpenAlex)",
+  "doi": "10.1002/nme.7221",
+  "arxiv_id": "",
+  "version_coded": "none: only the abstract was read (pool record from OpenAlex). The version of record could not be retrieved"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no accessible full text). Abstract only: a ConvLSTM encoder-decoder, fed the first SIMP iterations, predicts the rest of the optimization path, claiming a large computation-cost reduction for a small loss in design performance.",
+  "location": "Abstract (the only text read)",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "Not coded; the abstract gives no numbers.",
+  "alternatives": "Abstract: the training data are SIMP runs with random boundary conditions, loads and volume constraints; the method is said to extend to unseen boundary and load conditions."
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all with a generic User-Agent and no personal data: (1) the open copy OpenAlex lists, onlinelibrary.wiley.com/doi/pdfdirect/10.1002/nme.7221: HTTP 403 with a Cloudflare challenge page (curl); the challenge was not attempted. (2) The Wiley full-text HTML page (/doi/full/10.1002/nme.7221): HTTP 403 via WebFetch. (3) OpenAlex lists no other location (any_repository_has_fulltext false). (4) arXiv API searches by title words, author and ConvLSTM gave no preprint. The article is open access (CC BY 4.0), so a human verifier can read it in a browser. Pointer from the abstract: the speed claim is qualitative (significant reduction in computation cost with a little sacrifice in optimum performance), and the comparator is SIMP, which also generates the data; the full text decides the primary outcome and stratum. Related but distinct study by the same first author in the pool: P00883 (TO-NODE, IJNME 2024); not a duplicate. Screening code was I-SPEED. No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00875.json",
+  "result": "full agreement"
+ }
+}

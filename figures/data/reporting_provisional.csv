@@ -1,0 +1,9 @@
+indicator,strata,n,headline_value,k,share
+ood_test,speed+quality,47,yes,13,0.2765957446808511
+seeds_or_variance,speed+quality,47,yes,11,0.23404255319148937
+failure_rate_reported,speed+quality,47,yes,12,0.2553191489361702
+timing_protocol_stated,speed,28,yes,0,0.0
+runtimes_all_cases,speed,28,selective,10,0.35714285714285715
+code_available,speed+quality,47,yes,14,0.2978723404255319
+data_available,speed+quality,47,yes,8,0.1702127659574468
+hardware_per_method_stated,speed,28,yes,9,0.32142857142857145

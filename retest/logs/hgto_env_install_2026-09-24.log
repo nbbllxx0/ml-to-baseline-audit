@@ -1,0 +1,142 @@
+Source:      C:\Users\YSL0\anaconda3\envs\torch5090
+Destination: C:\Users\YSL0\anaconda3\envs\hgto
+Packages: 19
+Files: 36990
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+clone exit 0
+Obtaining file:///E:/AI/ml-to-baseline-audit/retest/targets/HGTO
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy>=1.24 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from hgto==0.1.0) (2.4.3)
+Requirement already satisfied: scipy>=1.10 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from hgto==0.1.0) (1.17.1)
+Requirement already satisfied: torch>=2.0 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from hgto==0.1.0) (2.11.0+cu128)
+Collecting torch-geometric>=2.4 (from hgto==0.1.0)
+  Downloading torch_geometric-2.8.0.post1-py3-none-any.whl.metadata (64 kB)
+Collecting pyamg<6,>=5.3 (from hgto==0.1.0)
+  Downloading pyamg-5.3.0-cp312-cp312-win_amd64.whl.metadata (8.3 kB)
+Collecting scikit-fem==12.0.2 (from hgto==0.1.0)
+  Downloading scikit_fem-12.0.2-py3-none-any.whl.metadata (37 kB)
+Requirement already satisfied: matplotlib>=3.7 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from hgto==0.1.0) (3.10.9)
+Collecting PyYAML>=6.0 (from hgto==0.1.0)
+  Using cached pyyaml-6.0.3-cp312-cp312-win_amd64.whl.metadata (2.4 kB)
+Requirement already satisfied: pytest>=7 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from hgto==0.1.0) (9.1.1)
+Collecting pypardiso (from hgto==0.1.0)
+  Using cached pypardiso-0.4.7-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: contourpy>=1.0.1 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from matplotlib>=3.7->hgto==0.1.0) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from matplotlib>=3.7->hgto==0.1.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from matplotlib>=3.7->hgto==0.1.0) (4.62.1)
+Requirement already satisfied: kiwisolver>=1.3.1 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from matplotlib>=3.7->hgto==0.1.0) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from matplotlib>=3.7->hgto==0.1.0) (26.0)
+Requirement already satisfied: pillow>=8 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from matplotlib>=3.7->hgto==0.1.0) (12.1.1)
+Requirement already satisfied: pyparsing>=3 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from matplotlib>=3.7->hgto==0.1.0) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from matplotlib>=3.7->hgto==0.1.0) (2.9.0.post0)
+Requirement already satisfied: colorama>=0.4 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from pytest>=7->hgto==0.1.0) (0.4.6)
+Requirement already satisfied: iniconfig>=1.0.1 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from pytest>=7->hgto==0.1.0) (2.3.0)
+Requirement already satisfied: pluggy<2,>=1.5 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from pytest>=7->hgto==0.1.0) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from pytest>=7->hgto==0.1.0) (2.20.0)
+Requirement already satisfied: six>=1.5 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from python-dateutil>=2.7->matplotlib>=3.7->hgto==0.1.0) (1.17.0)
+Requirement already satisfied: filelock in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch>=2.0->hgto==0.1.0) (3.25.2)
+Requirement already satisfied: typing-extensions>=4.10.0 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch>=2.0->hgto==0.1.0) (4.15.0)
+Requirement already satisfied: setuptools<82 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch>=2.0->hgto==0.1.0) (70.2.0)
+Requirement already satisfied: sympy>=1.13.3 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch>=2.0->hgto==0.1.0) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch>=2.0->hgto==0.1.0) (3.6.1)
+Requirement already satisfied: jinja2 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch>=2.0->hgto==0.1.0) (3.1.6)
+Requirement already satisfied: fsspec>=0.8.5 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch>=2.0->hgto==0.1.0) (2026.2.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from sympy>=1.13.3->torch>=2.0->hgto==0.1.0) (1.3.0)
+Collecting aiohttp (from torch-geometric>=2.4->hgto==0.1.0)
+  Using cached aiohttp-3.14.3-cp312-cp312-win_amd64.whl.metadata (8.5 kB)
+Collecting psutil>=5.8.0 (from torch-geometric>=2.4->hgto==0.1.0)
+  Using cached psutil-7.2.2-cp37-abi3-win_amd64.whl.metadata (22 kB)
+Requirement already satisfied: requests in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch-geometric>=2.4->hgto==0.1.0) (2.33.1)
+Requirement already satisfied: tqdm in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from torch-geometric>=2.4->hgto==0.1.0) (4.67.3)
+Collecting xxhash (from torch-geometric>=2.4->hgto==0.1.0)
+  Using cached xxhash-4.0.1-cp312-cp312-win_amd64.whl.metadata (18 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp->torch-geometric>=2.4->hgto==0.1.0)
+  Using cached aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp->torch-geometric>=2.4->hgto==0.1.0)
+  Using cached aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: attrs>=17.3.0 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from aiohttp->torch-geometric>=2.4->hgto==0.1.0) (26.1.0)
+Collecting frozenlist>=1.1.1 (from aiohttp->torch-geometric>=2.4->hgto==0.1.0)
+  Using cached frozenlist-1.8.0-cp312-cp312-win_amd64.whl.metadata (21 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp->torch-geometric>=2.4->hgto==0.1.0)
+  Using cached multidict-6.9.1-cp312-cp312-win_amd64.whl.metadata (5.4 kB)
+Collecting propcache>=0.2.0 (from aiohttp->torch-geometric>=2.4->hgto==0.1.0)
+  Using cached propcache-0.5.4-cp312-cp312-win_amd64.whl.metadata (25 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp->torch-geometric>=2.4->hgto==0.1.0)
+  Using cached yarl-1.25.1-cp312-cp312-win_amd64.whl.metadata (115 kB)
+Requirement already satisfied: idna>=2.0 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from yarl<2.0,>=1.17.0->aiohttp->torch-geometric>=2.4->hgto==0.1.0) (3.14)
+Requirement already satisfied: MarkupSafe>=2.0 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from jinja2->torch>=2.0->hgto==0.1.0) (3.0.3)
+Collecting mkl!=2024.0 (from pypardiso->hgto==0.1.0)
+  Downloading mkl-2026.1.0-py2.py3-none-win_amd64.whl.metadata (1.8 kB)
+Collecting onemkl-license==2026.1.0 (from mkl!=2024.0->pypardiso->hgto==0.1.0)
+  Downloading onemkl_license-2026.1.0-py2.py3-none-win_amd64.whl.metadata (1.7 kB)
+Collecting intel-openmp<2027,>=2025 (from mkl!=2024.0->pypardiso->hgto==0.1.0)
+  Downloading intel_openmp-2026.1.2-py2.py3-none-win_amd64.whl.metadata (1.3 kB)
+Collecting tbb==2023.* (from mkl!=2024.0->pypardiso->hgto==0.1.0)
+  Downloading tbb-2023.1.0-py3-none-win_amd64.whl.metadata (1.1 kB)
+Collecting intel-cmplr-lib-ur==2026.1.2 (from intel-openmp<2027,>=2025->mkl!=2024.0->pypardiso->hgto==0.1.0)
+  Downloading intel_cmplr_lib_ur-2026.1.2-py2.py3-none-win_amd64.whl.metadata (1.3 kB)
+Collecting umf==1.1.* (from intel-cmplr-lib-ur==2026.1.2->intel-openmp<2027,>=2025->mkl!=2024.0->pypardiso->hgto==0.1.0)
+  Downloading umf-1.1.0-py2.py3-none-win_amd64.whl.metadata (1.1 kB)
+Collecting tcmlib==1.* (from tbb==2023.*->mkl!=2024.0->pypardiso->hgto==0.1.0)
+  Downloading tcmlib-1.5.0-py2.py3-none-win_amd64.whl.metadata (1.0 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from requests->torch-geometric>=2.4->hgto==0.1.0) (3.4.7)
+Requirement already satisfied: urllib3<3,>=1.26 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from requests->torch-geometric>=2.4->hgto==0.1.0) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in C:\Users\YSL0\anaconda3\envs\hgto\Lib\site-packages (from requests->torch-geometric>=2.4->hgto==0.1.0) (2026.4.22)
+Downloading scikit_fem-12.0.2-py3-none-any.whl (178 kB)
+Downloading pyamg-5.3.0-cp312-cp312-win_amd64.whl (1.7 MB)
+   ---------------------------------------- 1.7/1.7 MB 30.2 MB/s  0:00:00
+Using cached pyyaml-6.0.3-cp312-cp312-win_amd64.whl (154 kB)
+Downloading torch_geometric-2.8.0.post1-py3-none-any.whl (1.3 MB)
+   ---------------------------------------- 1.3/1.3 MB 22.6 MB/s  0:00:00
+Using cached psutil-7.2.2-cp37-abi3-win_amd64.whl (137 kB)
+Using cached aiohttp-3.14.3-cp312-cp312-win_amd64.whl (476 kB)
+Using cached multidict-6.9.1-cp312-cp312-win_amd64.whl (59 kB)
+Using cached yarl-1.25.1-cp312-cp312-win_amd64.whl (102 kB)
+Using cached aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Using cached aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Using cached frozenlist-1.8.0-cp312-cp312-win_amd64.whl (44 kB)
+Using cached propcache-0.5.4-cp312-cp312-win_amd64.whl (46 kB)
+Using cached pypardiso-0.4.7-py3-none-any.whl (10 kB)
+Downloading mkl-2026.1.0-py2.py3-none-win_amd64.whl (180.8 MB)
+   ---------------------------------------- 180.8/180.8 MB 30.9 MB/s  0:00:05
+Downloading onemkl_license-2026.1.0-py2.py3-none-win_amd64.whl (56 kB)
+Downloading intel_openmp-2026.1.2-py2.py3-none-win_amd64.whl (26.4 MB)
+   ---------------------------------------- 26.4/26.4 MB 28.8 MB/s  0:00:00
+Downloading intel_cmplr_lib_ur-2026.1.2-py2.py3-none-win_amd64.whl (1.3 MB)
+   ---------------------------------------- 1.3/1.3 MB 34.2 MB/s  0:00:00
+Downloading tbb-2023.1.0-py3-none-win_amd64.whl (428 kB)
+Downloading tcmlib-1.5.0-py2.py3-none-win_amd64.whl (366 kB)
+Downloading umf-1.1.0-py2.py3-none-win_amd64.whl (289 kB)
+Using cached xxhash-4.0.1-cp312-cp312-win_amd64.whl (37 kB)
+Building wheels for collected packages: hgto
+  Building editable for hgto (pyproject.toml): started
+  Building editable for hgto (pyproject.toml): finished with status 'done'
+  Created wheel for hgto: filename=hgto-0.1.0-0.editable-py3-none-any.whl size=5738 sha256=65dcc6f9f28545b72e38ca72d31252b28b6c4cd537d24f5c7fffa5b5366020b7
+  Stored in directory: C:\Users\YSL0\AppData\Local\Temp\pip-ephem-wheel-cache-f8zjo34f\wheels\7f\23\cf\735eacfd5182f66213877ba5ea57304ffb559a100d1425ead4
+Successfully built hgto
+Installing collected packages: tcmlib, onemkl-license, xxhash, umf, tbb, PyYAML, psutil, propcache, multidict, frozenlist, aiohappyeyeballs, yarl, scikit-fem, pyamg, intel-cmplr-lib-ur, aiosignal, intel-openmp, aiohttp, torch-geometric, mkl, pypardiso, hgto
+  WARNING: The script hgto.exe is installed in 'C:\Users\YSL0\anaconda3\envs\hgto\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+
+Successfully installed PyYAML-6.0.3 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 frozenlist-1.8.0 hgto-0.1.0 intel-cmplr-lib-ur-2026.1.2 intel-openmp-2026.1.2 mkl-2026.1.0 multidict-6.9.1 onemkl-license-2026.1.0 propcache-0.5.4 psutil-7.2.2 pyamg-5.3.0 pypardiso-0.4.7 scikit-fem-12.0.2 tbb-2023.1.0 tcmlib-1.5.0 torch-geometric-2.8.0.post1 umf-1.1.0 xxhash-4.0.1 yarl-1.25.1
+pip exit 0
+
+2026-09-24 (later, before any timed HGTO run): duplicate Intel OpenMP runtime fixed in env `hgto`.
+Symptom: every HGTO run that calls PARDISO after importing torch (HGTO's own `hgto run --method oc`, and the final
+independent evaluation of every run) aborted with "OMP: Error #15: Initializing libiomp5md.dll, but found
+libiomp5md.dll already initialized". torch 2.11.0+cu128 ships Lib/site-packages/torch/lib/libiomp5md.dll; the pip MKL
+used by pypardiso loads Library/bin/libiomp5md.dll, so two OpenMP runtimes were loaded in one process.
+Fix: renamed Lib/site-packages/torch/lib/libiomp5md.dll -> libiomp5md.dll.bak_duplicate_openmp. torch's loader then
+resolves libiomp5md.dll from <env>/Library/bin (it adds that folder to the DLL search path), so torch and MKL share one
+runtime. Check: torch float64 matmul with 2 threads and a pypardiso solve in one process succeed; the loaded module is
+C:\Users\YSL0\anaconda3\envs\hgto\Library\bin\libiomp5md.dll. No HGTO file was changed. The workaround
+KMP_DUPLICATE_LIB_OK=TRUE was not used.

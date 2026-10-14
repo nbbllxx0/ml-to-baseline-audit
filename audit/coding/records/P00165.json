@@ -1,0 +1,115 @@
+{
+  "pid": "P00165",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Topology optimization of 2D structures with nonlinearities using deep learning",
+    "authors": "Diab W. Abueidda, Seid Koric, Nahil A. Sobh",
+    "year": 2020,
+    "venue": "arXiv preprint. Version of record: Computers & Structures 237 (2020) 106283, doi 10.1016/j.compstruc.2020.106283 (Crossref; same three authors and title; Elsevier user licence, not open access per OpenAlex; not accessed)",
+    "doi": "10.1016/j.compstruc.2020.106283",
+    "arxiv_id": "2002.01896",
+    "version_coded": "arXiv v4 (13 Apr 2020; v1 31 Jan, v2 6 Feb, v3 17 Mar 2020), PDF (41 pp.) read in full as text; pp. 19, 26 and 30 also checked on the rendered pages. Title pages of v1-v3 read to confirm the earlier titles"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; the ML inference time is never quantified, so the speed claim stays qualitative, and the first quantitative classical comparison is test-set Dice similarity against the TO designs, §5.1 rule 2)",
+    "stratum": "quality",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On held-out test sets, ResUnet predictions thresholded at 0.5 reproduce the TO ground-truth designs with mean Dice similarity 0.958 (linear elastic, 32×32); 0.964 (neo-Hookean) and 0.984 (stress-constrained), both 50×50.",
+    "key_phrase": "the ground-truth and predicted designs are almost identical",
+    "location": "Sec. 5, pp. 29-30 (linear model; first quantitative comparison with classical TO results); neo-Hookean pp. 32-33; stress-constrained p. 34. The abstract, introduction and conclusion compare with TO only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: the ML inference time is never given (called negligible in the abstract and instant in Sec. 5, p. 34, and Sec. 6). Classical side only: about 25 min per linear 32×32 optimization and about 90 min per neo-Hookean 50×50 optimization on a Core i5 vPro PC (Sec. 3.1, Fig. 4).",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Abstract, qualitative speed claim: optimized designs predicted without an iterative scheme and with negligible inference time; with the Sec. 3.1 PC times (25 and 90 min per optimization) it could be read as a speed comparison (see notes). (2) Sec. 6, qualitative: excellent agreement with rigorous nonlinear TO, which needs expensive computation; instant inference on a laptop. (3) Sec. 5, p. 32: unlike Yu et al. and Zhang et al., no structural disconnections were encountered for the linear model with 15,000 rather than 100,000 training samples (ML vs ML; no count). (4) Sec. 5, p. 26, Fig. 7 (ML only): training 1.25 h on one V100 vs 12.5 h on a CPU-only node."
+  },
+  "baseline": {
+    "classical_method": "Density-based SIMP (penalty 3) compliance minimization with a volume constraint, solved by MMA: ABAQUS with TOSCA (sensitivity-based solver) for the linear elastic and neo-Hookean datasets (Sec. 2.1, 3.1); an in-house MATLAB MMA code with a q-norm stress constraint (q = 10) for the stress-constrained dataset (Sec. 2.2, 3.2)",
+    "implementation": "Commercial general-purpose TO module (ABAQUS/TOSCA) driven by Python scripts for two datasets; in-house MATLAB code for the stress dataset (Sec. 2.1-3.2)",
+    "solver": "not stated",
+    "hardware_classical": "iForge HPC cluster (Intel Skylake nodes, 40 cores, 192 GB RAM), ten optimizations run simultaneously; also a personal computer with an Intel Core i5 vPro (Sec. 3.1)",
+    "hardware_ml": "Training on one NVIDIA V100 (32 GB) on iForge; a CPU-only iForge node was used for a training-time comparison (Sec. 5, p. 26). Inference hardware not stated; the authors say inference can run on a laptop (Sec. 5, p. 34)",
+    "problem_size": "Linear elastic: 32×32 elements (Sec. 3.1) [derived: 2,178 nodal DOFs]; neo-Hookean and stress-constrained: 50×50 elements (Sec. 3.1-3.2) [derived: 5,202 nodal DOFs]; all inputs and outputs padded to 64×64 (Sec. 3.2)",
+    "classical_iterations": "not stated (TOSCA and MATLAB MMA stopping rules not given)",
+    "classical_time": "Linear: about 25 min per optimization on the Core i5 PC; 0.31 min per data point averaged over ten simultaneous tasks on iForge. Neo-Hookean: about 90 min on the PC; 3.2 min per data point on iForge (Sec. 3.1, Fig. 4). Stress-constrained: not stated",
+    "ml_time": "not stated (negligible or instant per the abstract, Sec. 5 p. 34 and Sec. 6)",
+    "training_time": "1.25 h (linear) and 1.5 h (nonlinear) on one V100; 12.5 h for the linear model on a CPU-only iForge node (Sec. 5, p. 26, Fig. 7); 150 epochs, batch 64, Adam, learning rate 0.001 (Sec. 4.2). Training time of the stress-constrained model not stated separately",
+    "data_generation_cost": "15,000 linear, 18,000 neo-Hookean and 20,000 stress-constrained TO designs (Sec. 3.1-3.2); rates 0.31 and 3.2 min per data point with ten parallel tasks on iForge (Sec. 3.1) [derived totals: 77.5 h and 960 h wall-clock]; cost of the stress dataset not stated. Dataset size was increased until the test DSC exceeded 0.95 (Sec. 3.1)",
+    "quality_metric": "Mean Dice similarity coefficient (DSC) between predictions thresholded at 0.5 and the TO ground-truth images on the test sets (Sec. 4.2, 5); randomly picked visual examples (Figs. 10, 11, 13). No compliance, volume or stress check of the predicted designs",
+    "quality_gap": "Test DSC 0.958 (linear), 0.964 (neo-Hookean), 0.984 (stress-constrained), where 1.0 means identical images (Sec. 5, pp. 30, 33, 34). Compliance, volume-fraction and stress-constraint errors not reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 3 and 5: predictions and TO designs share the same inputs (load position, angle and magnitude, volume target, filter radius), so the comparison is at matched problem settings. Matching is loose: agreement is measured only by DSC on thresholded images; the volume fraction and compliance of the predicted designs are not reported; the TO stopping rules are not stated; no time or FE budget is matched."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (pp. 1-2) names no baseline beyond 'a topology optimization framework' and gives no figures, so (b) is not observed. For context: the linear and neo-Hookean reference designs come from ABAQUS/TOSCA, a general-purpose commercial TO module (Sec. 2.1, p. 9), and about 25 min per 32×32 linear optimization on a Core i5 PC (Sec. 3.1, p. 17; about 2,200 DOFs [derived]) looks slow for the size [inferred]; iteration counts are not stated. Both coders coded partial (R2-inefficient-impl) before the stratum decision."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Primary outcome is quality only. For C3: the qualitative speed claim concerns inference time only (abstract). Training 1.25 h and 1.5 h on one V100 (Sec. 5, p. 26); data 15,000 and 18,000 samples at 0.31 and 3.2 min per data point on ten parallel iForge tasks (Sec. 3.1) [derived: 77.5 h and 960 h]; stress model: neither cost stated; no break-even. [derived] Because the data are TO runs, the linear model breaks even only after about 15,000 uses at PC rates (15,000 × 25 min of data vs 25 min saved per use), plus about 3 uses for training."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Sec. 4.2 and 5: design quality rests only on the Dice similarity of thresholded images (0.958, 0.964, 0.984) and on randomly picked visual examples (Figs. 10, 11, 13). No FE analysis of any predicted design is reported: no compliance, no volume check and no stress-constraint check for the stress model. Disconnections are said not to occur for the linear model (p. 32), without a count."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "10% of each dataset (Sec. 5): 1,500 linear, 1,800 neo-Hookean and 2,000 stress-constrained test designs [derived from the 81/9/10 split and the dataset sizes in Sec. 3]",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; full text gives stratum Q. Stratum is a judgment call. The abstract's speed claim is qualitative, and the ML inference time is never quantified, so no speed ratio exists. The only classical times are data-generation costs (Sec. 3.1, Fig. 4). §5.1 rule 2 therefore selects the first quantitative comparison with classical TO results, the Dice similarity in Sec. 5, as for compliance-error-only records coded Q. Alternative for the verifier: if the Sec. 3.1 PC time of about 25 min per optimization, set against the abstract's instant inference, counts as a quantitative speed comparison, the record moves to the speed stratum with no derivable speed-up; would-be verdicts R1 partial (R1-loose: quality reported only as DSC), R2 partial (as coded), R3 pass for the linear and neo-Hookean models (both costs reported; the claim is limited to inference time) but no costs for the stress model, R4 fail (as coded). Duplicates: pool records P00867 (title of arXiv v1-v2, 'Machine learning accelerated topology optimization of nonlinear structures') and P01152 (title of arXiv v3, 'Deep learning accelerated topology optimization of linear and nonlinear structures') are the same arXiv preprint 2002.01896, confirmed from the v1-v3 title pages. P00165 carries the version-of-record title and comes first in the decision order (15, vs 92 for P01152 and 436 for P00867), so it is the primary record; the other two are FT-DUPLICATE candidates. v1-v2 had two models only (no stress constraint), v3 added the stress-constrained model [title-page abstracts]. The version of record (Computers & Structures) was not accessed and may differ. The TOSCA and MATLAB settings (stopping rules, iteration counts) are not reported. Physics: compliance with linear elastic, neo-Hookean hyperelastic (geometric and material nonlinearity) and stress-constrained linear elastic formulations; coded as compliance. Reporting locators: test split Sec. 5; hardware Sec. 3.1 and Sec. 5, p. 26; no code statement; Data Availability section: data from the corresponding author on reasonable request. retest_candidate false: no public code, and the reference data came from a commercial TO module. No author named Jun Wang. Adjudicator check (2026-09-24): read the arXiv v4 PDF (41 pp.). No ML inference time appears anywhere ('negligible', abstract p. 2; 'instantly', Sec. 5 p. 34 and Sec. 6 p. 36), and the classical 25- and 90-min figures are data-generation costs (Sec. 3.1, pp. 17 and 19) never paired with an ML figure; the first quantitative ML-vs-classical comparison is the linear-model test DSC of 0.958 (Sec. 5, p. 30), so the quality stratum stands. R2 changed from partial (both coders) to na as a consequence of the stratum-Q decision under PROTOCOL §11 (2026-09-24); see adjudication.consequential_changes.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "stratum": {
+        "first": "quality",
+        "second": "speed",
+        "decision": "quality",
+        "reason": "The abstract (pp. 1-2), conclusion (Sec. 6, p. 36) and introduction compare with TO only qualitatively, and no ML inference time is given anywhere, so the 25- and 90-min classical times (Sec. 3.1, pp. 17, 19) never form a quantitative speed comparison. §5.1 rule 2 therefore takes the first quantitative ML-vs-classical comparison in the main text, the test DSC of 0.958 against the TO designs (Sec. 5, p. 30), a design-quality comparison; rule 3's qualitative speed claim applies only when no quantitative comparison exists."
+      },
+      "R3": {
+        "first": "na",
+        "second": "pass",
+        "decision": "na",
+        "reason": "With stratum Q decided, the §11 stratum-Q rule (2026-09-24) makes R3 na. The speed claim stays qualitative: no ML inference time is reported (abstract, p. 2; Sec. 5, p. 34; Sec. 6, p. 36)."
+      }
+    },
+    "consequential_changes": {
+      "R2": {
+        "first": "partial",
+        "second": "partial",
+        "decision": "na",
+        "reason": "Not a disputed item. With stratum Q decided, the §11 stratum-Q rule (2026-09-24) makes R2 na unless criterion (b) applies; the abstract (pp. 1-2) names no baseline and gives no figures, so (b) is not observed, and partial would contradict the stratum decision. The TOSCA concern both coders raised stays in the R2 evidence for context."
+      }
+    }
+  }
+}

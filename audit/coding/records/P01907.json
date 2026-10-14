@@ -1,0 +1,64 @@
+{
+ "pid": "P01907",
+ "citation": {
+  "title": "Evolutionary design of conductive pathways using a generative autoencoder",
+  "authors": "Matei Cristian Ignuta-Ciuncanu, Hannes Stark, Ricardo Martinez-Botas",
+  "year": 2025,
+  "venue": "International Communications in Heat and Mass Transfer 166 (2025) 109098 (online 2025-06-02; hybrid OA, CC BY per OpenAlex)",
+  "doi": "10.1016/j.icheatmasstransfer.2025.109098",
+  "arxiv_id": "none found (arXiv API searches, 2026-09-24)",
+  "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); full text not reachable"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "stage": "ai_agreed",
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "vae",
+  "physics": "thermal",
+  "dim": "both"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (abstract only). The abstract claims that a VAE coupled with evolutionary search lowers average device temperature by 10% and peak hotspot temperature by up to 1%, and raises Pareto hypervolume by 13%, compared with unnamed standard methods.",
+  "location": "Abstract (pool record, from OpenAlex)",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "no full text"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all anonymous with a generic browser User-Agent and no personal data. (1) The open copy OpenAlex lists (DOI, resolving to ScienceDirect PII S073519332500524X) returned HTTP 403 with a robot check (captcha). Stopped there; no bypass. (2) Imperial College's Spiral repository (public DSpace search by title words, author and DOI) holds no copy of the article, only the first author's PhD thesis (hdl 10044/1/127731), which was not used as a substitute for the article. (3) The Imperial profile of the senior author lists the article with a DOI link only. (4) The SSRN preprint of an earlier version (see P01938 below) returned a Cloudflare 'Just a moment...' challenge. Stopped there. (5) arXiv API: no version. (6) ResearchGate was not used (third-party upload site). The abstract compares with standard methods it does not name (it describes conventional methods as gradient-based or parametric-shape design) on temperatures and Pareto hypervolume, which suggests the quality stratum at full text [inferred]; bi-material unit cells (2D [inferred]) are assembled into a 3D heat sink in a demonstration (dim both). Duplicate check: P01938 (SSRN 2023, 'Bio-Inspired Design of Conductive Heat Sinks Using a Generative Autoencoder Framework', same three authors) appears to be an earlier preprint of this study [inferred from authors, framework and topic; the screening sheet made the same note]. P01907 is the version of record and so the primary version; P01938 is already outside the decision order (audit/screening/pilot_final_date_excluded.json). No FT-DUPLICATE for this record. No author named Jun Wang. Screening code was I-QUALITY.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P01907.json",
+  "result": "full agreement"
+ }
+}

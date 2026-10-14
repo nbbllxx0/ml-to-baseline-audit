@@ -1,0 +1,61 @@
+{
+ "pid": "P01827",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "TPMS-Optimized Cement Geometries for Carbon-Efficient Structural Performance",
+  "authors": "Juliette Carson, Julian Heredia Hirschfeld",
+  "year": 2026,
+  "venue": "Journal of High School Research 3(1) (2026), article 72 on jhsr.net (published 31 Aug 2026; CC BY-NC-ND 4.0 per the article page)",
+  "doi": "10.70671/dq9am588",
+  "arxiv_id": "",
+  "version_coded": "none: only the abstract was read, on the publisher's article page (jhsr.net/index.php/jhsr/article/view/72); the page offers no full-text galley"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "3d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no accessible full text). Abstract only: ML surrogates predict the performance of swept TPMS cement geometries (R\u00b2 0.987-0.999), and generated hybrid topologies reach 104% of the best classical TPMS compressive performance.",
+  "location": "Abstract (the only text read)",
+  "quantitative": true,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "Not coded; the abstract states no run time or cost for any method.",
+  "alternatives": "Abstract: 8,750 TPMS configurations (7 families, wall thickness, radial porosity gradients, span) simulated with Mazars continuum damage mechanics; the best (Lamella) keeps 93% of the solid's compressive strength at 32% lower mass; seismic Newmark-\u03b2 simulation and shaker-table tests for top performers."
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all with a generic User-Agent and no personal data: (1) doi.org resolves to the publisher's OJS page (jhsr.net/index.php/jhsr/article/view/72), which shows the abstract, licence and citation formats but no PDF or HTML galley. (2) The issue table of contents (jhsr.net/index.php/jhsr/issue/view/4) lists no galley for this article either, while some other articles in the issue have one. (3) OpenAlex lists only the publisher DOI. The full text therefore does not appear to be public yet. Pointers from the abstract for the verifier: the classical comparator in the abstract is the set of standard TPMS families from the parametric sweep, not a classical optimization method; no TO or homogenization-based optimization comparator is mentioned, and the physics is continuum damage and seismic response of cement. If the full text confirms this, FT-SCOPE (no TO or architected-material inverse design against a TO or homogenization comparator) or FT-NOBASELINE is likely. Venue: a high-school research journal; the record type (journal article) meets \u00a73.3 as listed. Screening code was I-UNCLEAR. No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P01827.json",
+  "result": "full agreement"
+ }
+}

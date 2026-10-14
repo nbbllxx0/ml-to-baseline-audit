@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Full-text coding record (plan/PROTOCOL.md §5–7)",
+  "type": "object",
+  "required": ["pid", "citation", "access", "coder", "included", "claim", "rules", "reporting", "stage"],
+  "properties": {
+    "pid": {"type": "string", "description": "pool id, e.g. P00042"},
+    "citation": {
+      "type": "object",
+      "required": ["title", "year"],
+      "properties": {
+        "title": {"type": "string"}, "authors": {"type": "string"}, "year": {"type": "integer"},
+        "venue": {"type": "string"}, "doi": {"type": "string"}, "arxiv_id": {"type": "string"},
+        "version_coded": {"type": "string", "description": "e.g. arXiv v2, or version of record"}
+      }
+    },
+    "access": {"type": "string", "enum": ["full_text", "abstract_only", "no_access"]},
+    "coder": {
+      "type": "object",
+      "properties": {
+        "llm_model": {"type": "string"}, "llm_date": {"type": "string"},
+        "human_initials": {"type": ["string", "null"], "description": "legacy field, null: verification is by a blind second AI pass and AI adjudication (PROTOCOL §11, 2026-09-24)"},
+        "human_date": {"type": ["string", "null"]}
+      }
+    },
+    "stage": {"type": "string", "enum": ["llm_prefill", "ai_second_pass", "ai_agreed", "ai_adjudicated", "human_verified"], "description": "llm_prefill = first AI pass; ai_second_pass = blind second AI pass; ai_agreed / ai_adjudicated = final records (PROTOCOL §11, 2026-09-24); human_verified = legacy, unused"},
+    "included": {
+      "type": "object",
+      "required": ["decision", "reason"],
+      "properties": {
+        "decision": {"type": "string", "enum": ["include", "exclude"]},
+        "reason": {"type": "string", "description": "screening code from screening_codes.md, or FT-<reason> for full-text exclusions"},
+        "stratum": {"type": "string", "enum": ["speed", "quality", "none"], "description": "speed = primary outcome compares speed/cost (headline C1); quality = quality-only (stratum Q)"},
+        "method_family": {"type": "string"},
+        "physics": {"type": "string"},
+        "dim": {"type": "string"}
+      }
+    },
+    "claim": {
+      "type": "object",
+      "properties": {
+        "primary_outcome_paraphrase": {"type": "string", "description": "coder's own words, <= 40 words"},
+        "key_phrase": {"type": "string", "description": "at most one verbatim phrase, < 15 words"},
+        "location": {"type": "string", "description": "abstract | conclusion | introduction | section/table/figure id"},
+        "quantitative": {"type": "boolean"},
+        "claimed_speedup": {"type": ["number", "null"], "description": "numeric factor if stated or derivable (classical time / ML time)"},
+        "claimed_speedup_basis": {"type": "string"},
+        "direction": {"type": "string", "enum": ["outperform", "underperform", "similar_or_mixed"]},
+        "alternatives": {"type": "string", "description": "other candidate primary outcomes, briefly"}
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "properties": {
+        "classical_method": {"type": "string", "description": "e.g. SIMP with OC, MMA, BESO, level set, homogenization-based inverse design"},
+        "implementation": {"type": "string", "description": "e.g. MATLAB 88-line, Python port, commercial (Abaqus/ANSYS/Tosca), GPU code, unknown"},
+        "solver": {"type": "string", "description": "direct / iterative / multigrid / unknown"},
+        "hardware_classical": {"type": "string"},
+        "hardware_ml": {"type": "string"},
+        "problem_size": {"type": "string", "description": "e.g. 64x64 elements, 3D 64^3"},
+        "classical_iterations": {"type": "string", "description": "fixed count or stopping rule"},
+        "classical_time": {"type": "string"},
+        "ml_time": {"type": "string"},
+        "training_time": {"type": "string"},
+        "data_generation_cost": {"type": "string"},
+        "quality_metric": {"type": "string", "description": "compliance error, volume error, MSE/IoU, surrogate-predicted, ..."},
+        "quality_gap": {"type": "string", "description": "reported difference between ML output and classical result"}
+      }
+    },
+    "rules": {
+      "type": "object",
+      "description": "verdict in {pass, partial, fail, na}; evidence = locator + paraphrase",
+      "properties": {
+        "R1": {"$ref": "#/$defs/verdict"},
+        "R2": {"$ref": "#/$defs/verdict"},
+        "R3": {"$ref": "#/$defs/verdict"},
+        "R4": {"$ref": "#/$defs/verdict"}
+      }
+    },
+    "reporting": {
+      "type": "object",
+      "properties": {
+        "n_test_cases": {"type": "string"},
+        "ood_test": {"type": "string", "enum": ["yes", "no", "unclear"]},
+        "seeds_or_variance": {"type": "string", "enum": ["yes", "no", "unclear"]},
+        "failure_rate_reported": {"type": "string", "enum": ["yes", "no", "unclear"]},
+        "timing_protocol_stated": {"type": "string", "enum": ["yes", "no", "partial"]},
+        "runtimes_all_cases": {"type": "string", "enum": ["yes", "no", "selective", "na"]},
+        "code_available": {"type": "string", "enum": ["yes", "no", "on_request"]},
+        "data_available": {"type": "string", "enum": ["yes", "no", "on_request"]},
+        "hardware_per_method_stated": {"type": "string", "enum": ["yes", "no", "partial"]}
+      }
+    },
+    "retest_candidate": {"type": "boolean", "description": "public code + runnable + licence allows running"},
+    "notes": {"type": "string"}
+  },
+  "$defs": {
+    "verdict": {
+      "type": "object",
+      "required": ["verdict", "evidence"],
+      "properties": {
+        "verdict": {"type": "string", "enum": ["pass", "partial", "fail", "na"]},
+        "marker": {"type": "string", "description": "which protocol marker applied, e.g. R2(c) or R1-unmatched"},
+        "evidence": {"type": "string", "description": "locator + paraphrase; no long quotes"}
+      }
+    }
+  }
+}

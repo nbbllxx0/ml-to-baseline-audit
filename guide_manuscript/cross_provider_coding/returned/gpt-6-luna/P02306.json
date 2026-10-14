@@ -1,0 +1,27 @@
+{
+  "pid": "P02306",
+  "citation": {
+    "title": "Denoising diffusion algorithm for inverse design of microstructures with fine-tuned nonlinear material properties",
+    "authors": "Nikolaos N. Vlassis, WaiChing Sun",
+    "year": 2023,
+    "venue": "Computer Methods in Applied Mechanics and Engineering, 413, 116126",
+    "doi": "10.1016/j.cma.2023.116126",
+    "arxiv_id": "2302.12881",
+    "version_coded": "Version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-NOBASELINE", "stratum": "none", "method_family": "diffusion_flow", "physics": "metamaterial_homogenization", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "The diffusion model generates microstructures conditioned on target nonlinear properties, but the paper does not compare its outcome with a classical optimization method.", "key_phrase": "", "location": "abstract; Sections 1, 4–6", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "No classical-versus-ML speed comparison or derivable speed-up is reported.", "direction": "similar_or_mixed", "alternatives": "The introduction describes conventional optimization as difficult and motivates machine learning, but does not report a classical comparator's cost or result."},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "Target hyperelastic energy response and topology features; predicted by CNN surrogate", "quality_gap": "not stated"},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion; rules not coded."},
+    "R2": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion; rules not coded."},
+    "R3": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion; rules not coded."},
+    "R4": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion; rules not coded."}
+  },
+  "reporting": {"n_test_cases": "unclear", "ood_test": "yes", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "yes", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The article introduces a diffusion generator and CNN surrogate but reports no classical method run, timing, or classical result used as a comparator. Its discussion of conventional optimization as generally difficult is motivation only. Full text read from the public-access repository copy: https://par.nsf.gov/servlets/purl/10487106."
+}

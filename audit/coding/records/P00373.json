@@ -1,0 +1,107 @@
+{
+  "pid": "P00373",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Neural Level Set Topology Optimization Using Unfitted Finite Elements",
+    "authors": "Connor N. Mallon, Aaron W. Thornton, Matthew R. Hill, Santiago Badia",
+    "year": 2023,
+    "venue": "arXiv preprint (cs.CE). Version of record: International Journal for Numerical Methods in Engineering (2025), doi 10.1002/nme.70004 (hybrid open access, CC BY-NC-ND per OpenAlex; not accessed, see notes)",
+    "doi": "10.1002/nme.70004",
+    "arxiv_id": "2303.13672",
+    "version_coded": "arXiv v2 (22 Feb 2024; v1 23 Mar 2023), PDF (22 pp.) read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screening code confirmed at full text)",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "multiphysics",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Fig. 7: with the same mesh, volume fraction and unfitted evaluator, the NN-LS design had the lowest heat-conduction objective (pixel SIMP 15.7% and pixel LS 20.3% worse) but was 2.6% worse than pixel SIMP on the MBB beam.",
+    "key_phrase": "similar, in some cases better, performance compared to the well-known SIMP method",
+    "location": "Sec. 7.1.2, Fig. 7 (p. 15): the first quantitative comparison with classical methods. The abstract, introduction and conclusion compare only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime is reported for any method. Convergence is shown only as objective vs objective-function calls (Fig. 8, p. 16), and the conclusion (p. 17) states that the method converges more slowly than SIMP. Not derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Conclusion (p. 17), qualitative speed statement in the negative direction: the method converges more slowly than SIMP and may not suit simple linear-elastic problems. (2) Fig. 8 (p. 16): for the MBB beam both SIMP variants converge much faster (in function calls) than the LS methods; for heat conduction pixel SIMP converges fastest to an inferior design. (3) Sec. 7.2 and abstract, qualitative: interface-coupled fluid-structure problems are handled, which density methods do not extend to naturally; no classical run. (4) The version-of-record abstract (pool record) states similar performance with greater regularity than baseline approaches."
+  },
+  "baseline": {
+    "classical_method": "Pixel-LS: the same unfitted level-set method with the nodal LS values as design variables, optimized with MMA. Pixel-SIMP: nodal-density SIMP with penalization 3, optimized with MMA (Sec. 7.1, p. 13). SIMP designs are converted at the 0.5 iso-surface and re-evaluated with the unfitted solver (Sec. 7.1.2, p. 14)",
+    "implementation": "Authors' Julia code (Gridap for FE, Flux for the U-Net) for all methods (Sec. 1, p. 4); public repository (Sec. 9, p. 18)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Heat conduction: 95 × 95 mesh, volume fraction 0.4; MBB half-beam: 287 × 95 mesh, volume fraction 0.4 (Sec. 7.1.1, pp. 13-14) [derived: about 9.2×10³ and 5.5×10⁴ DOFs]",
+    "classical_iterations": "not stated; the convergence plots run to about 1,000 objective-function calls for all methods (Fig. 8, p. 16)",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "none; per-problem reparameterization with no offline training (Sec. 2-3)",
+    "data_generation_cost": "none; no dataset",
+    "quality_metric": "Objective of each final design (integral of temperature for heat conduction; strain energy for the MBB beam), recomputed with the unfitted FE solver for all methods, SIMP after 0.5 iso-surface conversion (Sec. 7.1.2)",
+    "quality_gap": "Relative to the best design of each problem (Fig. 7, p. 15): heat NN-LS 0.0%, Pixel-LS 20.3%, NN-SIMP 5.8%, Pixel-SIMP 15.7%; MBB NN-LS 2.6%, Pixel-LS 1.7%, NN-SIMP 0.2%, Pixel-SIMP 0.0%"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Stratum Q, so R1 applies as written (PROTOCOL §11, 2026-09-24). Sec. 3 (p. 7), Sec. 7.1, Figs. 7-8: same meshes, volume fraction 0.4 and a common unfitted evaluator. Budget is not matched: NN-LS reports the best of 100 random seeds, while seeding for the pixel baselines is not stated [inferred: single runs]; the optimizers differ (ADAM vs MMA); stopping rules and times are not stated for any method (Fig. 8 shows 0-1,000 function calls). The volume of the SIMP designs after 0.5 iso-surface conversion is not reported (Sec. 7.1.2, p. 14). The bias correction of Sec. 7.1.3 applies only to the Fig. 8 convergence curves. The heat-conduction gain may partly reflect the best-of-100 selection [judgment]."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The arXiv v2 abstract (p. 1) names no baseline and gives no baseline figures; the version-of-record abstract in the pool record mentions only unnamed baseline approaches with similar performance. (b) is not observed. For context: pixel SIMP (penalization 3) and pixel LS use MMA on the same meshes (Sec. 7.1, p. 13), and no run time is reported for any method."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Per-problem neural reparameterization with no dataset and no offline training (Sec. 2-3); no speed claim. For C3: no runtimes are reported; the method needs a similar or larger number of function calls than SIMP (Fig. 8), and 100 random seeds per problem (Sec. 3, p. 7)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Sec. 7.1.2 and Fig. 7: every design, including SIMP after 0.5 iso-surface conversion, is re-evaluated with the same unfitted FE solver. The LS volume is enforced exactly by the translation step (Sec. 4.4), but the volume of the converted SIMP designs is not reported, and the spread or failures over the 100 NN seeds are not reported; only the best design is shown (selection rule stated: lowest objective)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 benchmarks (heat conduction 95 × 95; MBB 287 × 95), one reported design per method (NN-LS best of 100 seeds); plus 1 fluid-structure demonstration without a baseline (Sec. 7.2)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-QUALITY; confirmed. Primary-outcome judgment: no number appears in the abstract, introduction or conclusion, so Fig. 7 (quality) is primary; it is one figure with two benchmarks, and the direction is mixed (better on heat conduction, slightly worse on the MBB beam). C4: the conclusion reports slower convergence than SIMP, a negative-direction speed statement, without times. Version: arXiv v2 coded. The version of record (IJNME 2025) was not accessed: onlinelibrary.wiley.com/doi/pdfdirect/10.1002/nme.70004 returned HTTP 403 with a Cloudflare 'Just a moment...' page (no bypass attempted). Its abstract in the pool record differs from the v2 abstract (it states similar performance and greater regularity than baseline approaches), so the verifier should check the version of record for changed results. Scope: the FSI demonstration (Sec. 7.2) involves Stokes flow but has no baseline; the coded comparisons are heat conduction and linear elasticity. The physics code follows the method's multiphysics framing; the compared benchmarks are thermal and compliance. Related records, different studies: P00296 (Wegert et al., unfitted level-set TO with automatic shape differentiation, screened E-NOML) and P00190. Code: github.com/ConnorMallon/NLSTO (Sec. 9; GitHub API 2026-09-24: no licence file). retest_candidate false: quality stratum with no speed claim, and no licence grant. No author named Jun Wang. Adjudication (2026-09-24): the adjudicator re-read arXiv v2 (PDF, 22 pp.). The version of record stays unread: onlinelibrary.wiley.com/doi/10.1002/nme.70004 again returned the Cloudflare 'Just a moment...' check (HTTP 403, not bypassed), and the Monash research portal record lists the article (CC BY-NC-ND) but hosts no file, only the DOI link.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "partial",
+        "reason": "Meshes, volume fraction 0.4 and the unfitted evaluator are shared (Sec. 7.1, pp. 13-14), but NN-LS is the best of 100 random initializations (Sec. 3, p. 7) with no multi-start stated for the pixel baselines, no stopping rule is stated for any method (Fig. 8, p. 16), and the volume of the 0.5 iso-surface SIMP designs is not reported (Sec. 7.1.2). This is loose matching, the §5.3 R1 partial case; the bias correction that the second coder cites applies only to the Fig. 8 convergence curves (Sec. 7.1.3)."
+      },
+      "R2": {
+        "first": "pass",
+        "second": "na",
+        "decision": "na",
+        "reason": "Both coders code stratum Q, and under the §11 stratum-Q rule (2026-09-24) R2 is na unless criterion (b) applies. The arXiv v2 abstract (p. 1) names no baseline and gives no baseline figures, and the version-of-record abstract (pool record) mentions only unnamed baseline approaches, so (b) is not observed."
+      }
+    }
+  }
+}

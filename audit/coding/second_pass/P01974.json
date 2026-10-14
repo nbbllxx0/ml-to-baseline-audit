@@ -1,0 +1,87 @@
+{
+  "pid": "P01974",
+  "citation": {
+    "title": "Toward Large Language Model-Driven Symbolic Topology Optimisation for Rapid Structural Concept Generation in Manufacturable Design",
+    "authors": "Musaddiq Al Ali",
+    "year": 2026,
+    "venue": "Journal of Manufacturing and Materials Processing (MDPI), Vol. 10, Issue 4, article 117",
+    "doi": "10.3390/jmmp10040117",
+    "version_coded": "Version of record (J. Manuf. Mater. Process. 2026, 10, 117; published 30 March 2026), full text read from the publisher's file host https://mdpi-res.com/d_attachment/jmmp/jmmp-10-00117/article_deploy/jmmp-10-00117.pdf. www.mdpi.com itself returned an Akamai 'Access Denied' bot-check response to both a generic-UA curl request and to WebFetch on the abstract page and on the DOI redirect target; per PROTOCOL §11 (2026-09-24 access-routes deviation), an open-access copy on the publisher's own file host (mdpi-res.com) counts as accessible, so no bot-check or CAPTCHA was bypassed."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "llm_agent",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a 30x20-cell cantilever compliance benchmark, LLM-DSTO's generated topology reaches a normalised stiffness of 0.875 relative to the classical SIMP design (reference 1.0), about 12.5% lower, without any finite-element optimisation loop.",
+    "key_phrase": "approximately 87.5 percent of the stiffness obtained by the SIMP solution",
+    "location": "Abstract; Sec. 4.1 and Fig. 7 (main text); restated in Conclusion (Sec. 6)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable for the chosen primary case: Sec. 4.1 (cantilever) reports no runtime or iteration count for either LLM-DSTO or the SIMP comparator. Other, non-primary case studies report timing: Sec. 4.2 (heat sink) states LLM-DSTO averages 'approximately 1.5 s' per iteration versus 'around 5 s' per iteration 'for numerical computation alone' for the unnamed classical method (5/1.5 = 3.3 [derived]; the article itself notes this classical figure excludes sensitivity-analysis and solver-convergence overhead). Sec. 4.3 (thermofluid) gives only qualitative figures ('a few minutes' vs costs that 'can extend to several hours'), not a stated per-run classical time. These are recorded as alternatives, not the primary claim.",
+    "direction": "underperform",
+    "alternatives": "(1) Sec. 4.2/Fig. 10: heat sink thermal resistance, LLM-DSTO 0.9432 normalised vs SIMP reference 1.0 (about 5.7% lower [stated]), given in the Abstract and Conclusion alongside the cantilever result and arguably co-emphasised with it. (2) Sec. 4.2 per-iteration runtime: ~1.5 s (LLM-DSTO) vs ~5 s (classical, method/solver/hardware unnamed). (3) Sec. 4.3: qualitative runtime claim for a coupled thermofluid Darcy-flow channel design ('a few minutes' vs 'several hours'); this case borders the protocol's excluded fluid-flow domain, though it is not the primary outcome and is not pooled. (4) Sec. 4.4 compliant-mechanism design (60x60 grid) and Sec. 4.5 3D cantilever (50% volume fraction, 60x40x15 grid): no classical numerical comparator is run at all; Sec. 4.4 additionally reports an additively-manufactured physical prototype of the LLM-DSTO design, with no classical counterpart printed."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material with Penalization); no update scheme (OC/MMA) is stated for the actual comparator run in Sec. 4.1 (MMA and OC are cited only as general background methods in Sec. 1-2)",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "DeepSeek R1 0528 Qwen3 8B run locally; workstation with a 24-core Intel Core i7-13700 CPU, 64 GB system memory, and an NVIDIA RTX PRO 6000 Blackwell Workstation Edition GPU with 96 GB GDDR7 (Sec. 4, opening paragraph; stated once for the whole numerical investigation, not per case)",
+    "problem_size": "2D cantilever, 30x20-cell grid = 600 cells (Sec. 4.1, Fig. 5)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated for this case (Sec. 4.1 gives no runtime for either method; see claimed_speedup_basis for the timings reported for other, non-primary case studies)",
+    "ml_time": "not stated for this case (Sec. 4.1)",
+    "training_time": "not applicable: DeepSeek R1 0528 Qwen3 8B is used as a pretrained, off-the-shelf model via local inference and prompting; no fine-tuning or TO-specific training is described anywhere in the article",
+    "data_generation_cost": "none stated; no training dataset is built (the method uses zero-shot prompting of a pretrained LLM, refined by deterministic rule-based post-processing, Sec. 3.10)",
+    "quality_metric": "Normalised structural stiffness (SIMP taken as the reference value 1.0); the article does not state whether this stiffness value for the LLM-DSTO design comes from a finite-element evaluation of the returned topology, from the framework's own heuristic objective Q(X) (Eq. 17, a weighted blend of connectivity/path-efficiency/volume/island/continuity scores, Sec. 3.9), or from an unstated third computation [inferred gap; see R4]",
+    "quality_gap": "0.875 vs 1.0, i.e. LLM-DSTO about 12.5% less stiff than SIMP (Sec. 4.1; Fig. 7)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.1, Fig. 7: both methods address the same domain, loads and supports (Fig. 5), and the quality gap is explicitly quantified (0.875 vs 1.0, a 12.5% difference [stated]), so the comparison is not blind to quality. But the SIMP comparator's iteration count, stopping rule and wall-clock time are never given for this case, so equal-budget matching cannot be confirmed [inferred]; equal volume fraction between the two designs is implied by the shared V* formulation (Eq. 24-25) but no checked numeric value is reported for either design."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "The primary outcome (Sec. 4.1) compares design quality (stiffness) only; no speed or cost claim is attached to it, so R2(a)-(e) do not bear on this outcome. For the record: no hardware, solver or implementation is stated anywhere for the SIMP comparator, so a hardware-based R2(c) judgement is not possible even for the alternative speed statements in Sec. 4.2-4.3."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim underlies the chosen primary outcome. Independently, R3 would also be na by the per-problem exemption: the method prompts a pretrained, off-the-shelf LLM and applies deterministic rule-based refinement with no offline training or data-generation stage described anywhere (Sec. 3.10, Sec. 4), so any learning cost sits inside R1/R2 rather than being a separate amortised cost."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-surrogate",
+      "evidence": "The framework's own methodology (Sec. 3.3-3.9) explicitly replaces finite-element evaluation with heuristic, non-physical indicators -- connectivity (C1), load-path efficiency (C2), volume consistency (C3), island penalty (C4), structural continuity (C5) -- combined into Q(X) (Eq. 17), introduced specifically to avoid 'computationally expensive finite element simulations' (Sec. 3.3). Section 4 never states that the LLM-DSTO topology's reported stiffness (0.875) or thermal resistance (0.9432) was obtained from a finite-element analysis of the returned design, from the same evaluator used for SIMP, or from any other named method; no volume/constraint-satisfaction values or failure/infeasibility rates are reported for any returned design (e.g. whether the Sec. 4.5 3D design actually met its 50% volume target is never checked). [inferred] Given the framework's stated purpose of eliminating repeated FE evaluation throughout, the more likely reading is that the comparison numbers are not FE-verified in any stated, reproducible way, which is the rule's surrogate-performance failure condition rather than its under-reported-failure-rate partial condition."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5 case studies: 2D cantilever stiffness (Sec. 4.1), heat sink thermal resistance (Sec. 4.2), thermofluid Darcy-flow channel (Sec. 4.3), compliant mechanism (Sec. 4.4), 3D cantilever (Sec. 4.5). Only the first two report a quantitative classical (SIMP) comparison",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Single-author article (Musaddiq Al Ali, Toyota Technological Institute); no author named Jun Wang (reference list cites a 'Wang, J.X.' [21] and other Wang co-authors of cited works, but these are not authors of this article). No duplicate found in audit/pool/pool.csv: the DOI and exact title match exactly one pool row (P01974), so FT-DUPLICATE does not apply. Access: mdpi.com blocked both a generic-UA curl request and WebFetch with an Akamai 'Access Denied' page on every path tried (the PDF endpoint, the abstract HTML page, and the DOI-redirect target); no CAPTCHA or login was shown, and none was bypassed. The article's own open-access file host, mdpi-res.com (named in PROTOCOL's 2026-09-24 access-routes deviation as an acceptable route), served the PDF directly (HTTP 200); this is the version of record, CC BY, so it is the primary copy for FT-DUPLICATE purposes. Primary-outcome selection: the Abstract states two quantitative classical comparisons side by side (cantilever stiffness 87.5%, heat sink thermal 94.3%); per PROTOCOL 5.1 rule 1 the primary outcome must come from the Abstract, and between the two the cantilever case is emphasised first in the Abstract, in Sec. 4 (presented first, and is the field's default TO benchmark), and again first in the Conclusion, so it was taken as primary; the heat sink result is recorded as the closest alternative. Key uncertainty for the verifier: R4 turns on whether the reported stiffness/thermal-resistance ratios were computed by finite-element analysis of the LLM-DSTO design or by the framework's own non-physical heuristic score Q(X) (or some other unstated method) -- the article never says. Also unresolved: the Sec. 4.3 thermofluid case is a coupled fluid+heat (Darcy-flow) problem, which borders the protocol's excluded fluid-flow-TO domain (PROTOCOL §4); it is not the primary outcome and was not used to decide inclusion, so it does not drive an FT-DOMAIN exclusion, but a verifier applying a stricter reading of scope should re-check it. Funding: none declared. Conflicts of interest: none declared. Data availability: on reasonable request; no code or repository of any kind is mentioned anywhere in the article, so code_available = no (not on_request, since no code offer is made at all, only data)."
+}

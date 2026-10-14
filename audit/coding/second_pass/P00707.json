@@ -1,0 +1,57 @@
+{
+  "pid": "P00707",
+  "citation": {
+    "title": "A stochastic gradient online learning and prediction method for accelerating structural topology optimization using recurrent neural network",
+    "authors": "Yi Xing; Liyong Tong",
+    "year": 2025,
+    "venue": "Engineering Structures",
+    "doi": "10.1016/j.engstruct.2025.120507",
+    "arxiv_id": "",
+    "version_coded": "Abstract only (OpenAlex W4410494872 / Crossref record). Full text at ScienceDirect (PII S0141029625008983) was not reachable: the DOI resolves to linkinghub.elsevier.com then to sciencedirect.com, which returned HTTP 403 with a Cloudflare bot challenge ('Cf-Mitigated: challenge', Server: cloudflare) both via the fetch tool and via a direct request with a standard browser user agent, checked 2026-09-24. OpenAlex records this as hybrid OA (CC-BY) but lists no PDF URL and no alternate location; Semantic Scholar's openAccessPdf field points to the same blocked DOI URL. No arXiv id exists for this article."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Abstract states that in 2D and 3D topology-optimization examples, the proposed RNN-based online learning/prediction method (SGoLap), which selectively skips FEA and sensitivity-analysis steps, saves up to 99.3% and 90.9% of total computational time respectively, versus the full per-iteration classical procedure it replaces.",
+    "key_phrase": "save up to 99.3 % and 90.9 % of the total computational time",
+    "location": "abstract",
+    "quantitative": true,
+    "claimed_speedup": 142.9,
+    "claimed_speedup_basis": "Derived from the abstract's '2D' figure: 'saves up to 99.3% ... of the total computational time' implies classical/ML time ratio = 1/(1-0.993) ≈ 142.9 [derived; a best-case 'up to' figure, not stated as a ratio and not necessarily typical]. The 3D figure (90.9% saved -> ≈ 11.0x [derived]) is recorded as an alternative rather than combined, since the abstract gives both without indicating which the authors emphasise more, and no absolute times, problem sizes, iteration counts, or the classical comparator's identity (e.g. OC/MMA) are stated.",
+    "direction": "outperform",
+    "alternatives": "3D result: up to 90.9% time saved -> ≈ 11.0x [derived]. No other quantitative or qualitative comparison appears in the abstract; abstract, conclusion, introduction and main text beyond the abstract could not be checked (full text inaccessible)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated (abstract only; mentions unspecified 2D and 3D examples)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Full text not accessible through any legal route tried: DOI -> linkinghub.elsevier.com -> sciencedirect.com/science/article/pii/S0141029625008983 returned HTTP 403 with an explicit Cloudflare bot-check header (Cf-Mitigated: challenge) both through the fetch tool and through a direct request with a generic browser User-Agent; per the access rules this challenge was not bypassed. OpenAlex (W4410494872) confirms hybrid OA/CC-BY status but lists only this one, blocked location and no PDF URL; Semantic Scholar's open-access PDF field resolves to the same URL. No arXiv preprint exists (pool.csv arxiv_id is blank; doi is an Elsevier engstruct DOI, not arXiv). Per the second-pass access rule, coded from the abstract as an include with reason 'I-UNCLEAR (no accessible full text)', stratum 'none', and all rule verdicts 'na', rather than excluded. included.physics = 'compliance' is inferred [inferred] from the generic phrase 'structural topology optimization'; the abstract does not state the objective function, so this should be re-checked if full text ever becomes accessible. included.method_family = 'surrogate_mlp_gp' is the closest closed-list category: the RNN predicts objective/derivative information as an online surrogate that substitutes some FEA and sensitivity evaluations, rather than reparameterizing the density field directly (which would be neural_reparam); note the architecture is a recurrent network, not literally MLP/GP, and per the abstract the RNN is trained online during each problem's own optimization run rather than pretrained offline on a dataset, which would bear on R3 (per-problem learning, cost inside R1/R2) if the full text becomes available. Duplicate check against audit/pool/pool.csv: no other pool record shares this title, DOI or a close paraphrase. A companion paper by the same apparent research direction, P00951 ('Accelerating level-set based topology optimization using gradient and stochastic gradient online learning and prediction methods', Struct. Multidiscip. Optim., doi 10.1007/s00158-025-04049-0), was found in the pool; it has a different title, a different DOI/journal, and explicitly targets a level-set framework rather than the (implicitly density-based) framework here, so it is treated as a distinct companion article, not a duplicate of P00707, and is not marked FT-DUPLICATE. No author named Jun Wang (authors: Yi Xing, Liyong Tong)."
+}

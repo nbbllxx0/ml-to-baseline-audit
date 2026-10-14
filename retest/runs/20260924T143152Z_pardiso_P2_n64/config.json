@@ -1,0 +1,28 @@
+{
+  "args": {
+    "solver": "pardiso",
+    "problem": "P2",
+    "n": 64,
+    "iters": 150,
+    "repeats": 3,
+    "warmup": 10,
+    "tag": ""
+  },
+  "problem": {
+    "name": "P2_mbb",
+    "nelx": 64,
+    "nely": 64,
+    "volfrac": 0.5,
+    "rmin": 1.5,
+    "penal": 3.0,
+    "Emin": 1e-09,
+    "nu": 0.3
+  },
+  "python": "3.10.18",
+  "executable": "C:\\Users\\<user>\\anaconda3\\envs\\Pytorch\\python.exe",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "manifest_sha256": "07d81bd8364bd701dd61af09590831cac5ca36ffea86fe3b089ad6b2431d617d",
+  "started_utc": "20260924T143152Z"
+}

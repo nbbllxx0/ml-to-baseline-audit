@@ -1,0 +1,183 @@
+[
+  {
+    "pid": "P00080",
+    "title": "VoroTO: Multiscale Topology Optimization of Voronoi Structures using Surrogate Neural Networks",
+    "year": 2024,
+    "doi": "10.1007/s00366-024-02077-w",
+    "status": "to re-test in v3",
+    "claim": "For the 40x20 mid-cantilever, NN-surrogate multiscale Voronoi TO takes 0.24 min after a one-time 28.4 min (data plus training), versus a projected 528 min for concurrent homogenization-based multiscale TO and 4,986 min for brute-force fine-scale TO.",
+    "claimed_speedup": 2200,
+    "claimed_speedup_basis": "Derived, not stated: projected concurrent-homogenization time 528 min / VoroTO optimization 0.24 min = 2,200 per run, excluding the one-time 28.4 min. Including the one-time cost for a single use: 528 / 28.64 = 18.4 [derived]. Against the brute-force projection: 4,986 / 0.24 = 20,775, or 174 including the one-time cost [derived]. Both classical times are projections from unit costs (0.132 s per homogenization; one measured 16.62 min iteration), each multiplied by 300 assumed iterations.",
+    "classical_method": "Speed comparators: concurrent homogenization-based multiscale TO (numerical homogenization of every macro element at every iteration) and brute-force single-scale TO at the fine scale; both are projections, not runs (Sec. 3.3). Quality comparators: single-scale designs from the 88-line code [95] and from [89], and the infill optimization of [96] (Sec. 3.2.1-3.2.2)",
+    "implementation": "The projections use the authors' own homogenization code (unit cost taken from the data-generation run) and an unstated single-scale code for the one timed 1600 x 800 iteration; VoroTO itself is in PyTorch (Sec. 2.5.3)",
+    "solver": "not stated",
+    "hardware_classical": "MacBook M2 Air, 16 GB RAM (all experiments; Sec. 3)",
+    "hardware_ml": "MacBook M2 Air, 16 GB RAM (all experiments; Sec. 3); CPU or GPU use not stated",
+    "problem_size": "Macro mesh 40 x 20 elements with 4 Voronoi sites per element; homogenization mesh 120 x 120 per microstructure (Sec. 2.4.2); brute-force projection at 1600 x 800 elements (40 x 40 micro-elements per macro element; about 2.56 million DOFs [derived])",
+    "data_available": "no",
+    "rules": {
+      "R1": "partial",
+      "R2": "partial",
+      "R3": "pass",
+      "R4": "partial"
+    },
+    "repos": [
+      "github.com/UW-ERSL/VoroTO"
+    ]
+  },
+  {
+    "pid": "P00140",
+    "title": "De-homogenization using Convolutional Neural Networks",
+    "year": 2021,
+    "doi": "10.1016/j.cma.2021.114197",
+    "status": "to re-test in v3",
+    "claim": "A CNN replaces the least-squares step of classical de-homogenization. The resulting single-scale designs come within 7-25% of the homogenization-based reference performance, at a small fraction of the cost. The body quantifies the saving as about 5-10x over least-squares de-homogenization.",
+    "claimed_speedup": 5,
+    "claimed_speedup_basis": "Stated as a factor of 5 to 10 (Sec. 4.2.1, p. 18; Conclusions, p. 22); the lower bound is entered. It is a cross-paper estimate. Groen et al. [16] report about 10 s for 80x40 -> 1600x800 on another laptop. This work needs about 1.3 s for 60x30 -> 1440x720 and about 2.2 s for 60x30 -> 2400x1200 on a single Intel Core i7 2.6 GHz CPU. Ratios: 10/1.3 = 7.7 and 10/2.2 = 4.5 [derived]. Training (about 1 h on a Titan X GPU) and the homogenization-based optimization that supplies the input are not counted.",
+    "classical_method": "Primary: least-squares de-homogenization of homogenization-based TO results (Groen and Sigmund 2018 [16]); its time is cited, not run (Sec. 4.2.1). Quality reference for every case: the rank-2 homogenization-based TO solution that supplies the CNN input (Sec. 2.1, eq. 1; code by J. P. Groen per the Acknowledgements). Alternative speed comparator: SIMP with the top88 MATLAB code at the fine resolution, per-iteration time measured, iteration count assumed (Sec. 4.2.1)",
+    "implementation": "Least-squares de-homogenization: not described (cited result from [16]). top88: the public 88-line MATLAB code (footnote 1, p. 18). Homogenization TO: in-house code (Acknowledgements). Proposed: fully convolutional network with post-processing (skeletonize, distance transform) (Sec. 2.2-2.3, App. B)",
+    "solver": "not stated for any classical method (top88 as published uses a sparse direct solve [recalled, not verified in-session]); the authors note that direct solvers break down at 16.5 million elements and multigrid would be needed (Sec. 4.2.1)",
+    "hardware_classical": "[16]: a laptop of unstated model (Sec. 4.2.1). top88: not stated [same laptop inferred]",
+    "hardware_ml": "Training on an NVIDIA Titan X GPU; all reported de-homogenization times on a single Intel Core i7 2.6 GHz CPU (Sec. 4.1)",
+    "problem_size": "Coarse homogenization meshes 60x30, 120x60 and 240x120 (Michell cantilever), 200x50 (double-clamped), 80x80 [inferred from hc = 1/80] (L-shaped); fine meshes from 1440x720 (about 2.1 million DOFs [derived]) up to 5760x2880 (16.5 million elements) and 8000x2000 (Tables 2-5, Figs. 10-15). [16] comparator: 80x40 -> 1600x800",
+    "data_available": "yes",
+    "rules": {
+      "R1": "partial",
+      "R2": "pass",
+      "R3": "partial",
+      "R4": "partial"
+    },
+    "repos": [
+      "github.com/elingaard/deep-dehom"
+    ]
+  },
+  {
+    "pid": "P00150",
+    "title": "An Artificial Intelligence–Assisted Design Method for Topology Optimization without Pre-Optimized Training Data",
+    "year": 2021,
+    "doi": "10.3390/app11199041",
+    "status": "attempted in v2; stopped at the reconstruction check (57 of 100 within 1 %, 95 required)",
+    "claim": "On 100 random 64×64 validation cases, the trained PEN predictor returns a design in about 7.3 ms on average versus 1.9 s for top88 SIMP, roughly 259 times faster, with compliance described as almost the same.",
+    "claimed_speedup": 259,
+    "claimed_speedup_basis": "Stated in Sec. 3.2, p. 16: top88 1.9 s vs PEN 7.3 ms on average over the 100 validation cases, 'roughly 259 times'. The printed rounded times give 1.9/0.0073 = 260.3 [derived]. arXiv v2 states 8.4 ms and roughly 225 times for the same comparison.",
+    "classical_method": "SIMP compliance minimization with density filter, 88-line code (top88, Andreassen et al. [29]); p = 3, filter radius r_min = 3, Poisson's ratio 0.3, E = 195,000 N/mm², force 100 N (Table 2, p. 15; Sec. 3.2)",
+    "implementation": "top88; the version of record cites only the MATLAB 88-line paper [29]. arXiv v2 says the validation designs came from the DTU TopOpt Python codes (v2 ref. [30]) [so probably a Python port; not stated in the version of record]",
+    "solver": "not stated",
+    "hardware_classical": "not stated (Table 1 gives the configuration used for training only)",
+    "hardware_ml": "Training: Nvidia Titan RTX (24 GB), AMD Ryzen Threadripper 2950X 16-core, 128 GB RAM, TensorFlow 2.5.0, Python 3.7.3, Windows 10 (Table 1, p. 12). Hardware for the 7.3 ms inference timing not stated.",
+    "problem_size": "64×64 elements (Table 5 caption, p. 19; Sec. 4) [inferred ≈8.4×10³ DOFs]; training runs through four levels from 8×8 to 64×64 (Table 2: d_inp = 8)",
+    "data_available": "yes",
+    "rules": {
+      "R1": "partial",
+      "R2": "pass",
+      "R3": "pass",
+      "R4": "partial"
+    },
+    "repos": []
+  },
+  {
+    "pid": "P00183",
+    "title": "One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning",
+    "year": 2019,
+    "doi": "10.1016/j.cad.2018.12.008",
+    "status": "to re-test in v3",
+    "claim": "The trained one-shot generator produces a topology in the order of 10⁻² s per problem on a Xeon E5-1620 CPU, versus 10² to 10³ s per problem for the TO solver; the authors exclude data-acquisition cost from this comparison.",
+    "claimed_speedup": 10000,
+    "claimed_speedup_basis": "Derived from order-of-magnitude times in Section 5.4 (p. 13): 10²–10³ s ÷ 10⁻² s = 10⁴–10⁵; the lower bound 10⁴ is entered. Not stated as a factor. Excludes data acquisition and training, as the authors note.",
+    "classical_method": "Density TO with filter, projection, global and local (p-norm) volume constraints, solved by a custom augmented Lagrangian (AL) gradient method (Section 3.2; Appendix, Alg. 2); ground truth for all learning mechanisms",
+    "implementation": "not stated in the article; the public repository holds MATLAB TO scripts and Python learning scripts [checked repository file listing]",
+    "solver": "not stated (Ku = s solves; linear solver type not given)",
+    "hardware_classical": "not stated (the hardware in Section 5.4 is given for the generator only)",
+    "hardware_ml": "Intel Xeon CPU E5-1620 @ 3.50GHz for generation (Section 5.4, p. 13); training hardware not stated",
+    "problem_size": "40×120 mesh, N = 4800 elements (Sections 3.2, 5.2) [inferred ≈10⁴ DOFs]",
+    "data_available": "yes",
+    "rules": {
+      "R1": "fail",
+      "R2": "partial",
+      "R3": "partial",
+      "R4": "pass"
+    },
+    "repos": [
+      "github.com/DesignInformaticsLab/Theory_Driven_TO"
+    ]
+  },
+  {
+    "pid": "P00610",
+    "title": "Effective thermal conductivity estimation using a convolutional neural network and its application in topology optimization",
+    "year": 2023,
+    "doi": "10.1016/j.egyai.2023.100310",
+    "status": "to re-test in v3",
+    "claim": "The CNN predicts the effective thermal conductivity of a 128x128 two-phase image in 15 ms, which the abstract calls 3 to 5 orders of magnitude faster than the finite-volume simulation that each iteration of the voxel-swap topology optimization would otherwise need.",
+    "claimed_speedup": 2280,
+    "claimed_speedup_basis": "The abstract states a range, 3 to 5 orders of magnitude, for 15 ms per image (GPU) against the finite-volume (NHT) simulation. With the Table 1 NHT times per image per core (34.2, 81.6, 137.3 and 371.2 s for k_s = 10, 50, 100 and 341.7; p. 4) the range is 2,280-24,747 [derived: 34.2 / 0.015 to 371.2 / 0.015]; the lower bound is entered, as the project does for stated ranges. The article itself states 2,280x for k_s = 10 (Sec. 5.1, p. 8), 24,746x for k_s = 341.7 (Sec. 5.2) and 4,560x for the biaxial case (Sec. 5.3). On one CPU core (20 ms, Sec. 4.2) the ratios are 1,710-18,560 [derived]. All figures are per evaluation or per optimization iteration; no NHT-driven optimization run was executed (Sec. 5, p. 7).",
+    "classical_method": "Not a named classical TO algorithm choice; the classical comparator is the per-iteration physical-property evaluator inside an identical voxel-swapping + simulated-annealing (SAA) discrete optimizer (Sec. 5): a custom finite-volume numerical heat transfer (NHT) simulation solving the 2D steady-state heat-conduction equation (Eq. 1/5) by central differencing, used both to label all training images and as the classical alternative to the CNN inside the optimization loop",
+    "implementation": "NHT: authors' own C code with OpenMP load balancing across cores (one image per core), using the tridiagonal matrix algorithm (TDMA) applied iteratively (stated 40% faster than Jacobi iteration in their tests, Sec. 2.3); CNN: VGG-inspired 16-convolutional-layer network (Fig. 4) implemented with the Keras API (MAPE loss, Adam optimizer), per Sec. 3",
+    "solver": "iterative (TDMA/line-sweep applied repeatedly until the left/right boundary heat-flux imbalance converges, Eq. 7-9); not a sparse direct solve of the full 2D system nor a multigrid-preconditioned Krylov method. Table 1 reports 32,903 to 154,307 iterations to converge a single 128x128 (16,384-cell) image depending on the conductivity ratio",
+    "hardware_classical": "Dataset-generation NHT runs: Bridges2 supercomputer, Pittsburgh Supercomputing Center (Sec. 1). The per-image NHT times in Table 1 (used for the speed comparison) are reported as 'per computer core' with no specific CPU model named; Sec. 4.2 re-uses these same Table 1 times for the CPU-vs-CPU comparison ('using one CPU core, the CNN is 3 to 5 orders of magnitude faster') without confirming the NHT figures came from the same CPU model (Ryzen 7 3700X) used for the CNN's own CPU timing -- a plausible hardware mismatch that the article does not address",
+    "hardware_ml": "Training: HPC node with 4 NVIDIA V100 GPUs (Expanse supercomputer, San Diego Supercomputer Center); large dataset (130,000 images) could not be trained on a regular office computer due to RAM constraints (Sec. 4.2). Inference: 4 ms per batch on 4xV100 GPUs; 15 ms on a commercial NVIDIA GeForce RTX 3070 (used for all Sec. 5 topology-optimization case studies); 20 ms on a single CPU core (3.6 GHz AMD Ryzen 7 3700X)",
+    "problem_size": "128x128-pixel binary images (16,384 finite-volume cells), 2D only; topology-optimization case studies act on a 32x32 grid of 4x4-pixel super-voxels within the same 128x128 domain (Sec. 5)",
+    "data_available": "yes",
+    "rules": {
+      "R1": "pass",
+      "R2": "partial",
+      "R3": "pass",
+      "R4": "pass"
+    },
+    "repos": [
+      "github.com/adama-wzr/CNN-Keff",
+      "github.com/adama-wzr/Keff-CFD"
+    ]
+  },
+  {
+    "pid": "P00647",
+    "title": "Designing a TPMS metamaterial via deep learning and topology optimization",
+    "year": 2024,
+    "doi": "10.3389/fmech.2024.1417606",
+    "status": "to re-test in v3",
+    "claim": "Once trained, the 3D ResUNet predicts an optimized 32³ gyroid unit cell in 0.001 CPU-hours, versus about 2.4 h per homogenization-based SIMP run on one HPC core; accuracy is judged only by voxel MSE and Dice.",
+    "claimed_speedup": 2400,
+    "claimed_speedup_basis": "Derived, no factor is stated: 2.4 h per TO data point on one HPC core (Sec. 3.2, p. 8) ÷ 0.001 CPU-hours for DL prediction (Table 2, p. 10) = 2,400. Whether 0.001 CPU-h is per prediction or for the whole test set, and on which CPU, is not stated. With the introduction's workstation figure (67 s per iteration × 200-800 iterations = 13,400-53,600 s, p. 2) the ratio would be about 3,700-14,900 [derived]. Data generation and training (Table 2) are reported separately and are not in the ratio.",
+    "classical_method": "Energy-based homogenization TO (SIMP, OC update, density/sensitivity filter, penalty 5) maximizing the bulk or shear modulus of a periodic 32³ unit cell, started from a voxelized gyroid; Vf 25-45%, rmin 1.2-2.5; the text adds a Heaviside projection with beta doubled from 1 to 512 (Sec. 2.2, pp. 4-5; Sec. 3.1, pp. 5-6)",
+    "implementation": "MATLAB, modified from the educational code of Gao et al. 2018 (Top3D_maxbulk.m / Top3D_maxshear.m; Sec. 2.2 and 3.1). Public repository read 2026-09-24: the Heaviside continuation is commented out and the loop cap is 600 iterations, which differs from the text",
+    "solver": "not stated in the article; the public code solves the reduced periodic system for 6 load cases with MATLAB backslash (sparse direct) [observed in the repository code]",
+    "hardware_classical": "Data generation: one TO run per core on HPC nodes (iForge Intel Skylake nodes with 40 cores; IBM node with two 12-core Xeon E5-2695 v2) (Sec. 3.2, p. 8). The 67 s-per-iteration figure is for an unspecified workstation (p. 2)",
+    "hardware_ml": "Training: GPU on the HPC systems (K20M or V100 nodes are listed; which one was used is not stated), 5.5 GPU-hours (Sec. 3.2; Table 2). Prediction: CPU, device not stated (Table 2); the text says it runs even on a laptop (p. 8)",
+    "problem_size": "32 × 32 × 32 voxels = 32,768 eight-node bricks on a 1 cm cube (Sec. 3.1, p. 6) [derived: about 9.8×10⁴ DOFs with 3 DOFs per node and periodic BCs; the text says 6 DOFs per node, p. 6]; 6 load cases per iteration",
+    "data_available": "no",
+    "rules": {
+      "R1": "partial",
+      "R2": "partial",
+      "R3": "pass",
+      "R4": "fail"
+    },
+    "repos": [
+      "github.com/AshaV17/DL3DTO-Deep-Learning-for-3D-Topology-Optimization"
+    ]
+  },
+  {
+    "pid": "P00663",
+    "title": "Topology Optimisation under Uncertainties with Neural Networks",
+    "year": 2022,
+    "doi": "10.3390/a15070241",
+    "status": "to re-test in v3",
+    "claim": "Deterministic 2D bridge, nominal load: inserting CNN-predicted gradient steps every 55 iterations cut convergence from 538 to 441 iterations, with lower compliance (1148.66 vs 1173.22) and run time 4 min 05 s vs 4 min 43 s.",
+    "claimed_speedup": 1.16,
+    "claimed_speedup_basis": "Derived, no factor is stated: Table 4 (p. 28), nominal load, 4 min 43 s (283 s, classical Algorithm A1) ÷ 4 min 05 s (245 s, CNN Algorithm 1) = 1.155; times are averages of 10 runs (Sec. 4.1.3, p. 21). Iteration ratio 538 ÷ 441 = 1.22 (Table 1). Over the five loads in Table 4 the CNN time ratio is 1.03-1.16 [derived]. Data generation and training are not in the times and are not reported.",
+    "classical_method": "Phase-field TO: Allen-Cahn gradient flow with a Ginzburg-Landau interface penalty, adaptive step size and adaptive mesh refinement (Algorithm A1, the authors' refs [1,2]); risk-averse CVaR variant with 224 Monte Carlo samples per iteration (Algorithm A2) (Sec. 2, App. A-B)",
+    "implementation": "Authors' Python code on FEniCS with first-order triangles; the NN steps are inserted into the same optimization loop (Sec. 4, App. B). Public repository (FEniCS 2019.1 and PyTorch per its requirements file)",
+    "solver": "not stated",
+    "hardware_classical": "not stated (WIAS IT infrastructure acknowledged)",
+    "hardware_ml": "not stated",
+    "problem_size": "2D bridge on D = [-1,1] × [0,1], adaptive triangular mesh refined up to about 15,000 vertices (Sec. 4.1.3, p. 20); NN reference grid 201 × 101 nodes (Example 1, p. 11) [derived: up to about 3×10⁴ DOFs]",
+    "data_available": "no",
+    "rules": {
+      "R1": "pass",
+      "R2": "pass",
+      "R3": "fail",
+      "R4": "partial"
+    },
+    "repos": [
+      "github.com/MarvinHaa/DeepNNforTopoOptisation"
+    ]
+  }
+]

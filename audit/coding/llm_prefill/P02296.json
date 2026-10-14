@@ -1,0 +1,44 @@
+{
+  "pid": "P02296",
+  "citation": {
+    "title": "Co-Optimization of Structure and Manufacturable Semi-Continuous Layers for Laminated Composites",
+    "authors": "Tao Liu, Aoran Lyu, Yongxue Chen, Yu Jiang, Michael James Petty, Charlie C. L. Wang",
+    "year": 2026,
+    "venue": "ACM Transactions on Graphics 45(4), article 146 (SIGGRAPH 2026; published 3 July 2026 per the Manchester repository; CC BY per OpenAlex)",
+    "doi": "10.1145/3811393",
+    "arxiv_id": "none found (arXiv API title and abstract searches, 2026-09-24)",
+    "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); full text not reachable"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (abstract only). The abstract reports that jointly optimized fabric-reinforced laminates are up to 43.8% stiffer than counterparts made with planar fabric plies, in simulation and physical tests; no classical-optimizer comparison is stated.",
+    "location": "Abstract (pool record, from OpenAlex)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with a generic browser User-Agent and no personal data. (1) The only open copy OpenAlex lists is the ACM version of record (hybrid OA, CC BY). WebFetch of dl.acm.org/doi/10.1145/3811393 returned HTTP 403, and curl of dl.acm.org/doi/pdf/10.1145/3811393 returned a Cloudflare 'Just a moment...' challenge. Stopped there; no bypass. (2) The University of Manchester Research Explorer record (research.manchester.ac.uk, id 3d2cac84-6970-4ec8-8b55-98b40a1f3be2) loads but holds no file, only the DOI; OpenAlex marks that location as not open access. (3) arXiv API: no version (title phrase, abstract terms). (4) The senior author's publication list (mewangcl.github.io/FullPublication.html) gives no link; the SIGGRAPH 2026 paper list (kesen.realtimerendering.com) has no entry. (5) Third-party copies (for example Semantic Scholar-hosted PDFs, ResearchGate) were not used. From the abstract: an implicit neural vector field parameterizes the semi-continuous layer field during concurrent structure-layer optimization, and the reported gain is against composites made with planar fabric plies, which may not be a classical optimizer [inferred]; the full text decides between FT-NOBASELINE and the quality stratum. Related but distinct: P02226 (TOG 2025, same group, fiber-reinforced co-optimization). No author named Jun Wang. Screening code was I-UNCLEAR."
+}

@@ -1,0 +1,44 @@
+{
+  "pid": "P00139",
+  "citation": {
+    "title": "DNN-based Topology Optimisation: Spatial Invariance and Neural Tangent Kernel",
+    "authors": "Benjamin Dupuis, Arthur Jacot",
+    "year": 2021,
+    "venue": "Advances in Neural Information Processing Systems 34 (NeurIPS 2021), pp. 27659-27669; also arXiv preprint",
+    "doi": "10.48550/arxiv.2106.05710",
+    "arxiv_id": "2106.05710",
+    "version_coded": "Version of record: NeurIPS 2021 proceedings (open access), PDF from proceedings.neurips.cc/paper_files/paper/2021/file/e8aac01231200e7ef318b9db75c72695-Paper.pdf (main text, 11 pp., no CAPTCHA or paywall). Cross-checked against arXiv v3 (the latest of 3 versions on the abs page; https://arxiv.org/pdf/2106.05710, 22 pp.), whose extra pages are the derivations/appendix (Secs. A-F) not included in the NeurIPS main PDF, specifically to confirm the appendix contains no additional classical-vs-neural-network comparison."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-MLONLY",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: the paper proves that, in the infinite-width limit, SIMP with a coordinate-input FCNN density field is mathematically equivalent to classical filtered SIMP with an implicit filter equal to (the square root of) the Neural Tangent Kernel, and proposes torus/Fourier-feature coordinate embeddings so this implicit filter is (approximately) translation- and rotation-invariant, avoiding the artifacts an un-embedded network produces.",
+    "location": "Main text throughout (Secs. 2-4); no abstract, conclusion or introduction statement contains a quantitative comparison with an executed classical run",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No wall-clock time, iteration count, or comparative quality number is ever reported for a classical (non-DNN) run. The 'Modified Filtering' (MF) method without a DNN (Sec. 2.2) is defined only to set up a mathematical analogy (Eq. 6 vs Eq. 7, Sec. 3.1: 'We see that the NTK Gram matrix and the squared filter T^T T play exactly the same role') and is never itself executed with reported results. Every figure showing trained shapes (Figs. 2, 4, 7, 8, 9) and every quantitative/spectral analysis (Figs. 3, 5, 6, 10, 11, plus the appendix's Figs. 10-11) compares different neural-network configurations against each other (embeddings: torus, Gaussian, none; activations: ReLU, tanh, cosine) -- not against an executed classical baseline."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL Sec. 4 and the FT-MLONLY full-text exclusion code: this is a theoretical/mechanistic paper (an NTK analysis of why FCNN-parameterised SIMP -- a per-problem neural-reparameterisation method in the sense of Hoyer et al. 2019, ref. [11] -- implicitly behaves like classical density filtering, and how to make that implicit filter spatially invariant). It never runs, times, or reports a result for the classical, non-DNN comparator it defines (Modified Filtering without a DNN, Sec. 2.2): that baseline exists only as a term in a mathematical derivation (Sec. 3.1, Eqs. 5-7 and Appendix B), not as an executed experiment with shown output. All of the paper's own empirical comparisons (Sec. 4 and Appendix F: torus vs. Gaussian vs. no embedding; ReLU vs. tanh vs. cosine activation; filter-radius and upsampling behaviour) are among different neural-network configurations, matching FT-MLONLY's definition ('compares only with other ML methods; no classical comparator is run, timed or cited'). Secondary reason for the verifier: FT-NOBASELINE is also defensible on the same facts (arguably no classical method's cost or result is run, timed, or cited at all -- the Introduction's remark that 'DNN-generated density fields do not feature checkerboard artifacts, which are common in vanilla SIMP' is attributed to a different, prior paper [7] as background, which the FT-NOBASELINE definition explicitly treats as a non-comparison); FT-MLONLY is used here per table order (screening_codes.md) because the article does perform quantitative/qualitative comparisons, confined to neural-network variants. method_family is neural_reparam because the density field is generated per-problem by a coordinate-input FCNN trained by gradient descent with no offline training dataset, exactly the protocol's R3-na example. dim is 2d: every worked example and the torus-embedding formula (Sec. 3.2.1) use a 2D nx-by-ny grid; 3D is mentioned only as a hypothetical generalisation ('One can use similar formulas for d>2'), never implemented or shown. Code: 'Our implementation of the algorithm will be made public at https://github.com/benjiDupuis/DeepTopo' (Sec. 1.1); not downloaded or run (out of scope for an excluded record; also moot, since there is no baseline/speed claim to retest). No author named Jun Wang (authors: Benjamin Dupuis, Arthur Jacot). Duplicate check: audit/pool/pool.csv searched by title on 2026-09-24; no second pool record found for this article (a single pid, P00139, carries the arXiv id; the NeurIPS proceedings version is not separately pooled)."
+}

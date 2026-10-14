@@ -1,0 +1,88 @@
+{
+  "pid": "P02187",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Equivariant neural operators for gradient-consistent topology optimization",
+    "authors": "David Erzmann, Sören Dittmer",
+    "year": 2024,
+    "venue": "Journal of Computational Design and Engineering 11(3) (2024) 91-100 (Oxford University Press; advance access 19 April 2024; open access, CC BY 4.0)",
+    "doi": "10.1093/jcde/qwae039",
+    "arxiv_id": "",
+    "version_coded": "Version of record: the typeset journal PDF (10 pp.) deposited in Apollo, the University of Cambridge repository (hdl 1810/367947; OpenAlex labels this copy submittedVersion), read in full as text. Page locators are journal pages 91-100"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; the article's stated focus and its only ML-vs-classical time comparison is SIMP run time with learned vs finite-difference PDE solvers, Table 2)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On SELTO disc test problems (39×39×4 voxels), SIMP with a learned neural-operator PDE solver runs in 2-19 s versus 75 s with the classical finite-difference solver on the same Xeon Silver 4210 CPU, stated as at least fourfold faster.",
+    "key_phrase": "all NO models provide at least a fourfold improvement in inference speed",
+    "location": "Sec. 5.3, p. 96, and Table 2, p. 97 (main text; the abstract, introduction and conclusion hold no quantitative classical comparison). Chosen under §5.1 rule 4 over the earlier Table 1 (IoU against the SIMP designs, p. 96), because the article states its focus is a speed-up of classical SIMP (p. 96)",
+    "quantitative": true,
+    "claimed_speedup": 4,
+    "claimed_speedup_basis": "Stated as at least fourfold (p. 96). Table 2 averages: FDM SIMP 75 s; learned solvers 2-3 s without equivariance and 15-19 s with equivariance, i.e. 25-37.5× and 3.9-5× [derived]. The best-quality model (equivariant U-Net FNO, 19 s) gives 3.9× [derived], just below the stated floor. One FDM solve at 160,000 voxels takes almost 5 min vs under 1 s for a NO (p. 96; on the order of 300× per solve [derived]). Training (2-14 h) and data generation are excluded.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 1 (p. 96), quality against the SIMP ground truth: best IoU 0.73 with fail% 6.25 and mean compliance 0.56 (equivariant U-Net FNO, 200 trajectories); across models and data sizes IoU 0.29-0.73 and fail% 6.25-73.75; the SIMP reference's own fail% and compliance are not given (stratum Q if chosen). (2) p. 96: one FDM solve at 160,000 voxels takes almost 5 min vs under 1 s for a NO. (3) Abstract, background: NOs offer large speed-ups over classical PDE solvers (not this article's measurement)."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with a finite-difference (FDM) linear-elasticity solver, 60 iterations per problem; the learned operator replaces only the PDE solve inside the same SIMP loop (Sec. 4-5)",
+    "implementation": "DL4TO, the authors' PyTorch library (Sec. 5.1); public on GitHub under Apache-2.0 per the GitHub API (2026-09-24); the FDM solver's linear algebra is not described in the article",
+    "solver": "not stated (finite-difference discretization; linear solver not stated)",
+    "hardware_classical": "Intel Xeon Silver 4210 CPU (Table 2)",
+    "hardware_ml": "the same Intel Xeon Silver 4210 CPU for the timed runs (Table 2); training on a GeForce RTX 2080 Ti GPU (Sec. 5.1)",
+    "problem_size": "39×39×4 voxel grid of the SELTO disc dataset (Sec. 5.1) [derived: about 2.4×10^4 DOFs, 40×40×5 nodes × 3]; one finer example with 160,000 voxels (p. 96)",
+    "classical_iterations": "60 SIMP iterations per problem (i_max = 60, Sec. 5.1); the timed runs are assumed to use the same count [inferred]",
+    "classical_time": "75 s average per SIMP run (Table 2) [derived: about 1.25 s per iteration]; almost 5 min for one FDM solve at 160,000 voxels (p. 96)",
+    "ml_time": "Average per SIMP run with the learned solver: U-Net 2 s, FNO 3 s, U-FNO 3 s, U-Net FNO 3 s without equivariance; 15, 18, 17 and 19 s with equivariance (Table 2)",
+    "training_time": "2-14 h per model on an RTX 2080 Ti, 100-1000 epochs (Sec. 5.1, p. 95)",
+    "data_generation_cost": "not stated; 10-200 SIMP trajectories of 60 iterations from the SELTO disc dataset, i.e. 600-12,000 samples (Sec. 5.1) [inferred: about 4.2 h for 200 trajectories at the 75 s Table 2 average]",
+    "quality_metric": "IoU with the SIMP ground-truth design, fail% (von Mises stress above 1.1× the yield stress, or a loaded voxel not connected to the supports) and mean compliance of the final designs (Table 1); WMAE of the density trajectory (Fig. 6)",
+    "quality_gap": "Best: IoU 0.73, fail% 6.25, compliance 0.56 (equivariant U-Net FNO, 200 trajectories); range IoU 0.29-0.73, fail% 6.25-73.75, compliance 0.56-4.52 (Table 1). The SIMP reference's own fail% and compliance are not reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Tables 1-2 and Sec. 5.3: both runs use the same 60-iteration SIMP loop [inferred], and quality is reported, but the learned-solver designs match the SIMP designs only in part (best IoU 0.73) and 6.25-73.75% of them fail the stress or connectivity check, while the SIMP reference's fail% and compliance are not given. No matching is attempted; the authors acknowledge a quality-speed trade-off (p. 96). If these numbers are read as measurably worse than SIMP, R1-unmatched (fail) applies."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl",
+      "evidence": "Table 2 and p. 96: the FDM SIMP takes 75 s for 60 iterations at about 2.4×10^4 DOFs, about 1.25 s per iteration [derived], one FDM solve at 160,000 voxels takes almost 5 min, and the authors state that FDM cost grows quadratically with the voxel count. This looks slow for the size [inferred], but the linear solver is not stated and no direct comparison is possible. Both methods run on the same CPU, so (c) does not apply; (b) not observed; (d) not established (no convergence criterion or plot). Pointer for (e): 1.25 s per iteration at 39×39×4 [derived]."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "Sec. 5.1 and 5.3: training time is reported (2-14 h) and the data need is discussed only qualitatively; the data-generation cost is not reported and no break-even is given. For C3 [derived]: 200 trajectories at the 75 s average (15,000 s) plus 7,200-50,400 s of training, against a saving of 56 s per run for the equivariant U-Net FNO (75 − 19), break even after about 400-1,170 runs; for the fastest model (73 s saved), after about 300-900 runs."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Sec. 5.2 and Table 1: the final design of every test problem is scored by IoU, compliance and a failure check (stress above 1.1× yield, or loaded voxels disconnected from the supports), and failures are counted (fail%). The article does not say which solver scores the designs [classical solver inferred]; volume fractions are not reported. Unsure, so pass."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "The SELTO disc test split (size not stated) for each of 32 model settings: 4 architectures × with/without equivariance × 4 training-set sizes (Table 1)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "yes",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Primary-outcome judgment: no quantitative classical comparison appears in the abstract, introduction or conclusion (the abstract's speed statement is background on neural operators in general). In the main text, Table 1 (IoU against the SIMP ground truth) precedes the timing, but its comparisons are mainly among neural-operator architectures, and the article states its focus is a speed-up of classical SIMP (p. 96), so the Table 2 speed comparison is taken under §5.1 rule 4; Table 1 is the quality alternative. The stated floor of fourfold does not hold for the equivariant U-Net FNO, the configuration with the best quality (75/19 = 3.9 [derived]). The 160,000-voxel timing (p. 96) gives no mesh, solver or hardware details. runtimes_all_cases = yes: Table 2 gives averages per solver, taken to cover the test set [inferred]. Access: the OUP PDF link listed by OpenAlex answered curl with HTTP 403 (not pursued); the Apollo copy is the typeset version of record (journal header, CC BY). Code: no code link for the neural operators; the SIMP side runs in the public DL4TO library (Apache-2.0), and the SELTO dataset is on Zenodo (doi 10.5281/zenodo.7034898), so a baseline-only re-test at 39×39×4 is possible. retest_candidate false because the neural-operator models are not public. Duplicate check: no other version in the pool; P00114 (SELTO), P00817 (DL4TO) and P01614 (SELTO dataset) by the same group are different works. No author named Jun Wang. Screening code was I-SPEED."
+}

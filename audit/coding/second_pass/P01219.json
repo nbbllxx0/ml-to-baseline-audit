@@ -1,0 +1,88 @@
+{
+  "pid": "P01219",
+  "citation": {
+    "title": "Real-time multi-objective topology optimization method via deep learning",
+    "authors": "Cheng Xiang; Airong Chen; Dalei Wang; Rujin Ma",
+    "year": 2024,
+    "venue": "Bridge Maintenance, Safety, Management, Digitalization and Sustainability (IABMAS 2024 proceedings, CRC Press/Taylor & Francis), book chapter",
+    "doi": "10.1201/9781003483755-246",
+    "arxiv_id": "",
+    "version_coded": "Open-access edition PDF (CC BY-NC-ND 4.0, per the chapter's own header), downloaded from the publisher's own file host (Taylor & Francis's oa-edit API, which redirected to an Amazon S3 URL under taylorfrancis.com's content store) and read in full (8 pp.) with PyMuPDF text extraction. Only version; no arXiv preprint exists."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a 40x80 cantilever test set, the trained SWPUnet (a UNet with Swin-style shifted-window attention in its skip connections) predicts a near-optimal multi-objective (compliance/stress/volume) structure in 0.0076 s on average, versus 15.76 s for the conventional MMA-based iterative method, a time saving the article reports as 99.97%, with average compliance, stress and volume errors of -7.50%, -5.08% and 0.84%.",
+    "key_phrase": "with the efficiency improved by 99.97%",
+    "location": "Section 4 (main text; the Abstract and Conclusion state the efficiency gain only qualitatively -- e.g. 'a significant reduction in computation cost ... with little sacrifice on the performance of design solutions' -- with no numbers, and the Introduction gives no comparison numbers of its own)",
+    "quantitative": true,
+    "claimed_speedup": 2073.7,
+    "claimed_speedup_basis": "Derived as classical time / ML time = 15.76 s / 0.0076 s ≈ 2073.7 [derived] from the two headline averages in Sec. 4 and Table 1. The article's own percentage statements in the same paragraph are internally inconsistent and are reported here rather than adopted: 'only 0.026% of traditional methods' would imply an ML time of about 0.0041 s (not the stated 0.0076 s), and 'efficiency improved by 99.97%' (matching Table 1's 'Time saved: 99.97%') implies a ratio of about 3,333x -- neither matches the 2,073.7x obtained directly from the two printed times [observed inconsistency in the source, not resolved by the coder]. The ML time (0.0076 s = ~9.4×10⁻⁴ s preprocessing + ~4.42×10⁻³ s prediction, Sec. 4) explicitly excludes dataset-generation and training time ('the considerable time of generating the dataset and training the neural network are not included').",
+    "direction": "outperform",
+    "alternatives": "None distinct from the primary outcome: Table 1 (Ec -7.50%, EσPN -5.08%, Ev 0.84%, Epix 5.18%, outperform-rate 49.75%, large-error-rate 5.90%, time saved 99.97%) is the article's single, comprehensive speed-and-quality comparison, and every number cited above is drawn from it or its surrounding paragraph in Sec. 4."
+  },
+  "baseline": {
+    "classical_method": "Method of Moving Asymptotes (MMA, Svanberg 1987), gradient-based nonlinear TO minimizing compliance subject to a volume constraint and a p-norm (p=6) aggregated von Mises stress constraint, SIMP-type density interpolation (Sec. 2, Eq. 1)",
+    "implementation": "not stated (no software, library, or code source named for the MMA/FE baseline)",
+    "solver": "not stated",
+    "hardware_classical": "not stated anywhere in the article",
+    "hardware_ml": "not stated anywhere in the article",
+    "problem_size": "2D cantilever beam, 40x80 element resolution (41x81-node input tensor), volume fraction 0.3-0.7, stress fraction 0.0-1.0 (Sec. 3.1)",
+    "classical_iterations": "not stated precisely; described only as 'hundreds of iterations of finite element analysis and sensitivity analysis' (Sec. 4)",
+    "classical_time": "15.76 s average (Table 1; Sec. 4)",
+    "ml_time": "0.0076 s average, decomposed as ~9.4×10⁻⁴ s data preprocessing + ~4.42×10⁻³ s model prediction (Sec. 4) [these two components sum to ≈5.36×10⁻³ s, not exactly the stated 0.0076 s; reported as printed]",
+    "training_time": "not stated (136 training epochs run, validation loss minimised at epoch 116, Sec. 3.3, but no wall-clock time given)",
+    "data_generation_cost": "not stated; 20,000 MMA-optimized samples were generated (train:val:test = 8:1:1, Sec. 3.1) but no compute time or cost is reported, and the article explicitly says this cost is excluded from the headline speed-up (Sec. 4)",
+    "quality_metric": "Compliance error (Ec), p-norm stress error (EσPN), volume-fraction error (Ev), and pixel-accuracy error (Epix), each comparing the predicted structure to the MMA/FE result for the same case; the article also reports von Mises stress distributions of the predicted structures (Fig. 4a), consistent with an FE-based (not purely image-based) evaluation of stress and compliance, though the article never states in so many words that it re-runs FE analysis on the predicted density field [inferred from context]",
+    "quality_gap": "Table 1 averages: Ec -7.50%, EσPN -5.08%, Ev 0.84%, Epix 5.18%; outperform-rate (predicted result at least as good as MMA on all three of Ev/Ec/EσPN) 49.75%; large-error rate (Ec or EσPN beyond 20%) 5.90%, attributed to high stress sensitivity to topology changes and to disconnected structures in some DL predictions (Sec. 4)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. 4, Table 1: the 2,073.7x-derived speed claim is reported alongside a full quality accounting on the same test set -- matched volume fraction (Ev 0.84% average error), compliance and stress within single-digit average error (Ec -7.50%, EσPN -5.08%, both negative, i.e. the ML result is on average slightly stiffer/lower-stress than the classical one), and an explicit large-error rate (5.90%) rather than a single cherry-picked example. Close to half the test set (outperform-rate 49.75%) meets the article's own 'as good or better' bar. This is not a speed claim made with no quality comparison, and quality is not measurably and systematically worse outside a stated error band."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unstated",
+      "evidence": "No hardware of any kind (CPU/GPU model, core count) is stated for either the classical MMA/FE baseline or the neural network, so hardware comparability cannot be assessed (matches the protocol's partial condition 'the hardware choice is not justified' -- here it is not even disclosed). The problem is very small (40x80 elements, on the order of 3x10³ design variables), well below the 10⁵-DOF threshold for R2(c), so a GPU-vs-CPU-at-scale concern does not arise regardless. No solver type is named for the FE step inside MMA, and the classical iteration count is given only as 'hundreds', not a precise number, so R2(d) cannot be established from the text and R2(a)/(e) would need a re-test or an explicit per-iteration time, neither available here."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-per-query-scoped",
+      "evidence": "Sec. 4 explicitly states: 'It should be noted that the considerable time of generating the dataset and training the neural network are not included' in the 0.0076 s / 99.97% figure. This is an explicit statement limiting the speed claim to per-query inference (data preprocessing + model prediction only), which the protocol's R3 pass condition accepts in place of a full data-generation-plus-training cost accounting with break-even."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Quality is judged primarily by physically meaningful FE-linked quantities -- compliance error, p-norm stress error and volume-fraction error, plus an explicit comparison of predicted vs. classical von Mises stress fields (Fig. 4a) -- not solely by the image-similarity metric present (pixel-accuracy error, Epix, one of four reported metrics). Failure is quantified: a large-error rate of 5.90% (Ec or EσPN beyond 20%) is reported and its causes (stress sensitivity to topology, disconnected structures in some DL outputs) are discussed with an example (Fig. 4b). The article does not explicitly state that it re-runs an independent FE analysis on the returned (possibly rounded) density field, which is noted as an inference rather than a confirmed fact."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2,000 (20,000 samples total, train:val:test = 8:1:1, Sec. 3.1)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Short (8-page) open-access conference-proceedings chapter (IABMAS 2024 / CRC Press), read in full; no supplementary material found or expected for this format. included.method_family='cnn': SWPUnet is explicitly 'a novel extension of Unet' (Sec. 3.2) with Swin-Transformer-style shifted-window self-attention (SWA) added only within the skip connections; the backbone is a CNN encoder-decoder, so 'cnn' was chosen over 'transformer'. included.physics='compliance' because Eq. 1 minimizes compliance subject to volume and (p-norm) stress constraints -- stress is a constraint here, not the optimization objective. A clear internal numerical inconsistency in the article's own headline speed-up statement is flagged in claim.claimed_speedup_basis rather than silently resolved. Two same-group prior papers are cited as background/related work (Wang et al. 2021, Engineering Optimization; Xiang et al. 2022 x2, Thin-Walled Structures and Structural and Multidisciplinary Optimization) but are single-objective (compliance- or stress-only) predecessors, not duplicates of this multi-objective chapter; none of the three appears in audit/pool/pool.csv under a matching title, and this chapter's own title/DOI has no other pool match. No author named Jun Wang (authors: Cheng Xiang, Airong Chen, Dalei Wang, Rujin Ma; a cited related-work author is D. Wang, a different person from a different paper)."
+}

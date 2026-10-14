@@ -1,0 +1,95 @@
+{
+ "source": "manuscript/smo_v2/online_resources/review/speed_stratum_checklist.csv",
+ "per_rule": {
+  "R1": {
+   "n": 28,
+   "agree": 25,
+   "kappa": 0.8339920948616601,
+   "kappa_ci95": [
+    0.6301886792452831,
+    1.0
+   ]
+  },
+  "R2": {
+   "n": 28,
+   "agree": 26,
+   "kappa": 0.845303867403315,
+   "kappa_ci95": [
+    0.5930232558139534,
+    1.0
+   ]
+  },
+  "R3": {
+   "n": 28,
+   "agree": 28,
+   "kappa": 1.0,
+   "kappa_ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  "R4": {
+   "n": 28,
+   "agree": 26,
+   "kappa": 0.8813559322033899,
+   "kappa_ci95": [
+    0.6888888888888888,
+    1.0
+   ]
+  }
+ },
+ "changes": [
+  {
+   "pid": "P00181",
+   "rule": "R1",
+   "adjudicated": "partial",
+   "reviewed": "fail",
+   "note": "Changed to fail. Sec. 5.1 reports only voxel accuracy (96.2% binary, 79.7% RMS). No compliance or volume of any predicted design is computed. Protocol \u00a75.3 fails a speed claim with no design-quality comparison; voxel overlap is not that comparison. The adjudicator treated this as loose matching because no design-level gap was measured."
+  },
+  {
+   "pid": "P00647",
+   "rule": "R1",
+   "adjudicated": "partial",
+   "reviewed": "fail",
+   "note": "Changed to fail. Table 2 compares the prediction with the TO ground truth only by voxel MSE (0.0079), Dice (about 95%) and volume deviation (0.24%). The bulk or shear modulus of a predicted cell is never computed, so there is no objective comparison. Same rule as P00181."
+  },
+  {
+   "pid": "P00827",
+   "rule": "R1",
+   "adjudicated": "partial",
+   "reviewed": "fail",
+   "note": "Changed to fail. Table 2 shows the network stress error (0.079\u20130.176) above the second-order homogenization it replaces (0.046\u20130.122) in all four cases. The speed claim times that worse output against the classical evaluation, and no equal-accuracy or equal-budget run is reported."
+  },
+  {
+   "pid": "P00178",
+   "rule": "R2",
+   "adjudicated": "partial",
+   "reviewed": "pass",
+   "note": "Changed to pass. The 99-line and 88-line codes are only inferred as the code base, and hardware, solver and iteration count are unstated. None of R2 (a)\u2013(e) is established. Unsure scores pass, as for P00808 and P00150. An unstated device is not a hardware choice left unjustified."
+  },
+  {
+   "pid": "P01974",
+   "rule": "R2",
+   "adjudicated": "partial",
+   "reviewed": "pass",
+   "note": "Changed to pass. The 'around 5 s per iteration' figure is not a timed run of this article's SIMP at a stated size and hardware, so R2(e) does not apply, and (a)\u2013(d) are not established. Unsure scores pass. The partial mark rested on a cross-physics inference the evidence itself discounts."
+  },
+  {
+   "pid": "P00149",
+   "rule": "R4",
+   "adjudicated": "partial",
+   "reviewed": "fail",
+   "note": "Changed to fail. Held-out stiffness checks validate the surrogate, but the compliances of the returned designs (Figs. 7, 10, 12, 14) use DNN-predicted stiffness, with no FE re-analysis of the final design and no achieved density. Protocol \u00a75.3 fails quality that rests on surrogate-predicted performance."
+  },
+  {
+   "pid": "P00786",
+   "rule": "R4",
+   "adjudicated": "partial",
+   "reviewed": "fail",
+   "note": "Changed to fail. The only FE checks of the surrogate are five illustrative microstructures picked from Fig. 3B, with no stated selection rule. Design objectives in Sec. 4 use surrogate-predicted properties and the reconstructed structures are not re-analysed. Both are R4 fail markers."
+  }
+ ],
+ "n_changed": 7,
+ "weak_R1_or_R2_reviewed": 11,
+ "n_records": 28
+}

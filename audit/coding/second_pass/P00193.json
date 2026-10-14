@@ -1,0 +1,88 @@
+{
+  "pid": "P00193",
+  "citation": {
+    "title": "Zero-shot rib design: merging training-free generative prior with topology optimization",
+    "authors": "Yongmin Kwon; Namwoo Kang",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.LG; also physics.app-ph); preprint submitted to Elsevier",
+    "doi": "10.48550/arxiv.2609.10643",
+    "arxiv_id": "2609.10643",
+    "version_coded": "arXiv v1 (9 Sep 2026; only version on the abs page). Full text (41 pp. incl. appendices) downloaded from https://arxiv.org/pdf/2609.10643 and read via PyMuPDF extraction (main text and Appendices A.1-A.6 read in full; later appendix subsections skimmed via their main-text summaries, e.g. D.1 multi-start numbers, D.3 beta sweep, D.5 dot-prompt ablation, D.9 causal surgery, all of which are also reported in the main text)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Across 245 primary runs (49 prompt-domain combinations x 5 seeds, four domains, two physics regimes), 38 of 49 combinations gave statistically significant compliance reductions versus the classical Adam-SIMP baseline, up to -31.5% mechanical and -23.0% thermoelastic.",
+    "key_phrase": "38 of 49 prompt-domain combinations achieved statistically significant compliance reductions",
+    "location": "abstract (this quantitative classical comparison is stated directly in the Abstract, so no further location in the hierarchy needed to be checked)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed advantage is claimed anywhere; the article is explicit that its method is slightly slower than the classical baseline it compares against: 'Each run uses N=1000 iterations on an NVIDIA RTX 4090 (24 GB VRAM), taking ~44 minutes per SDS run, a ~3-minute (~7%) overhead over the pure-SIMP baseline' (Sec. 4). The only speed-flavoured comparison is a training/retargeting-cost contrast with OTHER ML methods (TopoDiff, DOM: 'thousands of GPU-hours', Table 1), not with a classical method, and is therefore not a candidate for this field.",
+    "direction": "outperform",
+    "alternatives": "(1) MMA baseline comparison (Table 6): a tuned Method of Moving Asymptotes optimizer, run for the same 1000 iterations, beats the simpler Adam-SIMP baseline in every domain and is explicitly called 'a standard strong baseline'; the best SDS run still beats MMA in D_Circle (2.522 vs 2.598) and D_Hole (43.20 vs 48.85) but loses to it in D_Rect (7.886 vs 7.721). (2) Multi-start (50 restarts), random-perturbation, and image-guided SIMP-only baselines (Fig. 4, Sec. 5.2): SDS's best run beats multi-start's best in all three domains (e.g. D_Hole 43.20 vs 47.434). (3) Thermoelastic bending (Table 7): 7 of 9 prompt-domain combinations reach 5/5-seed significance, up to -23.0%. (4) A deliberately reported negative result on 2D heat conduction (Table 11): SDS matches or worsens thermal compliance relative to the Adam baseline for all three tested prompts. (5) Qualitative/ML-only cost contrast: the method needs zero training data or GPU-hours to retarget to a new domain/condition, versus 'thousands of GPU-hours' for data-driven diffusion TO methods TopoDiff and DOM (Table 1) -- a cost comparison against other ML methods, not a classical one."
+  },
+  "baseline": {
+    "classical_method": "SIMP (density-based, penalty p=3) with a density filter, Heaviside projection + beta-continuation, and a bisection volume-fraction projection, optimized by Adam (the paper's main baseline throughout) and, as a secondary stronger check, by the Method of Moving Asymptotes (MMA) (Sec. 3.5, 5.2)",
+    "implementation": "Authors' own implementation; Mindlin-Reissner MITC4 plate FEA for D_Rect/D_Circle/D_Hole, plane-stress 4-node bilinear elements for the industrial D_Link domain (Sec. 3.2, 5.3)",
+    "solver": "Sparse Cholesky direct solve for the FEA linear system at every iteration (Algorithm 1, line 8), for both the classical baselines and the SDS-guided runs (only the density-update rule differs)",
+    "hardware_classical": "Not separately distinguished from the ML run's hardware; the whole pipeline (Adam/MMA baseline and SDS runs alike) is described as run on an NVIDIA RTX 4090 (24 GB VRAM) (Sec. 4), though the classical Adam/MMA-only baseline would not need the GPU's diffusion computation",
+    "hardware_ml": "NVIDIA RTX 4090 (24 GB VRAM) (Sec. 4)",
+    "problem_size": "150x150 finite-element grid for D_Rect/D_Circle/D_Hole (approx. 6.8x10^4 plate DOFs at 3 DOF/node [derived]); D_Link uses the same order of resolution under plane stress (2 DOF/node); volume fraction 0.20 (0.30 for D_Link) (Table 3, Sec. 4)",
+    "classical_iterations": "Fixed K=1000 iterations for Adam, MMA and SDS-guided runs alike (Table 3, Sec. 5.2), so classical and ML runs use the identical, matched iteration budget",
+    "classical_time": "Adam baseline: not given as a stand-alone number, but per-iteration cost 2.34 s/iter is stated for the Adam optimizer step (Sec. 5.2); MMA: 4.90 s/iter, i.e. about 2.1x Adam's per-iteration cost (Sec. 5.2)",
+    "ml_time": "~44 minutes per SDS run (1000 iterations, RTX 4090) (Sec. 4)",
+    "training_time": "None: the framework is training-free and uses a frozen, publicly pretrained Stable Diffusion 2.1 with no fine-tuning (Sec. 1, 3.3; Data availability statement)",
+    "data_generation_cost": "None: 'No training datasets were generated or used in this study' (Data availability statement); Table 1 contrasts this zero training-data/zero GPU-hour retargeting cost with data-driven alternatives TopoDiff (~33,000 TO solutions, ~2,750 GPU-hrs) and DOM (~10,000 trajectories, ~830 GPU-hrs)",
+    "quality_metric": "Structural compliance C = F^T U (or F_th^T u for thermoelastic loading), computed by the same Mindlin-Reissner/plane-stress FEA used inside the optimization loop, for the final (beta-continued, near-binary) design of every method and every seed (Sec. 3.1, 3.2, 5.1); gray-density ratio (share of intermediate-density elements) is also tracked as a manufacturability/verification metric (Sec. 6.4)",
+    "quality_gap": "Table 5 (mechanical, best single run vs Adam baseline C): D_Rect 7.886 vs 9.106 (-13.4%); D_Circle 2.522 vs 3.308 (-23.8%); D_Hole 43.20 vs 63.113 (-31.5%); D_Link 4.459 vs 5.258 (-15.2%). Table 7 (thermoelastic, best mean vs baseline): D_Rect -23.0%, D_Circle -13.9%, D_Hole -8.5%. Table 6 (vs MMA, best SDS run): D_Rect 7.886 vs 7.721 (SDS worse); D_Circle 2.522 vs 2.598 (SDS better); D_Hole 43.20 vs 48.848 (SDS better). Table 11 (heat conduction, vs Adam): SDS 3.72-3.97 vs baseline 3.547 (SDS worse or equal for all 3 prompts tested)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "na",
+      "marker": "R1-na-no-speed-claim",
+      "evidence": "No speed advantage is claimed; the article explicitly discloses a ~7% wall-clock overhead versus the pure-SIMP baseline (Sec. 4), so there is no 'speed comparison' for R1 to judge as matched or unmatched. The quality comparison itself is well matched: identical iteration budget (K=1000), identical filter/beta-continuation settings, and the same volume-fraction constraint (enforced exactly by bisection projection) for every method compared (Sec. 3.5, 5.2)."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "No speed claim exists for R2 to assess (see R1). For the record, the classical comparators used are not weak strawmen: the main baseline (Adam on the same SIMP/Heaviside formulation) is standard, and the authors additionally benchmark a tuned MMA optimizer explicitly described as 'a standard strong baseline in gradient-based topology optimization' (Sec. 5.2), showing it beats the Adam baseline in every domain and beats even the best SDS run in one of three domains (Table 6) -- the opposite of reporting only a weaker baseline. The FEA solve uses a sparse Cholesky direct solver throughout (Algorithm 1), which is in the efficient class. Problem size (~6.8x10^4 DOFs [derived]) is below the 10^5 threshold for R2(c)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-training",
+      "evidence": "The framework is training-free: it couples a frozen, publicly pretrained Stable Diffusion 2.1 to the FEA sensitivity with no fine-tuning, no task-specific training, and no labeled topology-optimization data ('No training datasets were generated or used in this study', Data availability statement; Sec. 1, 3.3). With no offline training or data-generation step of its own, its cost sits inside R1/R2 per the protocol's per-problem-learning exemption, even though this is a training-free generative-prior method rather than a neural-reparameterization one."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Every reported compliance number, in the main results and in every ablation/robustness check, is computed by the same Mindlin-Reissner (or plane-stress) FEA used inside the optimization loop (Sec. 3.1-3.2, 5.1), not an image-similarity proxy. The volume-fraction constraint is enforced exactly by a bisection projection at every iteration (Sec. 3.5), so volume feasibility is guaranteed by construction rather than merely reported. Manufacturability/binarization is explicitly monitored and resolved (gray-density ratio 42.6% -> below 3%, Sec. 6.4, Fig. 13). Failure and negative results are reported rather than hidden: 11 of 49 mechanical/thermoelastic combinations do not reach significance, two prompts (Diamond, Grid) actively degrade compliance by about +6% in D_Rect with a dedicated failure-mode analysis (Sec. 6.3, Appendix D.4), and a full negative result on heat conduction is reported (Table 11). No explicit disconnection/infeasibility-rate statistic is given, but the design's structural feasibility (connectivity to supports) is not flagged as an issue anywhere, consistent with FEA being enforced at every iteration rather than only at a final single-shot prediction."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "245 primary SDS runs (49 prompt-domain combinations x 5 seeds: 10 prompts x 3 plate domains + 10 prompts x D_Link, all x5 seeds, minus the D_Link/plate prompt-count reconciling to 49 combinations) plus substantial additional runs: thermoelastic (3 prompts x 3 domains x5 seeds=45), heat conduction (3 prompts x5 seeds=15), multi-start (50 restarts x3 domains), perturbation (50x3), dot-prompt ablation (6 prompts x5 seeds=30 on D_Rect), scheduling ablation (~14 single-seed conditions), causal-surgery interventions (9 designs x3 interventions)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "yes",
+    "runtimes_all_cases": "yes",
+    "code_available": "on_request",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "This is a quality-stratum article by a clean margin: the Abstract itself states the compliance-reduction comparison quantitatively, and the article explicitly discloses a small (~7%) wall-clock overhead rather than any speed benefit, so there was no ambiguity in the stratum call (unlike P00161 in this same queue). Reporting practice here is notably transparent for this literature: the authors run and disclose a stronger classical baseline (MMA) that beats their own primary Adam baseline and, in one domain, beats their method too; they report a full negative result on heat conduction; and they report non-significant/degrading prompt-domain combinations rather than only best cases -- all relevant, favourable evidence for the audit's C4 reporting-practice question. included.physics='compliance' reflects the dominant mechanical-compliance experiments (200 of 245 primary runs); the article also covers thermoelastic bending (Sec. 5.5) and, as a separate small negative-result set outside the '245 primary runs' count, 2D heat conduction (Sec. 7, Table 11) -- noted here rather than reclassified as 'multiphysics' or 'thermal' since compliance/elasticity is the paper's own primary framing throughout. data_available='no' reflects that no dataset was produced or is needed (training-free method), not that data was withheld; code_available='on_request' quotes the Data availability statement verbatim. Duplicate check (audit/pool/pool.csv): this arXiv preprint (P00193) and P01925 ('Zero-shot rib design: Merging a training-free generative prior with topology optimization', Advanced Engineering Informatics, doi 10.1016/j.aei.2026.105276, published 2026-09-19, same authors) describe the same article. Checked OpenAlex for P01925 (W7212234730, 2026-09-24): the Advanced Engineering Informatics location has is_oa=false (overall oa_status='green' only via this arXiv copy), so the version of record is not open access and, per the protocol's tie-break, this arXiv preprint (P00193, its only version) is primary and is coded in full here; P01925 is outside this queue and is not marked FT-DUPLICATE by this record. No author named Jun Wang (authors: Yongmin Kwon, Namwoo Kang)."
+}

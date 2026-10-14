@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00051",
+    "citation":  {
+                     "title":  "Diverse Topology Optimization using Modulated Neural Fields",
+                     "authors":  "Andreas Radler, Eric Volkmann, Johannes Brandstetter, Arturs Berzins",
+                     "year":  2025,
+                     "venue":  "arXiv preprint",
+                     "doi":  "10.48550/arxiv.2502.13174",
+                     "arxiv_id":  "2502.13174",
+                     "version_coded":  "arXiv v2 (17 June 2025)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "neural_reparam",
+                     "physics":  "compliance",
+                     "dim":  "both"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "On the cantilever benchmark, TOM reduces wall-clock time relative to the classical deflated-barrier method while producing diverse, near-optimal designs.",
+                  "key_phrase":  "more diverse and faster than DB",
+                  "location":  "Table 1; Section 4.4",
+                  "quantitative":  true,
+                  "claimed_speedup":  4.24,
+                  "claimed_speedup_basis":  "Table 1 reports 123 min for deflated barrier and 29 min for TOM on the cantilever benchmark; 123 / 29 = 4.24. TOM uses parallel solver calls while DB is sequential (Sections 3.1, 4.4).",
+                  "direction":  "outperform",
+                  "alternatives":  "Table 1 reports TOM at 47 min versus FeniTop at 187 min on the jet-engine bracket; Section 4.4 states DB has better compliance than TOM, while TOM is faster and more diverse."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP/FeniTop single-solution baseline and deflated-barrier (DB) method for multiple solutions",
+                     "implementation":  "FeniTop Python wrapper of FEniCSx/DolfinX FEM solvers; DB implementation cited to Papadopoulos et al. (2021) (Section 4.2)",
+                     "solver":  "Finite-element solver; precise linear solver not stated",
+                     "hardware_classical":  "Experiments run on one NVIDIA Titan V12 GPU node with Xeon Gold 6150 CPU (36 cores, 2.70 GHz) and 384 GB RAM (Appendix A.3); method-specific hardware allocation not stated",
+                     "hardware_ml":  "Same stated node; TOM diversity computations use GPU and FEM solves are parallelized across CPU cores (Section 3.1; Appendix A.3)",
+                     "problem_size":  "MBB: 180×60 mesh; cantilever: 150×100; jet-engine bracket: 104×172×60 (Table 2)",
+                     "classical_iterations":  "FeniTop 400 iterations on MBB and cantilever, 1,000 on bracket; DB 400 on MBB and cantilever (Table 2)",
+                     "classical_time":  "DB: 123 min on cantilever; FeniTop: 187 min on jet-engine bracket (Table 1)",
+                     "ml_time":  "TOM: 29 min on cantilever and 47 min on jet-engine bracket (Table 1); 6.1 min on MBB (Table 1)",
+                     "training_time":  "Per-problem solver-in-the-loop optimization; TOM uses 1,000 iterations on cantilever and 400 on MBB and bracket (Table 2); no offline training time stated",
+                     "data_generation_cost":  "No offline dataset; method described as data-free (abstract and Section 4.4)",
+                     "quality_metric":  "Compliance, volume fraction, load-violation ratio (LVR), and Wasserstein-1 diversity (Table 1)",
+                     "quality_gap":  "DB has better compliance: MBB TOM 0.75±0.03 vs DB 0.67±0.01; cantilever TOM 0.69±0.13 vs DB 0.58±0.01 (Table 1)."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "fail",
+                             "marker":  "R1-unmatched",
+                             "evidence":  "Section 4.4 says DB has better compliance while TOM is faster; Table 1 reports those outcomes without matching design quality or time. TOM also uses parallel solver calls whereas DB is sequential (Sections 3.1 and 4.4)."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Sections 3.1 and 4.2 describe the FEM-based FeniTop baseline and parallel CPU/GPU execution; no text establishes an inefficient solver, excessive iterations, unjustified GPU-vs-CPU comparison, or a weak abstract baseline."
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "R3-per-problem-learning",
+                             "evidence":  "Sections 3.1 and 4.4 describe per-problem solver-in-the-loop optimization and state TOM is data-free; there is no offline training or data-generation cost to amortize."
+                         },
+                  "R4":  {
+                             "verdict":  "pass",
+                             "marker":  "R4-verified",
+                             "evidence":  "Sections 3.1 and 4.4 evaluate compliance and volume with FEM and report load-violation ratios; Table 1 gives LVR for methods and Appendix D.3 describes removal of floaters and optional classical fine-tuning."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Three benchmark problems (MBB, cantilever, jet-engine bracket); finite sample counts by method are in Table 1. TOM generates a continuous distribution that can be sampled (Table 1 caption).",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "yes",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "selective",
+                      "code_available":  "yes",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  true,
+    "notes":  "Table 1 reports mean and standard-deviation results and load-violation ratios. Appendix D.3 notes that optional classical fine-tuning uses 5% of a full run; timing of this post-processing is not separately reported. Public code URL is stated in the paper: https://github.com/ml-jku/Topology-Optimization-Modulated-Neural-Fields.",
+    "stage":  "cross_provider_pass"
+}

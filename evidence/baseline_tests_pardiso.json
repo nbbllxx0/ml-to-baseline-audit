@@ -1,0 +1,72 @@
+{
+  "run_utc": "2026-09-24T14:23:15+00:00",
+  "python": "C:\\Users\\YSL0\\anaconda3\\envs\\Pytorch\\python.exe",
+  "results": [
+    {
+      "test": "P1_cantilever n=64 [uniform]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",
+      "value": 1.629747413823884e-13,
+      "threshold": "<1e-8",
+      "pass": true,
+      "gating": true,
+      "note": "residuals PARDISO 7.0e-14, SuperLU 1.5e-13"
+    },
+    {
+      "test": "P1_cantilever n=64 [random_no_void]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",
+      "value": 2.2900490025676005e-13,
+      "threshold": "<1e-8",
+      "pass": true,
+      "gating": true,
+      "note": "residuals PARDISO 3.5e-13, SuperLU 6.7e-13"
+    },
+    {
+      "test": "P1_cantilever n=64 [simp_design_it60]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",
+      "value": 4.0330969343262755e-13,
+      "threshold": "<1e-8",
+      "pass": true,
+      "gating": true,
+      "note": "residuals PARDISO 9.9e-14, SuperLU 1.9e-13"
+    },
+    {
+      "test": "P1_cantilever n=64 [stress_random_30pct_isolated_voids]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",
+      "value": 1.658694256140982e-08,
+      "threshold": "<1e-8",
+      "pass": false,
+      "gating": false,
+      "note": "residuals PARDISO 1.5e-12, SuperLU 2.8e-12"
+    },
+    {
+      "test": "P2_mbb n=64 [uniform]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",
+      "value": 5.718432398543614e-13,
+      "threshold": "<1e-8",
+      "pass": true,
+      "gating": true,
+      "note": "residuals PARDISO 2.4e-13, SuperLU 5.2e-13"
+    },
+    {
+      "test": "P2_mbb n=64 [random_no_void]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",
+      "value": 7.984632969016182e-13,
+      "threshold": "<1e-8",
+      "pass": true,
+      "gating": true,
+      "note": "residuals PARDISO 9.6e-13, SuperLU 1.7e-12"
+    },
+    {
+      "test": "P2_mbb n=64 [simp_design_it60]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",
+      "value": 3.36475231088369e-13,
+      "threshold": "<1e-8",
+      "pass": true,
+      "gating": true,
+      "note": "residuals PARDISO 2.3e-13, SuperLU 4.5e-13"
+    },
+    {
+      "test": "P2_mbb n=64 [stress_random_30pct_isolated_voids]: PARDISO (SPD, phase 23) vs SuperLU, rel. difference",
+      "value": 0.00010630457792588974,
+      "threshold": "<1e-8",
+      "pass": false,
+      "gating": false,
+      "note": "residuals PARDISO 1.8e-05, SuperLU 3.3e-05"
+    }
+  ],
+  "all_pass": true,
+  "non_gating_failures": 2
+}

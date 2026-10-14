@@ -1,0 +1,88 @@
+{
+  "pid": "P00047",
+  "citation": {
+    "title": "Mechanostat-type effective density correction for Carter-Hayes growth applied to topology optimization and its efficient interpolation for a target strain energy and volume fraction",
+    "authors": "Luis Irastorza-Valera, Ricardo Larraínzar-Garijo, Javier Montoya-Adárraga, Luis Saucedo-Mora",
+    "year": 2025,
+    "venue": "arXiv preprint (math.OC; physics.comp-ph)",
+    "doi": "10.48550/arXiv.2503.21456",
+    "arxiv_id": "2503.21456",
+    "version_coded": "arXiv v1 (27 Mar 2025), HTML full text; v1 is the only version; no version of record found (web search 2026-09-24)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A small physics-loss network (D2NN), trained for 500 epochs on 20 topology images, gives designs said to resemble 2,000 iterations of the authors' non-learned logarithmic SIMP scheme; once trained, a roughly 25-fold speed-up is claimed.",
+    "key_phrase": "similar results to 2,000 steps worth of vanilla iteration within 500 training epochs",
+    "location": "abstract, paragraph 3; the speed-up factor is stated in Sec. 7 (discussion of Fig. 18)",
+    "quantitative": true,
+    "claimed_speedup": 25,
+    "claimed_speedup_basis": "Stated in Sec. 7 for the trained D2NN versus the vanilla scheme. No times are printed for either method, so the factor cannot be re-derived. The abstract's 2,000 iterations versus 500 training epochs compares effort in different units and is not a time ratio.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 7: running 5 iterations of Eq. 15 after the D2NN prediction is said to bring the result closer to the 2,000-iteration reference; no time given. (2) Abstract, last sentence: the ML surrogate is described qualitatively as quick and low-cost. (3) Sec. 6.1 (non-ML): the erosion filter is said to add no noticeable cost; the filtered cantilever run (1000x200 per the Fig. 2 caption) reached iteration 1000 in about 1.5 h on a single-core i7 1.8 GHz with 16 GB RAM."
+  },
+  "baseline": {
+    "classical_method": "The authors' own non-learned scheme, termed the vanilla iteration: SIMP compliance minimization built on top88.m, with the mechanostat-type logarithmic volume update (Eq. 15) and the twigcutter erosion filter (Sec. 2-3, Algorithm 1)",
+    "implementation": "MATLAB top88.m, the 88-line educational code (ref. [1]), plus the authors' twigcutter.m (Sec. 3); D2NN framework not stated",
+    "solver": "not stated [inferred: top88.m solves with MATLAB sparse backslash, a direct solver; recalled from the public top88 code, not stated in the article]",
+    "hardware_classical": "single-core i7 1.8 GHz, 16 GB RAM (Sec. 6.1); stated for the filtered Fig. 8 cantilever run, not for the Sec. 7 comparison",
+    "hardware_ml": "not stated",
+    "problem_size": "D2NN comparison: 600x200 cantilever (Sec. 7); timed classical run: the Fig. 8 cantilever, which the Fig. 2 caption identifies as the 1000x200 case of Sec. 3 [inferred link]",
+    "classical_iterations": "Fixed 2,000 iterations for the reference designs (abstract; Sec. 7, Fig. 18). Algorithm 1 loops while the design change exceeds tol and the volume is below target; the tol value is not stated.",
+    "classical_time": "not stated for the Sec. 7 comparison; about 1.5 h to iteration 1000 for the filtered 1000x200 cantilever [size via Fig. 2 caption, inferred link] (Sec. 6.1), i.e. about 5.4 s per iteration [derived: 1.5 h × 3600 s/h ÷ 1000]",
+    "ml_time": "not stated; only the relative factor of about 25 (Sec. 7)",
+    "training_time": "not stated; 500 epochs with Adam (Sec. 7, Algorithm 2)",
+    "data_generation_cost": "not stated; 20 training images produced by the vanilla scheme along volume-compliance curves, 10 with filter radius r = 1 and 10 with r = 4 per the Fig. 15-16 captions (Sec. 7)",
+    "quality_metric": "Visual comparison of FEBio von Mises stress maps of D2NN outputs and 2,000-iteration references (Fig. 18); no compliance or volume values for D2NN outputs",
+    "quality_gap": "not quantified; Sec. 7 concedes an inexact match because the training points lie on other volume-compliance curves than the target points"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose-matching",
+      "evidence": "Sec. 7, Fig. 18: quality parity with the 2,000-iteration reference rests on visual similarity of stress maps. No compliance or volume values are given for D2NN outputs. The reference uses a fixed iteration count with no stated convergence check, and the authors concede the match is inexact."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unjustified",
+      "evidence": "Sec. 6.1, Sec. 7: hardware is given only for one classical run (single core, i7 1.8 GHz) and not for the D2NN or the Sec. 7 comparison; the baseline builds on the educational top88.m code. Markers (b)-(d) are not established: the article shows no convergence evidence for the 600x200 reference. R2(e) is not decidable yet: the derivable per-iteration time of the 1000x200 run (about 5.4 s [derived]) needs a same-size single-core strong-baseline measurement, and it belongs to a different problem than the primary outcome."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "Abstract, Sec. 7: training is counted only as 500 epochs, with no time. The cost of producing the 20 training topologies with the vanilla scheme itself is not reported, and no break-even is given."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Sec. 7, Fig. 18: D2NN outputs are analysed in FEBio (stress maps), but no compliance, volume or constraint values and no failure count are reported. Only 4 target points plus the full block are shown."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 target points (P1-P4) plus the full block, one 600x200 cantilever (Sec. 7, Figs. 17-18); 20 training images (Figs. 15-16)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "The classical comparator is the authors' own mechanostat-type SIMP variant, not standard SIMP. ood_test is unclear because Sec. 7 places P1-P2 inside and P3-P4 outside the training dataset while also calling all four unseen. The Sec. 7 text gives r = 1 for both halves of the training set, but the Fig. 16 caption gives r = 4 [typo inferred]. Only one classical runtime is reported (Sec. 6.1, a different problem), hence runtimes_all_cases = selective. No code or data statement. Figure images were not inspected; coding uses text and captions."
+}

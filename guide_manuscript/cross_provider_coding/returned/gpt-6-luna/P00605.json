@@ -1,0 +1,88 @@
+{
+    "pid": "P00605",
+    "citation": {
+        "title": "Fast topology optimization of phononic crystal-based metastructures for vibration isolation by deep learning",
+        "authors": "Chen-Xu Liu, Gui-Lan Yu, Zhanli Liu",
+        "year": 2024,
+        "venue": "Computer-Aided Civil and Infrastructure Engineering",
+        "doi": "10.1111/mice.13100",
+        "arxiv_id": "none",
+        "version_coded": "version-of-record abstract only; full text inaccessible"
+    },
+    "access": "abstract_only",
+    "coder": {
+        "llm_model": "gpt-6-luna",
+        "llm_date": "2026-09-26",
+        "human_initials": null,
+        "human_date": null
+    },
+    "included": {
+        "decision": "include",
+        "reason": "I-SPEED (no accessible full text)",
+        "stratum": "none",
+        "method_family": "other",
+        "physics": "metamaterial_homogenization",
+        "dim": "unclear"
+    },
+    "claim": {
+        "primary_outcome_paraphrase": "The deep learning optimization method attains results similar to or better than a genetic algorithm while using 0.01% of its runtime.",
+        "key_phrase": "0.01% of the time",
+        "location": "abstract",
+        "quantitative": true,
+        "claimed_speedup": 10000,
+        "claimed_speedup_basis": "Abstract reports DLBO time as 0.01% of GA time; 1 / 0.0001 = 10,000-fold GA-time-to-DLBO-time ratio.",
+        "direction": "outperform",
+        "alternatives": "Abstract also says the vibration-isolation performance of a subway-oriented design is verified by a 3D finite element model."
+    },
+    "baseline": {
+        "classical_method": "Genetic algorithm (GA)",
+        "implementation": "not stated in accessible abstract",
+        "solver": "not stated in accessible abstract",
+        "hardware_classical": "not stated in accessible abstract",
+        "hardware_ml": "not stated in accessible abstract",
+        "problem_size": "not stated in accessible abstract",
+        "classical_iterations": "not stated in accessible abstract",
+        "classical_time": "not stated; DLBO is reported to use 0.01% of GA time (abstract)",
+        "ml_time": "0.01% of GA runtime (abstract)",
+        "training_time": "not stated in accessible abstract",
+        "data_generation_cost": "not stated in accessible abstract",
+        "quality_metric": "Similarity or improvement of results relative to GA; vibration isolation verified using 3D finite element model (abstract)",
+        "quality_gap": "Similar or better results than GA; magnitude not stated in accessible abstract"
+    },
+    "rules": {
+        "R1": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R2": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R3": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R4": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        }
+    },
+    "reporting": {
+        "n_test_cases": "not stated in accessible abstract",
+        "ood_test": "unclear",
+        "seeds_or_variance": "unclear",
+        "failure_rate_reported": "unclear",
+        "timing_protocol_stated": "no",
+        "runtimes_all_cases": "no",
+        "code_available": "yes",
+        "data_available": "yes",
+        "hardware_per_method_stated": "no"
+    },
+    "retest_candidate": false,
+    "notes": "Publisher abstract states datasets and code are shared and reports 0.01% of GA runtime. Wiley full-text and PDF routes returned access errors; no access restriction was bypassed. Abstract source: https://onlinelibrary.wiley.com/doi/abs/10.1111/mice.13100.",
+    "stage": "cross_provider_pass"
+}

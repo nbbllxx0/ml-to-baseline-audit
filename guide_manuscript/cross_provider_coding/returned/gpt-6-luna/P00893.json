@@ -1,0 +1,88 @@
+{
+    "pid": "P00893",
+    "citation": {
+        "title": "Deep learning-aided topology design of metasurfaces for Rayleigh waves",
+        "authors": "Cheng Zhao, Chen-Xu Liu, Gui-Lan Yu",
+        "year": 2024,
+        "venue": "Journal of Computational Design and Engineering",
+        "doi": "10.1093/jcde/qwae037",
+        "arxiv_id": "none",
+        "version_coded": "version-of-record abstract only; full text inaccessible"
+    },
+    "access": "abstract_only",
+    "coder": {
+        "llm_model": "gpt-6-luna",
+        "llm_date": "2026-09-26",
+        "human_initials": null,
+        "human_date": null
+    },
+    "included": {
+        "decision": "include",
+        "reason": "I-UNCLEAR (no accessible full text)",
+        "stratum": "none",
+        "method_family": "vae",
+        "physics": "metamaterial_homogenization",
+        "dim": "2d"
+    },
+    "claim": {
+        "primary_outcome_paraphrase": "A VAE and conditional tandem neural network are proposed to design metasurfaces for target Rayleigh-wave isolation efficiently across soil conditions; the abstract gives no direct classical comparison.",
+        "key_phrase": "improving the design efficiency",
+        "location": "abstract",
+        "quantitative": false,
+        "claimed_speedup": null,
+        "claimed_speedup_basis": "No classical runtime comparison or speed-up factor in the accessible abstract.",
+        "direction": "similar_or_mixed",
+        "alternatives": "Abstract reports 100 design tests with determination coefficients above 0.99 and demonstrates vibration isolation for Metro-induced waves."
+    },
+    "baseline": {
+        "classical_method": "not stated in accessible abstract",
+        "implementation": "not stated in accessible abstract",
+        "solver": "not stated in accessible abstract",
+        "hardware_classical": "not stated in accessible abstract",
+        "hardware_ml": "not stated in accessible abstract",
+        "problem_size": "not stated in accessible abstract",
+        "classical_iterations": "not stated in accessible abstract",
+        "classical_time": "not stated in accessible abstract",
+        "ml_time": "not stated in accessible abstract",
+        "training_time": "not stated in accessible abstract",
+        "data_generation_cost": "not stated in accessible abstract",
+        "quality_metric": "Determination coefficients (R²); time- and frequency-domain responses (abstract)",
+        "quality_gap": "R² values reported as more than 0.99 across 100 tests (abstract)"
+    },
+    "rules": {
+        "R1": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R2": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R3": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R4": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        }
+    },
+    "reporting": {
+        "n_test_cases": "100 design tests (abstract)",
+        "ood_test": "unclear",
+        "seeds_or_variance": "unclear",
+        "failure_rate_reported": "unclear",
+        "timing_protocol_stated": "no",
+        "runtimes_all_cases": "no",
+        "code_available": "no",
+        "data_available": "no",
+        "hardware_per_method_stated": "no"
+    },
+    "retest_candidate": false,
+    "notes": "Publisher page and PDF routes returned access errors; no bot challenge was bypassed. Abstract source: https://academic.oup.com/jcde/article/11/3/56/7649376.",
+    "stage": "cross_provider_pass"
+}

@@ -1,0 +1,56 @@
+{
+  "pid": "P01268",
+  "citation": {
+    "title": "Application of a Machine Learning-Based Topology Optimization Method on an Automotive B-Pillar for Crashworthy Lightweight Design",
+    "authors": "Jirair Aroyan, Johannes Sperber, Christopher Ortmann, Axel Schumacher",
+    "year": 2026,
+    "venue": "MATEC Web of Conferences, vol. 422, article 03010",
+    "doi": "10.1051/matecconf/202642203010",
+    "version_coded": "Abstract only. No full-text version was reachable (no arXiv preprint exists). Abstract text taken verbatim from the Semantic Scholar API and OpenAlex metadata, cross-checked identical against the abstract already stored in audit/pool/pool.csv (pid P01268)."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "other",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Applying the voidML method (a GBDT-guided void-insertion topology optimizer) to a B-pillar reinforcement patch under side-impact load reduced its mass from 2.413 kg to 2.141 kg (11.3%) over 48 iterations and 191 crash analyses, keeping force-intrusion behavior close to the reference design.",
+    "key_phrase": "a mass reduction of 11.3 %",
+    "location": "abstract (only text available)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No classical TO method is run, timed, or cited anywhere in the abstract. The 11.3% figure is a mass reduction of the ML method's own output relative to a pre-existing reference design, not a speed/cost comparison with a classical optimizer. Full text, which §5.1 requires to search for any classical-method comparison, is not accessible.",
+    "direction": "outperform",
+    "alternatives": "None stated in the abstract. The introduction/conclusion of the full text may contain a quantitative or qualitative classical-method comparison that is inaccessible here."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated (abstract only)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access exhausted through every legal route tried. No arXiv version exists. The DOI (https://doi.org/10.1051/matecconf/202642203010) redirects to matec-conferences.org, which returned an explicit DataDome bot-check/CAPTCHA page (captcha-delivery.com script) on both the landing page and the direct /pdf path; per the access rules this was not bypassed. The DOAJ record (https://doaj.org/article/60a7a69f39a64d958b593179601f62ca) returned a Cloudflare 'Just a moment...' challenge page; not bypassed. The corresponding author's institutional page (Chair of Optimization of Mechanical Structures, U. Wuppertal, .../team-des-lehrstuhls/aroyan/) returned HTTP 500 (a server error, not a bot-check). The chair's general publications listing renders its entries dynamically; no static text or web search located this title on an institutional/repository/author page. OpenAlex and Semantic Scholar (consulted only for bibliographic metadata) list no OA location besides the same blocked DOI; Semantic Scholar's OA-PDF field pointed to that DOI and, in its disclaimer text, named an Unpaywall API URL, which was not queried (Unpaywall is prohibited by the task rules; its URL appeared only as inert text in the API response). No email address, mailto parameter, login, or CAPTCHA solve was used anywhere; a generic browser User-Agent was used for all fetches. Coded from the abstract only, per the abstract-only rule: kept as an include (I-UNCLEAR) rather than excluded, stratum set to 'none', R1-R4 set to 'na'. method_family: the abstract names a 'Gradient Boosted Decision Trees (GBDT)' surrogate, a tree-ensemble model that does not fit 'surrogate_mlp_gp' or any other listed family, so 'other' is used [inferred]. physics: the problem is automotive crashworthiness (nonlinear dynamic impact/plastic deformation of a thin-walled structure), which does not fit any listed physics category cleanly, so 'other' is used rather than forcing it into 'stress' [inferred]. dim: '3d' is inferred only - a B-pillar reinforcement patch under crash load is a real 3D thin-walled component modelled with shell-element crash simulations, but the abstract does not state dimensionality explicitly. direction 'outperform' reflects only the abstract's own positive framing of its result (mass reduced while force-intrusion behavior is preserved); no classical TO method is named, run, or timed in the abstract, so this is not a verified outperformance over a classical baseline. Reporting indicators use 'unclear' where the schema allows it and the conservative enum value ('no'/'na') otherwise; all reflect 'not ascertainable from the abstract', not a confirmed absence in the full article. Duplicate check: audit/pool/pool.csv searched for 'B-Pillar' (case-insensitive, 3 hits). Only this record (pid P01268) matches the title; the other two hits are unrelated articles that mention a B-pillar only as an example case (a Temple University dissertation on composite-material topology optimization for additive manufacturing, pid P01376, and a Materials & Design article on sheet-metal blank-shape optimization, pid P02199) - neither is a duplicate of this record, and no FT-DUPLICATE code applies. No author named Jun Wang (authors: Jirair Aroyan, Johannes Sperber, Christopher Ortmann, Axel Schumacher). A web search (for access-route purposes only) surfaced a related but distinct journal article by the same research group, 'A machine learning-based method for topology optimization by inserting voids in thin-walled crashworthiness structures' (Structural and Multidisciplinary Optimization, 2026), which appears to describe the same 'voidML' method in general terms; it has a different title, was not found in the pool.csv duplicate search, and is therefore not marked as a duplicate of this record."
+}

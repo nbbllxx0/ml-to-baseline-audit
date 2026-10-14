@@ -1,0 +1,61 @@
+{
+ "pid": "P00605",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Fast topology optimization of phononic crystal\u2010based metastructures for vibration isolation by deep learning",
+  "authors": "Chen-Xu Liu, Gui-Lan Yu, Zhanli Liu",
+  "year": 2023,
+  "venue": "Computer-Aided Civil and Infrastructure Engineering 39(5) (2024) 776-790 (Crossref; published online 2023-09-30 per the pool record; hybrid open access, CC BY-NC-ND 4.0 per Crossref and OpenAlex). The DOI now resolves to Elsevier (pii S1093968726016749)",
+  "doi": "10.1111/mice.13100",
+  "arxiv_id": "",
+  "version_coded": "none: only the abstract was read (pool record from OpenAlex). The version of record could not be retrieved"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no accessible full text). Abstract only: the deep-learning-based optimization (DLBO) reaches bandgap results similar to or better than a genetic algorithm while needing 0.01% of the GA's time.",
+  "location": "Abstract (the only text read)",
+  "quantitative": true,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "Not coded. Would-be value from the abstract: 0.01% of the GA time corresponds to a factor of 10,000 [derived: 1 \u00f7 0.0001]; the GA and DLBO times themselves are not in the abstract.",
+  "alternatives": "Abstract: DLBO learns a map from metastructure features to bandgaps and needs no pre-optimized data; metastructures with other periodic constants and filling fractions are optimized; a design for subway-induced vibration is checked with a 3D finite element model."
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all with a generic User-Agent and no personal data: (1) doi.org now redirects to linkinghub.elsevier.com (pii S1093968726016749); the ScienceDirect article page returned HTTP 403 with a captcha page by curl, and HTTP 403 via WebFetch. (2) The Wiley full-text page (onlinelibrary.wiley.com/doi/full/10.1111/mice.13100): HTTP 403 via WebFetch. (3) OpenAlex lists only the publisher DOI (any_repository_has_fulltext false). (4) arXiv API searches by title words and authors gave no preprint. (5) The abstract says the datasets and code are shared; two GitHub repository searches found nothing, and the article's link could not be read. No challenge or captcha was attempted. The article is open access (CC BY-NC-ND), so a human verifier can read it in a browser. Pointers from the abstract for the verifier: (a) \u00a75.1 rule 1 would select the abstract's quantitative comparison (similar or better bandgaps than a GA in 0.01% of its time), i.e., the speed stratum with a would-be factor of 10\u2074; the comparator is a genetic algorithm, a classical non-learned optimizer. (b) Domain check first: the physics is elastic-wave bandgaps of phononic crystals, and \u00a74 excludes acoustic TO, so FT-DOMAIN is possible; the screener treated elastic-wave physics as in scope. The same judgment affects P00549 and P00893 (same research area; P00893 shares the author Gui-Lan Yu). Screening code was I-SPEED. No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00605.json",
+  "result": "full agreement"
+ }
+}

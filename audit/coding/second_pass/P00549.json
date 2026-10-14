@@ -1,0 +1,88 @@
+{
+  "pid": "P00549",
+  "citation": {
+    "title": "Deep learning aided topology optimization of phononic crystals",
+    "authors": "Paweł Kudela, Abdalraheem Ijjeh, Maciej Radzieński, Marco Miniaci, Nicola Pugno, Wiesław Ostachowicz",
+    "year": 2023,
+    "venue": "Mechanical Systems and Signal Processing, vol. 200, art. 110636 (hybrid open access, CC BY 4.0)",
+    "doi": "10.1016/j.ymssp.2023.110636",
+    "arxiv_id": "",
+    "version_coded": "Version of record (open access, CC BY 4.0), downloaded 2026-09-24 from the University of Trento's Iris institutional repository (iris.unitn.it), 16 pages, read in full including appendices and references. The ScienceDirect copy, the HAL (France) repository copy, and the Queen Mary Research Online (QMUL) repository copy were each tried first and blocked by a distinct automated bot check (details in notes); Iris was the fourth route tried and loaded without any bot check."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (this coder has no access to the title/abstract screening record; assigned from full text, where the Conclusion states a quantitative per-evaluation speed comparison against direct FEM)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "other",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A CNN+dense-layer surrogate trained to predict phononic-crystal dispersion diagrams replaces the FEM (COMSOL) eigenvalue solver inside a genetic-algorithm topology optimization of the unit-cell cavity shape. The trained surrogate predicts a dispersion diagram in under 100 ms, versus about 0.5-1 hour for the equivalent direct FEM computation, which the authors say makes classical FEM-in-the-loop optimization impractical.",
+    "key_phrase": "capable of predicting dispersion curves in less than 100 ms",
+    "location": "conclusion (Section 4); the same claim appears with a specific worked example (47 min FEM vs <100 ms DL, on named hardware) earlier in Section 2.1 (main text) and is not stated quantitatively in the Abstract",
+    "quantitative": true,
+    "claimed_speedup": 28200,
+    "claimed_speedup_basis": "Derived from the most specific figures in the article (Section 2.1): a mesh of 14,072 tetrahedral elements / 134,040 DOF took about 47 min (2820 s) on an AMD Ryzen 7 1800X (8-core, 3.8 GHz) with 64 GB RAM for 24 eigenmodes via COMSOL; the DL surrogate predicts in <100 ms (0.1 s). 2820 s / 0.1 s = 28,200. The Conclusion's own rounder framing ('approximately 0.5-1 h' vs '<100 ms') brackets this at roughly 18,000x-36,000x; 28,200 (the specific worked example) is reported as the point estimate. This is a per-query forward-solve speedup, not a total-optimization-run speedup: no total wall-clock time for a full GA search is given for either the DL-surrogate-driven run actually performed or a hypothetical FEM-in-the-loop run (the latter was not attempted, described only as impractical).",
+    "direction": "outperform",
+    "alternatives": "No alternative classical-method comparison exists in the article beyond restatements of this same per-query timing claim at different locations and precision (Section 2.1's specific worked example; Section 2.6's general framing 'ultrafast... can be efficiently used'; the Conclusion's rounded figures). Table 3's design-quality results (relative bandgap-to-mid-gap ratios up to 48.1%, cumulative bandgaps up to 134 kHz across three objective functions and two GA runs each) are outcomes of the DL-surrogate-driven optimization only; no classical (FEM-in-the-loop) GA run was performed to compare achieved bandgap size against, so these are not a candidate primary outcome under the protocol's classical-comparison requirement."
+  },
+  "baseline": {
+    "classical_method": "Direct finite-element computation of the unit-cell dispersion diagram (COMSOL Multiphysics, generalized eigenvalue problem for Bloch/Floquet-periodic elastic wave propagation), which the trained DL surrogate replaces as the fitness-function evaluator inside a genetic-algorithm (GA) topology optimization of the cavity shape.",
+    "implementation": "COMSOL Multiphysics (commercial FEA), meshed with GMSH and driven via MATLAB Live-Link for automated dataset generation (Section 2.3); GA itself uses MATLAB's Global Optimization Toolbox with default parameters except stopping criteria.",
+    "solver": "Generalized eigenvalue solver within COMSOL Multiphysics; the specific algorithm (e.g. Lanczos/Arnoldi class) is not named, and is not identified as sparse-direct or multigrid/Krylov.",
+    "hardware_classical": "AMD Ryzen 7 1800X (8-core, 3.8 GHz), 64 GB RAM, stated for the one specific worked example (Section 2.1). Hardware for generating the full 9000-case dataset (~1 month) is only described as 'a standard desktop computer' (Section 2.3), not separately specified.",
+    "hardware_ml": "Not stated: no CPU/GPU specification is given for training the CNN+ANN surrogate or for its <100 ms inference claim.",
+    "problem_size": "Worked FEM example: 14,072 tetrahedral elements, 134,040 DOF, 24 eigenmodes (Section 2.1). DL surrogate: 256x256-pixel input images (one quarter of the unit cell, by symmetry), dataset of 9000 unit-cell geometries (3 cavity-shape families x 3000 each), 21-dimensional real-valued GA design vector (Section 2.4, 3, Appendix A).",
+    "classical_iterations": "Not an iterative TO solve; one FEM eigenvalue solve per dispersion-diagram query. The GA (with the DL surrogate) uses up to 400 individuals x 50 generations, with early stopping after 40 stall generations (Section 3); an equivalent FEM-in-the-loop GA run (potentially up to 20,000 FEM evaluations) was judged impractical and was not carried out.",
+    "classical_time": "About 47 minutes for the stated worked example (Section 2.1); rounded to 'approximately 0.5-1 h' in the Conclusion.",
+    "ml_time": "Under 100 ms per dispersion-diagram prediction (Section 2.1; Conclusion), evaluated in batches (400 individuals per GA generation) per Section 3.",
+    "training_time": "Not stated: no wall-clock figure is given for training the CNN+dense-layer surrogate or for the hyperband hyperparameter search (Section 2.5, Table 1).",
+    "data_generation_cost": "About one month on a standard desktop computer to generate the 9000-sample FEM dataset via COMSOL/GMSH (Section 2.3).",
+    "quality_metric": "Forward-model accuracy of the surrogate versus FEM ground truth: mean squared error (MSE, kHz^2) and maximum frequency error (epsilon_max, kHz) on held-out test dispersion diagrams (Table 2, Eqs. 4-5). Final GA-optimized cavity designs are additionally re-evaluated with true FEM and compared qualitatively to the DL prediction (Figs. 8-11).",
+    "quality_gap": "Test-set MSE 8.1-12.1 kHz^2 versus 4.5-6.1 kHz^2 on the training set, depending on cavity-shape family (Table 2); maximum frequency error 9.1-15.4 kHz for the three example test cases in Fig. 7, against a dataset frequency range up to 668.6 kHz. For GA-optimized designs the DL and FEM dispersion curves 'agree well' in most reported runs, except one (Fig. 9, objective F4 at f_sel=150 kHz, run 2) where 'the DL model failed to predict properly multiple BGs but the bottom of the largest BG is still properly indicated'."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "The speed claim is a per-query forward-solve time (FEM eigenvalue solve vs DL prediction), not a matched completed-optimization-run comparison: no FEM-in-the-loop GA run was performed at all (Section 2, described only as impractical), so there is no classical 'converged run' with a final bandgap value to match the DL-surrogate-driven GA's results against, at either equal quality or equal budget. Quality is nonetheless reported for the speed claim's own subject (the surrogate): forward-model MSE/epsilon_max against FEM ground truth (Table 2), and a post-hoc FEM check of the GA-optimized designs (Figs. 8-11) that explicitly flags one run where the surrogate's prediction was wrong (Fig. 9, run 2). This is evidence of reported quality alongside the speed claim, but loosely matched to it in the sense the protocol's partial example describes, since no classical TO run exists for a like-for-like comparison."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-general-purpose-tool",
+      "evidence": "The classical comparator is COMSOL Multiphysics, a general-purpose commercial multiphysics/FEA package, used with its default eigenvalue solver (not identified as a specialized high-performance eigensolver); the protocol's own partial example ('a general-purpose commercial TO module ... no direct comparison is possible') applies directly, since no alternative, more optimized classical eigensolver is tested for comparison. Hardware for the DL side is not stated at all (no CPU/GPU spec for training or the <100 ms inference), so R2(c) (GPU-ML vs CPU-classical on >=1e5 DOF) cannot be evaluated even though the worked FEM example (134,040 DOF) exceeds that threshold [inferred, hardware asymmetry not confirmable from the text]. No R2(a)/(b)/(d)/(e) fail evidence is stated (no re-test performed at this coding stage; no abstract-vs-body baseline discrepancy; no fixed-iteration-count classical run since this is a single eigenvalue solve, not an iterative TO loop; no per-iteration comparison possible since only one FEM solve, not iterations, is measured)."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-amortization",
+      "evidence": "Data-generation cost is explicitly reported: about one month on a standard desktop computer for the 9000-sample dataset (Section 2.3). Training cost of the CNN+ANN surrogate itself is not reported (no wall-clock figure for training or for the hyperband hyperparameter search, Section 2.5). No break-even number of surrogate uses, and no amortization of the one-month data-generation cost against the claimed per-query speedup, is computed anywhere in the article."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "The GA-optimized (returned) cavity designs are re-evaluated with true FEM and compared to the DL surrogate's prediction (Figs. 8-11, Section 3.2), i.e. FE-verified rather than resting only on an image-similarity or surrogate-only metric; a discrepancy in one run is explicitly noted (Fig. 9, run 2). A penalty function rejects geometrically invalid cavity shapes during the GA search (Section 3.1), but no quantitative infeasibility or failure rate is reported for the final populations or across runs, and Table 3 does not report volume/constraint-satisfaction figures (the design constraint here is geometric validity of the cavity, not a volume fraction)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Forward-model test: 300 held-out samples (100 per cavity-shape family) summarized in Table 2, with 3 individual examples detailed in Fig. 7. Optimization test: 3 objective functions (F1; F4 at f_sel=150 and 200 kHz; F9), each run twice by the GA (about 8 optimized-design cases, Figs. 8-11, Table 3), plus a separate wall-thickness sensitivity sweep using only F1 (Fig. 12).",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Access: tried four independent legal routes for the version of record before succeeding. (1) The ScienceDirect PDF page returned an HTTP 403 Cloudflare managed challenge ('Cf-Mitigated: challenge') to a plain scripted GET. (2) The HAL (France) repository copy (hal.science, linked from OpenAlex) served an 'Anubis' proof-of-work bot-check page ('Making sure you're not a bot!'). (3) The Queen Mary Research Online (QMUL) repository copy returned an obfuscated JavaScript 'cookiesession' redirect page, itself a bot/anti-scraping check, not executable content. None of these three checks was bypassed. (4) The University of Trento's Iris repository (iris.unitn.it, also linked from OpenAlex) served its landing page and PDF with no bot check, and was used as the version read. A fifth OpenAlex-listed location (Universite de Lille's LillOA) was not tried once (4) succeeded. Scope: phononic-crystal band-gap design via topology optimization of the unit-cell cavity is elastic-wave (elastodynamic) design in a solid (Lamb waves, Section 1), which the masked protocol's own §11 deviations log places in scope ('elastic-wave, phononic and seismic metamaterial design in solids is elasticity ... in scope; \"acoustic\" means sound in fluids'); this is not the excluded fluid-acoustics domain. The learned model (CNN encoder + dense layers) is a surrogate for the FEM forward solver, used inside an otherwise classical GA search over 21 NURBS-based shape variables -- this is judged to accelerate iterative TO (the surrogate is what makes the GA search computationally feasible at all, per the authors' own framing that FEM 'makes it unfeasible for topology optimization problems'), not FT-FORWARD ('used only for forward analysis ... no optimization-level comparison'), since the forward surrogate is integral to, and enables, the optimization loop itself. physics is coded 'other' because band-gap/dispersion optimization is an elastodynamic eigenvalue problem, not a compliance, stress, thermal, compliant-mechanism or quasi-static homogenization objective. dim is 'both' because the DL surrogate consumes a 2D image (a symmetry-reduced cross-section of the cavity) while the underlying FEM model it approximates is a full 3D extruded unit cell (Section 2.2). Competing interest disclosed by the authors: co-author Wieslaw Ostachowicz is an Editorial Board Member of the MSSP journal. Funding: EU Horizon 2020 grant No. 863179. No author named Jun Wang. Duplicate check: pool.csv searched by title on 2026-09-24; only one matching record (P00549 itself) -- no duplicate found."
+}

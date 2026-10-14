@@ -1,0 +1,87 @@
+{
+  "pid": "P00842",
+  "citation": {
+    "title": "Topology Optimization via Frequency Tuning of Neural Design Representations",
+    "authors": "Nikan Doosti, Julian Panetta, Vahid Babaei",
+    "year": 2021,
+    "venue": "Symposium on Computational Fabrication (SCF '21), October 28-29, 2021, Virtual Event, USA (ACM)",
+    "doi": "10.1145/3485114.3485124",
+    "version_coded": "Author's version (as posted by the author; ACM Digital Library page returned HTTP 403 to automated access); full text (9 pages, including references) read from a PDF hosted on co-author Vahid Babaei's institutional group page (aidam.mpi-inf.mpg.de/data/pdfs/toftndr.pdf, Max Planck Institute for Informatics)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On MBB-beam/bridge benchmarks (Fig. 6), the neural (ENDR) representation matches or slightly exceeds the stiffness of a traditional voxel-based SIMP solver and a CNN-parameterized solver, but needs 5,000 optimization iterations versus about 300 for both classical/CNN baselines to converge.",
+    "key_phrase": "the voxel-based method and CNN fully converge in around 300 iterations",
+    "location": "Sec. 5.4 (Comparison with voxel-based and CNN parameterization) and Sec. 6 (Convergence); the Abstract and Conclusion (Sec. 7) state the quality-parity and slower-convergence findings only qualitatively, without the specific iteration counts",
+    "quantitative": true,
+    "claimed_speedup": 0.06,
+    "claimed_speedup_basis": "Derived, and it is a slowdown, not a speedup: Sec. 5.4 states the voxel-based [Andreassen et al. 2011] and CNN [Hoyer et al. 2019] baselines 'fully converge in around 300 iterations,' while ENDR is run for 5,000 iterations (Sec. 5.1, 5.4). classical/ML (iteration count, as a cost proxy) = 300/5000 = 0.06, i.e. ENDR needs about 16.7x more iterations to converge. Sec. 5.6 also states each ENDR iteration carries additional network-evaluation/backpropagation cost approaching (but not exceeding) the shared elasticity-solve time, so the true wall-clock slowdown is larger than the iteration-count ratio alone, though the authors do not report a combined wall-clock comparison number.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Conclusion (Sec. 7): a qualitative restatement that the method is 'shown to outperform or be on par with standard FEM-based solutions in terms of stiffness' but 'requires a larger number of iterations,' with no specific numbers at that location. (2) Sec. 6: ENDR (5,000 iterations) is also compared to a different neural method, NTopo (Zehnder et al. 2021, fewer than 200 iterations) - an ML-vs-ML comparison, not a classical comparator. (3) Sec. 5.6, Performance: ENDR's own per-iteration solve times are reported (2D: 0.161-0.164 s; 3D: 2.84-5.74 s) without a directly paired classical/CNN per-iteration time in the same section."
+  },
+  "baseline": {
+    "classical_method": "Density-based SIMP topology optimization (element-center density field) with a smoothing filter for checkerboard control, compliance minimization under a volume-fraction constraint, penalization p=3 (Sec. 3.1-3.2, Eq. 1), following Andreassen et al. 2011's '88-line' MATLAB implementation. A second, non-classical comparator (Hoyer et al. 2019's CNN reparameterization) is also benchmarked alongside it in Sec. 5.4",
+    "implementation": "Voxel-based baseline follows Andreassen et al. 2011, run with a filter radius of 1 voxel (Sec. 5.4). The CNN baseline follows Hoyer et al. 2019 with filter radius 2, 'the default value in the original paper' (Sec. 5.4)",
+    "solver": "Sparse Cholesky factorization for 2D problems; multigrid-preconditioned conjugate-gradient solver (3 coarsening levels, 2 Gauss-Seidel smoothing iterations per level, based on Wu et al. 2016) for 3D problems (Sec. 5.6) - both are efficient solver classes per the protocol's definition. Whether the voxel-based/CNN baselines in Sec. 5.4 use the identical solver is not stated explicitly [inferred: likely, given the shared FEM pipeline]",
+    "hardware_classical": "Not stated separately from the ML hardware; one hardware description covers 'all benchmarks': Nvidia Quadro RTX 8000 GPU and AMD Ryzen 5950X CPU (Sec. 5.6)",
+    "hardware_ml": "Same machine: Nvidia Quadro RTX 8000 GPU (network evaluation, when GPU memory allows) and AMD Ryzen 5950X CPU (Sec. 5.6); for higher-resolution designs, network operations can fall back to CPU due to GPU memory limits, becoming a timing bottleneck",
+    "problem_size": "2D: MBB beam 300x100 and bridge 250x125 (Sec. 5.6, Fig. 6). 3D: cantilever 256x128x128 and bridge 320x160x80 (Sec. 5.5-5.6, Figs. 7-9). Network: 4 layers, 256 (2D) or 512 (3D) neurons/layer, 1024 Fourier features (Sec. 5.1)",
+    "classical_iterations": "Voxel-based and CNN baselines 'fully converge in around 300 iterations' (Sec. 5.4); ENDR is run for 5,000 iterations by default (Sec. 5.1, 5.4), except the specific 3D examples in Figs. 7-9, which used 2,700-3,500 iterations (figure captions)",
+    "classical_time": "Not stated as a standalone wall-clock number for the voxel-based/CNN baselines",
+    "ml_time": "Average per-iteration FEM-solve time: 2D, 0.161 s (300x100 MBB beam) and 0.164 s (250x125 bridge) via sparse Cholesky (Sec. 5.6); 3D, 5.74 s (320x160x80 bridge) and 2.84 s (256x128x128 cantilever) via multigrid-CG (Sec. 5.6). Network evaluation/backpropagation adds further time per iteration, approaching but not exceeding the elasticity-solve time; total run length is 5,000 iterations by default (2,700-3,500 for the specific 3D examples shown)",
+    "training_time": "Not applicable in the offline sense: ENDR is optimized from scratch for each new problem ('self-supervised pipeline does not depend on labeled data', Sec. 4.2); its optimization cost is the per-run, per-iteration cost above, run for 5,000 iterations by default",
+    "data_generation_cost": "Not applicable: no labeled dataset is used; network weights are optimized directly against analytical compliance/volume gradients for each new problem (Sec. 4.2, Eq. 2)",
+    "quality_metric": "Compliance of the returned design, computed via the same FEM solver used during optimization (Sec. 3.1, Eq. 1); volume-constraint violation is separately reported and kept below 1e-4 even in upsampled designs (Sec. 4.3)",
+    "quality_gap": "Not given as a printed numeric table for the Sec. 5.4 method comparison; stated only qualitatively that ENDR's compliances are 'either very close to or below those from the other methods' (Sec. 5.4, Fig. 6 caption). Sec. 5.2 (Fig. 2) separately shows compliance varying with the frequency hyperparameter sigma for ENDR alone, without a classical-method compliance value alongside it in the text"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "The article transparently discloses that ENDR uses far more iterations (5,000) than the voxel-based/CNN baselines need to converge (about 300), rather than hiding this cost behind an unqualified speed claim, and it explicitly frames its own contribution as a quality (stiffness) result rather than a speed win. However, the compliance comparison itself (Sec. 5.4, Fig. 6) is reported only qualitatively ('very close to or below'), with no printed numeric compliance values for this specific comparison, so the degree of quality-matching cannot be independently confirmed from the text."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-efficient-baseline",
+      "evidence": "The elasticity solves for all methods use efficient solver classes named by the protocol (sparse Cholesky direct solve in 2D, multigrid-preconditioned CG in 3D; Sec. 5.6), and the voxel-based/CNN comparators use standard, non-inflated settings (filter radius 1 for voxel-based; filter radius 2, the CNN method's own paper default, for the CNN baseline; Sec. 5.4). No re-test was performed by this coder, but nothing indicates a deliberately weakened classical baseline or a GPU-vs-CPU-only asymmetry (both methods share the same machine)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 4.2: ENDR is a per-instance, self-supervised optimization with no pre-collected training dataset and no separate offline training phase; the reported per-iteration and total iteration-count costs already cover the full per-instance optimization, so this sits inside R1/R2 rather than requiring separate data-generation/training cost accounting."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Compliance is computed via the same physics-based FEM solver used throughout optimization (not an image-similarity metric), and volume-constraint satisfaction is explicitly quantified (violation kept below 1e-4 even in upsampled designs, Sec. 4.3). However, no quantified failure or infeasibility rate (e.g. disconnected material or floating members) is reported for the method-comparison or upsampling results; checkerboard artifacts are discussed only in the context of an illustrative filter-radius sweep (Fig. 3), not as a systematic failure count."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Multiple 2D/3D boundary-condition and domain combinations: MBB beam (300x100), 2D and 3D bridge (250x125; 320x160x80), cantilever (256x128x128); a frequency-sweep study (Fig. 2), a mesh-independence study across 3 resolutions (Fig. 4), an upsampling study (Fig. 5, one source resolution upsampled to 5 targets), and a method-comparison figure over 'a set of boundary conditions' (Fig. 6, exact count not stated)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang. The reference list cites 'Jun Wu, Christian Dick, and Rudiger Westermann. 2016. A System for High-Resolution Topology Optimization' (the source of the 3D multigrid-CG solver used here) - this is Jun Wu, a different surname from Jun Wang, and in any case a cited reference rather than an author of this article, so it does not trigger the Jun Wang flag. Duplicate check via audit/pool/pool.csv title search: only one matching row (P00842 itself); no duplicate found. Access notes: the ACM Digital Library page (dl.acm.org) returned HTTP 403 to automated access, so it was not used (no bot check was bypassed); the PDF was instead obtained from a co-author's institutional page (Max Planck Institute for Informatics), a legal author-hosted copy explicitly marked on its cover page as 'the author's version of the work ... posted here for your personal use'. Code/data check: no code- or data-availability statement appears in the article, and the corresponding author's own publication page (julianpanetta.com/publication/topoptndr) lists only a PDF link, no code link specific to this paper, so code_available and retest_candidate are set to no/false. Primary-outcome selection: the Abstract and Conclusion make only qualitative quality/iteration-count claims; the first main-text quantitative comparison with the classical (voxel-based SIMP) method is the iteration-count contrast in Sec. 5.4/6 (300 vs. 5,000), which is used here as a computational-cost proxy per the protocol, giving stratum = speed even though the direction shown is a slowdown, not a speedup, for the neural method."
+}

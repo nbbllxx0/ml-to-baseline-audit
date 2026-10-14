@@ -1,0 +1,87 @@
+{
+  "pid": "P02187",
+  "citation": {
+    "title": "Equivariant neural operators for gradient-consistent topology optimization",
+    "authors": "David Erzmann, Sören Dittmer",
+    "year": 2024,
+    "venue": "Journal of Computational Design and Engineering, Vol. 11, Issue 3, pp. 91-100",
+    "doi": "10.1093/jcde/qwae039",
+    "version_coded": "Version of record (open access, CC BY 4.0, published 19 Apr 2024); the advance-article PDF URL from OpenAlex returned HTTP 403, so the current article page (academic.oup.com/jcde/article/11/3/91/7654001) was read instead, which linked to the final volume/issue PDF; that PDF URL also 403'd via direct request but its own server-issued redirect to Oxford's Silverchair content-delivery host (watermark02.silverchair.com, a signed, time-limited content URL - not a paywall bypass) served the file successfully; full text (10 pages, including references) was read from it"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Once trained (2-14 hours per model), every neural-operator variant used inside SIMP achieves at least a fourfold inference speedup over the classical finite-difference PDE solver (Table 2: 75s vs. 2-19s per problem), growing further on finer grids.",
+    "key_phrase": "all NO models provide at least a fourfold improvement in inference speed",
+    "location": "Sec. 5.3 (Results) and Table 2 (main text, pp. 96-97); the Abstract and Conclusion state the speed-up only qualitatively ('remarkable speed-ups'), without a factor or table",
+    "quantitative": true,
+    "claimed_speedup": 4,
+    "claimed_speedup_basis": "Stated directly: 'all NO models provide at least a fourfold improvement in inference speed compared with the classical SIMP method' (Sec. 5.3). Table 2 (Intel Xeon Silver 4210 CPU, 39x39x4-voxel problems) gives average per-problem run times: classical FDM 75 s; without equivariance, U-Net 2 s (37.5x [derived]), FNO 3 s (25x), U-FNO 3 s (25x), U-Net FNO 3 s (25x); with equivariance, U-Net 15 s (5.0x), FNO 18 s (4.17x), U-FNO 17 s (4.41x), U-Net FNO 19 s (3.95x [derived], the worst case matching 'at least fourfold', and also the paper's best-quality model per Table 1). A separate, less precisely quantified example gives a larger ratio on a finer grid: 'a single FDM solution on a very fine voxel grid with 160,000 voxel elements takes almost 5 minutes, while a NO takes less than a second' (Sec. 5.3), i.e. more than about 300x [derived, approximate].",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.3: on a much finer grid (160,000 voxel elements), a single classical FDM solve takes 'almost 5 minutes' versus 'less than a second' for a NO - a more dramatic illustrative example (>300x [derived, approximate]) of how the advantage grows with problem size, without an exact grid-matched table entry. (2) Table 1: IoU, fail% and mean compliance comparing the four architectures (U-Net, FNO, U-FNO, U-Net FNO) with and without equivariance across training-set sizes (10-200 SIMP trajectories) is the paper's design-quality comparison, secondary to its explicitly stated speed objective."
+  },
+  "baseline": {
+    "classical_method": "Density-based SIMP topology optimization for compliance minimization, solving the linear-elasticity PDE (Eq. 3) at every iteration via the Finite Difference Method (FDM), i_max=60 iterations per problem (Sec. 4, 5.1); this is the article's 'classical SIMP' comparator",
+    "implementation": "DL4TO (Erzmann et al. 2023), the authors' own open-source PyTorch-based 3D TO library (github.com/dl4to/dl4to, Apache License, confirmed public 2026-09-24), used for both the classical FDM-based SIMP runs and for embedding the neural-operator PDE solvers into the same SIMP loop",
+    "solver": "Finite Difference Method (FDM) for the linear-elasticity PDE (classical baseline); the resulting linear system's solve method (direct vs. iterative) is not named. Neural operators (U-Net, FNO, U-FNO, U-Net FNO, each with/without group equivariance) substitute for the FDM solve inside the same SIMP loop (Sec. 4-5)",
+    "hardware_classical": "Table 2 inference-time comparison: Intel Xeon Silver 4210 CPU (same machine used for FDM and all NO variants)",
+    "hardware_ml": "Training: NVIDIA GeForce RTX 2080 Ti GPU, batch size 70 (with equivariance) or 140 (without), implemented in PyTorch with the DL4TO and NO libraries (Sec. 5.1). Inference timing (Table 2): same Intel Xeon Silver 4210 CPU as the classical baseline",
+    "problem_size": "SELTO disc dataset (Dittmer et al. 2022/2023, public on Zenodo, DOI 10.5281/zenodo.7034898), subsets of 10, 50, 100 and 200 SIMP trajectories (600/3,000/6,000/12,000 samples respectively), each on a 39x39x4 voxel grid, i_max=60 SIMP iterations; a separate scaling illustration uses a grid of 160,000 voxel elements (Sec. 5.1, 5.3); about 500,000 learnable parameters for every architecture (Sec. 5.1)",
+    "classical_iterations": "60 SIMP iterations per problem (i_max=60), fixed across all training/test problems and shared by the classical and NO-driven runs (Sec. 5.1)",
+    "classical_time": "Table 2: 75 s average per-problem run time for SIMP with the classical FDM solver on the 39x39x4 grid (Intel Xeon Silver 4210 CPU); Sec. 5.3 separately states 'almost 5 minutes' for a single FDM solve on a 160,000-voxel-element grid",
+    "ml_time": "Table 2: average per-problem run time for SIMP driven by each NO, same hardware: without equivariance, U-Net 2 s, FNO 3 s, U-FNO 3 s, U-Net FNO 3 s; with equivariance, U-Net 15 s, FNO 18 s, U-FNO 17 s, U-Net FNO 19 s. Sec. 5.3: 'less than a second' on the 160,000-voxel-element grid",
+    "training_time": "2 to 14 hours per model, training continued until no validation improvement for 100 epochs (early stopping), resulting in 100 to 1,000 total epochs; Adam optimizer, learning rate 1e-4 (Sec. 5.1)",
+    "data_generation_cost": "Not stated as a wall-clock or compute figure; training data are subsets (600-12,000 samples) of the pre-existing, publicly available SELTO disc dataset produced by running 10-200 classical SIMP trajectories (60 iterations each), but the cost of producing those trajectories is not itself quantified in this article",
+    "quality_metric": "Intersection over Union (IoU) of the binarized predicted vs. ground-truth density field; fail percentage (a design is 'failed' if von Mises stress exceeds the yield stress by more than 10% in any voxel, or if a loaded voxel is disconnected from a Dirichlet-condition voxel); and mean compliance (force-normalized). A separate weighted mean absolute error (WMAE, Eq. 5) tracks deviation from the ground-truth SIMP trajectory across iterations (Sec. 5.2)",
+    "quality_gap": "Table 1 (200-trajectory training set, the largest tested), with equivariance: U-Net FNO (the paper's best model) reaches IoU 0.73, fail% 6.25, compliance 0.56; the plain U-Net without equivariance at the same training size reaches IoU 0.67, fail% 11.25, compliance 0.87. No explicit ground-truth/classical reference compliance value is tabulated alongside these figures, so the precise compliance gap versus classical SIMP itself cannot be computed from Table 1 directly. Fig. 4: a NO trained without the gradient-consistency loss term 'fails entirely, with fail% scores of around 100%' when used inside SIMP"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "The speed comparison (Table 2) is made at matched problem size, iteration count (i_max=60) and hardware for both the classical FDM solver and every NO variant, and the article reports quality (IoU, fail%, compliance, WMAE) extensively alongside the speed claim rather than omitting it, explicitly stating 'there is a trade-off between quality and speed.' However, no explicit ground-truth/classical reference compliance value is tabulated next to the NO models' compliance scores, so the precise quality gap relative to classical SIMP cannot be independently verified from the printed numbers, and even the best configuration retains a non-trivial residual fail rate (6.25%) and imperfect IoU (0.73)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-efficient-baseline",
+      "evidence": "The classical FDM solver and all NO variants are timed on the identical hardware (Intel Xeon Silver 4210 CPU, Table 2), so there is no GPU-vs-CPU-only asymmetry in the reported speed comparison. No re-test was performed by this coder, and the classical solver comes from the authors' own published, peer-reviewed TO library (DL4TO) rather than an evidently weakened implementation, though the exact linear-solve method (direct vs. iterative) for the FDM system is not named."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "Training cost is explicitly reported (2-14 hours per model, Sec. 5.1) and the headline speed claim (Table 2, 'average inference run times') is explicitly limited to per-query inference rather than conflated with training. However, the cost of generating the underlying training data - running the 10 to 200 classical SIMP trajectories that the training subsets are drawn from - is not itself quantified anywhere in the article."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Sec. 5.2: quality is judged not only by IoU but by fail%, a physics-based feasibility criterion (von Mises stress exceeding yield by more than 10%, or a loaded voxel disconnected from a fixed-support voxel) and by mean compliance, both computed on the actual optimized design each method returns. Fail% is reported as an explicit, quantified failure rate for every one of the 16 model/training-size combinations in Table 1, directly satisfying the requirement to count infeasible or failed designs."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "A held-out test split from the SELTO disc dataset (drawn from almost 10,000 3D TO problems on a 39x39x4 grid); the exact test-set size is not stated as a single number, though all Table 1/2 and Fig. 4/6 results are averages over it (Sec. 5.1-5.3)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "yes",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "No author named Jun Wang (authors: David Erzmann, Sören Dittmer; the reference list separately cites 'M. Y. Wang et al. 2003' and 'D. Wang et al. 2022', different given names, not Jun Wang, and both are cited works, not authors of this article). Duplicate check via audit/pool/pool.csv title search: only one matching row (P02187 itself); no duplicate found. Access notes: the OpenAlex-supplied 'advance article' PDF URL had gone stale (403; presumably superseded once the paper was assigned to its final issue) and the direct final-issue PDF URL also blocked a plain request (403), but that same URL's own HTTP redirect pointed to Oxford's Silverchair content-delivery host with a signed, time-limited token - this is the publisher's own normal file-serving path for this open-access article (confirmed open access with a CC BY 4.0 notice on the article page and in the PDF itself), not a paywall or bot-check bypass, so it was used to retrieve the file. Code/data availability: no dedicated Data/Code Availability section appears in this article, but its training data (SELTO disc dataset) is a separate, publicly cited resource on Zenodo (data_available=yes), and its software framework (DL4TO) is confirmed public on GitHub under an Apache licence (checked 2026-09-24) - this paper's own new code (the U-Net FNO architecture and training scripts) is not itself confirmed released, so code_available is coded 'no', but retest_candidate is set to true given the public library, public dataset, and the detailed architecture/hyperparameter description in Sec. 5.1."
+}

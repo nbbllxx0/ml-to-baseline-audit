@@ -1,0 +1,88 @@
+{
+    "pid":  "P01217",
+    "citation":  {
+                     "title":  "Enhancing Structural Topology Optimization with Deep Learning: A Stress Field-Based Approach",
+                     "authors":  "Sourav Parida; Rati Ranjan Dash",
+                     "year":  2023,
+                     "venue":  "Advancement in Mechanical Engineering and Technology, 6(2)",
+                     "doi":  "10.5281/zenodo.8003313",
+                     "arxiv_id":  "none",
+                     "version_coded":  "Abstract only; Zenodo full-text file inaccessible (403)"
+                 },
+    "access":  "abstract_only",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "stage":  "cross_provider_pass",
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED (no accessible full text)",
+                     "stratum":  "none",
+                     "method_family":  "cnn",
+                     "physics":  "stress",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The abstract claims the learned predictor takes one tenth of the total time of conventional FEA methods while keeping volume-fraction error within 5%.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  true,
+                  "claimed_speedup":  10,
+                  "claimed_speedup_basis":  "Abstract states the approach takes 1/10th of conventional methods\u0027 total time.",
+                  "direction":  "outperform",
+                  "alternatives":  "The abstract also reports prediction accuracy above 96%."
+              },
+    "baseline":  {
+                     "classical_method":  "not stated",
+                     "implementation":  "not stated",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "not stated",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "not stated",
+                     "quality_metric":  "volume-fraction error; prediction accuracy",
+                     "quality_gap":  "within 5% VF error"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "no-full-text",
+                             "evidence":  "no full text"
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "no-full-text",
+                             "evidence":  "no full text"
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "no-full-text",
+                             "evidence":  "no full text"
+                         },
+                  "R4":  {
+                             "verdict":  "na",
+                             "marker":  "no-full-text",
+                             "evidence":  "no full text"
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "not stated",
+                      "ood_test":  "unclear",
+                      "seeds_or_variance":  "unclear",
+                      "failure_rate_reported":  "unclear",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "no",
+                      "code_available":  "no",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Full text could not be accessed from the provided Zenodo open-copy link; the journal issue labels the article restricted access. Abstract-level coding only."
+}

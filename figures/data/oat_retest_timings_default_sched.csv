@@ -1,0 +1,56 @@
+size,stage,method,config,problem_id,time_s,c_last,status,pcg_its_median,pcg_its_max,run
+256,OAT SIMP 256 MultiGrid(5)+OC,OAT SIMP (pyEDGE),MultiGrid(5)+OC,1015,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154129Z_oat_simp_n256
+256,OAT SIMP 256 MultiGrid(5)+OC,OAT SIMP (pyEDGE),MultiGrid(5)+OC,1676,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154129Z_oat_simp_n256
+256,OAT SIMP 256 MultiGrid(5)+OC,OAT SIMP (pyEDGE),MultiGrid(5)+OC,1839,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154129Z_oat_simp_n256
+256,OAT SIMP 256 MultiGrid(5)+OC,OAT SIMP (pyEDGE),MultiGrid(5)+OC,1935,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154129Z_oat_simp_n256
+256,OAT SIMP 256 MultiGrid(5)+OC,OAT SIMP (pyEDGE),MultiGrid(5)+OC,1961,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154129Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1015,93.13154180004494,9.858721832873249,ok,,,retest/runs/20260924T154230Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1676,75.01831719995243,5.298398217551856,ok,,,retest/runs/20260924T154230Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1839,47.118191899964586,35.87793375669292,ok,,,retest/runs/20260924T154230Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1935,26.276800199993886,5.6943398480313085,ok,,,retest/runs/20260924T154230Z_oat_simp_n256
+256,OAT SIMP 256 CG+OC,OAT SIMP (pyEDGE),CG+OC,1961,47.14494490000652,34.30088891616571,ok,,,retest/runs/20260924T154230Z_oat_simp_n256
+64,OAT SIMP 64 MultiGrid(3)+OC,OAT SIMP (pyEDGE),MultiGrid(3)+OC,15,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154736Z_oat_simp_n64
+64,OAT SIMP 64 MultiGrid(3)+OC,OAT SIMP (pyEDGE),MultiGrid(3)+OC,676,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154736Z_oat_simp_n64
+64,OAT SIMP 64 MultiGrid(3)+OC,OAT SIMP (pyEDGE),MultiGrid(3)+OC,839,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154736Z_oat_simp_n64
+64,OAT SIMP 64 MultiGrid(3)+OC,OAT SIMP (pyEDGE),MultiGrid(3)+OC,935,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154736Z_oat_simp_n64
+64,OAT SIMP 64 MultiGrid(3)+OC,OAT SIMP (pyEDGE),MultiGrid(3)+OC,961,,,CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered,,,retest/runs/20260924T154736Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,15,33.07196470000781,5.6310292170230865,ok,,,retest/runs/20260924T154743Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,676,12.339405800041277,3.682007201750192,ok,,,retest/runs/20260924T154743Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,839,17.72814180003479,3.8329791938580007,ok,,,retest/runs/20260924T154743Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,935,18.116607900010422,9.657750630766204,ok,,,retest/runs/20260924T154743Z_oat_simp_n64
+64,OAT SIMP 64 CG+OC,OAT SIMP (pyEDGE),CG+OC,961,45.11421030003112,25.483121114947973,ok,,,retest/runs/20260924T154743Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,15,48.00304129999131,5.631370513900565,ok,,,retest/runs/20260924T155001Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,676,47.4915914000012,3.681997954054405,ok,,,retest/runs/20260924T155001Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,839,48.86751469998853,3.8328004675597707,ok,,,retest/runs/20260924T155001Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,935,47.60872920003021,9.65419935411497,ok,,,retest/runs/20260924T155001Z_oat_simp_n64
+64,OAT SIMP 64 SPSOLVE+OC,OAT SIMP (pyEDGE),SPSOLVE+OC,961,47.96469160000561,25.465110985489773,ok,,,retest/runs/20260924T155001Z_oat_simp_n64
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1015,3.6925522995879874,8.13877994729464,ok,11.0,16,retest/runs/20260924T155416Z_ours_gpu_nito_n256
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1676,11.37527670012787,5.202169107527083,ok,44.0,67,retest/runs/20260924T155416Z_ours_gpu_nito_n256
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1839,14.650294200284407,34.84553596319903,ok,63.0,73,retest/runs/20260924T155416Z_ours_gpu_nito_n256
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1935,3.1334895998588763,5.684062011375233,ok,8.0,28,retest/runs/20260924T155416Z_ours_gpu_nito_n256
+256,ours GPU 256,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1961,9.69846879929537,34.052304058090954,ok,40.0,46,retest/runs/20260924T155416Z_ours_gpu_nito_n256
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",15,1.9969240999780595,5.622893692398762,ok,13.0,28,retest/runs/20260924T155632Z_ours_gpu_nito_n64
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",676,1.409071899834089,3.6724664979843897,ok,6.0,12,retest/runs/20260924T155632Z_ours_gpu_nito_n64
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",839,1.7746397995506413,3.8323378115815574,ok,12.0,18,retest/runs/20260924T155632Z_ours_gpu_nito_n64
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",935,1.457391700008884,9.656141921024188,ok,7.0,14,retest/runs/20260924T155632Z_ours_gpu_nito_n64
+64,ours GPU 64,ours gpu,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",961,3.284467199933715,25.793756476657165,ok,29.0,35,retest/runs/20260924T155632Z_ours_gpu_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",15,0.7406471003778279,5.622893698132311,ok,,,retest/runs/20260924T155707Z_ours_pardiso_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",676,0.7435696996981278,3.672466497987133,ok,,,retest/runs/20260924T155707Z_ours_pardiso_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",839,0.7791289002634585,3.8323378088967517,ok,,,retest/runs/20260924T155707Z_ours_pardiso_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",935,0.77697989938315,9.656141925515238,ok,,,retest/runs/20260924T155707Z_ours_pardiso_nito_n64
+64,ours PARDISO 64,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",961,0.7931233996641822,25.793756491240494,ok,,,retest/runs/20260924T155707Z_ours_pardiso_nito_n64
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1015,19.568196200067177,8.138779948367699,ok,,,retest/runs/20260924T155739Z_ours_pardiso_nito_n256
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1676,21.42188839992741,5.202169106632732,ok,,,retest/runs/20260924T155739Z_ours_pardiso_nito_n256
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1839,20.200939600006677,34.84553598333845,ok,,,retest/runs/20260924T155739Z_ours_pardiso_nito_n256
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1935,18.914484299719334,5.684062011980886,ok,,,retest/runs/20260924T155739Z_ours_pardiso_nito_n256
+256,ours PARDISO 256,ours pardiso,"nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC",1961,19.61439739947673,34.052303909818825,ok,,,retest/runs/20260924T155739Z_ours_pardiso_nito_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1015,0.54878519999329,,ok,,,retest/runs/20260924T160355Z_oat_infer_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1676,0.5852141499926802,,ok,,,retest/runs/20260924T160355Z_oat_infer_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1839,0.533164399996167,,ok,,,retest/runs/20260924T160355Z_oat_infer_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1935,0.5061737499781884,,ok,,,retest/runs/20260924T160355Z_oat_infer_n256
+256,OAT inference 256,OAT inference,"20 DDIM steps, not requested",1961,0.5220431999769062,,ok,,,retest/runs/20260924T160355Z_oat_infer_n256
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",15,0.5135100500192493,,ok,,,retest/runs/20260924T160438Z_oat_infer_n64
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",676,0.5248829000047408,,ok,,,retest/runs/20260924T160438Z_oat_infer_n64
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",839,0.5205807499878574,,ok,,,retest/runs/20260924T160438Z_oat_infer_n64
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",935,0.515845999965677,,ok,,,retest/runs/20260924T160438Z_oat_infer_n64
+64,OAT inference 64,OAT inference,"20 DDIM steps, not requested",961,0.5214185000222642,,ok,,,retest/runs/20260924T160438Z_oat_infer_n64

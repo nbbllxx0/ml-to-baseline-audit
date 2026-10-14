@@ -1,0 +1,88 @@
+{
+  "pid": "P00149",
+  "citation": {
+    "title": "Data-driven topology optimization of spinodoid metamaterials with seamlessly tunable anisotropy",
+    "authors": "Li Zheng, Siddhant Kumar, Dennis M. Kochmann",
+    "year": 2021,
+    "venue": "Computer Methods in Applied Mechanics and Engineering, vol. 383, article 113894 (2021) [venue/volume/page taken from audit/pool/pool.csv, which records the published citation; the publisher page itself was not opened, only used to cross-check the citation string already present in the pool]",
+    "doi": "10.1016/j.cma.2021.113894",
+    "arxiv_id": "2012.15744",
+    "version_coded": "arXiv v2 (19 May 2021; latest of 2 versions on the abs page), main text, Appendices A-B and references read in full from https://arxiv.org/html/2012.15744"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (full-text primary outcome is a quantitative speed comparison between the DNN surrogate and classical FEM homogenization, Appendix B Table 1, elaborated qualitatively in Sec. 4.1)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A deep neural network trained to map spinodoid design parameters to homogenized elastic stiffness predicts a single stiffness tensor in 0.001 s on one CPU core, versus 5 minutes for the equivalent FEM-based microscale homogenization on 16 MPI cores, and the DNN also supplies exact sensitivities via automatic differentiation in place of costly numerical differentiation; this per-query surrogate then drives a full two-scale (macro compliance + micro spinodoid) topology optimization.",
+    "key_phrase": "the DNN-based surrogate provides accurate stiffness predictions instantly compared to several minutes",
+    "location": "Section 4.1 (main text) states the comparison qualitatively ('instantly' vs. 'several minutes'); the exact figures are given in Appendix B, Table 1 (0.001 s vs. 5 minutes per stiffness evaluation). No quantitative classical-method comparison appears in the Abstract, Conclusion (Sec. 6) or Introduction (Sec. 1); all three describe the speed-up only qualitatively ('costly', 'significantly speeding up calculations')",
+    "quantitative": true,
+    "claimed_speedup": 300000,
+    "claimed_speedup_basis": "Derived directly from Appendix B, Table 1: FEM-based stiffness computation = 5 minutes (300 s) on 16 MPI cores; DNN-based stiffness computation = 0.001 s on one CPU core, explicitly footnoted as 'measured for one prediction on a single data sample'. 300 / 0.001 = 300,000x for this per-query substitution. This is a per-evaluation figure for the homogenization step only, not for the full topology-optimization run (see baseline.classical_time/ml_time for the full-benchmark wall-clock times, which use the DNN surrogate throughout and are not compared against an equivalent full nested-FEM (FE^2) run of the same benchmarks, which the article does not perform.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.2-5.4 report the topology-optimization QUALITY outcome (compliance) of the spinodoid+DNN design versus the classical SIMP design at the macroscale, for four benchmarks: Benchmark I, SIMP is actually BETTER (compliance 5.299e-1 vs. spinodoid 5.602e-1); Benchmark II, spinodoid is 8.35% better; Benchmark III, spinodoid is 4.88% better; Benchmark IV, spinodoid is only 1.27% better, a difference the authors themselves caution 'needs to be considered with caution, as it can partially be due to numerical artifacts'. This is a quality-only comparison with a classical method (SIMP) and is not chosen as primary because Sec. 4.1's DNN-vs-FEM speed statement is the first quantitative(-ish) comparison encountered in the main text reading order, and because these per-benchmark numbers concern final design quality rather than the accelerated computational step highlighted throughout the Introduction and Conclusion. (2) Sec. 5.1 reports the DNN surrogate's own predictive accuracy (R2>=0.996 for stiffness components, R2>=0.999 for AD-based sensitivities vs. finite-difference), a model-validation metric rather than a comparison with a classical optimization method's speed or design quality."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material Penalization, penalty p=4) applied at the macroscale for a homogeneous isotropic material, used as the design-quality baseline in all 4 benchmarks (Sec. 5.2); separately, direct FEM-based numerical homogenization (6 load cases per RVE) is the classical method being replaced by the DNN surrogate for the primary speed outcome",
+    "implementation": "Classical FEM homogenization: 'in-house C++ FEM code' (Appendix B, Table 1). Macroscale optimizer: IPOPT (Wachter and Biegler, 2006), a primal-dual interior-point algorithm with filter line-search, driven by a Python script (Appendix B). DNN surrogate: PyTorch in Python (Appendix B)",
+    "solver": "not stated for the RVE homogenization linear system (direct vs. iterative); the macroscale nonlinear optimization uses IPOPT (interior-point, not itself an elliptic-PDE solver choice)",
+    "hardware_classical": "FEM stiffness computation: 16 MPI cores on the Euler IV cluster of ETH Zurich (two 18-core 2.7 GHz Intel Xeon Gold 6150 processors, 192 GB DDR4 @ 2666 MHz) (Appendix B). The full benchmark optimizations (Table 1, Benchmarks I-IV) also ran on this same Euler IV cluster, CPU only, no parallelization stated for the optimizer loop itself",
+    "hardware_ml": "DNN stiffness prediction and DNN training: single CPU core, no parallelization, on four 12-core 2.2 GHz Intel Xeon E5-2650 processors with 256 GB DDR3 @ 2500 MHz (Appendix B); no GPU is used anywhere in the article",
+    "problem_size": "Macroscale meshes: Benchmark I, 64x48x2 grid (linear tetrahedra); Benchmark II, 6,870-26,341 elements (110,300 design variables at 22,060 elements); Benchmark III, 12,150-31,104 elements (126,750 design variables at 25,350 elements); Benchmark IV, 48,000 elements, 240,000 design variables. Microscale: cubic RVE per element, size/resolution of the homogenization FEM mesh not stated in the sections read",
+    "classical_iterations": "Not stated as a fixed count; IPOPT is a convergence-based interior-point method with a filter line-search (Sec. 3.1); no iteration count is reported for any benchmark",
+    "classical_time": "5 minutes per single-point FEM stiffness/homogenization evaluation (Appendix B, Table 1); no separate classical (nested-FEM, FE^2-type) full-optimization runtime is reported for comparison against the DNN-surrogate-driven benchmark runtimes below",
+    "ml_time": "0.001 s per single-point DNN stiffness evaluation (Appendix B). Full DNN-surrogate-driven topology-optimization runtimes (Table 1): Benchmark I = 3 hours, II = 3.5 hours, III = 4.5 hours, IV = 8 hours, all on CPU with no parallelization",
+    "training_time": "10 minutes, CPU, no parallelization (Appendix B, Table 1)",
+    "data_generation_cost": "Not stated as a single total, but derivable: the DNN is trained on 19,170 (Theta, S) pairs and tested on a further 2,130 pairs (Sec. 5.1), i.e. 21,300 FEM homogenization runs; at 5 minutes each (Table 1) this implies roughly 21,300 x 5 min = 106,500 CPU-minutes (~1,775 core-hours on 16 MPI cores) [derived], not stated as a total anywhere in the article. The dataset and DNN architecture/training are stated to be adapted/reused from the authors' earlier paper, Kumar et al. (2020a), which introduced spinodoid architectures without topology optimization",
+    "quality_metric": "Compliance of the returned macroscale design (Eq. 10), evaluated via the same macroscale FEM assembly for both the spinodoid+DNN design and the SIMP design in every benchmark; separately, the DNN surrogate's own stiffness and sensitivity predictions are validated against true FEM values by R2 on an independent test set (Sec. 5.1)",
+    "quality_gap": "Benchmark I: spinodoid compliance 5.602e-1 vs. SIMP 5.299e-1 (SIMP is 5.7% better [derived]). Benchmark II: spinodoid 8.35% better than SIMP (2.282e1-2.459e1 across mesh resolutions vs. SIMP 2.490e1). Benchmark III: spinodoid 4.88% better than SIMP (8.101e1-8.412e1 vs. SIMP 8.723e1). Benchmark IV: spinodoid 1.27% better than SIMP (7.8e3 vs. 7.9e3), a difference the authors flag as possibly a numerical artifact. DNN surrogate accuracy vs. true FEM: R2>=0.996 for every stiffness component (Sec. 5.1, Fig. 5); R2>=0.999 for AD-computed sensitivities vs. central finite differences (Sec. 5.1, Fig. 6)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched-validated-surrogate",
+      "evidence": "The 0.001s-vs-5min speed claim is for a drop-in replacement of one computational step (microscale homogenization) inside an otherwise identical optimization pipeline, and the substituted surrogate is independently validated against the true FEM values it replaces before deployment: R2>=0.996 for stiffness components and R2>=0.999 for sensitivities on an independent test set (Sec. 5.1, Figs. 5-6), i.e. quality is verified to be very close to the classical computation it accelerates, not merely assumed. Separately, the downstream design-quality comparison (spinodoid+DNN vs. SIMP compliance) is reported transparently across all 4 benchmarks using the same macroscale FEM evaluator for both, including one case (Benchmark I) where the classical SIMP design is reported as better, which is not hidden."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-fair-cpu-comparison",
+      "evidence": "No GPU is used anywhere in the article; the classical FEM homogenization (16 MPI cores, Euler IV cluster) and the DNN surrogate (single CPU core, no parallelization, a separate workstation-class Xeon) are both CPU-based, so the R2(c) GPU-vs-CPU asymmetry does not apply. The classical FEM code is described as an 'in-house C++ FEM code' with no indication of being an unvectorized/educational implementation, and 5 minutes for a full 6-load-case RVE homogenization is not evidently excessive for a 3D microstructure mesh. No fixed, inflated iteration count is used (IPOPT's interior-point method runs to its own convergence, Sec. 3.1). Solver type for the RVE linear system is not stated, so (a)/(e) cannot be checked without a re-test, but no article-established trigger for (b)/(c)/(d) exists."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-full-accounting-per-query",
+      "evidence": "Appendix B, Table 1 explicitly scopes the headline DNN timing to a single prediction ('Runtimes for the DNN are measured for one prediction on a single data sample'), i.e. the claim is explicitly limited to per-query inference. Both upstream costs are reported: training cost is exact (10 minutes, Table 1), and data-generation cost is derivable from numbers given elsewhere in the article (19,170 + 2,130 = 21,300 FEM-labelled samples, Sec. 5.1, at 5 minutes each per Table 1, implying roughly 1,775 core-hours [derived], not summed by the authors themselves but fully traceable from their own reported figures)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-fe-verified-no-constraint-check",
+      "evidence": "The reported design-quality metric (compliance) is computed by an actual FE analysis of the returned macroscale design for both the spinodoid+DNN and SIMP designs, using the same macroscale finite-element assembly for both (Eq. 10, Sec. 5.2-5.4) -- not a surrogate-predicted or image-similarity metric. However, the average relative-density constraint (rho_bar = 0.5 or 0.4) is enforced only implicitly through the IPOPT optimizer's constraint handling; no explicit numeric confirmation of constraint satisfaction (e.g. achieved vs. target volume fraction) or any failure/infeasibility rate is reported for any of the four benchmarks."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 topology-optimization benchmarks (cantilever beam; L-shaped structure; 2 symmetric load cases; 3 non-symmetric load cases), each a single deterministic run (with a mesh-resolution sensitivity sweep for Benchmarks II-III); DNN surrogate accuracy separately validated on an independent test set of 2,130 (Theta,S) pairs (Sec. 5.1)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "yes",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Li Zheng, Siddhant Kumar, Dennis M. Kochmann). No duplicate pool entry found: audit/pool/pool.csv has exactly one row for this title (P00149), matching both the DOI and arXiv id given in the queue; its stored citation string ('Computer Methods in Applied Mechanics and Engineering, 383, 113894, 2021') was used for the venue/year field above without opening the publisher page (which was not attempted, since arXiv v2 already gave full-text access and the ScienceDirect route is known from other records in this queue to bot-block scripted access). No code or data availability statement was found anywhere in the arXiv v2 text (common for a 2020/2021 preprint predating many journals' mandatory availability statements); the published CMAME version of record may include one that this coding could not check. retest_candidate is false because no code repository is named anywhere in the accessible text, so nothing could be checked for public availability or licence."
+}

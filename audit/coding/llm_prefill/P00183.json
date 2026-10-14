@@ -1,0 +1,88 @@
+{
+  "pid": "P00183",
+  "citation": {
+    "title": "One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning",
+    "authors": "Ruijin Cang, Hope Yao, Yi Ren",
+    "year": 2019,
+    "venue": "Computer-Aided Design 109 (2019) 12–21",
+    "doi": "10.1016/j.cad.2018.12.008",
+    "arxiv_id": "1807.10787",
+    "version_coded": "arXiv v3 (27 Dec 2018; accepted version), PDF. Version of record not open access (ASU repository record), not accessed"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The trained one-shot generator produces a topology in the order of 10⁻² s per problem on a Xeon E5-1620 CPU, versus 10² to 10³ s per problem for the TO solver; the authors exclude data-acquisition cost from this comparison.",
+    "key_phrase": "computation time required for generating solutions through the learned model is negligible",
+    "location": "Section 5.4, paragraph on solution generation speed, p. 13 (abstract and conclusion hold only qualitative ML-vs-classical claims; their quantitative claims are ML-vs-ML)",
+    "quantitative": true,
+    "claimed_speedup": 10000,
+    "claimed_speedup_basis": "Derived from order-of-magnitude times in Section 5.4 (p. 13): 10²–10³ s ÷ 10⁻² s = 10⁴–10⁵; the lower bound 10⁴ is entered. Not stated as a factor. Excludes data acquisition and training, as the authors note.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract and conclusion: near-optimal compliance and better generalization than standard supervised learning at the same budget (ML-vs-ML). (2) Figs. 3–4, Table 1: compliance gaps vs the augmented-Lagrangian ground truth (Case 1 mean 6.2; Case 2 median 5.2, failure rate 0.16%). (3) Conclusion: checking optimality conditions costs one FE analysis, while a full TO needs thousands. (4) Section 3.2: the AL solver needs about 5000 FE analyses on average for N = 4800."
+  },
+  "baseline": {
+    "classical_method": "Density TO with filter, projection, global and local (p-norm) volume constraints, solved by a custom augmented Lagrangian (AL) gradient method (Section 3.2; Appendix, Alg. 2); ground truth for all learning mechanisms",
+    "implementation": "not stated in the article; the public repository holds MATLAB TO scripts and Python learning scripts [checked repository file listing]",
+    "solver": "not stated (Ku = s solves; linear solver type not given)",
+    "hardware_classical": "not stated (the hardware in Section 5.4 is given for the generator only)",
+    "hardware_ml": "Intel Xeon CPU E5-1620 @ 3.50GHz for generation (Section 5.4, p. 13); training hardware not stated",
+    "problem_size": "40×120 mesh, N = 4800 elements (Sections 3.2, 5.2) [inferred ≈10⁴ DOFs]",
+    "classical_iterations": "stopping rule: AL tolerances ε_al = 1 and ε_opt = 10⁻³ with β-continuation (Alg. 2); about 5000 FE analyses on average for N = 4800 (Section 3.2, p. 6)",
+    "classical_time": "in the order of 10² to 10³ s per topology (Section 5.4, p. 13)",
+    "ml_time": "in the order of 10⁻² s per topology (Section 5.4, p. 13)",
+    "training_time": "not stated",
+    "data_generation_cost": "given as an FE-analysis budget B₀ = b_min·|D_static| with |D_static| = 16 (Case 1) and 7000 (Case 2); the Case 2 budget equals solving 7000 TO problems (Sections 5.2, 5.4, pp. 9, 11); wall-clock not stated",
+    "quality_metric": "FE-computed compliance of generated designs vs AL ground truth: absolute gap mean/std (Case 1), median gap and failure rate with failure = gap > 1000 (Case 2); volume-constraint violation (Section 5.4, Figs. 3–6, Table 1)",
+    "quality_gap": "Case 1 mean absolute gap 6.2 (std 5.5) (Fig. 3b); examples 81.9 vs 79.1, 37.4 vs 34.7, 15.8 vs 14.2, 14.0 vs 12.0 (Fig. 4); Case 2 median gap 5.2 (0.6), failure rate 0.16% (0.09%) (Table 1); mean global volume violation 8.76% (Case 1) and 1.6% (Case 2) vs 4.89% and 3.0% for ground truth (p. 12)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Section 5.4 p. 13: generator time (about 10⁻² s) is compared with full TO solves (10²–10³ s) run to the AL tolerances (Alg. 2). The generated designs are measurably worse: Case 2 median compliance gap 5.2 with std 0.6 over 10 runs and failure rate 0.16% (Table 1); Case 1 mean gap 6.2 (Fig. 3b), 3.5–16.7% on the Fig. 4 examples [derived]. Mean global volume violation is 8.76% vs 4.89% for ground truth in Case 1 (1.6% vs 3.0% in Case 2) (p. 12). No classical run is matched to the generator's quality or time."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl",
+      "evidence": "Section 3.2 p. 6: the AL solver needs about 5000 FE analyses on average for a 4800-element 2D problem; Alg. 2 uses gradient steps with a 10⁻³ learning rate, step clipping and β-continuation. Typical OC/MMA runs on such problems need far fewer FE solves [recalled, not verified in-session]. Linear solver and TO-solver hardware are not stated. (a) and (e) need a re-test (per-FE-analysis time ≈0.02–0.2 s is derivable); (b)–(d) are not established."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-training-cost",
+      "evidence": "Section 5.4 p. 13: the authors state that generator run time excludes data acquisition and that the comparison holds only when the expected TO workload far exceeds the training cost (an explicit per-query limitation). Data cost is given as an FE-analysis budget (Case 2 equals 7000 TO solves, p. 11), but NN training time is not reported and no break-even is computed; Section 6.4 discusses the trade-off only qualitatively."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Eq. (8), Figs. 3–6, Table 1: compliance of every generated test design is computed by FE analysis and compared with the AL ground truth over 100 (Case 1) and 1000 (Case 2) test inputs, 10 runs each. Global and local volume-constraint violations are reported (p. 12), and failed designs (gap > 1000) are counted for Case 2 (Table 1). Case 1 failure counts and the number of volume-violating designs are not given."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Case 1: 100 test loads; Case 2: 1000 test inputs; each learning mechanism run 10 times (Sections 5.2, 5.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Most emphasised quantitative results are ML-vs-ML (theory-driven vs static and heuristic active learning). Primary-outcome choice is a judgment call: read strictly as first-in-main-text, the earliest quantitative ML-vs-classical comparison is the compliance gap to the AL ground truth (Fig. 3, p. 10; quality); the speed paragraph was chosen under §5.1 rule 4 because the title and abstract stress one-shot generation that avoids iterative TO. R1 = fail treats the generator output as measurably worse than the converged AL result (Case 2 gap 5.2 ± 0.6); if the verifier counts the reported gap itself as the ML method's reported error, R1 becomes partial. The speed claim is order-of-magnitude only; claimed_speedup records the lower end (10⁴) of the derivable 10⁴–10⁵ range. The TO solver in the speed sentence is taken to be the AL solver used for all ground truth [inferred]. Code: github.com/DesignInformaticsLab/Theory_Driven_TO (linked in the conclusion; MATLAB + Python; experiment_data holds .mat files that look like Case 1 train/test data). No licence file and no run instructions were seen, so retest_candidate is false pending a human decision; the classical problem is fully specified (Section 3.2, Alg. 2), so a baseline-only re-test is feasible without the authors' code."
+}

@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00648",
+    "citation":  {
+                     "title":  "Deep reinforcement learning for engineering design through topology optimization of elementally discretized design domains",
+                     "authors":  "Nathan K. Brown, Anthony P. Garland, Georges M. Fadel, Gang Li",
+                     "year":  2022,
+                     "venue":  "Materials \u0026 Design 218, 110672",
+                     "doi":  "10.1016/j.matdes.2022.110672",
+                     "arxiv_id":  "none",
+                     "version_coded":  "version of record"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-QUALITY",
+                     "stratum":  "quality",
+                     "method_family":  "rl",
+                     "physics":  "compliance",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The RL agent produces compliance-minimizing topologies with performance similar to or better than gradient-based topology optimization.",
+                  "key_phrase":  "similar or better compliance minimization performance",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No speed-up claimed.",
+                  "direction":  "similar_or_mixed",
+                  "alternatives":  "Section 4.2/Table 1 gives quantitative strain-energy and volume-fraction comparisons for RL and 99-line SIMP designs; the paper reports lower strain energy for RL in all but load case D."
+              },
+    "baseline":  {
+                     "classical_method":  "99-line SIMP topology optimization (gradient-based)",
+                     "implementation":  "Sigmund\u0027s 99-line SIMP algorithm; penalty factor 3 and filter radius 1.5",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "PC with Intel Core i7-10510U CPU at 1.80 GHz and 16 GB RAM (training; Section 4.1); test hardware not separately specified",
+                     "problem_size":  "2D, final 24x24 topology; RL trained at 6x6 and progressively refined through 12x12",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated for inference/test",
+                     "training_time":  "approximately 1.5 h for 5000 episodes (Section 4.1)",
+                     "data_generation_cost":  "not stated; training uses online episodic interactions and FEA (Sections 3.2, 4.1)",
+                     "quality_metric":  "final strain energy (cF) and final volume fraction (VFF); allowable stress increase or target volume fraction (Table 1)",
+                     "quality_gap":  "Table 1 reports lower strain energy for RL than the gradient-based design in all load cases except D; exact values vary by case."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "R1-not-speed-outcome",
+                             "evidence":  "Abstract: primary comparison concerns design quality and makes no speed comparison."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Sections 3–4: no qualifying classical solver, hardware mismatch, iteration-count, or per-iteration-time issue is established."
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "R3-no-speed-claim",
+                             "evidence":  "Abstract: primary outcome is quality-only; no speed claim requires amortized cost accounting."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-unreported-failure-rate",
+                             "evidence":  "Sections 3–4/Table 1: returned designs are assessed with FEA-based strain energy and volume fraction; Section 5.2 discusses sub-optimal outputs, but failure/infeasibility rates are not reported."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Table 1 presents 6 load cases (A–F).",
+                      "ood_test":  "yes",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "yes",
+                      "data_available":  "yes",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Open-access version of record read from the author-hosted PDF. The article links to public code/data, but its text does not state a reuse license, so retest eligibility is not established.",
+    "stage":  "cross_provider_pass"
+}

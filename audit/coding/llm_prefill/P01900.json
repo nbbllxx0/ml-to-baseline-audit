@@ -1,0 +1,45 @@
+{
+  "pid": "P01900",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "To Quantize or Not to Quantize: Effects on Generative Models for Topology Optimization Problems",
+    "authors": "Arthur Drake, Qiuyi Chen, Jun Wang, Ardalan Nejat, James K. Guest, Mark Fuge",
+    "year": 2026,
+    "venue": "Journal of Mechanical Design 148(10), 101704 (ASME; published online 22 April 2026, issue dated October 2026; CC BY 4.0 per the article and Crossref). Extends the conference paper P01929 (IDETC-CIE 2024, doi 10.1115/detc2024-142052), cited as ref. [25]",
+    "doi": "10.1115/1.4071440",
+    "arxiv_id": "none found",
+    "version_coded": "Version of record: the publisher PDF (pp. 101704-1 to 101704-19, plus a repository cover page) deposited in the ETH Zurich Research Collection (hdl 20.500.11850/799453, CC BY 4.0; the location OpenAlex lists), read in full as text. The online supplement (including Supplemental Table 1, the timing study) was not accessed"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DOMAIN",
+    "stratum": "none",
+    "method_family": "transformer",
+    "physics": "multiphysics",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded: thermal-fluid heat-sink TO governed by the Navier-Stokes equations). Would-be primary outcome: after a 20-step MTO warm start, VQGAN-transformer designs give a better Pareto metric than the cold-start MTO test set (1-PDA_s about 0.32 vs 0.402).",
+    "location": "Sec. 4.4, Table 3 (the abstract compares only ML models; the conclusion and introduction compare with MTO only qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No speed-up is stated in the article body: the authors say (end of Sec. 4.4) that they refrain from definitive quantitative speed-up claims because their timing study depends on their HPC configuration and job scheduling; the timing is only in Supplemental Table 1 (not accessed).",
+    "direction": "outperform"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DOMAIN: thermal-fluid TO with Navier-Stokes flow)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DOMAIN: thermal-fluid TO with Navier-Stokes flow)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DOMAIN: thermal-fluid TO with Navier-Stokes flow)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DOMAIN: thermal-fluid TO with Navier-Stokes flow)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "COI flag: an author named Jun Wang is present (third author, Department of Mechanical Engineering, Santa Clara University, per the article byline and Crossref; OpenAlex lists the name as 'Jun Liang Wang'). The same name is on P00428, whose prefill records an advisor co-author; Mark Fuge co-authors both. Codes checked in the closed-list order. FT-DUPLICATE: the conference paper P01929 ('... for 2D Heat Sink Design', IDETC-CIE 2024) is in the pool but not coded. Sec. 1 says this article expands it (ref. [25]) with a reworked public codebase, re-run experiments and extra analysis. The journal version of record is open access and more complete, so P01900 is the primary version; if the verifier treats the two as one study, P01929 is the duplicate. FT-SCOPE and FT-TYPE do not apply (density-based TO with generative models; research article). FT-DOMAIN applies: the MTO problem couples the steady incompressible Navier-Stokes equations with an energy balance (Sec. 3.1, Eq. 1; App. A, Eqs. A2-A3), solved with an OpenFOAM-based solver (Yu et al., ref. [57]) with Brinkman-type inverse permeability and RAMP interpolation (Eq. A4). The design variable separates solid and fluid, and fluid power dissipation is a constraint and a second objective. This is fluid-flow TO (conjugate heat transfer), which PROTOCOL §4 excludes; §3.1 admits heat conduction only. Would-be coding if the verifier overrules FT-DOMAIN: the abstract compares only ML models (VQGAN vs a continuous autoencoder; transformer vs WGAN-GP). The conclusion claims, qualitatively, substantially lower wall-clock time and compute than repeatedly solving the full MTO problem. The first quantitative classical comparison is Table 3 (Sec. 4.4; means over 5 seeds, about 1100 designs per model), which compares the transformer designs after a 20-step MTO warm start with the cold-start MTO test set: 1-PDA_s 0.317-0.330 vs 0.402 (lower is better), mean power dissipation 39.29-41.52 vs 46.50, mean temperature 15.53-15.72 vs 14.99 (test set better), valid designs 79.51-86.84% vs 91.68%. That gives stratum Q. Every generated design is post-processed by the 20-step MTO warm start (Sec. 4.4; App. E, which says rounding alone gives similar benefits), so a time comparison would have to count it (R1 post-processing clause). Validity is checked by the MTO solver after warm start (Table 3 note). Minor inconsistency: the text gives the test set's mean temperature as 14.97, Table 3 as 14.99. C3 facts: the dataset came from 10,000 design-condition sets run on an HPC cluster (the first 5,000 by Latin hypercube sampling), of which 5,666 converged without constraint violation (Sec. 3.1); generation time is not stated in the main text. VQGAN Stage 1 trains in under 2 h for 100 epochs on one NVIDIA H100 (Sec. 3.2.1, item 4); the transformer trains for up to 500 epochs (Sec. 4.3). Code (github.com/IDEALLab/VQGAN-TO) and data (huggingface.co/datasets/IDEALLab/MTO-2D) are linked in footnotes 2-3 and the data availability statement; neither was checked. Screening code was I-UNCLEAR."
+}

@@ -1,0 +1,61 @@
+{
+  "pid": "P02296",
+  "citation": {
+    "title": "Co-Optimization of Structure and Manufacturable Semi-Continuous Layers for Laminated Composites",
+    "authors": "Tao Liu, Aoran Lyu, Yongxue Chen, Yu Jiang, Michael James Petty, Charlie C. L. Wang",
+    "year": 2026,
+    "venue": "ACM Transactions on Graphics (SIGGRAPH 2026)",
+    "doi": "10.1145/3811393",
+    "version_coded": "Abstract only, from Crossref metadata (api.crossref.org/works/10.1145/3811393); the version of record (published 2026-07-03, licensed CC BY 4.0 per both Crossref and OpenAlex, delay-in-days 0, i.e. open access with no embargo) could not be read. dl.acm.org/doi/10.1145/3811393 (the DOI target) returned a Cloudflare 'Just a moment...' interactive challenge page (HTTP 403) to both a generic-UA curl request and to WebFetch; this is a bot check and was not bypassed. No arXiv preprint exists for this article (pool.csv arxiv_id is blank; confirmed by web search and by the authors' own project page, which links only to the ACM DOI, not to arXiv). The University of Manchester institutional repository (Research Explorer) lists the record (https://research.manchester.ac.uk/en/publications/3d2cac84-6970-4ec8-8b55-98b40a1f3be2) but hosts no PDF or manuscript file. The authors' project page (https://ryantaoliu.github.io/SemiContinuousTOMO/) and Charlie C.L. Wang's homepage (https://mewangcl.github.io/publication.html) link only to the ACM DOI and to a GitHub code repository (github.com/RyanTaoLiu/SemiContinuousTOMO, GPL-3.0), which contains source code but no paper PDF."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Per the abstract only: a field-driven framework represents structural topology and manufacturable (curved, partial) fabric layers as continuous implicit neural fields, jointly optimized with inter-layer mechanics and manufacturability objectives; the resulting fabric-reinforced laminated composites reach up to 43.8% higher stiffness than composites built from planar (non-optimized) fabric plies, validated by simulation and physical experiment. No classical, non-learned topology-optimization algorithm is named as a comparator in the abstract.",
+    "key_phrase": "up to 43.8% higher stiffness compared to counterparts fabricated using planar fabric plies",
+    "location": "abstract (read via Crossref metadata; full text not accessible)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The abstract makes no speed, runtime or computational-cost comparison of any kind. Its only stated comparator is a manufacturing convention ('planar fabric plies'), not a classical non-learned optimizer, so no speed-up is stated or derivable.",
+    "direction": "outperform",
+    "alternatives": "none stated in the abstract"
+  },
+  "baseline": {
+    "classical_method": "not stated in the abstract; the only named comparator is 'counterparts fabricated using planar fabric plies', which reads as a manufacturing/design convention (uniform, uncurved layer layout) rather than a stated classical, non-learned topology-optimization algorithm [inferred from abstract wording alone]",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "Stiffness of fabricated composite, assessed by 'both numerical simulations and physical experiments' per the abstract; no metric definition, FE method or test protocol is given",
+    "quality_gap": "up to 43.8% higher stiffness for the optimized design vs. the planar-ply counterpart (abstract)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Tao Liu, Aoran Lyu, Yongxue Chen, Yu Jiang, Michael James Petty, Charlie C. L. Wang; note the similarly-named co-author 'Charlie C. L. Wang' is a different person). Duplicate check: audit/pool/pool.csv has exactly one row for this exact title/DOI (P02296); no second copy of this same article exists in the pool. However, the pool separately contains a DIFFERENT, closely related paper by an overlapping subset of the same author group and lab: P02226, 'Neural Co-Optimization of Structural Topology, Manufacturable Layers, and Path Orientations for Fiber-Reinforced Composites' (DOI 10.1145/3730922, arXiv 2505.03779, authors Tao Liu, Tianyu Zhang, Yongxue Chen, Weiming Wang, Yu Jiang, Yuming Huang, Charlie C.L. Wang, published 2025-07-27) -- this is a predecessor/companion work (fiber path orientation, not semi-continuous fabric layers) and is NOT the same article as P02296; do not merge them. This was verified directly against pool.csv per the duplicate-lookup permission before concluding they are distinct. Access: exhausted every legal route -- DOI/ACM landing page (Cloudflare bot-check, not bypassed), arXiv (none exists for this title), institutional repository (metadata only, no file), and the authors' own project/lab pages and GitHub code repository (github.com/RyanTaoLiu/SemiContinuousTOMO, GPL-3.0 licence; contains src/ and settings/ folders but no paper PDF and no dataset). Per Crossref and OpenAlex, the ACM version of record itself is CC BY 4.0 with zero embargo, so the content is legally open access; the only obstacle was ACM's bot check, which was not circumvented. Per the task's abstract-only rule, the record is coded as include, stratum 'none', with all rule verdicts na, rather than excluded. Key uncertainty for the verifier / a coder with full-text access: whether the article anywhere runs, times or cites a classical non-learned optimizer for either the structural topology or the layer/fibre layout -- the abstract's only comparator (planar fabric plies) is a manufacturing baseline, not obviously a 'classical optimization method' under PROTOCOL §3.2/§4, so this article could plausibly resolve to FT-NOBASELINE or a quality-stratum include once full text is read; it could also turn out that the topology sub-problem is benchmarked against SIMP or similar inside the paper the way the companion paper P02226 likely does. No reporting indicators (ood_test, seeds, failure rate, timing protocol, runtimes, code/data availability, hardware) could be assessed from the abstract and are left blank rather than guessed. External, non-article evidence (the authors' GitHub repository, found via public web search, not from any restricted project file): code appears to be publicly available under GPL-3.0, which would bear on retest_candidate if full text becomes accessible; retest_candidate is nonetheless coded false here because the article's own benchmark, data and reproduction instructions cannot be confirmed without the full text."
+}

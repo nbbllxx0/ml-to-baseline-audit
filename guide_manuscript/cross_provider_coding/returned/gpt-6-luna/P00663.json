@@ -1,0 +1,88 @@
+{
+    "pid":  "P00663",
+    "citation":  {
+                     "title":  "Topology Optimisation under Uncertainties with Neural Networks",
+                     "authors":  "Martin Eigel; Marvin Haase; Johannes Neumann",
+                     "year":  2022,
+                     "venue":  "Algorithms 15, 241",
+                     "doi":  "10.3390/a15070241",
+                     "arxiv_id":  "none",
+                     "version_coded":  "version of record"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "cnn",
+                     "physics":  "compliance",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The neural networks predict optimization gradient steps that permit larger steps and outperform the classical method in the 2D bridge benchmark.",
+                  "key_phrase":  "clearly outperforms the classical optimisation method",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  1.1551,
+                  "claimed_speedup_basis":  "Table 1, deterministic bridge at load (0, −5000)T: classical Algorithm A1 4 min 43 s (283 s) divided by CNN Algorithm 1 4 min 05 s (245 s) = 1.1551×.",
+                  "direction":  "outperform",
+                  "alternatives":  "The conclusion reports larger iteration steps; Table 4 reports mixed load-specific runtime and compliance results, while LSTM Algorithm 3 has longer computation time overall."
+              },
+    "baseline":  {
+                     "classical_method":  "Phase-field Allen–Cahn gradient optimization with adaptive mesh refinement (Algorithms A1/A2)",
+                     "implementation":  "FEniCS finite-element simulation; Python/PyTorch for neural networks; repository publicly linked in Introduction",
+                     "solver":  "finite-element state/adjoint equations; linear solver details not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "2D bridge; maximum fine mesh |V(Tm)| ≤ 15,000 vertices (Section 4.1.3); Appendix A benchmark",
+                     "classical_iterations":  "Convergence criterion in Equation (A1); deterministic load (0, −5000)T: 538 iterations (Table 1)",
+                     "classical_time":  "4 min 43 s for deterministic load (0, −5000)T (Table 1); Table 4 gives five-load results",
+                     "ml_time":  "4 min 05 s for CNN Algorithm 1 at (0, −5000)T (Table 1); LSTM Algorithm 3: 4 min 34 s",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "Training tuples generated from classical optimizer runs (Section 4.1.1); elapsed data-generation cost not stated",
+                     "quality_metric":  "Compliance and objective functional Jε",
+                     "quality_gap":  "At (0, −5000)T, compliance 1173.22 classical vs 1148.66 CNN; objective 1475.39 vs 1206.49 (Table 1)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "pass",
+                             "marker":  "R1-matched-quality",
+                             "evidence":  "Section 4.1.3 and Table 1: same bridge load and convergence criterion are compared; outputs are described as essentially identical, with compliance 1173.22 (classical) and 1148.66 (CNN)."
+                         },
+                  "R2":  {
+                             "verdict":  "partial",
+                             "marker":  "R2-hardware-unjustified",
+                             "evidence":  "Section 4.1 and Table 1 compare FEniCS classical and PyTorch CNN workflows, but neither hardware nor solver configuration is stated."
+                         },
+                  "R3":  {
+                             "verdict":  "fail",
+                             "marker":  "R3-no-data-cost",
+                             "evidence":  "Section 4.1.1 describes generating training tuples with the classical optimizer, but no elapsed training or data-generation cost or amortization is reported."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-failures-not-counted",
+                             "evidence":  "Sections 2 and 4 evaluate compliance using finite-element state equations and impose a volume constraint; Sections 4.1.4 and 4.4 discuss topology collapse for some cases but do not report a failure rate."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Five applied loads in Table 4; deterministic timing averaged over 10 runs (Section 4.1.3); stochastic comparison uses 224 samples (Table 2)",
+                      "ood_test":  "yes",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "yes",
+                      "code_available":  "yes",
+                      "data_available":  "yes",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  true,
+    "notes":  "Public repository is linked in the Introduction; article is open access under CC BY. The primary comparison is qualitative in the abstract; the first quantitative runtime is in Table 1.",
+    "stage":  "cross_provider_pass"
+}

@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00165",
+    "citation":  {
+                     "title":  "Topology optimization of 2D structures with nonlinearities using deep learning",
+                     "authors":  "Diab W. Abueidda; Seid Koric; Nahil A. Sobh",
+                     "year":  2020,
+                     "venue":  "Computers \u0026 Structures, 237, 106283",
+                     "doi":  "10.1016/j.compstruc.2020.106283",
+                     "arxiv_id":  "2002.01896",
+                     "version_coded":  "arXiv v1 (2002.01896); article text matches the version of record"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "cnn",
+                     "physics":  "stress",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The authors claim that trained CNNs can provide optimized designs for nonlinear and stress-constrained structures immediately, avoiding iterative optimization.",
+                  "key_phrase":  "negligible inference computational time",
+                  "location":  "conclusion; abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No classical-to-ML speed-up factor or paired inference time is reported.",
+                  "direction":  "outperform",
+                  "alternatives":  "Abstract also describes accurate prediction of designs; Section 5 reports image-similarity scores."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP-based nonlinear topology optimization; used to generate ground-truth designs",
+                     "implementation":  "Abaqus optimization framework",
+                     "solver":  "not stated",
+                     "hardware_classical":  "iForge HPC: Intel Skylake nodes, 40 cores, 192 GB RAM; a personal computer with Core i5 vPro is also reported for single-task data generation",
+                     "hardware_ml":  "NVIDIA V100 GPU, 32 GB; model inference also described on a laptop without specification",
+                     "problem_size":  "not stated",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "A single task takes about 25 min on Core i5 vPro (linear) and about 90 min (nonlinear); Section 3",
+                     "ml_time":  "not stated; described as instantaneous/negligible",
+                     "training_time":  "1.25 h (linear) and 1.5 h (nonlinear) on V100; Section 5",
+                     "data_generation_cost":  "15,000 linear data pairs at 0.31 min/data point on HPC; 18,000 nonlinear data points at 3.2 min/data point; Section 3",
+                     "quality_metric":  "Dice similarity coefficient (DSC), mean squared error, and selected image comparisons; Section 5",
+                     "quality_gap":  "Mean test DSC reported as 0.964 for nonlinear and 0.984 for stress-constrained case; no compliance/objective gap reported; Section 5"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "fail",
+                             "marker":  "R1-unmatched",
+                             "evidence":  "Abstract and Section 6 claim negligible inference/instant predictions; reported comparisons use DSC/image agreement and do not establish matched compliance or equal time/FE budget."
+                         },
+                  "R2":  {
+                             "verdict":  "partial",
+                             "marker":  "R2-commercial",
+                             "evidence":  "Sections 2–3 describe a commercial Abaqus optimization pipeline and provide no comparison of its solver efficiency with a strong baseline."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-amortization",
+                             "evidence":  "Sections 3 and 5 report dataset-generation rates and model training times, but no break-even use count or explicit per-query-only scope."
+                         },
+                  "R4":  {
+                             "verdict":  "fail",
+                             "marker":  "R4-image-metric",
+                             "evidence":  "Section 5 evaluates predictions mainly using DSC/MSE and selected design images; returned designs are not reported as FE-verified for performance and failed designs are not counted."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "15,000 linear and 18,000 nonlinear data points are reported as generated; 10% test split for each model (Sections 3 and 5)",
+                      "ood_test":  "yes",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Dataset cases are generated with the classical optimizer, but the article does not compare matched classical and ML runtimes.",
+    "stage":  "cross_provider_pass"
+}

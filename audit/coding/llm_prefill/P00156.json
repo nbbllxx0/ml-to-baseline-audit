@@ -1,0 +1,88 @@
+{
+  "pid": "P00156",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Accelerating gradient-based topology optimization design with dual-model neural networks",
+    "authors": "Chao Qian, Wenjing Ye",
+    "year": 2020,
+    "venue": "arXiv preprint (cs.AI); version of record in Structural and Multidisciplinary Optimization (published 17 Nov 2020 per Crossref) as 'Accelerating gradient-based topology optimization design with dual-model artificial neural networks', doi 10.1007/s00158-020-02770-6",
+    "doi": "10.48550/arXiv.2009.06245",
+    "arxiv_id": "2009.06245",
+    "version_coded": "arXiv v1 (14 Sep 2020; only version), PDF (31 pages; no HTML version). The version of record is closed access (Unpaywall, 2026-09-24) and was not read"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; cost proxy = per-evaluation surrogate cost vs FE inside SIMP)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On the 64×64 metamaterial cell, the trained dual-model network computed the forward quantity 137× faster and its sensitivities 74× faster than FEM (0.0035 vs 0.48 s; 0.0066 vs 0.49 s per structure, same Xeon CPU); no whole-optimization runtime is compared.",
+    "key_phrase": "137 times in forward calculation and 74 times in sensitivity analysis",
+    "location": "Abstract; numbers in Section 4.3, Table 7 (pp. 26-27)",
+    "quantitative": true,
+    "claimed_speedup": 137,
+    "claimed_speedup_basis": "Stated (abstract; Table 7): FEM 0.48 s ÷ NN 0.0035 s = 137 for the forward calculation of the 64×64 metamaterial cell; sensitivity 0.49 s ÷ 0.0066 s = 74; cantilever 36×36: 54 (0.21 ÷ 0.0039) and 24 (0.21 ÷ 0.0088). Proxy: per-evaluation surrogate cost vs FE, not an optimization-level speed-up. No total design time of NN-accelerated or FEM-based SIMP is reported, and the iteration counts of NN-accelerated runs are not stated.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 7, cantilever 36×36: 54× forward (0.21 vs 0.0039 s) and 24× sensitivity (0.21 vs 0.0088 s). (2) Abstract: a design accuracy of 95% with about 2000 training data in both problems (quality vs the FEM-based SIMP designs; Section 4.2 says over 94% for the metamaterial). (3) Section 5: an efficiency gain of close to 100× is attributed to a 60x60 problem size (size as printed; Table 7 lists 64*64)."
+  },
+  "baseline": {
+    "classical_method": "SIMP with FEM forward analysis and adjoint sensitivities, sensitivity filter radius 4 pixels, gradient-descent update, density projection with growing sharpness and threshold 0.5 (Section 2); cantilever compliance with a Lagrange-multiplier volume term (Eq. 5) and inverse-homogenization design of negative-Poisson's-ratio cells with weighted penalty terms (Eq. 9)",
+    "implementation": "not stated (the FEM code is not described). The linked repository holds only two TensorFlow NN training scripts [checked 2026-09-24]",
+    "solver": "not stated",
+    "hardware_classical": "Intel Xeon CPU E5-2687W v2, 3.40 GHz (Section 4.3)",
+    "hardware_ml": "same computer: all calculations on the Xeon E5-2687W v2 (Section 4.3); training hardware not stated separately",
+    "problem_size": "cantilever 36×36 elements (Section 4.1); metamaterial cell 64×64, quarter domain designed by symmetry (Section 4.2); the abstract's speed-up is for 64×64 [≈2.7×10³ and ≈8×10³ DOFs, inferred]",
+    "classical_iterations": "stopping rule not stated (run until convergence, Section 2); average 150 iterations (cantilever, Section 4.1) and about 200 (metamaterial, Section 4.2)",
+    "classical_time": "FEM per structure: 0.21 s forward and 0.21 s sensitivity (36×36); 0.48 s forward and 0.49 s sensitivity (64×64) (Table 7); no whole-design runtime",
+    "ml_time": "NN per structure: 0.0039 s forward and 0.0088 s sensitivity (36×36); 0.0035 s forward and 0.0066 s sensitivity (64×64) (Table 7); the NN sensitivity pass includes the forward pass (Section 4.3); no whole-design runtime",
+    "training_time": "not stated (Section 3.3 mentions only that a second-order optimizer is used)",
+    "data_generation_cost": "not stated as time. 1929 (cantilever) and 2030 (metamaterial) training samples, of which 610 and 677 are augmented, drawn from 18 and 13 FEM-based SIMP runs; every structure is labelled by FEM (Sections 3.3, 4.3) [inferred at the Table 7 FEM times: roughly 0.2-0.4 h (cantilever) and 0.4-0.9 h (metamaterial) of FEM time]",
+    "quality_metric": "prediction error of the NN vs FEM (Eq. 18) and one-sided design error of the FEM-evaluated returned design vs the FEM-based SIMP benchmark (Eq. 19), averaged over 126 (cantilever) and 120 (metamaterial) test cases (Figs. 10-13)",
+    "quality_gap": "With augmented data from the first 50% of iterations: cantilever average prediction accuracy about 94% and design accuracy up to about 95% (Section 4.1, Fig. 11); metamaterial over 94% for both (Section 4.2, Fig. 13). Without augmentation, design accuracy at most about 60% (cantilever) and about 89% (metamaterial) (Figs. 10, 12)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Section 4.3, Table 7 vs Figs. 10-13: the speed claim is per evaluation (NN vs FEM forward and sensitivity calculation), and the NN accuracy is reported: about 94% average prediction accuracy and up to about 95% design accuracy with augmented data (Sections 4.1-4.2). No optimization-level runtime of NN-accelerated vs FEM-based SIMP is given, the iteration counts of NN-accelerated runs are not stated, and the per-evaluation speed-up is not tied to matched design quality or budget."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl [inferred]",
+      "evidence": "Table 7 and Section 4.3: FEM takes 0.21 s per forward or sensitivity calculation on a 36×36 cantilever and 0.48-0.49 s on the 64×64 metamaterial cell, on one Intel Xeon E5-2687W v2 CPU; the NN runs on the same CPU, so (c) does not apply. The FEM code and linear solver are not stated. These per-solve times look slow for 2D meshes of about 2.7×10³ to 8×10³ DOFs [inferred]; (e) needs a same-size re-test. (b) no: the abstract figures equal Table 7. (d) no: SIMP runs to convergence (average 150 and about 200 iterations, Sections 4.1-4.2)."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Abstract and Section 4.3: the 137×/74× claim comes with no training time and no data-generation time, although the abstract says the data methods save training time. Only counts are given: 1929 and 2030 training samples (610 and 677 augmented) from 18 and 13 FEM-based SIMP runs. No break-even and no per-query limitation. [Inferred at the Table 7 FEM times: roughly 0.2-0.4 h and 0.4-0.9 h of FEM time for data; training time unknown.]"
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Eq. 19 and Sections 4.1-4.2: the design error uses the FEM-computed compliance (or FEM-validated Poisson's ratio) of each returned design against the FEM-based SIMP benchmark, averaged over 126 and 120 test cases (Figs. 10-13). Achieved volume fractions of the NN-accelerated designs are not reported. Disconnected or failed designs are described only in words (some barely connected without augmentation; almost all connected with it), with no count. Tables 2, 3, 5 and 6 show a few cases without a stated selection rule, but the averages cover all test cases."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "126 cantilever test cases (36×36) and 120 metamaterial test cases (64×64) (Sections 4.1-4.2); per-structure timing for each of the two problems (Table 7)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Stratum rests on the per-evaluation proxy, as in P00149; if the verifier rejects the proxy, the primary outcome becomes the design-accuracy comparison with FEM-based SIMP (quality stratum). Physics set to metamaterial_homogenization because the abstract's 137×/74× refers to the 64×64 metamaterial cell; the article also has a 36×36 cantilever compliance problem (screening said compliance). Pointer for R2(e), not decisive: the FEM needs 0.21 s per solve at 36×36, while the project's provisional CPU PARDISO baseline needs 4.5-11.6 ms for a whole SIMP iteration at the larger 64×64 compliance size (retest/runs, 2026-09-24); CPU generation and size differ, so a same-size re-test is required. Reporting locators: timing = Section 4.3 (hardware stated; warm-up and repeats not stated); runtimes = both problems, per evaluation only; OOD 'no': test cases vary load position, volume fraction and target Poisson's ratio over the same design ranges; some test volume fractions (e.g. 0.3 and 0.6 for the cantilever, trained at 0.35 and 0.55) lie just outside the training values, but no test is labelled or analysed as out-of-distribution. Code and data: the article says the training data are at github.com/hkust-ye/cqian_dual-model_neural_network/tree/master. Checked 2026-09-24: the repository's default branch is 'main' and holds two TensorFlow NN training scripts that load .npy files not included, no data, no FEM or SIMP code and no licence file, so code_available = yes (NN part only) and data_available = no. retest_candidate false: no FEM/SIMP or accelerated-TO code, no data, no licence. A baseline-only timing re-test at 36×36 and 64×64 is feasible from the problem definitions in Sections 2 and 4. Tables 2, 3, 5 and 6 extract poorly from the PDF text layer; per-case values were not transcribed."
+}

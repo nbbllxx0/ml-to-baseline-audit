@@ -1,0 +1,27 @@
+{
+  "pid": "P00786",
+  "citation": {
+    "title": "Multi-scale topology optimization of multi-material heterogeneous microstructures based on deep learning",
+    "authors": "Jiaxiang Luo, Yu Li, Weien Zhou, Zeyu Zhang, Wen Yao",
+    "year": 2025,
+    "venue": "Journal of Computational Design and Engineering",
+    "doi": "10.1093/jcde/qwaf064",
+    "arxiv_id": "",
+    "version_coded": "version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-FORWARD", "stratum": "none", "method_family": "neural reparameterization and neural surrogate", "physics": "linear elasticity", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "FT-FORWARD", "evidence": "Section 2.4 compares microstructure property calculations; no optimization-level classical comparison."},
+    "R2": {"verdict": "na", "marker": "FT-FORWARD", "evidence": "Section 2.4 compares microstructure property calculations; no optimization-level classical comparison."},
+    "R3": {"verdict": "na", "marker": "FT-FORWARD", "evidence": "Section 2.4 compares microstructure property calculations; no optimization-level classical comparison."},
+    "R4": {"verdict": "na", "marker": "FT-FORWARD", "evidence": "Section 2.4 compares microstructure property calculations; no optimization-level classical comparison."}
+  },
+  "reporting": {"n_test_cases": "not coded", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Section 2.4/Table 2 times the surrogate against homogenization for microstructure property analysis (about 500-fold); Sections 4.1-4.2 give optimization examples without a classical optimization run, time, or result comparator."
+}

@@ -1,0 +1,150 @@
+{
+  "n_sampled_excludes": 188,
+  "rescreen_includes": 17,
+  "disagreement_rate": 0.09042553191489362,
+  "ci95": [
+    0.0535612207177815,
+    0.14083152989118078
+  ],
+  "rescreen_includes_eligible_at_draw": 15,
+  "eligible_rate": 0.0797872340425532,
+  "eligible_ci95": [
+    0.045343332392147724,
+    0.12818220029600408
+  ],
+  "all_llm_excludes": 1882,
+  "implied_false_exclusions": 170,
+  "implied_false_exclusions_ci95": [
+    101,
+    265
+  ],
+  "both_exclude": 171,
+  "both_exclude_same_code": 150,
+  "rescreen_include_codes": {
+    "I-QUALITY": 0,
+    "I-SPEED": 0,
+    "I-UNCLEAR": 17
+  },
+  "disagreements": [
+    {
+      "pid": "P00005",
+      "title": "Towards end-to-end optimization in multimaterial 3D printing",
+      "first": "E-FORWARD",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "NN surrogate constitutive model embedded in FE-based topology optimization for multimaterial printing; no classical-method comparison stated."
+    },
+    {
+      "pid": "P00069",
+      "title": "Multiscale topology optimization of functionally graded lattice structures based on physics-augmented neural network material models",
+      "first": "E-NOCLAIM",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Physics-augmented neural-network material model embedded in multiscale lattice topology optimization; abstract states no explicit comparison to a classical baseline."
+    },
+    {
+      "pid": "P00110",
+      "title": "Data-driven Topology Optimization (DDTO) for Three-dimensional Continuum Structures",
+      "first": "E-FORWARD",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Neural-network constitutive surrogate embedded in explicit topology optimization for materials without known constitutive laws; no classical comparison stated."
+    },
+    {
+      "pid": "P00390",
+      "title": "Quantum topology optimization of ground structures using noisy intermediate-scale quantum devices",
+      "first": "E-NOML",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Variational quantum algorithm optimizes truss ground-structure topology; unclear if it counts as a learned model, no stated classical comparison."
+    },
+    {
+      "pid": "P00586",
+      "title": "Topology optimisation for design and additive manufacturing of functionally graded lattice structures using derivative-aware machine learning algorithms",
+      "first": "E-NOCLAIM",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Derivative-aware ML algorithm for multiscale lattice topology optimization in additive manufacturing; no explicit classical-method comparison stated in abstract."
+    },
+    {
+      "pid": "P00869",
+      "title": "Structural optimization of lattice structures using deep neural networks as geometry representation",
+      "first": "E-NOCLAIM",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "DeepSDF neural-network geometry representation for lattice structural optimization, contrasted with classical TO methods; no explicit performance comparison stated."
+    },
+    {
+      "pid": "P00972",
+      "title": "A latent space approach to multi-material topology optimization",
+      "first": "E-NOCLAIM",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "VAE-built material latent space coupled with gradient-based multi-material topology optimization; no explicit classical-method comparison stated in abstract."
+    },
+    {
+      "pid": "P01017",
+      "title": "Data-driven multiscale nonlinear topology optimization of functionally graded soft composites under large deformations",
+      "first": "E-NOCLAIM",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Neural-network material surrogate embedded in multiscale nonlinear topology optimization of soft composites; no explicit classical-method comparison stated."
+    },
+    {
+      "pid": "P01358",
+      "title": "Topology optimization of open radiation shielding structures",
+      "first": "E-NOML",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Empty abstract; title confirms topology optimization of shielding structures but not whether a learned model or comparison is used."
+    },
+    {
+      "pid": "P01375",
+      "title": "Functionally graded structure design for magnetic field applications",
+      "first": "E-DOMAIN",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Abstract empty; title/venue (CMAME) are compatible with a structural design for a magnetic-field environment, but domain and ML use are genuinely unclear."
+    },
+    {
+      "pid": "P01432",
+      "title": "A Human-Aided Topology Optimization Method Based on Moving Morphable Spline Components",
+      "first": "E-NOML",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Empty abstract; title confirms moving-morphable-component topology optimization in solid mechanics, but learned-model use and comparison are unstated."
+    },
+    {
+      "pid": "P01585",
+      "title": "An Efficient Lightweight Design Framework for Movable Platen in Two-Platen Injection Molding Machine Integrating Machine Learning and Multi-objective Optimization Algorithm",
+      "first": "E-SCOPE",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Empty abstract; title confirms ML-integrated multi-objective lightweight structural design of a machine part, plausibly topology optimization."
+    },
+    {
+      "pid": "P02003",
+      "title": "Physics-Informed Generative Design for Nonlinear Topology Optimization of Aerospace Bracket Assemblies Compliant with ASTM Standards",
+      "first": "E-MLONLY",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Implicit-neural-field nonlinear topology optimization of aerospace brackets; compares to a \"generative baseline\" of unclear classical vs. ML status."
+    },
+    {
+      "pid": "P02211",
+      "title": "A machine learning-based surrogate model for optimization of truss structures with geometrically nonlinear behavior",
+      "first": "E-SCOPE",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Title indicates an ML surrogate model accelerating optimization of geometrically nonlinear truss structures; abstract empty, explicit classical-method comparison not confirmed."
+    },
+    {
+      "pid": "P02212",
+      "title": "A novel deep unsupervised learning-based framework for optimization of truss structures",
+      "first": "E-SCOPE",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Empty abstract; title confirms a deep unsupervised-learning framework for truss-structure optimization, in-scope method and physics, comparison unstated."
+    },
+    {
+      "pid": "P02282",
+      "title": "Neural Optimization Machine for Design With Neural Network Based Objectives and Constraints",
+      "first": "E-SCOPE",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Physics-guided neural-network-based optimizer applied to AM fatigue-property design; whether it is topology optimization and any classical comparison are unstated."
+    },
+    {
+      "pid": "P02535",
+      "title": "Toplogical optimization of structures using Fourier representations",
+      "first": "E-NOML",
+      "rescreen": "I-UNCLEAR",
+      "rescreen_rationale": "Title/venue compatible with either classical Fourier-series topology-optimization parameterization or a neural Fourier-feature method; abstract empty, ML use unclear."
+    }
+  ],
+  "note": "disagreement rate = share of sampled LLM excludes that the blind re-screen includes; reported as the estimated false-exclusion rate (PROTOCOL \u00a711). Not adjudicated."
+}

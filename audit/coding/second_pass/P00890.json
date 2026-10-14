@@ -1,0 +1,88 @@
+{
+  "pid": "P00890",
+  "citation": {
+    "title": "Learning hyperparameter predictors for similarity-based multidisciplinary topology optimization",
+    "authors": "Mariusz Bujny, Muhammad Salman Yousaf, Nathan Zurbrugg, Duane Detwiler, Stefan Menzel, Satchit Ramnath, Thiago Rios, Fabian Duddeck",
+    "year": 2023,
+    "venue": "Scientific Reports, vol. 13, art. 14856",
+    "doi": "10.1038/s41598-023-42009-0",
+    "arxiv_id": "",
+    "version_coded": "Version of record. Scientific Reports is fully open access (CC BY 4.0); the PDF was fetched directly from nature.com (https://www.nature.com/articles/s41598-023-42009-0.pdf) with no CAPTCHA, bot check, or paywall encountered. Full text and references read in full."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (first quantitative comparison with the prior, non-ML multi-run sampling approach is an explicit '12 times lower computation time' claim in the main text)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A polynomial-regression hyperparameter predictor infers the entire similarity-vs-energy-scaling-factor curve from a single classical TO run, instead of the 12 TO runs the prior sampling-based approach needed, for 12 times lower computation time (test-set R2=0.96, RMSE=0.027).",
+    "key_phrase": "results in 12 times lower computation time",
+    "location": "Main text, 'Regression model' subsection -- first quantitative comparison with the classical (non-ML) multi-run sampling approach; the Abstract and Conclusion state the efficiency gain only qualitatively ('minimal computational cost', 'considerably reduce the computational costs')",
+    "quantitative": true,
+    "claimed_speedup": 12,
+    "claimed_speedup_basis": "Directly stated by the authors: 'we predict the s(p) characteristic based on a single TO run, which, in comparison to the previously used sampling-based approach, results in 12 times lower computation time for the sampling resolution used in our experiments.' This follows mechanically from replacing 12 TO runs (one per energy-scaling value p, uniformly sampled in [0.5, 0.98]) with 1 TO run plus a fast polynomial-regression prediction of the whole curve; no absolute wall-clock time or hardware is given for either the single TO run or the regression step.",
+    "direction": "outperform",
+    "alternatives": "None with a distinct number. The 2D-crash and 3D-hood generalisation results (Figs. 16, 19) are assessed only qualitatively ('good agreement with the underlying ground truth data'), with no numeric speed or accuracy factor given for those specific cases."
+  },
+  "baseline": {
+    "classical_method": "The authors' own previously published multi-run hyperparameter-sampling approach for the Energy Scaling Method (ESM) (Yousaf et al. 2021, 2023, refs. 33-34): running the classical TO solver (SIMP or HCA) once per value of the energy-scaling factor p (12 values, uniformly sampled in [0.5, 0.98]) to empirically sample the similarity-vs-p curve, instead of predicting it from a single run",
+    "implementation": "The same TO implementations are used by both arms: SIMP (compliance minimisation, academic 2D cantilever training data) and HCA (used for the 2D crash and 3D hood real-world cases, via LS-DYNA material models); ESM's own source code is public (github.com/HRI-EU/Similarity-TO-ESM)",
+    "solver": "Not stated (FE solver details for SIMP or the LS-DYNA-based HCA crash/hood simulations are not given as direct vs. iterative)",
+    "hardware_classical": "Not stated anywhere in the article",
+    "hardware_ml": "Not stated (the polynomial regression model is fit by ordinary least squares; no hardware requirement is described, consistent with the text's own framing that it is 'much faster to train and evaluate than more complex models like artificial neural networks')",
+    "problem_size": "Training/test data: 100x100-element 2D linear-elastic cantilever (Table 2); 600 test-case/reference pairs x 12 p-values = 7200 similarity-based TO runs, plus 600 reference-generating TO runs = 7800 TO runs total, yielding 7200 samples (90/10 train-test split). Real-world cases: 2D crash beam, 160x40x1 8-node solid mesh (Table 3); 3D car-hood frame, 195,830 8-node solid elements (Table 4)",
+    "classical_iterations": "Not stated (SIMP/HCA convergence criteria for the individual TO runs are not given; the '12 times' factor counts TO RUNS needed to sample the curve, not iterations within a single run)",
+    "classical_time": "Not stated in absolute terms; only the relative factor (12x more TO runs than the proposed approach) is given",
+    "ml_time": "Not stated in absolute terms",
+    "training_time": "Not stated in wall-clock terms. Model selection used polynomial degrees 1-8 with 10-fold cross-validation over 6480 samples (540 of the 600 case-reference pairs); the chosen model (degree 5) is evaluated on a held-out test set of 60 case-reference pairs (720 samples): R2 = 0.96, RMSE = 0.027",
+    "data_generation_cost": "7800 TO runs (SIMP, 100x100 elements) via Optimised Latin Hypercube Sampling of load angle/position and volume fractions ('Training set generation'); no wall-clock or compute-hour figure is given for this campaign, though the per-run problem is a small, cheap 2D academic benchmark -- much less expensive than the 3D industrial case the resulting model is later applied to with no retraining",
+    "quality_metric": "Coefficient of determination (R2) and RMSE of the predicted dissimilarity metric s against the actual s obtained by running real ESM-based TO at each tested p value, on the held-out academic test set; for the two real-world generalisation cases, only a qualitative visual match between predicted and ground-truth s(p) curves is reported (Figs. 16, 19), with no R2/RMSE given for those specific cases",
+    "quality_gap": "Academic held-out test set (degree-5 polynomial model): R2 = 0.96, RMSE = 0.027 (s is a volume-fraction-like dissimilarity metric in roughly [0,1], so RMSE 0.027 corresponds to about a 2.7-percentage-point typical error in predicted overlap fraction). 2D crash and 3D hood cases: no numeric gap reported, only 'good agreement' (Figs. 16, 19)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "For the academic (training-distribution) evaluation, quality is quantified and disclosed (R2=0.96, RMSE=0.027 on a held-out test set), supporting a fair, matched comparison. But the two real-world generalisation cases that motivate the paper's practical claim (2D crash, 3D industrial hood) -- exactly where the 12x speed claim would matter most in practice -- are validated only visually ('good agreement with the underlying ground truth data', Figs. 16 and 19), with no quantified error reported for either, so the matching is loose for the cases the speed claim is meant to generalise to."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-pass-shared-solver",
+      "evidence": "Both arms (12-run sampling vs. 1-run-plus-regression) use the identical underlying classical TO solver (SIMP or HCA) with no separate, weaker reimplementation; the speed-up is a direct, mechanical consequence of needing fewer TO runs, not of comparing against an artificially inefficient baseline. No GPU-vs-CPU asymmetry is described (no hardware is named for either arm), and no other R2(a)-(e) trigger is evidenced."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-per-query-unquantified",
+      "evidence": "The method's structure matches R3's 'per-query inference' allowance well: the regression model is trained once on cheap 2D academic data (7800 TO runs) and then reused, with no retraining, on qualitatively different, more expensive real-world problems (2D nonlinear crash, a 195,830-element 3D industrial case) -- an amortisation that is actually demonstrated, not just claimed. However, no time or compute figure is given anywhere for the one-time data-generation campaign (7800 TO runs) or for fitting/evaluating the regression model, so the accounting is not fully quantified."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "The regression model only predicts which energy-scaling hyperparameter p to use; the actual returned design in every case (academic, 2D crash, 3D hood) is produced by running the real ESM-based TO solver (SIMP or HCA) with that p, so design quality is always physics-verified, never surrogate-predicted. Target and reference volume fractions are explicit, controlled inputs throughout. No explicit failure/infeasibility rate is reported, but this problem class (choosing a scalar hyperparameter for an otherwise-standard, convergent TO run) does not have an obvious analogous failure mode to report."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "60 held-out academic test case-reference pairs (720 data points) from the 2D linear-elastic training distribution (Fig. 8), plus 2 real-world generalisation cases: 1 2D nonlinear dynamic crash scenario (Figs. 12, 15-17) and 1 industrial 3D car-hood-frame case with 195,830 elements (Figs. 13-14, 18-20)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Included as speed-stratum: the article's own quantitative comparison with its non-ML predecessor is the explicit '12 times lower computation time' statement (main text, 'Regression model' subsection), arising because 1 TO run plus a polynomial-regression prediction replaces the 12 TO runs the prior sampling-based ESM hyperparameter search needed (Yousaf et al. 2021/2023, the authors' own prior work, refs. 33-34 -- cited and built upon, not a duplicate of this article). method_family is coded 'other' because the predictor is explicitly a polynomial regression model, chosen over 'more complex models like artificial neural networks' for speed and interpretability -- not covered by the schema's cnn/gan/vae/diffusion_flow/transformer/gnn/llm_agent/rl/neural_reparam/surrogate_mlp_gp categories (closest in spirit to a surrogate model, but neither an MLP nor a GP). physics is coded compliance because the training data and primary method are built on linear-elastic compliance minimisation (SIMP, 2D academic cantilever); note that the paper's real-world generalisation tests span a materially different regime -- nonlinear dynamic crash/energy absorption (HCA) and a large-scale 3D industrial structural case -- which is why dim is coded 'both' (2D training and 2D crash test vs. the 3D, 195,830-element hood-frame test). seeds_or_variance is 'yes' on the strength of the explicit 10-fold cross-validation and the 99% CV-based confidence interval shown in Fig. 8, not repeated-seed neural-network training (there is no neural network here). Code: ESM's own source code is public (github.com/HRI-EU/Similarity-TO-ESM, cited in an explicit Data Availability Statement), but the datasets and simulation models are stated as available 'from the corresponding author on reasonable request' only, not directly downloadable, and it is not confirmed whether the hyperparameter-predictor training code itself is included in the linked repository; retest_candidate is coded false on this basis (data not directly obtainable). No author named Jun Wang (authors: Mariusz Bujny, Muhammad Salman Yousaf, Nathan Zurbrugg, Duane Detwiler, Stefan Menzel, Satchit Ramnath, Thiago Rios, Fabian Duddeck). Duplicate check: audit/pool/pool.csv searched by title on 2026-09-24; no second pool record found for this article."
+}

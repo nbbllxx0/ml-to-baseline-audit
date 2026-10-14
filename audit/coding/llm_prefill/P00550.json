@@ -1,0 +1,44 @@
+{
+  "pid": "P00550",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Machine learning for topology optimization: Physics-based learning through an independent training strategy",
+    "authors": "Fernando V. Senhora, Heng Chi, Yuyu Zhang, Lucia Mirabella, Tsz Ling Elaine Tang, Glaucio H. Paulino",
+    "year": 2022,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 398 (2022) 115116 (issue dated August 2022, online 2022-07-04; Crossref)",
+    "doi": "10.1016/j.cma.2022.115116",
+    "arxiv_id": "none found",
+    "version_coded": "none: no accessible full text or abstract"
+  },
+  "access": "no_access",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded: no accessible full text.",
+    "location": "not available",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with a generic User-Agent. (1) The only open copy OpenAlex lists is the DOI landing page (bronze, 'acceptedVersion'). Crossref shows an Elsevier open-access user licence for the accepted manuscript from 2023-07-04. The DOI resolves to ScienceDirect (PII S0045782522003036), which answered HTTP 403 with a robot check to curl and HTTP 403 to WebFetch. No bypass was attempted. (2) OpenAlex lists no repository copy (any_repository_has_fulltext = false), and its record holds no abstract. (3) Crossref holds no abstract. (4) arXiv API searches found no version: exact title phrase 'independent training strategy', title phrase 'physics-based learning' with 'topology', author Senhora, and author Paulino with 'machine learning' in the title. (5) Europe PMC: no record for the DOI. Author or institutional copies not listed by OpenAlex were not searched, per the task's source rule. Fields method_family, physics and dim are the title/abstract screening values (screening had no abstract either). No classical-comparison information could be read. A human with ScienceDirect access should code this record. Authors checked: no author named Jun Wang. Screening code was I-UNCLEAR."
+}

@@ -1,0 +1,3 @@
+1440 720 {'t_setup_s': 3.489989100024104, 't_1000_s': 1536.215192600037, 'c_final': 82.0014420027938, 'change_final': 0.2, 'fallbacks': 0, 'first_iter_change_below_0.01': None}
+1440 720 {'t_setup_s': 3.4842672999948263, 't_1000_s': 1546.1991745011183, 'c_final': 82.00144197465255, 'change_final': 0.20000000000000007, 'fallbacks': 0, 'first_iter_change_below_0.01': None}
+1440 720 {'t_setup_s': 3.5818433000240475, 't_1000_s': 1565.904811300221, 'c_final': 82.00144199332718, 'change_final': 0.20000000000000007, 'fallbacks': 0, 'first_iter_change_below_0.01': None}

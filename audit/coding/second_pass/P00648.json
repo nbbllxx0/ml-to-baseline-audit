@@ -1,0 +1,88 @@
+{
+  "pid": "P00648",
+  "citation": {
+    "title": "Deep reinforcement learning for engineering design through topology optimization of elementally discretized design domains",
+    "authors": "Nathan (K.) Brown, Anthony P. Garland, Georges M. Fadel, Gang Li",
+    "year": 2022,
+    "venue": "Materials & Design, Vol. 218, article 110672 (gold OA, CC-BY, per OpenAlex)",
+    "doi": "10.1016/j.matdes.2022.110672",
+    "arxiv_id": "",
+    "version_coded": "Could not render the Materials & Design version of record itself: doi.org/10.1016/j.matdes.2022.110672 and the queue-listed https://www.sciencedirect.com/science/article/pii/S0264127522002933/pdf both return only an empty client-side-rendered ScienceDirect app shell to a plain HTTP fetch (no article text in the HTML), and a direct WebFetch of the same URLs returns HTTP 403; OpenAlex nonetheless marks the article is_oa=true/oa_status=gold/license=CC-BY. Checked OpenAlex's two OSTI (US DOE) location records for this DOI (osti.gov/biblio/1867970 and /1872010, both citing this exact DOI/journal/volume, Research Org = Sandia National Laboratories, Sponsoring Org = DOE/NNSA) and the OSTI public API: neither exposes a full-text PDF for the journal DOI itself. A web search surfaced a separate, directly downloadable OSTI PDF, osti.gov/servlets/purl/1898470 (report no. SAND2021-14482C, an AAAI-copyrighted conference-formatted paper by the same four authors, same title, same Clemson/Sandia affiliations). Its abstract, methods, reward function, RL architecture, training procedure (5000 episodes, ~1.5 h, Intel Core i7-10510U CPU), progressive-refinement scheme (6x6 to 12x12 to 24x24) and gradient-based-solver comparison table are a complete, self-contained account of the same study; this appears to be the AAAI symposium/workshop precursor to the Materials & Design journal article rather than the final typeset journal text, and it may omit content the journal version added. This is the version actually read and coded below; DOAJ's location for this DOI (doaj.org/article/3b5c48ea6a4f48e6a5061d80473c8dba) returned HTTP 403 and was not read."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (full-text determination, on the accessible companion/conference version; this blind second-pass coder has no access to the original title/abstract screening code, and cannot confirm whether the actual journal version adds a quantitative speed comparison)",
+    "stratum": "quality",
+    "method_family": "rl",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Across 6 test load cases (Table 1 / Table C1), a deep-RL agent that sequentially voids elements of a 2D grid to minimize strain energy under a volume-fraction target produces 24x24 topologies whose final strain energy is lower than a traditional gradient-based TO solver's (Sigmund's 99-line MATLAB code) in most cases at matched volume fraction, but clearly higher (worse) in one case (1853 vs 929) and at a different, non-matched volume fraction in two others.",
+    "key_phrase": "achieve reduced strain energies, better satisfying the design objective",
+    "location": "Results section text plus Table C1, Appendix C (in the accessible AAAI-formatted version); the Abstract and Conclusion state only a qualitative claim ('comparable to a traditional gradient-based topology optimization solver') with no numbers, and no classical-method comparison appears in the Introduction",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No computation-time or cost comparison against the classical gradient-based solver appears anywhere in the accessible text; the only timing figure given is the RL agent's own training time (5000 episodes, about 1.5 hours on an Intel Core i7-10510U CPU), with no classical-solver time stated to pair it against. The Abstract's 'computational efficiency' phrase refers to RL versus other ML paradigms, not versus the classical solver.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Per-case detail from Table C1 (RL strain energy/volume fraction vs gradient-based solver's): (A) 864/0.25 vs 964/0.25 - RL better at matched VF; (B) 193/0.25 vs 211/0.25 - RL better at matched VF; (C) 629/0.31 vs 806/0.25 - RL used more material (VF 0.31 vs 0.25), so not a matched comparison despite lower SE; (D) 1853/0.25 vs 929/0.25 - RL clearly worse (about double the strain energy) at matched VF; (E) 879/0.25 vs 1000/0.25 - RL better at matched VF; (F) 1021/0.16 vs 1245/0.2 - RL used less material and had lower SE, but VF is not matched. The Abstract/Conclusion's qualitative 'comparable to a traditional gradient-based...solver' framing is a secondary candidate outcome if the reader takes the qualitative statement over the table."
+  },
+  "baseline": {
+    "classical_method": "Gradient-based topology optimization (compliance/strain-energy minimization under a volume-fraction constraint), using Sigmund's 99-line MATLAB SIMP code (Sigmund 2001, cited directly) as the comparator",
+    "implementation": "Sigmund's published 99-line MATLAB implementation (an openly published educational/reference code, not further modified or optimized as described in this version)",
+    "solver": "not stated (the 99-line code's default linear solver, typically MATLAB's built-in sparse direct backslash, is not named in this text)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "Intel Core i7-10510U CPU @ 1.80 GHz, 16 GB RAM, used for RL training (no GPU mentioned)",
+    "problem_size": "2D grids up to 24x24 elements (progressively refined from 6x6 through 12x12 to 24x24)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "RL training: 5000 episodes, about 1.5 hours (stated once, for training only; no inference/deployment time per topology is given)",
+    "training_time": "5000 episodes, about 1.5 hours, on the CPU above; training performed only at the coarse 6x6 resolution to limit FEA cost per step",
+    "data_generation_cost": "not applicable as a separate cost: training data come from the agent's own online interaction (randomly generated load cases) with the RL environment during the 5000-episode training run, not a pre-generated dataset",
+    "quality_metric": "Strain energy (SE, the compliance-equivalent objective) and volume fraction (VF) of the final proposed topology, with SE computed by a 2D plane-stress finite element analysis (FEA) solver used throughout (both to build the RL observation's stress layer and, implicitly, to score the final designs in Table C1)",
+    "quality_gap": "See claim.alternatives for the full per-case numbers; net picture across the 6 cases is mixed (3 clear RL wins at matched VF, 1 clear RL loss at matched VF, 2 cases where VF itself differs between methods)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table C1 reports strain energy and volume fraction for both methods on the same 6 load cases, computed via the same FEA-based objective, so the comparison metric itself is consistent. But the match is loose: volume fraction differs between the two methods in 2 of 6 cases (C: 0.31 vs 0.25; F: 0.16 vs 0.2), so those two comparisons are not at equal design constraint; and in case (D) the RL topology has roughly double the strain energy of the gradient-based solver's, which sits uneasily with the table caption's claim that the RL agent 'can achieve reduced strain energies' - the caption overstates what the table itself shows for that case."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "No speed or cost claim against the classical solver is made in the accessible text, so efficiency criteria (a)-(e) do not bear on this outcome. For the record: the classical comparator is Sigmund's 99-line MATLAB code, an openly published educational implementation - exactly the kind of implementation the protocol's own R2 partial criterion names ('an unvectorized educational code') - though this cannot be scored since no timing claim is made to test it against."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim against the classical method is made anywhere in the accessible text. For the record, training cost is reported on its own (5000 episodes, ~1.5 hours, stated CPU), but it is never paired with a classical-solver time to form an efficiency claim."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Strain energy is computed via an actual 2D FEA solver on the returned topology (not an image-similarity metric), and volume fraction is reported for every shown case (Table 1/C1), satisfying the core quality-verification requirement. However, 'illegal' actions (disconnected/hinge-point, non-singular-body topologies) are prevented architecturally during the RL rollout rather than measured; no failure or infeasibility rate is reported for the design process, and it is not stated how many attempted test cases (if any) failed to reach a usable design before the 6 shown results were obtained."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "6 test load cases (Table 1 / Table C1), each shown at three progressive-refinement resolutions (6x6, 12x12, 24x24); 2 of the 6 use multiple loaded elements, a configuration not seen during training",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Access note: the actual Materials & Design (ScienceDirect) rendering of this article could not be obtained despite being marked gold/CC-BY open access by OpenAlex - every URL tried (DOI redirect, ScienceDirect landing page, ScienceDirect /pdf path, two OSTI biblio pages for the same DOI, the OSTI public API, DOE PAGES, DOAJ) either returned an empty JavaScript-only page shell, an HTTP 403, or had no attached full text. The document actually read and coded (osti.gov/servlets/purl/1898470, SAND2021-14482C) is, to the best I can determine, the AAAI conference/symposium version of the same study by the same four authors, matching on title, authors, method, and specific figures (5000 training episodes, ~1.5 hours, 6x6-to-24x24 progressive refinement) independently surfaced by a web search of the target ScienceDirect page. Its content appears complete and self-contained (full methods, a dedicated results table comparing RL to a gradient-based solver, appendices, references), but it may differ from the final Materials & Design typeset text in ways I cannot verify (e.g., additional test cases, an added speed/cost comparison, revised numbers) - the stratum/rule verdicts above reflect only what is present in this accessible version, and stratum='quality' could change if the published journal version adds an explicit speed comparison that this earlier version lacks. Screening-code caveat: as a blind second-pass coder I have no access to the original title/abstract screening file, so 'I-QUALITY' reflects only this full-text read. No author of this article is named Jun Wang (authors: Nathan Brown, Anthony P. Garland, Georges M. Fadel, Gang Li). Duplicates: pool.csv holds a single record for P00648 with no companion duplicate pid for this title, so FT-DUPLICATE does not apply. No personal data, email address, mailto parameter, API key or login was used; all requests used a generic non-identifying User-Agent, and no CAPTCHA or bot-check was bypassed (ScienceDirect's 403/empty-shell responses were treated as a stop signal, not worked around)."
+}

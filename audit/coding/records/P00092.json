@@ -1,0 +1,107 @@
+{
+  "pid": "P00092",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Topology optimization with text-guided stylization",
+    "authors": "Shengze Zhong, Parinya Punpongsanon, Daisuke Iwai, Kosuke Sato",
+    "year": 2023,
+    "venue": "Structural and Multidisciplinary Optimization 66:256 (2023), published online 12 Dec 2023; open access, CC BY 4.0 (article footer). Preprint: arXiv 2310.15506 v1 (24 Oct 2023, CC BY 4.0)",
+    "doi": "10.1007/s00158-023-03686-7",
+    "arxiv_id": "2310.15506",
+    "version_coded": "Version of record (Springer open-access PDF, 18 pages), text read in full; the arXiv v1 preprint was not coded"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the only quantitative classical comparison is compliance and volume against SIMP, with no SIMP runtime, §5.1 rule 2)",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "With only the mechanical loss active, the hash-encoded neural field reaches nearly the same compliance as SIMP on three 2D benchmarks at matched volume. Bridge: 181.08 vs 181.06; MBB: 40.80 vs 39.48; L-bracket: 177.23 vs 169.80.",
+    "key_phrase": "our method shares a similar topology optimization performance to SIMP",
+    "location": "Sec. 4.1 'Mechanical performance', p. 10, and Fig. 6 (first quantitative classical comparison; the abstract, conclusion and introduction hold no quantitative classical comparison, §5.1 rule 2)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable: no SIMP runtime is reported. Only the proposed method is timed: 0.587 s per iteration, 58.66 s for 100 iterations, for a 256x256 bridge on a laptop RTX 4080 GPU (Sec. 4.1 'Computational cost', Fig. 11). Sec. 5 states qualitatively that its convergence speed is below that of traditional explicit methods.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 4.1, p. 10: with the full loss (style and connectivity), compliance is about 30.27% above SIMP (19.94%, 39.69% and 31.17% for Bridge, MBB and L-bracket), traded for style. (2) Sec. 5, qualitative: for pure TO, both quality and convergence speed are below traditional explicit methods (an underperformance statement). (3) Sec. 4.1 'Convergence' and Fig. 9: better detail and performance than a SIREN Fourier-feature network after 500 iterations (ML comparator, qualitative). (4) Fig. 12: visual comparison with texture-guided stylization methods (qualitative)."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with the 165-line Python code by Aage and Johansen (cited as Andreassen et al. 2011); penalty p = 2.0 to match the proposed method; sensitivity filter radius tuned to 1.5 (Sec. 4.1, pp. 9-10)",
+    "implementation": "public DTU 165-line Python SIMP code (Sec. 4.1); the proposed method uses PyTorch with an algebraic multigrid solver (PyAMG cited) for its FE solves (Sec. 4, 'Experiment environment')",
+    "solver": "not stated for SIMP; algebraic multigrid for the proposed method (Sec. 4)",
+    "hardware_classical": "not stated [same laptop inferred]",
+    "hardware_ml": "laptop PC, Intel Core i9-13900HX CPU and NVIDIA RTX 4080 GPU, Windows 11, Python 3.9; most computation on the GPU (Sec. 4)",
+    "problem_size": "FE analysis at 64x64 after 4x4 average pooling of the 256x256 design field; stylization at 256x256 (Sec. 4.1); SIMP resolution not stated [64x64 inferred]",
+    "classical_iterations": "not stated for SIMP; the proposed method ran 100 iterations in the comparison (Sec. 4.1), 500 by default (Table 1)",
+    "classical_time": "not stated",
+    "ml_time": "0.587 s per iteration, 58.66 s per 100 iterations, 256x256 bridge (Sec. 4.1, Fig. 11a); not given for the comparison runs",
+    "training_time": "not applicable in the offline sense: the network is trained from scratch per task (Sec. 4, 'Gradients computation'); CLIP ViT-B/32 is used pretrained and frozen",
+    "data_generation_cost": "none (no training dataset; per-problem optimization)",
+    "quality_metric": "compliance and volume fraction of the optimized structures for SIMP, the Lmech-only variant and the full-loss variant (Sec. 4.1, Fig. 6); the proposed method's compliance is its FE objective on the pooled 64x64 field [inferred]",
+    "quality_gap": "Lmech-only vs SIMP: compliance +0.01% (Bridge), +3.3% (MBB), +4.4% (L-bracket) [derived from 181.08/181.06, 40.80/39.48, 177.23/169.80]; volumes 0.366 vs 0.368, 0.293 vs 0.293, 0.333 vs 0.332 (Sec. 4.1, p. 10). Full loss vs SIMP: +19.94%, +39.69%, +31.17% compliance (mean 30.27%)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.1, p. 10: SIMP uses the same penalty (p = 2.0), the filter radius was tuned, and the achieved volumes match within 0.002. Matching is loose: SIMP's iteration count, stopping rule and FE resolution are not stated, while the proposed method stopped at 100 iterations. The target volume fraction of each task is not given, and one run per method and task is compared, although the method varies by about ±3% across random initializations (Sec. 4)."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) names no baseline and gives no numbers, so it cannot report a weaker baseline than Sec. 4.1; (b) is not observed. No SIMP runtime is reported anywhere; SIMP is the public DTU Python code with a tuned filter radius (Sec. 4.1, pp. 9-10)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Primary outcome is quality only, and the method learns per problem with no offline training or dataset (Sec. 4, 'Gradients computation'). For C3: 0.587 s per iteration at 256x256 on an RTX 4080 laptop GPU (Sec. 4.1, Fig. 11); 100-500 iterations per design."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 4.1 (p. 10) and Fig. 6: compliance and volume are reported for SIMP and both variants of the method on all three tasks, from FE analysis (the method's own FE on the pooled 64x64 field [inferred]), and the Lmech-only volumes match SIMP's within 0.002. Failed designs are neither defined nor counted: the Lmech-only variant has no connectivity check, the target volume fraction is not given although the authors state that their penalty formulation misses it (Sec. 3.1, p. 6; Sec. 4.1, p. 10), and one run per task is shown from a method with about ±3% run-to-run spread (Sec. 4, p. 9) with no stated rule for which run is reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 benchmark tasks (Bridge, MBB beam, L-bracket), one run per method each, for the SIMP comparison (Sec. 4.1, Fig. 6); further stylization demonstrations (Figs. 7-17) and 3D examples (Fig. 18) without classical comparison",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; full text gives stratum Q. The abstract claims effectiveness through extensive comparisons without numbers or a named classical method, and the conclusion and introduction hold no quantitative classical comparison. §5.1 rule 2 therefore takes the first quantitative classical comparison in the main text (Sec. 4.1: Lmech-only vs SIMP); the full-loss comparison (about 30% higher compliance) is recorded as alternative 1. Direction coded similar_or_mixed: near-parity without style, about 30% worse with style, and the authors' own limitation that pure-TO quality and convergence speed trail traditional explicit methods (Sec. 5). No classical runtime appears anywhere. seeds_or_variance = yes because Sec. 4 ('Initialization') states a performance spread of about ±3% across random initializations and Fig. 8 plots it; the SIMP comparison itself uses single runs. dim coded 2d: all quantitative results are 2D (Sec. 4 opening); 3D is shown only as an extension (Sec. 5, Fig. 18). Code: github.com/shzzhong/TGTO (Declarations, 'Replication of results'; GitHub API 2026-09-24: public, created 2023-02-16, one script Clip2D_CCL.py plus a Readme, no licence declared, no SIMP comparison script). No data statement (none needed). retest_candidate false: quality-only primary outcome with no speed claim, and no code licence. Related pool record P00374 (NSTO, same authors, Computer Graphics Forum) is a different study, not a duplicate. The arXiv v1 preprint was posted on 24 Oct 2023, after acceptance (9 Oct 2023) and before online publication (12 Dec 2023); it was not compared with the version of record. Adjudicator check (2026-09-24): the Springer article page lists the version of record as open access (CC BY 4.0), so it is the primary version under screening_codes.md; the blind second coder read arXiv v1 on the belief that the version of record was not open access. COI check: no author named Jun Wang (the responsible editor is Jun Wu, not on the list).",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R2": {
+        "first": "pass",
+        "second": "partial",
+        "decision": "na",
+        "reason": "Both coders code stratum Q, which the text supports: no SIMP runtime appears anywhere (version of record, Sec. 4-5). Under the §11 stratum-Q rule R2 is na unless criterion (b) applies, and the abstract (p. 1) names no baseline and gives no numbers, so (b) does not apply."
+      },
+      "R4": {
+        "first": "pass",
+        "second": "partial",
+        "decision": "partial",
+        "reason": "Compliance and volume of all three designs are FE-computed and reported (Sec. 4.1, p. 10), but failed designs are neither defined nor counted for the Lmech-only variant. The target volume fraction is not given although the authors say their penalty loss misses it (pp. 6, 10), so constraint violations go unreported, which is the §5.3 R4 partial case. The second coder's reason (the stylized gallery) is not the primary outcome, but the verdict holds for the primary comparison."
+      }
+    }
+  }
+}

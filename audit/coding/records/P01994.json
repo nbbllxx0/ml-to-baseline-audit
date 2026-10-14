@@ -1,0 +1,58 @@
+{
+  "pid": "P01994",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Practical topology optimization with deep reinforcement learning",
+    "authors": "Giorgi Tskhondia",
+    "year": 2025,
+    "venue": "ResearchGate item with a DataCite DOI; DataCite resourceType 'Preprint', publication year 2025; the author dates it December 2025 (ref. [5] of pool record P01997). OpenAlex types it 'article' with no venue",
+    "doi": "10.13140/rg.2.2.16548.95369",
+    "arxiv_id": "",
+    "version_coded": "none; neither the full text nor an abstract could be read (DataCite and OpenAlex hold no abstract)"
+  },
+  "access": "no_access",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "rl",
+    "physics": "other",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no full text and no abstract available). Only the title is known: deep reinforcement learning applied to topology optimization with a practical focus.",
+    "location": "title only",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "not coded (no full text)",
+    "alternatives": "not assessed (no full text)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR (the pool record has no abstract). Access attempts on 2026-09-24, all anonymous with a generic User-Agent and no personal data: (1) doi.org -> ResearchGate (researchgate.net/doi/10.13140/RG.2.2.16548.95369), the only location OpenAlex lists: HTTP 403 with a 'Security check' captcha page; not bypassed, and no login used. (2) DataCite API record for the DOI: title, creator (Tskhondia), year 2025, resourceType 'Preprint'; no description or abstract. (3) OpenAlex lists no repository copy and no abstract. (4) arXiv API searches by the author name and by title phrase found nothing. (5) A web search found only the author's blog posts and ResearchGate pages, which were not used. Two points for the verifier. (a) Record type: DataCite registers this DOI as a ResearchGate preprint. §3.3 admits only journal articles, conference papers and arXiv preprints, and the §11 row of 2026-09-24 (§3.3 record type) removes non-arXiv preprints at the draw. This record passed the draw only because OpenAlex types it 'article'. The instruction for inaccessible records was followed here (include, I-UNCLEAR); on the type evidence the record would be excluded, with FT-OTHER as the code unless FT-DUPLICATE applies first. (b) Possible duplicate: pool record P01997 (Tskhondia, 'Practical Topology Optimization with Deep Reinforcement Learning and Genetic Algorithms', American Journal of Applied Scientific Research 12(1):1-9, received 6 Jan 2026, published 27 Jan 2026, CC BY; screened E-MLONLY) cites this preprint as its ref. [5], dated December 2025 (publisher landing page read 2026-09-24). The two titles differ only by 'and Genetic Algorithms', so P01994 may be an earlier version of P01997 [inferred; not confirmed, because the preprint's text could not be read]. If confirmed, the code is FT-DUPLICATE with P01997 as the primary version. The coder of P01971 (same author, JNGR 5.0, 2025) asked for this overlap check; P01971 itself is a different, earlier article by title and date. Other same-author pool records: P02001 (ResearchGate, 2026). COI check: single author, no Jun Wang. Adjudication access check (2026-09-24, generic User-Agent, no personal data, no ResearchGate request): the 'Cite this work' list in the author's GitHub README (github.com/gigatskhondia/gigala) names only P01971 and P01997 and hosts no copy of this preprint; the author's site gigala.io links this preprint only through ResearchGate, which the access rules exclude, and hosts no copy of it. P01997's open-access landing page (sciencepg.com) confirms ref. [5] as a separate preprint, dated December 2025. Decision-order position 73 (audit/screening/pilot_final_order.csv); P01997 is not in the decision order.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "decision": {
+        "first": "include",
+        "second": "exclude",
+        "decision": "include",
+        "reason": "No coder read the preprint, and the adjudicator found no legal copy: the DOI resolves only to ResearchGate, and the author's GitHub README and gigala.io link it only there (checked 2026-09-24). Under the §11 rule of 2026-09-24 the record keeps its screening decision (include, I-UNCLEAR, no accessible full text); FT-DUPLICATE is also unconfirmed, because P01997 cites this preprint as a separate work (ref. [5], sciencepg.com landing page)."
+      }
+    }
+  }
+}

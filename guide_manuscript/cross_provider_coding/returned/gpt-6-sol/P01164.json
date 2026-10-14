@@ -1,0 +1,18 @@
+{
+  "pid": "P01164",
+  "citation": {"title": "MACHINE LEARNING METHOD IN ELASTIC PLATE TOPOLOGY OPTIMIZATION PROBLEMS", "authors": "D.V. Avdonyushkin; A.I. Matveeva; A.D. Novokshenov", "year": 2023, "venue": "PNRPU Mechanics Bulletin", "doi": "10.15593/perm.mech/2023.3.01", "arxiv_id": "", "version_coded": "version of record"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-OTHER", "stratum": "none", "method_family": "surrogate_mlp_gp", "physics": "compliance", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "not coded after exclusion", "direction": "outperform", "alternatives": ""},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-excluded", "evidence": "Pages 6-14: main article is in Russian; protocol requires English."},
+    "R2": {"verdict": "na", "marker": "R2-excluded", "evidence": "Pages 6-14: main article is in Russian; protocol requires English."},
+    "R3": {"verdict": "na", "marker": "R3-excluded", "evidence": "Pages 6-14: main article is in Russian; protocol requires English."},
+    "R4": {"verdict": "na", "marker": "R4-excluded", "evidence": "Pages 6-14: main article is in Russian; protocol requires English."}
+  },
+  "reporting": {"n_test_cases": "not coded after exclusion", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The publisher PDF is accessible through the web reader. It has an English title and abstract on page 6, but the main article, results, and conclusion on pages 6-14 are in Russian. Protocol section 3.3 requires English articles; no language-specific exclusion code exists, so FT-OTHER applies. Direct PDF download timed out."
+}

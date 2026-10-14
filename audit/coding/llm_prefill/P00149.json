@@ -1,0 +1,88 @@
+{
+  "pid": "P00149",
+  "citation": {
+    "title": "Data-driven topology optimization of spinodoid metamaterials with seamlessly tunable anisotropy",
+    "authors": "Li Zheng, Siddhant Kumar, Dennis M. Kochmann",
+    "year": 2021,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 383, 113894",
+    "doi": "10.1016/j.cma.2021.113894",
+    "arxiv_id": "2012.15744",
+    "version_coded": "Version of record (CC BY 4.0 copy from the TU Delft repository; journal pagination used in locators), cross-checked against arXiv v2 (19 May 2021) HTML"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; comparator is FE homogenization inside FE²-type two-scale TO)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The trained DNN surrogate returns a spinodoid RVE's homogenized stiffness in about 0.001 s per sample, versus roughly 5 min for FE homogenization, so stiffness evaluations inside the two-scale optimization become orders of magnitude cheaper.",
+    "key_phrase": "accurate stiffness predictions instantly compared to several minutes for FEM-based homogenization",
+    "location": "Section 4.1, p. 11 (first comparison with a classical method in the main text; abstract, conclusion and introduction hold only qualitative claims); numbers in Appendix B, Table B.1, p. 23",
+    "quantitative": true,
+    "claimed_speedup": 300000,
+    "claimed_speedup_basis": "Derived by coder, not stated: Table B.1 FE homogenization 5 min (300 s, 16 MPI cores) ÷ DNN prediction 0.001 s (one sample, one CPU, no parallelization) = 300,000 per stiffness evaluation. The paper gives only an orders-of-magnitude statement and calls the runtimes a qualitative measure (Appendix B). This is not an optimization-level speed-up: no classical FE² or SIMP optimization runtime is reported.",
+    "direction": "outperform",
+    "alternatives": "(1) Quality vs single-scale SIMP (solid isotropic material, p = 4): Benchmark I spinodoid 5.602×10⁻¹ vs SIMP 5.299×10⁻¹ (spinodoid higher, 5.7% [derived]; Fig. 7c); II 2.282×10¹ vs 2.490×10¹, 8.35% lower (Fig. 10c); III 8.297×10¹ vs 8.723×10¹, 4.88% lower (Fig. 12c); IV 7.8×10³ vs 7.9×10³, 1.27% lower, flagged by the authors as possibly a numerical artefact (Section 5.4, Fig. 14c). (2) Qualitative: abstract (costly homogenization replaced by an accurate, efficient surrogate); conclusion (calculations sped up significantly; advantages over classical SIMP from the enlarged design space); Section 4.2 (AD sensitivities avoid FE-based numerical differentiation)."
+  },
+  "baseline": {
+    "classical_method": "FE computational homogenization of each spinodoid RVE (the step FE²-type concurrent two-scale TO repeats per element and iteration); single-scale SIMP (p = 4) as design-quality reference (Section 5.2)",
+    "implementation": "Homogenization: in-house C++ FEM code (Table B.1). SIMP reference: not stated. ML side: PyTorch in Python; TO in Python with IPOPT (Section 3.1, Table B.1)",
+    "solver": "not stated (homogenization and macroscale FE); optimizer IPOPT interior-point (Section 3.1)",
+    "hardware_classical": "Euler IV cluster (ETH Zürich), two 18-core 2.7 GHz Intel Xeon Gold 6150, 192 GB; 16 MPI cores for FE homogenization (Table B.1, footnote c)",
+    "hardware_ml": "DNN prediction and training: four 12-core 2.2 GHz Intel Xeon E5-2650, 256 GB, CPU without parallelization (Table B.1, footnote b); TO benchmarks: Euler IV CPU without parallelization (footnote c)",
+    "problem_size": "RVE mesh not stated in this article. Macroscale: Benchmark I 64×48×2 tetrahedral grid; II 22,060 tetrahedra (110,300 design variables); III 25,350 (126,750); IV 48,000 (240,000) (Sections 5.2–5.4)",
+    "classical_iterations": "not applicable to one RVE homogenization (six load cases per RVE, Section 2.2); SIMP reference iteration count and stopping rule not stated",
+    "classical_time": "around 5 min per FE homogenization (Table B.1; Appendix B, p. 23); minutes-scale in Section 4.1; no classical TO runtime reported",
+    "ml_time": "0.001 s per DNN stiffness prediction, one sample (Table B.1); full surrogate-based TO runs: Benchmark I 3 h, II 3.5 h, III 4.5 h, IV 8 h (Table B.1)",
+    "training_time": "10 min, PyTorch on CPU without parallelization (Table B.1); data and training adapted from Kumar et al. 2020a (Table B.1 note)",
+    "data_generation_cost": "not stated as a total; 19,170 training + 2,130 test FE-homogenized samples (Section 5.1) at about 5 min each (Table B.1) [inferred total: 21,300 × 5 min ≈ 1,775 h on 16 cores]; data reused from Kumar et al. 2020a",
+    "quality_metric": "Surrogate: R² vs FEM on 2,130 test samples (stiffness R² ≥ 0.996; AD sensitivities vs central FD R² ≥ 0.999) (Section 5.1, Figs. 5–6). Designs: optimized compliance vs single-scale SIMP (Figs. 7c, 10c, 12c, 14c)",
+    "quality_gap": "Benchmark I: 5.602×10⁻¹ (spinodoid) vs 5.299×10⁻¹ (SIMP), spinodoid 5.7% higher [derived]; II: 2.282×10¹ vs 2.490×10¹ (8.35% lower); III: 8.297×10¹ vs 8.723×10¹ (4.88% lower); IV: 7.8×10³ vs 7.9×10³ (1.27% lower) (Figs. 7c, 10c, 12c, 14c)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Section 5.1, Figs. 5–6: surrogate accuracy vs FEM is reported (R² ≥ 0.996 stiffness, ≥ 0.999 sensitivities, 2,130 held-out samples), so quality is reported at the level of the speed claim. Matching is loose: the speed claim is per stiffness evaluation (Section 4.1; Table B.1); no FE²-type optimization was run to compare optimized designs or total time; the FE homogenization mesh and accuracy are not stated here; the authors call the runtimes only a qualitative measure (Appendix B)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Table B.1: FE homogenization uses an in-house C++ FEM code on 16 MPI cores (Euler IV), while the DNN runs on one CPU without parallelization. No GPU is used, so (c) does not apply; the abstract gives no baseline figure (b); no fixed iteration count applies (d). Solver type and RVE mesh are not stated; no inefficiency is evident. Unsure → pass."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-amortization",
+      "evidence": "Table B.1: DNN training 10 min; FE homogenization about 5 min per sample. Section 5.1: 19,170 training + 2,130 test samples. The total data-generation cost is never stated [inferred ≈1,775 h of 16-core time], and data and training were reused from Kumar et al. 2020a. No break-even is given. Appendix B frames the gain per prediction, but the conclusion's speed-up statement is not limited to per-query use."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-surrogate-predicted",
+      "evidence": "Surrogate outputs are checked against FEM on 2,130 held-out samples (Section 5.1). The optimized compliances of the returned designs (Figs. 7c, 10c, 12c, 14c) are computed with DNN-predicted stiffness; no FE homogenization or fully resolved FE re-check of the final design parameters is reported [inferred from Sections 3–5 and Appendix A], and the achieved relative density is not reported. Partial because the macroscale FE is real and the surrogate is independently validated; a stricter reading (design performance rests on the surrogate) gives fail."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 benchmark problems (Sections 5.2–5.4); Benchmarks II and III each also at 5 mesh resolutions (Figs. 10c, 12c); surrogate test set of 2,130 samples (Section 5.1)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Stratum is a judgment call. The only ML-vs-classical speed comparison is per stiffness evaluation (DNN vs FE homogenization), used here as a cost proxy for FE²-type two-scale optimization; no optimization-level runtime of a classical method is reported. If the verifier rejects this proxy, the primary outcome becomes the compliance comparison with single-scale SIMP (quality stratum; see alternatives), where Benchmark I is worse than SIMP and the design-space difference (multiscale vs solid material), not the ML, drives the gains [inferred]. The arXiv v2 HTML rendering omits the Table B.1 cells, so the version of record was used. No code or data statement in the article."
+}

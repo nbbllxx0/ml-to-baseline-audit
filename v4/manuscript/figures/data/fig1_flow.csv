@@ -1,0 +1,14 @@
+kind,box,text
+main,0,"Records returned: 4,484 (arXiv 685; OpenAlex 2,727; | forward citations 799; reference lists 273)"
+main,1,"Unique after de-duplication: 2,591"
+main,2,Title and abstract screening by a | language model: 709 included
+side,2,"Excluded: 1,882 (outside scope 685, not a method article 376, excluded physics 324, no learned model 234, other 136, learned forward prediction only 58, no comparative claim 35, learned comparators only 34) | Blind re-screen of 188 excluded: 17 flagged for full text"
+main,3,Eligible after type and date rules: 655 | fixed in one seeded random order
+side,3,Removed by the type and date rules: 54
+main,4,Analysis sample: positions 1–200
+side,4,Skipped as paywalled (OpenAlex): 90
+main,5,"Coded twice, disagreements adjudicated: 110"
+side,5,No readable full text: 27 (abstract only 23; blocked 4)
+main,6,Full text read: 83
+side,6,"Excluded at full text: 26 (duplicate version 7, no classical comparison 7, learned comparators only 5, excluded physics 2, not a method article 2, outside scope 1, no learned model 1, other 1)"
+main,7,Included: 57 | speed stratum 28; quality stratum 29

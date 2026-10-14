@@ -1,0 +1,14 @@
+{
+  "cpu_pinning": {
+    "pinned": true,
+    "affinity_mask": "0xfff",
+    "priority": "HIGH_PRIORITY_CLASS"
+  },
+  "argv": [
+    "run",
+    "--config",
+    "E:\\AI\\ml-to-baseline-audit\\retest\\targets\\HGTO\\configs\\linear2d\\cantilever_240x80.yaml",
+    "--output",
+    "E:\\AI\\ml-to-baseline-audit\\retest\\runs\\hgto\\hgto_gpu\\cantilever_240x80\\r1"
+  ]
+}

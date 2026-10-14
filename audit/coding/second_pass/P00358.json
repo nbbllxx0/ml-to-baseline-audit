@@ -1,0 +1,88 @@
+{
+  "pid": "P00358",
+  "citation": {
+    "title": "Latent Diffusion Models for Structural Component Design",
+    "authors": "Ethan Herron, Jaydeep Rade, Anushrut Jignasu, Baskar Ganapathysubramanian, Aditya Balu, Soumik Sarkar, Adarsh Krishnamurthy",
+    "year": 2023,
+    "venue": "arXiv preprint (cs.LG); version of record in Computer-Aided Design, 2024, doi 10.1016/j.cad.2024.103707 (OpenAlex: 'bronze' OA - free to read on the publisher site but no open licence stated)",
+    "doi": "10.1016/j.cad.2024.103707",
+    "arxiv_id": "2309.11601",
+    "version_coded": "arXiv v2 (24 Sep 2023; latest of two versions on the abs page), full text incl. supplementary figures read from the PDF at https://arxiv.org/pdf/2309.11601v2. The version of record was not read: www.sciencedirect.com blocked scripted access (HTTP 403) on every attempt, as it did for other ScienceDirect articles in this queue, so the latest arXiv version was used per the fallback rule."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the Abstract/Conclusion/Introduction state only that 'quantitative results... support the structural performance' with no number or comparator, so per the Sec. 5.1 cascade the first quantitative comparison, in the main text, is a design-quality comparison against SIMP-generated ground truth, with no speed/cost claim anywhere in the article)",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Across 100 held-out test cases, surrogate-predicted strain energy for 2,000 LDM-generated 3D designs shows 'no substantial difference' in aggregate from their corresponding SIMP-optimized ground-truth designs, while achieving a mean absolute volume-fraction error of 0.0989 and clearly non-trivial (non-reconstructive) cosine-similarity variability.",
+    "key_phrase": "no substantial difference in performance",
+    "location": "Sec. 6.2 'Strain Energy Analysis' (main text, Fig. 8-10); the Abstract, Introduction and Conclusion only state generically that quantitative results 'support the structural performance,' with no number or named classical comparator, so per Sec. 5.1's cascade the first quantitative comparison, found in the main text, is taken as the primary outcome",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No wall-clock or cost comparison between the LDM and classical SIMP optimization is made anywhere in the article. Sec. 2 states only the generic, unquantified motivation that classical iterative TO methods 'are computationally expensive' and that 'generating new potential designs on the fly is infeasible due to the FE solution calls' - a qualitative motivation, not a comparison, per the protocol's own FT-NOBASELINE example. The only timings reported (VAE training: ~2 min 20 s/epoch at 32^3, ~24 min/epoch at 64^3; DM training: 6/22/95 ms/sample at 32^3/64^3/128^3) describe the LDM's own training cost, with no classical-method time to compare against and no hardware stated for them.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 6.2: volume-fraction mean absolute error of 0.0989 between LDM-generated and SIMP-optimized designs (Fig. 7) - a directly measured, non-surrogate quantity, in the same subsection as the primary outcome. (2) Sec. 6.1: distribution of cosine similarity between the 20 LDM-generated designs and their corresponding SIMP-optimized design (Fig. 6), used to argue the LDM 'does not simply reconstruct' SIMP outputs - a diversity/novelty check rather than a performance comparison. (3) Sec. 6.4: VAE/DM training-time scaling across 32^3/64^3/128^3 resolutions and a multi-grid training speed-up (under 2 h vs. over 10 h to reach a similar reconstruction loss) - an ablation of the proposed framework's own training strategy, not a comparison with a classical TO method."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material with Penalization) topology optimization, run in ANSYS Mechanical APDL v19.2, used both to generate the 66k/25k/10k-sample training datasets (Sec. 5) and to produce the 100 ground-truth test designs the LDM outputs are compared against (Sec. 6)",
+    "implementation": "Classical baseline: ANSYS Mechanical APDL v19.2 (commercial), cube mesh of 31,093 nodes / 154,677 elements (Sec. 5). LDM: multi-headed VAE (VQ-VAE branch for initial conditions, KL-VAE branch for the SIMP-optimized design) plus a DDPM operating in the VAE's latent space (Sec. 4)",
+    "solver": "Not stated for ANSYS's SIMP solve (direct/iterative unspecified)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated - no GPU/CPU model or cluster specification is given anywhere in the article, only per-epoch/per-sample training times",
+    "problem_size": "Cube design domain, 1 m side, meshed with 31,093 nodes / 154,677 elements for SIMP data generation (Sec. 5); voxelized to 32^3, 64^3 and 128^3 grids for the LDM (Sec. 5, Sec. 6.4)",
+    "classical_iterations": "Average of 13 SIMP iterations per initial strain-energy sample, recorded for a ~13.5K-sample subset used to train a separate surrogate evaluation network (Sec. 6.2); iteration count for the full 66k/25k/10k dataset is not stated",
+    "classical_time": "not stated (no wall-clock time for SIMP data generation or for producing a single classical design is reported anywhere)",
+    "ml_time": "not stated as a per-design inference time; only per-epoch/per-sample training times are given (VAE: ~2 min 20 s/epoch at 32^3, ~24 min/epoch at 64^3; DM: 6/22/95 ms/sample at 32^3/64^3/128^3; Sec. 6.4)",
+    "training_time": "VAE and DM trained separately per resolution (two-stage LDM training, Sec. 2); 128^3 model needs 'less than two hours' via a multi-grid pretraining schedule (10 epochs at 32^3, 1 epoch at 64^3, 1 epoch at 128^3) versus 'over 10 hours' if trained from scratch at 128^3 alone (Sec. 6.4)",
+    "data_generation_cost": "Not reported in wall-clock terms. The dataset (66,000 samples at 32^3, plus 25k/10k at higher resolutions) required running ANSYS SIMP once per sample (154,677-element mesh, average 13 iterations for the recorded subset) plus a voxelization step stated to take 'around 15 minutes... for a single geometry' (parallelized with GNU parallel on a cluster) - substantial implied cost, but no aggregate time or hardware is given",
+    "quality_metric": "Structural performance: strain energy/compliance predicted by a separately trained CNN 'evaluation network' (a learned surrogate, not a direct FE re-analysis of the returned voxel design) (Sec. 6.2). Volume fraction: directly computed as the ratio of occupied to unoccupied voxels (Sec. 6.2) - not surrogate-based. Diversity/novelty: cosine similarity between generated and SIMP designs (Sec. 6.1) - an image/voxel-similarity metric, not a physics-based one.",
+    "quality_gap": "Volume fraction: mean absolute error 0.0989 between the 20-design average and the SIMP-optimized design, on a dataset whose target volume fractions range only 10-50% (Sec. 6.2) - a large deviation relative to that range. Strain energy/compliance: described only as 'no substantial difference... in the aggregate' between the 2,000 generated and 100 SIMP designs (Fig. 8), with no single summary number given in the text; per-sample distributions are shown in Fig. 9-10 and Fig. 14-17, all via the surrogate evaluation network, not direct FE analysis."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Both the LDM output and its SIMP reference start from the same initial strain-energy condition (Sec. 4), and volume fraction and (surrogate-predicted) compliance are both reported for every test case, which supports a genuine attempt at a matched comparison. However, matching is loose: the mean absolute volume-fraction error (0.0989) is large relative to the dataset's 10-50% volume-fraction range, meaning the compared designs are not reliably at the same constraint point, and the compliance side of the comparison relies on a surrogate predictor (see R4) rather than a directly verified, matched quantity."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "The primary outcome is a design-quality comparison with no speed or cost claim against classical SIMP, so the R2(a)-(e) efficiency criteria do not bear on it. No hardware is stated for either the classical data-generation step or the LDM in any case."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed claim is made against SIMP anywhere in the article. Noted for context: unlike a per-problem neural-reparameterization method, this LDM is fully data-driven, and its training data (66k/25k/10k samples) were themselves generated by the classical optimizer (SIMP in ANSYS) it is implicitly positioned against - a direct instance of the protocol's stated rationale for R3 ('training data are produced by the very optimizer the model replaces') - but since no speed/break-even claim is made, R3 does not activate here; the data-generation cost is also not reported in wall-clock terms (see baseline.data_generation_cost), so R3 would very likely fail if such a claim were made in a future version."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-surrogate-predicted",
+      "evidence": "Sec. 6.2: the paper's central structural-performance claim ('no substantial difference in performance') rests entirely on strain energy predicted by a separately trained CNN 'evaluation network', explicitly analogised to an Inception-v3 feature extractor for FID - i.e., a learned surrogate, not an FE re-analysis of the LDM's actual returned voxel design. This matches the protocol's R4 fail condition verbatim ('quality rests only on... surrogate-predicted performance'). Volume fraction is measured directly, but performance (the primary TO objective) is not. No connectivity, floating-material, or other failure/infeasibility rate is reported for the 2,000-design evaluation set, even though Sec. 4.1 separately notes that an alternative (VQ-VQ) architecture variant 'was prone to generating designs with floating artifacts' - a known failure mode for this model class that is not quantified for the final evaluated model."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "100 held-out Initial-Strain-Energy/SIMP-optimized test pairs, each with 20 LDM-generated designs (2,000 generated designs total), all drawn from the same in-distribution test split (Sec. 6)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access: arXiv abs/PDF pages returned HTTP 200 with no bot-check; two versions exist ([v1], [v2]), and the latest (v2, 24 Sep 2023) was read in full. The version of record (Computer-Aided Design, 2024) was not read because www.sciencedirect.com returned HTTP 403 on every attempt, consistent with other ScienceDirect articles encountered in this queue; per the coding instructions' own fallback ('or the latest arXiv version'), arXiv v2 was coded instead - this is the same underlying article (one pool record, pid P00358, already carries both the arXiv id and the journal DOI together), not a duplicate-pair situation, so no FT-DUPLICATE applies. Duplicate check: audit/pool/pool.csv searched for the full title (case-insensitive) returned exactly one match (this record). No author named Jun Wang (authors: Ethan Herron, Jaydeep Rade, Anushrut Jignasu, Baskar Ganapathysubramanian, Aditya Balu, Soumik Sarkar, Adarsh Krishnamurthy); the reference list cites unrelated prior work by a 'Jihong Wang' (ref. [20], co-author of a heat-transfer TO paper) and a 'Michael Yu Wang' (ref. [9], level-set TO), neither of whom is an author of this article. No code-availability statement, repository link, or dataset-availability statement of any kind was found anywhere in the text (checked by keyword search for 'github', 'code is available', 'source code'). Full-text inclusion: the article runs classical SIMP (via ANSYS) to generate both its training data and its 100 ground-truth test designs, and directly compares LDM outputs against those SIMP results on volume fraction and (surrogate-predicted) strain energy, so FT-NOBASELINE does not apply despite the absence of any speed/cost claim - this is a genuine, if imperfect, quality comparison against a classical, non-learned method's actual computed results, matching the protocol's 'articles whose primary outcome compares only design quality... are coded too' provision (Sec. 3.2/Sec. 4). direction is coded 'similar_or_mixed' rather than 'outperform' because the article's own claim is parity ('no substantial difference') rather than superiority, alongside a non-trivial, directly-measured volume-fraction gap (0.0989 MAE) that the text does not reconcile with the claimed near-optimality."
+}

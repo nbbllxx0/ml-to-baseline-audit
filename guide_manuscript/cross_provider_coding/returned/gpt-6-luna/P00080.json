@@ -1,0 +1,72 @@
+﻿{
+  "pid": "P00080",
+  "citation": {
+    "title": "VoroTO: Multiscale Topology Optimization of Voronoi Structures using Surrogate Neural Networks",
+    "authors": "Rahul Kumar Padhy; Krishnan Suresh; Aaditya Chandrasekhar",
+    "year": 2024,
+    "venue": "arXiv preprint, arXiv:2404.18300; later version of record in Engineering with Computers 41(2), 1123–1139 (2025)",
+    "doi": "10.1007/s00366-024-02077-w",
+    "arxiv_id": "2404.18300",
+    "version_coded": "arXiv v1 (2024); version of record not accessed"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR",
+    "stratum": "quality",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the mid-cantilever comparison, the multiscale NN-based design had compliance 68.3 versus 61.05 for the single-scale classical design at the stated volume target, indicating worse compliance for the proposed design.",
+    "key_phrase": "",
+    "location": "Section 3.2.2, Comparison",
+    "quantitative": true,
+    "claimed_speedup": 2200,
+    "claimed_speedup_basis": "Section 3.3 estimates 528 minutes for concurrent homogenization-based optimization and reports 0.24 minutes for the NN-based mid-cantilever optimization; 528 / 0.24 = 2,200. This is a projected comparison and does not include the NN method's one-time 28.4-minute preparation overhead.",
+    "direction": "underperform",
+    "alternatives": "Section 3.3 reports 26.4 minutes for homogenization/data generation plus 2 minutes for training, then estimates 528 minutes for concurrent homogenization; a brute-force fine-scale scenario is estimated at 4,986 minutes. The abstract and conclusion make qualitative efficiency claims."
+  },
+  "baseline": {
+    "classical_method": "Single-scale density-based topology optimization (compliance minimization) for quality comparison; concurrent homogenization-based multiscale optimization for runtime comparison",
+    "implementation": "Single-scale design generated using code from reference [95]; concurrent homogenization time is estimated from the authors' homogenization measurements",
+    "solver": "Finite-element analysis and numerical homogenization; linear solver not stated",
+    "hardware_classical": "MacBook M2 Air, 16 GB RAM (Section 3 numerical experiments; scenario estimates based on the measured homogenization cost)",
+    "hardware_ml": "MacBook M2 Air, 16 GB RAM (Section 3 numerical experiments)",
+    "problem_size": "Mid-cantilever: 40×20 macro grid; each microstructure homogenization uses a 40×40 microelement grid; fine-scale scenario is 1600×800 elements",
+    "classical_iterations": "Maximum 300 iterations; stopping at loss tolerance 10^-3 or maximum iterations (Section 3). Runtime scenarios use 300 iterations.",
+    "classical_time": "Concurrent homogenization estimate 528 min; brute-force fine-scale scenario 4,986 min; single-scale iteration 16.62 min (Section 3.3)",
+    "ml_time": "Mid-cantilever NN-based optimization 0.24 min (Section 3.3); Section 3.2.2 also reports 13.7 s for one multiscale optimization",
+    "training_time": "2 min",
+    "data_generation_cost": "26.4 min to homogenize and generate data for 12,000 microstructures (Section 3.3)",
+    "quality_metric": "Structural compliance and volume fraction; returned microstructures also checked by FEA/homogenization",
+    "quality_gap": "Mid-cantilever: reported compliance 61.05 for single-scale design versus 68.3 for the NN-based multiscale design; reconstructed design FEA gives compliance 74.6 and volume fraction 0.65 versus predicted values, reported errors 8.4% and 6.1% (Section 3.2.2)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-only", "evidence": "Section 3.2.2 reports a design-quality comparison as the primary outcome; it does not make a primary speed comparison."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 3.3 estimates concurrent homogenization cost from measured per-microstructure time and uses the same stated experiment hardware; no R2 inefficiency criterion is established."},
+    "R3": {"verdict": "partial", "marker": "R3-no-amortization", "evidence": "Section 3.3 reports 26.4 min data preparation, 2 min training, and 0.24 min per optimization, but does not state a break-even use count; its 528 min comparator is projected."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 3.2.2 reconstructs the optimized microstructures and evaluates them with FEA/homogenization, reporting compliance and volume fraction errors; the article does not report a count or rate of failed/infeasible designs."}
+  },
+  "reporting": {
+    "n_test_cases": "Several numerical examples: tensile bar, mid-cantilever, parameter variations, and heel-bone volume-fraction cases; an exact total is not stated.",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "The quality comparison is the first quantitative comparison with a classical method in the article's main text. The speed and cost comparisons in Section 3.3 are retained as alternatives and in baseline fields. Public Python code is identified in the article's replication statement."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00080",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "VoroTO: Multiscale Topology Optimization of Voronoi Structures using Surrogate Neural Networks",
+    "authors": "Rahul Kumar Padhy, Krishnan Suresh, Aaditya Chandrasekhar",
+    "year": 2024,
+    "venue": "arXiv preprint (cs.CE; also math.NA), CC BY 4.0; comment 'Submitted to Engineering with Computers'. Version of record: Engineering with Computers 41(2):1123-1139, doi 10.1007/s00366-024-02077-w, online 2024-10-29 (Crossref, OpenAlex); closed access per OpenAlex, and Crossref lists only Springer TDM licences; not read. Crossref also links a Research Square preprint (doi 10.21203/rs.3.rs-4339435/v1), which is not in the pool",
+    "doi": "10.1007/s00366-024-02077-w",
+    "arxiv_id": "2404.18300",
+    "version_coded": "arXiv v1 (28 Apr 2024; the only version), PDF (15 pages including references) read in full as text; the closed version of record was not read, so differences from it are unknown"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; primary outcome chosen by §5.1 rules 2 and 4)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the 40x20 mid-cantilever, NN-surrogate multiscale Voronoi TO takes 0.24 min after a one-time 28.4 min (data plus training), versus a projected 528 min for concurrent homogenization-based multiscale TO and 4,986 min for brute-force fine-scale TO.",
+    "key_phrase": "the proposed offline NN-based multiscale optimization is computationally far superior",
+    "location": "Sec. 3.3 ('Is Offline Computation Justified?', pp. 10-11). The abstract and conclusion state the advantage over concurrent homogenization only qualitatively, and the introduction has no classical comparison. The main text's first classical comparisons are compliance values (Sec. 3.2.1-3.2.2); rule 4 takes Sec. 3.3, the comparison the conclusion emphasises",
+    "quantitative": true,
+    "claimed_speedup": 2200,
+    "claimed_speedup_basis": "Derived, not stated: projected concurrent-homogenization time 528 min / VoroTO optimization 0.24 min = 2,200 per run, excluding the one-time 28.4 min. Including the one-time cost for a single use: 528 / 28.64 = 18.4 [derived]. Against the brute-force projection: 4,986 / 0.24 = 20,775, or 174 including the one-time cost [derived]. Both classical times are projections from unit costs (0.132 s per homogenization; one measured 16.62 min iteration), each multiplied by 300 assumed iterations.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 3.2.1 (first main-text compliance comparison): tensile bar, porous design 209 vs 183 for the single-scale design reported in [89] (an NN-based study; how that design was computed is not stated here). (2) Sec. 3.2.2: mid-cantilever at v = 0.6, VoroTO compliance 68.3 as predicted (74.6 at volume 0.65 on FE re-analysis) vs 61.05 for the single-scale 88-line code [95] and 76.86 for the infill design of [96]; computed in 13.7 s. (3) Conclusion, qualitative: significant computational advantages over concurrent homogenization with minimal loss in accuracy."
+  },
+  "baseline": {
+    "classical_method": "Speed comparators: concurrent homogenization-based multiscale TO (numerical homogenization of every macro element at every iteration) and brute-force single-scale TO at the fine scale; both are projections, not runs (Sec. 3.3). Quality comparators: single-scale designs from the 88-line code [95] and from [89], and the infill optimization of [96] (Sec. 3.2.1-3.2.2)",
+    "implementation": "The projections use the authors' own homogenization code (unit cost taken from the data-generation run) and an unstated single-scale code for the one timed 1600 x 800 iteration; VoroTO itself is in PyTorch (Sec. 2.5.3)",
+    "solver": "not stated",
+    "hardware_classical": "MacBook M2 Air, 16 GB RAM (all experiments; Sec. 3)",
+    "hardware_ml": "MacBook M2 Air, 16 GB RAM (all experiments; Sec. 3); CPU or GPU use not stated",
+    "problem_size": "Macro mesh 40 x 20 elements with 4 Voronoi sites per element; homogenization mesh 120 x 120 per microstructure (Sec. 2.4.2); brute-force projection at 1600 x 800 elements (40 x 40 micro-elements per macro element; about 2.56 million DOFs [derived])",
+    "classical_iterations": "300 assumed in both projections, equal to VoroTO's iteration cap (Sec. 3, Sec. 3.3)",
+    "classical_time": "Projected: 528 min for concurrent homogenization (0.132 s per homogenization x 800 elements x 300 iterations) and 4,986 min for brute force (one measured 16.62 min iteration x 300) (Sec. 3.3)",
+    "ml_time": "0.24 min per mid-cantilever optimization (Sec. 3.3); 13.7 s in Sec. 3.2.2 and the parameter studies (0.24 min = 14.4 s [derived])",
+    "training_time": "2 min (Sec. 3.3)",
+    "data_generation_cost": "26.4 min for 12,000 homogenized microstructures (Sec. 3.3; data set in Sec. 3.1.1)",
+    "quality_metric": "NN-predicted compliance and volume during optimization; for the mid-cantilever and heel-bone cases, microstructures rebuilt and re-homogenized by FEA, followed by macroscale FEA (Sec. 3.2.2, Sec. 3.2.4); compliance compared with single-scale and infill designs",
+    "quality_gap": "Mid-cantilever: predicted compliance 68.3 vs 74.6 on re-analysis (8.4% error); volume 0.65 vs target 0.6 (stated error 6.1%; 8.3% relative to the target [derived]) (Sec. 3.2.2). Heel bone: errors below 10% (Sec. 3.2.4). No design exists from either projected classical method"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-no-quality",
+      "evidence": "Sec. 3.3: the speed comparison sets VoroTO's 0.24 min against projected times for concurrent homogenization and brute-force TO that were never run, so no classical design quality exists at any time or budget. The only accuracy figures are VoroTO's own surrogate errors (Sec. 3.2.2: re-analysed compliance 8.4% above the prediction; volume 0.65 against the 0.6 target). A reading that takes the surrogate error as the quality comparison would give partial at best, because the volume is not matched."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl [inferred]",
+      "evidence": "Sec. 3.3: both classical times are projections. The concurrent-homogenization estimate assumes serial homogenization of all 800 elements at each of 300 iterations on a laptop, with no parallel or reuse strategy. The brute-force estimate multiplies one 16.62 min iteration at 1600 x 800 (about 2.56 million DOFs [derived]) by 300, with the solver not stated; that per-iteration time looks slow for the size [inferred] and is an input for an R2(e) re-test. (b) and (c) do not apply (one laptop for all runs). (d) is not established: 300 is VoroTO's own iteration cap, and the article gives no classical convergence data."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-full-cost",
+      "evidence": "Sec. 3.3: data generation (26.4 min) and training (2 min) are reported and set, with the 0.24 min run, against one projected classical run. The total, 28.64 min [derived], is below either projection, so the method breaks even at the first use."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 3.2.2 and 3.2.4: for the mid-cantilever and heel-bone designs, the microstructures were rebuilt and re-analysed by homogenization FEA and macroscale FEA, and the re-analysed volume is reported (0.65 vs target 0.6). Figs. 14 and 17-19 report optimizer-side compliance values [inferred: NN-predicted]. Disconnected or failed microstructure layouts are not counted; filtering promotes connectivity, but connectivity is not measured."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "11 distinct optimization runs [derived: tensile bar 1; mid-cantilever at v = 0.6, 1; six parameter-variation runs at v = 0.5 (Figs. 17-19, default run shared); heel bone 3 (Fig. 20)]; the timing comparison covers the mid-cantilever only (Sec. 3.3)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Screening code was I-SPEED. Version: the Engineering with Computers version of record is closed (OpenAlex: closed; Crossref: Springer TDM licences only), so under the FT-DUPLICATE rule the latest arXiv version (v1, the only one) is the primary version; no other version is in the pool (title and 'Voronoi' searched). Primary-outcome judgment: abstract, introduction and conclusion hold no quantitative classical comparison. The main text holds compliance comparisons (Sec. 3.2.1-3.2.2) and the time comparison (Sec. 3.3). Rule 4 takes Sec. 3.3, because the conclusion's only classical claim is the computational advantage over concurrent homogenization. A strict 'first main-text comparison' reading would take the Sec. 3.2.1 tensile-bar compliance and give stratum Q. This batch applies the same rule-2-then-rule-4 reading to P00161 and P01219. Timing protocol: hardware stated (MacBook M2 Air); the classical times are projections from one measured iteration and a derived homogenization cost; no warm-up or repeats; hence partial. Runtimes: 13.7 s is given for the mid-cantilever runs, none for the tensile bar or heel bone, hence selective. Code: github.com/UW-ERSL/VoroTO (GitHub API, 2026-09-24: public, MIT licence, Python modules and notebooks for data generation, training and TO; the data folder holds no data files). retest_candidate true: public code under MIT and a runnable mid-cantilever benchmark. The classical side is a projection, which a re-test can check with the repository's homogenization code and our strong baseline (the 16.62 min iteration at 1600 x 800 for R2(e)). Minor inconsistencies: 0.24 min (Sec. 3.3) vs 13.7 s (Sec. 3.2.2); stated volume error 6.1% vs 8.3% for 0.65 against 0.6 [derived]. Authors checked: no author named Jun Wang (reference [96] is by Jun Wu, not a queue author)."
+}

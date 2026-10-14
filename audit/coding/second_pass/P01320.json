@@ -1,0 +1,88 @@
+{
+  "pid": "P01320",
+  "citation": {
+    "title": "Topology optimization using artificial intelligence",
+    "authors": "Ahmed Ait Ouchaoui, Mohammed Nassraoui, Bouchaib Radi",
+    "year": 2024,
+    "venue": "Incertitudes et fiabilite des systemes multiphysiques (ISTE OpenScience), vol. 8, no. 2",
+    "doi": "10.21494/iste.op.2024.1231",
+    "arxiv_id": "",
+    "version_coded": "Version of record (open access), 5-page PDF downloaded from the publisher's own file host at https://www.openscience.fr/IMG/pdf/iste_incertfia24v8n2_7.pdf (the direct link given in the queue file) and read in full, including references"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (the only quantitative comparison with a classical method anywhere in the article, Sec. 3/Table 1, is a structural-quality comparison -- Von Mises stress, displacement, deformation energy -- between SIMP and TopologyGAN; no computation time is reported for TopologyGAN anywhere, so no quantitative speed comparison exists despite the Abstract/Conclusion's claim of a 'computing performance'/'computational economy' benefit)",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a single 120x60 mm cantilever beam (7200 elements, volume fraction 0.4), the design produced by a pretrained TopologyGAN model (Nie et al. 2021) has 2.72x higher maximal Von Mises stress, 5.62x higher maximal Y-displacement, and 8.08x higher deformation energy than the design produced by SIMP for the same problem -- i.e. TopologyGAN's output performs markedly worse than SIMP's on every reported structural metric -- although the Abstract and Conclusion describe this same comparison as TopologyGAN providing 'considerable benefits in terms of improved design correctness and computing performance.'",
+    "key_phrase": "the maximal stress increases by 2.72 times",
+    "location": "Section 3 ('Results and discussion'), Table 1 and the accompanying text (main text). No quantitative comparison between TopologyGAN and SIMP appears in the Abstract, Conclusion (Sec. 4) or Introduction; all three describe the comparison only qualitatively and, in the Abstract/Conclusion, in terms that do not match the Section 3 numbers",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable and not supported by any reported number. The article states only one computation time in the entire text -- '54 seconds' for an 'optimal shape after 33 iterations' (Sec. 3) -- which, by its reference to iterations, almost certainly describes the SIMP run rather than TopologyGAN (a single-shot GAN inference has no 'iterations' in this sense). No computation time, hardware, or timing detail of any kind is given for TopologyGAN anywhere in the article, so the Abstract/Conclusion's claim of a 'computing performance' or 'computational economy' benefit for TopologyGAN is not backed by any number in the text.",
+    "direction": "underperform",
+    "alternatives": "(1) Sec. 3 also reports SIMP vs. the unoptimized 'Original' design (weight reduced 40%, but stress +2.15x, displacement +1.8x, deformation energy +3.27x) and TopologyGAN vs. 'Original' (weight reduced 46%, but stress +5.86x, displacement +10.12x, deformation energy +26.45x); these are not the primary ML-vs-classical outcome but provide the basis for the TopologyGAN-vs-SIMP ratios reported above. (2) The Abstract/Conclusion's qualitative claim of 'improved design correctness and computing performance' for TopologyGAN, which is not quantified anywhere and is contradicted by the Table 1 numbers themselves (direction is scored 'underperform' based on the actual reported data, not the paper's own characterization of it)."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material with Penalization), compliance formulation (Eq. 1), penalization factor p=3, volume fraction target vf=0.4",
+    "implementation": "not stated (no software/library named for the SIMP run); TopologyGAN is the pretrained conditional-GAN architecture of Nie et al. (2021) (U-SE-ResNet generator, PatchGAN discriminator), used here on a new problem instance -- the article does not state whether the pretrained network was retrained/fine-tuned on this problem's domain or used purely off-the-shelf",
+    "solver": "not stated (direct/iterative) for the SIMP FE solve",
+    "hardware_classical": "'ASUS computer Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz 1.99GHz, RAM 16.0 Go' (Sec. 3); this timing/hardware statement immediately follows a mention of '33 iterations', so it most plausibly describes the SIMP run only",
+    "hardware_ml": "not stated anywhere for TopologyGAN (no hardware, and no separate computation time, given at all)",
+    "problem_size": "Cantilever beam, 120x60 mm, element size 1 mm, 7200 elements total (2D); fixed at point A, forces Fx=0.5 N and Fy=0.87 N (Sec. 2)",
+    "classical_iterations": "33 iterations for the SIMP run (Sec. 3); no iteration concept applies to the single-shot TopologyGAN inference, and no separate timing is given for it",
+    "classical_time": "54 seconds (Sec. 3), most plausibly for the SIMP run given the co-mentioned '33 iterations', though the sentence does not explicitly exclude TopologyGAN either",
+    "ml_time": "not stated anywhere in the article",
+    "training_time": "not applicable / not stated: TopologyGAN is used as a pretrained model from Nie et al. (2021); no retraining or fine-tuning cost is reported for this article's own problem",
+    "data_generation_cost": "not stated; if the pretrained Nie et al. (2021) network was used without retraining, no new data-generation cost would apply, but the article does not clarify this",
+    "quality_metric": "Maximal Von Mises stress (MPa), maximal directional displacement in Y (1e-5 mm), and deformation energy (1e-7 mJ), reported for the Original, SIMP and TopologyGAN designs alike (Table 1); the article does not state what FE tool computed these values or whether the same mesh/solver was used to score all three designs",
+    "quality_gap": "Table 1: Original (0.138 MPa, 5.046e-5 mm, 1.58e-7 mJ); SIMP (0.297 MPa, 9.09e-5 mm, 5.17e-7 mJ); TopologyGAN (0.809 MPa, 51.097e-5 mm, 41.79e-7 mJ). TopologyGAN vs. SIMP (Sec. 3, stated directly): stress +2.72x, displacement +5.62x, deformation energy +8.08x -- i.e. TopologyGAN's design is substantially worse than SIMP's on every metric"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-narrative-contradicts-data",
+      "evidence": "The Abstract and Conclusion characterize the TopologyGAN-vs-SIMP comparison as TopologyGAN providing 'considerable benefits in terms of improved design correctness and computing performance' / 'enhanced accuracy and computational economy', but the article's own Table 1 and Sec. 3 text report TopologyGAN performing 2.72x-8.08x WORSE than SIMP on every structural metric (stress, displacement, deformation energy), and report no computation time for TopologyGAN at all (so no 'computing performance' figure exists to support that half of the claim either). In addition, TopologyGAN is a pretrained network (Nie et al. 2021) applied here to a new problem instance without any stated retraining, fine-tuning, or check that the new geometry/loading falls inside its trained distribution, which is a plausible explanation for the large quality gap and means the comparison's fairness cannot be established from the text. This combination -- an unmatched/unverified transfer of a pretrained model plus a headline claim that contradicts the article's own reported numbers -- is scored fail rather than partial."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome (Table 1) is a design-quality comparison, not a speed/cost claim, so R2's efficiency criteria do not bear on it. For the record, SIMP's own cost (33 iterations, 54 s on a laptop-class Intel i7-8565U CPU) is not evidently excessive for a 7200-element 2D problem, and no hardware asymmetry claim can be evaluated since no hardware or time is given for TopologyGAN at all."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No quantitative speed or cost claim for TopologyGAN exists anywhere in the article (see claim.claimed_speedup_basis). TopologyGAN is used as a pretrained model (Nie et al. 2021); no training or data-generation cost for it is reported in this article, consistent with it not being retrained here, but the article does not say so explicitly."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-fe-metric-no-constraint-check",
+      "evidence": "Quality is reported via genuine FE-derived structural-response quantities (Von Mises stress, displacement, deformation energy), not an image-similarity or surrogate-predicted metric, for all three designs (Original, SIMP, TopologyGAN). However, the article does not state whether the same FE mesh/solver was used to independently verify all three designs, does not report the volume fraction actually achieved by TopologyGAN's output (only the target vf=0.4 used for SIMP is given), and reports only a single deterministic example with no failure/infeasibility discussion."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1 (a single cantilever beam problem)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Ahmed Ait Ouchaoui, Mohammed Nassraoui, Bouchaib Radi; all Hassan II/Hassan I University, Morocco). No duplicate pool entry found: audit/pool/pool.csv has exactly one row for this title (P01320), with no arXiv id; its venue field ('Incertitudes et fiabilite des systemes multiphysiques') matches several of the article's own self-citations ([OUC 22], [OUC 23], [ELJ 23]), indicating this is the authors' regular outlet. Access: downloaded directly from the publisher's own open-access file host (openscience.fr) using the exact URL given in the queue file; no bot-check, CAPTCHA or paywall was encountered. Data-integrity concern for the adjudicator: this is a short (5-page), single-example study whose Abstract and Conclusion claim TopologyGAN offers 'improved design correctness and computing performance' over SIMP, while the article's own Table 1 shows TopologyGAN performing 2.72x-8.08x worse than SIMP on every reported structural metric, and no computation time for TopologyGAN is reported at all. This is a clear, well-evidenced mismatch between the article's narrative framing and its own quantitative results, distinct from the numbers simply being weak -- the numbers are plainly reported, but characterized in the opposite direction from what they show. This is exactly the kind of publication-bias/spin pattern relevant to the audit's C4 indicators (claim direction) and is reflected here by scoring claim.direction as 'underperform' (based on the data) rather than 'outperform' (based on the article's own wording), and by failing R1."
+}

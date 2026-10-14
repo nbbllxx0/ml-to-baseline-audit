@@ -1,0 +1,14 @@
+{
+  "pid": "P01151",
+  "citation": {"title": "Two-scale topology optimization of multiscale structures and materials via deep neural networks for local and global buckling", "authors": "Sobhan Honarvar, Nolan Black, Ahmad R. Najafi", "year": 2026, "venue": "Computer Methods in Applied Mechanics and Engineering 458, 119038", "doi": "10.1016/j.cma.2026.119038", "version_coded": "abstract only; no full text coded"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED (no accessible full text)", "stratum": "none", "method_family": "surrogate_mlp_gp", "physics": "stress", "dim": "unclear"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "no full text", "direction": "outperform", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}, "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}, "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}, "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}},
+  "reporting": {"n_test_cases": "no full text", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Drexel institutional page labels the version of record open access but links only to the DOI. The publisher page returned HTTP 403; no accessible author or institutional full-text copy was found. Abstract indicates speed or cost advantage from replacing per-iteration FE homogenization, but full-text rules cannot be coded."
+}

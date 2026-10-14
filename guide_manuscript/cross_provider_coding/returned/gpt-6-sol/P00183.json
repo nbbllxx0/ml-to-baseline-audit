@@ -1,0 +1,58 @@
+{
+  "pid": "P00183",
+  "citation": {
+    "title": "One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning",
+    "authors": "Ruijin Cang, Hope Yao, Yi Ren",
+    "year": 2019,
+    "venue": "Computer-Aided Design",
+    "doi": "10.1016/j.cad.2018.12.008",
+    "arxiv_id": "1807.10787",
+    "version_coded": "arXiv v3 (27 Dec 2018)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "include", "reason": "I-SPEED", "stratum": "speed",
+    "method_family": "other", "physics": "compliance", "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Checking a generated design against optimality conditions takes one finite-element analysis, whereas comparison with a conventionally optimized design takes thousands of analyses.",
+    "key_phrase": "",
+    "location": "Conclusion, p. 16",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Conclusion gives one versus thousands of finite-element analyses for validation, without an exact factor. Section 5.4, p. 13 gives approximate generation times of 10^-2 s versus 10^2-10^3 s, implying an order-of-magnitude range of 10^4-10^5 rather than one exact factor.",
+    "direction": "outperform",
+    "alternatives": "Section 5.4, p. 13 compares per-topology generation time with a conventional TO solver; abstract compares compliance with other learned training methods under equal data-acquisition budget."
+  },
+  "baseline": {
+    "classical_method": "Augmented-Lagrangian compliance topology optimization (Appendix, Algorithm 2)",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "Intel Xeon CPU E5-1620 at 3.50 GHz (section 5.4, p. 13)",
+    "problem_size": "40-by-120 element mesh in Case 1 (section 5.2, p. 8); Case 2 mesh size not stated",
+    "classical_iterations": "About 5000 finite-element analyses for N=4800 (section 3.2, p. 6); stopping conditions in Appendix Algorithm 2",
+    "classical_time": "Order of 10^2 to 10^3 seconds per topology (section 5.4, p. 13)",
+    "ml_time": "Order of 10^-2 seconds per topology (section 5.4, p. 13)",
+    "training_time": "not stated",
+    "data_generation_cost": "Case 1 static set 16 optimized designs and Case 2 static set 7000 optimized designs, with adaptive methods under the same FE-solve budget (section 5.2, p. 9); elapsed time not stated",
+    "quality_metric": "FE-computed compliance and compliance gap; global/local volume-constraint violation and failed-design rate (section 5.4, pp. 9-12)",
+    "quality_gap": "Case 2 median compliance gap 5.2 (0.6 standard deviation) for proposed method versus optimized ground truth; failure rate 0.16% (0.09% standard deviation), Table 1, p. 12"
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-unmatched", "evidence": "Section 5.4, pp. 12-13: inference is compared with a full TO solve, while generated designs retain a positive compliance gap and global-volume violation; no matched-quality timing is given."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Sections 3.2 and 5.4 and Appendix: augmented-Lagrangian comparator and its total time are described; no same-size solver comparison, hardware mismatch, fixed excessive iteration count, or per-iteration benchmark establishes an R2 failure."},
+    "R3": {"verdict": "partial", "marker": "R3-costs-no-amortization", "evidence": "Sections 5.2 and 5.4, pp. 9 and 13: data-acquisition budget is counted in FE solves and authors limit the speed comparison to run time, but training time and a break-even number of uses are not given."},
+    "R4": {"verdict": "pass", "marker": "R4-FE-verified", "evidence": "Section 5.4 and Table 1, pp. 9-12: generated topologies are evaluated for compliance using FE analysis, global/local volume violations are reported, and designs with large compliance gaps are counted as failures."}
+  },
+  "reporting": {
+    "n_test_cases": "Case 1: 100; Case 2: 1000 (section 5.2, p. 9)",
+    "ood_test": "no", "seeds_or_variance": "yes", "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial", "runtimes_all_cases": "no",
+    "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Reporting locators: section 5.2 defines test sets and 10 independent runs; section 5.4 and Table 1 give variance and failure rates. Section 5.4 gives only approximate timing and names hardware for ML inference; conclusion links source code, but reproducible benchmark and permission to run it were not established from the article. No out-of-distribution test or public data statement found."
+}

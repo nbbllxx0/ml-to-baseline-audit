@@ -1,0 +1,72 @@
+﻿{
+  "pid": "P01289",
+  "citation": {
+    "title": "Process-aware topology optimization leveraging deep learning surrogate model-based functions for laser powder bed fusion",
+    "authors": "Praveen S. Vulimiri, Shane Garner, Albert C. To",
+    "year": 2026,
+    "venue": "Additive Manufacturing, 118, 105094",
+    "doi": "10.1016/j.addma.2026.105094",
+    "arxiv_id": "",
+    "version_coded": "Abstract only; ScienceDirect full text returned HTTP 403"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (no accessible full text)",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "multiphysics",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the largest example, the abstract says the optimization converged in 2.5 days, faster than a single verification FEA that took 4 days.",
+    "key_phrase": "",
+    "location": "abstract",
+    "quantitative": true,
+    "claimed_speedup": 1.6,
+    "claimed_speedup_basis": "4 days verification FEA / 2.5 days optimization = 1.6; abstract, largest example. This compares optimization duration with one verification simulation, as described in the abstract.",
+    "direction": "outperform",
+    "alternatives": "The abstract also claims the surrogate evaluates over 100 times faster than one FEA process simulation; comparison details are unavailable without full text."
+  },
+  "baseline": {
+    "classical_method": "FEA-based process simulation and end-use application are mentioned; classical TO baseline is not specified in the accessible abstract",
+    "implementation": "not stated",
+    "solver": "FEA (abstract)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Largest example has hundreds of thousands of design variables (abstract)",
+    "classical_iterations": "over 400 iterations (largest example, abstract)",
+    "classical_time": "4 days for one verification FEA simulation (abstract; not established as classical TO runtime)",
+    "ml_time": "2.5 days convergence time for largest example (abstract)",
+    "training_time": "not stated in accessible abstract",
+    "data_generation_cost": "not stated in accessible abstract",
+    "quality_metric": "End-use mechanical performance and residual distortion (abstract)",
+    "quality_gap": "Abstract says process-aware designs had similar mechanical performance and distorted less; values not stated."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no full text", "evidence": "No full text."},
+    "R2": {"verdict": "na", "marker": "no full text", "evidence": "No full text."},
+    "R3": {"verdict": "na", "marker": "no full text", "evidence": "No full text."},
+    "R4": {"verdict": "na", "marker": "no full text", "evidence": "No full text."}
+  },
+  "reporting": {
+    "n_test_cases": "2 test examples (abstract)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "The publisher page and author-request listing expose the abstract, but the publisher full-text request returned HTTP 403. Abstract only: inclusion reason is based on the reported speed/cost comparison; full-text eligibility and rules remain unverified. The abstract says no novel designs failed experimentally."
+}

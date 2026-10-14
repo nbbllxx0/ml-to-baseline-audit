@@ -1,0 +1,88 @@
+{
+  "pid": "P00214",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Steering topology distributions for unified generative design of architected metamaterials",
+    "authors": "Haolin Li, Yuyang Miao, Menglei Li, Jinshuai Bai, Liyuan Wang, Xin Liu, Bo Gao, Jiantao Liu, Danilo Mandic, Zahra Sharif Khodaei, M. H. Aliabadi, Weiqiu Chen",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.AI; also cond-mat.mtrl-sci, cs.LG)",
+    "doi": "10.48550/arXiv.2607.24777",
+    "arxiv_id": "2607.24777",
+    "version_coded": "arXiv v1 (submitted 15 Jun 2026; only version on the abs page), full text read from https://arxiv.org/html/2607.24777"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On thermal-conductivity extremization of a 256×256 periodic cell at 0.4 volume fraction, GenTO matched classical density-based TO for maximization (best 0.2498 vs 0.2493) and gave the best valid minimization design (0.0323) where TO's design failed feasibility.",
+    "key_phrase": "GenTO significantly outperforms both TO and GA",
+    "location": "Section 2.1 and Fig. 2g (main text); numbers in Supplementary Table 3 (Appendix E.1)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed or runtime comparison with a classical method anywhere. Efficiency is discussed only as evaluation budgets (Supp. F.1, Tables 7-8), and the TO budget is given only as one trajectory, without an iteration count. Not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) Maximization parity alone (GenTO 0.2498 vs TO 0.2493, Supp. Table 3), if the first-listed task is taken instead of the emphasised minimization result. (2) Case 2 Pareto front vs GA (Fig. 3c; Supp. Table 4) and Case 3 constitutive-matrix MAE vs GA, Best in Prior and Best in training sets (Fig. 4d; Supp. Table 5); the GA is seeded and replenished from the pretrained generator (Supp. D.4), so it is not a purely classical comparator. (3) Abstract: qualitative claim that benchmark and experimental results back the high performance, with no named comparator."
+  },
+  "baseline": {
+    "classical_method": "Density-based TO with SIMP-type penalized interpolation, sensitivity filtering and an optimality-criteria-type update for maximization tasks, one optimization trajectory (Supp. D.3). Other baselines: Best in training sets, Best in Prior, generator-seeded GA (Supp. D.1, D.2, D.4)",
+    "implementation": "not stated in the article; the public repository (MIT licence) has top-level Training/ and Generation/ folders and no TO or GA baseline code was seen (README checked 2026-09-24)",
+    "solver": "TO: FE analysis, solver type not stated (Supp. D.3). Final scoring of all methods: FFT-based Lippmann-Schwinger homogenization, 256×256 grid, 500 fixed-point steps per loading direction (Supp. C.1)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "2D periodic unit cell, 256×256 binary grid, volume fraction 0.4 (Supp. C.1)",
+    "classical_iterations": "not stated (TO budget listed as a single trajectory, Supp. Table 8)",
+    "classical_time": "not stated",
+    "ml_time": "not stated; Case 1 evaluation budget ~1.3×10^4 candidates per objective (Supp. Table 8), 100 steering iterations with 64 elites (Supp. Table 2)",
+    "training_time": "not stated; diffusion sampling and fine-tuning costs are explicitly not reported (Supp. F.1)",
+    "data_generation_cost": "not stated; pretraining set is procedurally generated (Gaussian random field, Cahn-Hilliard, porous and truss families at 256×256), not produced by TO (Supp. B.1)",
+    "quality_metric": "Homogenized thermal conductivity score (mean of two directional conductivities with anisotropy penalty weight 0.1), same FFT solver for all methods; feasibility = periodic connectivity and minimum feature size > 5 pixels (Supp. C.1, E.1)",
+    "quality_gap": "Maximization best: GenTO 0.2498 vs TO 0.2493. Minimization best: GenTO 0.0323 (top-16 mean 0.0333) vs TO marked as failing feasibility, GA 0.0568 (Supp. Table 3)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Supp. E.1, Table 3: all designs at volume fraction 0.4, same FFT evaluator and feasibility checks, so volume and constraints are matched. Budget is not matched against TO: GenTO uses ~1.3×10^4 evaluated candidates per objective (Supp. Table 8) plus unreported sampling and fine-tuning cost, while TO is one run whose iteration count and stopping rule are not stated; the Discussion says TO was handled outside the equal-budget comparison. Against TO, the minimization advantage consists of TO's single run returning an infeasible design."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome compares design quality only; no classical runtime or speed claim is made, so the efficiency criteria (a)-(e) do not bear on it. For the record: TO mesh, FE solver, penalty exponent value, filter radius and iteration count are not stated (Supp. D.3)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim against TO. For C3: pretraining, sampling and fine-tuning costs are not reported (Supp. F.1); the pretraining data are procedurally generated, not TO outputs (Supp. B.1)."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Supp. C.1 and E.1: returned binary designs of every method are re-scored by the same FFT homogenization solver at fixed volume fraction 0.4, with connectivity and minimum-feature checks; the infeasible TO minimization design is reported as a failure (Supp. Table 3). Not reported: the share of GenTO samples rejected by screening during steering."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 case studies (Case 1 thermal max/min; Case 2 morphology; Case 3 auxetic targets in 3 symmetry groups; Case 4 two transmission targets); the TO comparison covers Case 1 only (Sec. 2; Supp. Tables 2 and 8)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; full text gives stratum Q (I-QUALITY). Primary outcome: no quantitative classical comparison in abstract, Discussion (serves as conclusion) or Introduction, so the first main-text comparison (Sec. 2.1, Fig. 2g) was taken. The paraphrase covers both Case 1 tasks, which Fig. 2g shows together; direction 'outperform' follows the minimization result that the text emphasises, and alternative (1) isolates the maximization parity. The only fully non-learned comparator is density-based TO, used in Case 1 only; Cases 2-4 have no TO comparison (Supp. Table 8). Fig. 2g shows GenTO, GA and Best in Prior as spreads over 10 runs but TO as a single value, and the image plots a TO minimization value although Supp. Table 3 marks that design infeasible [observed in the Fig. 2g image]. Supp. F.2: the authors state classical TO may remain highly competitive for smooth, well-posed problems. Case 4 (elastodynamic transmission, 1-5 kHz, Supp. C.4) is close to the protocol's acoustic exclusion but is not the primary outcome. Reporting locators: OOD = Fig. 2f and Fig. 4e (scores and targets outside the pretrained prior); variance = Fig. 2g (10 runs); code and data = Code/Data Availability sections (GitHub + Zenodo; Google Drive + Zenodo). retest_candidate false: no speed claim to re-test, and no TO/GA baseline code was seen in the repository."
+}

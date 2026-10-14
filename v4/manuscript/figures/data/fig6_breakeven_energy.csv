@@ -1,0 +1,28 @@
+panel,item,value
+a,Stated in OAT's paper,2320000
+a,"OAT's own timing table, 256²",234512
+a,"Our machine, 150 iterations, 256²",1917482
+a,"Our machine, matched quality, 256²",13680034
+a,"Same, pre-registered matching rule",46597998
+a,"Our machine, matched quality, 64²",never
+a,"Same, PARDISO as the baseline",37328205
+b,"OAT, 64²",98.00
+b,"OAT, 64²",105.28
+b,"OAT, 64²",97.18
+b,"OAT, 64²",104.12
+b,"OAT, 64²",100.93
+b,"Ours, 64²",221.22
+b,"Ours, 64²",163.68
+b,"Ours, 64²",199.73
+b,"Ours, 64²",167.33
+b,"Ours, 64²",354.65
+b,"OAT, 256²",102.45
+b,"OAT, 256²",101.57
+b,"OAT, 256²",100.78
+b,"OAT, 256²",102.58
+b,"OAT, 256²",104.05
+b,"Ours, 256²",630.49
+b,"Ours, 256²",1949.31
+b,"Ours, 256²",2387.86
+b,"Ours, 256²",554.96
+b,"Ours, 256²",1560.33

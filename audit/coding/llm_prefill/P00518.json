@@ -1,0 +1,44 @@
+{
+  "pid": "P00518",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Machine learning-enabled inverse design of bimaterial thermoelastic lattice metamaterials",
+    "authors": "Xiang-Long Peng, Bai-Xiang Xu",
+    "year": 2026,
+    "venue": "arXiv preprint (physics.app-ph; also cond-mat.mtrl-sci). Crossref lists a version of record with the same title and authors: Composite Structures (June 2026), doi 10.1016/j.compstruct.2026.120398; ScienceDirect returned HTTP 403 to scripted access, so it was not read",
+    "doi": "10.48550/arXiv.2602.20173",
+    "arxiv_id": "2602.20173",
+    "version_coded": "arXiv v1 (12 Feb 2026; only version on the abs page), full text incl. supplementary material read from https://arxiv.org/html/2602.20173"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: fully connected forward and inverse ANNs trained on 10^5 FE-homogenized hybrid-honeycomb designs return lattice parameters whose properties match targets within 0.15-6.5% relative error in the worked examples; no classical optimizer is run or timed.",
+    "location": "Abstract; Sections 3.3-3.7, Tables 3-6 and S.2-S.3; Section 4",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No runtime of any method is reported; efficiency is asserted without timing (Abstract; Sections 3.5 and 3.7; Section 4)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 and the 2026-09-24 FT-NOBASELINE clarification: the article never runs, times or cites the cost or result of a classical optimizer. Iterative inverse-design methods (genetic algorithm [34], Bayesian optimization [35]) are named only as background in Sec. 2.3.2, and the direct inverse ANN is adopted without any comparison. The FE homogenization (in-house Matlab code, one Timoshenko beam element per strut, periodic boundary conditions; Sec. 2.2) serves only as data generator and ground truth for the forward model (R² above 0.994 on the test set, Fig. 3). That is forward-analysis accuracy, not an optimization-level comparison. The efficiency statements (Abstract; Sec. 3.5, 3.7; Sec. 4) carry no timing, hardware or cost figures. Secondary reason for the verifier: FT-SCOPE may also apply, because the design space is a 6-parameter hybrid-honeycomb lattice (four geometric features plus two base-material ratios, Table 1), not TO, and §3.1 admits architected-material inverse design only with a TO or homogenization-based optimization comparator. The article does not state whether the designed-property columns of Tables 3-6 come from FE homogenization or from the forward model; the fixed-material dataset of 20,000 points was generated with the forward model, not FE (Sec. 3.6). Relative errors in the worked examples: 3.4-6.4% (Table 3), 2.4-4.5% (Table 4), 2.1-6.5% (Table 5), 1.8-4.7% (Table 6), 0.2-1.6% (Table S.2), 0.15-2.7% (Table S.3). Code and data: https://github.com/XiangLongPeng/ML_inverse_design_thermo_metamater (GitHub API, 2026-09-24: repository exists with folders ML_models and dataset plus a README; no licence declared). Article licence CC BY 4.0. Screening code was I-UNCLEAR."
+}

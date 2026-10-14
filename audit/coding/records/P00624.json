@@ -1,0 +1,60 @@
+{
+ "pid": "P00624",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Deep learning-based 3D multigrid topology optimization of manufacturable designs",
+  "authors": "Jaydeep Rade, Anushrut Jignasu, Ethan Herron, Ashton Corpuz, Baskar Ganapathysubramanian, Soumik Sarkar, Aditya Balu, Adarsh Krishnamurthy",
+  "year": 2023,
+  "venue": "Engineering Applications of Artificial Intelligence 126 (2023) 107033 (Elsevier; issue dated November 2023; Crossref lists an Elsevier open-access user licence for the accepted manuscript from 2024-09-07; OpenAlex status bronze)",
+  "doi": "10.1016/j.engappai.2023.107033",
+  "arxiv_id": "none found",
+  "version_coded": "none: no full text and no abstract reachable (the pool record from OpenAlex has no abstract; Crossref and Semantic Scholar hold none)"
+ },
+ "access": "no_access",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "3d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no full text and no abstract read).",
+  "location": "none",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "no full text"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent 'Mozilla/5.0 (research-audit)'. (1) The DOI resolves via linkinghub to ScienceDirect PII S0952197623012174, which answered HTTP 403 with a captcha/robot page to curl. No bypass was attempted. (2) OpenAlex (stored lookup) lists only the publisher location (bronze, accepted version) and no repository copy; the pool record has no abstract. (3) Crossref and Semantic Scholar hold no abstract; Semantic Scholar's open-access link is the DOI. (4) Europe PMC: no record. (5) arXiv API: no version (title words 'multigrid topology optimization'; 'manufacturable' AND 'multigrid'; 'Pyramid U-Net' in abstracts; authors Rade AND Krishnamurthy, Balu AND Krishnamurthy, Jignasu); the group's related arXiv papers are 2012.05359 (Algorithmically-consistent deep learning frameworks for TO) and 2309.11601 (Latent diffusion models for structural component design, coded as P00358), both different studies. (6) Web search on the exact title: only ScienceDirect and a ResearchGate request page (not used). (7) The NSF Public Access Repository refused the connection from curl, and WebFetch failed with a certificate error; a site-restricted web search found no NSF PAR record. Free to read in a browser: probably yes, since Crossref shows an open-access licence for the accepted manuscript from 2024-09-07 and OpenAlex marks it bronze [inferred; not opened in a browser]. A human can fetch it from https://doi.org/10.1016/j.engappai.2023.107033. Unverified context from a search-engine summary of the publisher's abstract page (not read by this agent): a multigrid Pyramid U-Net predicts high-resolution 3D optimal topologies from the initial strain energy and target volume fraction, trained on more than 60,000 shapes with distributed GPU training, with 3D-printed examples; whether any classical run is timed is unknown. method_family is kept at the screening value 'other' (the snippet suggests cnn); dim 3d follows the title. Duplicate check: no prefill matches the title; P00358 shares authors but is a different study. No author named Jun Wang. Screening code was I-UNCLEAR.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00624.json",
+  "result": "full agreement"
+ }
+}

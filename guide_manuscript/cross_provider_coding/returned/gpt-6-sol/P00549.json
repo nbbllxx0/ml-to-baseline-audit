@@ -1,0 +1,14 @@
+{
+  "pid": "P00549",
+  "citation": {"title": "Deep learning aided topology optimization of phononic crystals", "authors": "Paweł Kudela, Abdalraheem Ijjeh, Maciej Radzienski, Marco Miniaci, Nicola Pugno, Wieslaw Ostachowicz", "year": 2023, "venue": "Mechanical Systems and Signal Processing", "doi": "10.1016/j.ymssp.2023.110636", "version_coded": "version of record (author-hosted copy)"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-FORWARD", "stratum": "none", "method_family": "cnn", "physics": "other", "dim": "3d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "R1-excluded", "evidence": "not applicable: full-text exclusion"}, "R2": {"verdict": "na", "marker": "R2-excluded", "evidence": "not applicable: full-text exclusion"}, "R3": {"verdict": "na", "marker": "R3-excluded", "evidence": "not applicable: full-text exclusion"}, "R4": {"verdict": "na", "marker": "R4-excluded", "evidence": "not applicable: full-text exclusion"}},
+  "reporting": {"n_test_cases": "not stated", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Sections 2 and 4 time only the forward dispersion-diagram calculation: CNN under 100 ms versus FEM about 0.5–1 h. Section 3 uses the CNN inside a genetic algorithm but gives no optimization-level runtime or result comparison to a classical optimizer. Full text: https://pugno.dicam.unitn.it/NP_PDF/599-MSSP-deep_laerning_aided_topology_optimization.pdf ."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00501",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Large Language Models as Optimization Controllers: Adaptive Continuation for SIMP Topology Optimization",
+    "authors": "Shaoliang Yang, Jun Wang, Yunsheng Wang",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.CE; cs.AI). Version of record: Advances in Engineering Software 223, 104304 (Dec 2026), doi 10.1016/j.advengsoft.2026.104304 (arXiv related DOI; Crossref); open access under CC BY-NC-ND 4.0 per Crossref licence metadata (version-of-record licence from 16 Sep 2026, copyright The Authors) and the Elsevier API openaccess flag (1), but not retrievable here (see version_coded)",
+    "doi": "10.48550/arXiv.2603.25099",
+    "arxiv_id": "2603.25099",
+    "version_coded": "arXiv v2 (15 May 2026; v1 26 Mar 2026), full text read from https://arxiv.org/html/2603.25099. The open-access version of record was not coded because it could not be retrieved: ScienceDirect returned HTTP 403 to curl and to WebFetch, the Elsevier full-text API requires a key, and the in-app browser was off-limits for this task. v2 says a meta-loop ablation is planned for the journal revision, so the version of record may differ; the verifier should read it."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "llm_agent",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On three 2D (120x60) and two 3D (40x20x10) compliance benchmarks with 300 main iterations, LLM-controlled SIMP gives the lowest mean final compliance, 5.7% to 18.1% below the fixed no-continuation SIMP baseline, with binary designs.",
+    "key_phrase": "The LLM agent achieves the lowest final compliance on every benchmark",
+    "location": "Abstract (quantitative classical comparison); values in Table 5 (2D, Sec. 4.1) and Table 7 (3D, Sec. 4.4)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed claim; the LLM agent is mostly slower. Wall-clock (Tables 5 and 7): LLM agent 445.2 s, 562.4 s, 150.1 s (2D cantilever, MBB, L-bracket) and 1198 s, 1685 s (3D cantilever, MBB) vs fixed 384.9, 425.3, 343.3, 1044, 1014 s and three-field continuation 337.4, 396.4, 268.5, 994, 1059 s. Classical/ML time vs fixed: 0.86, 0.76, 2.29, 0.87, 0.60 [derived]. Sec. 5.3 states a 32-42% overhead vs three-field continuation on the 2D cantilever and MBB beam.",
+    "direction": "outperform",
+    "alternatives": "(1) Against the strongest classical controllers the margins are small: 2D vs the expert heuristic 0.067 (0.09%), 1.854 (1.92%) and 0.411 (0.95%) (Sec. 4.1); 3D cantilever 3.981 vs 3.998 (three-field) and 3.999 (expert), 3D MBB 5.430 vs 5.442 (expert) (Table 7) [derived: 0.43% and 0.22% vs the best classical]. (2) Table 8 (60x30, N = 100, 5 seeds): the LLM agent is best only on the cantilever; three-field continuation wins on the MBB beam (96.323 vs 96.980) and the expert heuristic on the L-bracket (43.437 vs 43.537). (3) Sec. 5.3: wall-clock overhead of 32-42% vs three-field continuation (speed comparison; ML slower). (4) Abstract: the schedule-only ablation is worse than the fixed baseline on two of three 2D problems (non-learned vs non-learned)."
+  },
+  "baseline": {
+    "classical_method": "Three-field SIMP (density filter, Heaviside projection) with OC updates under four non-learned controllers (Sec. 3.4): fixed (p = 3, beta = 1, r_min = 1.5, move limit 0.2, no continuation, no tail); standard three-field continuation (p ramp 1 to 4.5 over 30 iterations, beta doubled every 10); expert heuristic; schedule-only ablation. The primary outcome uses the fixed controller.",
+    "implementation": "Authors' own three-field SIMP solver using SciPy and pyamg [Python inferred from the libraries]; source code promised upon acceptance (Data and Code Availability)",
+    "solver": "direct sparse factorization (SciPy) in 2D; AMG-preconditioned conjugate gradient (pyamg) in 3D, hierarchy rebuilt when element stiffness changes by more than 15% (Sec. 3.5)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated; LLM is gemini-3.1-flash-lite-preview via the Gemini API at temperature 0, about 1-3 s per call, about 60 calls per 300-iteration run (Sec. 3.2, 5.3, 5.5)",
+    "problem_size": "2D 120x60 elements; 3D 40x20x10 elements, stated as about 110,000 DOFs (Sec. 5.3) [derived: 28,413 DOFs for 8-node hexahedra; element type not stated]; ablation 60x30 (Table 4, Table 8)",
+    "classical_iterations": "fixed count: N = 300 main-loop iterations for every controller, plus a 40-iteration tail (p = 4.5, beta = 32, r_min = 1.20, move limit 0.05) from the best valid snapshot for the four continuation controllers only; the fixed controller gets no tail (Sec. 3.5)",
+    "classical_time": "fixed 384.9 / 425.3 / 343.3 s (2D cantilever, MBB, L-bracket; Table 5) and 1044 / 1014 s (3D cantilever, MBB; Table 7); three-field continuation 337.4 / 396.4 / 268.5 s and 994 / 1059 s; expert heuristic 348.1 / 366.6 / 282.9 s and 933 / 1173 s",
+    "ml_time": "LLM agent 445.2 / 562.4 / 150.1 s (Table 5) and 1198 / 1685 s (Table 7)",
+    "training_time": "none: zero-shot LLM. The meta-optimization loop ran 5 outer iterations per 2D problem on the fast preset (60x30, N = 100 as listed for the cantilever in Table 4) with about 24 extra LLM calls (Sec. 3.3, 5.3); its compute time is not stated",
+    "data_generation_cost": "none",
+    "quality_metric": "Final compliance after the tail (mean +/- std over 5 seeds), final grayness index, iteration of the best valid snapshot (Tables 5, 7); compliance comes from the solver's own FE analysis",
+    "quality_gap": "LLM agent vs fixed: -5.65% (cantilever 76.407 vs 80.978), -7.46% (MBB 94.646 vs 102.281), -7.12% (L-bracket 43.028 vs 46.325), -18.09% (3D cantilever 3.981 vs 4.860), -15.55% (3D MBB 5.430 vs 6.429) (Tables 5, 7). vs expert heuristic in 2D: -0.09%, -1.92%, -0.95% (Sec. 4.1). Fixed designs stay gray (G = 0.098-0.146 in 2D, 0.213-0.260 in 3D); all other controllers reach G = 0.000"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 3.4-3.5, Tables 5 and 7: all controllers share the mesh, volume fraction 0.40 and 300 main-loop iterations. The headline comparator is not matched: the fixed controller gets no 40-iteration sharpening tail while the LLM run does, and it ends gray (G up to 0.260) while the LLM design is binary, so compliance is compared between a penalized gray field and a binary one [inferred]. Wall-clock is not matched (the LLM agent is slower than the fixed controller on 4 of 5 benchmarks), achieved volume is not reported, and the agent's hyperparameters were meta-tuned on the same three 2D problems with the fast preset (Sec. 3.3; Table 4 caption), while the classical schedules were set by hand."
+    },
+    "R2": {
+      "verdict": "fail",
+      "marker": "R2(b)",
+      "evidence": "Abstract vs Tables 5 and 7 and Sec. 4.1: the abstract quantifies the gain only against the fixed no-continuation controller (-5.7% to -18.1%), while the results contain stronger classical comparators, standard three-field continuation and an expert heuristic, against which the margins are 0.09-1.92% in 2D (Sec. 4.1) and 0.22-0.43% in 3D [derived from Table 7]. The abstract names these baselines but gives numbers only for the weakest. [judgment call: a verifier who reads the abstract's claim of lowest compliance on every benchmark as reporting the stronger baselines may code partial or pass]"
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Quality stratum; no speed claim; zero-shot LLM with no training data. For C3: API cost is called negligible without a figure; about 900 inner-loop calls for the 2D comparison, about 60 for 3D and about 24 for the meta-loop (Sec. 5.3)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Tables 5 and 7: compliance of every returned design (after the tail) comes from the solver's FE analysis, and grayness is reported for all controllers over 5 seeds. Achieved volume fractions are not reported. When the API was unavailable or returned an invalid answer, the agent fell back to a deterministic ramp; these fallbacks were logged and excluded from the primary results, and the number of affected runs or calls is not reported (Sec. 3.2). The fixed controller's failure to produce a valid snapshot on the 3D MBB beam is disclosed (Table 7 footnote)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5 benchmarks (2D cantilever, MBB, L-bracket at 120x60; 3D cantilever and MBB at 40x20x10) x 5 controllers x 5 seeds (Tables 5, 7); tail-only ablation on the three 2D problems at 60x30 with 5 seeds (Table 8)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "CONFLICT-OF-INTEREST FLAG: author Jun Wang (corresponding author; Department of Mechanical Engineering, Santa Clara University) matches a name on the audit's conflict-of-interest list. Identity was not verified in-session. If it is the same person, a coder without the conflict (e.g., the second coder) should verify this record. Screening code I-QUALITY confirmed. Coded by the same rules as other ML articles (method_family llm_agent): the learned model steers the continuation parameters of classical SIMP rather than replacing it. Primary outcome under PROTOCOL 5.1 rule 1 (abstract), quality only; the speed comparison in Sec. 5.3 shows the LLM agent slower and is listed as alternative (3). ood_test = yes because the 3D benchmarks were not used in meta-tuning and the prompt was not changed (Sec. 3.3, 4.4); the 2D test problems were used in meta-tuning with the fast preset. runtimes_all_cases = yes for Tables 5 and 7; Table 8 gives no times. Timing protocol partial: wall-clock, iteration counts and API latency are given; hardware and warm-up are not. Internal inconsistency: Sec. 5.3 gives about 110,000 DOFs for the 40x20x10 mesh, but 8-node hexahedra give 28,413 [derived; element type not stated]. Reproducibility: the LLM is a preview model accessed in March 2026 (Sec. 3.2, 5.5). Code and prompts are promised upon acceptance; no public repository was found by GitHub search on 2026-09-24, so code_available = no and retest_candidate = false (also no speed claim to re-test). No data sets were generated (Data and Code Availability)."
+}

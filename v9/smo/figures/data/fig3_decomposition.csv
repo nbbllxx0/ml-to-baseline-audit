@@ -1,0 +1,33 @@
+case,reported_or_x,own_code_or_case,strong,matched
+OAT 256,133.92156862745097,78.61196519903235,18.594931111883444,3.4662195588802005
+OAT 64,17.972440944881892,31.33750361177639,4.055240913784251,0.6170275826344652
+HGTO 480x160,4.171140611566878,4.942126951631399,0.3896627461190311,0.21204162641880442
+HGTO 960x320,9.604778960706717,10.84630305861028,0.5392494547714574,0.15367386801422597
+OAT 256 pre-registered rule,,,,1.724021812751362
+b,Conductivity CNN,0,2280,
+b,Conductivity CNN,0,5440,
+b,Conductivity CNN,0,9153.33,
+b,Conductivity CNN,0,24746.7,
+b,Conductivity CNN,1,319.787,
+b,Conductivity CNN,1,477.065,
+b,Conductivity CNN,1,622.296,
+b,Conductivity CNN,1,1111.84,
+b,Conductivity CNN,2,3.6533,
+b,Conductivity CNN,2,3.60278,
+b,Conductivity CNN,2,3.61399,
+b,Conductivity CNN,2,3.59465,
+b,VoroTO,0,2200,
+b,VoroTO,0,20775,
+b,VoroTO,1,770.95,
+b,VoroTO,1,2366.59,
+b,VoroTO,2,0.213121,
+b,One-shot generator,0,10000,
+b,One-shot generator,1,33614.6,
+b,One-shot generator,1,32330.6,
+b,One-shot generator,1,33829.5,
+b,One-shot generator,2,16868.5,
+b,One-shot generator,2,16411.9,
+b,One-shot generator,2,16666.4,
+b,Phase-field CNN,0,1.1551,
+b,Phase-field CNN,1,1.14533,
+b,Phase-field CNN,2,1.14533,

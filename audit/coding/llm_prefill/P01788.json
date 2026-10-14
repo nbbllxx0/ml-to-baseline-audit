@@ -1,0 +1,44 @@
+{
+  "pid": "P01788",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Physics-Data Structural Optimization: From Latent Spaces to Member Composition",
+    "authors": "Matteo Torzoni, Luca Rosafalco, Alberto Corigliano",
+    "year": 2025,
+    "venue": "Talk abstract. Politecnico di Milano repository item 11311/1310987, item type 'Abstract in Atti di convegno' (conference abstract), dated 2025; the event is named neither in the file nor on the repository page. OpenAlex's venue label (Virtual Community of Pathological Anatomy, University of Castilla La Mancha) does not match the content [observed]",
+    "doi": "",
+    "arxiv_id": "",
+    "version_coded": "Repository PDF DD29_Abs.pdf (2 pages: abstract, 2 references, 1 figure; open access; repository licence 'all rights reserved') from re.public.polimi.it, read in full"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-TYPE",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "other",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded: talk abstract). The two-page abstract summarizes an autoencoder-plus-surrogate method for real-time TO and a grammar-constrained MDP method for truss design, and asserts computational advantages with no numbers and no named classical comparator.",
+    "location": "Abstract (the whole document)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded). No runtime or comparison is reported; the abstract says only that optimization moves offline, trading costly training for virtually instantaneous inference."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §3.3 and §4, which exclude presentations and abstracts-only records; FT-TYPE is the closed-list code for type exclusions. The complete item is a talk abstract ('This talk presents two machine learning-based frameworks') with no methods detail, results or comparison. FT-DUPLICATE was considered and not applied: the abstract summarizes two published articles instead of being a version of one. Its TO part cites Garayalde, Torzoni, Bruggi & Corigliano 2024, 'Real-time topology optimization via learnable mappings', IJNME 125(15):e7502, which is pool record P00090 (arXiv 2311.08473; decision order 338), the article to code for that study. Its truss part cites Garayalde, Rosafalco, Torzoni & Corigliano 2025, ASME J. Mech. Des. 147(10):101702 (not found in the pool by title). Access on 2026-09-24: hdl.handle.net redirects to re.public.polimi.it; no bot check. Screening code was I-SPEED. Authors checked: no author named Jun Wang."
+}

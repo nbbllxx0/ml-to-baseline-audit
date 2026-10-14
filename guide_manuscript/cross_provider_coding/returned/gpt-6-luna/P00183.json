@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00183",
+    "citation":  {
+                     "title":  "One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning",
+                     "authors":  "Ruijin Cang, Hope Yao, Yi Ren",
+                     "year":  2019,
+                     "venue":  "Computer-Aided Design, 109, 12–21",
+                     "doi":  "10.1016/j.cad.2018.12.008",
+                     "arxiv_id":  "1807.10787",
+                     "version_coded":  "arXiv preprint; journal version identified, full text coded from arXiv"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "other",
+                     "physics":  "compliance",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The conclusion contrasts one finite-element analysis to check a generated design with thousands needed to solve the conventional topology-optimization problem.",
+                  "key_phrase":  "a single finite element analysis",
+                  "location":  "Conclusion, Section 7",
+                  "quantitative":  true,
+                  "claimed_speedup":  10000,
+                  "claimed_speedup_basis":  "Approximate lower-bound factor inferred from Section 5.4 printed time orders of magnitude: 10^2 seconds / 10^-2 seconds = 10^4; the stated classical range extends to 10^3 seconds, implying up to 10^5.",
+                  "direction":  "outperform",
+                  "alternatives":  "Section 5.4 gives direct solution-generation times: about 10^-2 seconds per learned topology versus 10^2 to 10^3 seconds per topology-optimization solve. The abstract compares compliance quality with standard supervised learning at the same computational budget."
+              },
+    "baseline":  {
+                     "classical_method":  "Topology optimization for compliance minimization",
+                     "implementation":  "Authors\u0027 augmented Lagrangian solver (Appendix, Algorithm 2)",
+                     "solver":  "Augmented Lagrangian; linear-system solver not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "Intel Xeon CPU E5-1620 @ 3.50 GHz (Section 5.4, solution-generation speed)",
+                     "problem_size":  "Case 1: 40-by-120 mesh; Case 2: size not stated in the study setup",
+                     "classical_iterations":  "Convergence-based augmented Lagrangian loops; Appendix Algorithm 2",
+                     "classical_time":  "10^2 to 10^3 seconds per topology (Section 5.4, solution-generation speed)",
+                     "ml_time":  "10^-2 seconds per topology (Section 5.4, solution-generation speed)",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "not stated; Section 5.4 says excluded from the runtime comparison",
+                     "quality_metric":  "Structural compliance; global and local volume-fraction constraints",
+                     "quality_gap":  "Compliance gaps are reported against ground-truth classical solutions; Case 2 median gap for the proposed method is 5.2 (0.6) after augmented training (Table 1)."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "partial",
+                             "marker":  "R1-loose",
+                             "evidence":  "Sections 5.4 and 7: generated designs are evaluated against ground-truth compliance and constraints, but the speed comparison does not establish equal design quality or a matched time/evaluation budget."
+                         },
+                  "R2":  {
+                             "verdict":  "partial",
+                             "marker":  "R2-hardware-unknown",
+                             "evidence":  "Section 5.4 gives the ML CPU and a classical runtime range but does not state the classical run\u0027s hardware, so comparability cannot be checked."
+                         },
+                  "R3":  {
+                             "verdict":  "fail",
+                             "marker":  "R3-no-data-cost",
+                             "evidence":  "Section 5.4: the reported runtime excludes training data acquisition; neither acquisition nor training time is quantified, and no break-even count is given."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-FE-constraint-failure-rate-incomplete",
+                             "evidence":  "Sections 5.4 and Table 1: returned designs are evaluated by finite-element compliance, and failure rates for large compliance gaps plus volume-constraint violations are discussed; the rate of volume-infeasible outputs is not reported."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Case 1: 100; Case 2: 1,000 per run; each method was run 10 times (Section 5.2).",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "yes",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "selective",
+                      "code_available":  "yes",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The primary outcome follows the conclusion comparison of one FE analysis versus thousands for a full classical TO solve. Section 5.4 separately reports direct ML-versus-TO runtime. The abstract\u0027s quantitative quality comparator is another learned baseline.",
+    "stage":  "cross_provider_pass"
+}

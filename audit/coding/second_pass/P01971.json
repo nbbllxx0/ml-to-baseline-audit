@@ -1,0 +1,87 @@
+{
+  "pid": "P01971",
+  "citation": {
+    "title": "Reinforcement Learning Guided Engineering Design: from Topology Optimization to Advanced Modelling",
+    "authors": "Giorgi Tskhondia",
+    "year": 2025,
+    "venue": "Journal of Next-Generation Research 5.0, Vol. 1, Issue 3 (March-April 2025), pp. 1-17",
+    "doi": "10.70792/jngr5.0.v1i3.95",
+    "version_coded": "Version of record; full text (17 pages, including Appendix and references) downloaded as PDF from the journal's own site (jngr5.com/jngr/article/download/95/74/246), reached via the DOI landing page"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "rl",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For a 5x5 cantilever grid, the classical SIMP-based TO baseline (volume fraction 0.05) reached compliance 89.63 in about 1 second; RL (PPO) reached compliance 33.6 in about 18 minutes; brute-force search reached 29.6 in about 5.8 hours.",
+    "key_phrase": "traditional TO will almost always be faster than RL in wall clock time",
+    "location": "Appendix - Benchmarking for 5 by 5 grid, pp. 16-17; the Abstract and Discussion (Sec. 4) state the speed/quality trade-off only qualitatively, and an earlier Section 3 result (pp. 9-10) reports a quality-only comparison against a genetic algorithm, without a gradient/SIMP-based classical comparator",
+    "quantitative": true,
+    "claimed_speedup": 0.00093,
+    "claimed_speedup_basis": "Derived, and it is a slowdown, not a speedup: the article itself states classical TO is almost always faster than RL in wall-clock time. Appendix: classical SIMP run 1 s vs RL (PPO) run about 18 min = 1,080 s. classical/ML = 1/1080 = 0.00093, i.e. RL is about 1,080x slower on this single case, not faster. The article's only affirmative efficiency claim for RL is qualitative and about amortized reuse (Sec. 4: once trained, RL avoids rerunning the optimizer for each new constraint), with no wall-clock inference-only number or break-even count given.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 3/Fig. 6 (pp. 9-10), the result narratively featured in the Abstract: for a 10x10-grid cantilever, refining a genetic-algorithm (classical, non-learned) design with RL improved compliance from 19.3654 to 18.2786, using about 1 min (GA) + about 32 min (RL); the Discussion states this beat 'GA alone... for the same wall clock run times,' but the GA-alone compliance value at that matched time budget is not given numerically. (2) Abstract/Sec. 3: PPO on 6x6/5x5 grids and HRL on a 4x4 grid produce near-optimal topologies with no classical comparator number attached to those specific runs. (3) Discussion (Sec. 4): a literature-based operations-count argument (about 49,500 RL actions vs 65,536 possible 4x4-grid states; a citation that gradient TO can handle up to 30,000 elements) not tied to this article's own timed runs."
+  },
+  "baseline": {
+    "classical_method": "Density-based (SIMP) compliance-minimization TO via Optimality Criteria, using the standard '88-line' MATLAB code of Andreassen et al. (2011) [ref. 11] as ported to Python (topopt_cholmod.py, via a 2022 tutorial by Sam Greydanus, arXiv:2205.08966 [ref. 23]); a genetic algorithm (GA, DEAP framework) is used as a second, separate classical comparator elsewhere in the article (Sec. 3)",
+    "implementation": "Third-party open-source Python port of the 88-line SIMP-OC code (topopt_cholmod.py); invoked from the command line with nelx=5, nely=5, volfrac=0.05, penal=1, rmin=2, ft=1 (Appendix)",
+    "solver": "Direct solver (Cholesky-based, per the script name 'topopt_cholmod' and its lineage from the 88-line SIMP-OC code); not otherwise described",
+    "hardware_classical": "Not stated for the Appendix benchmark run (only wall-clock time is given); elsewhere the GA computations ran on an Apple M1 Pro (Sec. 3)",
+    "hardware_ml": "2.9 GHz dual-core Intel Core i5 for the main PPO training (1M steps, about 80 min) (Sec. 3); Apple M1 Pro for HRL (5,000 steps) and for the GA+RL 10x10 experiment (Sec. 3); hardware for the Appendix 5x5 PPO run specifically is not stated",
+    "problem_size": "2D grids: 5x5 (Appendix benchmark), 6x6 and 5x5 (main PPO), 4x4 (HRL), 8x8 (Fig. 2 illustration only), 10x10 (GA+RL); 4 nodes/element, 2 DOF/node (Sec. 3) [inferred total DOF for the 5x5 grid on the order of 10^2]",
+    "classical_iterations": "Not stated for the Appendix SIMP run (default script settings, no iteration count reported); the brute-force comparator is an exhaustive search over the grid's combinatorial state space (count not given for 5x5)",
+    "classical_time": "Appendix, 5x5 grid: about 1 second (SIMP-based topopt_cholmod.py) and about 5.8 hours for the brute-force search (also non-learned) (Appendix)",
+    "ml_time": "Appendix, 5x5 grid: about 18 minutes for RL (PPO) to reach the reported design (Appendix); the main PPO model elsewhere trained for about 80 min (1M steps) on a 6x6/5x5 setup (Sec. 3); HRL ran 5,000 steps, wall-clock time not stated",
+    "training_time": "About 80 minutes (1M steps) for the main PPO model (Sec. 3); the Appendix's 18-minute figure for the 5x5 RL result is not explicitly separated into training vs. inference [inferred: likely includes training for that specific case]; HRL hyperparameters (including network architecture) were tuned by Optuna, an additional untimed cost (Sec. 3)",
+    "data_generation_cost": "Not applicable in the offline-dataset sense: RL trains online through direct interaction with the FE-simulated environment, so there is no separate labeled-dataset generation step; per-episode FE evaluations during training are folded into the training time above",
+    "quality_metric": "Compliance (inverse stiffness), computed for all three methods (classical, RL, brute force) by the same classical FE codebase from ref. [23] (Appendix: 'Measured by compliance as per codebase [23]'), so the metric itself is consistently computed; volume fraction is stated only for the classical run (0.05) and is not reported for the RL or brute-force designs",
+    "quality_gap": "Appendix, 5x5 grid: classical SIMP compliance 89.63 vs RL (PPO) 33.6 vs brute force 29.6 (lower is better). The rendered topologies (Appendix images a/b/c) show the classical design as very sparse, consistent with its 5% volume-fraction constraint, while the RL and brute-force designs visually contain substantially more material [observed in the appendix figure images, pp. 16-17], so the compliance values are not at matched volume fraction"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Appendix (5x5 grid): the classical baseline was explicitly run at volfrac=0.05 (command-line argument shown in the text), while neither the RL (PPO) nor the brute-force result states a volume fraction or is matched to 0.05. The rendered topologies confirm this visually: the classical design (image a) is almost entirely empty, while the RL design (image b) and the brute-force design (image c) both show roughly half or more of the grid filled with material [observed in the appendix figure images, pp. 16-17]. The compliance advantage shown for RL (33.6) and brute force (29.6) over the classical baseline (89.63) is confounded by this large, unreported difference in volume fraction, since additional material mechanically lowers compliance regardless of layout quality."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-efficient-baseline",
+      "evidence": "Appendix: the classical run uses topopt_cholmod.py, a Cholesky-direct-solver implementation descended from the standard 88-line SIMP-OC code (Andreassen et al. 2011), which is the efficient-solver class the protocol names; for a 5x5 grid it completes in about 1 s. Both the classical and RL runs are CPU-only (no GPU-vs-CPU asymmetry). No re-test was performed by this coder, but nothing in the article indicates an inflated iteration count or a weaker baseline in the Abstract than in the results."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-qualitative-reuse-claim",
+      "evidence": "Training cost is reported for the main RL model (about 80 min for 1M steps, Sec. 3), and the Discussion (Sec. 4) argues RL becomes 'more compute efficient than classical TO in total' once trained, because new constraints need only a fresh inference pass rather than a full rerun. However, no inference-only wall-clock number is isolated from training (the Appendix's 18-minute RL figure is not split into training vs. inference), and no break-even number of reuses is computed, so the amortization argument stays qualitative."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Appendix: compliance for all three methods (classical, RL, brute force) is computed by the same FE-based codebase [23], which is a genuine physics-based re-evaluation rather than an image-similarity metric. However, volume fraction and feasibility/connectivity are not reported for the RL or brute-force designs, and no failure or infeasibility rate is given for any method."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "One 5x5 loading case in the Appendix benchmark; elsewhere, single runs each on 6x6 and 5x5 (PPO), 4x4 (HRL) and 10x10 (GA+RL) grids, plus an 8x8 illustrative-only example (Fig. 2)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": true,
+  "notes": "No author named Jun Wang; sole author is Giorgi Tskhondia. Primary-outcome choice: the Abstract and Discussion contain no article-internal quantitative comparison numbers, so per the location hierarchy the first quantitative classical-vs-ML comparison in the main text is used. Two candidates exist in the main text: the Sec. 3 GA-vs-GA+RL compliance result (pp. 9-10, appears earlier in reading order and is the result paraphrased in the Abstract) and the Appendix's 5x5 three-way benchmark (pp. 16-17, explicitly flagged from Sec. 3 as 'Some benchmarks can be found in the Appendix'). The Appendix is selected as primary because it is the only comparison against a true gradient/SIMP-type classical TO method (the protocol's named comparator class), and it is the only place with complete matched-metric (FE compliance) and timing data for all methods; the Sec. 3 GA result is recorded as alternative (1). Fig. 3 caption explicitly describes the shown HRL result as 'cherry-picked,' i.e. selected rather than representative, with no distribution or failure rate reported for the underlying runs - directly relevant to the audit's C4 reporting-practice question, beyond what the closed reporting fields capture. Duplicate check via audit/pool/pool.csv title and author search: no other pool row shares this title. However, the same solo author (Giorgi Tskhondia) has three further pool entries on closely related topics - P01994 'Practical topology optimization with deep reinforcement learning' (2025-01-01, ResearchGate DOI), P01997 'Practical Topology Optimization with Deep Reinforcement Learning and Genetic Algorithms' (2026-01-27, American Journal of Applied Scientific Research) and P02001 'Current state of the art in topology optimization by pure deep reinforcement learning' (2026-01-01, ResearchGate DOI). Titles and DOIs all differ from P01971 and from each other, so none is coded here as FT-DUPLICATE under the protocol's 'same article' definition; this is flagged for the coders assigned to those pids, since the cluster suggests overlapping experiments split across several venues by the same author, which the audit team may want to check directly against each other's full text. Code/repo check (GitHub, 2026-09-24, no personal data sent): github.com/gigatskhondia/gigala is public, contains a LICENSE file (type not visible in the fetched excerpt) and an active commit history; supports retest_candidate = true, though the 88-line-derived classical script (topopt_cholmod.py, cited to a separate 2022 tutorial) was not itself located in that repository."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00125",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "An Adaptive and Scalable ANN-based Model-Order-Reduction Method for Large-Scale TO Designs",
+    "authors": "Ren Kai Tan, Chao Qian, Dan Xu, Wenjing Ye",
+    "year": 2022,
+    "venue": "arXiv preprint (cs.LG). Version of record: Structural and Multidisciplinary Optimization 65(12), article 348 (online 23 Nov 2022), doi 10.1007/s00158-022-03456-x, retitled 'An adaptive and scalable artificial neural network-based model-order-reduction method for large-scale topology optimization designs', authors Tan, Qian, Li, Xu, Ye (Springer page metadata read 2026-09-24: not open access, published under exclusive licence to Springer)",
+    "doi": "10.48550/arXiv.2203.10515",
+    "arxiv_id": "2203.10515",
+    "version_coded": "arXiv v1 (20 Mar 2022; only version on the abs page), PDF (27 pages; no HTML version); Tables 5-6 and the compliance values printed in Figs. 17-24 checked on the rendered pages 18-24. The SMO version of record is paywalled and was not coded"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the 512×512 BESO cantilever, one MapNet-based iteration (coarse 32×32 FE plus fine-field mapping) takes about 2 s versus about 600 s for fine-mesh FEM-based TO, a 300-fold per-iteration cut, with equal final compliance (0.026).",
+    "key_phrase": "a 300-times reduction in the computational time is achieved",
+    "location": "Sec. 4.2, Table 5 and Fig. 17 (pp. 18-19); first quantitative classical comparison, since the abstract, conclusion and introduction are qualitative",
+    "quantitative": true,
+    "claimed_speedup": 300,
+    "claimed_speedup_basis": "Stated per iteration (Sec. 4.2) and derivable from Table 5: ~600 s (FEM-TO, 512×512) ÷ ~2 s (MapNet-TO: 0.13 s coarse FEM + 0.92 s MapNet with fragmentation and defragmentation + ~1 s rest of the optimization) = 300. Excludes data generation (first 60 FEM-TO iterations) and MapNet training. Bridge (Table 6): ~750 s vs ~3 s per iteration (~250×) and 1.5×10^5 s vs 6×10^2 s per run, both assuming 200 iterations.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 4.3, Table 6 and Fig. 20, bridge 768×384: ~250× per iteration; 1.5×10^5 s vs 6×10^2 s per run assuming 200 iterations for both; compliance 1.64e-5 (FEM) vs 1.67e-5 (MapNet). (2) Figs. 18-19: multi-load cantilever 0.0132 vs 0.0135, L-beam 0.089 vs 0.089; per-iteration saving said to match Table 5, no times printed. (3) SIMP variants (Sec. 4.4, Figs. 21-22): 0.026 vs 0.026, 0.088 vs 0.088, 2.17e5 vs 2.21e5; thermal SIMP (Sec. 4.5, Figs. 23-24): 12474 vs 12975 and 4943 vs 5032; no times. (4) Abstract and conclusion: qualitative claim of greatly reduced computational time."
+  },
+  "baseline": {
+    "classical_method": "Conventional FEM-based BESO compliance minimization on the 512×512 fine mesh, volume fraction 0.4, square cantilever with a distributed load at the upper right (Sec. 2, 4.1-4.2); SIMP structural and thermal variants (Sec. 4.4-4.5) are compared without timing",
+    "implementation": "Python; FE solved with a SciPy sparse linear solver (Sec. 4.2); the BESO and SIMP codes are not published (code on request, Data Availability)",
+    "solver": "SciPy sparse linear solver (Sec. 4.2); direct or iterative not stated [SciPy's default spsolve is a direct SuperLU solver; recalled, not verified in-session]",
+    "hardware_classical": "Intel Xeon E5-2687W v2 CPU (3.40 GHz), 16 cores; the Table 5 times were measured on it (Sec. 4.2)",
+    "hardware_ml": "same CPU (Sec. 4.2); no GPU mentioned",
+    "problem_size": "512×512 fine mesh and 32×32 coarse mesh (Sec. 4.1-4.2) [derived: 526,338 fine-mesh DOFs, assuming 4-node elements; element type not stated]; bridge 768×384 fine and 48×24 coarse (Sec. 4.3)",
+    "classical_iterations": "BESO converges within 200 iterations (Sec. 4.1); convergence criterion not stated; the whole-run times assume 200 iterations for both methods (Table 6); the MapNet-TO iteration count is not reported",
+    "classical_time": "~600 s per iteration at 512×512 (FEM ~600 s + ~1 s for the rest; Table 5); ~750 s per iteration at 768×384 and 1.5×10^5 s per run assuming 200 iterations (Table 6)",
+    "ml_time": "~2 s per iteration at 512×512 (0.13 s coarse FEM + 0.92 s MapNet incl. fragmentation/defragmentation + ~1 s rest; Table 5); ~3 s per iteration and 6×10^2 s per run at 768×384 (Table 6)",
+    "training_time": "not stated; 1000 ADAM steps at learning rate 1e-4 (Sec. 4.1.1)",
+    "data_generation_cost": "not stated as time: the first 60 iterations of one fine-mesh FEM-based BESO cantilever run, plus coarse FE on each down-scaled design (Sec. 4.1.1, 4.2) [derived ≈3.6×10^4 s at Table 5's ~600 s per iteration]; separate MapNets are trained for SIMP (60 iterations) and the thermal problem (40 iterations) (Sec. 4.4-4.5)",
+    "quality_metric": "Final compliance of the optimized design, FEM-TO vs MapNet-TO, printed in Figs. 17-24; MSE of predicted strain-energy fields against FEM (Tables 1-4). Whether the MapNet-TO compliance comes from a fine-mesh FE re-analysis or from the MapNet-predicted field is not stated",
+    "quality_gap": "BESO: cantilever 0.026 vs 0.026 (Fig. 17); multi-load 0.0132 vs 0.0135 (Fig. 18); L-beam 0.089 vs 0.089 (Fig. 19); bridge 1.64e-5 vs 1.67e-5 (Fig. 20). SIMP: 0.026 vs 0.026, 0.088 vs 0.088, 2.17e5 vs 2.21e5 (Figs. 21-22). Thermal: 12474 vs 12975 and 4943 vs 5032 (Figs. 23-24) [derived: largest gap +4.0%, thermal small heat sink]. Achieved volume fractions not reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table 5 and Fig. 17: the per-iteration comparison is paired with equal final compliance (0.026 vs 0.026) under the same volume constraint 0.4, but achieved volumes are not reported, the BESO convergence criterion is not stated, the MapNet-TO iteration count is not reported (Table 6 assumes 200 for both), and it is not stated whether the MapNet-TO compliance was re-evaluated on the fine mesh. [judgment] pass is the lenient reading, since the printed compliances match."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-implementation [inferred]; R2(e) re-test candidate",
+      "evidence": "Sec. 4.2, Table 5: fine-mesh BESO at 512×512 (~5.3×10^5 DOFs [derived]) spends ~600 s per iteration in the FE solve with a SciPy sparse solver on a 16-core Xeon E5-2687W v2. Both methods ran on that CPU, so (c) does not apply; (b) and (d) are not established. The per-iteration time is derivable, but (e) needs a strong-baseline time at 512×512 on a comparable CPU, which the article cannot supply. About 600 s for one 2D solve of this size looks slow for a sparse direct solver [inferred], so partial."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-training-cost",
+      "evidence": "Sec. 4.1.1, 4.2: data generation is given as the first 60 fine-mesh FEM-TO iterations [derived ≈3.6×10^4 s at ~600 s each], and the text argues that the saving already pays off within one TO run; training time is not reported (1000 ADAM steps only) and no break-even is computed. New MapNets are trained for the SIMP and thermal problems (Sec. 4.4-4.5)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Figs. 17-24: one design per problem, all problems shown, with final compliance for both methods. Whether the MapNet-TO compliance comes from a fine-mesh FE re-analysis is not stated [if it is the MapNet-predicted value, R4 = fail, R4-surrogate-predicted]. Achieved volume fractions are not reported and no failure cases are discussed."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 BESO structural problems (cantilever, multi-load cantilever, L-beam, bridge; Figs. 17-20), 3 SIMP structural problems (Figs. 21-22) and 2 SIMP thermal problems (Figs. 23-24), one run each; times for 2 of them (Tables 5-6)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "on_request",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED, confirmed. method_family set to cnn (MapNet is a U-Net-style convolutional field mapper); screening had other. Primary-outcome judgment: Sec. 4.2 holds both the Fig. 17 compliance comparison and the Table 5 time comparison; the speed result is taken as primary because the abstract, the conclusion and the method's stated aim all stress computational time (§5.1 rule 4). The strain-energy MSE results (Tables 1-4) compare MapNet with FE analysis, not with a classical optimizer. Main uncertainties for the verifier: (1) whether the MapNet-TO compliances in Figs. 17-24 come from a fine-mesh FE re-analysis (not stated; if not, R4 becomes fail and the quality match behind R1 weakens); (2) R2: the per-iteration time is derivable from Table 5, so R2(e) can be decided by a same-size baseline run. For orientation only (cross-hardware, not a verdict): the audit's own SIMP baseline runs at a median 4.55 s per iteration with SciPy SuperLU and 0.34 s with PARDISO at 256×256 (retest/runs/20260924T143600Z_superlu_P1_n256 and 20260924T143310Z_pardiso_P1_n256, summary.json); (3) the MapNet-TO iteration count is not reported, and Table 6's whole-run times assume 200 iterations for both methods. C3: data cost = first 60 FEM iterations of one run [derived ≈3.6×10^4 s] plus coarse FE and unreported training; one full FEM run costs ≈1.2×10^5 s [derived: 200 × ~600 s] against ≈4×10^2 s for MapNet-TO, so the authors' pay-back-within-one-run argument holds only if training takes less than about 8×10^4 s [derived]. The cantilever-trained MapNet is reused without retraining for the multi-load cantilever, L-beam and bridge (Sec. 4.3); the bridge needs problem-specific normalization factors read from the first few FEM iterations (Sec. 4.3). Reporting locators: n = Figs. 17-24; OOD = Sec. 4.3-4.5; timing = Sec. 4.2 and Tables 5-6 (CPU named; no repeats or warm-up); runtimes only for the cantilever and the bridge; code = Data Availability section (code on request; no data statement). Version: arXiv v1 coded; the SMO version (adds author Kangjie Li) was not compared. retest_candidate false: code only on request; a baseline-only re-test of fine-mesh BESO at 512×512 is feasible for R2(e). COI check: no author named Jun Wang."
+}

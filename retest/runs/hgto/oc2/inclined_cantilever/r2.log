@@ -1,0 +1,194 @@
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+OC update=25 C=115.39158 elapsed=1.9s
+OC update=50 C=115.34434 elapsed=2.6s
+OC update=75 C=145.52521 elapsed=3.3s
+OC update=100 C=140.69802 elapsed=4.0s
+OC update=125 C=141.57107 elapsed=4.7s
+OC update=150 C=141.22416 elapsed=5.4s
+OC update=175 C=133.03704 elapsed=6.1s
+OC update=200 C=132.95727 elapsed=6.8s
+OC update=225 C=132.89629 elapsed=7.5s
+OC update=250 C=132.87158 elapsed=8.2s
+OC update=275 C=132.83965 elapsed=9.0s
+OC update=300 C=132.80862 elapsed=9.7s
+OC update=325 C=132.7891 elapsed=10.4s
+OC update=350 C=132.77612 elapsed=11.1s
+OC update=375 C=132.7615 elapsed=11.8s
+OC update=400 C=132.7554 elapsed=12.5s
+OC update=425 C=132.74829 elapsed=13.2s
+OC update=450 C=132.74424 elapsed=13.8s
+OC update=475 C=132.73993 elapsed=14.5s
+OC update=500 C=132.73953 elapsed=15.2s
+OC update=525 C=132.73697 elapsed=15.9s
+OC update=550 C=132.7374 elapsed=16.6s
+OC update=575 C=132.73484 elapsed=17.3s
+OC update=600 C=132.73517 elapsed=18.0s
+OC update=625 C=132.7327 elapsed=18.6s
+OC update=650 C=132.73354 elapsed=19.3s
+OC update=675 C=132.73128 elapsed=20.0s
+OC update=700 C=132.73197 elapsed=20.7s
+OC update=725 C=132.72975 elapsed=21.3s
+OC update=750 C=132.7305 elapsed=22.0s
+OC update=775 C=132.72844 elapsed=22.7s
+OC update=800 C=132.72937 elapsed=23.4s
+OC update=825 C=132.72759 elapsed=24.1s
+OC update=850 C=132.72854 elapsed=24.7s
+OC update=875 C=132.72637 elapsed=25.4s
+OC update=900 C=132.72699 elapsed=26.1s
+OC update=925 C=132.72493 elapsed=26.8s
+OC update=950 C=132.72554 elapsed=27.5s
+OC update=975 C=132.72205 elapsed=28.2s
+OC update=1000 C=132.72166 elapsed=28.9s
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+{
+  "method": "SIMP-OC",
+  "case": "inclined_120x40",
+  "description": "left edge clamped; unit load at right three-quarter height, 25 degrees inward from downward",
+  "C_raw": 132.7216582362833,
+  "volume": 0.500000000041827,
+  "target_volume": 0.5,
+  "gray_fraction": 0.18041666666666675,
+  "grayness_percent": 11.387243072523601,
+  "converged": false,
+  "stages": [
+    {
+      "beta": 1.0,
+      "penalty": 1.0,
+      "steps": 50,
+      "converged": false,
+      "design_change": 0.008778465693254467,
+      "max_density_change": 0.003538821730286912,
+      "relative_C_window": 8.345401045022211e-05,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 2.0,
+      "penalty": 2.0,
+      "steps": 50,
+      "converged": false,
+      "design_change": 0.07606085481532754,
+      "max_density_change": 0.025509139649912638,
+      "relative_C_window": 0.01514705666430412,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 4.0,
+      "penalty": 3.0,
+      "steps": 50,
+      "converged": false,
+      "design_change": 0.050000000000000044,
+      "max_density_change": 0.07247500911163751,
+      "relative_C_window": 0.0004269047300483399,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 8.0,
+      "penalty": 3.0,
+      "steps": 850,
+      "converged": false,
+      "design_change": 0.025000000000000022,
+      "max_density_change": 0.08345976927258936,
+      "relative_C_window": 1.3413478288661421e-05,
+      "stage_budget": 850,
+      "continuation_stage": false
+    }
+  ],
+  "termination": "max_stage_steps",
+  "state_evaluations": 1000,
+  "setup_s": 1.0452583999722265,
+  "optimization_s": 27.822510100028012,
+  "wall_s": 29.355764199979603,
+  "max_state_residual": 1.1694919889909161e-12,
+  "filter_radius": 3.0,
+  "config": {
+    "betas": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "max_stage_steps": 850,
+    "min_stage_steps": 1,
+    "move": 0.2,
+    "change_tolerance": 0.005,
+    "compliance_tolerance": 0.001,
+    "stable_steps": 5,
+    "snapshot_interval": 25,
+    "solver": "pypardiso-spd",
+    "rho_min": 0.001,
+    "penalties": [
+      1.0,
+      2.0,
+      3.0,
+      3.0
+    ],
+    "stopping_rule": "physical",
+    "continuation_stage_cap": 50
+  },
+  "fem_backend": {
+    "library": "scikit-fem",
+    "library_version": "12.0.2",
+    "element": "ElementQuad1",
+    "model": "plane stress",
+    "basis": "ElementVector",
+    "assembly": "linear_elasticity.elemental; COOData.fromlocal.tocsr",
+    "quadrature_points": 4,
+    "corner_permutation": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "solver": "pypardiso-spd",
+    "linear_solver_version": "0.4.7",
+    "E0": 1.0,
+    "Emin": 1e-06,
+    "nu": 0.3,
+    "penalty": 3.0,
+    "thickness": 1.0,
+    "calls": 1000,
+    "max_residual": 1.1694919889909161e-12,
+    "energy_relative_error": 2.2896407509390285e-12,
+    "assembly_seconds": 7.849162799597252,
+    "solve_seconds": 12.534201400296297
+  },
+  "processing": "Element-measure-weighted hat density filter; tanh projection; post-projection rho_min floor; final p=3 (per-stage penalties recorded); physical weighted volume; stage-wise convergence",
+  "timing_scope": "Case construction, physics/network setup, all optimization evaluations, and final independent scikit-fem physical-field evaluation; excludes imports, serialization, plots and offline trajectory rescoring",
+  "optimization_end_s": 28.872606299992185,
+  "validation_s": 0.4831578999874182,
+  "independent_relative_C_error": 3.8546140588184274e-13,
+  "independent_fem": {
+    "library": "scikit-fem",
+    "library_version": "12.0.2",
+    "element": "ElementQuad1",
+    "model": "plane stress",
+    "basis": "ElementVector",
+    "assembly": "linear_elasticity.elemental; COOData.fromlocal.tocsr",
+    "quadrature_points": 4,
+    "corner_permutation": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "solver": "pypardiso",
+    "linear_solver_version": "0.4.7",
+    "E0": 1.0,
+    "Emin": 1e-06,
+    "nu": 0.3,
+    "penalty": 3.0,
+    "thickness": 1.0,
+    "calls": 1,
+    "max_residual": 6.738805727065744e-13,
+    "energy_relative_error": 1.9039651998308134e-12,
+    "assembly_seconds": 0.009822099993471056,
+    "solve_seconds": 0.01903730002231896
+  },
+  "cpu_threads": 2,
+  "hardware": "CPU"
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P01905",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Scaling atom-by-atom inverse design using nano-topology optimization and diffusion models",
+    "authors": "Chun-Teh Chen, Denvid Lau",
+    "year": 2026,
+    "venue": "Materials Horizons (RSC), 2026, doi 10.1039/d6mh00986g (Crossref; volume and pages not yet listed). Not open access: the Crossref licence is the RSC terms of use, with an accepted-manuscript licence starting 2027-08-18; not accessed. Preprint of the same study: arXiv 2604.03276 v1, titled 'Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models' (pool P00242)",
+    "doi": "10.1039/d6mh00986g",
+    "arxiv_id": "2604.03276",
+    "version_coded": "arXiv 2604.03276 v1 (24 Mar 2026; the only version; CC BY 4.0), full HTML text including Methods and Supplementary Notes A.1-A.14, read from https://arxiv.org/html/2604.03276v1. The Materials Horizons version of record was not read"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the only ML-vs-classical comparisons are the atomistic bending stiffness of diffusion-model samples against Nano-TO designs; no runtime of any method is reported)",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Thickness-periodic aluminium nanocantilever at 59.60% mass ratio: a 32,000-sample TO-DDPM run gave mean normalized bending stiffness 0.809 and best 0.860, versus 0.820 for the best of 64 Nano-TO trials.",
+    "key_phrase": "generate diverse high-performance candidates near the optimization frontier",
+    "location": "Results, subsection on c-DDPM design of thickness-periodic nanocantilevers (TO-DDPM paragraph) and Fig. 3b; the Nano-TO value 0.820 is from the preceding subsection and Fig. 2b. The abstract, introduction and Discussion compare the diffusion models with Nano-TO only qualitatively. Chosen under §5.1 rules 2 and 4: the first quantitative ML-vs-classical comparison (Gaussian-DDPM, same subsection) is kept as an alternative, because the abstract stresses the model trained on Nano-TO data",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime is reported for Nano-TO, for c-DDPM training or sampling, or for the atomistic evaluations. No speed or cost comparison is made, so no factor is stated or derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Same subsection, first in order: Gaussian-DDPM (trained on 32,000 Gaussian-random-field layouts) reaches best 0.736 vs best Nano-TO 0.820 at 59.60% (ML worse); its generated mean 0.616 is 5.3x the training mean 0.116. (2) Supplementary Note A.10, Fig. S11: TO-DDPM design DM-07188 reaches 0.822, 0.28% above the best Nano-TO design, with a lower surface-atom fraction (0.1367 vs 0.1436) and 0.0012 eV lower potential energy per atom. (3) Main text, qualitative: the diffusion models complement Nano-TO by exploring the near-optimal design space efficiently; no cost numbers. (4) Classical vs classical, not ML: nanopillar Nano-TO 3.65 vs FEM-based TO mapped onto the lattice 3.44 (6.10%); Nano-TO refinement of the FEM-TO design 3.70 (Results; Supplementary Note A.14). The abstract's only 'outperforms' sentence refers to this classical-vs-classical result"
+  },
+  "baseline": {
+    "classical_method": "Nano-TO, the authors' atom-by-atom discrete TO: each iteration removes the real atoms with the lowest filtered sensitivity and restores the virtual atoms with the highest; stiffness from the symmetric energy curvature; 12-shell crystallographic sensitivity filter. Bending-compliance minimization at prescribed mass ratios, 64 independent trials per mass ratio (Results; Methods)",
+    "implementation": "Authors' Nano-TO code driving LAMMPS with the Mishin EAM potential for aluminium (Methods); public at github.com/chunteh/Diffusion-Nano-TO (MIT licence)",
+    "solver": "LAMMPS conjugate-gradient energy minimization at 0 K for three strain states per stiffness evaluation (force tolerance 1e-10 eV/Å; at most 100,000 minimization iterations for cantilevers) (Methods). Atomistic relaxation, not a linear FE solve",
+    "hardware_classical": "not stated",
+    "hardware_ml": "c-DDPMs trained on an NVIDIA RTX A6000 GPU (Methods); sampling hardware not stated",
+    "problem_size": "Thickness-periodic nanocantilever 200.475 x 20.25 x 615.60 Å, 150,480 atoms (148,500 active, 1,980 passive) (Results); c-DDPM images 100x300 binary, modelled as the symmetric half-image padded to 64x304 (Methods)",
+    "classical_iterations": "Mass-reduction phase (160 atoms removed and 80 restored per iteration) to the target mass ratio, then mass-conserving refinement (20 and 20) until a period-two cycle (Methods). Iteration counts for the cantilever are not stated. Nanopillar runs stopped at 3,000 iterations because of the compute budget",
+    "classical_time": "not stated",
+    "ml_time": "not stated (DDPM with T = 1,000 steps and two forward passes per step under classifier-free guidance, Methods)",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated. TO-DDPM data: 48,000 Nano-TO designs reused from previous runs at various mass ratios, 32,000 kept after removing disconnected layouts. Gaussian-DDPM data: 32,000 valid random-field layouts labelled by atomistic stiffness (Results)",
+    "quality_metric": "Normalized bending stiffness (relative to the fully dense beam) from an atomistic EAM simulation of each generated design converted to an atomistic model; surface-atom fraction and potential energy per atom for selected designs (Results; Supplementary Note A.10)",
+    "quality_gap": "At 59.60% mass ratio: TO-DDPM mean 0.809 and best 0.860 over 32,000 samples vs best Nano-TO 0.820 over 64 trials [best +4.9%, mean -1.3% relative to the Nano-TO best, derived]; Gaussian-DDPM best 0.736 [-10.2%, derived]; DM-07188 0.822 (+0.28%). The Nano-TO trial mean at 59.60% is not stated in the text"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Results (c-DDPM subsection) and Supplementary Notes A.7-A.8: the best of a 32,000-sample TO-DDPM production run, chosen after a guidance sweep of 24 settings with 1,600 atomistically evaluated samples each [38,400 samples, derived], is set against the best of 64 Nano-TO trials at the same target mass ratio. Neither side's compute budget is stated, and the achieved mass ratio of the generated designs is not reported (the target is imposed only as a conditioning label). The Nano-TO stopping rule is stated (period-two cycle). Quality is reported but matching is loose."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q: no speed or cost comparison, and no runtime of any method is reported, so criteria (a)-(e) do not apply."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed claim against Nano-TO. For C3: c-DDPM training and sampling times and the cost of the 48,000 reused Nano-TO designs are not reported (Results; Methods)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Results (c-DDPM subsection) and Methods: every generated design is converted to an atomistic model and evaluated with the same bending-stiffness calculation as Nano-TO, and the statistics cover the full 32,000-sample run. The achieved mass ratio of the generated designs and the share of disconnected or invalid samples are not reported. The named examples (DM-22397, DM-24015, DM-07188) are selected high performers. For context, the Nano-TO training pool lost 16,000 of 48,000 designs as disconnected [derived from 48,000 minus 32,000]."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "ML comparison: one design target (thickness-periodic nanocantilever at 59.60% mass ratio). TO-DDPM: 32,000 production samples plus 24 x 1,600 sweep samples; Gaussian-DDPM: 4 x 1,600 sweep samples; Nano-TO: 64 trials per mass ratio (Results; Fig. 2b; Supplementary Notes A.7-A.8)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; full text gives stratum Q. The only ML-vs-classical comparisons concern design quality (normalized bending stiffness vs Nano-TO). No runtime of Nano-TO, of the diffusion models or of the atomistic evaluations appears anywhere, including Methods and Supplementary Notes A.1-A.14. The Discussion presents the diffusion models as a way to map near-optimal alternatives rather than to beat Nano-TO on peak stiffness. The abstract's only 'outperforms' sentence (atomistic optimization beats continuum TO for nanopillars) compares two classical methods; its diffusion-model sentence is qualitative. Duplicate handling: P00242 in the pool is arXiv 2604.03276, the same study (same authors; the pool abstracts match the arXiv abstract). The Materials Horizons version of record is not open access (Crossref licence, checked 2026-09-24), so the latest arXiv version (v1) is the primary text per the FT-DUPLICATE definition, and it was coded here with both identifiers recorded. P00242 (decision order 479) should be excluded as FT-DUPLICATE naming P01905 when it is reached. Alternative reading for the verifier: if the closed-list definition is read as keeping the pid of the primary version (as with P00034/P00235), this record becomes FT-DUPLICATE of P00242 and the coding moves there. The task instruction was to exclude only when the duplicate is already coded, and P00242 is not. Crossref lists two review rounds for the version of record, so it may differ from arXiv v1. P01908 in the pool is the authors' response to review (screened E-TYPE). Scope note: Nano-TO is atomistic TO (binary atom occupancy, EAM potential, BESO-like add and remove steps) of aluminium nanostructures for stiffness, so it is coded as in scope under §3.1 elasticity physics [judgment]. A verifier who reads §3.1 as continuum-only could choose FT-SCOPE. physics = compliance because the objective is bending compliance, evaluated atomistically. dim = 2d for the ML part: the diffusion models generate 2D cross-sections that are extruded into thickness-periodic 3D atomistic models; the Nano-TO-only studies include 3D designs. seeds_or_variance = yes: Fig. 2b shows all 64 Nano-TO trials per mass ratio and Fig. 3 shows the distributions of generated samples; one trained model per dataset, no training-seed variance. ood_test = no: the target mass ratio lies inside the TO-DDPM training range; the Gaussian-DDPM high-stiffness label exceeds its training labels but the problem setting is unchanged. data_available = yes: the article says all data were generated from the code, and the repository README links a public OSF project (osf.io/6fnjg, checked via the OSF API; it holds the repository folders) for the DDPM training data; file contents were not opened. Code: github.com/chunteh/Diffusion-Nano-TO (Code availability section; GitHub API 2026-09-24: MIT licence; folders Nano-TO with LAMMPS inputs and EAM potential, c-DDPM in PyTorch, GRF-Generator in MATLAB). retest_candidate false: no speed claim to re-test (stratum Q); the benchmark needs LAMMPS runs with about 1.5x10^5 atoms per evaluation. No author named Jun Wang."
+}

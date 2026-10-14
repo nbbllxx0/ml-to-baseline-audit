@@ -1,0 +1,44 @@
+{
+  "pid": "P00335",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Constructing Boundary-identical Microstructures via Guided Diffusion for Fast Multiscale Topology Optimization",
+    "authors": "Jingxuan Feng, Lili Wang, Xiaoya Zhai, Kai Chen, Wenming Wu, Ligang Liu, Xiao-Ming Fu",
+    "year": 2024,
+    "venue": "arXiv preprint (cs.CE). Version of record: Computer Methods in Applied Mechanics and Engineering, doi 10.1016/j.cma.2025.117735 (doi.org resolves to Elsevier PII S0045782525000076 with the same title; article number 117735 per the DOI [inferred]; volume not verified). ScienceDirect answered scripted requests with a captcha page (HTTP 403), so the open-access status and content of the journal version were not checked",
+    "doi": "10.48550/arXiv.2406.16066",
+    "arxiv_id": "2406.16066",
+    "version_coded": "arXiv v2 (8 Jan 2025; v1 23 Jun 2024), full text read from https://arxiv.org/html/2406.16066 (v2); Fig. 20 (timing chart, missing from the HTML) read on page 24 of the v2 PDF"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: a guided diffusion model builds 16 boundary-identical microstructure datasets; each multiscale design (e.g., a 30×30 mechanical cloak) then finishes in under one minute; no classical method is run, timed or cited.",
+    "location": "Abstract; Sec. 1 (contributions); Sec. 4.5.3 and Fig. 20; Sec. 5",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). Only the proposed pipeline is timed (Fig. 20, PDF p. 24): 35.49-39.55 s for the Fig. 15 designs, 34.23-40.80 s for the Fig. 16 designs, 16.54 s and 28.22 s for the Fig. 19 designs. The acceleration over unnamed state-of-the-art methods (Sec. 1) and the time burden of the data-driven approach [30] (Sec. 4.5.3) are not quantified."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 and the 2026-09-24 FT-NOBASELINE clarification: the article never runs, times or cites the cost or result of a classical method. Codes checked in order: in scope (multiscale TO of elastic structures with an ML-generated microstructure library), a method paper, elasticity only, ML used for inverse generation, so FT-DUPLICATE (no other version in the pool), FT-SCOPE, FT-TYPE, FT-DOMAIN, FT-NOML and FT-FORWARD do not apply. FT-MLONLY does not apply either, because no other ML method is run or compared: the only named comparator, the data-driven approach [30] (Wang et al. 2020, deep generative modelling), appears in one qualitative sentence (Sec. 4.5.3). The one-minute claim (abstract; Sec. 4.5.3) times only the proposed pipeline. All quantitative results are internal: ablations (Sec. 4.3; Tables A1-A2), coverage gains from active learning (Sec. 4.4; Table A3), voided structures with vs without the designed cloak (e.g., relative displacement difference 13.13% vs 117.40%, Sec. 4.5.1), the dataset before vs after expansion (12.5308% vs 5.0927%), ratios to the Hashin-Shtrikman bound (98% or more, App. A), and boundary-identical vs partially connected cells (Figs. 8-9). Judgment calls for the verifier: (1) the source of the partially connected cells in Figs. 8-9 is not stated; if they are read as classical inverse-homogenization outputs (dataset D0 was built with the method of [63] plus shape perturbation, Sec. 3.2), Figs. 8-9 become a qualitative quality comparison and the record would enter stratum Q; (2) if the qualitative remark on [30] is counted as an ML comparison, FT-MLONLY applies instead. For C3: D0 holds 36,585 microstructures from 16,000 inverse-homogenization designs plus perturbation and filtering (Sec. 3.2); its generation cost, training time (1000 epochs, AdamW, batch 256) and dataset-expansion cost are not reported. Hardware: training, inference and full-scale FE on 2× Xeon Silver 4316 with 8× RTX 3090; multiscale design on one i7-6700K (Sec. 4). Code https://github.com/Schnabel-8/BDR-diffusion (GitHub API 2026-09-24: public, 19 KB, no licence declared) and a USTC data-share link (responds with HTTP 200; content not checked) are given in Sec. 1. Screening code was I-SPEED. COI check: no author named Jun Wang (Lili Wang is a co-first author)."
+}

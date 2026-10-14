@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P02361",
+    "citation":  {
+                     "title":  "Distributed design optimization of multi-component systems using meta models and topology optimization",
+                     "authors":  "Lukas Krischer, Felix Endress, Tobias Wanninger, Markus Zimmermann",
+                     "year":  2024,
+                     "venue":  "Structural and Multidisciplinary Optimization",
+                     "doi":  "10.1007/s00158-024-03836-5",
+                     "arxiv_id":  "",
+                     "version_coded":  "version of record"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-QUALITY",
+                     "stratum":  "quality",
+                     "method_family":  "surrogate_mlp_gp",
+                     "physics":  "compliance",
+                     "dim":  "3d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The proposed Informed Decomposition produced designs up to 12.9% heavier than monolithic optimization in the reported examples.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  true,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No speed-up factor is stated; the article says computational time was not explicitly investigated.",
+                  "direction":  "underperform",
+                  "alternatives":  "Conclusion says each subproblem is smaller and computation time may be significantly reduced, but this is qualitative."
+              },
+    "baseline":  {
+                     "classical_method":  "monolithic topology optimization (SIMP-based)",
+                     "implementation":  "MATLAB; article states results can be replicated with MATLAB",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "P1: 2 components, each 20 x 8 x 8 elements; P2: 4-component robot",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not reported",
+                     "ml_time":  "not reported",
+                     "training_time":  "not quantified",
+                     "data_generation_cost":  "sample generation for offline database described as computationally expensive, not quantified (Discussion)",
+                     "quality_metric":  "system mass and displacement / stiffness constraints",
+                     "quality_gap":  "up to 12.9% heavier than monolithic optimization (Abstract)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "Primary outcome is a design-mass quality comparison, not a measured speed comparison (Abstract)."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Methods and Discussion do not establish a listed R2 baseline weakness."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-amortization",
+                             "evidence":  "Discussion states offline sample generation is computationally expensive and notes training is not included in the potential time reduction, but gives no cost accounting or break-even number."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-failure-rate-unreported",
+                             "evidence":  "Sections 5–7 assess physical feasibility and system stiffness against requirements; the paper says all outcomes met requirements but does not report a count/rate of failed or infeasible designs."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "2 design problems: P1 and P2; P1 includes 6 load cases and P2 includes 100 (Abstract, Sections 5–6)",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The article explicitly states that computational time was not investigated; its reduction is a prospective claim. Published full text says results are reproducible using MATLAB and the derivations, but no public code is identified.",
+    "stage":  "cross_provider_pass"
+}

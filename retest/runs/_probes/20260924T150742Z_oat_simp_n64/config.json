@@ -1,0 +1,14 @@
+{
+  "size": 64,
+  "k": 1,
+  "iters": 20,
+  "solvers": "CG,MultiGrid",
+  "optimizers": "OC,PGD",
+  "void": 1e-09,
+  "heavyside": false,
+  "problem_ids": [
+    15
+  ],
+  "split": "NITO_test",
+  "oat_commit": "dc5e817497eb7d5517f93b7c79ea463ab2761082"
+}

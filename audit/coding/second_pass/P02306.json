@@ -1,0 +1,44 @@
+{
+  "pid": "P02306",
+  "citation": {
+    "title": "Denoising diffusion algorithm for inverse design of microstructures with fine-tuned nonlinear material properties",
+    "authors": "Nikolaos N. Vlassis, WaiChing Sun",
+    "year": 2023,
+    "venue": "Computer Methods in Applied Mechanics and Engineering (bronze OA per OpenAlex)",
+    "doi": "10.1016/j.cma.2023.116126",
+    "arxiv_id": "",
+    "version_coded": "Author's accepted manuscript, obtained from the OSTI (US DOE) repository (osti.gov/servlets/purl/2417948; OpenAlex lists this OSTI location as is_oa=true, version=submittedVersion, for this exact DOI). The PDF's own header states 'Version of Record: https://www.sciencedirect.com/science/article/pii/S0045782523002505' and 'This manuscript is made available under the Elsevier user license', confirming it is the authors' archived copy of this article, not a different paper. Full text (22 pages, all sections and figures) read from the extracted PDF text."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: a denoising diffusion probabilistic model (DDPM), guided by context feature vectors for target hyperelastic energy response and topology, generates large numbers of candidate microstructures on the Mechanical MNIST dataset; a CNN surrogate then screens candidates against a target constitutive-response error (MSE < 1e-4) in place of running full finite-element simulations on every candidate. The article states its method explicitly avoids solving any constrained optimization problem (physical or latent-space) at all, and no classical, non-learned inverse-design or topology-optimization method is ever run, timed, or cited for its own cost or result on this problem.",
+    "location": "Introduction (Sec. 1, esp. lines discussing 'conventional' level-set/phase-field optimization) and Remark 2 / Conclusion (Sec. 6) (main text)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No classical-method time or cost is given anywhere to pair with the CNN surrogate's stated speed advantage over 'full-scale finite element simulations' (Abstract; Sec. 4), and that comparison is itself forward-analysis screening speed, not a topology-optimization speed claim."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL Sec. 4 and the 2026-09-24 FT-NOBASELINE clarification: the article never runs, times, or cites the cost or result of a classical, non-learned optimization method for its own problem. Searched the full text (Introduction, Sections 2-5, Remark 2, Conclusion) for any classical-baseline number or citation: none exists. The Introduction states only qualitatively that 'conventionally, designing a microstructure...often requires one to solve optimization problems in the spatial domain where a level set or a phase field are used...This...leads to a multi-objective non-convex optimization problem which is non-trivial to solve' (p.2, no run, no citation of a specific result/cost) - textually parallel to the deviations log's own example of a non-comparison ('TO is slow' with no run or timing). Remark 2 (p.17-18) discusses a capability limitation relative to 'the alternative approach where an inverse problem is conducted in a high-dimensional design space (Woldseth et al. 2022)', but this is a qualitative methodological comparison, not a run, timing, or specific-result citation for this article's own problem. The article explicitly frames its method as bypassing optimization altogether: 'the design of the microstructures is neither completed by solving a constrained optimization neither in the physical nor the latent space' (p.2). The only quantitative speed statement in the article ('faster prediction' via the CNN surrogate versus 'the slower finite element simulations', Sec. 4) is about replacing per-candidate FEM evaluation with a surrogate for screening/filtering generated candidates - a forward-analysis speed-up internal to the pipeline, not a topology-optimization or inverse-design comparison against a classical optimizer. GAN/VAE are discussed only qualitatively (citing other authors' general findings, e.g. Nichol and Dhariwal 2021 on DDPM vs GAN training stability), with no quantitative own-experiment ML-vs-ML comparison table, so FT-MLONLY (order 7, before FT-NOBASELINE at order 8 in the closed list) does not apply better. No code or data availability statement beyond citing the third-party open Mechanical MNIST dataset (Lejeune 2020) used for training. No author of this article is named Jun Wang (authors: Nikolaos N. Vlassis, WaiChing Sun). Duplicates: pool.csv holds a single record for P02306 with no companion duplicate pid for this title, so FT-DUPLICATE does not apply."
+}

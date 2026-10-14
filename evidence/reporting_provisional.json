@@ -1,0 +1,167 @@
+{
+  "mode": "provisional",
+  "n_included": 47,
+  "indicators": {
+    "ood_test": {
+      "strata": [
+        "speed",
+        "quality"
+      ],
+      "n": 47,
+      "counts": {
+        "no": 31,
+        "unclear": 3,
+        "yes": 13
+      },
+      "headline_value": "yes",
+      "k": 13,
+      "share": 0.2765957446808511,
+      "ci95": [
+        0.15624366860662975,
+        0.42638008278901923
+      ]
+    },
+    "seeds_or_variance": {
+      "strata": [
+        "speed",
+        "quality"
+      ],
+      "n": 47,
+      "counts": {
+        "no": 36,
+        "yes": 11
+      },
+      "headline_value": "yes",
+      "k": 11,
+      "share": 0.23404255319148937,
+      "ci95": [
+        0.1230334632855016,
+        0.3802572981235982
+      ]
+    },
+    "failure_rate_reported": {
+      "strata": [
+        "speed",
+        "quality"
+      ],
+      "n": 47,
+      "counts": {
+        "no": 35,
+        "yes": 12
+      },
+      "headline_value": "yes",
+      "k": 12,
+      "share": 0.2553191489361702,
+      "ci95": [
+        0.13944912001756973,
+        0.4034951899715681
+      ]
+    },
+    "timing_protocol_stated": {
+      "strata": [
+        "speed"
+      ],
+      "n": 28,
+      "counts": {
+        "no": 7,
+        "partial": 21
+      },
+      "headline_value": "yes",
+      "k": 0,
+      "share": 0.0,
+      "ci95": [
+        0.0,
+        0.12343611850026381
+      ]
+    },
+    "runtimes_all_cases": {
+      "strata": [
+        "speed"
+      ],
+      "n": 28,
+      "counts": {
+        "no": 5,
+        "na": 3,
+        "selective": 10,
+        "yes": 10
+      },
+      "headline_value": "selective",
+      "k": 10,
+      "share": 0.35714285714285715,
+      "ci95": [
+        0.18640666000044548,
+        0.5593496872533334
+      ]
+    },
+    "code_available": {
+      "strata": [
+        "speed",
+        "quality"
+      ],
+      "n": 47,
+      "counts": {
+        "on_request": 3,
+        "no": 30,
+        "yes": 14
+      },
+      "headline_value": "yes",
+      "k": 14,
+      "share": 0.2978723404255319,
+      "ci95": [
+        0.1733885027077777,
+        0.44893568720632593
+      ]
+    },
+    "data_available": {
+      "strata": [
+        "speed",
+        "quality"
+      ],
+      "n": 47,
+      "counts": {
+        "on_request": 4,
+        "no": 35,
+        "yes": 8
+      },
+      "headline_value": "yes",
+      "k": 8,
+      "share": 0.1702127659574468,
+      "ci95": [
+        0.07646947801106857,
+        0.3080912746258122
+      ]
+    },
+    "hardware_per_method_stated": {
+      "strata": [
+        "speed"
+      ],
+      "n": 28,
+      "counts": {
+        "no": 6,
+        "yes": 9,
+        "partial": 13
+      },
+      "headline_value": "yes",
+      "k": 9,
+      "share": 0.32142857142857145,
+      "ci95": [
+        0.15877603788615385,
+        0.5235164067096185
+      ]
+    }
+  },
+  "direction": {
+    "outperform": 32,
+    "underperform": 3,
+    "similar_or_mixed": 12,
+    "share_outperform": 0.6808510638297872,
+    "ci95_outperform": [
+      0.5288187427959397,
+      0.809139492332492
+    ]
+  },
+  "ml_only": {
+    "full_text_FT_MLONLY": 3,
+    "screening_E_MLONLY_llm": 34
+  }
+}

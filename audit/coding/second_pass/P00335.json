@@ -1,0 +1,44 @@
+{
+  "pid": "P00335",
+  "citation": {
+    "title": "Constructing Boundary-identical Microstructures via Guided Diffusion for Fast Multiscale Topology Optimization",
+    "authors": "Jingxuan Feng, Lili Wang, Xiaoya Zhai, Kai Chen, Wenming Wu, Ligang Liu, Xiao-Ming Fu",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.CE); a version of record is also registered at Computer Methods in Applied Mechanics and Engineering",
+    "doi": "10.1016/j.cma.2025.117735",
+    "arxiv_id": "2406.16066",
+    "version_coded": "arXiv v2 (8 Jan 2025; latest of 2 versions, v1 was 23 Jun 2024), full text read from the PDF (https://arxiv.org/pdf/2406.16066v2). The journal DOI (10.1016/j.cma.2025.117735) redirects to linkinghub.elsevier.com then sciencedirect.com/science/article/pii/S0045782525000076, which returned HTTP 403 to scripted access; the version of record was not read (no bypass attempted)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: a self-conditioning guided-diffusion model builds 16 boundary-identical microstructure datasets with wide elastic-modulus coverage; a mechanical-cloak multiscale design using this dataset (30x30 macro elements, 256x256 microstructure elements) completes in under one minute, which the authors call a significant efficiency gain, but no classical (non-learned) multiscale optimization method is ever run, timed, or cited for its cost or result.",
+    "location": "Abstract; Sec. 4.5.3 'Optimization efficiency' and Fig. 20 (main text)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No classical-method time is stated anywhere to pair with the reported ML/pipeline times (per-case times of about 16-41 s in Fig. 20; 'within one minute' in the Abstract), so no ratio is derivable."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL Sec. 4 and the 2026-09-24 FT-NOBASELINE clarification: the article never runs, times, or cites the cost or result of a classical, non-learned optimization method. Searched the full text (Introduction, Methods, Sec. 4.5.3 'Optimization efficiency', Conclusion) for any classical-baseline number or citation: none exists. The only comparator with a time-related remark is another ML/data-driven method, ref. [30] (L. Wang et al., 'Deep generative modeling for mechanistic-based learning...'), mentioned in one qualitative sentence ('conducting a single-cell search to ensure connectivity imposes a considerable time burden', p.23) with no number attached; this is a passing aside, not a quantitative comparison table, so FT-MLONLY (which requires the article's comparison structure to be against other ML methods) does not fit better than FT-NOBASELINE, which is the first applicable code in the closed list's order for an article with no classical comparison of any kind. All other quantitative comparisons in the article are ablations of the authors' own diffusion architecture (self-conditioning on/off; embedding-layer variants, Sec. 4.2-4.3) or achievement-vs-target-displacement metrics for the multiscale designs (Delta % relative differences, Sec. 4.5), none of which involve a classical optimizer's own run or cost. 'Inverse homogenization' (ref. [63]) is used only internally to seed the initial training dataset, not as a timed comparator. This mirrors the protocol's own worked example almost exactly: the Abstract's claim ('within one minute... significantly enhancing the efficiency of the multiscale topology optimization') is a self-referential efficiency statement with no classical-method number attached, structurally identical to the deviations log's example of a non-comparison ('TO is slow' with no run or timing). Code and data ARE publicly available: code at https://github.com/Schnabel-8/BDR-diffusion and datasets at https://rec.ustc.edu.cn/share/dataset (Introduction, p.3; both checked as stated in the text, not verified further since the record is excluded and retest_candidate is set false only because there is no classical baseline to retest against). No author of this article is named Jun Wang (authors: Jingxuan Feng, Lili Wang, Xiaoya Zhai, Kai Chen, Wenming Wu, Ligang Liu, Xiao-Ming Fu); reference [42] in the bibliography lists a 'J. Wang' as a co-author of an unrelated cited paper, not an author of this article. Duplicates: pool.csv holds a single record for P00335 with no companion duplicate pid for this title, so FT-DUPLICATE does not apply."
+}

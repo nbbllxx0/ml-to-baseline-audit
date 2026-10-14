@@ -1,0 +1,88 @@
+{
+  "pid": "P00029",
+  "citation": {
+    "title": "Accelerating metamaterial topology optimization using deep super-resolution networks",
+    "authors": "Ajendra Singh, Shubham Saurabh, Abhinav Gupta, Rajib Chowdhury",
+    "year": 2025,
+    "venue": "arXiv preprint (physics.comp-ph)",
+    "doi": "10.48550/arxiv.2511.04795",
+    "arxiv_id": "2511.04795",
+    "version_coded": "arXiv v1 (6 Nov 2025; only version on the abs page), full text incl. all tables and figures read from the PDF at https://arxiv.org/pdf/2511.04795"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (the abstract explicitly states the network 'predicts these high-resolution topologies with only 5-7% of the computational cost required by conventional SIMP-based TO at the same resolution')",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "An EDSR (enhanced deep super-resolution) CNN, trained on SIMP-generated low-to-high-resolution topology pairs, predicts 192x192 metamaterial microstructures from 48x48 SIMP-optimized inputs in 24-28 seconds versus 386-493 seconds for full-resolution conventional SIMP-based TO, across four design objectives, with volume-fraction, objective-function, pixel and IoU errors all reported.",
+    "key_phrase": "only 5-7% of the computational cost required by conventional SIMP-based TO",
+    "location": "Abstract; detailed per-objective numbers in Sec. 4, Tables 1/3/5/7",
+    "quantitative": true,
+    "claimed_speedup": 17.5,
+    "claimed_speedup_basis": "Derived as conventional time / proposed time for each of the four design objectives (Tables 1, 3, 5, 7): bulk modulus 457/24 = 19.04 [derived]; shear modulus 493/26 = 18.96 [derived]; elastic modulus 438/28 = 15.64 [derived]; Poisson's ratio 386/24 = 16.08 [derived]. The median of these four ratios, 17.52 (rounded to 17.5), is entered here. The article itself states the reciprocal framing directly and consistently: 'merely 5.25%' (bulk, matches 24/457 exactly), '5.27%' (shear, matches 26/493), 'just 6.39%' (elastic, matches 28/438), and an 'impressive 93% reduction' (Poisson's ratio, 24/386 = 6.22%, close to the stated 7% remainder). Unlike some articles in this queue, the abstract's rounded '5-7%' summary is consistent with all four individually reported figures.",
+    "direction": "outperform",
+    "alternatives": "None; all four numerical design-objective studies (bulk modulus, shear modulus, elastic modulus, Poisson's ratio) use the identical primary-outcome framing (a computational-time comparison against conventional SIMP-based TO), so bulk modulus (the first-presented case) is treated as representative and the other three are folded into the derivation above rather than treated as separate alternatives."
+  },
+  "baseline": {
+    "classical_method": "SIMP-based metamaterial topology optimization with energy-based homogenization (Sec. 2), optimality-criteria (OC) update, sensitivity/density filtering; run at the full 192x192 target resolution to produce a single optimized microstructure per query, for each of 4 objectives (max bulk/shear/elastic modulus, min Poisson's ratio)",
+    "implementation": "Classical baseline: the '55-line' open-source FEniCS-based Python code for large-scale parallel topology optimization (Gupta et al. 2020, arXiv:2012.08208 - a co-author of this article is also an author of that code paper). Proposed approach: EDSR CNN (12 residual blocks, 128 feature channels, sub-pixel-convolution upscaling), built and trained from scratch in TensorFlow",
+    "solver": "not stated (FEniCS's underlying linear-solver choice for the homogenization/equilibrium equations is not specified)",
+    "hardware_classical": "Intel Xeon 6230 processor with an NVIDIA Quadro P2200 GPU - explicitly stated to be the single machine used for 'data generation, training, validation, and testing' (Sec. 4), i.e. the same hardware as the proposed method",
+    "hardware_ml": "Same machine as above (Intel Xeon 6230 + NVIDIA Quadro P2200); no separate hardware is used for the DL model",
+    "problem_size": "LR mesh 48x48 (2,304 elements) and HR mesh 192x192 (36,864 elements, roughly 7.4x10^4 DOFs at 2 DOF/node [derived, just under the protocol's 10^5-DOF threshold), periodic unit-cell homogenization; volume fraction 0.2-0.7, penalization 3-7.5, filter radius 0.02-0.07 (uniformly sampled ranges, Sec. 3.1)",
+    "classical_iterations": "Not given a specific number or tolerance; Algorithm 1 describes a generic OC-based stopping-criterion check ('the algorithm checks for stopping criteria and gets terminated when the criteria are met') without stating the criterion's numeric value or a typical iteration count",
+    "classical_time": "Average time to produce one HR (192x192) optimized topology by conventional SIMP-based TO: bulk modulus 457 s (Table 1), shear modulus 493 s (Table 3), elastic modulus 438 s (Table 5), Poisson's ratio 386 s (Table 7)",
+    "ml_time": "Average time for the proposed approach, explicitly stated to include both the cost of generating the LR (48x48) topology and the network's prediction cost: bulk modulus 24 s, shear modulus 26 s, elastic modulus 28 s, Poisson's ratio 24 s",
+    "training_time": "Not given in wall-clock terms anywhere. Only a loss-curve description is given: training/validation losses (0.0233/0.0245 initially) converge to about 0.02 after 103 epochs (batch size 32, Adam optimizer, learning rate 1e-4, Sec. 3.3), with no minutes/hours figure attached to this training run",
+    "data_generation_cost": "Not given in wall-clock terms. 1,000 LR+HR sample pairs were generated per objective (4,000 total) via the classical SIMP/FEniCS pipeline described above - implicitly a very large aggregate cost (each HR sample alone costs on the order of 400-500 s per the classical_time figures) - but no total or per-sample data-generation time is reported, and the article only acknowledges this qualitatively as a 'one-time, initial offline expenditure' (Sec. 3) without a number",
+    "quality_metric": "Objective function error: the predicted topology image is converted to a mesh (Pillow library) and re-analyzed via the homogenization equations (Eq. 15-18) to recompute the actual objective value - a genuine physics-based re-analysis, not a surrogate prediction. Also reported: volume fraction (directly measured from the output image), pixel-wise MSE, and Intersection over Union (IoU) - the latter two are image-similarity metrics, reported alongside, not instead of, the physics-based objective-function error",
+    "quality_gap": "Average errors on 150 held-out test samples per objective (Tables 2/4/6/8): bulk modulus - VF 1.95%, objective function 3.03%, pixel MSE 2.24%, IoU 0.92; shear modulus - VF 1.04%, objective function 1.57%, pixel MSE 2.55%, IoU 0.91; elastic modulus - VF 1.91%, objective function 2.34%, pixel MSE 2.74%, IoU 0.93; Poisson's ratio - VF 1.57%, objective function 4.24%, pixel MSE 6.63%, IoU 0.84 (the article attributes the larger Poisson's-ratio errors to the greater structural complexity of auxetic microstructures)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Speed and quality appear to be assessed on the same or heavily overlapping 150-sample held-out test set for each objective (Sec. 4.1-4.4), with volume-fraction and physics-based objective-function errors transparently reported alongside every timing comparison (Tables 1-8), rather than a bare speed claim - a real matching effort. However, the classical SIMP run's stopping criterion is never given a specific numeric tolerance or iteration count (Algorithm 1 only describes a generic check), so whether the 386-493 s 'conventional' times represent full convergence to the same standard used elsewhere cannot be fully confirmed, matching the protocol's own partial example of an unstated classical stopping rule."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-matched-hardware",
+      "evidence": "Sec. 4: 'All computations for data generation, training, validation, and testing of the model are conducted on a computational system equipped with an Intel Xeon 6230 processor and NVIDIA Quadro P2200 GPU' - i.e. the same single machine for both the classical baseline and the proposed method, so no GPU-vs-CPU asymmetry (R2(c)) applies. The classical implementation is an open-source, FEniCS-based '55-line' large-scale parallel topology-optimization code (Gupta et al. 2020) - a modern, purpose-built research code, not a toy/unvectorized reference implementation, so the R2 partial trigger for inefficient implementations does not clearly apply either. Problem size (192x192, ~7.4x10^4 DOFs [derived]) is below the protocol's 10^5-DOF threshold for R2(c) in any case."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-costs-reported",
+      "evidence": "A speed claim is made (Abstract: '5-7% of the computational cost'), but neither the EDSR training cost nor the classical data-generation cost (1,000 LR+HR sample pairs per objective, 4,000 total, each HR sample costing on the order of 400-500 s per the article's own classical_time figures) is given any wall-clock number anywhere. The article only acknowledges qualitatively that 'the initial investment of time required for sample preparation and network training constitutes a one-time, initial offline expenditure' (Sec. 3) - no number, and no amortization or break-even number of uses is computed. This is closer to the protocol's R3 fail condition ('a speed claim with no training or data cost at all') than to the partial condition, since neither cost component is quantified, only the per-query time is."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 3.4/4: the objective-function error is computed by converting the predicted topology to a mesh and re-analyzing it through the homogenization equations (Eq. 15-18) - a genuine FE/homogenization-based verification of the returned design, not a surrogate prediction or a purely image-based metric, and volume fraction is directly measured. However, no connectivity, disconnected-member, or other failure/infeasibility rate is reported for the predicted topologies across the 150x4 = 600 test predictions, so constraint/feasibility failures are not counted even though the core performance metric is properly FE-verified."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "150 held-out test samples per design objective (bulk modulus, shear modulus, elastic modulus, Poisson's ratio minimization), drawn from 1,000-sample datasets per objective with a 70/15/15 (or 14:3:3) train/validation/test split (Sec. 3.1, Sec. 4.1-4.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "yes",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Access: arXiv abs/PDF pages returned HTTP 200 with no bot-check; only one version (v1, 6 Nov 2025) exists. Full text (25 pages) read in full. No author named Jun Wang (authors: Ajendra Singh, Shubham Saurabh, Abhinav Gupta, Rajib Chowdhury); the reference list cites many unrelated prior works by various authors named Wang (e.g., refs. 34, 44, 47, 49, 56, 64, 73, 78), none of them 'Jun Wang' and none an author of this article; a cited paper (ref. 54, Yan et al.) is authored by a 'Jun Yan', also unrelated. Duplicate check: audit/pool/pool.csv searched for the full title (case-insensitive) returned exactly one match (this record, pid P00029); no FT-DUPLICATE applies. No code or dataset availability statement of any kind was found anywhere in the text (checked by keyword search for 'github', 'code availab', 'data availab', 'source code', 'repository'). Overall this is one of the more methodologically transparent articles in this queue: identical hardware for both methods, a modern parallel-capable classical baseline (not a toy educational code), quality metrics that include a genuine physics-based re-analysis (not only image-similarity or a surrogate predictor), and internally consistent speed-up arithmetic between the abstract and the per-objective tables. Its main weakness for this audit is R3: the very large implied offline cost of generating 4,000 SIMP-optimized training samples (each HR sample costing on the order of 400-500 s per the article's own numbers) is never quantified or amortized against the per-query savings, and network training time is likewise never given in wall-clock terms."
+}

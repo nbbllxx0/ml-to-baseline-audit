@@ -1,0 +1,44 @@
+{
+  "pid": "P00808",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "A Geometric-Enhanced Neural Network Method for Scalable and High-Resolution Topology Optimization",
+    "authors": "Lei Zhang, Shiqiang Li, Zhichu Lei, Guangzhe Du, Xiao Zhang, Guanbin Chen, Wenliang Qian (Crossref; OpenAlex and the pool list 'Li Zhang' and 'Xi Zhang')",
+    "year": 2026,
+    "venue": "Symmetry 18(3) 537 (MDPI; published 2026-03-21; CC BY 4.0 per Crossref)",
+    "doi": "10.3390/sym18030537",
+    "arxiv_id": "none found",
+    "version_coded": "none: abstract only (publisher-deposited abstract in Crossref metadata); full text not reachable"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (abstract only). The abstract claims better computational efficiency than traditional and other neural-network TO methods, and a 256 m bridge with millions of DOFs optimized in under ten minutes on a standard PC; no comparison numbers are given.",
+    "location": "Abstract (Crossref metadata)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with a generic User-Agent. (1) The only open copy OpenAlex lists is the DOI, which resolves to www.mdpi.com/2073-8994/18/3/537. curl got HTTP 403 'Access Denied' (Akamai edge) on the article page and on the /pdf link. WebFetch got HTTP 403 on the /htm full-text page. The Crossref full-text link is the same blocked /pdf URL. No workaround via other hosts was attempted, because that would route around the publisher's bot block. (2) arXiv: no version found (title phrase 'anisotropic radial basis' with 'topology'). (3) OpenAlex lists no repository copy. The abstract was read from Crossref. Method per the abstract: a neural network reparameterizes the density field through anisotropic radial basis functions (GeNN), which suppresses checkerboards without filtering; tested on benchmark problems including symmetric layouts. At full text this is likely a speed-stratum record: the abstract claims an efficiency gain over traditional methods, and the ten-minute million-DOF bridge figure is the likely primary candidate. The verifier should check hardware (the abstract says a standard PC) and whether the classical baseline is timed. A human with browser access to mdpi.com should code this record. No author named Jun Wang. Screening code was I-SPEED."
+}

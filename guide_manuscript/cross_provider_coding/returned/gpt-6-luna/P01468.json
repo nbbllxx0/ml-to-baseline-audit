@@ -1,0 +1,27 @@
+{
+  "pid": "P01468",
+  "citation": {
+    "title": "GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning",
+    "authors": "Mohammad Mahdi Behzadi, Horea T. Ilies",
+    "year": 2021,
+    "venue": "arXiv preprint arXiv:2105.03045",
+    "doi": "10.48550/arxiv.2105.03045",
+    "arxiv_id": "2105.03045",
+    "version_coded": "arXiv v1"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "gan", "physics": "compliance", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "GANTL is presented as a real-time way to explore topology designs, while transfer learning reduces the high-resolution training set; its predicted structures are evaluated against SIMP designs.", "key_phrase": "real-time design space explorations", "location": "title; Sections 1 and 5", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "No ML inference time or derived speed-up is reported. The introduction cites 1.85 s per SIMP iteration for a separate 300 × 100 example, but gives no matched GANTL timing.", "direction": "outperform", "alternatives": "The conclusion reports 11,000 low-resolution source cases and 1,500 high-resolution target cases; Tables 2–5 compare prediction quality against SIMP designs."},
+  "baseline": {"classical_method": "SIMP topology optimization", "implementation": "Freely available MATLAB code used to generate training and reference designs; the cited 88-line SIMP code is discussed in Section 1", "solver": "not stated", "hardware_classical": "not stated for this paper's experiments; Section 1 cites a separate 300 × 100 example at 1.85 s per iteration", "hardware_ml": "not stated", "problem_size": "2D domains; 40 × 80 low-resolution and 200 × 400 high-resolution cases (Section 4)", "classical_iterations": "not stated", "classical_time": "not reported for this study; Section 1 cites 1.85 s per iteration for an external SIMP example", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated in this article; conclusion refers to a discussion in prior work", "quality_metric": "MSE, binary accuracy, compliance error, and standard deviation against SIMP designs (Tables 2–5)", "quality_gap": "Section 4 reports scenario-specific metrics; two unseen-condition scenarios have average compliance errors 10.5% and 11.5% (Section 4.2)"},
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-loose", "evidence": "Sections 1 and 4: the paper makes a real-time claim and compares predicted quality with SIMP designs, but reports no matched timing at equal quality or objective."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 1 cites an external SIMP iteration time, while this study reports no matched classical-versus-ML runtime or implementation evidence establishing an R2 criterion."},
+    "R3": {"verdict": "fail", "marker": "R3-no-data-cost", "evidence": "Conclusion: training uses 11,000 low-resolution and 1,500 high-resolution cases, but this article reports neither training time nor data-generation cost or amortization."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 4 reports compliance error and other comparisons to SIMP, but does not report a count or rate of infeasible or disconnected outputs."}
+  },
+  "reporting": {"n_test_cases": "Scenario-specific sets in Tables 2–5; Section 4.2 also reports 250 cases with five or ten loads", "ood_test": "yes", "seeds_or_variance": "yes", "failure_rate_reported": "no", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Full text read from the listed arXiv PDF. The article evaluates unseen boundary conditions and load counts, but does not state code or data release for its own model and datasets."
+}

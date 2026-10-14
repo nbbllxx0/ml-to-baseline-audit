@@ -1,0 +1,1282 @@
+{
+ "64": {
+  "run": "retest/runs/20260925T070716Z_oat_extended_n64",
+  "size": 64,
+  "n_problems": 25,
+  "n_seeds": 5,
+  "rules": {
+   "primary_ce_and_volume": {
+    "samples": 125,
+    "samples_matched": 90,
+    "median_ratio_over_problems": 0.7625612844243206,
+    "problems_baseline_faster": 15,
+    "problems": 25,
+    "sign_test_p": 0.42435622215270996,
+    "primary_five_median": 0.620913777593079,
+    "new_twenty_median": 0.8251052063256737,
+    "per_problem": [
+     {
+      "problem_id": 15,
+      "primary": true,
+      "median_ratio": 0.620913777593079,
+      "ratios": [
+       0.6247553485461721,
+       0.620913777593079,
+       0.33873668558611814,
+       0.6122370747886754,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 676,
+      "primary": true,
+      "median_ratio": 0.4153046363459915,
+      "ratios": [
+       0.5189021493608377,
+       Infinity,
+       0.3337911924297205,
+       0.41412710785020973,
+       0.4153046363459915
+      ]
+     },
+     {
+      "problem_id": 839,
+      "primary": true,
+      "median_ratio": 0.9537699840409636,
+      "ratios": [
+       0.9537699840409636,
+       0.46747620467204076,
+       0.45961429771140766,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 935,
+      "primary": true,
+      "median_ratio": 0.482514247244485,
+      "ratios": [
+       0.5589552230847519,
+       0.34269014067759096,
+       0.482514247244485,
+       0.44865700282843674,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 961,
+      "primary": true,
+      "median_ratio": 1.5315419631918445,
+      "ratios": [
+       Infinity,
+       1.5315419631918445,
+       1.5206004248598721,
+       Infinity,
+       1.0501935720373443
+      ]
+     },
+     {
+      "problem_id": 86,
+      "primary": false,
+      "median_ratio": 0.3067717840090466,
+      "ratios": [
+       0.3065792571538195,
+       0.42544464066135573,
+       0.3077771639535038,
+       0.3067717840090466,
+       0.2967350095780826
+      ]
+     },
+     {
+      "problem_id": 121,
+      "primary": false,
+      "median_ratio": 1.4154043002464476,
+      "ratios": [
+       1.4154043002464476,
+       1.0084794776369916,
+       Infinity,
+       Infinity,
+       1.1239690309491244
+      ]
+     },
+     {
+      "problem_id": 134,
+      "primary": false,
+      "median_ratio": 2.0152416763722796,
+      "ratios": [
+       1.0618573450656883,
+       2.03788035483038,
+       2.0451751663745052,
+       2.0152416763722796,
+       1.600849308123289
+      ]
+     },
+     {
+      "problem_id": 241,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       0.40807219441465764,
+       Infinity,
+       0.40767370391957825
+      ]
+     },
+     {
+      "problem_id": 338,
+      "primary": false,
+      "median_ratio": 0.4305244904171408,
+      "ratios": [
+       0.4243068421799033,
+       0.4298259953176254,
+       0.4305244904171408,
+       Infinity,
+       0.8351529557223819
+      ]
+     },
+     {
+      "problem_id": 403,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 443,
+      "primary": false,
+      "median_ratio": 0.3349109705946392,
+      "ratios": [
+       0.33491030380253894,
+       0.3349109705946392,
+       0.6804261144310402,
+       0.33485534001770295,
+       0.6401651555511627
+      ]
+     },
+     {
+      "problem_id": 499,
+      "primary": false,
+      "median_ratio": 0.30937894932861526,
+      "ratios": [
+       0.4080772990828944,
+       0.30937894932861526,
+       0.30811687183474984,
+       0.3065804524349993,
+       0.41683002104919503
+      ]
+     },
+     {
+      "problem_id": 523,
+      "primary": false,
+      "median_ratio": 0.4049955398203662,
+      "ratios": [
+       0.4049955398203662,
+       0.4109653573695823,
+       0.403188065070478,
+       Infinity,
+       0.40319697232032387
+      ]
+     },
+     {
+      "problem_id": 530,
+      "primary": false,
+      "median_ratio": 1.5097020156056808,
+      "ratios": [
+       0.6663397007858154,
+       5.0619581184216464,
+       1.5097020156056808,
+       1.7816214969181656,
+       1.2201934277768578
+      ]
+     },
+     {
+      "problem_id": 580,
+      "primary": false,
+      "median_ratio": 0.7625612844243206,
+      "ratios": [
+       0.7625612844243206,
+       0.9900461581404633,
+       0.7427783630762205,
+       0.9585671176238084,
+       0.43868076324967975
+      ]
+     },
+     {
+      "problem_id": 581,
+      "primary": false,
+      "median_ratio": 0.46410659684383787,
+      "ratios": [
+       0.3311766510891286,
+       0.4765822418433334,
+       0.48974142093811396,
+       0.32471518577925335,
+       0.46410659684383787
+      ]
+     },
+     {
+      "problem_id": 629,
+      "primary": false,
+      "median_ratio": 0.8876491282270269,
+      "ratios": [
+       Infinity,
+       0.6712341119930889,
+       Infinity,
+       0.8876491282270269,
+       0.6743944021375808
+      ]
+     },
+     {
+      "problem_id": 681,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       0.32639029836326156,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 760,
+      "primary": false,
+      "median_ratio": 0.6874343596092191,
+      "ratios": [
+       Infinity,
+       0.6852460435558471,
+       0.6835877289711748,
+       2.4587725087862906,
+       0.6874343596092191
+      ]
+     },
+     {
+      "problem_id": 788,
+      "primary": false,
+      "median_ratio": 0.627744770481239,
+      "ratios": [
+       0.627744770481239,
+       0.4434436020505814,
+       2.1696826900639463,
+       1.6626011054480863,
+       0.44470520334083
+      ]
+     },
+     {
+      "problem_id": 817,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 972,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       0.33419210353929396,
+       Infinity,
+       0.33580917632706836
+      ]
+     },
+     {
+      "problem_id": 974,
+      "primary": false,
+      "median_ratio": 0.39989467182565386,
+      "ratios": [
+       0.3966146060547886,
+       0.5881181133240079,
+       0.4007995706977377,
+       0.39566377852979884,
+       0.39989467182565386
+      ]
+     },
+     {
+      "problem_id": 985,
+      "primary": false,
+      "median_ratio": 1.8077182950681185,
+      "ratios": [
+       Infinity,
+       0.3123851115948732,
+       1.8416911615268832,
+       1.8077182950681185,
+       0.5789825815225874
+      ]
+     }
+    ]
+   },
+   "preregistered_ce_only": {
+    "samples": 125,
+    "samples_matched": 92,
+    "median_ratio_over_problems": 0.6874343596092191,
+    "problems_baseline_faster": 15,
+    "problems": 25,
+    "sign_test_p": 0.42435622215270996,
+    "primary_five_median": 0.620913777593079,
+    "new_twenty_median": 0.7184338525677119,
+    "per_problem": [
+     {
+      "problem_id": 15,
+      "primary": true,
+      "median_ratio": 0.620913777593079,
+      "ratios": [
+       0.6247553485461721,
+       0.620913777593079,
+       0.33873668558611814,
+       0.6122370747886754,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 676,
+      "primary": true,
+      "median_ratio": 0.4153046363459915,
+      "ratios": [
+       0.5189021493608377,
+       Infinity,
+       0.3337911924297205,
+       0.41412710785020973,
+       0.4153046363459915
+      ]
+     },
+     {
+      "problem_id": 839,
+      "primary": true,
+      "median_ratio": 0.9537699840409636,
+      "ratios": [
+       0.9537699840409636,
+       0.46747620467204076,
+       0.45961429771140766,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 935,
+      "primary": true,
+      "median_ratio": 0.482514247244485,
+      "ratios": [
+       0.5589552230847519,
+       0.34269014067759096,
+       0.482514247244485,
+       0.44865700282843674,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 961,
+      "primary": true,
+      "median_ratio": 1.5315419631918445,
+      "ratios": [
+       Infinity,
+       1.5315419631918445,
+       1.5206004248598721,
+       Infinity,
+       1.0501935720373443
+      ]
+     },
+     {
+      "problem_id": 86,
+      "primary": false,
+      "median_ratio": 0.3067717840090466,
+      "ratios": [
+       0.3065792571538195,
+       0.42544464066135573,
+       0.3077771639535038,
+       0.3067717840090466,
+       0.2967350095780826
+      ]
+     },
+     {
+      "problem_id": 121,
+      "primary": false,
+      "median_ratio": 1.4154043002464476,
+      "ratios": [
+       1.4154043002464476,
+       1.0084794776369916,
+       Infinity,
+       Infinity,
+       1.1239690309491244
+      ]
+     },
+     {
+      "problem_id": 134,
+      "primary": false,
+      "median_ratio": 2.0152416763722796,
+      "ratios": [
+       1.0618573450656883,
+       2.03788035483038,
+       2.0451751663745052,
+       2.0152416763722796,
+       1.600849308123289
+      ]
+     },
+     {
+      "problem_id": 241,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       0.40807219441465764,
+       Infinity,
+       0.40767370391957825
+      ]
+     },
+     {
+      "problem_id": 338,
+      "primary": false,
+      "median_ratio": 0.4305244904171408,
+      "ratios": [
+       0.4243068421799033,
+       0.4298259953176254,
+       0.4305244904171408,
+       Infinity,
+       0.8351529557223819
+      ]
+     },
+     {
+      "problem_id": 403,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 443,
+      "primary": false,
+      "median_ratio": 0.3349109705946392,
+      "ratios": [
+       0.33491030380253894,
+       0.3349109705946392,
+       0.6804261144310402,
+       0.33485534001770295,
+       0.6401651555511627
+      ]
+     },
+     {
+      "problem_id": 499,
+      "primary": false,
+      "median_ratio": 0.30937894932861526,
+      "ratios": [
+       0.4080772990828944,
+       0.30937894932861526,
+       0.30811687183474984,
+       0.3065804524349993,
+       0.41683002104919503
+      ]
+     },
+     {
+      "problem_id": 523,
+      "primary": false,
+      "median_ratio": 0.4049955398203662,
+      "ratios": [
+       0.4049955398203662,
+       0.4109653573695823,
+       0.403188065070478,
+       Infinity,
+       0.40319697232032387
+      ]
+     },
+     {
+      "problem_id": 530,
+      "primary": false,
+      "median_ratio": 1.5097020156056808,
+      "ratios": [
+       0.6663397007858154,
+       5.0619581184216464,
+       1.5097020156056808,
+       1.7816214969181656,
+       1.2201934277768578
+      ]
+     },
+     {
+      "problem_id": 580,
+      "primary": false,
+      "median_ratio": 0.7494333455262048,
+      "ratios": [
+       0.7625612844243206,
+       0.7740444992102915,
+       0.7427783630762205,
+       0.7494333455262048,
+       0.43868076324967975
+      ]
+     },
+     {
+      "problem_id": 581,
+      "primary": false,
+      "median_ratio": 0.46410659684383787,
+      "ratios": [
+       0.3311766510891286,
+       0.4765822418433334,
+       0.48974142093811396,
+       0.32471518577925335,
+       0.46410659684383787
+      ]
+     },
+     {
+      "problem_id": 629,
+      "primary": false,
+      "median_ratio": 0.6743944021375808,
+      "ratios": [
+       0.8154534662998767,
+       0.6712341119930889,
+       0.6700151079904612,
+       0.8876491282270269,
+       0.6743944021375808
+      ]
+     },
+     {
+      "problem_id": 681,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       0.32639029836326156,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 760,
+      "primary": false,
+      "median_ratio": 0.6874343596092191,
+      "ratios": [
+       Infinity,
+       0.5125823566665,
+       0.6835877289711748,
+       2.4587725087862906,
+       0.6874343596092191
+      ]
+     },
+     {
+      "problem_id": 788,
+      "primary": false,
+      "median_ratio": 0.627744770481239,
+      "ratios": [
+       0.627744770481239,
+       0.4434436020505814,
+       2.1696826900639463,
+       1.6626011054480863,
+       0.44470520334083
+      ]
+     },
+     {
+      "problem_id": 817,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 972,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       0.33419210353929396,
+       Infinity,
+       0.33580917632706836
+      ]
+     },
+     {
+      "problem_id": 974,
+      "primary": false,
+      "median_ratio": 0.39989467182565386,
+      "ratios": [
+       0.3966146060547886,
+       0.5881181133240079,
+       0.4007995706977377,
+       0.39566377852979884,
+       0.39989467182565386
+      ]
+     },
+     {
+      "problem_id": 985,
+      "primary": false,
+      "median_ratio": 1.8077182950681185,
+      "ratios": [
+       Infinity,
+       0.3123851115948732,
+       1.8416911615268832,
+       1.8077182950681185,
+       0.5789825815225874
+      ]
+     }
+    ]
+   }
+  },
+  "oat_ce_range_median_pp": 1.3417857257644143,
+  "oat_ce_median_pct": 0.3983613447910881,
+  "oat_time_s": {
+   "median": 0.4500668999971822,
+   "min": 0.44302830001106486,
+   "max": 0.7143897999776527
+  }
+ },
+ "256": {
+  "run": "retest/runs/20260925T071400Z_oat_extended_n256",
+  "size": 256,
+  "n_problems": 25,
+  "n_seeds": 5,
+  "rules": {
+   "primary_ce_and_volume": {
+    "samples": 125,
+    "samples_matched": 90,
+    "median_ratio_over_problems": 1.5933682486463174,
+    "problems_baseline_faster": 7,
+    "problems": 25,
+    "sign_test_p": 0.043285250663757324,
+    "primary_five_median": 2.9253641464400775,
+    "new_twenty_median": 1.453003447040616,
+    "per_problem": [
+     {
+      "problem_id": 1015,
+      "primary": true,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       1.5403877507770454,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1676,
+      "primary": true,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       4.3692585953676755,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1839,
+      "primary": true,
+      "median_ratio": 2.9253641464400775,
+      "ratios": [
+       Infinity,
+       Infinity,
+       2.4408423583106305,
+       2.4334785943786383,
+       2.9253641464400775
+      ]
+     },
+     {
+      "problem_id": 1935,
+      "primary": true,
+      "median_ratio": 0.8145322824028998,
+      "ratios": [
+       0.8145322824028998,
+       0.7632899739623286,
+       0.7723489405749637,
+       0.9851388647843614,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1961,
+      "primary": true,
+      "median_ratio": 1.5933682486463174,
+      "ratios": [
+       1.673603197051158,
+       1.3661886848640599,
+       1.5933682486463174,
+       1.57246186233886,
+       2.1831836241807614
+      ]
+     },
+     {
+      "problem_id": 1086,
+      "primary": false,
+      "median_ratio": 0.9952798836942721,
+      "ratios": [
+       1.0433766448673796,
+       0.9893986670729835,
+       0.9952798836942721,
+       0.9860356195314919,
+       0.9954520700632625
+      ]
+     },
+     {
+      "problem_id": 1121,
+      "primary": false,
+      "median_ratio": 2.6289875302902956,
+      "ratios": [
+       4.514420790885928,
+       Infinity,
+       2.6289875302902956,
+       1.877645505161616,
+       2.614765518276031
+      ]
+     },
+     {
+      "problem_id": 1134,
+      "primary": false,
+      "median_ratio": 0.49863224339764783,
+      "ratios": [
+       0.521900547429361,
+       0.49683001027683626,
+       0.49344476152420186,
+       0.7379751419590804,
+       0.49863224339764783
+      ]
+     },
+     {
+      "problem_id": 1241,
+      "primary": false,
+      "median_ratio": 8.342946226380002,
+      "ratios": [
+       6.777601038579797,
+       Infinity,
+       8.342946226380002,
+       6.326289374546307,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1338,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1403,
+      "primary": false,
+      "median_ratio": 1.059778565554638,
+      "ratios": [
+       0.6031146017329209,
+       1.0644299446018797,
+       1.0653546109627234,
+       0.9306501007154732,
+       1.059778565554638
+      ]
+     },
+     {
+      "problem_id": 1443,
+      "primary": false,
+      "median_ratio": 0.6422626228446161,
+      "ratios": [
+       0.6931084500447808,
+       0.6422626228446161,
+       0.4536338911423032,
+       0.6455923517749765,
+       0.43334302522987084
+      ]
+     },
+     {
+      "problem_id": 1499,
+      "primary": false,
+      "median_ratio": 1.3640426959410168,
+      "ratios": [
+       1.3640426959410168,
+       Infinity,
+       1.2807863467786496,
+       1.3153574167478874,
+       2.3416184221558325
+      ]
+     },
+     {
+      "problem_id": 1523,
+      "primary": false,
+      "median_ratio": 4.684981039002159,
+      "ratios": [
+       Infinity,
+       1.4500368042482716,
+       Infinity,
+       1.4375488118288078,
+       4.684981039002159
+      ]
+     },
+     {
+      "problem_id": 1530,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1580,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       2.450528119222733,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1581,
+      "primary": false,
+      "median_ratio": 0.476943400669418,
+      "ratios": [
+       0.49085879131141785,
+       0.6844350059673184,
+       0.476943400669418,
+       0.47012986147805075,
+       0.470054796295703
+      ]
+     },
+     {
+      "problem_id": 1629,
+      "primary": false,
+      "median_ratio": 0.8519543890649603,
+      "ratios": [
+       1.2002514093927235,
+       0.5462299140593623,
+       0.8519543890649603,
+       Infinity,
+       0.8492408420254762
+      ]
+     },
+     {
+      "problem_id": 1681,
+      "primary": false,
+      "median_ratio": 1.346608694365691,
+      "ratios": [
+       1.4124975783400031,
+       1.3535021119380812,
+       1.3303617967261283,
+       1.346608694365691,
+       1.304336756530174
+      ]
+     },
+     {
+      "problem_id": 1760,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       0.627591188290948,
+       2.0642539545501295,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1788,
+      "primary": false,
+      "median_ratio": 1.7695154422192672,
+      "ratios": [
+       1.9735324331761739,
+       1.11651589802666,
+       1.8507996977243064,
+       1.7462959687696984,
+       1.7695154422192672
+      ]
+     },
+     {
+      "problem_id": 1817,
+      "primary": false,
+      "median_ratio": 1.4718102686922763,
+      "ratios": [
+       6.872164333784187,
+       1.0585929327136314,
+       1.886263044101213,
+       1.4718102686922763,
+       1.052372360737658
+      ]
+     },
+     {
+      "problem_id": 1972,
+      "primary": false,
+      "median_ratio": 1.4341966253889558,
+      "ratios": [
+       1.5191703507580638,
+       0.9918357458645839,
+       7.600422889399055,
+       1.4341966253889558,
+       1.0015215605857053
+      ]
+     },
+     {
+      "problem_id": 1974,
+      "primary": false,
+      "median_ratio": 2.179498496214943,
+      "ratios": [
+       3.5321171082541665,
+       1.1116918800456383,
+       1.672787078723064,
+       4.6222121753131225,
+       2.179498496214943
+      ]
+     },
+     {
+      "problem_id": 1985,
+      "primary": false,
+      "median_ratio": 0.8740207994815599,
+      "ratios": [
+       1.1685502836185497,
+       0.8654652190429545,
+       0.8740207994815599,
+       1.119446998053733,
+       0.8642870361268954
+      ]
+     }
+    ],
+    "tau_uses": 56048490.437868185
+   },
+   "preregistered_ce_only": {
+    "samples": 125,
+    "samples_matched": 96,
+    "median_ratio_over_problems": 1.4718102686922763,
+    "problems_baseline_faster": 8,
+    "problems": 25,
+    "sign_test_p": 0.10775214433670044,
+    "primary_five_median": 1.5933682486463174,
+    "new_twenty_median": 1.453003447040616,
+    "per_problem": [
+     {
+      "problem_id": 1015,
+      "primary": true,
+      "median_ratio": 0.4465000728495244,
+      "ratios": [
+       0.4819512705014936,
+       0.4501962970653754,
+       0.4441633657311709,
+       0.4465000728495244,
+       0.44224796132368127
+      ]
+     },
+     {
+      "problem_id": 1676,
+      "primary": true,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       4.3692585953676755,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1839,
+      "primary": true,
+      "median_ratio": 2.9253641464400775,
+      "ratios": [
+       Infinity,
+       Infinity,
+       2.4408423583106305,
+       2.4334785943786383,
+       2.9253641464400775
+      ]
+     },
+     {
+      "problem_id": 1935,
+      "primary": true,
+      "median_ratio": 0.5441559712773987,
+      "ratios": [
+       0.5711066658273841,
+       0.5351782875972902,
+       0.5415299526322489,
+       0.5441559712773987,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1961,
+      "primary": true,
+      "median_ratio": 1.5933682486463174,
+      "ratios": [
+       1.673603197051158,
+       1.3661886848640599,
+       1.5933682486463174,
+       1.57246186233886,
+       2.1831836241807614
+      ]
+     },
+     {
+      "problem_id": 1086,
+      "primary": false,
+      "median_ratio": 0.9952798836942721,
+      "ratios": [
+       1.0433766448673796,
+       0.9893986670729835,
+       0.9952798836942721,
+       0.9860356195314919,
+       0.9954520700632625
+      ]
+     },
+     {
+      "problem_id": 1121,
+      "primary": false,
+      "median_ratio": 2.6289875302902956,
+      "ratios": [
+       4.514420790885928,
+       Infinity,
+       2.6289875302902956,
+       1.877645505161616,
+       2.614765518276031
+      ]
+     },
+     {
+      "problem_id": 1134,
+      "primary": false,
+      "median_ratio": 0.49863224339764783,
+      "ratios": [
+       0.521900547429361,
+       0.49683001027683626,
+       0.49344476152420186,
+       0.7379751419590804,
+       0.49863224339764783
+      ]
+     },
+     {
+      "problem_id": 1241,
+      "primary": false,
+      "median_ratio": 8.342946226380002,
+      "ratios": [
+       6.777601038579797,
+       Infinity,
+       8.342946226380002,
+       6.326289374546307,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1338,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       9.736375852286262,
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1403,
+      "primary": false,
+      "median_ratio": 1.059778565554638,
+      "ratios": [
+       0.6031146017329209,
+       1.0644299446018797,
+       1.0653546109627234,
+       0.9306501007154732,
+       1.059778565554638
+      ]
+     },
+     {
+      "problem_id": 1443,
+      "primary": false,
+      "median_ratio": 0.6422626228446161,
+      "ratios": [
+       0.6931084500447808,
+       0.6422626228446161,
+       0.4536338911423032,
+       0.6455923517749765,
+       0.43334302522987084
+      ]
+     },
+     {
+      "problem_id": 1499,
+      "primary": false,
+      "median_ratio": 1.3640426959410168,
+      "ratios": [
+       1.3640426959410168,
+       Infinity,
+       1.2807863467786496,
+       1.3153574167478874,
+       2.3416184221558325
+      ]
+     },
+     {
+      "problem_id": 1523,
+      "primary": false,
+      "median_ratio": 4.684981039002159,
+      "ratios": [
+       Infinity,
+       1.4500368042482716,
+       Infinity,
+       1.4375488118288078,
+       4.684981039002159
+      ]
+     },
+     {
+      "problem_id": 1530,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1580,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       5.8533161402485545,
+       2.450528119222733,
+       Infinity,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1581,
+      "primary": false,
+      "median_ratio": 0.476943400669418,
+      "ratios": [
+       0.49085879131141785,
+       0.6844350059673184,
+       0.476943400669418,
+       0.47012986147805075,
+       0.470054796295703
+      ]
+     },
+     {
+      "problem_id": 1629,
+      "primary": false,
+      "median_ratio": 0.8519543890649603,
+      "ratios": [
+       1.2002514093927235,
+       0.5462299140593623,
+       0.8519543890649603,
+       Infinity,
+       0.8492408420254762
+      ]
+     },
+     {
+      "problem_id": 1681,
+      "primary": false,
+      "median_ratio": 1.3303617967261283,
+      "ratios": [
+       1.4124975783400031,
+       1.3535021119380812,
+       1.3303617967261283,
+       1.0311542576341164,
+       0.9987848775314055
+      ]
+     },
+     {
+      "problem_id": 1760,
+      "primary": false,
+      "median_ratio": Infinity,
+      "ratios": [
+       Infinity,
+       Infinity,
+       0.627591188290948,
+       2.0642539545501295,
+       Infinity
+      ]
+     },
+     {
+      "problem_id": 1788,
+      "primary": false,
+      "median_ratio": 1.7695154422192672,
+      "ratios": [
+       1.9735324331761739,
+       1.11651589802666,
+       1.8507996977243064,
+       1.7462959687696984,
+       1.7695154422192672
+      ]
+     },
+     {
+      "problem_id": 1817,
+      "primary": false,
+      "median_ratio": 1.4718102686922763,
+      "ratios": [
+       6.872164333784187,
+       1.0585929327136314,
+       1.886263044101213,
+       1.4718102686922763,
+       1.052372360737658
+      ]
+     },
+     {
+      "problem_id": 1972,
+      "primary": false,
+      "median_ratio": 1.4341966253889558,
+      "ratios": [
+       1.5191703507580638,
+       0.9918357458645839,
+       7.600422889399055,
+       1.4341966253889558,
+       1.0015215605857053
+      ]
+     },
+     {
+      "problem_id": 1974,
+      "primary": false,
+      "median_ratio": 1.672787078723064,
+      "ratios": [
+       3.5321171082541665,
+       1.1116918800456383,
+       1.672787078723064,
+       4.6222121753131225,
+       1.0952315274737734
+      ]
+     },
+     {
+      "problem_id": 1985,
+      "primary": false,
+      "median_ratio": 0.8740207994815599,
+      "ratios": [
+       1.1685502836185497,
+       0.8654652190429545,
+       0.8740207994815599,
+       1.119446998053733,
+       0.8642870361268954
+      ]
+     }
+    ],
+    "tau_uses": 70488916.45060574
+   }
+  },
+  "oat_ce_range_median_pp": 1.4055541686246298,
+  "oat_ce_median_pct": 0.5779059675409004,
+  "oat_time_s": {
+   "median": 0.47801700001582503,
+   "min": 0.4481563000008464,
+   "max": 0.6073983999667689
+  }
+ }
+}

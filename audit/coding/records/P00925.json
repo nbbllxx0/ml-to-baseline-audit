@@ -1,0 +1,65 @@
+{
+ "pid": "P00925",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Generative Design by Reinforcement Learning: Maximizing Diversity of Topology Optimized Designs",
+  "authors": "Seowoo Jang, Namwoo Kang",
+  "year": 2020,
+  "venue": "arXiv preprint 2008.07119 v1 (the pool record from OpenAlex carries no identifier). Later version of the same arXiv record: v2 (16 Feb 2021), retitled 'Generative Design by Reinforcement Learning: Enhancing the Diversity of Topology Optimization Designs', with Soyoung Yoo added (pool P00158). Version of record: Computer-Aided Design 146 (2022) 103225, doi 10.1016/j.cad.2022.103225 (per P00158; not open access)",
+  "doi": "10.48550/arXiv.2008.07119",
+  "arxiv_id": "2008.07119",
+  "version_coded": "arXiv v1 (17 Aug 2020), PDF (19 pages), read for the duplicate check (title page, abstract, Sec. 3, Table 1, Conclusion); title and history confirmed on the arXiv abs pages of v1 and v2"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "exclude",
+  "reason": "FT-DUPLICATE",
+  "stratum": "none",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "2d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (excluded as an earlier version of P00158). Would-be primary outcome in this version: TopOpNet, a CNN stand-in for the wheel TO algorithm, answers in milliseconds, whereas the CPU algorithm needs on the order of 10 min.",
+  "location": "Conclusion, p. 17 (the abstract compares only qualitatively with the earlier CPU approach); the same pairing opens Sec. 3 (10 min vs under 10 ms)",
+  "quantitative": true,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "Not coded (excluded as a duplicate). Would-be values as in P00158: about 10 min vs milliseconds (Conclusion) or under 10 ms (Sec. 3 opening), i.e. at least 6x10^4 [derived]; Sec. 3 end gives seconds for simple inputs vs under 1 ms on a GTX 1080 Ti.",
+  "direction": "outperform"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-DUPLICATE of P00158)"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-DUPLICATE of P00158)"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-DUPLICATE of P00158)"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-DUPLICATE of P00158)"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Excluded under PROTOCOL \u00a74 (duplicates) and the closed list (FT-DUPLICATE first). Primary record: P00158 (arXiv 2008.07119 v2, already coded, stratum speed). The pool record P00925 has no DOI or arXiv id; its title, authors (Jang, Kang) and date (2020-08-17) match arXiv 2008.07119 v1 exactly, confirmed on the arXiv abs page of v1 (2026-09-24). The v2 abs page shows the retitled version with Soyoung Yoo added, which is P00158. The study is the same: TopOpNet approximates the wheel TO algorithm of Oh et al.; GDNet (PPO) searches TO parameters for design diversity on the same crawled wheel images (639 references, 500/139 split; Sec. 3-4); the same timing statements appear. P00158 cites the Computer-Aided Design version of record as paywalled, so the latest arXiv version (v2, P00158) is the primary version, per the FT-DUPLICATE definition. Difference that matters for the verifier: v1's Table 1 compares models A and B only on image metrics (cross-entropy, pixel difference, IoU; no compliance), whereas v2's Table 1 adds a compliance error. A would-be R4 for v1 alone would therefore be fail (R4-image-metric), against partial as coded for P00158. The timing statements are the same in both versions. Screening flagged this record as a possible duplicate of P00158 (audit/pool/possible_duplicates.csv). COI check: no author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00925.json",
+  "result": "full agreement"
+ }
+}

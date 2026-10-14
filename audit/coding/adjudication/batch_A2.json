@@ -1,0 +1,188 @@
+[
+ {
+  "pid": "P00143",
+  "disagreements": {
+   "R1": [
+    null,
+    "partial"
+   ],
+   "R2": [
+    null,
+    "na"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-DOMAIN",
+    null
+   ],
+   "stratum": [
+    null,
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P00148",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P00149",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R3": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P00150",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R2": [
+    "partial",
+    "pass"
+   ],
+   "claimed_speedup": [
+    259,
+    225
+   ]
+  }
+ },
+ {
+  "pid": "P00165",
+  "disagreements": {
+   "R3": [
+    "na",
+    "pass"
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00176",
+  "disagreements": {
+   "R2": [
+    "pass",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P00181",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ]
+  }
+ },
+ {
+  "pid": "P00183",
+  "disagreements": {
+   "R2": [
+    "partial",
+    "pass"
+   ],
+   "claimed_speedup": [
+    10000,
+    31623
+   ]
+  }
+ },
+ {
+  "pid": "P00238",
+  "disagreements": {
+   "R1": [
+    null,
+    "pass"
+   ],
+   "R2": [
+    null,
+    "pass"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "pass"
+   ],
+   "claimed_speedup": [
+    null,
+    2.55
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-MLONLY",
+    null
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00309",
+  "disagreements": {
+   "R1": [
+    "partial",
+    null
+   ],
+   "R2": [
+    "na",
+    null
+   ],
+   "R3": [
+    "na",
+    null
+   ],
+   "R4": [
+    "partial",
+    null
+   ],
+   "decision": [
+    "include",
+    "exclude"
+   ],
+   "ft_code": [
+    null,
+    "FT-NOBASELINE"
+   ],
+   "stratum": [
+    "quality",
+    null
+   ]
+  }
+ }
+]

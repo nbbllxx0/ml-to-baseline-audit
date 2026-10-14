@@ -1,0 +1,45 @@
+{
+  "pid": "P00139",
+  "citation": {
+    "title": "DNN-Based Topology Optimisation: Spatial Invariance and Neural Tangent Kernel",
+    "authors": "Benjamin Dupuis, Arthur Jacot",
+    "year": 2021,
+    "venue": "Advances in Neural Information Processing Systems 34 (NeurIPS 2021), 27659-27669",
+    "doi": "10.48550/arXiv.2106.05710",
+    "arxiv_id": "2106.05710",
+    "version_coded": "arXiv v3 (28 Nov 2021), HTML incl. Appendices A-F; the NeurIPS 2021 proceedings PDF (version of record, 11 pp.) was also read, and its main text matches"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-ML-only",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "None: the article reports no speed or quality comparison with a classical method. Its experiments compare DNN density parameterizations with and without the proposed coordinate embeddings (Figs. 4, 8-9).",
+    "location": "n/a",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "not applicable (excluded at full text)",
+    "alternatives": "Sec. 3.1 (theory): in the wide-network limit, NN-parameterized SIMP behaves like filtered SIMP whose filter is the matrix square root of the limiting NTK; an analogy, not a performance comparison. Sec. 1 cites ref. [7] for DNN density fields lacking the checkerboards of unfiltered SIMP; background, not the article's own result."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR. The full text (arXiv v3 incl. appendices, and the NeurIPS version of record) contains no classical-baseline result. The Modified Filtering method without a DNN is defined in Sec. 2.2 to allow a comparison, but no results for it are reported. All empirical comparisons are ML versus ML: embedded versus non-embedded fully connected networks (Fig. 4) and up-sampling artifacts without an embedding (Figs. 8-9). Tally under ML-only (PROTOCOL §4, C4). No compliance values or run times are reported. Code: github.com/benjiDupuis/DeepTopo exists (GitHub API, 2026-09-24) with no declared licence."
+}

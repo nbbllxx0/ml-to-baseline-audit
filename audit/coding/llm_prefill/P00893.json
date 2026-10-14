@@ -1,0 +1,45 @@
+{
+  "pid": "P00893",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Deep learning-aided topology design of metasurfaces for Rayleigh waves",
+    "authors": "Cheng Zhao, Chen-Xu Liu, Gui-Lan Yu",
+    "year": 2024,
+    "venue": "Journal of Computational Design and Engineering 11(3), 56-71 (Oxford University Press; gold open access, CC BY-NC per Crossref)",
+    "doi": "10.1093/jcde/qwae037",
+    "arxiv_id": "",
+    "version_coded": "none; only the abstract was read (pool record and OpenAlex/Crossref metadata)"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "vae",
+    "physics": "metamaterial_homogenization",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no full text). The abstract says a VAE latent space plus a conditional tandem network designs Rayleigh-wave-isolating metasurfaces for target frequency ranges, validated by 100 tests with determination coefficients above 0.99; no classical comparator is named.",
+    "location": "abstract only",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "not coded (no full text); the abstract claims improved design efficiency without a number or a named classical comparator",
+    "alternatives": "not assessed (no full text)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR. Access attempts on 2026-09-24, generic User-Agent, no login: (1) doi.org redirects to academic.oup.com/jcde/article/11/3/56/7649376, which returned HTTP 403 with a Cloudflare 'Just a moment...' browser-check page; (2) the version-of-record PDF link listed in Crossref (academic.oup.com/jcde/article-pdf/11/3/56/57387741/qwae037.pdf) returned the same 403 check page. No bypass was attempted. OpenAlex lists no repository copy (any_repository_has_fulltext false), and arXiv API searches (title words; author Gui-Lan Yu) found no version. Scope questions for full-text coding: the physics is elastic surface-wave attenuation in soil (band-gap design), which is not in the §3.1 physics list and is close to the excluded acoustic class; and the abstract names no classical comparator, so FT-DOMAIN, FT-MLONLY or FT-NOBASELINE may apply at full text. The physics code 'metamaterial_homogenization' follows the screening entry. No author named Jun Wang."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00150",
+  "citation": {
+    "title": "An Artificial Intelligence–Assisted Design Method for Topology Optimization without Pre-Optimized Training Data",
+    "authors": "Alex Halle, Lucio Flavio Campanile, Alexander Hasse",
+    "year": 2021,
+    "venue": "Applied Sciences 11(19), 9041 (published 28 Sep 2021); open access, CC BY",
+    "doi": "10.3390/app11199041",
+    "arxiv_id": "2012.06384",
+    "version_coded": "Version of record (Appl. Sci. 2021, 11, 9041; 21-page PDF from mdpi-res.com, read in full; the mdpi.com pages returned HTTP 403). Cross-checked against arXiv v2 (27 Jul 2021; title 'An AI-Assisted Design Method for Topology Optimization Without Pre-Optimized Training Data'), whose timing numbers differ (see notes). Page locators refer to the version-of-record PDF."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On 100 random 64×64 validation cases, the trained PEN predictor returns a design in about 7.3 ms on average versus 1.9 s for top88 SIMP, roughly 259 times faster, with compliance described as almost the same.",
+    "key_phrase": "requires, on average, 1.9 s (and is, therefore, roughly 259 times slower)",
+    "location": "Sec. 3.2 Results and Discussion, p. 16, Fig. 14a (first quantitative comparison with a classical method; Abstract, Conclusions and Introduction hold only qualitative comparisons)",
+    "quantitative": true,
+    "claimed_speedup": 259,
+    "claimed_speedup_basis": "Stated in Sec. 3.2, p. 16: top88 1.9 s vs PEN 7.3 ms on average over the 100 validation cases, 'roughly 259 times'. The printed rounded times give 1.9/0.0073 = 260.3 [derived]. arXiv v2 states 8.4 ms and roughly 225 times for the same comparison.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 3.3, Table 5, p. 19: break-even e_BEP = 6226 predictions from T_P = 3.25 h training, t_p = 7.3 ms and t_TO = 1.9 s at 64×64. (2) Abstract and Sec. 4 (qualitative): geometries similar to conventional optimizers at a fraction of the computational effort. (3) Fig. 14b, Table 3, Fig. 15: compliance of PEN vs top88 designs (quality). (4) Table 4: image-similarity metrics against top88 designs."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with density filter, 88-line code (top88, Andreassen et al. [29]); p = 3, filter radius r_min = 3, Poisson's ratio 0.3, E = 195,000 N/mm², force 100 N (Table 2, p. 15; Sec. 3.2)",
+    "implementation": "top88; the version of record cites only the MATLAB 88-line paper [29]. arXiv v2 says the validation designs came from the DTU TopOpt Python codes (v2 ref. [30]) [so probably a Python port; not stated in the version of record]",
+    "solver": "not stated",
+    "hardware_classical": "not stated (Table 1 gives the configuration used for training only)",
+    "hardware_ml": "Training: Nvidia Titan RTX (24 GB), AMD Ryzen Threadripper 2950X 16-core, 128 GB RAM, TensorFlow 2.5.0, Python 3.7.3, Windows 10 (Table 1, p. 12). Hardware for the 7.3 ms inference timing not stated.",
+    "problem_size": "64×64 elements (Table 5 caption, p. 19; Sec. 4) [inferred ≈8.4×10³ DOFs]; training runs through four levels from 8×8 to 64×64 (Table 2: d_inp = 8)",
+    "classical_iterations": "not stated (no top88 stopping rule or iteration count given)",
+    "classical_time": "1.9 s on average over the 100 validation cases (Sec. 3.2, Fig. 14a; Table 5 t_TO)",
+    "ml_time": "7.3 ms on average (Sec. 3.2; Table 5 t_p); arXiv v2: 8.4 ms",
+    "training_time": "T_P = 3.25 h (3:15:56), about 7.6 million randomly generated training inputs (Sec. 3.2, p. 15); arXiv v2: 3 h (2:56:32). Cost of the hyperparameter grid search (Sec. 3.1, p. 12) not reported.",
+    "data_generation_cost": "No separate data generation: no pre-optimized data; FE evaluations run inside training (Secs. 1, 2.8). The 100 top88 validation designs are used only for evaluation (Sec. 3.2).",
+    "quality_metric": "Compliance of PEN vs top88 designs from FE analysis, all 100 cases as a scatter plot (Fig. 14b) and six printed pairs (Fig. 15, Table 3); degree-of-filling deviation ΔM (Table 3, six cases); image metrics mse, mae, δ0.01 and accuracy (Table 4)",
+    "quality_gap": "Six printed pairs, PEN vs top88 (Table 3, Fig. 15): 1.044 vs 1.163; 0.318 vs 0.302; 0.152 vs 0.144; 0.476 vs 0.461; 0.391 vs 0.384; 0.521 vs 0.502, i.e. PEN higher by 1.8-5.6% in five cases and lower by 10.2% in one [derived]. ΔM 0.000-0.010 (Table 3). Over 100 cases (Table 4): mse 0.093 (SD 0.07), mae 0.113 (0.072), δ0.01 79.9% (9.8%), accuracy 86.4% (7.7%). No aggregate compliance gap is stated."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 3.2, Fig. 14, Table 3, Fig. 15: PEN inference time is compared with complete top88 runs whose stopping rule is not stated. Quality is reported: FE compliance for all 100 cases (scatter only) and six printed pairs, in which PEN is 1.8-5.6% worse in five and 10.2% better in one [derived]. Volume is matched only approximately (ΔM up to 0.010 in the six printed cases; the constraint is a penalty, Sec. 3.2). No attempt is made to match top88 time or iterations to PEN quality."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unjustified",
+      "evidence": "Neither the top88 timing hardware nor the PEN inference hardware is stated; Table 1 describes the GPU training machine only. PEN inference probably ran on the GPU and top88 on the CPU [inferred], but the problem is 64×64 (≈8.4×10³ DOFs [inferred]), so R2(c) does not apply. top88 is the vectorized efficient educational code, so no inefficiency is evident; solver and iteration count are not stated, so (d) and (e) cannot be judged; the abstract gives no baseline figure (b). Unsure between pass and partial; partial because the hardware choice is unstated and unjustified."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-full-accounting",
+      "evidence": "Sec. 3.3, Table 5, p. 19: training time T_P = 3.25 h is reported and folded into a break-even count e_BEP = 6226 predictions. There is no separate data-generation cost, because training uses random inputs evaluated by FE inside the training loop (Secs. 1, 2.8). Not included: the cost of the hyperparameter grid search that compared predictions with conventional TO results (Sec. 3.1)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Compliance of the returned PEN designs is computed by FE analysis (compliance evaluator, Sec. 2.3; Fig. 14b for all 100 cases). No post-processing is applied. Volume deviation ΔM is printed only for the six Fig. 15 examples (Table 3). No failure or infeasibility count is given, although the authors note that some geometries lack details (Sec. 3.2, Fig. 15 columns four and five)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "100 random validation inputs at 64×64 (Sec. 3.2); 6 shown with compliance values (Fig. 15, Table 3)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": true,
+  "notes": "Version differences (arXiv v2 → version of record): PEN time 8.4 → 7.3 ms; speed-up 225 → 259 times; training 3 h (2:56:32) → 3.25 h (3:15:56); break-even 5612 → 6226; Table 4 mae 0.114 → 0.113, δ0.01 79.7 → 79.9%, accuracy 86.3 → 86.4%; the Fig. 15 PEN compliances also changed (e.g. 1.071 → 1.044). Recomputing e_BEP from the printed values gives about 6211 [derived], so the printed 6226 presumably uses unrounded times. Method family set to cnn (screening said other): the predictor is dense layers plus ResNet convolution blocks, trained without labels through FE-based evaluators. Reporting locators: cases = Sec. 3.2; runtimes for all 100 cases = Fig. 14a box plot; seeds: none (Table 4 gives SDs across validation cases, not across training runs); OOD: validation inputs are randomly generated like the training inputs (Sec. 3.2) [inferred: same distribution], and all cases keep the fixed left-edge supports (Sec. 3.1). Code and data: Mendeley Data doi 10.17632/459f33wxf6 (version 4, 3 Sep 2021, CC BY 4.0; metadata read via the public API on 2026-09-24, files not downloaded) holds the trained Keras model (model_predictor_64x64), the 100 validation inputs and the top88 outputs with compliance and per-case time, plus an inference snippet; no training code, so code_available = yes refers to the model and inference code only. retest_candidate true: a strong SIMP baseline can be timed on the 100 public validation inputs at 64×64 against the public predictor; training time and break-even cannot be re-measured."
+}

@@ -1,0 +1,136 @@
+{
+  "pid": "P00550",
+  "citation": {
+    "title": "Machine learning for topology optimization: Physics-based learning through an independent training strategy",
+    "authors": "Fernando V. Senhora, Heng Chi, Yuyu Zhang, Lucia Mirabella, Tsz Ling Elaine Tang, Glaucio H. Paulino",
+    "year": 2022,
+    "venue": "Computer Methods in Applied Mechanics and Engineering, Vol. 398, Art. 115116",
+    "doi": "10.1016/j.cma.2022.115116",
+    "version_coded": "Version of record (typeset CMAME 398 (2022) 115116, 24 pp.), read from the corresponding author's former lab page (paulino.princeton.edu/journal_papers/2022/CMAME_22_MLforTO.pdf) through its Internet Archive Wayback Machine snapshot of 2025-03-19, because the live author-page URL now returns 404; ScienceDirect returned HTTP 403 to both coders. Full text, appendices and reference list read; the adjudicator also rendered the figure pages (Figs. 12, 13, 16)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_adjudicated",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The abstract claims that the offline-trained CNN sensitivity surrogate makes topology optimization up to 30 times faster than traditional topology optimization without loss of accuracy. The largest measured speed-up is 26.5x, on a 10.6-million-element MBB beam with block size 3 (39 h vs 1.5 h, Fig. 16).",
+    "key_phrase": "up to 30 times faster than traditional topology optimization",
+    "location": "Abstract (p. 1; first quantitative comparison with a classical method, §5.1 rule 1). The measurements behind it are in Sec. 6.4 and Fig. 16 (pp. 18-20); the Introduction states about 27x (p. 4) and the Conclusion up to 26 times (p. 19)",
+    "quantitative": true,
+    "claimed_speedup": 30,
+    "claimed_speedup_basis": "Stated in the abstract (p. 1) as up to 30 times faster; this is the primary outcome, so its factor is entered. Fig. 16 (p. 20) prints the measured times and speed-ups: traditional TO 166 min vs ML 24 min (NB = 2, 6.8x) and 19 min (NB = 3, 8.6x) at 1.3 million elements; 39 h vs 3.6 h (11.0x) and 1.5 h (26.5x) at 10.6 million elements. The rounded times give 39 / 1.5 = 26.0 [derived]. Sec. 6.4 (p. 19) states 26.5 and, for the same case, close to 30 times; the Introduction says about 27x and the Conclusion up to 26 times. The abstract figure is therefore above every measured value.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 6.4/Fig. 16: the measured speed-ups 6.8x and 8.6x (1.3 million elements, NB = 2 and 3) and 11.0x and 26.5x (10.6 million elements). (2) Sec. 6.3: the 38,016,000-element bridge example (outside the training set) is solved in 18 hours with the ML framework, but standard topology optimization could not be run at this size at all (GPU RAM limits), so no speedup ratio is computable for the article's largest example. (3) Sec. 6.2/Fig. 13: a quality-only comparison (compliance within 1.5% of reference across varying volume fraction and filter radius, at a fixed 1,327,104-element mesh) is the source of the accuracy claim, but this is a different experiment from the one used for the flagship speedup number."
+  },
+  "baseline": {
+    "classical_method": "Density-based SIMP topology optimization with Heaviside projection and density filtering, compliance minimization under a volume constraint, updated via the Optimality Criteria (OC) method (Eqs. (1)-(8), following the PolyTop formulation of Talischi et al. 2012 [ref. 6]); referred to throughout as 'standard' or 'traditional' topology optimization, solving the fine-mesh FEA at every iteration",
+    "implementation": "In-house C++/CUDA FEA solver developed by the last author's research group at Georgia Tech, used for both the fine-mesh FEA of the standard/traditional baseline and the coarse-mesh FEA inside the ML framework (Sec. 6, opening paragraph); the ML model itself (3D CNN, 5 convolutional layers + 10 fully-connected layers, PReLU activations) is implemented in Python 3.6/PyTorch",
+    "solver": "Not named beyond 'in-house C++/CUDA code' for the FEA linear system; direct vs. iterative vs. multigrid is not stated",
+    "hardware_classical": "Same machine as the ML framework: 24 Intel Xeon CPUs, 251 GB RAM, 2 NVIDIA Titan Xp GPUs with 12 GB RAM each (Sec. 6.4); the standard TO's fine-mesh FEA itself runs on the in-house CUDA (GPU) code, not CPU-only",
+    "hardware_ml": "Same machine: 24 Intel Xeon CPUs, 251 GB RAM, 2 NVIDIA Titan Xp GPUs (one GPU used for ML prediction, the other for FEA) (Sec. 6.4)",
+    "problem_size": "3D regular hexahedral meshes. Speedup study (Sec. 6.4): MBB beam at 1 million and 10 million fine-mesh elements (35 million attempted but standard TO could not run due to GPU RAM limits). Generalization study (Sec. 6.2, Fig. 13): MBB beam fixed at 1,327,104 fine-mesh elements, block size 2, varying volume fraction and filter radius. Bridge example (Sec. 6.3): 38,016,000 fine-mesh elements, block size 2, volume fraction 0.12, filter radius 4.0. Training problems (Sec. 6.1): 165,888 (MBB), 221,184 (cantilever), 262,144 (L-shape) and 186,624 (torsion tower) fine-mesh elements, volume fraction 0.12, filter radius 0.08",
+    "classical_iterations": "Maximum 200 iterations for all reported results, with SIMP penalization increased from p=1 to p=3 (+0.5 every 25 iterations) and Heaviside sharpness beta increased from 1 to 10 after iteration 140 (+0.5 every 5 iterations) (Sec. 6, opening paragraph); the same schedule and iteration cap are applied to both the standard TO baseline and the ML-driven runs",
+    "classical_time": "Fig. 16 (p. 20): traditional TO 166 min at 1.3 million elements and 39 hours at 10.6 million elements, with fine-mesh FEA 94% and 93% of the total. [derived, assuming all 200 iterations run: about 50 s and 11.7 min per iteration]. Standard TO could not be run at the 35/38-million-element scale due to insufficient GPU RAM (Sec. 6.3, 6.4)",
+    "ml_time": "Fig. 16 (p. 20): 24 min (NB = 2) and 19 min (NB = 3) at 1.3 million elements; 3.6 hours (NB = 2) and 1.5 hours (NB = 3) at 10.6 million elements. For the 38,016,000-element bridge example, which has no standard-TO comparator, the ML-driven framework took 18 hours (Sec. 6.3)",
+    "training_time": "Not stated anywhere as a wall-clock or GPU-hour figure; only training/validation loss curves over epochs are shown (Appendix B, Fig. B.17) for the two trained models (block size 2 and block size 3)",
+    "data_generation_cost": "Not stated as a numerical wall-clock or compute figure; described only qualitatively as inexpensive because the four training problems use much smaller fine meshes (165,888-262,144 elements) than the prediction-stage problems (up to 38 million elements) (Sec. 6.1)",
+    "quality_metric": "Compliance of the returned physical design, compared to the 'reference compliance' obtained by standard fine-mesh topology optimization on the same problem (Sec. 6.2, Fig. 13). For the 38-million-element bridge example, fine-mesh compliance could not be computed due to hardware limits, so the coarse-mesh compliance (31.3) is reported as an estimate instead (Sec. 6.3) [this is an explicit, self-disclosed limitation, not a hidden one]",
+    "quality_gap": "MBB beam, 1,327,104-element mesh, across varying volume fraction and filter radius (Fig. 13, Sec. 6.2): all ML-driven compliance values are within 1.5% of the reference (standard TO) compliance. For the timed 1.3-million-element runs (volume fraction 0.12, filter radius 0.08): ML 15.6 (NB = 2) and 15.7 (NB = 3) (Fig. 12) against reference 15.4 (Fig. 13), i.e. +1.3% and +1.9% [derived]. For the 10.6-million-element runs behind the 26.5x figure, only the ML compliance is shown (10.7 and 10.9, Fig. 12), with no reference value; none for the bridge example (fine-mesh compliance not computable)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Both methods use the same 200-iteration continuation schedule and volume fraction 0.12 (Sec. 6, p. 14; Sec. 6.2). At 1.3 million elements the timed runs can be matched to Fig. 13 (p. 18): ML 15.6 (NB = 2) and 15.7 (NB = 3) against reference 15.4, i.e. +1.3% and +1.9% [derived]. The headline 26.5x case (10.6 million elements, NB = 3; Fig. 16, p. 20) shows only the ML compliance (10.9, Fig. 12, p. 17), with no reference value, so the largest speed-up is not tied to a matched-quality result. Quality is reported, but matching is loose (§5.3 partial)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-gpu-baseline",
+      "evidence": "Sec. 6.4: the standard/traditional TO baseline and the ML framework run on the same machine (24 Intel Xeon CPUs, 251 GB RAM, 2 NVIDIA Titan Xp GPUs), and the baseline's fine-mesh FEA itself uses the group's in-house CUDA (GPU-accelerated) solver, not a CPU-only or naively-vectorized implementation, so there is no GPU-vs-CPU-only asymmetry. The same iteration cap and continuation schedule apply to both methods. Solver type (direct/iterative/multigrid) is not named, so full confidence on solver efficiency is not possible, but nothing in the article indicates an inflated iteration count or an artificially weakened baseline. For a later R2(e) check, per-iteration times are derivable from Fig. 16: about 50 s at 1.3 million elements and 11.7 min at 10.6 million elements [derived, assuming 200 iterations]."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost-reported",
+      "evidence": "No wall-clock time, GPU-hours, or any other cost figure is given anywhere in the article for either training the CNN models or generating the training data (Sec. 6.1 describes data generation only qualitatively as 'relatively more efficient'; Appendix B shows only loss-vs-epoch curves). The 26.5x/30x speed claims are made with no quantified upstream cost and no break-even analysis at all."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-partial-verification",
+      "evidence": "Compliance is computed by FE analysis of the returned design for the moderate-size examples (Sec. 6.2, Fig. 13, 'reference compliance' compared directly), and the article explicitly states the framework avoids 'hanging members nor disconnected components' in its examples (Sec. 6.2), a qualitative feasibility check. However, for the largest (38-million-element) example, fine-mesh compliance could not be computed and only a coarse-mesh estimate is reported (Sec. 6.3, self-disclosed), and no quantified failure or infeasibility rate is given for any of the examples."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 training problems (MBB, cantilever, L-shape, torsion tower); test/prediction examples: MBB beam at multiple mesh and block sizes (Fig. 12), MBB beam at 1,327,104 elements across several volume-fraction/filter-radius combinations (Fig. 13, exact count not stated as a single number), and one out-of-training-set bridge example at 38,016,000 elements (Fig. 15)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang. Duplicate check via audit/pool/pool.csv title and author search: no other pool row shares this title; the article's own cited predecessor, Chi et al. 2021 'Universal machine learning for topology optimization' (ref. [1], the online-training approach this paper improves on), is a separate, earlier paper and is separately present in the pool as P00534 (not a duplicate - different title, different method, different year). No code or data availability statement appears in the version read (an author-archived copy); a Declaration of Competing Interest discloses that Fernando V. Senhora's PhD work was funded by Siemens Corporation, which also co-funded the project, consistent with the absence of a public repository, so retest_candidate is set to false. Access notes: the DOI resolves to ScienceDirect, which returned HTTP 403 to automated access (no bot check was bypassed; access was abandoned there per the access rules); the article is not flagged open access on that platform. The corresponding author's own lab page (paulino.princeton.edu, an author page) hosts the PDF directly, but the live URL now 404s (the lab's file server appears to have been reorganized); the same URL was retrieved instead from the Internet Archive Wayback Machine (a 2025-03-19 snapshot of the same author-hosted file), which is not a paywall bypass. Numeric-consistency flag for the analysis team: the article states four different values for essentially the same headline speedup result across its own sections (Abstract 'up to 30 times', Introduction '~27x', Sec. 6.4 both '26.5-time' and, two sentences later in the same paragraph, 'close to 30 times', Conclusion 'up to 26 times'); 26.5x is the only figure tied to a specific, named configuration (Fig. 16), and the adjudicated record enters the abstract's 30 as claimed_speedup (see adjudication). Adjudication (2026-09-24): the adjudicator repeated the second coder's route. The live author-page URL returned HTTP 404; the author's current site (paulino.scholar.princeton.edu, the redirect target of paulino.princeton.edu) showed a Cloudflare 'Just a moment...' check, which was not bypassed; the Internet Archive snapshot 20250319061732 of the former author-page URL served the typeset version-of-record PDF (24 pp.) without any check. The adjudicator treats this archived author page as an author-page copy under the access rules; the protocol owner may overrule that reading. Changed from the second coding: claimed_speedup is 30, the abstract's stated factor for the primary outcome; classical_time and ml_time now give the times printed in Fig. 16 (p. 20), which the second coding had described as absent; quality_gap and R1/R2 evidence add the Fig. 12-13 comparison and derived per-iteration times.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "second",
+    "items": {
+      "access": {
+        "first": "not_full_text",
+        "second": "full_text",
+        "decision": "full_text",
+        "reason": "The second coder's route worked for the adjudicator: Internet Archive snapshot 20250319061732 of the PDF on the corresponding author's former lab page, whose live URL now returns 404 while the author's new site shows a Cloudflare check (not bypassed). The file is the typeset version of record (CMAME 398, 115116; 24 pp.), read in full."
+      },
+      "stratum": {
+        "first": null,
+        "second": "speed",
+        "decision": "speed",
+        "reason": "The abstract (p. 1) claims up to 30 times faster than traditional topology optimization, a quantitative speed comparison with a classical method, so it is the primary outcome (§5.1 rule 1) and the stratum is speed."
+      },
+      "R1": {
+        "first": null,
+        "second": "partial",
+        "decision": "partial",
+        "reason": "Both methods run the same 200-iteration schedule (Sec. 6, p. 14), and at 1.3 million elements Fig. 13 (p. 18) gives reference 15.4 against ML 15.6 and 15.7 (Fig. 12, p. 17). The headline 26.5x run (10.6 million elements, NB = 3; Fig. 16, p. 20) has no reference compliance, so quality is reported but matching is loose (§5.3 partial)."
+      },
+      "R2": {
+        "first": null,
+        "second": "pass",
+        "decision": "pass",
+        "reason": "Traditional TO and the ML framework share the machine, the in-house C++/CUDA FEA on a Titan Xp GPU and the iteration schedule (Sec. 6, p. 15; Sec. 6.4, p. 18), so (c) and (d) are not established. The solver type is unstated and (a)/(e) need a re-test, so unsure means pass."
+      },
+      "R3": {
+        "first": null,
+        "second": "fail",
+        "decision": "fail",
+        "reason": "No training time and no data-generation cost appear anywhere: Sec. 6.1 (p. 15) calls the four training runs relatively cheap without figures, and Appendix B (p. 23) shows loss curves only. A speed claim with no training or data cost is the §5.3 R3 fail case."
+      },
+      "R4": {
+        "first": null,
+        "second": "partial",
+        "decision": "partial",
+        "reason": "Designs are compared with standard-TO compliance (Fig. 13, p. 18) [inferred: fine-mesh FE evaluation], but volume-constraint satisfaction and failure counts are not reported (only a qualitative no-disconnection remark, Sec. 6.2, p. 16), and the bridge uses a coarse-mesh compliance estimate (Sec. 6.3, p. 17): the §5.3 R4 partial case."
+      },
+      "claimed_speedup": {
+        "first": null,
+        "second": 26.5,
+        "decision": 30,
+        "reason": "The primary outcome is the abstract's claim (p. 1), up to 30 times faster, so its stated factor 30 is entered. The largest measured value is 26.5 (Fig. 16, p. 20: 39 h vs 1.5 h at 10.6 million elements, NB = 3; 26.0 from the rounded times [derived]), which the basis records."
+      }
+    }
+  }
+}

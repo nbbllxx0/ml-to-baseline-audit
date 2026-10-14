@@ -1,0 +1,88 @@
+{
+  "pid": "P02361",
+  "citation": {
+    "title": "Distributed design optimization of multi-component systems using meta models and topology optimization",
+    "authors": "Lukas Krischer, Felix Endress, Tobias Wanninger, Markus Zimmermann",
+    "year": 2024,
+    "venue": "Structural and Multidisciplinary Optimization, Vol. 67, Article 160 (September 2024)",
+    "doi": "10.1007/s00158-024-03836-5",
+    "arxiv_id": "",
+    "version_coded": "Version of record, open access (CC BY 4.0, confirmed in the PDF's own Open Access statement; funded via Projekt DEAL). link.springer.com's direct article and PDF URLs both returned a 'Client Challenge' bot-detection page to scripted access (not bypassed); the same PDF was instead obtained via the Deutsche Nationalbibliothek (German National Library) legal-deposit repository at https://d-nb.info/1352125560/34, verified by title/author/DOI/abstract match against the target article"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Abstract/Table 5: Informed Decomposition's four-component robot design is 12.9% heavier in total mass than the monolithic (single, coupled) topology-optimization solution, while both satisfy the same system-stiffness requirement across 100 load cases.",
+    "key_phrase": "at most 12.9% heavier than those of a monolithic optimization",
+    "location": "Abstract, matching Table 5/Sec. 6.4's four-component robot result (np=100 load cases). The simpler two-component case (Table 3/Sec. 5.4) gives smaller deviations of 3.87%-8.18% across 6 load cases",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable. The primary outcome is a mass (quality) comparison, not a speed claim. Sec. 7 ('Computational time') explicitly states: 'Although this study did not explicitly investigate time, decoupling the costly component optimization offers significant potential for time reduction.' No wall-clock time, iteration count, or cost figure is given anywhere for either the monolithic or the Informed-Decomposition optimization.",
+    "direction": "underperform",
+    "alternatives": "Sec. 5 (two-component system, Table 3): smaller mass deviations of 3.87% (LC1, best) to 8.18% (LC3, worst) across 6 single-axis load cases, versus the four-component robot's 12.9% (100 load cases, Sec. 6), with one component (i=4) individually deviating by 70.7%. No quantitative speed/cost claim exists anywhere to serve as an alternative primary outcome; the only other quantitative classical comparisons are the same mass-deviation numbers broken down per load case."
+  },
+  "baseline": {
+    "classical_method": "Monolithic (single, coupled) SIMP-based topology optimization of all components simultaneously, solved with the Method of Moving Asymptotes (Svanberg 1987), subject to a system-level displacement constraint linking all components (approach (A), Eq. 4)",
+    "implementation": "Authors' own implementation; the Declarations state results 'can be completely replicated with MATLAB and the detailed derivations within this paper.' No code repository is linked",
+    "solver": "Gradient-based MMA for both the monolithic (A) and the component-level (B) topology optimizations (Sec. 3.2); system-level assembly uses Guyan static condensation plus an RBE2 kinematic condensation (Sec. 3.2, 4.1); no specific linear-algebra/FE package is named",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated (no hardware given for training the feasibility classifier / mass regressor meta-models, the particle-swarm system optimization, or the component-level TO)",
+    "problem_size": "Two-component system (P1): 30x30x100 mm box domain per component, nele=[20,8,8] elements per component (Sec. 5.1). Four-component robot (P2): component lengths [150,100,50,50] mm, same 30x30 mm cross-section, np=100 static load cases from a pick-and-place trajectory (Sec. 6.1)",
+    "classical_iterations": "not stated (no iteration count or convergence tolerance given for the MMA-based monolithic or component optimizations)",
+    "classical_time": "not stated anywhere; Sec. 7 explicitly states 'this study did not explicitly investigate time'",
+    "ml_time": "not stated anywhere, for the same reason; only a qualitative claim of 'significant potential for time reduction' from parallelization and eliminated coordination overhead (Sec. 7)",
+    "training_time": "not stated (no wall-clock or hardware for training the feasibility/mass meta-models via active-learning undersampling); Sec. 7 separately notes that even the hypothesized time benefit 'does not take training of meta models into account'",
+    "data_generation_cost": "not stated numerically; Sec. 7 ('Offline database') calls generating the active-learning sample data 'computationally expensive' but gives no figure. Meta models are reused across problems sharing a component length (Sec. 6.2: component i=2 of P2 reuses P1's meta models), partially amortizing this cost, again without quantification",
+    "quality_metric": "Total system mass (sum of component masses) and the maximum system end-effector displacement across all load cases versus the requirement u<=u_ub=1 mm, both computed from the actual topology-optimized components via the assembled system stiffness matrix (Tables 3, 5)",
+    "quality_gap": "Two-component system (Table 3): mass deviation of Informed Decomposition vs. monolithic ranges 3.87% (LC1) to 8.18% (LC3) across 6 load cases; both meet u<=1 mm. Four-component robot (Table 5): total mass 250.6 g (B) vs. 221.9 g (A), a 12.9% deviation; max observed displacement 0.99-1.00 mm for both"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-na-quality-matched",
+      "evidence": "No speed claim exists to assess matching for (Sec. 7 explicitly did not investigate time). The quality comparison itself is on a shared, well-defined basis: both approaches use the same material, the same load cases, the same system displacement requirement (u<=1 mm), and mass is computed from the actual assembled component designs for both (Tables 3, 5), so the comparison that is made (mass at matched constraint satisfaction) is fair on its own terms."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome compares design quality (mass) only; no classical runtime or speed claim is made anywhere in the article (Sec. 7: 'this study did not explicitly investigate time'), so the efficiency criteria (a)-(e) do not bear on it. Neither approach's solver hardware is stated in any case."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim against the monolithic method. For context (C3): meta-model training and active-learning data-generation costs are both described only qualitatively ('computationally expensive,' Sec. 7) with no wall-clock or hardware figures anywhere in the article, and Sec. 7 itself notes the hypothesized time benefit 'does not take training of meta models into account.'"
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-fe-no-failure-rate",
+      "evidence": "Mass and displacement are computed via the actual assembled stiffness model of the returned component designs (not an image-similarity proxy), and constraint satisfaction (u<=1 mm) is explicitly confirmed per load case in Tables 3 and 5. However, no aggregate/quantified failure rate is given for the meta-model-driven system decoupling: Sec. 5.3/6.3 discuss specific outliers narratively ('the system optimization seems to have problems in realizing small stiffness values,' component i=4's 70.7% mass deviation) rather than reporting, e.g., what fraction of stiffness targets were mislabeled as feasible/infeasible by the classifier across the study."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "6 load cases for the two-component system (P1, Table 3); 100 static load cases from a pick-and-place trajectory for the four-component robot (P2, Table 5)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "This is an unusually candid paper for this audit: the Conclusion states outright that 'Informed Decomposition produces results that are worse than those obtained by monolithic optimization,' and Sec. 7 explicitly admits computational time (the other stated motivation for the method) was never measured ('this study did not explicitly investigate time'). Direction is coded 'underperform' because the measured primary outcome (mass) is worse for the ML-informed method, not because the method failed outright - both approaches meet the stiffness requirement. method_family is coded surrogate_mlp_gp as the closest schema match: the article calls its feasibility classifier and mass regressor 'meta models' trained via an active-learning strategy but never states their specific architecture (MLP, GP, SVM, etc.) in this paper, only citing a companion paper (Krischer et al. 2022) for sampling details. ood_test is coded 'unclear' rather than yes/no: there is no designed out-of-distribution test set, but Sec. 5.2/6.2 explicitly diagnose that the active-learning sampling failed to cover parts of the feasible design space (especially near-void and near-filled stiffness extremes) and that the system optimization's largest errors occur exactly in those under-sampled regions - a real but incidental/post-hoc form of OOD exposure. Classical method (A) and the ML-informed method (B) both use SIMP-based topology optimization at the component level (Eq. 12); the difference is that (B) uses trained ML surrogates to decouple the system-level requirement allocation so each component's TO can run independently/in parallel, which is why this is in scope despite both approaches nominally being 'topology optimization.' No author named Jun Wang (authors: Krischer, Endress, Wanninger, Zimmermann; unrelated 'Wang' entries appear only in the reference list). No duplicate pool record found for this title or DOI (pool.csv has only P02361)."
+}

@@ -1,0 +1,60 @@
+{
+  "stage": "cross_provider_pass",
+  "pid": "P00136",
+  "citation": {
+    "title": "Robust Topology Optimization Using Multi-Fidelity Variational Autoencoders",
+    "authors": "Rini Jasmine Gladstone, Mohammad Amin Nabian, Hadi Meidani, Vahid Keshavarzzadeh",
+    "year": 2024,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2107.10661",
+    "arxiv_id": "2107.10661",
+    "version_coded": "arXiv v2 (20 Aug 2024)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "vae", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The VAE and neural compliance surrogate replace repeated finite-element response evaluations during robust topology optimization, while a multi-fidelity setup is reported to reduce training-data generation and training costs.",
+    "key_phrase": "bypasses the numerous finite element response evaluations",
+    "location": "Abstract",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No classical-versus-ML runtime factor is stated. Section 4.1.4 reports lower data-generation time for multi-fidelity versus single-fidelity training, not a speed-up over a classical optimizer.",
+    "direction": "outperform",
+    "alternatives": "Section 4.1 reports a single-fidelity learned design with robust compliance 69.84 against 71.59 for the best deterministic SIMP training topology; the conclusion says performance was not shown to exceed a finite-element robust optimum."
+  },
+  "baseline": {
+    "classical_method": "SIMP deterministic topology optimization generates training designs; finite-element evaluation is replaced by a learned robust-compliance surrogate during the latent-space search",
+    "implementation": "88-line MATLAB topology optimization code for SIMP (Section 4.1.1)",
+    "solver": "Finite-element solver; type not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "NVIDIA GeForce RTX 3080 for network training (Sections 4.1.4 and 4.2)",
+    "problem_size": "100 × 100 elements for single-load example; 128 × 128 for multiple-load example (Sections 4.1–4.2)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated for comparable end-to-end optimization",
+    "ml_time": "not stated for comparable end-to-end optimization",
+    "training_time": "0.17 and 0.09 s/iteration (single-fidelity VAE and compliance NN); 0.015 and 0.010 s/iteration (multi-fidelity high-fidelity networks), single-load case (Section 4.1.4). 1.2 s/iteration single-fidelity and 0.18 s/iteration multi-fidelity high-resolution training, multiple-load case (Section 4.2).",
+    "data_generation_cost": "3.55 h for 600 high-resolution samples versus 34 min for 700 low-resolution plus 20 high-resolution samples (Section 4.1.4); 12.75 h for 600 multi-load samples versus 1.9 h for 90 samples (Section 4.2).",
+    "quality_metric": "Robust compliance, estimated by a trained compliance neural network; some SIMP robust compliance values are computed by quadrature",
+    "quality_gap": "Single-load learned result Qrob = 69.84 versus 71.59 for best deterministic SIMP design; authors state the learned design was not shown to exceed the best robust design from SIMP (Section 4.1.3)."
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-unmatched", "evidence": "The abstract claims computational efficiency by replacing repeated FE response evaluations, but does not establish a speed comparison at matched design quality or budget; final learned-design structural integrity is listed as future work (Conclusion)."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Sections 4.1–4.2 report timing for learned-model training and data generation but no comparable classical runtime, solver type, or hardware for the classical method."},
+    "R3": {"verdict": "partial", "marker": "R3-costs-without-amortization", "evidence": "Sections 4.1.4 and 4.2 report both dataset-generation and network-training costs, but provide no break-even use count or amortization for the speed claim."},
+    "R4": {"verdict": "fail", "marker": "R4-surrogate-metric", "evidence": "Section 4 evaluates optimized designs using the compliance neural-network surrogate; the conclusion lists structural-integrity evaluation of the final gradient-descent design as future work."}
+  },
+  "reporting": {
+    "n_test_cases": "90 high-resolution test topologies in single-load evaluation; 80 for multi-fidelity evaluation (Sections 4.1.1, 4.1.4); 600 training designs in multi-load example (Section 4.2)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Article reports no end-to-end classical-versus-learned runtime and notes that final structural integrity remains to be evaluated. Source: https://arxiv.org/pdf/2107.10661"
+}

@@ -1,0 +1,72 @@
+{
+  "pid": "P00983",
+  "citation": {
+    "title": "A function online learning and prediction method for accelerating structural topology optimization and its application to pneumatic soft actuator",
+    "authors": "Yi Xing, Yifu Lu, Liyong Tong",
+    "year": 2025,
+    "venue": "Thin-Walled Structures (Elsevier); published online 13 Jan 2025",
+    "doi": "10.1016/j.tws.2025.112942",
+    "arxiv_id": "",
+    "version_coded": "Abstract only. Title, highlights and abstract reconstructed via OpenAlex's open metadata API (api.openalex.org/works/doi:10.1016/j.tws.2025.112942, queried 2026-09-24). The article is Elsevier hybrid open access (CC BY 4.0, version-of-record licence effective 2025-01-12 per Crossref metadata), but ScienceDirect returned an HTTP 403 CAPTCHA challenge to anonymous automated access via both curl and the WebFetch tool, and was not read further. OpenAlex records 'any_repository_has_fulltext: false' for this work (no indexed repository copy). A candidate University of Sydney institutional-repository thesis page by the first author (ses.library.usyd.edu.au/handle/2123/32605) was attempted three times and returned only HTTP 503 responses or connection timeouts (a transient server-side failure, not a bot check), so it could not be read either. No CAPTCHA or bot check was bypassed."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (abstract states a quantitative time-saving comparison against two named classical methods)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliant_mechanism",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "FoLap, a one-hidden-layer neural network predicting the online update of a higher-dimensional design function, accelerates topology optimisation; designing a pneumatic actuator cell (HELC) with it saves up to 65.1% of total computational time versus level set and moving isosurface threshold methods.",
+    "key_phrase": "save up to 65.1 % total computational time",
+    "location": "abstract (highlights and abstract body; this is the first, and only visible, quantitative comparison with a classical method)",
+    "quantitative": true,
+    "claimed_speedup": 2.87,
+    "claimed_speedup_basis": "Derived from the abstract's stated 'save up to 65.1% total computational time ... when compared with the selected level set method and the moving isosurface threshold method': if FoLap time = (1 - 0.651) x classical time = 0.349x classical time, the implied speed-up factor classical/FoLap = 1/0.349 = 2.87 [derived]. This is the only quantitative comparison visible; full text (with any per-case times, iteration counts or hardware) is not accessible.",
+    "direction": "outperform",
+    "alternatives": "None found in the abstract beyond the 65.1% figure. The abstract also reports non-comparative results not usable as the primary outcome: 'good correlation between experimental and nonlinear finite element analysis results' for the printed HELC cell and an assembled pneumatic bending/contracting system (PBaCs), which is a validation claim, not a classical-method comparison."
+  },
+  "baseline": {
+    "classical_method": "Level set method (LSM) and the moving isosurface threshold (MIST) method, both named in the abstract as the comparators for the 65.1% time-saving figure",
+    "implementation": "not stated (full text inaccessible)",
+    "solver": "not stated (full text inaccessible)",
+    "hardware_classical": "not stated (full text inaccessible)",
+    "hardware_ml": "not stated (full text inaccessible)",
+    "problem_size": "not stated beyond the design case named in the abstract: a bio-inspired thin-walled 'HELC' (horizontal expansion and lengthwise contraction) cell, assembled into a pneumatic bending/contracting system (PBaCs)",
+    "classical_iterations": "not stated (full text inaccessible)",
+    "classical_time": "not stated as an absolute value; only the relative saving (up to 65.1%) is given",
+    "ml_time": "not stated as an absolute value; only the relative saving (up to 65.1%) is given",
+    "training_time": "not stated (full text inaccessible; FoLap is described as an 'online' learning method, which may fold training into the optimisation loop, but this cannot be confirmed without the full text)",
+    "data_generation_cost": "not stated (full text inaccessible)",
+    "quality_metric": "not stated in the abstract beyond a general claim of 'good correlation between experimental and nonlinear finite element analysis (NFEA) results' for the fabricated (3D-printed) design",
+    "quality_gap": "not stated (full text inaccessible)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "1 design case named in the abstract (the HELC cell / PBaCs assembly); full text not accessible for a complete count",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Coded from the abstract only, per PROTOCOL access rules: ScienceDirect (the only location OpenAlex or search could find for this article) returned an anonymous-guest CAPTCHA (HTTP 403) via both curl and WebFetch; OpenAlex's own repository index shows no alternate full-text copy ('any_repository_has_fulltext: false'); and a plausible University of Sydney repository thesis page by the first author returned only HTTP 503 / timeouts across three attempts (transient server failure, not a bot check) so could not be checked as a possible alternate copy. No CAPTCHA or bot check was bypassed at any point. Per coding_instructions.md, all four rule verdicts are set to 'na' with evidence 'no full text', and included.decision/stratum/method_family/physics are set from the abstract alone: the abstract itself supplies enough for an inclusion call (a one-hidden-layer neural network ['FoLap'] used online to accelerate gradient-based/gradient-free TO, with a quantitative speed comparison against two named classical methods, LSM and MIST), so this is coded as include / speed stratum rather than a screening default. method_family = surrogate_mlp_gp because FoLap is explicitly described as a one-hidden-layer neural network; physics = compliant_mechanism because the abstract states FoLap is 'proposed for designing compliant mechanisms considering design-dependent loads and fixed loads'; dim is 'unclear' because 2D/3D is not stated in the abstract. All reporting indicators other than n_test_cases reflect abstract-only visibility (best-available-evidence 'no'/'na'/'unclear'), not a confirmed absence in the full article -- a human or later AI pass with full-text access should revisit every field in this record. No author named Jun Wang (authors: Yi Xing, Yifu Lu, Liyong Tong). Duplicate check: audit/pool/pool.csv searched by title on 2026-09-24; no second pool record found for this article. Incidental, not a duplicate: web search surfaced a different ScienceDirect article by an apparently overlapping author group, 'A stochastic gradient online learning and prediction method for accelerating structural topology optimization using recurrent neural network' (different PII/DOI, different journal, mentions a recurrent neural network) -- a distinct article, not in this coder's queue and not further investigated."
+}

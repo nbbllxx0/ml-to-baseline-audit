@@ -1,0 +1,88 @@
+{
+  "pid": "P01813",
+  "citation": {
+    "title": "Diffusion-based cGAN framework for automated optimization and code-compliant generative design of thin-walled structures",
+    "authors": "Chamod Fernando, Sumudu Herath, Lowhikan Sivanantha Sarma",
+    "year": 2026,
+    "venue": "Thin-Walled Structures, vol. 231, art. 115420 (Special Issue: 'AI-Assisted Thin-Walled Structure Design'); open access, CC BY 4.0",
+    "doi": "10.1016/j.tws.2026.115420",
+    "arxiv_id": "",
+    "version_coded": "Version of record (open access, CC BY), downloaded 2026-09-24 from the University of Cambridge's Apollo institutional repository (repository.cam.ac.uk, listed by OpenAlex alongside the ScienceDirect location), 20 pages, read in full including all tables and references. The ScienceDirect PDF link given in the queue was not needed since Apollo loaded directly with no bot check."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (this coder has no access to the title/abstract screening record; assigned from full text, where Section 4.4/Table 2 states an explicit average speedup over a classical baseline)",
+    "stratum": "speed",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A diffusion-conditioned conditional GAN (a U-Net generator reconstructing a high-resolution layout from a forward-noised low-resolution input, rather than full reverse-diffusion sampling) generates 2D thin-walled skeletal frame layouts. Across 12 test cases (6 simply-supported, 6 cantilevered), the classical pipeline of Sarma et al. 2024 (SIMP-based TopOpt, skeletonization, and SLSQP sizing) takes 94.8-1089.1 s per case, versus 0.011-0.022 s of generator inference time, an explicitly stated average speedup of over 40,000 times.",
+    "key_phrase": "the model achieves an average speedup of over 40,000 times",
+    "location": "Section 4.4 'Comparative analysis of computational efficiency and accuracy', Table 2 (main text); the Abstract and Conclusion state the same comparison only qualitatively ('a notable reduction in online inference time', 'substantially lower online inference times')",
+    "quantitative": true,
+    "claimed_speedup": 40000,
+    "claimed_speedup_basis": "Explicitly stated by the authors, not derived by this coder: 'the model achieves an average speedup of over 40,000 times' and, restated, 'an average speedup of over 40,000 times over conventional SIMP' (Section 4.4). Table 2 gives the underlying per-case times (classical 94.8-1089.1 s vs diffusion-cGAN 0.011-0.022 s) from which this average is computed.",
+    "direction": "outperform",
+    "alternatives": "Section 4.4 also cites (i) Yu et al., a CNN-cGAN pipeline achieving 'a speedup of approximately 1600 times over iterative SIMP solvers' (an ML method, not the classical comparator used for this article's own claim), and (ii) TopoDiff, reported as '360 times slower than the TopologyGAN baseline' (an ML-vs-ML comparison illustrating a speed-accuracy trade-off among generative methods, not a classical comparison). Table 3 separately compares prediction accuracy (ACC/TPR/TNR) against four other deep-learning architectures (CNNC512, FFNN64+CNN512, CNN64+CNN256, CNN64+CNN512) from Jayaweera et al.; this study's model scores highest (ACC=0.963, TPR=0.918, TNR=0.976), but this is again an ML-vs-ML comparison, not a classical one."
+  },
+  "baseline": {
+    "classical_method": "The generative-modelling pipeline of Sarma et al. 2024 (Comput. Struct. 302:107474, Ref. [1]): SIMP-based TopOpt (Eqs. 8-11, with density filtering) to obtain a material layout, followed by Zhang-Suen skeletonization, frame/member extraction and pruning, and Sequential Least-Squares Quadratic Programming (SLSQP) size/layout optimization with EN 1993-1-1 CHS section assignment (Section 3). Table 2's classical timings are attributed to this full pipeline as 'the conventional optimization algorithm developed by Sarma et al. [1]'.",
+    "implementation": "Not stated beyond the citation to Sarma et al. 2024; no specific code, library or solver package is named for the classical pipeline.",
+    "solver": "Not stated for the SIMP state equation (Eq. 9, Ku=f); the sizing stage uses SLSQP (Section 3.2).",
+    "hardware_classical": "not stated",
+    "hardware_ml": "NVIDIA Quadro RTX 5000 GPU, PyTorch 2.4.0, CUDA 12.4 (Sections 2.3, 4.2).",
+    "problem_size": "2D thin-walled skeletal frames; Table 2's 12 test cases span S=2.0-5.0 m, H=0.7-2.0 m, F=5-200 kN (span, height, concentrated force). Finite-element mesh resolution for the SIMP stage is not stated; the dataset uses 512x512-pixel spatially generalized layouts (Section 3.4) with a 64x64 encoder input (Section 2.2).",
+    "classical_iterations": "Not stated for either the SIMP/TopOpt stage or the SLSQP sizing stage of the classical pipeline.",
+    "classical_time": "94.8 s to 1089.1 s across the 12 test cases (Table 2).",
+    "ml_time": "0.011 s to 0.022 s across the same 12 test cases (Table 2), reported as the generator network's online inference time only.",
+    "training_time": "Not given in wall-clock terms. The simply-supported model trained for 100 epochs and the cantilevered model for 300 epochs, batch size 16, learning rate 0.001, on the stated GPU (Sections 2.3, 4.2); the authors explicitly state 'the absolute wall-clock time depends on data-loading configuration, GPU availability, and implementation settings' and report only epoch counts and hardware instead of a duration.",
+    "data_generation_cost": "Not reported as an aggregate figure. The training dataset (1805 simply-supported and 1708 cantilevered samples, Section 3.4) was generated by running the classical pipeline above once per sample; using the article's own per-case classical times (94.8-1089.1 s, Table 2) as a rough guide, generating ~3513 such samples would plausibly require on the order of 10^5-10^6 s of compute [derived, illustrative only; the specific per-sample times actually used for dataset generation are not reported and may differ from the 12 Table 2 test cases].",
+    "quality_metric": "Image-similarity metrics (SSIM, PSNR, IoU, Dice; Table 1) between generated and ground-truth layouts on 4 representative cases; separately, full engineering validation (Section 4.6) reconstructs 2 representative generated-and-section-identified layouts as fixed-joint frames and checks EN 1993-1-1 member utilization ratios and displacement limits (Table 6).",
+    "quality_gap": "Image metrics: SSIM 0.917-0.956, IoU 0.926-0.970, Dice 0.962-0.985 (simply supported, mean 0.927/0.940/0.969); SSIM 0.841-0.93, IoU 0.867-0.94, Dice 0.928-0.970 (cantilevered, mean 0.881/0.911/0.953) (Section 4.3, Table 1). Structural validation (Table 6): simply-supported case, max displacement 3.433 mm (22.9% of the 15.000 mm allowable), max governing utilization 0.627, Status Pass; cantilevered case, max displacement 10.320 mm (77.4% of the 13.333 mm allowable), max governing utilization 0.976, Status Pass. Neither quality dataset corresponds to the same 12 parameter combinations used for the Table 2 speed comparison."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-postprocessing-excluded",
+      "evidence": "Two concrete gaps match the protocol's fail criteria. (1) The 12 cases used for the speed comparison (Table 2) carry no quality/accuracy figure of their own; the SSIM/IoU/Dice metrics (Table 1, 4 cases) and the full code-compliance validation (Table 6, 2 cases) use different parameter combinations, so the speed claim and the quality evidence are never demonstrated on the same test instances. (2) The reported diffusion-cGAN time (0.011-0.022 s) is explicitly only the generator's online inference (a single forward pass, Section 4.4); it excludes the downstream section-identification pipeline (Section 2.4: thresholding, skeletonization, node detection, member isolation, tolerance-based classification) that Section 4.6's own structural/code-compliance 'quality result' depends on, and whose cost is not reported anywhere. This matches the protocol's fail example of post-processing used for the quality result but not counted in the reported time. The classical baseline's reported time, by contrast, appears to cover the full pipeline through section assignment."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unstated",
+      "evidence": "The classical pipeline's solver (for the SIMP state equation) and hardware are not stated at all, so its efficiency class cannot be confirmed; the ML side's hardware is fully stated (NVIDIA Quadro RTX 5000, Sections 2.3/4.2), but no GPU-vs-CPU justification is discussed for the classical run. The per-case classical times vary by over 11x (94.8 to 1089.1 s) across the 12 cases, which is consistent with a genuine problem-dependent iterative solve rather than an artificially fixed or truncated baseline, so no R2(b)/(d) red flag is evident; no per-iteration time is derivable because no iteration count is given for the classical pipeline (R2(e) cannot be assessed)."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-per-query-limited",
+      "evidence": "Section 4.4 explicitly scopes the claim: 'the speedup reported here is interpreted as an inference-time acceleration for generating new layouts after training, not as a replacement for the full offline development cost,' and separately notes that 'the reported inference times do not include the offline computational costs associated with topology-optimized dataset generation, hyperparameter tuning, or model training.' This matches the protocol's alternate pass condition (the claim is explicitly limited to per-query inference). Training cost is given qualitatively as epoch counts and hardware (100/300 epochs on the stated GPU, Section 2.3) rather than as a wall-clock figure, and no aggregate data-generation cost or break-even number of uses is computed, which would have made the accounting more complete, but the explicit scope limitation is what the rule treats as sufficient."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Section 4.6 performs a genuine FE-based verification of the returned (generated, section-identified) design for 2 representative cases: fixed-joint frame re-analysis, EN 1993-1-1 member utilization ratios (axial, shear, bending, combined), displacement-vs-allowable-displacement ratios, and an explicit Pass/Pass status (Table 6), which is a thorough, code-compliant check rather than an image-similarity-only proxy. However, this validation covers only 2 of the many possible generated designs (explicitly described as 'representative case-study demonstrations', Section 4.5), and no failure or infeasibility rate is reported across a larger sample of generated layouts (e.g. what fraction of designs across the tested span/height/load range would pass or fail the same checks)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 representative cases for image-similarity metrics (Table 1: 2 simply-supported, 2 cantilevered); 12 cases for the speed comparison (Table 2: 6 simply-supported, 6 cantilevered); 2 representative cases for full structural/code-compliance validation (Table 6); trained on a 1805 (simply-supported) + 1708 (cantilevered) sample dataset.",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Access: the ScienceDirect PDF URL given in the queue was not attempted directly; OpenAlex listed a University of Cambridge Apollo repository copy (hybrid OA) alongside the ScienceDirect location, and that repository URL was tried first and succeeded immediately with no bot check, CAPTCHA, login or paywall (HTTP 200). No author named Jun Wang (authors: Chamod Fernando, Sumudu Herath, Lowhikan Sivanantha Sarma); the reference list cites several unrelated 'Wang' authors (Wei Wang, Lifu Wang, Zhou Wang, Naiyan Wang) in prior work, none of them 'Jun Wang' and none authors of this article. Duplicate check: pool.csv searched by title on 2026-09-24; only one matching record (P01813 itself) -- no duplicate found. Funding: University of Moratuwa Senate Research Committee grant SRC/LT/2025/15; World Bank AHEAD Operation grant 6026-LK/8743-LK. No competing interests declared. method_family is coded 'gan' rather than 'diffusion_flow' because the diffusion component is used only as a forward-noising/conditioning mechanism to create degraded inputs, not as a reverse-diffusion sampler; the generative core that the article itself repeatedly calls a 'diffusion-conditioned cGAN' is the conditional U-Net GAN, explicitly contrasted in the article with 'a conventional diffusion model that requires repeated reverse denoising steps.' Primary-outcome choice: Table 2/Section 4.4 is the first and only quantitative classical-method comparison in the article (the Abstract, Introduction and Conclusion state the same claim qualitatively only), and gives an explicit (not derived) speedup figure."
+}

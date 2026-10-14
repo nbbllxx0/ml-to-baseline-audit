@@ -1,0 +1,56 @@
+{
+  "pid": "P00740",
+  "citation": {
+    "title": "Image-Based Multiresolution Topology Optimization Using Deep Disjunctive Normal Shape Model",
+    "authors": "Vahid Keshavarzzadeh, Mitra Alirezaei, Tolga Tasdizen, Robert M. Kirby",
+    "year": 2021,
+    "venue": "Computer-Aided Design, vol. 130, article 102947 (Elsevier)",
+    "doi": "10.1016/j.cad.2020.102947",
+    "version_coded": "Abstract only. No full text was reachable: www.sciencedirect.com returned HTTP 403 on every attempt, and no other legal copy exists. Abstract read from the Semantic Scholar API (cross-checked against OpenAlex's title/author metadata)."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A deep disjunctive normal shape model trained on inexpensive coarse-mesh FE simulation data predicts high-resolution compliance-minimization topologies from simulation parameters; the outputs are described as close to optimal and usable as initial guesses for large-scale optimization, demonstrated on benchmark problems including a 3D case.",
+    "key_phrase": "close to optimal designs",
+    "location": "abstract (only text available)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No number of any kind appears in the abstract. 'Cost-efficient' and 'inexpensive coarse mesh' are qualitative characterizations of the training-data strategy, not a stated or derivable speed-up factor against a classical optimizer.",
+    "direction": "similar_or_mixed",
+    "alternatives": "None identifiable from the abstract alone; the abstract's only other framing is that the predicted designs 'can be used as effective initial guesses for the large-scale optimization problem' - i.e., an accelerator/warm-start role for classical optimization rather than a standalone replacement, which is not itself phrased as a comparison with a number."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated (abstract only)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access exhausted through every legal route tried. doi.org resolves (HTTP 200) to the ScienceDirect landing page, which returned HTTP 403 on every attempt (plain curl and WebFetch), consistent with other ScienceDirect articles encountered in this queue; not bypassed. OpenAlex marks the article 'bronze' OA, but the corresponding author's own publication pages contradict this: Vahid Keshavarzzadeh's Google Sites publication list (sites.google.com/view/vahid-keshavarzzadeh/publications) links this exact article only to the same ScienceDirect page and explicitly notes 'access depends on institutional subscriptions or purchase permissions' - i.e., not actually open in practice. Robert M. Kirby's University of Utah faculty page (users.cs.utah.edu/~kirby/publications.html) could not be reached at all (connection refused; a server outage, not a bot-check or paywall). No arXiv version, Zenodo deposit, or other institutional-repository copy was found via web search. Semantic Scholar's OA-PDF field pointed only to the same ScienceDirect DOI and, in its disclaimer text, named an Unpaywall API URL, which was not queried (Unpaywall is prohibited by the task rules; its URL appeared only as inert text in the API response). No email address, mailto parameter, login, or CAPTCHA solve was used anywhere; a generic browser User-Agent was used throughout. Coded from the abstract only (Semantic Scholar API, cross-checked against OpenAlex's title/author/venue metadata): kept as an include (I-UNCLEAR) rather than excluded, stratum set to 'none', R1-R4 set to 'na', per the abstract-only rule. Flag for the adjudicator/full-text re-check: the abstract's own framing ('high-fidelity designs... are close to optimal designs and can be used as effective initial guesses for the large-scale optimization problem') reads as a design-quality claim against classical high-resolution TO with no speed/cost number, which would likely place this article in the 'quality' stratum once full text is available; this record deliberately does not make that call itself. method_family: 'deep disjunctive normal shape model (DDNSM)' is a specific neural architecture (built on prior 'Disjunctive Normal Networks' work by the same group for image segmentation) that does not map cleanly onto cnn/gan/vae/surrogate_mlp_gp, so 'other' is used [inferred from the architecture name only, not confirmed against this article's own text]. dim: 'both' because the abstract names '3D topology optimization' as one of several 'benchmark compliance minimization problems', implying at least one other (likely 2D) benchmark is also covered, though this is not confirmed. Duplicate check: audit/pool/pool.csv searched for 'Deep Disjunctive Normal Shape Model' (case-insensitive) returned exactly one match (this record, pid P00740); no FT-DUPLICATE applies. No author named Jun Wang (authors: Vahid Keshavarzzadeh, Mitra Alirezaei, Tolga Tasdizen, Robert M. Kirby)."
+}

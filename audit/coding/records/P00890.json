@@ -1,0 +1,107 @@
+{
+  "pid": "P00890",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Learning hyperparameter predictors for similarity-based multidisciplinary topology optimization",
+    "authors": "Mariusz Bujny, Muhammad Salman Yousaf, Nathan Zurbrugg, Duane Detwiler, Stefan Menzel, Satchit Ramnath, Thiago Rios, Fabian Duddeck",
+    "year": 2023,
+    "venue": "Scientific Reports 13 (2023) 14856 (Nature Portfolio; published 8 September 2023; open access, CC BY 4.0)",
+    "doi": "10.1038/s41598-023-42009-0",
+    "arxiv_id": "none found",
+    "version_coded": "Version of record: publisher PDF (18 pp.) from nature.com (the open copy OpenAlex lists), read in full as text. Page numbers below are the PDF pages. The adjudicator re-read the same PDF (www.nature.com/articles/s41598-023-42009-0.pdf, HTTP 200, no challenge) in full on 2026-09-24"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; cost proxy = number of TO runs needed to map the similarity-hyperparameter curve, 1 vs 12)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A degree-5 polynomial regression predicts the whole dissimilarity-versus-scaling-factor curve from one standard TO run, which the authors count as 12 times less computation than sampling the curve with 12 similarity-based TO runs.",
+    "key_phrase": "12 times lower computation time for the sampling resolution used in our experiments",
+    "location": "Section 'Regression model', p. 7. Chosen under §5.1 rule 4: the abstract, introduction and conclusion state the cost saving only qualitatively, and in the main text the cost statement follows the test-set accuracy (R² = 0.96) in the same paragraph; the article emphasizes the cost saving",
+    "quantitative": true,
+    "claimed_speedup": 12,
+    "claimed_speedup_basis": "Stated (p. 7) as a run-count ratio, not a measured time: the s(p) curve is predicted from 1 standard TO run instead of 12 ESM runs spread over p in [0.5, 0.98]. Producing the design at the chosen p needs one more ESM run (workflow text p. 3, Fig. 2 p. 4), which the ratio leaves out; counted, the ratio is 12/2 = 6 [derived]. No run time of any method is reported.",
+    "direction": "outperform",
+    "alternatives": "(1) p. 7, quality: on the held-out test set (60 test case-reference pairs × 12 p values), the predicted dissimilarity has R² = 0.96 and RMSE = 0.027 against actual ESM runs. (2) Figs. 16 and 19: predicted s(p) curves for the 2D crash (HCA, LS-DYNA) and 3D car-hood cases agree well with ground-truth curves from multiple similarity-based TO runs of the authors' earlier work; graphical only. (3) Abstract and conclusion, qualitative: the design is delivered at minimal computational cost, and the expensive sampling over multiple TO runs is no longer needed."
+  },
+  "baseline": {
+    "classical_method": "Sampling-based Energy Scaling Method (the authors' refs. 33-34): similarity-based TO runs at 12 values of the energy scaling factor p, spread uniformly over [0.5, 0.98], to map s(p) and pick the p that gives the target similarity. Underlying TO: SIMP for the 2D training cases; HCA for the crash and hood cases (pp. 3-7, 10-11)",
+    "implementation": "Reference designs from minimal-compliance SIMP citing the 88-line code (ref. 49); the ESM-in-SIMP implementation is not described in the article (Table 2 lists 4-node shell elements, SIMP power 3, filter radius 1.5). The public ESM repository (github.com/HRI-EU/Similarity-TO-ESM, MIT licence) holds a MATLAB top_esm.m adapted from the 88-line code [file list and LICENSE read 2026-09-24]. Crash TO with HCA and LS-DYNA (Table 3); hood solver not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Training: 2D cantilever with 100×100 elements (Table 2); crash: beam 160×40×1 solid elements (Table 3); hood: 195,830 8-node solid elements (Table 4)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated; cost expressed as 12 TO runs per s(p) curve (p. 7)",
+    "ml_time": "not stated; 1 standard TO run to extract the features, plus a polynomial evaluation (pp. 6-7)",
+    "training_time": "not stated; degree-5 polynomial regression selected by 10-fold cross-validation (p. 7)",
+    "data_generation_cost": "7800 TO runs on the 100×100 2D cantilever (600 test case-reference pairs, each with one reference SIMP run and 12 ESM runs), giving 7200 training samples (p. 5); run times not stated",
+    "quality_metric": "Prediction accuracy of the dissimilarity metric s against actual ESM runs: R² and RMSE (Fig. 7; test set p. 7); graphical agreement of predicted and ground-truth s(p) curves for the crash and hood cases (Figs. 16, 19)",
+    "quality_gap": "Test set: R² = 0.96, RMSE = 0.027 in s, where 0.01 in s is about 1% of the design-space volume (pp. 7, 14). Crash and hood: agreement shown graphically only, no numbers (Figs. 16, 19)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "p. 7 and Fig. 2: the 12x is a run count (1 standard TO run vs 12 sampled ESM runs), not a measured time, and quality is reported (test-set R² 0.96, RMSE 0.027; Figs. 16 and 19). Matching is loose: the predicted curve is an approximation of the sampled one, the stopping rules of the TO runs are not stated, and the extra ESM run needed to produce the design at the chosen p is not counted (design-level ratio 6x [derived]). A verifier who reads that uncounted run as post-processing outside the timing may choose fail."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "pp. 5-7, Tables 2-4 and the Data availability statement (p. 16): both arms run the same TO code per run (ESM in SIMP for the 2D data, HCA for crash and hood), and the claim is a run-count ratio, so the solver and hardware of each run cancel; no run time, solver or hardware is stated for any run, and the ML step is a polynomial evaluation. None of (a)-(e) is established: the abstract gives no number (b), no GPU asymmetry is described (c), and no iteration count or per-iteration time exists (d, e). Unsure, so pass. Baseline-strength note, not an R2 marker: the comparator samples p on a uniform 12-point grid; because s should fall as p rises (p. 10), a bracketing search could hit one target similarity in about 4 runs at the same resolution [derived: ceil(log2 12)], although the full s(p) curve that the article emphasizes (p. 7) needs all 12 samples."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-amortization",
+      "evidence": "p. 5 and 7: the data cost is given as a run count (7800 TO runs of the 100×100 2D cantilever); run times and training time are not reported, and no break-even is given; the claim is not limited to per-query use. For C3: counting runs, the saving is 10 TO runs per use (12 vs 2 [derived]), so the 7800 training runs break even after about 780 uses [derived]; in time the break-even is likely far lower, because the training runs are small 2D SIMP runs while the savings accrue on crash or 3D industrial runs [inferred]."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "p. 7, Figs. 8, 16, 19: predictions are checked against actual similarity-based TO runs (FE-based): the test-set metrics cover 60 held-out pairs, and the Fig. 8 curves are randomly selected (stated rule). The designs themselves come from full TO runs, so volume is enforced by the optimizer [inferred]. But the crash and hood checks are graphical only, and cases where the predicted p misses the target similarity, or where the degree-5 model is non-monotonic near the feature bounds (p. 10), are not counted."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Held-out test set: 60 test case-reference pairs × 12 p values = 720 samples (p. 7); real-world transfer: one 2D crash case and one 3D car-hood case (Figs. 16, 19)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED, confirmed. Scope judgment for the verifier: the learned model is a degree-5 polynomial regression on four features (target volume fraction, reference volume fraction, dissimilarity of the standard TO result, and p), fitted to 7200 samples with 10-fold cross-validation (pp. 5-7). The article calls it a machine learning model. It is not on the §3.1 example list (neural networks, Gaussian processes and so on), but the list reads as open-ended; if the verifier does not count polynomial regression as a learned model, FT-NOML applies. The model predicts the outcome of TO runs to set an optimizer hyperparameter, replacing repeated TO runs, so it is optimization-level, not forward analysis (FT-FORWARD does not apply). Primary-outcome judgment: the only quantified cost statement is the 12x run-count ratio on p. 7. Test-set R² = 0.96 (same paragraph) is the alternative quality outcome; if a verifier takes it as the first quantitative classical comparison under rule 2, the stratum becomes Q. The 'ground truth' curves for the crash and hood cases come from the authors' earlier publications (refs. 33-34, 48), not new runs (pp. 12-13). ood_test = yes: a model trained on 2D linear elastic SIMP runs is applied to nonlinear crash TO with HCA and to a 3D hood with HCA. seeds_or_variance = yes: 10-fold cross-validation averages (Fig. 7) and a 99% confidence band (Fig. 8); no timing variance exists because nothing is timed. Physics: coded compliance, since the training data and the hood case are compliance problems; the 2D crash case maximizes energy absorption (screening had 'other'). Code: the Data availability statement links only the ESM code (github.com/HRI-EU/Similarity-TO-ESM; GitHub API and files read 2026-09-24: MATLAB main.m, top_esm.m adapted from the 88-line code, a reference-structure file, MIT licence, last push December 2021). No code for the hyperparameter predictor, the data generation or the industrial cases is linked, so code_available = no; datasets and simulation models are available on reasonable request. retest_candidate false: no ML code, and the speed claim is a run count, not a timing. No author named Jun Wang. Duplicate check: no prefill matches the title or the authors. Adjudication (2026-09-24): both coders read the full text and agree on everything except R2 and R4. R2 changed from partial to pass: the protocol defines baseline efficiency by solver, implementation and hardware (§5.3 R2), none of which is stated or visibly weak here, and the uniform 12-point search grid is recorded as a baseline-strength note in the R2 evidence rather than as a marker, as the stronger coarse-to-fine comparator was in P00740. R4 kept as partial.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R2": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "pass",
+        "reason": "Both arms use the same TO code per run and the claim is a run count (p. 7), so solver and hardware cancel, and the article states none of them; no marker (a)-(e) and no listed partial case (inefficient-looking implementation, unjustified hardware) is established, so unsure means pass. The first coder's ground, that a bracketing search over p could need fewer runs than the uniform 12-point grid (p. 10 expects s to fall with p) [inferred], concerns the search strategy, which §5.3 R2 does not cover; it is kept as a note in the evidence."
+      },
+      "R4": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "partial",
+        "reason": "The returned designs come from real TO runs and the predictor is checked against actual ESM runs on 720 held-out samples (R² 0.96, RMSE 0.027, p. 7), but the crash and hood transfers are graphical only (Figs. 16, 19), and misses of the target similarity, including the non-monotonic predictions near the feature bounds (p. 10), are not counted. FE-based checks without a failure count are the §5.3 R4 partial case."
+      }
+    }
+  }
+}

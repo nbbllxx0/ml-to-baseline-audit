@@ -1,0 +1,87 @@
+{
+  "pid": "P00648",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Deep reinforcement learning for engineering design through topology optimization of elementally discretized design domains",
+    "authors": "Nathan K. Brown, Anthony P. Garland, Georges M. Fadel, Gang Li",
+    "year": 2022,
+    "venue": "Materials & Design 218 (2022) 110672 (Elsevier; issue dated June 2022; gold open access, CC BY 4.0 from 2022-04-16 per Crossref). The pool title carries typographic quotation marks from the publisher metadata",
+    "doi": "10.1016/j.matdes.2022.110672",
+    "arxiv_id": "none found",
+    "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); the journal full text was not reachable by the first coder or by the adjudicator (2026-09-24) without passing a bot check"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "rl",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (abstract only). The abstract says a deep RL agent that removes elements one at a time produced designs with similar or better compliance than traditional gradient-based TO across several load cases; no numbers and no speed claim.",
+    "location": "Abstract (pool record, from OpenAlex)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent 'Mozilla/5.0 (research-audit)'. (1) The open copy OpenAlex lists (ScienceDirect PDF, PII S0264127522002933) answered HTTP 403 with a captcha/robot page to curl; WebFetch of the article page also got HTTP 403. No bypass was attempted. (2) OSTI records 1867970 and 1872010 (listed by OpenAlex; 1872010 redirects to 1867970; SAND2022-6621J; also shown on DOE PAGES) link only to the publisher DOI; OSTI's full-text endpoint returned HTTP 404 for both. (3) The SSRN preprint (doi 10.2139/ssrn.4010395) and the Clemson dissertation whose landing-page abstract describes the same compliance-minimization study (N. Brown, 'Deep Reinforcement Learning for the Design of Structural Topologies', 2023, open.clemson.edu/all_dissertations/3485; the landing page loaded, the PDF did not) both sit behind Cloudflare challenges (HTTP 403); not bypassed. (4) CORE search: Cloudflare challenge (HTTP 403). (5) Semantic Scholar has no record for the DOI; Europe PMC has none; the arXiv API found no version (title and author queries). Free to read in a browser: very likely yes, because the version of record is gold open access under CC BY 4.0 (Crossref, OpenAlex) [inferred; not opened in a browser by this agent]. A human can fetch it from https://doi.org/10.1016/j.matdes.2022.110672. Readable related item, not coded: an earlier, shorter conference paper with nearly the same title (OSTI 1898470, SAND2021-14482C, 9 pp., AAAI 2022 copyright line; not in the pool). It is a different publication, so it was not used as the full text of this record. For the verifier only: in that version, a double-Q-learning agent with a convolutional value network, trained on 6x6 grids, designs 24x24 topologies by progressive refinement. Its designs are compared with those of the 99-line SIMP code (Sigmund 2001) on final strain energy and volume fraction for each test case (Appendix C, Table C1), and no classical run time is reported; training took about 1.5 h for 5000 episodes on an Intel i7-10510U laptop CPU. The journal abstract likewise claims only similar or better compliance than gradient-based TO, so stratum Q is the likely full-text outcome unless the journal version adds timing. Duplicate check: no prefill matches the title or the authors; P01166 (same four authors, EAAI 2023, RL for metamaterials) is a different study [inferred from its title]. No author named Jun Wang. Screening code was I-QUALITY. Adjudicator check (2026-09-24; generic browser User-Agent, no personal data, no key, no login): the ScienceDirect article page and its /pdf link both returned HTTP 403 with a robot/captcha page, which was not bypassed. The OSTI record 1867970 and its DOE PAGES record list only the publisher DOI as full text; OpenAlex lists no repository copy with full text (any_repository_has_fulltext false). The Elsevier article API, called once without a key, returned metadata only (open access, CC BY 4.0) and no text. The SSRN preprint page returned a Cloudflare challenge (HTTP 403), not bypassed; Semantic Scholar returned 404 and Europe PMC 0 hits. The second coder's source, OSTI 1898470, was fetched: it is a 9-page conference paper proposed for presentation at AAAI 2022 (OSTI metadata; AAAI copyright line on p. 1), and its abstract differs from the Materials & Design abstract in the pool, so it is a different publication and cannot stand in for this record's full text. The record therefore keeps the screening include with stratum none (PROTOCOL §11, full-text coding without full text).",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "access": {
+        "first": "not_full_text",
+        "second": "full_text",
+        "decision": "abstract_only",
+        "reason": "The second coder read OSTI 1898470, a 9-page AAAI 2022 conference paper (SAND2021-14482C) whose abstract (p. 1) differs from this article's pool abstract, so it is a different publication, not this record's full text. The Materials & Design version (CC BY) is served only by ScienceDirect, whose article page and PDF gave the adjudicator a bot check (HTTP 403), not bypassed; OSTI, DOE PAGES, the Elsevier API without a key, SSRN, Europe PMC and Semantic Scholar gave no legal copy."
+      },
+      "stratum": {
+        "first": null,
+        "second": "quality",
+        "decision": "none",
+        "reason": "No legal full text of this article was read (see access), so the record keeps its screening include with stratum none (PROTOCOL §11, full-text coding without full text; adjudication_instructions.md, rule 'No full text, no full-text exclusion'). The conference paper's Table C1 comparison with the 99-line code cannot stand in for the journal article."
+      },
+      "R1": {
+        "first": null,
+        "second": "partial",
+        "decision": "na",
+        "reason": "No legal full text of this article was read (see access), so all rule verdicts are na (adjudication_instructions.md, procedure step 2); the second coder's partial rests on the conference paper (OSTI 1898470, Table C1)."
+      },
+      "R2": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "No legal full text of this article was read (see access), so all rule verdicts are na (adjudication_instructions.md, procedure step 2)."
+      },
+      "R3": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "No legal full text of this article was read (see access), so all rule verdicts are na (adjudication_instructions.md, procedure step 2)."
+      },
+      "R4": {
+        "first": null,
+        "second": "partial",
+        "decision": "na",
+        "reason": "No legal full text of this article was read (see access), so all rule verdicts are na (adjudication_instructions.md, procedure step 2); the second coder's partial rests on the conference paper (OSTI 1898470, Table C1)."
+      }
+    }
+  }
+}

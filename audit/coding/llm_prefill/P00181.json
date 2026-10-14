@@ -1,0 +1,88 @@
+{
+  "pid": "P00181",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "3D Topology Optimization using Convolutional Neural Networks",
+    "authors": "Saurabh Banga, Harsh Gehani, Sanket Bhilare, Sagar Jitendra Patel, Levent Burak Kara",
+    "year": 2018,
+    "venue": "arXiv preprint (arXiv comment: under review for a Computer-Aided Design special issue on generative design; no journal reference on the abs page)",
+    "doi": "10.48550/arXiv.1808.07440",
+    "arxiv_id": "1808.07440",
+    "version_coded": "arXiv v1 (22 Aug 2018; the only version on the abs page), PDF (21 pp.) read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Stopping 3D SIMP (TopOpt) at iteration 20 and letting a 3D CNN predict the final design cut computation time by about 40% versus solving to convergence, with 96.2% binary and 79.7% RMS voxel accuracy on 1,000 test problems.",
+    "key_phrase": "about 40% reduction in overall computation time",
+    "location": "Abstract (quantitative comparison with the conventional solver alone); restated in Sec. 5.4 (p. 13, 40-45%) and the Conclusion (pp. 13-14, 40%)",
+    "quantitative": true,
+    "claimed_speedup": 1.67,
+    "claimed_speedup_basis": "Derived from the stated 40% time reduction (abstract; conclusion): 1 ÷ (1 − 0.40) = 1.67; Sec. 5.4 states 40-45%, i.e. 1.67-1.82 [derived]. No absolute times are printed anywhere, so the ratio cannot be checked. Stopping at iteration 20 of the 70-100 iterations each run needs (Sec. 4.1) would suggest 71-80% fewer solver iterations [derived]; the article does not say how the time reduction was measured.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.1, Fig. 8 (p. 11): binary accuracy 93.4-96.2% and RMS accuracy 77.8-79.7% for networks trained on four iteration-sampling strategies (ML-only comparison). (2) Tables 5-6 (p. 13): accuracy vs input iteration, e.g. 97.2% binary at iteration 35; no times. (3) Sec. 4.4.1, Fig. 6: the SIMP iterates themselves exceed 90% binary accuracy within the first fifth of the iterations; no number is given for iteration 20, so the CNN's gain over simply stopping SIMP early is not quantified."
+  },
+  "baseline": {
+    "classical_method": "3D SIMP compliance minimization with a density filter, run to convergence with the open-source PETSc code 'TopOpt' of Aage et al. (ref. [31]); four MBB-type support cases, 1-10 sampled loads, volume fraction sampled around 0.28 (Sec. 3-4.1)",
+    "implementation": "TopOpt, the parallel PETSc framework of Aage, Andreassen and Lazarov 2014 (ref. [31]) (Sec. 4, 4.1)",
+    "solver": "not stated in the article; the public TopOpt_in_PETSc code defaults to FGMRES with a geometric multigrid preconditioner (4 levels) [observed in the repository's LinearElasticity.cc, 2026-09-24; the article's own settings are not stated]",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "24 × 12 × 12 = 3,456 elements on a 2 m × 1 m × 1 m beam (Sec. 4.1, p. 5) [derived: about 1.3×10⁴ DOFs]",
+    "classical_iterations": "Run to convergence; each sample needed about 70-100 iterations (Sec. 4.1, p. 6); the stopping rule is not stated. In the ML pipeline SIMP is stopped at iteration 20 (gradient input from iteration 15), matching a spatial-gradient cut-off of 0.05 (Sec. 4.4.2, 5.1)",
+    "classical_time": "not stated",
+    "ml_time": "not stated (only the relative reduction of about 40%, or 40-45%, is given)",
+    "training_time": "not stated; 30 epochs of SGD with momentum on 4,500 samples (App. A)",
+    "data_generation_cost": "not stated; 6,000 TopOpt runs of about 70-100 iterations each (Sec. 4.1) [inferred: about 6,000 full solves]",
+    "quality_metric": "Binary accuracy (voxel agreement after thresholding at 0.5) and RMS accuracy of densities against the TopOpt final design (Sec. 5, pp. 10-11); no compliance or volume of the predicted designs",
+    "quality_gap": "Best network on 1,000 test samples: binary accuracy 96.2%, RMS accuracy 79.7% (Fig. 8; Table 4, row 4). No objective-level gap is reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Abstract, Sec. 5, Conclusion: the roughly 40% time saving is measured against running TopOpt to convergence, while the CNN outputs are compared with the converged designs only by voxel accuracy (96.2% binary, 79.7% RMS). No compliance or volume of any predicted design is computed, and SIMP is not stopped at matched accuracy; per Fig. 6, raw SIMP iterates already exceed 90% binary accuracy early, so the CNN's gain over early stopping is untested. A stricter reading (speed claim with no design-quality comparison) gives fail."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 4-4.1: the baseline is the public PETSc TopOpt code (ref. [31]), run to convergence (70-100 iterations); its default solver is multigrid-preconditioned FGMRES, the protocol's efficient class [observed in the public code; settings used here not stated]. Hardware is not stated. The problem has about 1.3×10⁴ DOFs [derived], so (c) does not apply; (b) not observed (the abstract and results use the same comparator); (d) not established (convergence-based stopping); (e) not derivable (no times). Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Sec. 1 notes qualitatively that the approach trades a large offline data corpus for run-time speed, but neither the cost of the 6,000 TopOpt runs (Sec. 4.1) nor the training time (App. A: 30 epochs) is reported, and no break-even is given. For C3: with about 6,000 full solves of data and a saving of about 40% of one solve per use, break-even is about 15,000 uses before training [derived: 6,000 ÷ 0.4]."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Sec. 5 and Tables 3-7: quality rests only on voxel binary and RMS accuracy against the solver output. No FE analysis of any predicted design, no volume check and no count of disconnected designs are reported; the conclusion lists avoiding islands and controlling volume fraction as future work (Sec. 6). Table 7 and App. C show selected examples."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1,000 test samples (Sec. 4.3, p. 7); Table 7 shows 2 examples and App. C shows 15",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; confirmed. This is one of the §2 forward-citation anchor articles (Banga et al. 2018). Primary outcome: the abstract's 40% time reduction with about 96% accuracy; the claimed speed-up is derived (1.67) because no times are printed. Sec. 5 announces a comparison of average convergence time with standard solvers, but no timing table, hardware or protocol appears; runtimes_all_cases = no because only an average percentage is given. Inconsistencies: the time reduction is 40% in the abstract and conclusion but 40-45% in Sec. 5.4; stopping at iteration 20 of 70-100 iterations implies a larger iteration saving (71-80% [derived]) than the stated time saving, and the article does not explain the gap (e.g. CNN inference or I/O overhead). Test samples come from the same sampling distribution as training, so ood_test = no. Version: arXiv v1 is the only version; no version of record was found in the pool. No code or data statement. retest_candidate false: no public code. No author named Jun Wang."
+}

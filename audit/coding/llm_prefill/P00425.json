@@ -1,0 +1,88 @@
+{
+  "pid": "P00425",
+  "citation": {
+    "title": "Speeding up Computational Morphogenesis with Online Neural Synthetic Gradients",
+    "authors": "Yuyu Zhang; Heng Chi; Binghong Chen; Tsz Ling Elaine Tang; Lucia Mirabella; Le Song; Glaucio H. Paulino",
+    "year": 2021,
+    "venue": "2021 International Joint Conference on Neural Networks (IJCNN), pp. 1-8, per Crossref record of the DOI",
+    "doi": "10.1109/IJCNN52387.2021.9533789",
+    "arxiv_id": "2104.12282",
+    "version_coded": "arXiv v2 (27 Apr 2021; the arXiv comment field notes acceptance at IJCNN 2021), full HTML text read. The IEEE version of record was not accessible (paywalled; the author-hosted PDF returned 404)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "ONSG replaces most exact adjoint gradients with gradients from a network trained online. It runs up to 7.5x faster than the standard OC optimizer on a 3D MBB problem with about 1.4 million design variables, at comparable final compliance.",
+    "key_phrase": "our method achieves up to 7.5x speedup while producing optimized designs with comparable objectives",
+    "location": "Abstract (last sentence); supported in Sec. IV-D and Fig. 6(b) (MBB Mesh 4, block size N_B = 4)",
+    "quantitative": true,
+    "claimed_speedup": 7.5,
+    "claimed_speedup_basis": "Stated in the abstract and in Sec. IV-D: wall-clock ratio of the standard optimizer to ONSG on MBB Mesh 4 (1.4M design variables) with N_B = 4. The bar-chart wall-clock times appear only in Fig. 6; the text gives the ratio labels only.",
+    "direction": "outperform",
+    "alternatives": "Cantilever speed-ups of 1.5x, 2.4x and 4.2x on Mesh 1-3 (Sec. IV-C, Fig. 6(a)); MBB speed-ups with N_B = 2 and 8 are about half the 7.5x value (Sec. IV-D); final-objective differences of -0.46% to +0.06% versus the standard optimizer (Table II, quality); the Introduction repeats the 7.5x figure."
+  },
+  "baseline": {
+    "classical_method": "Standard density-based compliance minimization with a density filter and optimality-criteria (OC) update, using exact adjoint gradients at every iteration (Sec. III-D; Sec. IV, Competitor method)",
+    "implementation": "MATLAB, using MATLAB's built-in GPU implementation of PCG (Sec. IV, Competitor method)",
+    "solver": "Iterative: PCG with a Jacobi preconditioner on the GPU (Sec. IV, Competitor method). It is not multigrid-preconditioned. The article describes this choice as the most efficient available, citing [44].",
+    "hardware_classical": "Same machine and same resources as ONSG: Nvidia Titan Xp (12GB), Intel Xeon Silver 4116 at 2.10GHz, 256GB RAM (Sec. IV, Experimental settings)",
+    "hardware_ml": "Nvidia Titan Xp (12GB), Intel Xeon Silver 4116 at 2.10GHz, 256GB RAM (Sec. IV, Experimental settings)",
+    "problem_size": "3D. Cantilever Mesh 1, 2, 3: 86K, 250K, 1.5M design variables (K dimension 276K, 788K, 4.5M). MBB Mesh 4: 1.4M design variables (K dimension 4.1M). Volume fraction 12%, filter radius 0.08 (Table I; Sec. IV, Benchmark problems).",
+    "classical_iterations": "Fixed count: K = 200 total iterations for all experiments (Sec. IV, Experimental settings) [inferred to include the standard-optimizer runs]. No convergence criterion is stated.",
+    "classical_time": "Not stated in the text. Wall-clock bars appear only in Fig. 6.",
+    "ml_time": "Not stated in the text. Wall-clock bars appear only in Fig. 6. Speed-up labels: 1.5x, 2.4x, 4.2x (cantilever Mesh 1-3) and 7.5x (MBB, N_B = 4) (Sec. IV-C, IV-D).",
+    "training_time": "Not reported separately. Training is online and inside ONSG's wall-clock time [inferred from Algorithm 1 and Sec. IV-C]. The network is trained for 2000 iterations (cantilever) or 3000 iterations (MBB) (Sec. IV, Experimental settings).",
+    "data_generation_cost": "No offline data. Training samples are the run's own exact-gradient iterations: the first N_I = 10, then every N_F iterations (N_F = 10 for the cantilever; 50, 45 and 10 for MBB with N_B = 2, 4, 8) (Sec. III-B; Sec. IV, Experimental settings).",
+    "quality_metric": "Final compliance objective (Table II)",
+    "quality_gap": "ONSG minus standard, final objective: -0.40%, -0.05%, +0.06% (cantilever Mesh 1-3); -0.46%, -0.35%, -0.17% (MBB, N_B = 2, 4, 8) (Table II)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. IV, Table II and Fig. 6: each speed-up is a wall-clock ratio for runs with the same total iteration count (K = 200 for all experiments [inferred to include the standard optimizer]) on identical resources. Final compliance is within -0.46% to +0.06% of the standard result. Both methods use the same volume fraction (12%) and filter radius. Final volumes are not reported; OC enforces the volume constraint [inferred]."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-partial-inefficient-solver (Jacobi-PCG)",
+      "evidence": "Sec. IV, Competitor method: the baseline solves with Jacobi-preconditioned CG in MATLAB on the GPU. That solver is neither sparse direct nor multigrid-preconditioned, so it is outside the protocol's efficient class. Marker (c) does not apply, because both methods run on the same GPU machine. Marker (b) is not observed. Marker (d) cannot be judged: both methods run a fixed K = 200, and the convergence curves exist only as plots (Fig. 5). Markers (a) and (e) need the re-test, and per-iteration times are not printed."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-online-per-problem",
+      "evidence": "Sec. III-B and Algorithm 1: the network is trained online from the run's own exact-gradient iterations. There is no pre-collected data and no offline training. The training time sits inside ONSG's reported wall-clock time [inferred from Algorithm 1 and Sec. IV-C]."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Table II reports final compliance objectives for all 6 runs [inferred to be FE-computed, since the objective needs the state solve]. Designs are shown in Figs. 3-4. Final volume fractions and any failed runs are not reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "6 runs: cantilever Mesh 1-3 with N_B = 5, and MBB Mesh 4 with N_B = 2, 4 and 8 (Tables I-II)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Reporting locators: hardware and the equal-resources statement in Sec. IV (Experimental settings; opening paragraph); the iteration count K = 200 in Sec. IV; no warm-up or repeat protocol stated; Fig. 6 gives wall-clock bars for all 6 runs; no code, data or seed statements in the text. OOD is not applicable to per-problem online optimization. Other observations: (1) With N_B = 4 and N_F = 45, ONSG computes about 14 exact solves in 200 iterations [inferred: 10 initial solves plus 190/45]. A fixed K = 200 therefore favours ONSG if the standard optimizer converges much earlier; Fig. 5 should be checked for R2(d). (2) The related-work section cites multigrid-CG (Amir et al. 2014) as an advanced solver, but the baseline does not use it. (3) retest_candidate is false because no public code is stated."
+}

@@ -1,0 +1,53 @@
+{
+  "pid": "P00165",
+  "citation": {
+    "title": "Topology optimization of 2D structures with nonlinearities using deep learning",
+    "authors": "Diab W. Abueidda, Seid Koric, Nahil A. Sobh",
+    "year": 2020,
+    "venue": "Computers & Structures",
+    "doi": "10.1016/j.compstruc.2020.106283",
+    "arxiv_id": "2002.01896",
+    "version_coded": "arXiv full text"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "cnn", "physics": "compliance and stress", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The CNN predicts topology optimization designs without iterative optimization and with negligible inference time compared with the optimization framework used for its training designs.",
+    "key_phrase": "negligible inference computational time",
+    "location": "abstract",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No numeric inference time or matched speed-up is reported; Section 3.1 gives classical run times only.",
+    "direction": "outperform",
+    "alternatives": "Conclusion says laptop inference is effectively immediate versus expensive nonlinear optimization; Section 3.1 gives 25 and 90 minute classical laptop times."
+  },
+  "baseline": {
+    "classical_method": "SIMP topology optimization using sensitivity-based MMA (Section 2.1)",
+    "implementation": "ABAQUS/TOSCA for elasticity and hyperelasticity; in-house MATLAB for stress constraint (Sections 2.1, 3.2)",
+    "solver": "not stated",
+    "hardware_classical": "iForge Intel/Skylake 40-core nodes with 192 GB RAM, up to ten jobs concurrently; laptop CORE i5 vPro for single-job comparison (Section 3.1)",
+    "hardware_ml": "iForge NVIDIA v100 32 GB GPU for training; laptop for inference, specification not stated (Sections 5, 6)",
+    "problem_size": "32 x 32 elements, linear; 50 x 50 elements, hyperelastic and stress-constrained (Sections 3.1-3.2)",
+    "classical_iterations": "not stated",
+    "classical_time": "roughly 25 minutes per linear task and around 90 minutes per nonlinear task on CORE i5 vPro laptop (Section 3.1)",
+    "ml_time": "not stated numerically; described as negligible or instantaneous (abstract; Section 6)",
+    "training_time": "1.25 hrs linear and 1.5 hrs nonlinear on single v100; 12.5 hrs linear on CPU-only Skylake node (Section 5, Figure 7)",
+    "data_generation_cost": "15,000 linear pairs at 0.31 minutes/data point; 18,000 nonlinear pairs at 3.2 minutes/data point with ten concurrent optimizations; 20,000 stress pairs, time not stated (Sections 3.1-3.2)",
+    "quality_metric": "Dice similarity coefficient and mean squared error of density images (Sections 4.2, 5)",
+    "quality_gap": "test mean DSC 0.958 linear, 0.964 hyperelastic, 0.984 stress constrained versus classical designs (Section 5, Figures 10-13)"
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-no-quality-match", "evidence": "Abstract and Section 5: inference speed is claimed, while comparison to optimizer outputs uses image similarity; no matched FE objective or wall-clock budget is shown."},
+    "R2": {"verdict": "partial", "marker": "R2-commercial-implementation", "evidence": "Sections 2.1 and 3.1: baseline uses ABAQUS/TOSCA commercial optimization; solver efficiency is not characterized and no direct strong-baseline comparison is given."},
+    "R3": {"verdict": "partial", "marker": "R3-no-amortization", "evidence": "Sections 3.1 and 5: data-generation rates and GPU training hours are stated, but no break-even uses or total cost accounting is given."},
+    "R4": {"verdict": "fail", "marker": "R4-image-metric", "evidence": "Section 5, Figures 10-13: test quality is assessed by density-image DSC and selected visual examples, without FE evaluation of returned designs or failure-rate accounting."}
+  },
+  "reporting": {
+    "n_test_cases": "1,500 linear, 1,800 nonlinear, 2,000 stress-constrained [inferred from 10% test split and dataset sizes, Sections 3.1-3.2 and 5]",
+    "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no", "timing_protocol_stated": "partial", "runtimes_all_cases": "no", "code_available": "no", "data_available": "on_request", "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "The supplied full text does not give a numeric inference timing; the reported GPU-versus-CPU training comparison is not the primary classical TO comparison."
+}

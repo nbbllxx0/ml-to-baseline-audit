@@ -1,0 +1,42 @@
+{
+  "pid": "P00136",
+  "citation": {"title": "Robust Topology Optimization Using Multi-Fidelity Variational Autoencoders", "authors": "Rini Jasmine Gladstone, Mohammad Amin Nabian, Vahid Keshavarzzadeh, Hadi Meidani", "year": 2024, "venue": "arXiv preprint", "doi": "10.48550/arXiv.2107.10661", "arxiv_id": "2107.10661", "version_coded": "arXiv v2, 20 August 2024"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "vae; surrogate_mlp_gp", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "For the single-load case, the VAE-guided search yields robust compliance 69.84, below the best of 1,000 deterministic SIMP designs at 71.59, although the authors say a separate robust SIMP optimum remains better.",
+    "key_phrase": "",
+    "location": "Section 4.1.3 and Figure 11",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No numerical runtime comparison against classical robust TO is given. Section 4.1.4 compares data-generation and training costs between two ML approaches.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Conclusion says the learned approach cannot be shown better than the FE robust optimum. Section 4.1.4 reports 69.09 for multi-fidelity design and 3.55 h versus 34 min data generation for single- versus multi-fidelity ML; Section 4.2 gives 12.75 h versus 1.9 h for corresponding ML data generation."
+  },
+  "baseline": {
+    "classical_method": "Deterministic SIMP designs and a robust SIMP optimum (Sections 4.1.1, 4.1.3)",
+    "implementation": "MATLAB 88-line TO code for deterministic sample generation (Section 4.1.1); robust SIMP implementation not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "NVIDIA GeForce RTX 3080 for model training (Sections 4.1.4, 4.2); inference hardware not stated",
+    "problem_size": "100 × 100 pixels/elements single-load example; 128 × 128 multi-load example (Sections 4.1.1, 4.2)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated for design search",
+    "training_time": "Single-load example: 0.17 and 0.09 s/iteration for single-fidelity VAE and compliance NN; multi-fidelity low/high network rates in Section 4.1.4. Multi-load: 1.2 versus 0.18 s/iteration for single-/multi-fidelity training (Section 4.2).",
+    "data_generation_cost": "Single load: 3.55 h for 600 high-resolution designs versus 34 min for 700 low- plus 20 high-resolution designs (Section 4.1.4). Multi-load: 12.75 h for 600 high-resolution versus 1.9 h for 90 high-resolution designs (Section 4.2).",
+    "quality_metric": "Robust compliance from seven-point quadrature of FE compliance under uncertain loading (Sections 4.1.2–4.1.3); surrogate prediction error (Figure 13)",
+    "quality_gap": "Single-load learned optimum 69.84 versus best deterministic SIMP sample 71.59; multi-fidelity learned optimum 69.09; separate robust SIMP optimum described as better without a printed value (Section 4.1.3, Figure 11)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-no-classical-speed-comparison", "evidence": "Sections 4.1–4.2 quantify quality against SIMP; cost figures compare single- and multi-fidelity learned workflows."},
+    "R2": {"verdict": "na", "marker": "R2-no-classical-speed-comparison", "evidence": "The primary outcome in Section 4.1.3 is robust compliance, not elapsed time or FE count against SIMP."},
+    "R3": {"verdict": "na", "marker": "R3-no-classical-speed-comparison", "evidence": "Sections 4.1.4 and 4.2 report some learning costs but do not claim a measured speedup over classical robust TO."},
+    "R4": {"verdict": "partial", "marker": "R4-FE-no-final-constraint-audit", "evidence": "Section 4.1.2 defines direct quadrature-based robust compliance; Sections 4.1.3–4.1.4 report it for returned designs. Section 4.1.1 assesses volume on random VAE samples, but final optimized-design constraint and failure rates are not reported; conclusion names structural integrity as future work."}
+  },
+  "reporting": {"n_test_cases": "90 held-out topology images for single-fidelity reconstruction (Section 4.1.1); 80 test images for multi-fidelity comparison (Figure 14); two optimization examples (Section 4)", "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no", "timing_protocol_stated": "partial", "runtimes_all_cases": "no", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "Abstract claims computational efficiency without numeric classical timing. Section 4.1.3 compares to deterministic SIMP samples but states that a robust SIMP result is still better; quality direction is mixed. Reported training and data timings contrast single- and multi-fidelity learned systems rather than a classical robust TO run."
+}

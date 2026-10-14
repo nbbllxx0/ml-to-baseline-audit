@@ -1,0 +1,101 @@
+{
+  "pid": "P02042",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "DQN-Based Pre-Optimization for Dual-Scale Collaborative Topology Optimization of Anisotropic Materials",
+    "authors": "Shuo Feng, Yuhao Yang, Ke Li, Qidong Han, Jinchen Cao, Junyi Du",
+    "year": 2026,
+    "venue": "Applied Sciences 16(9), 4080 (MDPI; published 22 April 2026; open access, CC BY)",
+    "doi": "10.3390/app16094080",
+    "arxiv_id": "",
+    "version_coded": "Version of record, publisher PDF (26 pp.) from MDPI's file server (mdpi-res.com, the target of the article's PDF link), read in full as text; the www.mdpi.com pages returned HTTP 403 to the generic User-Agent. The adjudicator re-read the same mdpi-res.com PDF (26 pp.) on 2026-09-24."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; the abstract's only quantitative classical comparison is compliance)",
+    "stratum": "quality",
+    "method_family": "rl",
+    "physics": "multiphysics",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On the MBB beam, running the dual-scale thermo-mechanical optimization from a DQN pre-optimized start gave final compliance 0.5754 versus 0.7421 for the same framework without DQN pre-optimization, 22.463% lower.",
+    "key_phrase": "achieves a 22.463% reduction in structural compliance",
+    "location": "Abstract (quantitative comparison with the traditional method); values in Sec. 5.1 (p. 17) and the Introduction (p. 2)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime is reported for any method, and the baseline's iteration count is not stated. The abstract's faster-convergence claim is qualitative; Table 3 (p. 12) lists 60-180 iterations for the eight DQN runs only. Not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract and Sec. 3.3, qualitative: dynamic penalty tuning accelerates convergence and cuts BESO iterations; no times or baseline iteration counts anywhere (speed stratum if chosen, with R1 fail for lack of any number). (2) Abstract: better thermal management than traditional methods, not quantified against a classical run. (3) Sec. 5.2 (pp. 17-18): anisotropic vs isotropic microstructures within the proposed framework, 0.3272 vs 0.5754 (43.14% lower); not a classical comparison. (4) Table 3: eight DQN seeds on the MBB beam, normalized final compliance 105.51-109.14 (mean 108.23, SD 1.14); no baseline in the table."
+  },
+  "baseline": {
+    "classical_method": "The same dual-scale thermo-mechanical optimization without DQN pre-optimization: SIMP-type interpolation of modulus, conductivity and thermal-stress coefficient with a fixed empirical penalty factor (value not stated), OC update with move limit, uniform initial density 0.5 (Sec. 2.4, 4, 5.1, pp. 5-17). The article calls the optimizer BESO, but the stated update is the OC rule (Eq. 23)",
+    "implementation": "not stated; the TO runs in a numerical-analysis environment and the DQN in PyTorch 2.6.0, CPU version (Sec. 3.3-3.4, pp. 7-8)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "CPU (PyTorch 2.6.0 CPU version, Sec. 3.4, p. 8); processor not stated",
+    "problem_size": "Macro 150 × 80 elements, volume fraction 0.4; micro unit cell 50 × 50 elements, volume fraction 0.5 (Table 4, p. 16). Sec. 5.4 also uses 300 × 100 (MBB) and 150 × 100 (cantilever) without a baseline",
+    "classical_iterations": "not stated for the baseline; convergence tolerance 0.01 on the design change (Table 4, p. 16); the DQN runs needed 60-180 iterations (Table 3, p. 12)",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; the DQN is trained online during the optimization and updated after each iteration (Sec. 3.4, p. 8)",
+    "data_generation_cost": "none; no offline dataset (online per-problem training, Sec. 3.4)",
+    "quality_metric": "Final mechanical compliance (c value) of the optimized design from the optimizer's FE analysis [inferred]; normalized compliance histories (Fig. 8); thermal compliance and average temperature in the weighting study (Sec. 5.3, Table 5)",
+    "quality_gap": "MBB: 0.5754 with DQN pre-optimization vs 0.7421 without, 22.463% lower (Sec. 5.1, p. 17). The baseline design keeps many intermediate densities, grey values 0.2-0.8 (Fig. 7a, p. 16). Achieved volume fractions are not reported for either design"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 5.1 (pp. 16-17), Table 4, Figs. 7-8: both designs share the mesh, loads and nominal volume fraction 0.4. Matching is loose: the baseline's penalty value, filter, iteration count and stopping rule are not stated; it ends with many intermediate densities (Fig. 7a), so a penalized grey field is compared with a near-binary design [inferred]; achieved volumes are not reported; which of the eight DQN runs (Table 3) gives 0.5754 is not stated; no compute budget is compared."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) reports the 22.463% compliance reduction against 'traditional methods', which is the same without-DQN run that Sec. 5.1 (pp. 16-17) and Fig. 8 report; the article has no appendix and no other classical baseline, so (b) is not observed. No time, solver or hardware is reported for the baseline. The baseline's unstated penalty value and grey final layout (Fig. 7a, p. 17) bear on R1, not on R2 in stratum Q."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Quality stratum with per-problem online DQN training and no offline dataset (Sec. 3.4); no speed claim is quantified. For C3: no DQN training time, pre-optimization time or TO time is reported."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Sec. 5.1-5.5: the compliance values are the optimizer's FE results for the returned designs [inferred]. Achieved volume fractions are not reported for any design, and failed or non-converged runs are not counted. Eight seeds are reported for the DQN method (Table 3), while the baseline is a single run. The 3D extrusions (Fig. 12) are not analysed (Sec. 5.6)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Classical comparison: 1 case (MBB beam, 150 × 80 macro mesh, Sec. 5.1). Other studies without a baseline: 3 microstructure groups (Sec. 5.2), 4 MBB and 3 cantilever weightings (Sec. 5.3, 5.5), MBB 300 × 100 and cantilever 150 × 100 (Sec. 5.4), 8 DQN seeds (Table 3)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; full text gives stratum Q because the abstract's only quantitative comparison with the traditional method is the 22.463% compliance reduction, and no runtime or baseline iteration count appears anywhere. The comparator is a classical (non-learned) run of the same optimization, so this is not FT-NOBASELINE. The DQN is trained online inside each optimization (Sec. 3.4), so R3 is n/a. dim coded 2d: all optimization is 2D; the 3D result is a linear extrusion with no analysis (Sec. 5.6). seeds_or_variance = yes for the DQN method only (8 seeds, mean 108.23, SD 1.14; Table 3). Internal inconsistencies: the title and abstract name BESO, but the method sections describe SIMP interpolation with an OC update (Eqs. 8-10, 23); Table 3 gives normalized final compliances of about 105-109, while Sec. 5.1 gives 0.5754 for the pre-optimized MBB design, with no explanation of the two normalizations; in Table 5 (rendered page 21) the 0.8-weight row repeats the thermal compliance (4.1504) and average temperature (677.96) of the 0.6-weight row, while the Sec. 5.3 text gives 4.1874 for that weight. Table 3 (rendered page 12) lists 60-180 iterations per DQN run; four of the eight runs stop at 180. Data availability: contributions are included in the article, further inquiries to the corresponding author; no code statement. Hardware: only the DQN device class (CPU) is stated. retest_candidate false: no code and no speed claim. No author named Jun Wang. Comparator-strength concern (first pass): the baseline runs with an unstated fixed ('empirical') penalty from a uniform 0.5 start and ends grey (Fig. 7a), while the DQN runs end with penalties 2.4-5.0 (Table 3), so part of the 22.463% gain may reflect the penalty choice [judgment]; under the stratum-Q rule this is recorded under R1, not R2. Decision-order position 31 (audit/screening/pilot_final_order.csv).",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R2": {
+        "first": "partial",
+        "second": "na",
+        "decision": "na",
+        "reason": "Both coders code stratum Q, which the text supports (no time anywhere; abstract p. 1 and Sec. 5.1 pp. 16-17 compare compliance only). Under the §11 stratum-Q rule R2 applies only through (b), and the abstract's 'traditional methods' baseline is the same without-DQN run reported in Sec. 5.1 and Fig. 8, with no other classical baseline or appendix, so (b) does not apply; the first pass's weak-comparator judgment is not an R2 criterion in stratum Q."
+      }
+    }
+  }
+}

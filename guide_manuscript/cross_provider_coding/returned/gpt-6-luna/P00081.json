@@ -1,0 +1,20 @@
+﻿{
+  "pid": "P00081",
+  "citation": {"title": "PyTOaCNN: Topology optimization using an adaptive convolutional neural network in Python", "authors": "Khaish Singh Chadha; Prabhat Kumar", "year": 2024, "venue": "arXiv preprint", "doi": "10.1007/s00500-025-10919-y", "arxiv_id": "2404.12244", "version_coded": "arXiv v1 (18 Apr 2024); full text used because version of record was not accessed"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "cnn", "physics": "multiphysics", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "The adaptive CNN generates designs resembling MATLAB topology-optimization outputs with small reported volume and objective errors.", "key_phrase": "negligible performance and volume fraction errors", "location": "abstract", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "No classical-to-ML speed-up factor is reported or derivable.", "direction": "outperform", "alternatives": "The abstract also says the trained model produces a design instantly; conclusion calls the approach expediting, without a timed classical comparison."},
+  "baseline": {"classical_method": "Open-source MATLAB topology optimization codes (SIMP-based compliance problems; TOPress; TopX for bulk modulus)", "implementation": "MATLAB codes; author code appendix for CNN", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "100x100 design domain", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "fraction of a second per design (Sec. 7.1.3); exact value not stated", "training_time": "not stated; 2000 epochs reported for several models (Sec. 7)", "data_generation_cost": "not stated; training sets of 95, 68, or 32 examples reported (Secs. 7.1.3-7.2)", "quality_metric": "volume fraction error and objective function error, plus visual topology comparison (Tables 1-7)", "quality_gap": "Table 7 shows volume/objective errors across tested volume fractions; e.g. varying errors by adaptive-layer size; no single overall gap."},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-no-speed-comparison", "evidence": "Abstract and Sec. 7 compare output quality; no matched-time speed comparison is reported."},
+    "R2": {"verdict": "na", "marker": "R2-no-speed-comparison", "evidence": "Secs. 7-8 provide no timing comparison against a classical baseline."},
+    "R3": {"verdict": "fail", "marker": "R3-no-cost", "evidence": "Secs. 5 and 7-8 describe generated training data and instantaneous inference, but report neither data-generation cost nor elapsed training cost or break-even accounting."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sec. 7 and Tables 1-7 compare volume and objective errors with MATLAB targets, but no rate of disconnected, infeasible, or failed designs is reported."}
+  },
+  "reporting": {"n_test_cases": "Different volume fractions across 3 problem types; 6-7 values per table (Tables 1-7)", "ood_test": "yes", "seeds_or_variance": "no", "failure_rate_reported": "no", "timing_protocol_stated": "partial", "runtimes_all_cases": "no", "code_available": "yes", "data_available": "yes", "hardware_per_method_stated": "no"},
+  "stage": "cross_provider_pass",
+  "retest_candidate": false,
+  "notes": "The abstract's principal comparison is design quality, so coded in quality stratum. The manuscript supplies CNN code in Appendix A, but does not establish that the complete benchmark/data pipeline is runnable under a stated license."
+}
+

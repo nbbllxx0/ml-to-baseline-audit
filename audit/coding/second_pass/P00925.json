@@ -1,0 +1,44 @@
+{
+  "pid": "P00925",
+  "citation": {
+    "title": "Generative Design by Reinforcement Learning: Maximizing Diversity of Topology Optimized Designs",
+    "authors": "Seowoo Jang; Namwoo Kang",
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "doi": "",
+    "arxiv_id": "2008.07119v1",
+    "version_coded": "arXiv v1 (17 Aug 2020) specifically — this is the version this pool id represents (title 'Maximizing Diversity...', 2 authors). The same arXiv number's later v2 (16 Feb 2021) was retitled 'Enhancing the Diversity of Topology Optimization Designs,' added a third author (Soyoung Yoo), and was published as Computer-Aided Design 146:103225 (2022), doi 10.1016/j.cad.2022.103225 — confirmed via the arXiv abs page's version history and journal-ref. That version is pool id P00158 (per audit/pool/pool.csv title/author/arXiv-id match) and is treated as the primary, non-duplicate record."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "rl",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (duplicate). Headline, from the abstract: an RL agent (PPO) is trained to pick topology-optimization design parameters directly, approximating the TO process with a neural network so that many diverse optimized designs can be generated in a short GPU inference time, demonstrated on an automotive wheel design case study, with the text claiming improvement over traditional CPU-based methods requiring human involvement.",
+    "location": "not coded (duplicate; see notes)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate); a speed/diversity claim exists in the abstract ('short inference time by exploiting GPU', 'improvements over traditional CPU-based methods') but no number is given there and full-text extraction was not performed for this non-primary version."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded as FT-DUPLICATE (closed-list order 1, applied before any other check). Identification: audit/pool/pool.csv lists P00925 with this exact title ('...Maximizing Diversity...'), date 2020-08-17, authors 'Seowoo Jang; Namwoo Kang' (2 authors), no DOI and no arXiv id captured. A title search found this is arXiv 2008.07119 v1 exactly (17 Aug 2020, 2 authors) per the arXiv abs page's version history. The same arXiv number's v2 (16 Feb 2021) is retitled 'Enhancing the Diversity of Topology Optimization Designs,' lists 3 authors ('Seowoo Jang, Soyoung Yoo, Namwoo Kang'), and carries journal-ref Computer-Aided Design 146:103225 (2022), doi 10.1016/j.cad.2022.103225 — this matches pool.csv's P00158 record exactly (same title, same 3 authors, same DOI, arxiv_id 2008.07119). This is therefore the same underlying article at two stages (an early single/dual-author preprint revision vs. the revised, 3-author, peer-reviewed version of record), not two independent articles. Per the protocol's primary-version rule (version of record if open access, else the latest arXiv version), P00158 is the primary version either way — it is both the version of record and corresponds to the latest arXiv revision — so P00925 (v1 specifically, superseded before the third author was added and before journal publication) is coded here as the non-primary duplicate. Because full coding belongs on the primary record (P00158, outside this queue), this record was not read further beyond the abstract and version-history metadata needed to establish the duplicate relationship; method_family, physics and dim above are carried from the abstract and general knowledge of this benchmark (RL/PPO generative design on a 2D automotive-wheel topology-optimization case study) and are marked here as inferred, not independently re-verified against the v1 full text. No author named Jun Wang in either version's author list."
+}

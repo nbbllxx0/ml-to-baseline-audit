@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use these records or code, please cite the paper."
+title: "How the Classical Baseline Shapes Machine-Learning Speed Claims in Topology Optimization: code and data"
+authors:
+  - family-names: Yang
+    given-names: Shaoliang
+    affiliation: Santa Clara University
+  - family-names: Wang
+    given-names: Jun
+    affiliation: Santa Clara University
+repository-code: "https://github.com/nbbllxx0/ml-to-baseline-audit"
+license: MIT
+preferred-citation:
+  type: article
+  title: "How the Classical Baseline Shapes Machine-Learning Speed Claims in Topology Optimization"
+  authors:
+    - family-names: Yang
+      given-names: Shaoliang
+    - family-names: Wang
+      given-names: Jun
+  year: 2026
+  journal: "arXiv preprint"
+  identifiers:
+    - type: other
+      value: "arXiv:2610.16051"
+  doi: "10.48550/arXiv.2610.16051"
+  url: "https://arxiv.org/abs/2610.16051"

@@ -1,0 +1,88 @@
+{
+  "pid": "P01320",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Topology optimization using artificial intelligence",
+    "authors": "Ahmed Ait Ouchaoui, Mohammed Nassraoui, Bouchaib Radi",
+    "year": 2024,
+    "venue": "Incertitudes et fiabilité des systèmes multiphysiques (ISTE OpenScience), vol. 8, no. 2, pp. 38-42 (per the PDF file name and page footers; diamond open access per OpenAlex)",
+    "doi": "10.21494/iste.op.2024.1231",
+    "arxiv_id": "",
+    "version_coded": "Version of record, publisher PDF (5 pages) from openscience.fr (the open copy OpenAlex lists), read in full as text; pages 40-41 (Figs. 2-3, Table 1) also checked on the rendered pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; no TopologyGAN run time is reported anywhere, and the only quantitative ML-vs-classical comparison is structural quality against SIMP, Table 1; §5.1 rule 2)",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Cantilever (120x60 elements, volume fraction 0.4): against the SIMP design, the TopologyGAN design has 2.72x the peak von Mises stress, 5.62x the peak displacement and 8.08x the deformation energy.",
+    "key_phrase": "provides considerable benefits in terms of improved design correctness and computing performance",
+    "location": "Sec. 3, Table 1 and the paragraph after Fig. 3 (p. 41): the first quantitative comparison with a classical method. The abstract and conclusion compare only qualitatively (the key phrase is from the abstract)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: SIMP took 54 s for 33 iterations on an Intel Core i7-8565U laptop with 16 GB RAM (Sec. 3, p. 41), but no TopologyGAN time, hardware or training cost is reported. The abstract and conclusion still claim better computing performance.",
+    "direction": "underperform",
+    "alternatives": "(1) Abstract, qualitative: TopologyGAN brings considerable benefits in design correctness and computing performance over SIMP; this contradicts Table 1. (2) Conclusion, qualitative: TopologyGAN promises optimal designs with better accuracy and lower computational cost. (3) Sec. 3: weight reduction vs the original solid design is 46% for TopologyGAN and 40% for SIMP."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization, volume fraction 0.4, penalization 3 (Sec. 2, Eq. 1; Sec. 3)",
+    "implementation": "not stated (the static-analysis outputs suggest a commercial FE package [inferred])",
+    "solver": "not stated",
+    "hardware_classical": "ASUS laptop, Intel Core i7-8565U CPU at 1.80 GHz, 16 GB RAM (Sec. 3, p. 41)",
+    "hardware_ml": "not stated",
+    "problem_size": "Cantilever 120 x 60 mm, 1 mm elements, 7200 elements; inclined tip load Fx = 0.5 N, Fy = 0.87 N (Sec. 2, p. 40; units checked on the rendered page) [2D inferred]",
+    "classical_iterations": "33 iterations (Sec. 3, p. 41); stopping rule not stated",
+    "classical_time": "54 s (Sec. 3, p. 41)",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated; TopologyGAN (Nie et al. 2021) is trained on SIMP ground truth per Sec. 2, but whether a published model was used or the authors retrained it is not stated",
+    "quality_metric": "Static analysis of each design: peak von Mises stress, peak displacement in Y and deformation energy (Table 1) [FE re-analysis inferred]; weight reduction relative to the solid design",
+    "quality_gap": "TopologyGAN vs SIMP: peak stress 0.809 vs 0.297 MPa (2.72x); peak displacement 51.097 vs 9.09 x1e-5 mm (5.62x); deformation energy 41.79 vs 5.17 x1e-7 mJ (8.08x) (Table 1; Sec. 3). Weight reduction 46% vs 40%, so volumes differ"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 3, Table 1: one TopologyGAN design is compared with one SIMP design, but the volumes differ (weight reduction 46% vs 40%, i.e. 54% vs 60% of the solid weight [derived]), although both nominally target volume fraction 0.4. How the TopologyGAN design was produced (pretrained or retrained model, input resolution, post-processing) is not stated, and the SIMP stopping rule is not given. Quality is reported, but matching is loose."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q: only the SIMP time (54 s) is reported; with no TopologyGAN time there is no speed comparison, so criteria (a)-(e) do not apply."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No quantified speed claim. The abstract and conclusion assert better computing performance without any time; for C3, no training or data-generation cost is mentioned."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified [inferred]",
+      "evidence": "Table 1: both returned designs are evaluated by the same static analysis (peak stress, displacement, deformation energy; FE inferred), and the weight reduction of each is reported. There is a single test case, so no failure rate applies. Fig. 3 shows both designs as smoothed solid geometries [observed on the rendered page], so post-processing was applied to both but is not described; a verifier who weighs that may choose partial."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1 (cantilever, Sec. 3)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; full text gives stratum Q because TopologyGAN is never timed. The abstract and conclusion claim that TopologyGAN beats SIMP on design correctness and computing performance, but the article's own Table 1 shows the TopologyGAN design is worse on all three metrics (2.72x stress, 5.62x displacement, 8.08x deformation energy; ratios stated in Sec. 3 and re-derived from Table 1). This claim-versus-evidence mismatch matters for C4. The article is a short comparison of an existing method (TopologyGAN, Nie et al. 2021) with SIMP on one case, not a new method; it is kept as an include because it makes an explicit ML-vs-classical claim, but a verifier could weigh FT-TYPE (benchmark-only). Internal inconsistencies: the volume fraction is 0.4 (Sec. 2), yet the weight reductions are 40% (SIMP) and 46% (TopologyGAN), which would fit a volume fraction near 0.6 or 0.54 [inferred]; two figures are numbered Figure 2; the conclusion says SIMP increases stress, displacement and energy, which is relative to the original solid design, not to TopologyGAN. Table 1 values and the load units (N) were checked on the rendered pages 40-41. TopologyGAN's training data and whether its trained weights came from Nie et al. are not stated, so ood_test = unclear. No code or data statement. retest_candidate false: no code from this article, no ML time and no speed claim to re-test. No author named Jun Wang."
+}

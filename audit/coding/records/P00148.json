@@ -1,0 +1,101 @@
+{
+  "pid": "P00148",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "A Parametric Level Set Method for Topology Optimization based on Deep Neural Network (DNN)",
+    "authors": "Hao Deng, Albert C. To",
+    "year": 2021,
+    "venue": "arXiv preprint (math.OC). Version of record: 'A Parametric Level Set Method for Topology Optimization Based on Deep Neural Network', Journal of Mechanical Design 143(9) 091702 (published online 2021-03-18), doi 10.1115/1.4050105 (pool P00544; ASME licence per Crossref, closed per OpenAlex); not accessed",
+    "doi": "10.48550/arXiv.2101.03286",
+    "arxiv_id": "2101.03286",
+    "version_coded": "arXiv v1 (9 Jan 2021; the only version; no arXiv HTML), PDF (20 pages) read in full as text; figure captions carrying compliance values read from the text layer"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the only classical comparison is compliance against a SIMP benchmark from the 88-line code; no run time of any method is reported)",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "MBB beam (200x100, volume fraction 0.4): the DNN level-set designs reach compliance 33.39 (one hidden layer) and 32.57 (two layers), versus 33.48 for the SIMP benchmark from the 88-line code; the authors call them quite close.",
+    "key_phrase": "quite close with the benchmark solution",
+    "location": "Sec. 4.1, Figs. 8 and 11 (first quantitative comparison with a classical method; the abstract, introduction and conclusion make only qualitative claims of diverse and competitive designs)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No run time is reported for the DNN level-set method or for SIMP; only iteration counts for the DNN method (about 150 for the MBB beam, 120-140 for the cantilever; Figs. 10, 17). Not derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 4.2, Figs. 15 and 18: short cantilever (100x100) compliance 181946, 176893 and 177848 (one to three layers) vs SIMP 183543; the text reports designs about 3.5% below the benchmark [-0.87%, -3.62%, -3.10%, derived]. (2) Sec. 4.2, Fig. 19: nine architectures, 174319-197768; the text says all lie within 5% of the benchmark, but 197768 (5x5) is 7.75% above it [derived]. (3) Sec. 4.1, Fig. 12: nine MBB architectures, 31.52-44.32 vs 33.48, i.e. -5.9% to +32.4% [derived]; the text calls them diverse and competitive without numbers. (4) Abstract and conclusion, qualitative: different network architectures give diverse and competitive designs."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with the 88-line MATLAB code (Andreassen et al. 2011, ref. [61]), filter radius 2, as a benchmark design for each example (Sec. 4.1, Fig. 11; Sec. 4.2, Fig. 18)",
+    "implementation": "MATLAB 88-line educational code (ref. [61]); optimizer, penalty and volume fraction of the SIMP runs not stated (the general setting in Sec. 4 is volume fraction 0.4)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "MBB beam 200x100 elements (half domain optimized with a symmetry condition); short cantilever 100x100 elements; unit grid size (Sec. 4.1-4.2). DNN design variables: 33, 105 or 177 for one to three hidden layers of 8 neurons",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated; about 150 iterations (MBB), 120 and 140 iterations (cantilever) to a stable design (Figs. 10, 17)",
+    "training_time": "not applicable: per-problem neural reparameterization; the only fitting is a backpropagation initialization of the network to an initial level-set shape (Sec. 2, Eq. 3)",
+    "data_generation_cost": "not applicable (no training dataset)",
+    "quality_metric": "Compliance of the final design from the ersatz-material FE analysis [inferred], compared with the SIMP benchmark compliance (figure captions); achieved volume fractions not reported",
+    "quality_gap": "MBB: 33.39 / 32.57 / 36.02 (one to three layers, Fig. 8 captions) vs SIMP 33.48 [-0.27%, -2.72%, +7.59%, derived]; the text gives 39.42 for the three-layer design [+17.74%, derived]. Cantilever: 181946 / 176893 / 177848 vs 183543 [-0.87%, -3.62%, -3.10%, derived]. Diversity sets: MBB -5.9% to +32.4%; cantilever -5.03% to +7.75% [derived]"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.1-4.2 (pp. 8-15), Figs. 8, 11, 15, 18: compliance of the DNN level-set designs is set against one SIMP (88-line code, filter radius 2) design per problem. Matching is loose: the DNN runs use a fixed Lagrange multiplier (5 for the MBB beam, p. 8; 3 for the cantilever, p. 12) rather than an enforced constraint, and no achieved volume fraction is reported for either method; the SIMP penalty, optimizer and stopping rule are not stated; the level-set compliance uses an ersatz material and a smoothed Heaviside, while the SIMP compliance includes grey elements [inferred]. Quality is reported but matching is loose."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q: no speed or cost comparison, and no run time of any method is reported, so criteria (a)-(e) do not apply."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Per-problem neural reparameterization with no offline training data (Sec. 2-3), and no speed claim."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Figs. 8, 12, 15, 19: compliance of each returned design comes from the FE analysis inside the optimization [inferred], and every architecture tried is reported with its compliance (no selection rule issue). Volume-constraint satisfaction is not reported for any design, although the volume is handled with a fixed Lagrange multiplier; no failed or disconnected designs are counted."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 problems (MBB beam 200x100, short cantilever 100x100), each with 3 architectures in the main comparison and 9 in the diversity study (Sec. 4.1-4.2; Figs. 8, 12, 15, 19)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; full text gives stratum Q. The only classical comparison is compliance against a SIMP benchmark (88-line code); no time, hardware or cost appears anywhere. Primary outcome: the first quantitative classical comparison in the main text (Sec. 4.1); the abstract, introduction and conclusion are qualitative. Internal inconsistencies: (1) MBB three-layer compliance is 36.02 in the Fig. 8(c) caption but 39.42 in the text. (2) Sec. 4.2 says all nine Fig. 19 designs lie within 5% of the benchmark, but 197768 (5x5) is 7.75% above 183543 [derived]. (3) Sec. 3.2 says the Lagrange multiplier is updated by an augmented Lagrangian scheme, while Sec. 4.1-4.2 fix it (5 and 3), and achieved volume fractions are never reported. (4) Sec. 3.3 says reinitialization is periodic, while the algorithm list applies it in every iteration. (5) Sec. 4.1 refers to Fig. 5(a) for the 5-neuron design, apparently meaning Fig. 12(a). Duplicate handling: P00544 in the pool is the Journal of Mechanical Design version of record of the same study (same authors, same abstract text). It is not open access (Crossref licence: ASME policies; OpenAlex: closed), so the arXiv version is the primary text under the FT-DUPLICATE definition, and P00544 should be excluded as FT-DUPLICATE naming P00148. Caveat: P00544 sits earlier in the decision order (53) and is listed in audit/coding/FETCH_LIST.md section B for a human fetch. If a human supplies and codes the version of record under P00544 (PROTOCOL §4: code the version of record when accessible), this record becomes the duplicate. The version of record was not read and may differ. method_family neural_reparam: a fully connected network parameterizes the level-set function and its weights are the design variables; there is no training dataset. No code or data statement. retest_candidate false: no public code and no speed claim. No author named Jun Wang. Adjudicator check (2026-09-24): read the arXiv v1 PDF (20 pp.) in full; the compliance values, the fixed Lagrange multipliers (p. 8, p. 12), the augmented-Lagrangian statement (Sec. 3.2, p. 7) and the unstated SIMP settings were confirmed. Only R1 was disputed; the duplicate status was not disputed and is unchanged.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "partial",
+        "reason": "The DNN runs fix the Lagrange multiplier (l = 5, Sec. 4.1, p. 8; l = 3, Sec. 4.2, p. 12) instead of enforcing the 0.4 volume constraint, and no achieved volume fraction is reported, so equal volume on the physical field is not shown; the SIMP benchmark's stopping rule and iteration count are unstated (Figs. 11 and 18, pp. 11 and 15). Loose matching with an unstated classical stopping rule is the §5.3 R1 partial case, which applies as written in stratum Q (§11)."
+      }
+    }
+  }
+}

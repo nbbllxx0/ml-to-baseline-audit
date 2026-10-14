@@ -1,0 +1,346 @@
+{
+  "N400": {
+    "value": 4.055240913784251,
+    "unit": "×",
+    "text": "4.1×",
+    "source": "evidence/ttq_summary.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "OAT 64², 150 iterations incl. setup: median of our GPU baseline / median OAT inference (GPU is the one strong baseline in v4; v3's N020 used PARDISO, the faster solver at this size)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N401": {
+    "value": [
+      3.210945696441127,
+      7.220942138461601
+    ],
+    "unit": "",
+    "text": "3.2× to 7.2×",
+    "source": "evidence/ttq_summary.json; evidence/oat_retest_summary.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "OAT 64²: per-problem range of N400",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N402": {
+    "value": [
+      4.227601851603198,
+      20.11370241108008
+    ],
+    "unit": "",
+    "text": "4.2- to 20-fold",
+    "source": "v4/evidence/decomposition_v4.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "range over the 4 re-test cases of (speed-up over the authors' classical code on our machine) / (speed-up over our GPU strong baseline), same machine; replaces v3's N094, whose OAT 64² case used PARDISO",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N404": {
+    "value": 37328205.480708346,
+    "unit": "",
+    "text": "37 million",
+    "source": "evidence/breakeven.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "τ at 64², matched quality (post hoc rule), PARDISO as the classical time (ratio 1.91×)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N405": {
+    "value": [
+      1.4718102686922763,
+      3.4662195588802005
+    ],
+    "unit": "",
+    "text": "1.5× to 3.5×",
+    "source": "evidence/ttq_summary.json; evidence/oat_extended.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "OAT 256² at matched quality: range over both matching rules and both problem sets (N018, N101, N172, N176)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N406": {
+    "value": 558,
+    "unit": "",
+    "text": "558",
+    "source": "audit/screening/pilot_final_order.csv",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "decision-order position of HGTO (P00512), coded in the pilot wave before the random sample was fixed",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N407": {
+    "value": 0.5870000329649562,
+    "unit": "",
+    "text": "0.59",
+    "source": "evidence/v2_extras.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "OAT 256²: machine factor H = own-code speed-up / reported",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N408": {
+    "value": 0.23654072334668377,
+    "unit": "",
+    "text": "0.24",
+    "source": "evidence/v2_extras.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "OAT 256²: implementation factor I = strong / own code",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N409": {
+    "value": 0.18640668997504634,
+    "unit": "",
+    "text": "0.19",
+    "source": "evidence/v2_extras.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "OAT 256²: quality factor Q = matched / strong",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N410": {
+    "value": 0.39285714285714285,
+    "unit": "",
+    "text": "39 % (11/28; 95 % CI 22–59 %)",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "weak share under the authors' review, with Clopper-Pearson interval",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N411": {
+    "value": 8,
+    "unit": "",
+    "text": "8 (29 %)",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "short form of N083 for the abstract",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N412": {
+    "value": 11,
+    "unit": "",
+    "text": "11 (39 %)",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "short form of N205 for the abstract",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N413": {
+    "value": 24,
+    "unit": "",
+    "text": "24 of 28",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "of the 28 adjudicated speed claims, records the first coding also coded as speed claims",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N414": {
+    "value": 10,
+    "unit": "",
+    "text": "10 of 24",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "of those, records failing R1 or R2 under the first coding",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N415": {
+    "value": 23,
+    "unit": "",
+    "text": "23 of 28",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "of the 28 adjudicated speed claims, records the second coding also coded as speed claims",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N416": {
+    "value": 5,
+    "unit": "",
+    "text": "5 of 23",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "of those, records failing R1 or R2 under the second coding",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N417": {
+    "value": 3,
+    "unit": "",
+    "text": "3",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "records the authors' review adds to the adjudicated weak set: P00181, P00647, P00827",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N418": {
+    "value": 0,
+    "unit": "",
+    "text": "0",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "records the authors' review removes from the adjudicated weak set",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N422": {
+    "value": [
+      null,
+      null
+    ],
+    "unit": "",
+    "text": "unmatched on the median problem",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "256², best of 5 OAT samples, post hoc rule: median over 25 problems of (our time to the best sample's quality) / (OAT sampling time), from five sequential calls to one call; oracle selection, the evaluation of the five samples is not timed (inference-only)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N423": {
+    "value": 12,
+    "unit": "",
+    "text": "12 of 25",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "256², best of 5, post hoc rule: problems our baseline matched within 150 iterations",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N424": {
+    "value": [
+      1.5430318403198877,
+      7.6501346430903165
+    ],
+    "unit": "",
+    "text": "1.54× to 7.65×",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "256², best of 5 OAT samples, pre-registered rule: median over 25 problems of (our time to the best sample's quality) / (OAT sampling time), from five sequential calls to one call; oracle selection, the evaluation of the five samples is not timed (inference-only)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N425": {
+    "value": 13,
+    "unit": "",
+    "text": "13 of 25",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "256², best of 5, pre-registered rule: problems our baseline matched within 150 iterations",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N426": {
+    "value": 0.5908144436422489,
+    "unit": "",
+    "text": "0.6 percentage points",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "256²: median over problems of (median-sample CE − best-sample CE)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N427": {
+    "value": [
+      null,
+      null
+    ],
+    "unit": "",
+    "text": "unmatched on the median problem",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "64², best of 5 OAT samples, post hoc rule: median over 25 problems of (our time to the best sample's quality) / (OAT sampling time), from five sequential calls to one call; oracle selection, the evaluation of the five samples is not timed (inference-only)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N428": {
+    "value": 9,
+    "unit": "",
+    "text": "9 of 25",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "64², best of 5, post hoc rule: problems our baseline matched within 150 iterations",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N429": {
+    "value": [
+      null,
+      null
+    ],
+    "unit": "",
+    "text": "unmatched on the median problem",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "64², best of 5 OAT samples, pre-registered rule: median over 25 problems of (our time to the best sample's quality) / (OAT sampling time), from five sequential calls to one call; oracle selection, the evaluation of the five samples is not timed (inference-only)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N430": {
+    "value": 10,
+    "unit": "",
+    "text": "10 of 25",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "64², best of 5, pre-registered rule: problems our baseline matched within 150 iterations",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N431": {
+    "value": 0.4198852625042403,
+    "unit": "",
+    "text": "0.4 percentage points",
+    "source": "v4/evidence/oat_bestof5.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "64²: median over problems of (median-sample CE − best-sample CE)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N432": {
+    "value": [
+      4635,
+      4741
+    ],
+    "unit": "",
+    "text": "4,635–4,741",
+    "source": "v3/runs/P00183/summary.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "finite-element analyses in one full run of the article's augmented-Lagrangian TO (three load angles)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N433": {
+    "value": 9922,
+    "unit": "",
+    "text": "9,922",
+    "source": "v3/runs/P00183/RESULT.md",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "degrees of freedom of the 120×40 bilinear mesh",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N434": {
+    "value": 8,
+    "unit": "",
+    "text": "8",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "count of speed claims failing R1 or R2 after adjudication (count only, for the abstract and cover letter)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  },
+  "N435": {
+    "value": 11,
+    "unit": "",
+    "text": "11",
+    "source": "v4/evidence/coder_paired.json",
+    "script": "v4/tools/v4_numbers.py",
+    "note": "count of speed claims failing R1 or R2 under the authors' unblinded review (count only)",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T07:03:45+00:00"
+  }
+}

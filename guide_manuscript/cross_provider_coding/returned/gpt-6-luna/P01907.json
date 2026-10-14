@@ -1,0 +1,60 @@
+{
+  "stage": "cross_provider_pass",
+  "pid": "P01907",
+  "citation": {
+    "title": "Evolutionary design of conductive pathways using a generative autoencoder",
+    "authors": "Matei C. Ignuta-Ciuncanu, Hannes Stärk, Ricardo F. Martinez-Botas",
+    "year": 2025,
+    "venue": "International Communications in Heat and Mass Transfer 166:109098",
+    "doi": "10.1016/j.icheatmasstransfer.2025.109098",
+    "arxiv_id": "",
+    "version_coded": "Version of record abstract only"
+  },
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-QUALITY (no accessible full text)", "stratum": "none", "method_family": "vae", "physics": "thermal", "dim": "unclear"},
+  "claim": {
+    "primary_outcome_paraphrase": "The abstract reports improved thermal-design metrics over standard methods: average device temperature is reduced by 10%, peak hotspot temperature by up to 1%, and Pareto-front hypervolume increases by 13%.",
+    "key_phrase": "13% increase in Pareto front hypervolume",
+    "location": "Abstract",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The abstract gives no classical-versus-ML speed-up factor.",
+    "direction": "outperform",
+    "alternatives": ""
+  },
+  "baseline": {
+    "classical_method": "not stated in accessible abstract",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "Average device temperature, peak hotspot temperature, and Pareto-front hypervolume (Abstract)",
+    "quality_gap": "Abstract reports average temperature reduced by 10%, peak hotspot temperature reduced by up to 1%, and hypervolume increased by 13%."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated in accessible abstract",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Only the abstract was accessible. The DOI/publisher link returned HTTP 403; the session rules prohibit bypassing a bot check. Publisher states that data will be made available on request. Source: https://doi.org/10.1016/j.icheatmasstransfer.2025.109098"
+}

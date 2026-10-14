@@ -1,0 +1,3091 @@
+{
+ "meta": {
+  "mode": "direct",
+  "python": "3.12.13",
+  "pinning": {
+   "pinned": true,
+   "affinity_mask": "0xfff",
+   "priority": "HIGH_PRIORITY_CLASS"
+  },
+  "numpy": "2.4.3",
+  "started_utc": "2026-09-25T14:26:57Z",
+  "scipy": "1.17.1",
+  "finished_utc": "2026-09-25T14:27:16Z"
+ },
+ "timing": [
+  {
+   "image": "CirclePack/00089.jpg",
+   "ks": 10.0,
+   "keff": 8.845825913462935,
+   "keff_published": 8.845826,
+   "median_s": 0.03293159999884665,
+   "min_s": 0.032514700083993375,
+   "max_s": 0.033145599998533726,
+   "repeats_s": [
+    0.032514700083993375,
+    0.03293159999884665,
+    0.033145599998533726
+   ]
+  },
+  {
+   "image": "CirclePack/00089.jpg",
+   "ks": 50.0,
+   "keff": 41.8413643319926,
+   "keff_published": 41.841365,
+   "median_s": 0.03227070008870214,
+   "min_s": 0.03207539999857545,
+   "max_s": 0.03240250004455447,
+   "repeats_s": [
+    0.03207539999857545,
+    0.03227070008870214,
+    0.03240250004455447
+   ]
+  },
+  {
+   "image": "CirclePack/00089.jpg",
+   "ks": 100.0,
+   "keff": 82.5706039638635,
+   "keff_published": 82.570604,
+   "median_s": 0.03162569995038211,
+   "min_s": 0.03162460005842149,
+   "max_s": 0.031667000032030046,
+   "repeats_s": [
+    0.03162569995038211,
+    0.03162460005842149,
+    0.031667000032030046
+   ]
+  },
+  {
+   "image": "CirclePack/00089.jpg",
+   "ks": 341.7,
+   "keff": 278.786141703804,
+   "keff_published": 278.786143,
+   "median_s": 0.0320944000268355,
+   "min_s": 0.03137679991777986,
+   "max_s": 0.03244440001435578,
+   "repeats_s": [
+    0.03137679991777986,
+    0.0320944000268355,
+    0.03244440001435578
+   ]
+  },
+  {
+   "image": "CirclePack/00454.jpg",
+   "ks": 10.0,
+   "keff": 4.587905444706469,
+   "keff_published": 4.587906,
+   "median_s": 0.03178770001977682,
+   "min_s": 0.03141010005492717,
+   "max_s": 0.03234329994302243,
+   "repeats_s": [
+    0.03234329994302243,
+    0.03178770001977682,
+    0.03141010005492717
+   ]
+  },
+  {
+   "image": "CirclePack/00454.jpg",
+   "ks": 50.0,
+   "keff": 18.403796404826636,
+   "keff_published": 18.403802,
+   "median_s": 0.031527800019830465,
+   "min_s": 0.03144719998817891,
+   "max_s": 0.03169709991198033,
+   "repeats_s": [
+    0.03144719998817891,
+    0.031527800019830465,
+    0.03169709991198033
+   ]
+  },
+  {
+   "image": "CirclePack/00454.jpg",
+   "ks": 100.0,
+   "keff": 35.21658091106103,
+   "keff_published": 35.216594,
+   "median_s": 0.03158049995545298,
+   "min_s": 0.03130819997750223,
+   "max_s": 0.03162779996637255,
+   "repeats_s": [
+    0.03162779996637255,
+    0.03158049995545298,
+    0.03130819997750223
+   ]
+  },
+  {
+   "image": "CirclePack/00454.jpg",
+   "ks": 341.7,
+   "keff": 115.97607978870931,
+   "keff_published": 115.97613,
+   "median_s": 0.03175720002036542,
+   "min_s": 0.03128729993477464,
+   "max_s": 0.03183999995235354,
+   "repeats_s": [
+    0.03128729993477464,
+    0.03175720002036542,
+    0.03183999995235354
+   ]
+  },
+  {
+   "image": "CirclePack/00471.jpg",
+   "ks": 10.0,
+   "keff": 2.524632968950122,
+   "keff_published": 2.524635,
+   "median_s": 0.03308979992289096,
+   "min_s": 0.03227269998751581,
+   "max_s": 0.033393100020475686,
+   "repeats_s": [
+    0.03227269998751581,
+    0.033393100020475686,
+    0.03308979992289096
+   ]
+  },
+  {
+   "image": "CirclePack/00471.jpg",
+   "ks": 50.0,
+   "keff": 3.1581856691878194,
+   "keff_published": 3.158193,
+   "median_s": 0.03284470003563911,
+   "min_s": 0.03260529995895922,
+   "max_s": 0.032973599969409406,
+   "repeats_s": [
+    0.032973599969409406,
+    0.03260529995895922,
+    0.03284470003563911
+   ]
+  },
+  {
+   "image": "CirclePack/00471.jpg",
+   "ks": 100.0,
+   "keff": 3.2675038830901038,
+   "keff_published": 3.267515,
+   "median_s": 0.03198670002166182,
+   "min_s": 0.03166189999319613,
+   "max_s": 0.03227940003853291,
+   "repeats_s": [
+    0.03227940003853291,
+    0.03198670002166182,
+    0.03166189999319613
+   ]
+  },
+  {
+   "image": "CirclePack/00471.jpg",
+   "ks": 341.7,
+   "keff": 3.350677592376595,
+   "keff_published": 3.350707,
+   "median_s": 0.03126070008147508,
+   "min_s": 0.031125799985602498,
+   "max_s": 0.03188819997012615,
+   "repeats_s": [
+    0.03188819997012615,
+    0.03126070008147508,
+    0.031125799985602498
+   ]
+  },
+  {
+   "image": "EllipsePack/00446.jpg",
+   "ks": 10.0,
+   "keff": 5.201645283566619,
+   "keff_published": 5.201645,
+   "median_s": 0.03125609993003309,
+   "min_s": 0.031132100033573806,
+   "max_s": 0.03144400008022785,
+   "repeats_s": [
+    0.03144400008022785,
+    0.03125609993003309,
+    0.031132100033573806
+   ]
+  },
+  {
+   "image": "EllipsePack/00446.jpg",
+   "ks": 50.0,
+   "keff": 17.479401152406112,
+   "keff_published": 17.479403,
+   "median_s": 0.031124499975703657,
+   "min_s": 0.030848999973386526,
+   "max_s": 0.03120840003248304,
+   "repeats_s": [
+    0.030848999973386526,
+    0.03120840003248304,
+    0.031124499975703657
+   ]
+  },
+  {
+   "image": "EllipsePack/00446.jpg",
+   "ks": 100.0,
+   "keff": 29.653222839365707,
+   "keff_published": 29.653231,
+   "median_s": 0.03174220002256334,
+   "min_s": 0.031671599950641394,
+   "max_s": 0.032038999954238534,
+   "repeats_s": [
+    0.031671599950641394,
+    0.032038999954238534,
+    0.03174220002256334
+   ]
+  },
+  {
+   "image": "EllipsePack/00446.jpg",
+   "ks": 341.7,
+   "keff": 81.73928914095475,
+   "keff_published": 81.739337,
+   "median_s": 0.031929300050251186,
+   "min_s": 0.03177289990708232,
+   "max_s": 0.032077600015327334,
+   "repeats_s": [
+    0.03177289990708232,
+    0.032077600015327334,
+    0.031929300050251186
+   ]
+  },
+  {
+   "image": "EllipsePack/00459.jpg",
+   "ks": 10.0,
+   "keff": 4.390910105962755,
+   "keff_published": 4.39091,
+   "median_s": 0.03248299995902926,
+   "min_s": 0.03236820001620799,
+   "max_s": 0.0350417000008747,
+   "repeats_s": [
+    0.03248299995902926,
+    0.0350417000008747,
+    0.03236820001620799
+   ]
+  },
+  {
+   "image": "EllipsePack/00459.jpg",
+   "ks": 50.0,
+   "keff": 14.83111562791904,
+   "keff_published": 14.831117,
+   "median_s": 0.03200570004992187,
+   "min_s": 0.03187089995481074,
+   "max_s": 0.03290619992185384,
+   "repeats_s": [
+    0.03187089995481074,
+    0.03200570004992187,
+    0.03290619992185384
+   ]
+  },
+  {
+   "image": "EllipsePack/00459.jpg",
+   "ks": 100.0,
+   "keff": 26.227731436224044,
+   "keff_published": 26.227734,
+   "median_s": 0.03144170006271452,
+   "min_s": 0.03123500000219792,
+   "max_s": 0.032311299932189286,
+   "repeats_s": [
+    0.032311299932189286,
+    0.03144170006271452,
+    0.03123500000219792
+   ]
+  },
+  {
+   "image": "EllipsePack/00459.jpg",
+   "ks": 341.7,
+   "keff": 78.18754523033087,
+   "keff_published": 78.187552,
+   "median_s": 0.0317522999830544,
+   "min_s": 0.03140229999553412,
+   "max_s": 0.03192799992393702,
+   "repeats_s": [
+    0.03140229999553412,
+    0.0317522999830544,
+    0.03192799992393702
+   ]
+  },
+  {
+   "image": "EllipsePack/00999.jpg",
+   "ks": 10.0,
+   "keff": 4.98608725342675,
+   "keff_published": 4.986087,
+   "median_s": 0.0319313999498263,
+   "min_s": 0.03173739998601377,
+   "max_s": 0.031994600081816316,
+   "repeats_s": [
+    0.031994600081816316,
+    0.0319313999498263,
+    0.03173739998601377
+   ]
+  },
+  {
+   "image": "EllipsePack/00999.jpg",
+   "ks": 50.0,
+   "keff": 16.164944933514032,
+   "keff_published": 16.164945,
+   "median_s": 0.03199689998291433,
+   "min_s": 0.03175989992450923,
+   "max_s": 0.03202340006828308,
+   "repeats_s": [
+    0.03175989992450923,
+    0.03199689998291433,
+    0.03202340006828308
+   ]
+  },
+  {
+   "image": "EllipsePack/00999.jpg",
+   "ks": 100.0,
+   "keff": 27.517028350894332,
+   "keff_published": 27.517029,
+   "median_s": 0.03172580001410097,
+   "min_s": 0.031185599975287914,
+   "max_s": 0.03230349998921156,
+   "repeats_s": [
+    0.03230349998921156,
+    0.03172580001410097,
+    0.031185599975287914
+   ]
+  },
+  {
+   "image": "EllipsePack/00999.jpg",
+   "ks": 341.7,
+   "keff": 75.85424516595904,
+   "keff_published": 75.854271,
+   "median_s": 0.031229599961079657,
+   "min_s": 0.031201699981465936,
+   "max_s": 0.031426799949258566,
+   "repeats_s": [
+    0.031426799949258566,
+    0.031201699981465936,
+    0.031229599961079657
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00047.jpg",
+   "ks": 10.0,
+   "keff": 5.540766025370423,
+   "keff_published": 5.540767,
+   "median_s": 0.031942599918693304,
+   "min_s": 0.03191859996877611,
+   "max_s": 0.03411670005880296,
+   "repeats_s": [
+    0.03411670005880296,
+    0.03191859996877611,
+    0.031942599918693304
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00047.jpg",
+   "ks": 50.0,
+   "keff": 19.91826169097124,
+   "keff_published": 19.918264,
+   "median_s": 0.03192460001446307,
+   "min_s": 0.031819700030609965,
+   "max_s": 0.0322574001038447,
+   "repeats_s": [
+    0.031819700030609965,
+    0.03192460001446307,
+    0.0322574001038447
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00047.jpg",
+   "ks": 100.0,
+   "keff": 34.080570068377185,
+   "keff_published": 34.080575,
+   "median_s": 0.032123500015586615,
+   "min_s": 0.03160869993735105,
+   "max_s": 0.032218600041233,
+   "repeats_s": [
+    0.032123500015586615,
+    0.03160869993735105,
+    0.032218600041233
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00047.jpg",
+   "ks": 341.7,
+   "keff": 92.39475588395018,
+   "keff_published": 92.39477,
+   "median_s": 0.03259840002283454,
+   "min_s": 0.032398599898442626,
+   "max_s": 0.032601900049485266,
+   "repeats_s": [
+    0.03259840002283454,
+    0.032398599898442626,
+    0.032601900049485266
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00118.jpg",
+   "ks": 10.0,
+   "keff": 1.8939396213675819,
+   "keff_published": 1.89394,
+   "median_s": 0.03152740001678467,
+   "min_s": 0.031386899994686246,
+   "max_s": 0.03224450000561774,
+   "repeats_s": [
+    0.03224450000561774,
+    0.03152740001678467,
+    0.031386899994686246
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00118.jpg",
+   "ks": 50.0,
+   "keff": 2.514559844023162,
+   "keff_published": 2.514566,
+   "median_s": 0.031523499987088144,
+   "min_s": 0.03131370001938194,
+   "max_s": 0.03172760002780706,
+   "repeats_s": [
+    0.031523499987088144,
+    0.03172760002780706,
+    0.03131370001938194
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00118.jpg",
+   "ks": 100.0,
+   "keff": 2.741951426446799,
+   "keff_published": 2.741966,
+   "median_s": 0.03216289996635169,
+   "min_s": 0.03159710008185357,
+   "max_s": 0.032361899968236685,
+   "repeats_s": [
+    0.03216289996635169,
+    0.03159710008185357,
+    0.032361899968236685
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00118.jpg",
+   "ks": 341.7,
+   "keff": 3.0408851902777783,
+   "keff_published": 3.042657,
+   "median_s": 0.03222930000629276,
+   "min_s": 0.03194949997123331,
+   "max_s": 0.03250919992569834,
+   "repeats_s": [
+    0.03194949997123331,
+    0.03222930000629276,
+    0.03250919992569834
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00290.jpg",
+   "ks": 10.0,
+   "keff": 1.0319057543504826,
+   "keff_published": 1.031906,
+   "median_s": 0.03252279991284013,
+   "min_s": 0.032136900001205504,
+   "max_s": 0.03368450002744794,
+   "repeats_s": [
+    0.032136900001205504,
+    0.03252279991284013,
+    0.03368450002744794
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00290.jpg",
+   "ks": 50.0,
+   "keff": 1.039371529236998,
+   "keff_published": 1.039372,
+   "median_s": 0.03256239998154342,
+   "min_s": 0.032450499944388866,
+   "max_s": 0.03258840006310493,
+   "repeats_s": [
+    0.03256239998154342,
+    0.03258840006310493,
+    0.032450499944388866
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00290.jpg",
+   "ks": 100.0,
+   "keff": 1.0405203563272107,
+   "keff_published": 1.040522,
+   "median_s": 0.03158470010384917,
+   "min_s": 0.031278699985705316,
+   "max_s": 0.03191309992689639,
+   "repeats_s": [
+    0.03191309992689639,
+    0.031278699985705316,
+    0.03158470010384917
+   ]
+  },
+  {
+   "image": "QuadrilateralPack/00290.jpg",
+   "ks": 341.7,
+   "keff": 1.0413726231797527,
+   "keff_published": 1.041458,
+   "median_s": 0.031527800019830465,
+   "min_s": 0.0315104000037536,
+   "max_s": 0.031532300054095685,
+   "repeats_s": [
+    0.031532300054095685,
+    0.031527800019830465,
+    0.0315104000037536
+   ]
+  },
+  {
+   "image": "QSGS/00063.jpg",
+   "ks": 10.0,
+   "keff": 1.202589745209146,
+   "keff_published": 1.20259,
+   "median_s": 0.03150659997481853,
+   "min_s": 0.031227099942043424,
+   "max_s": 0.03205510007683188,
+   "repeats_s": [
+    0.03150659997481853,
+    0.031227099942043424,
+    0.03205510007683188
+   ]
+  },
+  {
+   "image": "QSGS/00063.jpg",
+   "ks": 50.0,
+   "keff": 1.2878069647281971,
+   "keff_published": 1.287807,
+   "median_s": 0.031698200036771595,
+   "min_s": 0.031618100008927286,
+   "max_s": 0.03192159999161959,
+   "repeats_s": [
+    0.03192159999161959,
+    0.031618100008927286,
+    0.031698200036771595
+   ]
+  },
+  {
+   "image": "QSGS/00063.jpg",
+   "ks": 100.0,
+   "keff": 1.3072863683758387,
+   "keff_published": 1.307287,
+   "median_s": 0.03182100004050881,
+   "min_s": 0.030784100061282516,
+   "max_s": 0.03192720003426075,
+   "repeats_s": [
+    0.03192720003426075,
+    0.03182100004050881,
+    0.030784100061282516
+   ]
+  },
+  {
+   "image": "QSGS/00063.jpg",
+   "ks": 341.7,
+   "keff": 1.32438792299954,
+   "keff_published": 1.324389,
+   "median_s": 0.031667100032791495,
+   "min_s": 0.031126199988648295,
+   "max_s": 0.03171059989836067,
+   "repeats_s": [
+    0.031126199988648295,
+    0.03171059989836067,
+    0.031667100032791495
+   ]
+  },
+  {
+   "image": "QSGS/00379.jpg",
+   "ks": 10.0,
+   "keff": 1.3132348357074157,
+   "keff_published": 1.313235,
+   "median_s": 0.03227240010164678,
+   "min_s": 0.03186630003619939,
+   "max_s": 0.03259789990261197,
+   "repeats_s": [
+    0.03227240010164678,
+    0.03259789990261197,
+    0.03186630003619939
+   ]
+  },
+  {
+   "image": "QSGS/00379.jpg",
+   "ks": 50.0,
+   "keff": 1.4767003910323833,
+   "keff_published": 1.476701,
+   "median_s": 0.032044999999925494,
+   "min_s": 0.031985700014047325,
+   "max_s": 0.03271980001591146,
+   "repeats_s": [
+    0.03271980001591146,
+    0.031985700014047325,
+    0.032044999999925494
+   ]
+  },
+  {
+   "image": "QSGS/00379.jpg",
+   "ks": 100.0,
+   "keff": 1.520168249806006,
+   "keff_published": 1.520169,
+   "median_s": 0.032622599974274635,
+   "min_s": 0.032616800046525896,
+   "max_s": 0.03294089995324612,
+   "repeats_s": [
+    0.032616800046525896,
+    0.03294089995324612,
+    0.032622599974274635
+   ]
+  },
+  {
+   "image": "QSGS/00379.jpg",
+   "ks": 341.7,
+   "keff": 1.5622295962067825,
+   "keff_published": 1.562236,
+   "median_s": 0.031628299970179796,
+   "min_s": 0.03153409995138645,
+   "max_s": 0.03169950004667044,
+   "repeats_s": [
+    0.031628299970179796,
+    0.03153409995138645,
+    0.03169950004667044
+   ]
+  },
+  {
+   "image": "QSGS/00897.jpg",
+   "ks": 10.0,
+   "keff": 1.5194010471274069,
+   "keff_published": 1.519401,
+   "median_s": 0.03222459997050464,
+   "min_s": 0.03200690005905926,
+   "max_s": 0.03231189993675798,
+   "repeats_s": [
+    0.03231189993675798,
+    0.03222459997050464,
+    0.03200690005905926
+   ]
+  },
+  {
+   "image": "QSGS/00897.jpg",
+   "ks": 50.0,
+   "keff": 1.7924653519040292,
+   "keff_published": 1.792466,
+   "median_s": 0.031315699918195605,
+   "min_s": 0.031288000056520104,
+   "max_s": 0.03186310001183301,
+   "repeats_s": [
+    0.03186310001183301,
+    0.031315699918195605,
+    0.031288000056520104
+   ]
+  },
+  {
+   "image": "QSGS/00897.jpg",
+   "ks": 100.0,
+   "keff": 1.8609064251469063,
+   "keff_published": 1.860907,
+   "median_s": 0.03177460003644228,
+   "min_s": 0.03143650002311915,
+   "max_s": 0.03191849996801466,
+   "repeats_s": [
+    0.03143650002311915,
+    0.03191849996801466,
+    0.03177460003644228
+   ]
+  },
+  {
+   "image": "QSGS/00897.jpg",
+   "ks": 341.7,
+   "keff": 1.923088672998047,
+   "keff_published": 1.923103,
+   "median_s": 0.031859799986705184,
+   "min_s": 0.0316972000291571,
+   "max_s": 0.03267240000423044,
+   "repeats_s": [
+    0.0316972000291571,
+    0.031859799986705184,
+    0.03267240000423044
+   ]
+  }
+ ],
+ "quality": [
+  {
+   "image": "CirclePack/00010.jpg",
+   "ks": 10.0,
+   "keff": 1.1243040857389035,
+   "keff_published": 1.124304
+  },
+  {
+   "image": "CirclePack/00010.jpg",
+   "ks": 50.0,
+   "keff": 1.1475904042451288,
+   "keff_published": 1.14759
+  },
+  {
+   "image": "CirclePack/00010.jpg",
+   "ks": 100.0,
+   "keff": 1.1508241477571173,
+   "keff_published": 1.150824
+  },
+  {
+   "image": "CirclePack/00010.jpg",
+   "ks": 341.7,
+   "keff": 1.1531612083560403,
+   "keff_published": 1.153186
+  },
+  {
+   "image": "CirclePack/00048.jpg",
+   "ks": 10.0,
+   "keff": 4.705574766035419,
+   "keff_published": 4.705576
+  },
+  {
+   "image": "CirclePack/00048.jpg",
+   "ks": 50.0,
+   "keff": 15.119731498339181,
+   "keff_published": 15.119734
+  },
+  {
+   "image": "CirclePack/00048.jpg",
+   "ks": 100.0,
+   "keff": 27.150401713020887,
+   "keff_published": 27.150406
+  },
+  {
+   "image": "CirclePack/00048.jpg",
+   "ks": 341.7,
+   "keff": 84.48143332910162,
+   "keff_published": 84.481461
+  },
+  {
+   "image": "CirclePack/00079.jpg",
+   "ks": 10.0,
+   "keff": 1.1637153124421964,
+   "keff_published": 1.163715
+  },
+  {
+   "image": "CirclePack/00079.jpg",
+   "ks": 50.0,
+   "keff": 1.195737656482565,
+   "keff_published": 1.195739
+  },
+  {
+   "image": "CirclePack/00079.jpg",
+   "ks": 100.0,
+   "keff": 1.2002092280082604,
+   "keff_published": 1.200216
+  },
+  {
+   "image": "CirclePack/00079.jpg",
+   "ks": 341.7,
+   "keff": 1.2034439830944712,
+   "keff_published": 1.205997
+  },
+  {
+   "image": "CirclePack/00089.jpg",
+   "ks": 10.0,
+   "keff": 8.845825913462935,
+   "keff_published": 8.845826
+  },
+  {
+   "image": "CirclePack/00089.jpg",
+   "ks": 50.0,
+   "keff": 41.8413643319926,
+   "keff_published": 41.841365
+  },
+  {
+   "image": "CirclePack/00089.jpg",
+   "ks": 100.0,
+   "keff": 82.5706039638635,
+   "keff_published": 82.570604
+  },
+  {
+   "image": "CirclePack/00089.jpg",
+   "ks": 341.7,
+   "keff": 278.786141703804,
+   "keff_published": 278.786143
+  },
+  {
+   "image": "CirclePack/00155.jpg",
+   "ks": 10.0,
+   "keff": 8.675028124765536,
+   "keff_published": 8.675028
+  },
+  {
+   "image": "CirclePack/00155.jpg",
+   "ks": 50.0,
+   "keff": 41.46089305811431,
+   "keff_published": 41.460894
+  },
+  {
+   "image": "CirclePack/00155.jpg",
+   "ks": 100.0,
+   "keff": 82.2419835569138,
+   "keff_published": 82.241985
+  },
+  {
+   "image": "CirclePack/00155.jpg",
+   "ks": 341.7,
+   "keff": 279.190620512598,
+   "keff_published": 279.190626
+  },
+  {
+   "image": "CirclePack/00171.jpg",
+   "ks": 10.0,
+   "keff": 6.769776101490979,
+   "keff_published": 6.769777
+  },
+  {
+   "image": "CirclePack/00171.jpg",
+   "ks": 50.0,
+   "keff": 29.033577629342425,
+   "keff_published": 29.033585
+  },
+  {
+   "image": "CirclePack/00171.jpg",
+   "ks": 100.0,
+   "keff": 56.41523747274417,
+   "keff_published": 56.415252
+  },
+  {
+   "image": "CirclePack/00171.jpg",
+   "ks": 341.7,
+   "keff": 188.44193244020136,
+   "keff_published": 188.441984
+  },
+  {
+   "image": "CirclePack/00179.jpg",
+   "ks": 10.0,
+   "keff": 5.729580663946685,
+   "keff_published": 5.729582
+  },
+  {
+   "image": "CirclePack/00179.jpg",
+   "ks": 50.0,
+   "keff": 21.376200436201103,
+   "keff_published": 21.376211
+  },
+  {
+   "image": "CirclePack/00179.jpg",
+   "ks": 100.0,
+   "keff": 39.82026254997258,
+   "keff_published": 39.820286
+  },
+  {
+   "image": "CirclePack/00179.jpg",
+   "ks": 341.7,
+   "keff": 127.8782090950686,
+   "keff_published": 127.878299
+  },
+  {
+   "image": "CirclePack/00188.jpg",
+   "ks": 10.0,
+   "keff": 3.011714969120142,
+   "keff_published": 3.011716
+  },
+  {
+   "image": "CirclePack/00188.jpg",
+   "ks": 50.0,
+   "keff": 4.106425284569623,
+   "keff_published": 4.106435
+  },
+  {
+   "image": "CirclePack/00188.jpg",
+   "ks": 100.0,
+   "keff": 4.377836602183968,
+   "keff_published": 4.377859
+  },
+  {
+   "image": "CirclePack/00188.jpg",
+   "ks": 341.7,
+   "keff": 4.666319597748739,
+   "keff_published": 4.666404
+  },
+  {
+   "image": "CirclePack/00191.jpg",
+   "ks": 10.0,
+   "keff": 2.1680032842239454,
+   "keff_published": 2.168005
+  },
+  {
+   "image": "CirclePack/00191.jpg",
+   "ks": 50.0,
+   "keff": 2.5057292664698227,
+   "keff_published": 2.50574
+  },
+  {
+   "image": "CirclePack/00191.jpg",
+   "ks": 100.0,
+   "keff": 2.557840802604355,
+   "keff_published": 2.557863
+  },
+  {
+   "image": "CirclePack/00191.jpg",
+   "ks": 341.7,
+   "keff": 2.59641601074825,
+   "keff_published": 2.596493
+  },
+  {
+   "image": "CirclePack/00259.jpg",
+   "ks": 10.0,
+   "keff": 5.057335469573435,
+   "keff_published": 5.057336
+  },
+  {
+   "image": "CirclePack/00259.jpg",
+   "ks": 50.0,
+   "keff": 21.26726345886827,
+   "keff_published": 21.267269
+  },
+  {
+   "image": "CirclePack/00259.jpg",
+   "ks": 100.0,
+   "keff": 41.35897242870912,
+   "keff_published": 41.358983
+  },
+  {
+   "image": "CirclePack/00259.jpg",
+   "ks": 341.7,
+   "keff": 138.3728143827849,
+   "keff_published": 138.373701
+  },
+  {
+   "image": "CirclePack/00283.jpg",
+   "ks": 10.0,
+   "keff": 8.913207046428841,
+   "keff_published": 8.913207
+  },
+  {
+   "image": "CirclePack/00283.jpg",
+   "ks": 50.0,
+   "keff": 42.67375919840706,
+   "keff_published": 42.673762
+  },
+  {
+   "image": "CirclePack/00283.jpg",
+   "ks": 100.0,
+   "keff": 84.71203815198012,
+   "keff_published": 84.712044
+  },
+  {
+   "image": "CirclePack/00283.jpg",
+   "ks": 341.7,
+   "keff": 287.8150056225053,
+   "keff_published": 287.815025
+  },
+  {
+   "image": "CirclePack/00322.jpg",
+   "ks": 10.0,
+   "keff": 6.194151812765223,
+   "keff_published": 6.194153
+  },
+  {
+   "image": "CirclePack/00322.jpg",
+   "ks": 50.0,
+   "keff": 19.855497747130407,
+   "keff_published": 19.855511
+  },
+  {
+   "image": "CirclePack/00322.jpg",
+   "ks": 100.0,
+   "keff": 34.26035104763662,
+   "keff_published": 34.260382
+  },
+  {
+   "image": "CirclePack/00322.jpg",
+   "ks": 341.7,
+   "keff": 101.00664104094227,
+   "keff_published": 101.006761
+  },
+  {
+   "image": "CirclePack/00359.jpg",
+   "ks": 10.0,
+   "keff": 1.9924549012346942,
+   "keff_published": 1.992455
+  },
+  {
+   "image": "CirclePack/00359.jpg",
+   "ks": 50.0,
+   "keff": 2.390777712232959,
+   "keff_published": 2.390778
+  },
+  {
+   "image": "CirclePack/00359.jpg",
+   "ks": 100.0,
+   "keff": 2.4618457118414794,
+   "keff_published": 2.461847
+  },
+  {
+   "image": "CirclePack/00359.jpg",
+   "ks": 341.7,
+   "keff": 2.5167434823356123,
+   "keff_published": 2.518178
+  },
+  {
+   "image": "CirclePack/00416.jpg",
+   "ks": 10.0,
+   "keff": 7.029873973252596,
+   "keff_published": 7.029874
+  },
+  {
+   "image": "CirclePack/00416.jpg",
+   "ks": 50.0,
+   "keff": 28.03941516507426,
+   "keff_published": 28.039417
+  },
+  {
+   "image": "CirclePack/00416.jpg",
+   "ks": 100.0,
+   "keff": 52.77347010430734,
+   "keff_published": 52.773476
+  },
+  {
+   "image": "CirclePack/00416.jpg",
+   "ks": 341.7,
+   "keff": 170.4448447709986,
+   "keff_published": 170.44487
+  },
+  {
+   "image": "CirclePack/00450.jpg",
+   "ks": 10.0,
+   "keff": 9.346652572956833,
+   "keff_published": 9.346653
+  },
+  {
+   "image": "CirclePack/00450.jpg",
+   "ks": 50.0,
+   "keff": 44.1761018827643,
+   "keff_published": 44.176105
+  },
+  {
+   "image": "CirclePack/00450.jpg",
+   "ks": 100.0,
+   "keff": 86.3602418902029,
+   "keff_published": 86.36025
+  },
+  {
+   "image": "CirclePack/00450.jpg",
+   "ks": 341.7,
+   "keff": 287.4754505592249,
+   "keff_published": 287.475485
+  },
+  {
+   "image": "CirclePack/00454.jpg",
+   "ks": 10.0,
+   "keff": 4.587905444706469,
+   "keff_published": 4.587906
+  },
+  {
+   "image": "CirclePack/00454.jpg",
+   "ks": 50.0,
+   "keff": 18.403796404826636,
+   "keff_published": 18.403802
+  },
+  {
+   "image": "CirclePack/00454.jpg",
+   "ks": 100.0,
+   "keff": 35.21658091106103,
+   "keff_published": 35.216594
+  },
+  {
+   "image": "CirclePack/00454.jpg",
+   "ks": 341.7,
+   "keff": 115.97607978870931,
+   "keff_published": 115.97613
+  },
+  {
+   "image": "CirclePack/00463.jpg",
+   "ks": 10.0,
+   "keff": 1.4424103634050496,
+   "keff_published": 1.442411
+  },
+  {
+   "image": "CirclePack/00463.jpg",
+   "ks": 50.0,
+   "keff": 1.5422117506846185,
+   "keff_published": 1.542212
+  },
+  {
+   "image": "CirclePack/00463.jpg",
+   "ks": 100.0,
+   "keff": 1.5565326742735262,
+   "keff_published": 1.556533
+  },
+  {
+   "image": "CirclePack/00463.jpg",
+   "ks": 341.7,
+   "keff": 1.5669524642690436,
+   "keff_published": 1.566953
+  },
+  {
+   "image": "CirclePack/00471.jpg",
+   "ks": 10.0,
+   "keff": 2.524632968950122,
+   "keff_published": 2.524635
+  },
+  {
+   "image": "CirclePack/00471.jpg",
+   "ks": 50.0,
+   "keff": 3.1581856691878194,
+   "keff_published": 3.158193
+  },
+  {
+   "image": "CirclePack/00471.jpg",
+   "ks": 100.0,
+   "keff": 3.2675038830901038,
+   "keff_published": 3.267515
+  },
+  {
+   "image": "CirclePack/00471.jpg",
+   "ks": 341.7,
+   "keff": 3.350677592376595,
+   "keff_published": 3.350707
+  },
+  {
+   "image": "CirclePack/00502.jpg",
+   "ks": 10.0,
+   "keff": 4.536194842315296,
+   "keff_published": 4.536195
+  },
+  {
+   "image": "CirclePack/00502.jpg",
+   "ks": 50.0,
+   "keff": 18.250413775844777,
+   "keff_published": 18.250414
+  },
+  {
+   "image": "CirclePack/00502.jpg",
+   "ks": 100.0,
+   "keff": 35.21942269047196,
+   "keff_published": 35.219423
+  },
+  {
+   "image": "CirclePack/00502.jpg",
+   "ks": 341.7,
+   "keff": 117.13817569715798,
+   "keff_published": 117.138177
+  },
+  {
+   "image": "CirclePack/00602.jpg",
+   "ks": 10.0,
+   "keff": 1.5339973714220914,
+   "keff_published": 1.533998
+  },
+  {
+   "image": "CirclePack/00602.jpg",
+   "ks": 50.0,
+   "keff": 1.719979391219927,
+   "keff_published": 1.719981
+  },
+  {
+   "image": "CirclePack/00602.jpg",
+   "ks": 100.0,
+   "keff": 1.7510322426328444,
+   "keff_published": 1.751034
+  },
+  {
+   "image": "CirclePack/00602.jpg",
+   "ks": 341.7,
+   "keff": 1.7745127207311033,
+   "keff_published": 1.774519
+  },
+  {
+   "image": "CirclePack/00635.jpg",
+   "ks": 10.0,
+   "keff": 1.034487917414034,
+   "keff_published": 1.034488
+  },
+  {
+   "image": "CirclePack/00635.jpg",
+   "ks": 50.0,
+   "keff": 1.0408651999151064,
+   "keff_published": 1.040865
+  },
+  {
+   "image": "CirclePack/00635.jpg",
+   "ks": 100.0,
+   "keff": 1.041753030301387,
+   "keff_published": 1.041753
+  },
+  {
+   "image": "CirclePack/00635.jpg",
+   "ks": 341.7,
+   "keff": 1.0423952437204775,
+   "keff_published": 1.042398
+  },
+  {
+   "image": "CirclePack/00738.jpg",
+   "ks": 10.0,
+   "keff": 1.6751126296345829,
+   "keff_published": 1.675113
+  },
+  {
+   "image": "CirclePack/00738.jpg",
+   "ks": 50.0,
+   "keff": 1.9029839092913081,
+   "keff_published": 1.902985
+  },
+  {
+   "image": "CirclePack/00738.jpg",
+   "ks": 100.0,
+   "keff": 1.9393482943222642,
+   "keff_published": 1.939351
+  },
+  {
+   "image": "CirclePack/00738.jpg",
+   "ks": 341.7,
+   "keff": 1.9664639244363635,
+   "keff_published": 1.96771
+  },
+  {
+   "image": "CirclePack/00761.jpg",
+   "ks": 10.0,
+   "keff": 1.3749220729722706,
+   "keff_published": 1.374923
+  },
+  {
+   "image": "CirclePack/00761.jpg",
+   "ks": 50.0,
+   "keff": 1.4665626628808321,
+   "keff_published": 1.466566
+  },
+  {
+   "image": "CirclePack/00761.jpg",
+   "ks": 100.0,
+   "keff": 1.479959469456308,
+   "keff_published": 1.480006
+  },
+  {
+   "image": "CirclePack/00761.jpg",
+   "ks": 341.7,
+   "keff": 1.489747338652553,
+   "keff_published": 1.520651
+  },
+  {
+   "image": "CirclePack/00920.jpg",
+   "ks": 10.0,
+   "keff": 4.574067733173241,
+   "keff_published": 4.574069
+  },
+  {
+   "image": "CirclePack/00920.jpg",
+   "ks": 50.0,
+   "keff": 7.642746692462341,
+   "keff_published": 7.642759
+  },
+  {
+   "image": "CirclePack/00920.jpg",
+   "ks": 100.0,
+   "keff": 8.386563350790926,
+   "keff_published": 8.386594
+  },
+  {
+   "image": "CirclePack/00920.jpg",
+   "ks": 341.7,
+   "keff": 9.015471361696967,
+   "keff_published": 9.015592
+  },
+  {
+   "image": "CirclePack/00972.jpg",
+   "ks": 10.0,
+   "keff": 2.6541968889307106,
+   "keff_published": 2.654198
+  },
+  {
+   "image": "CirclePack/00972.jpg",
+   "ks": 50.0,
+   "keff": 3.665667988599495,
+   "keff_published": 3.665673
+  },
+  {
+   "image": "CirclePack/00972.jpg",
+   "ks": 100.0,
+   "keff": 3.869081801641097,
+   "keff_published": 3.869283
+  },
+  {
+   "image": "CirclePack/00972.jpg",
+   "ks": 341.7,
+   "keff": 4.030573188236721,
+   "keff_published": 4.105045
+  },
+  {
+   "image": "EllipsePack/00010.jpg",
+   "ks": 10.0,
+   "keff": 1.6825152465754958,
+   "keff_published": 1.682516
+  },
+  {
+   "image": "EllipsePack/00010.jpg",
+   "ks": 50.0,
+   "keff": 2.0626679753831576,
+   "keff_published": 2.062671
+  },
+  {
+   "image": "EllipsePack/00010.jpg",
+   "ks": 100.0,
+   "keff": 2.138724062363768,
+   "keff_published": 2.13873
+  },
+  {
+   "image": "EllipsePack/00010.jpg",
+   "ks": 341.7,
+   "keff": 2.199251346241611,
+   "keff_published": 2.199824
+  },
+  {
+   "image": "EllipsePack/00020.jpg",
+   "ks": 10.0,
+   "keff": 4.53068996526347,
+   "keff_published": 4.53069
+  },
+  {
+   "image": "EllipsePack/00020.jpg",
+   "ks": 50.0,
+   "keff": 13.93489882787737,
+   "keff_published": 13.934901
+  },
+  {
+   "image": "EllipsePack/00020.jpg",
+   "ks": 100.0,
+   "keff": 21.907165659012062,
+   "keff_published": 21.907171
+  },
+  {
+   "image": "EllipsePack/00020.jpg",
+   "ks": 341.7,
+   "keff": 49.36571487933827,
+   "keff_published": 49.365738
+  },
+  {
+   "image": "EllipsePack/00049.jpg",
+   "ks": 10.0,
+   "keff": 5.88635088235095,
+   "keff_published": 5.886352
+  },
+  {
+   "image": "EllipsePack/00049.jpg",
+   "ks": 50.0,
+   "keff": 22.055690389930284,
+   "keff_published": 22.055699
+  },
+  {
+   "image": "EllipsePack/00049.jpg",
+   "ks": 100.0,
+   "keff": 39.59519826678121,
+   "keff_published": 39.59522
+  },
+  {
+   "image": "EllipsePack/00049.jpg",
+   "ks": 341.7,
+   "keff": 119.09117488575363,
+   "keff_published": 119.091267
+  },
+  {
+   "image": "EllipsePack/00173.jpg",
+   "ks": 10.0,
+   "keff": 3.0385439387680515,
+   "keff_published": 3.038544
+  },
+  {
+   "image": "EllipsePack/00173.jpg",
+   "ks": 50.0,
+   "keff": 7.806207765328034,
+   "keff_published": 7.80621
+  },
+  {
+   "image": "EllipsePack/00173.jpg",
+   "ks": 100.0,
+   "keff": 12.435940643361377,
+   "keff_published": 12.435944
+  },
+  {
+   "image": "EllipsePack/00173.jpg",
+   "ks": 341.7,
+   "keff": 32.6843244159666,
+   "keff_published": 32.684328
+  },
+  {
+   "image": "EllipsePack/00248.jpg",
+   "ks": 10.0,
+   "keff": 2.404174927863743,
+   "keff_published": 2.404175
+  },
+  {
+   "image": "EllipsePack/00248.jpg",
+   "ks": 50.0,
+   "keff": 3.7543261304995883,
+   "keff_published": 3.754327
+  },
+  {
+   "image": "EllipsePack/00248.jpg",
+   "ks": 100.0,
+   "keff": 4.136335305466226,
+   "keff_published": 4.136337
+  },
+  {
+   "image": "EllipsePack/00248.jpg",
+   "ks": 341.7,
+   "keff": 4.489203275949681,
+   "keff_published": 4.489269
+  },
+  {
+   "image": "EllipsePack/00294.jpg",
+   "ks": 10.0,
+   "keff": 1.953606648052992,
+   "keff_published": 1.953607
+  },
+  {
+   "image": "EllipsePack/00294.jpg",
+   "ks": 50.0,
+   "keff": 2.654643355375673,
+   "keff_published": 2.654645
+  },
+  {
+   "image": "EllipsePack/00294.jpg",
+   "ks": 100.0,
+   "keff": 2.8254684966072943,
+   "keff_published": 2.825472
+  },
+  {
+   "image": "EllipsePack/00294.jpg",
+   "ks": 341.7,
+   "keff": 2.974336605352665,
+   "keff_published": 2.975187
+  },
+  {
+   "image": "EllipsePack/00337.jpg",
+   "ks": 10.0,
+   "keff": 1.9635638364149175,
+   "keff_published": 1.963564
+  },
+  {
+   "image": "EllipsePack/00337.jpg",
+   "ks": 50.0,
+   "keff": 2.4640593927779886,
+   "keff_published": 2.464061
+  },
+  {
+   "image": "EllipsePack/00337.jpg",
+   "ks": 100.0,
+   "keff": 2.5617955430495902,
+   "keff_published": 2.561798
+  },
+  {
+   "image": "EllipsePack/00337.jpg",
+   "ks": 341.7,
+   "keff": 2.6393997754728487,
+   "keff_published": 2.641654
+  },
+  {
+   "image": "EllipsePack/00340.jpg",
+   "ks": 10.0,
+   "keff": 5.1008029175759955,
+   "keff_published": 5.100804
+  },
+  {
+   "image": "EllipsePack/00340.jpg",
+   "ks": 50.0,
+   "keff": 16.594657719339693,
+   "keff_published": 16.594664
+  },
+  {
+   "image": "EllipsePack/00340.jpg",
+   "ks": 100.0,
+   "keff": 28.075626989600728,
+   "keff_published": 28.07564
+  },
+  {
+   "image": "EllipsePack/00340.jpg",
+   "ks": 341.7,
+   "keff": 77.71870930876165,
+   "keff_published": 77.718733
+  },
+  {
+   "image": "EllipsePack/00360.jpg",
+   "ks": 10.0,
+   "keff": 3.0742088436112667,
+   "keff_published": 3.074209
+  },
+  {
+   "image": "EllipsePack/00360.jpg",
+   "ks": 50.0,
+   "keff": 8.388241972966316,
+   "keff_published": 8.388247
+  },
+  {
+   "image": "EllipsePack/00360.jpg",
+   "ks": 100.0,
+   "keff": 13.643927214079564,
+   "keff_published": 13.643939
+  },
+  {
+   "image": "EllipsePack/00360.jpg",
+   "ks": 341.7,
+   "keff": 36.565842675966714,
+   "keff_published": 36.565887
+  },
+  {
+   "image": "EllipsePack/00387.jpg",
+   "ks": 10.0,
+   "keff": 5.711360887236872,
+   "keff_published": 5.711361
+  },
+  {
+   "image": "EllipsePack/00387.jpg",
+   "ks": 50.0,
+   "keff": 21.772508570273754,
+   "keff_published": 21.77251
+  },
+  {
+   "image": "EllipsePack/00387.jpg",
+   "ks": 100.0,
+   "keff": 39.54204201835576,
+   "keff_published": 39.542045
+  },
+  {
+   "image": "EllipsePack/00387.jpg",
+   "ks": 341.7,
+   "keff": 117.8297767941911,
+   "keff_published": 117.829801
+  },
+  {
+   "image": "EllipsePack/00446.jpg",
+   "ks": 10.0,
+   "keff": 5.201645283566619,
+   "keff_published": 5.201645
+  },
+  {
+   "image": "EllipsePack/00446.jpg",
+   "ks": 50.0,
+   "keff": 17.479401152406112,
+   "keff_published": 17.479403
+  },
+  {
+   "image": "EllipsePack/00446.jpg",
+   "ks": 100.0,
+   "keff": 29.653222839365707,
+   "keff_published": 29.653231
+  },
+  {
+   "image": "EllipsePack/00446.jpg",
+   "ks": 341.7,
+   "keff": 81.73928914095475,
+   "keff_published": 81.739337
+  },
+  {
+   "image": "EllipsePack/00459.jpg",
+   "ks": 10.0,
+   "keff": 4.390910105962755,
+   "keff_published": 4.39091
+  },
+  {
+   "image": "EllipsePack/00459.jpg",
+   "ks": 50.0,
+   "keff": 14.83111562791904,
+   "keff_published": 14.831117
+  },
+  {
+   "image": "EllipsePack/00459.jpg",
+   "ks": 100.0,
+   "keff": 26.227731436224044,
+   "keff_published": 26.227734
+  },
+  {
+   "image": "EllipsePack/00459.jpg",
+   "ks": 341.7,
+   "keff": 78.18754523033087,
+   "keff_published": 78.187552
+  },
+  {
+   "image": "EllipsePack/00467.jpg",
+   "ks": 10.0,
+   "keff": 5.641716859575542,
+   "keff_published": 5.641717
+  },
+  {
+   "image": "EllipsePack/00467.jpg",
+   "ks": 50.0,
+   "keff": 17.825683431470377,
+   "keff_published": 17.825688
+  },
+  {
+   "image": "EllipsePack/00467.jpg",
+   "ks": 100.0,
+   "keff": 28.814194438976333,
+   "keff_published": 28.814208
+  },
+  {
+   "image": "EllipsePack/00467.jpg",
+   "ks": 341.7,
+   "keff": 73.1462937698885,
+   "keff_published": 73.146322
+  },
+  {
+   "image": "EllipsePack/00513.jpg",
+   "ks": 10.0,
+   "keff": 2.721377053953459,
+   "keff_published": 2.721377
+  },
+  {
+   "image": "EllipsePack/00513.jpg",
+   "ks": 50.0,
+   "keff": 5.330637061886648,
+   "keff_published": 5.33064
+  },
+  {
+   "image": "EllipsePack/00513.jpg",
+   "ks": 100.0,
+   "keff": 6.485738793313273,
+   "keff_published": 6.485748
+  },
+  {
+   "image": "EllipsePack/00513.jpg",
+   "ks": 341.7,
+   "keff": 7.927412031907249,
+   "keff_published": 7.927441
+  },
+  {
+   "image": "EllipsePack/00581.jpg",
+   "ks": 10.0,
+   "keff": 2.734459190367245,
+   "keff_published": 2.73446
+  },
+  {
+   "image": "EllipsePack/00581.jpg",
+   "ks": 50.0,
+   "keff": 5.958772791382183,
+   "keff_published": 5.958775
+  },
+  {
+   "image": "EllipsePack/00581.jpg",
+   "ks": 100.0,
+   "keff": 8.0423047442788,
+   "keff_published": 8.042307
+  },
+  {
+   "image": "EllipsePack/00581.jpg",
+   "ks": 341.7,
+   "keff": 11.792721046489252,
+   "keff_published": 11.792744
+  },
+  {
+   "image": "EllipsePack/00712.jpg",
+   "ks": 10.0,
+   "keff": 2.796090736504274,
+   "keff_published": 2.796091
+  },
+  {
+   "image": "EllipsePack/00712.jpg",
+   "ks": 50.0,
+   "keff": 5.1664982303857405,
+   "keff_published": 5.166504
+  },
+  {
+   "image": "EllipsePack/00712.jpg",
+   "ks": 100.0,
+   "keff": 6.071308656576805,
+   "keff_published": 6.071321
+  },
+  {
+   "image": "EllipsePack/00712.jpg",
+   "ks": 341.7,
+   "keff": 7.057978640449148,
+   "keff_published": 7.058081
+  },
+  {
+   "image": "EllipsePack/00751.jpg",
+   "ks": 10.0,
+   "keff": 3.6973290016791722,
+   "keff_published": 3.69733
+  },
+  {
+   "image": "EllipsePack/00751.jpg",
+   "ks": 50.0,
+   "keff": 8.677263391643404,
+   "keff_published": 8.677268
+  },
+  {
+   "image": "EllipsePack/00751.jpg",
+   "ks": 100.0,
+   "keff": 11.327197280096847,
+   "keff_published": 11.327207
+  },
+  {
+   "image": "EllipsePack/00751.jpg",
+   "ks": 341.7,
+   "keff": 15.022039483057725,
+   "keff_published": 15.022048
+  },
+  {
+   "image": "EllipsePack/00782.jpg",
+   "ks": 10.0,
+   "keff": 3.0384665671248743,
+   "keff_published": 3.038467
+  },
+  {
+   "image": "EllipsePack/00782.jpg",
+   "ks": 50.0,
+   "keff": 5.872783161087105,
+   "keff_published": 5.87279
+  },
+  {
+   "image": "EllipsePack/00782.jpg",
+   "ks": 100.0,
+   "keff": 6.965744407101706,
+   "keff_published": 6.965761
+  },
+  {
+   "image": "EllipsePack/00782.jpg",
+   "ks": 341.7,
+   "keff": 8.177229049872665,
+   "keff_published": 8.17729
+  },
+  {
+   "image": "EllipsePack/00812.jpg",
+   "ks": 10.0,
+   "keff": 5.268285710299965,
+   "keff_published": 5.268286
+  },
+  {
+   "image": "EllipsePack/00812.jpg",
+   "ks": 50.0,
+   "keff": 18.41376561263316,
+   "keff_published": 18.413767
+  },
+  {
+   "image": "EllipsePack/00812.jpg",
+   "ks": 100.0,
+   "keff": 32.14070677080757,
+   "keff_published": 32.14071
+  },
+  {
+   "image": "EllipsePack/00812.jpg",
+   "ks": 341.7,
+   "keff": 91.55308272344737,
+   "keff_published": 91.553104
+  },
+  {
+   "image": "EllipsePack/00869.jpg",
+   "ks": 10.0,
+   "keff": 1.8840957616320382,
+   "keff_published": 1.884096
+  },
+  {
+   "image": "EllipsePack/00869.jpg",
+   "ks": 50.0,
+   "keff": 2.523361854011836,
+   "keff_published": 2.523365
+  },
+  {
+   "image": "EllipsePack/00869.jpg",
+   "ks": 100.0,
+   "keff": 2.6686594433661384,
+   "keff_published": 2.668667
+  },
+  {
+   "image": "EllipsePack/00869.jpg",
+   "ks": 341.7,
+   "keff": 2.789620110757121,
+   "keff_published": 2.791048
+  },
+  {
+   "image": "EllipsePack/00902.jpg",
+   "ks": 10.0,
+   "keff": 2.137300905504903,
+   "keff_published": 2.137301
+  },
+  {
+   "image": "EllipsePack/00902.jpg",
+   "ks": 50.0,
+   "keff": 2.9277041184453596,
+   "keff_published": 2.927705
+  },
+  {
+   "image": "EllipsePack/00902.jpg",
+   "ks": 100.0,
+   "keff": 3.109851081116379,
+   "keff_published": 3.109854
+  },
+  {
+   "image": "EllipsePack/00902.jpg",
+   "ks": 341.7,
+   "keff": 3.2644067344266823,
+   "keff_published": 3.264433
+  },
+  {
+   "image": "EllipsePack/00961.jpg",
+   "ks": 10.0,
+   "keff": 1.8080120986982542,
+   "keff_published": 1.808012
+  },
+  {
+   "image": "EllipsePack/00961.jpg",
+   "ks": 50.0,
+   "keff": 2.5404633848853404,
+   "keff_published": 2.540465
+  },
+  {
+   "image": "EllipsePack/00961.jpg",
+   "ks": 100.0,
+   "keff": 2.7298427944475825,
+   "keff_published": 2.729846
+  },
+  {
+   "image": "EllipsePack/00961.jpg",
+   "ks": 341.7,
+   "keff": 2.8958646241510193,
+   "keff_published": 2.895993
+  },
+  {
+   "image": "EllipsePack/00995.jpg",
+   "ks": 10.0,
+   "keff": 1.7197619907164818,
+   "keff_published": 1.719762
+  },
+  {
+   "image": "EllipsePack/00995.jpg",
+   "ks": 50.0,
+   "keff": 2.1228795309636457,
+   "keff_published": 2.12288
+  },
+  {
+   "image": "EllipsePack/00995.jpg",
+   "ks": 100.0,
+   "keff": 2.220485775456619,
+   "keff_published": 2.220487
+  },
+  {
+   "image": "EllipsePack/00995.jpg",
+   "ks": 341.7,
+   "keff": 2.312764973529565,
+   "keff_published": 2.312885
+  },
+  {
+   "image": "EllipsePack/00998.jpg",
+   "ks": 10.0,
+   "keff": 4.417027654151124,
+   "keff_published": 4.417028
+  },
+  {
+   "image": "EllipsePack/00998.jpg",
+   "ks": 50.0,
+   "keff": 12.956297155666793,
+   "keff_published": 12.956302
+  },
+  {
+   "image": "EllipsePack/00998.jpg",
+   "ks": 100.0,
+   "keff": 21.156962582625255,
+   "keff_published": 21.15697
+  },
+  {
+   "image": "EllipsePack/00998.jpg",
+   "ks": 341.7,
+   "keff": 55.7433222830139,
+   "keff_published": 55.74334
+  },
+  {
+   "image": "EllipsePack/00999.jpg",
+   "ks": 10.0,
+   "keff": 4.98608725342675,
+   "keff_published": 4.986087
+  },
+  {
+   "image": "EllipsePack/00999.jpg",
+   "ks": 50.0,
+   "keff": 16.164944933514032,
+   "keff_published": 16.164945
+  },
+  {
+   "image": "EllipsePack/00999.jpg",
+   "ks": 100.0,
+   "keff": 27.517028350894332,
+   "keff_published": 27.517029
+  },
+  {
+   "image": "EllipsePack/00999.jpg",
+   "ks": 341.7,
+   "keff": 75.85424516595904,
+   "keff_published": 75.854271
+  },
+  {
+   "image": "QSGS/00015.jpg",
+   "ks": 10.0,
+   "keff": 1.2074822093279967,
+   "keff_published": 1.207482
+  },
+  {
+   "image": "QSGS/00015.jpg",
+   "ks": 50.0,
+   "keff": 1.3003186186721272,
+   "keff_published": 1.300319
+  },
+  {
+   "image": "QSGS/00015.jpg",
+   "ks": 100.0,
+   "keff": 1.3231078390064992,
+   "keff_published": 1.323109
+  },
+  {
+   "image": "QSGS/00015.jpg",
+   "ks": 341.7,
+   "keff": 1.3446336746553325,
+   "keff_published": 1.344663
+  },
+  {
+   "image": "QSGS/00024.jpg",
+   "ks": 10.0,
+   "keff": 1.2059079371356118,
+   "keff_published": 1.205908
+  },
+  {
+   "image": "QSGS/00024.jpg",
+   "ks": 50.0,
+   "keff": 1.3029547675605824,
+   "keff_published": 1.302955
+  },
+  {
+   "image": "QSGS/00024.jpg",
+   "ks": 100.0,
+   "keff": 1.3288208932029864,
+   "keff_published": 1.328821
+  },
+  {
+   "image": "QSGS/00024.jpg",
+   "ks": 341.7,
+   "keff": 1.354523075193526,
+   "keff_published": 1.354524
+  },
+  {
+   "image": "QSGS/00039.jpg",
+   "ks": 10.0,
+   "keff": 1.2063573124089473,
+   "keff_published": 1.206357
+  },
+  {
+   "image": "QSGS/00039.jpg",
+   "ks": 50.0,
+   "keff": 1.2987329634091282,
+   "keff_published": 1.298733
+  },
+  {
+   "image": "QSGS/00039.jpg",
+   "ks": 100.0,
+   "keff": 1.3208602772897071,
+   "keff_published": 1.320861
+  },
+  {
+   "image": "QSGS/00039.jpg",
+   "ks": 341.7,
+   "keff": 1.3407984500185872,
+   "keff_published": 1.3408
+  },
+  {
+   "image": "QSGS/00042.jpg",
+   "ks": 10.0,
+   "keff": 1.2110588641126565,
+   "keff_published": 1.211059
+  },
+  {
+   "image": "QSGS/00042.jpg",
+   "ks": 50.0,
+   "keff": 1.3081473194896338,
+   "keff_published": 1.308147
+  },
+  {
+   "image": "QSGS/00042.jpg",
+   "ks": 100.0,
+   "keff": 1.3308780304318573,
+   "keff_published": 1.330878
+  },
+  {
+   "image": "QSGS/00042.jpg",
+   "ks": 341.7,
+   "keff": 1.3507369936796718,
+   "keff_published": 1.350737
+  },
+  {
+   "image": "QSGS/00063.jpg",
+   "ks": 10.0,
+   "keff": 1.202589745209146,
+   "keff_published": 1.20259
+  },
+  {
+   "image": "QSGS/00063.jpg",
+   "ks": 50.0,
+   "keff": 1.2878069647281971,
+   "keff_published": 1.287807
+  },
+  {
+   "image": "QSGS/00063.jpg",
+   "ks": 100.0,
+   "keff": 1.3072863683758387,
+   "keff_published": 1.307287
+  },
+  {
+   "image": "QSGS/00063.jpg",
+   "ks": 341.7,
+   "keff": 1.32438792299954,
+   "keff_published": 1.324389
+  },
+  {
+   "image": "QSGS/00111.jpg",
+   "ks": 10.0,
+   "keff": 1.2283882113096747,
+   "keff_published": 1.228388
+  },
+  {
+   "image": "QSGS/00111.jpg",
+   "ks": 50.0,
+   "keff": 1.3520280509993767,
+   "keff_published": 1.352028
+  },
+  {
+   "image": "QSGS/00111.jpg",
+   "ks": 100.0,
+   "keff": 1.383807935529751,
+   "keff_published": 1.383808
+  },
+  {
+   "image": "QSGS/00111.jpg",
+   "ks": 341.7,
+   "keff": 1.4127739068961787,
+   "keff_published": 1.412776
+  },
+  {
+   "image": "QSGS/00142.jpg",
+   "ks": 10.0,
+   "keff": 1.2128561855257458,
+   "keff_published": 1.212856
+  },
+  {
+   "image": "QSGS/00142.jpg",
+   "ks": 50.0,
+   "keff": 1.3185079699986038,
+   "keff_published": 1.318508
+  },
+  {
+   "image": "QSGS/00142.jpg",
+   "ks": 100.0,
+   "keff": 1.3451602999646615,
+   "keff_published": 1.34516
+  },
+  {
+   "image": "QSGS/00142.jpg",
+   "ks": 341.7,
+   "keff": 1.3694168534996458,
+   "keff_published": 1.369417
+  },
+  {
+   "image": "QSGS/00170.jpg",
+   "ks": 10.0,
+   "keff": 1.2197480450888247,
+   "keff_published": 1.219748
+  },
+  {
+   "image": "QSGS/00170.jpg",
+   "ks": 50.0,
+   "keff": 1.3243357875416535,
+   "keff_published": 1.324336
+  },
+  {
+   "image": "QSGS/00170.jpg",
+   "ks": 100.0,
+   "keff": 1.3489065721090312,
+   "keff_published": 1.348907
+  },
+  {
+   "image": "QSGS/00170.jpg",
+   "ks": 341.7,
+   "keff": 1.3706618657834513,
+   "keff_published": 1.370662
+  },
+  {
+   "image": "QSGS/00223.jpg",
+   "ks": 10.0,
+   "keff": 1.2007018733717856,
+   "keff_published": 1.200702
+  },
+  {
+   "image": "QSGS/00223.jpg",
+   "ks": 50.0,
+   "keff": 1.2876035226262834,
+   "keff_published": 1.287604
+  },
+  {
+   "image": "QSGS/00223.jpg",
+   "ks": 100.0,
+   "keff": 1.3080088861890247,
+   "keff_published": 1.30801
+  },
+  {
+   "image": "QSGS/00223.jpg",
+   "ks": 341.7,
+   "keff": 1.3260409172648062,
+   "keff_published": 1.326049
+  },
+  {
+   "image": "QSGS/00301.jpg",
+   "ks": 10.0,
+   "keff": 1.299819642502781,
+   "keff_published": 1.29982
+  },
+  {
+   "image": "QSGS/00301.jpg",
+   "ks": 50.0,
+   "keff": 1.4467827676848681,
+   "keff_published": 1.446783
+  },
+  {
+   "image": "QSGS/00301.jpg",
+   "ks": 100.0,
+   "keff": 1.483679006131317,
+   "keff_published": 1.48368
+  },
+  {
+   "image": "QSGS/00301.jpg",
+   "ks": 341.7,
+   "keff": 1.5174261964590747,
+   "keff_published": 1.517473
+  },
+  {
+   "image": "QSGS/00310.jpg",
+   "ks": 10.0,
+   "keff": 1.3128565547595972,
+   "keff_published": 1.312857
+  },
+  {
+   "image": "QSGS/00310.jpg",
+   "ks": 50.0,
+   "keff": 1.4884677561236532,
+   "keff_published": 1.488468
+  },
+  {
+   "image": "QSGS/00310.jpg",
+   "ks": 100.0,
+   "keff": 1.537874866943793,
+   "keff_published": 1.537875
+  },
+  {
+   "image": "QSGS/00310.jpg",
+   "ks": 341.7,
+   "keff": 1.5861594654486075,
+   "keff_published": 1.58616
+  },
+  {
+   "image": "QSGS/00379.jpg",
+   "ks": 10.0,
+   "keff": 1.3132348357074157,
+   "keff_published": 1.313235
+  },
+  {
+   "image": "QSGS/00379.jpg",
+   "ks": 50.0,
+   "keff": 1.4767003910323833,
+   "keff_published": 1.476701
+  },
+  {
+   "image": "QSGS/00379.jpg",
+   "ks": 100.0,
+   "keff": 1.520168249806006,
+   "keff_published": 1.520169
+  },
+  {
+   "image": "QSGS/00379.jpg",
+   "ks": 341.7,
+   "keff": 1.5622295962067825,
+   "keff_published": 1.562236
+  },
+  {
+   "image": "QSGS/00390.jpg",
+   "ks": 10.0,
+   "keff": 1.3208129670329636,
+   "keff_published": 1.320813
+  },
+  {
+   "image": "QSGS/00390.jpg",
+   "ks": 50.0,
+   "keff": 1.5010793805344713,
+   "keff_published": 1.50108
+  },
+  {
+   "image": "QSGS/00390.jpg",
+   "ks": 100.0,
+   "keff": 1.550802359990326,
+   "keff_published": 1.550803
+  },
+  {
+   "image": "QSGS/00390.jpg",
+   "ks": 341.7,
+   "keff": 1.5992248616771194,
+   "keff_published": 1.599249
+  },
+  {
+   "image": "QSGS/00402.jpg",
+   "ks": 10.0,
+   "keff": 1.3270944462088061,
+   "keff_published": 1.327094
+  },
+  {
+   "image": "QSGS/00402.jpg",
+   "ks": 50.0,
+   "keff": 1.522511147452398,
+   "keff_published": 1.522511
+  },
+  {
+   "image": "QSGS/00402.jpg",
+   "ks": 100.0,
+   "keff": 1.5794267785147742,
+   "keff_published": 1.579427
+  },
+  {
+   "image": "QSGS/00402.jpg",
+   "ks": 341.7,
+   "keff": 1.63694805130162,
+   "keff_published": 1.636955
+  },
+  {
+   "image": "QSGS/00517.jpg",
+   "ks": 10.0,
+   "keff": 1.4520572513541339,
+   "keff_published": 1.452057
+  },
+  {
+   "image": "QSGS/00517.jpg",
+   "ks": 50.0,
+   "keff": 1.7620087081636968,
+   "keff_published": 1.762009
+  },
+  {
+   "image": "QSGS/00517.jpg",
+   "ks": 100.0,
+   "keff": 1.8660047712463417,
+   "keff_published": 1.866006
+  },
+  {
+   "image": "QSGS/00517.jpg",
+   "ks": 341.7,
+   "keff": 1.985771889429266,
+   "keff_published": 1.985782
+  },
+  {
+   "image": "QSGS/00577.jpg",
+   "ks": 10.0,
+   "keff": 1.453031962871208,
+   "keff_published": 1.453032
+  },
+  {
+   "image": "QSGS/00577.jpg",
+   "ks": 50.0,
+   "keff": 1.736993234092422,
+   "keff_published": 1.736993
+  },
+  {
+   "image": "QSGS/00577.jpg",
+   "ks": 100.0,
+   "keff": 1.8198333858660773,
+   "keff_published": 1.819834
+  },
+  {
+   "image": "QSGS/00577.jpg",
+   "ks": 341.7,
+   "keff": 1.904649789805906,
+   "keff_published": 1.904657
+  },
+  {
+   "image": "QSGS/00670.jpg",
+   "ks": 10.0,
+   "keff": 1.4513557587665404,
+   "keff_published": 1.451356
+  },
+  {
+   "image": "QSGS/00670.jpg",
+   "ks": 50.0,
+   "keff": 1.7165851609382843,
+   "keff_published": 1.716586
+  },
+  {
+   "image": "QSGS/00670.jpg",
+   "ks": 100.0,
+   "keff": 1.7894757843233686,
+   "keff_published": 1.789476
+  },
+  {
+   "image": "QSGS/00670.jpg",
+   "ks": 341.7,
+   "keff": 1.8613790178763945,
+   "keff_published": 1.861379
+  },
+  {
+   "image": "QSGS/00681.jpg",
+   "ks": 10.0,
+   "keff": 1.4554332812079362,
+   "keff_published": 1.455433
+  },
+  {
+   "image": "QSGS/00681.jpg",
+   "ks": 50.0,
+   "keff": 1.7603833082809683,
+   "keff_published": 1.760383
+  },
+  {
+   "image": "QSGS/00681.jpg",
+   "ks": 100.0,
+   "keff": 1.854888467481151,
+   "keff_published": 1.854889
+  },
+  {
+   "image": "QSGS/00681.jpg",
+   "ks": 341.7,
+   "keff": 1.9529214324587159,
+   "keff_published": 1.952925
+  },
+  {
+   "image": "QSGS/00821.jpg",
+   "ks": 10.0,
+   "keff": 1.5553287506534046,
+   "keff_published": 1.555329
+  },
+  {
+   "image": "QSGS/00821.jpg",
+   "ks": 50.0,
+   "keff": 1.9183100466009466,
+   "keff_published": 1.918311
+  },
+  {
+   "image": "QSGS/00821.jpg",
+   "ks": 100.0,
+   "keff": 2.0269882204104954,
+   "keff_published": 2.026989
+  },
+  {
+   "image": "QSGS/00821.jpg",
+   "ks": 341.7,
+   "keff": 2.137435266890919,
+   "keff_published": 2.137547
+  },
+  {
+   "image": "QSGS/00858.jpg",
+   "ks": 10.0,
+   "keff": 1.5758668201144344,
+   "keff_published": 1.575867
+  },
+  {
+   "image": "QSGS/00858.jpg",
+   "ks": 50.0,
+   "keff": 2.0131274754012916,
+   "keff_published": 2.013128
+  },
+  {
+   "image": "QSGS/00858.jpg",
+   "ks": 100.0,
+   "keff": 2.1763217567566824,
+   "keff_published": 2.176323
+  },
+  {
+   "image": "QSGS/00858.jpg",
+   "ks": 341.7,
+   "keff": 2.3850580724018204,
+   "keff_published": 2.385075
+  },
+  {
+   "image": "QSGS/00868.jpg",
+   "ks": 10.0,
+   "keff": 1.5749196905492924,
+   "keff_published": 1.57492
+  },
+  {
+   "image": "QSGS/00868.jpg",
+   "ks": 50.0,
+   "keff": 1.9584428288254188,
+   "keff_published": 1.958443
+  },
+  {
+   "image": "QSGS/00868.jpg",
+   "ks": 100.0,
+   "keff": 2.0784836501472124,
+   "keff_published": 2.078484
+  },
+  {
+   "image": "QSGS/00868.jpg",
+   "ks": 341.7,
+   "keff": 2.210074756447305,
+   "keff_published": 2.210076
+  },
+  {
+   "image": "QSGS/00897.jpg",
+   "ks": 10.0,
+   "keff": 1.5194010471274069,
+   "keff_published": 1.519401
+  },
+  {
+   "image": "QSGS/00897.jpg",
+   "ks": 50.0,
+   "keff": 1.7924653519040292,
+   "keff_published": 1.792466
+  },
+  {
+   "image": "QSGS/00897.jpg",
+   "ks": 100.0,
+   "keff": 1.8609064251469063,
+   "keff_published": 1.860907
+  },
+  {
+   "image": "QSGS/00897.jpg",
+   "ks": 341.7,
+   "keff": 1.923088672998047,
+   "keff_published": 1.923103
+  },
+  {
+   "image": "QSGS/00930.jpg",
+   "ks": 10.0,
+   "keff": 1.585194849374873,
+   "keff_published": 1.585195
+  },
+  {
+   "image": "QSGS/00930.jpg",
+   "ks": 50.0,
+   "keff": 2.0102407549599315,
+   "keff_published": 2.010241
+  },
+  {
+   "image": "QSGS/00930.jpg",
+   "ks": 100.0,
+   "keff": 2.158112219797551,
+   "keff_published": 2.158113
+  },
+  {
+   "image": "QSGS/00930.jpg",
+   "ks": 341.7,
+   "keff": 2.3362791125919298,
+   "keff_published": 2.336307
+  },
+  {
+   "image": "QSGS/00982.jpg",
+   "ks": 10.0,
+   "keff": 1.5300898728578034,
+   "keff_published": 1.53009
+  },
+  {
+   "image": "QSGS/00982.jpg",
+   "ks": 50.0,
+   "keff": 1.8503894911633596,
+   "keff_published": 1.850391
+  },
+  {
+   "image": "QSGS/00982.jpg",
+   "ks": 100.0,
+   "keff": 1.94703641780765,
+   "keff_published": 1.947039
+  },
+  {
+   "image": "QSGS/00982.jpg",
+   "ks": 341.7,
+   "keff": 2.051091037586729,
+   "keff_published": 2.051373
+  },
+  {
+   "image": "QSGS/00995.jpg",
+   "ks": 10.0,
+   "keff": 1.5377280213212043,
+   "keff_published": 1.537728
+  },
+  {
+   "image": "QSGS/00995.jpg",
+   "ks": 50.0,
+   "keff": 1.8460439203567947,
+   "keff_published": 1.846045
+  },
+  {
+   "image": "QSGS/00995.jpg",
+   "ks": 100.0,
+   "keff": 1.9292825827667663,
+   "keff_published": 1.929285
+  },
+  {
+   "image": "QSGS/00995.jpg",
+   "ks": 341.7,
+   "keff": 2.0096885944167626,
+   "keff_published": 2.009902
+  },
+  {
+   "image": "QuadrilateralPack/00029.jpg",
+   "ks": 10.0,
+   "keff": 1.0572754827508217,
+   "keff_published": 1.057276
+  },
+  {
+   "image": "QuadrilateralPack/00029.jpg",
+   "ks": 50.0,
+   "keff": 1.0698051291989734,
+   "keff_published": 1.069805
+  },
+  {
+   "image": "QuadrilateralPack/00029.jpg",
+   "ks": 100.0,
+   "keff": 1.07160745258105,
+   "keff_published": 1.071608
+  },
+  {
+   "image": "QuadrilateralPack/00029.jpg",
+   "ks": 341.7,
+   "keff": 1.0729198575770775,
+   "keff_published": 1.07292
+  },
+  {
+   "image": "QuadrilateralPack/00031.jpg",
+   "ks": 10.0,
+   "keff": 1.773522281855764,
+   "keff_published": 1.773523
+  },
+  {
+   "image": "QuadrilateralPack/00031.jpg",
+   "ks": 50.0,
+   "keff": 2.2362457849191646,
+   "keff_published": 2.23625
+  },
+  {
+   "image": "QuadrilateralPack/00031.jpg",
+   "ks": 100.0,
+   "keff": 2.345108219603781,
+   "keff_published": 2.345116
+  },
+  {
+   "image": "QuadrilateralPack/00031.jpg",
+   "ks": 341.7,
+   "keff": 2.4380441445808465,
+   "keff_published": 2.447584
+  },
+  {
+   "image": "QuadrilateralPack/00047.jpg",
+   "ks": 10.0,
+   "keff": 5.540766025370423,
+   "keff_published": 5.540767
+  },
+  {
+   "image": "QuadrilateralPack/00047.jpg",
+   "ks": 50.0,
+   "keff": 19.91826169097124,
+   "keff_published": 19.918264
+  },
+  {
+   "image": "QuadrilateralPack/00047.jpg",
+   "ks": 100.0,
+   "keff": 34.080570068377185,
+   "keff_published": 34.080575
+  },
+  {
+   "image": "QuadrilateralPack/00047.jpg",
+   "ks": 341.7,
+   "keff": 92.39475588395018,
+   "keff_published": 92.39477
+  },
+  {
+   "image": "QuadrilateralPack/00112.jpg",
+   "ks": 10.0,
+   "keff": 2.536831436973295,
+   "keff_published": 2.536832
+  },
+  {
+   "image": "QuadrilateralPack/00112.jpg",
+   "ks": 50.0,
+   "keff": 3.893993478820505,
+   "keff_published": 3.894001
+  },
+  {
+   "image": "QuadrilateralPack/00112.jpg",
+   "ks": 100.0,
+   "keff": 4.243729277338081,
+   "keff_published": 4.243745
+  },
+  {
+   "image": "QuadrilateralPack/00112.jpg",
+   "ks": 341.7,
+   "keff": 4.547445310797641,
+   "keff_published": 4.547463
+  },
+  {
+   "image": "QuadrilateralPack/00118.jpg",
+   "ks": 10.0,
+   "keff": 1.8939396213675819,
+   "keff_published": 1.89394
+  },
+  {
+   "image": "QuadrilateralPack/00118.jpg",
+   "ks": 50.0,
+   "keff": 2.514559844023162,
+   "keff_published": 2.514566
+  },
+  {
+   "image": "QuadrilateralPack/00118.jpg",
+   "ks": 100.0,
+   "keff": 2.741951426446799,
+   "keff_published": 2.741966
+  },
+  {
+   "image": "QuadrilateralPack/00118.jpg",
+   "ks": 341.7,
+   "keff": 3.0408851902777783,
+   "keff_published": 3.042657
+  },
+  {
+   "image": "QuadrilateralPack/00132.jpg",
+   "ks": 10.0,
+   "keff": 1.7871793089541987,
+   "keff_published": 1.78718
+  },
+  {
+   "image": "QuadrilateralPack/00132.jpg",
+   "ks": 50.0,
+   "keff": 2.2057687250655924,
+   "keff_published": 2.205771
+  },
+  {
+   "image": "QuadrilateralPack/00132.jpg",
+   "ks": 100.0,
+   "keff": 2.2909345469181703,
+   "keff_published": 2.290939
+  },
+  {
+   "image": "QuadrilateralPack/00132.jpg",
+   "ks": 341.7,
+   "keff": 2.3593552382725322,
+   "keff_published": 2.365537
+  },
+  {
+   "image": "QuadrilateralPack/00144.jpg",
+   "ks": 10.0,
+   "keff": 2.1294367294184924,
+   "keff_published": 2.129437
+  },
+  {
+   "image": "QuadrilateralPack/00144.jpg",
+   "ks": 50.0,
+   "keff": 3.0674787880798973,
+   "keff_published": 3.06748
+  },
+  {
+   "image": "QuadrilateralPack/00144.jpg",
+   "ks": 100.0,
+   "keff": 3.3242556052088186,
+   "keff_published": 3.324256
+  },
+  {
+   "image": "QuadrilateralPack/00144.jpg",
+   "ks": 341.7,
+   "keff": 3.557791912639724,
+   "keff_published": 3.5578
+  },
+  {
+   "image": "QuadrilateralPack/00290.jpg",
+   "ks": 10.0,
+   "keff": 1.0319057543504826,
+   "keff_published": 1.031906
+  },
+  {
+   "image": "QuadrilateralPack/00290.jpg",
+   "ks": 50.0,
+   "keff": 1.039371529236998,
+   "keff_published": 1.039372
+  },
+  {
+   "image": "QuadrilateralPack/00290.jpg",
+   "ks": 100.0,
+   "keff": 1.0405203563272107,
+   "keff_published": 1.040522
+  },
+  {
+   "image": "QuadrilateralPack/00290.jpg",
+   "ks": 341.7,
+   "keff": 1.0413726231797527,
+   "keff_published": 1.041458
+  },
+  {
+   "image": "QuadrilateralPack/00291.jpg",
+   "ks": 10.0,
+   "keff": 4.724326197729686,
+   "keff_published": 4.724326
+  },
+  {
+   "image": "QuadrilateralPack/00291.jpg",
+   "ks": 50.0,
+   "keff": 15.76703154225501,
+   "keff_published": 15.767032
+  },
+  {
+   "image": "QuadrilateralPack/00291.jpg",
+   "ks": 100.0,
+   "keff": 26.896833817851768,
+   "keff_published": 26.896838
+  },
+  {
+   "image": "QuadrilateralPack/00291.jpg",
+   "ks": 341.7,
+   "keff": 73.49074053047649,
+   "keff_published": 73.490776
+  },
+  {
+   "image": "QuadrilateralPack/00309.jpg",
+   "ks": 10.0,
+   "keff": 4.967086844300374,
+   "keff_published": 4.967087
+  },
+  {
+   "image": "QuadrilateralPack/00309.jpg",
+   "ks": 50.0,
+   "keff": 12.086875312905796,
+   "keff_published": 12.086883
+  },
+  {
+   "image": "QuadrilateralPack/00309.jpg",
+   "ks": 100.0,
+   "keff": 15.280329133889374,
+   "keff_published": 15.28035
+  },
+  {
+   "image": "QuadrilateralPack/00309.jpg",
+   "ks": 341.7,
+   "keff": 18.989298269431274,
+   "keff_published": 18.989381
+  },
+  {
+   "image": "QuadrilateralPack/00322.jpg",
+   "ks": 10.0,
+   "keff": 2.8316950147652267,
+   "keff_published": 2.831696
+  },
+  {
+   "image": "QuadrilateralPack/00322.jpg",
+   "ks": 50.0,
+   "keff": 4.36474868253661,
+   "keff_published": 4.364751
+  },
+  {
+   "image": "QuadrilateralPack/00322.jpg",
+   "ks": 100.0,
+   "keff": 4.768174788383459,
+   "keff_published": 4.768183
+  },
+  {
+   "image": "QuadrilateralPack/00322.jpg",
+   "ks": 341.7,
+   "keff": 5.127406892128789,
+   "keff_published": 5.12744
+  },
+  {
+   "image": "QuadrilateralPack/00339.jpg",
+   "ks": 10.0,
+   "keff": 3.681987065870957,
+   "keff_published": 3.681987
+  },
+  {
+   "image": "QuadrilateralPack/00339.jpg",
+   "ks": 50.0,
+   "keff": 9.251327666130187,
+   "keff_published": 9.251332
+  },
+  {
+   "image": "QuadrilateralPack/00339.jpg",
+   "ks": 100.0,
+   "keff": 12.351901597166037,
+   "keff_published": 12.351913
+  },
+  {
+   "image": "QuadrilateralPack/00339.jpg",
+   "ks": 341.7,
+   "keff": 16.60346814195283,
+   "keff_published": 16.604597
+  },
+  {
+   "image": "QuadrilateralPack/00348.jpg",
+   "ks": 10.0,
+   "keff": 2.1396112228305677,
+   "keff_published": 2.139613
+  },
+  {
+   "image": "QuadrilateralPack/00348.jpg",
+   "ks": 50.0,
+   "keff": 2.5600598634759058,
+   "keff_published": 2.56007
+  },
+  {
+   "image": "QuadrilateralPack/00348.jpg",
+   "ks": 100.0,
+   "keff": 2.6406730775433322,
+   "keff_published": 2.640695
+  },
+  {
+   "image": "QuadrilateralPack/00348.jpg",
+   "ks": 341.7,
+   "keff": 2.706842318765875,
+   "keff_published": 2.706921
+  },
+  {
+   "image": "QuadrilateralPack/00373.jpg",
+   "ks": 10.0,
+   "keff": 5.620752754094722,
+   "keff_published": 5.620753
+  },
+  {
+   "image": "QuadrilateralPack/00373.jpg",
+   "ks": 50.0,
+   "keff": 23.516184984946616,
+   "keff_published": 23.516186
+  },
+  {
+   "image": "QuadrilateralPack/00373.jpg",
+   "ks": 100.0,
+   "keff": 45.42647424159052,
+   "keff_published": 45.426477
+  },
+  {
+   "image": "QuadrilateralPack/00373.jpg",
+   "ks": 341.7,
+   "keff": 150.89665620397824,
+   "keff_published": 150.896665
+  },
+  {
+   "image": "QuadrilateralPack/00425.jpg",
+   "ks": 10.0,
+   "keff": 1.4744621407000644,
+   "keff_published": 1.474462
+  },
+  {
+   "image": "QuadrilateralPack/00425.jpg",
+   "ks": 50.0,
+   "keff": 1.66235396965276,
+   "keff_published": 1.662356
+  },
+  {
+   "image": "QuadrilateralPack/00425.jpg",
+   "ks": 100.0,
+   "keff": 1.696588871682997,
+   "keff_published": 1.696593
+  },
+  {
+   "image": "QuadrilateralPack/00425.jpg",
+   "ks": 341.7,
+   "keff": 1.7231193153591278,
+   "keff_published": 1.726779
+  },
+  {
+   "image": "QuadrilateralPack/00628.jpg",
+   "ks": 10.0,
+   "keff": 1.560930392360532,
+   "keff_published": 1.560931
+  },
+  {
+   "image": "QuadrilateralPack/00628.jpg",
+   "ks": 50.0,
+   "keff": 1.7306581433022359,
+   "keff_published": 1.73066
+  },
+  {
+   "image": "QuadrilateralPack/00628.jpg",
+   "ks": 100.0,
+   "keff": 1.7572427135738085,
+   "keff_published": 1.757275
+  },
+  {
+   "image": "QuadrilateralPack/00628.jpg",
+   "ks": 341.7,
+   "keff": 1.77699507610301,
+   "keff_published": 1.791084
+  },
+  {
+   "image": "QuadrilateralPack/00692.jpg",
+   "ks": 10.0,
+   "keff": 1.5780788576999665,
+   "keff_published": 1.578079
+  },
+  {
+   "image": "QuadrilateralPack/00692.jpg",
+   "ks": 50.0,
+   "keff": 1.8420376770454978,
+   "keff_published": 1.842039
+  },
+  {
+   "image": "QuadrilateralPack/00692.jpg",
+   "ks": 100.0,
+   "keff": 1.8957708765681367,
+   "keff_published": 1.895773
+  },
+  {
+   "image": "QuadrilateralPack/00692.jpg",
+   "ks": 341.7,
+   "keff": 1.9404865143010146,
+   "keff_published": 1.941597
+  },
+  {
+   "image": "QuadrilateralPack/00755.jpg",
+   "ks": 10.0,
+   "keff": 1.4800440409635904,
+   "keff_published": 1.480044
+  },
+  {
+   "image": "QuadrilateralPack/00755.jpg",
+   "ks": 50.0,
+   "keff": 1.6664631315832963,
+   "keff_published": 1.666465
+  },
+  {
+   "image": "QuadrilateralPack/00755.jpg",
+   "ks": 100.0,
+   "keff": 1.700990333363156,
+   "keff_published": 1.700996
+  },
+  {
+   "image": "QuadrilateralPack/00755.jpg",
+   "ks": 341.7,
+   "keff": 1.727984326806236,
+   "keff_published": 1.736117
+  },
+  {
+   "image": "QuadrilateralPack/00766.jpg",
+   "ks": 10.0,
+   "keff": 5.402186657676326,
+   "keff_published": 5.402187
+  },
+  {
+   "image": "QuadrilateralPack/00766.jpg",
+   "ks": 50.0,
+   "keff": 21.954254869402256,
+   "keff_published": 21.954263
+  },
+  {
+   "image": "QuadrilateralPack/00766.jpg",
+   "ks": 100.0,
+   "keff": 42.18806998674634,
+   "keff_published": 42.188091
+  },
+  {
+   "image": "QuadrilateralPack/00766.jpg",
+   "ks": 341.7,
+   "keff": 139.5768754705348,
+   "keff_published": 139.576959
+  },
+  {
+   "image": "QuadrilateralPack/00790.jpg",
+   "ks": 10.0,
+   "keff": 1.2928888080605228,
+   "keff_published": 1.292889
+  },
+  {
+   "image": "QuadrilateralPack/00790.jpg",
+   "ks": 50.0,
+   "keff": 1.3721121934009357,
+   "keff_published": 1.372113
+  },
+  {
+   "image": "QuadrilateralPack/00790.jpg",
+   "ks": 100.0,
+   "keff": 1.3843073208117773,
+   "keff_published": 1.384309
+  },
+  {
+   "image": "QuadrilateralPack/00790.jpg",
+   "ks": 341.7,
+   "keff": 1.3933329997210806,
+   "keff_published": 1.393339
+  },
+  {
+   "image": "QuadrilateralPack/00880.jpg",
+   "ks": 10.0,
+   "keff": 1.4532452283059745,
+   "keff_published": 1.453245
+  },
+  {
+   "image": "QuadrilateralPack/00880.jpg",
+   "ks": 50.0,
+   "keff": 1.6242385289488623,
+   "keff_published": 1.62424
+  },
+  {
+   "image": "QuadrilateralPack/00880.jpg",
+   "ks": 100.0,
+   "keff": 1.6546923956055148,
+   "keff_published": 1.654695
+  },
+  {
+   "image": "QuadrilateralPack/00880.jpg",
+   "ks": 341.7,
+   "keff": 1.6782415494390628,
+   "keff_published": 1.679871
+  },
+  {
+   "image": "QuadrilateralPack/00929.jpg",
+   "ks": 10.0,
+   "keff": 1.8034244044491912,
+   "keff_published": 1.803425
+  },
+  {
+   "image": "QuadrilateralPack/00929.jpg",
+   "ks": 50.0,
+   "keff": 2.1817465126344606,
+   "keff_published": 2.181748
+  },
+  {
+   "image": "QuadrilateralPack/00929.jpg",
+   "ks": 100.0,
+   "keff": 2.2540426448857778,
+   "keff_published": 2.25405
+  },
+  {
+   "image": "QuadrilateralPack/00929.jpg",
+   "ks": 341.7,
+   "keff": 2.3109821572809697,
+   "keff_published": 2.318069
+  },
+  {
+   "image": "QuadrilateralPack/00964.jpg",
+   "ks": 10.0,
+   "keff": 1.951451995020922,
+   "keff_published": 1.951452
+  },
+  {
+   "image": "QuadrilateralPack/00964.jpg",
+   "ks": 50.0,
+   "keff": 2.5559224756906733,
+   "keff_published": 2.555924
+  },
+  {
+   "image": "QuadrilateralPack/00964.jpg",
+   "ks": 100.0,
+   "keff": 2.7204803501919868,
+   "keff_published": 2.720492
+  },
+  {
+   "image": "QuadrilateralPack/00964.jpg",
+   "ks": 341.7,
+   "keff": 2.8744517388219335,
+   "keff_published": 2.877451
+  },
+  {
+   "image": "QuadrilateralPack/00985.jpg",
+   "ks": 10.0,
+   "keff": 1.7730578118535205,
+   "keff_published": 1.773058
+  },
+  {
+   "image": "QuadrilateralPack/00985.jpg",
+   "ks": 50.0,
+   "keff": 2.096427264492984,
+   "keff_published": 2.09643
+  },
+  {
+   "image": "QuadrilateralPack/00985.jpg",
+   "ks": 100.0,
+   "keff": 2.154195631187484,
+   "keff_published": 2.1542
+  },
+  {
+   "image": "QuadrilateralPack/00985.jpg",
+   "ks": 341.7,
+   "keff": 2.198742832564742,
+   "keff_published": 2.199411
+  },
+  {
+   "image": "QuadrilateralPack/00986.jpg",
+   "ks": 10.0,
+   "keff": 1.221189204706839,
+   "keff_published": 1.221189
+  },
+  {
+   "image": "QuadrilateralPack/00986.jpg",
+   "ks": 50.0,
+   "keff": 1.285938821089446,
+   "keff_published": 1.285939
+  },
+  {
+   "image": "QuadrilateralPack/00986.jpg",
+   "ks": 100.0,
+   "keff": 1.2960456815684425,
+   "keff_published": 1.296047
+  },
+  {
+   "image": "QuadrilateralPack/00986.jpg",
+   "ks": 341.7,
+   "keff": 1.3035497194142587,
+   "keff_published": 1.303904
+  }
+ ]
+}

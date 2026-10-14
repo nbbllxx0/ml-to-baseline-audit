@@ -1,0 +1,88 @@
+{
+  "pid": "P00034",
+  "citation": {
+    "title": "Transformer-based Topology Optimization",
+    "authors": "Aaron Lutheran, Srijan Das, Alireza Tabarraei",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.CE)",
+    "doi": "10.48550/arxiv.2509.05800",
+    "arxiv_id": "2509.05800",
+    "version_coded": "arXiv v2 (17 Sep 2025; latest of 2 versions on the abs page), PDF downloaded directly from arxiv.org, 14 pages, read in full including references."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (this coder has no access to the title/abstract screening record; assigned from full text, where Section 5 states explicit speedup factors against the classical optimization process)",
+    "stratum": "speed",
+    "method_family": "transformer",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A Vision Transformer trained on stress/strain-density input fields directly predicts an optimized 64x64 topology in one forward pass. For static compliance optimization, the classical SIMP+MMA process averages 66 s versus about 2 s for the transformer (a stated 33x speedup) at a 1.88% average compliance-error increase (ViT-Small, the best-performing size). For dynamic optimization, the classical process averages 8900 s versus the same ~2 s sampling time (a stated 4,450x speedup) at a 4.81% compliance-error increase and a high 48% floating-material rate.",
+    "key_phrase": "This represents a 33 times speedup for an average compliance error increase of 1.88%",
+    "location": "Section 5 'Results and Analysis' (main text); the Abstract and Conclusion (Section 6) state the same comparison only qualitatively ('approaches the fidelity of diffusion-based models', 'substantial inference-time efficiency gains')",
+    "quantitative": true,
+    "claimed_speedup": 33,
+    "claimed_speedup_basis": "Explicitly stated by the authors in Section 5, from 66 s (classical, static, average) versus about 2 s (transformer, static): 'This represents a 33 times speedup for an average compliance error increase of 1.88%.' Not a coder-derived ratio.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Dynamic case (Section 5): classical 8900 s vs ~2 s, explicitly stated as 'a speedup of 4,450 times, significantly higher than the static optimization, at the cost of roughly 4.81% increased compliance error' and a 48.0% floating-material rate (Table 3). Table 2 also compares all 5 ViT sizes and the ViT-Small model against TopoDiff (a diffusion-based ML method, not classical) on compliance error, volume-fraction error, load discrepancy and floating material; ViT-Small has lower mean/median compliance error than TopoDiff (1.88%/0.39% vs 4.39%/2.56%) but worse load discrepancy (3.8% vs 0.0%) and floating material (12.2% vs 5.54%) -- an ML-vs-ML comparison, not a classical one, so not itself a primary-outcome candidate."
+  },
+  "baseline": {
+    "classical_method": "SIMP (density-based topology optimization) with Method of Moving Asymptotes (MMA) updates for the static case (Section 2.1, Eqs. 1-7); the dynamic case additionally solves the transient finite-element equation of motion with Rayleigh damping and updates the design once per full time-history sensitivity computation (Section 2.2, Eqs. 8-16).",
+    "implementation": "Not stated (no code, library, or specific in-house/published implementation is named for the classical TO runs used to build the dataset or for the reported 66 s / 8900 s timings).",
+    "solver": "Not stated (the static equilibrium Ku=f and the dynamic equation of motion are given, Eqs. 1 and 8, but no solver type -- direct, iterative, sparse, dense -- is specified).",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "64x64-element square domain, single unit-magnitude boundary load at one of 6 angles, 1-4 boundary conditions from 16 possible node/node-set choices, volume fraction randomly in [30%, 50%] (Section 4.1); patchified into 64 tokens of 8x8 for the transformer (Section 4.2).",
+    "classical_iterations": "Not stated (no iteration count or convergence-tolerance value is given for the runs used to generate the 66 s / 8900 s average timings; Eq. 7 gives only the general relative-compliance stopping-criterion form with an unspecified tolerance).",
+    "classical_time": "66 s on average (static, Section 5); 8900 s on average (dynamic, Section 5).",
+    "ml_time": "About 2 s for a single forward-pass sample, stated as the same for both static and dynamic models 'because the model architecture remains mostly the same' (Section 5).",
+    "training_time": "Not stated in wall-clock terms: each model is trained for 800,000 iterations at batch size 256 (Section 5); no training duration or hardware is given, for either the static training run or the dynamic fine-tuning runs.",
+    "data_generation_cost": "Not stated as a total. 60,000 static samples and about 6,000 dynamic samples were generated by running the classical process of Sections 2.1/2.2 with randomized loads, boundary conditions and volume fractions (Section 4.1, 4.4); no aggregate data-generation wall-clock time is given or discussed anywhere in the article. Using the article's own stated average per-sample classical times (66 s static; 8900 s dynamic), generating the training sets alone implies on the order of 60,000 x 66 s = 1.1x10^6 s (~458 core-hours [derived]) for the static set and 6,000 x 8900 s = 5.34x10^7 s (~14,833 core-hours [derived]) for the dynamic set -- neither figure appears in the paper.",
+    "quality_metric": "Compliance error (average relative difference from the ground-truth optimized topology's compliance, obtained by evaluating the model's predicted density field), Volume Fraction Error, Load Discrepancy, and Floating Material percentage (via a differentiable connected-components check, Kornia, Eq. 25); plus 'Compliance Error Above 30%' as an explicit failure-rate threshold and a Median Compliance Error computed after excluding those failures (Section 5, Table 2).",
+    "quality_gap": "Static, best model (ViT-Small) vs ground truth: 1.88% mean / 0.39% median compliance error, 1.01% volume-fraction error, 3.8% load discrepancy, 12.2% floating material, 5.2% of samples above 30% compliance error (Table 2). Dynamic, best transfer-learning configuration ('Decoder Layers'): 4.81% mean / 0.22% median compliance error, 4.38% volume-fraction error, 9.20% load discrepancy, but 48.0% floating material and 16.6% of samples above 30% error (Table 3)."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Section 5: the classical run is taken to its own completion (66 s static / 8900 s dynamic, presumably converged), while the transformer's ~2 s output is explicitly measurably worse on the article's own compliance metric (+1.88% static, +4.81% dynamic) with no attempt to match quality (e.g. no post-processing/refinement of the ML output, no reduced-time classical run for an equal-budget comparison). The gap is non-trivial and self-acknowledged: the dynamic model's 48% floating-material rate is described by the authors themselves as showing 'a low confidence in the model,' and even the best static model has a 5.2% rate of samples exceeding 30% compliance error (Table 2). This matches the protocol's R1 fail condition directly."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unstated",
+      "evidence": "No hardware is stated anywhere in the article for either the classical TO runs (used both for dataset generation and for the 66 s / 8900 s timings) or the transformer training/inference, and the classical implementation's solver type (direct vs iterative) and codebase are not named, so efficiency class cannot be confirmed either way. No R2(a)/(b)/(d)/(e) evidence is available (no re-test performed at this coding stage; no abstract-vs-body discrepancy; no stated fixed-iteration count to compare against a convergence criterion; no stated iteration count at all, so no per-iteration time is derivable)."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-data-cost",
+      "evidence": "The 33x/4,450x speedup claims (Section 5) account only for per-sample inference time. Training is described solely by iteration count (800,000 iterations, batch size 256, Section 5) with no wall-clock training time, and the cost of generating the 60,000 static and ~6,000 dynamic training samples -- each requiring a full run of the classical process being replaced -- is not reported or amortized anywhere in the article (Section 4.1, 4.4 describe how the dataset was built but give no aggregate time). No break-even number of uses is computed. This is the protocol's clean R3 fail case: a speed claim with no training or data-generation cost accounted for."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Compliance error is computed from the model's actual predicted density field relative to the ground-truth optimized compliance (Section 5), i.e. FE-derived rather than an image-similarity-only proxy. Constraint/feasibility reporting is explicit and multi-faceted: Volume Fraction Error, Load Discrepancy and Floating Material (disconnected/unsupported material, via a differentiable connected-components check, Eq. 25) are reported per model in Tables 2-3, and 'Compliance Error Above 30%' is an explicit, quantified failure-rate metric reported for every model and both datasets."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "500 held-out validation samples per model for both static and dynamic datasets (Section 5); 5 ViT sizes compared for static (Tiny/Small/Base/Large/Huge, Table 2) and 4 configurations compared for dynamic (untrained, class-projection, decoder-projection, decoder-layers transfer learning, Table 3).",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "selective",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access: arXiv PDF (v2) downloaded directly with no bot check, CAPTCHA, login or paywall encountered. No author named Jun Wang (authors: Aaron Lutheran, Srijan Das, Alireza Tabarraei); the reference list cites several unrelated 'Wang' authors (X. Wang, Z. Wang, C. Wang, H. Wang, C.C. Wang) in cited prior work, none of them 'Jun Wang' and none authors of this article. Duplicate check: pool.csv searched by title on 2026-09-24; only one matching record (P00034 itself) -- no duplicate found; this article has no non-arXiv version of record (it is an arXiv-only preprint). Funding: Institute of Digital Engineering - USA. No conflicts of interest declared. Primary-outcome choice: the static result (33x, Section 5) is coded as primary because it is introduced first, uses the larger (60,000-sample) dataset, and is the best-quality configuration (ViT-Small, lowest compliance error of all sizes tested, Table 2); the dynamic result (4,450x) is recorded as the key alternative since the Conclusion's closing sentence specifically highlights dynamic optimization as the setting with the greatest potential, even though its quality cost (4.81% error, 48% floating material) is larger. direction is coded 'similar_or_mixed' rather than 'outperform' because both headline comparisons explicitly pair a large speed gain with a non-trivial, self-acknowledged quality cost, not a clean win on both axes."
+}

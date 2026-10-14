@@ -1,0 +1,65 @@
+{
+ "pid": "P00170",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Machine Learning based parameter tuning strategy for MMC based topology optimization",
+  "authors": "Xinchao Jiang, Hu Wang, Yu Li, Kangjia Mo",
+  "year": 2019,
+  "venue": "arXiv preprint (arXiv comment: 25 pages, 13 figures, 8 tables). Version of record: Advances in Engineering Software 149 (2020) 102841, doi 10.1016/j.advengsoft.2020.102841 (Crossref; same four authors, same title; Elsevier user licence, not open access per OpenAlex; not accessed)",
+  "doi": "10.1016/j.advengsoft.2020.102841",
+  "arxiv_id": "1910.07227",
+  "version_coded": "arXiv v1 (16 Oct 2019; the only version on the abs page), PDF (25 pp.) read in full as text; pp. 3, 15-16, 18 and 20 also checked on the rendered pages"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "exclude",
+  "reason": "FT-MLONLY",
+  "stratum": "none",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "2d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "None: the article reports no comparison with a classical method. Its only comparison ranks the Extra-Trees feasibility classifier against three other ML classifiers on classification metrics (Tables 4 and 7).",
+  "location": "n/a",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "not applicable (excluded at full text); no run time, iteration cost or tuning cost of any method is reported",
+  "alternatives": "(1) Tables 4 and 7, Figs. 9 and 12 (ML vs ML): Extra-Trees P 0.87 / R 0.90 / F1 0.88 / ACC 0.88 (cantilever) and 0.90 / 0.94 / 0.92 / 0.92 (L-beam), ahead of Random Forest, AdaBoost and GradientBoost on 100 test images per case. (2) Figs. 10 and 13: PSO history of the proposed loop only, from about 76.5 [read from plot] to C = 74.02 (cantilever, converged after iteration 67) and from about 187.4 [read from plot] to C = 183.76 (L-beam, after iteration 62); no classical reference value. (3) Sec. 1 and Fig. 2, qualitative motivation: manual MMA tuning can be time-consuming and may give infeasible designs."
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Screening code was I-UNCLEAR. Method: an Extra-Trees image classifier (SIFT features, bag of 64 visual words, 400 trees) labels MMC results as feasible or infeasible; inside a closed loop, particle swarm optimization (10 particles) tunes four MMA parameters (albefa, asyinit, asyincr, asydecr) and keeps only designs the classifier accepts (Sec. 3, Fig. 5). Codes checked in order. FT-DUPLICATE: no other version in the pool or in llm_prefill (title and surname searched). FT-SCOPE, FT-TYPE, FT-DOMAIN, FT-NOML: do not apply (MMC compliance TO, method paper, linear elasticity, learned classifier). FT-FORWARD: judgment call. The classifier only predicts a feasibility label, but it steers the optimization loop (Sec. 3.2), so it is not taken as forward analysis; a verifier who reads FT-FORWARD literally (ML only predicts; no optimization-level comparison) would choose it instead, since it comes first in the order. FT-MLONLY applies: the only comparisons are Extra-Trees vs Random Forest, AdaBoost and GradientBoost, which the authors call classical ML algorithms (Sec. 4.2; Tables 4 and 7; Figs. 9 and 12). No classical comparator is run, timed or cited: no MMC run with default or hand-tuned MMA parameters, no PSO run without the classifier, and no cost of the tuning loop. Fig. 2 (Sec. 1) shows infeasible and feasible short-beam MMC results only to motivate the problem. If the classifier benchmark is read as component selection rather than a method comparison, the next code is FT-NOBASELINE. Setup (Sec. 4.2): cantilever 2\u00d71 on 40\u00d780 four-node elements and an L-beam on 4864 elements, volume fraction 0.4, E = 1, \u03bd = 0.3; 150 MMC samples per case from random MMA parameters (50 train, 100 test). [inferred] Each PSO particle evaluation needs a full MMC run, so the loop costs on the order of 10\u00b3 MMC runs per case (about 115 PSO iterations are plotted); no cost is reported. Code: the Replication statement points to github.com/yoton12138; that account holds a repository named after this article (created 2019-07-19, no licence declared; GitHub API, 2026-09-24; contents not inspected). No data statement. The arXiv PDF shows red text in several places, which looks like revision marking. The paywalled version of record was not read and may differ (unverified). No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00170.json",
+  "result": "full agreement"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "pid": "P02306",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Denoising diffusion algorithm for inverse design of microstructures with fine-tuned nonlinear material properties",
+  "authors": "Nikolaos N. Vlassis, WaiChing Sun",
+  "year": 2023,
+  "venue": "Computer Methods in Applied Mechanics and Engineering 413 (2023) 116126 (Crossref; issue dated August 2023). Crossref lists an Elsevier open-archive licence for the accepted manuscript from 2024-06-02; OpenAlex labels the record bronze open access. Preprint: arXiv 2302.12881 v1 (cs.LG), whose arXiv metadata links this DOI",
+  "doi": "10.1016/j.cma.2023.116126",
+  "arxiv_id": "2302.12881",
+  "version_coded": "arXiv v1 (24 Feb 2023; the only version), PDF (21 pages) read in full as text. The journal version and its accepted manuscript were not read (see notes)"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "exclude",
+  "reason": "FT-NOBASELINE",
+  "stratum": "none",
+  "method_family": "diffusion_flow",
+  "physics": "metamaterial_homogenization",
+  "dim": "2d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (excluded as FT-NOBASELINE). The article shows that a conditional diffusion model, filtered by a CNN surrogate, generates Mechanical MNIST microstructures matching target hyperelastic energy curves; no classical design method is run, timed or quantitatively cited.",
+  "location": "Abstract; Sec. 4.1-4.2 and 5.2; Conclusion (Sec. 6)",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "Not coded (excluded). No run time of any method is reported; the only cost statements are qualitative (the CNN filter avoids the much slower FE simulations, Sec. 4.1-4.2; speed of diffusion-based design, Sec. 6)."
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-NOBASELINE)"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-NOBASELINE)"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-NOBASELINE)"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "excluded",
+   "evidence": "excluded at full text (FT-NOBASELINE)"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Excluded under PROTOCOL \u00a74 and the 2026-09-24 FT-NOBASELINE clarification. Codes checked in order. FT-DUPLICATE: no other version in the pool or in llm_prefill (title, surname and arXiv id searched). FT-SCOPE: not applied. The design object is a two-phase Young's-modulus layout (Mechanical MNIST, 28x28 images, compressible neo-Hookean, uniaxial extension; App. A) designed for a target effective energy response, and the introduction names level-set or phase-field optimization as the conventional route, so it is treated as architected-material inverse design [judgment]. FT-TYPE, FT-DOMAIN, FT-NOML: do not apply. FT-FORWARD: does not apply, because the diffusion model does inverse design; the CNN (Sec. 3) is a forward surrogate used only to filter samples. FT-MLONLY: does not apply, because no other ML method is run either; GANs and VAEs are discussed only as literature (Sec. 1.1). FT-NOBASELINE applies: classical optimization appears only as qualitative motivation (Sec. 1). The only cost remarks say the CNN filter avoids slower FE runs (Sec. 4.1-4.2), which concerns forward analysis, is not timed, and does not involve a classical optimizer. FE simulations only validate selected generated samples (Figs. 7 and 9), with no reported error values. Facts for C4: for one target polynomial, 2112 samples were generated to obtain 512 with CNN-predicted MSE below 1e-4 (Sec. 4.2, Fig. 6) [24% acceptance, derived]; Sec. 5.2 notes that for topology contexts unlike MNIST, no sample below this MSE limit may be found at all. The DDPM was trained for 50,000 steps on 60,000 samples (Sec. 4.1); no training time or hardware is given. Data and code are available on request (Sec. 8). Version caveat: the CMAME journal version was not read. ScienceDirect returned HTTP 403 to curl for PII S0045782523002505. OpenAlex lists an OSTI copy (record 2417948, labelled submitted version). OSTI had answered earlier in this batch, but every request for this record failed on 2026-09-24 (curl: TLS connection reset; WebFetch: self-signed certificate in the chain), so the copy was not read and no certificate check was disabled. The peer-reviewed version could add a classical comparison; a verifier should check the CMAME article (free to read in a browser per OpenAlex: bronze) before confirming the exclusion. No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P02306.json",
+  "result": "full agreement"
+ }
+}

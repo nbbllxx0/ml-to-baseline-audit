@@ -1,0 +1,97 @@
+[
+ {
+  "pid": "P01974",
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R2": [
+    "partial",
+    "na"
+   ],
+   "R4": [
+    "partial",
+    "fail"
+   ],
+   "claimed_speedup": [
+    3.33,
+    null
+   ],
+   "stratum": [
+    "speed",
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P01994",
+  "disagreements": {
+   "decision": [
+    "include",
+    "exclude"
+   ]
+  }
+ },
+ {
+  "pid": "P02042",
+  "disagreements": {
+   "R2": [
+    "partial",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P02074",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R2": [
+    "pass",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P02187",
+  "disagreements": {
+   "R2": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P02361",
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R4": [
+    "pass",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P02476",
+  "disagreements": {
+   "R2": [
+    "na",
+    "partial"
+   ],
+   "R3": [
+    "na",
+    "partial"
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ }
+]

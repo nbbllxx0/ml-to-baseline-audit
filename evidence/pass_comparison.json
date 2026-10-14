@@ -1,0 +1,3100 @@
+[
+ {
+  "pid": "P00003",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R2": [
+    "na",
+    "pass"
+   ],
+   "R4": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P00006",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R2": [
+    "na",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P00019",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R2": [
+    "pass",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P00029",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "partial",
+   "claimed_speedup": 19.0
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "partial",
+   "claimed_speedup": 17.5
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00034",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "fail",
+   "R4": "pass",
+   "claimed_speedup": 33
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "fail"
+   ],
+   "R2": [
+    null,
+    "partial"
+   ],
+   "R3": [
+    null,
+    "fail"
+   ],
+   "R4": [
+    null,
+    "pass"
+   ],
+   "claimed_speedup": [
+    null,
+    33
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-DUPLICATE",
+    null
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00042",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00051",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": 6.67
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R2": [
+    "pass",
+    "partial"
+   ],
+   "R4": [
+    "partial",
+    "pass"
+   ],
+   "claimed_speedup": [
+    null,
+    6.67
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00080",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "partial",
+   "claimed_speedup": 2200
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "pass",
+   "R4": "pass",
+   "claimed_speedup": 174.1
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R2": [
+    "partial",
+    "pass"
+   ],
+   "R4": [
+    "partial",
+    "pass"
+   ],
+   "claimed_speedup": [
+    2200,
+    174.1
+   ]
+  }
+ },
+ {
+  "pid": "P00081",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R2": [
+    "pass",
+    "na"
+   ],
+   "R4": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P00092",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R2": [
+    "pass",
+    "partial"
+   ],
+   "R4": [
+    "pass",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P00136",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "fail",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R2": [
+    "fail",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P00139",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00140",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 5
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 7.5
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R2": [
+    "pass",
+    "partial"
+   ],
+   "claimed_speedup": [
+    5,
+    7.5
+   ]
+  }
+ },
+ {
+  "pid": "P00141",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R2": [
+    "pass",
+    "na"
+   ],
+   "R4": [
+    "partial",
+    "fail"
+   ]
+  }
+ },
+ {
+  "pid": "P00143",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DOMAIN"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "partial"
+   ],
+   "R2": [
+    null,
+    "na"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-DOMAIN",
+    null
+   ],
+   "stratum": [
+    null,
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P00148",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P00149",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 300000
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "pass",
+   "R4": "partial",
+   "claimed_speedup": 300000
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R3": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P00150",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "partial",
+   "claimed_speedup": 259
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "pass",
+   "R4": "partial",
+   "claimed_speedup": 225
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R2": [
+    "partial",
+    "pass"
+   ],
+   "claimed_speedup": [
+    259,
+    225
+   ]
+  }
+ },
+ {
+  "pid": "P00161",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "partial",
+   "claimed_speedup": 5.75
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "partial",
+   "claimed_speedup": 5.75
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "stratum": [
+    "speed",
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P00165",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R3": [
+    "na",
+    "pass"
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00170",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00176",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "pass",
+   "claimed_speedup": 3913
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "fail",
+   "R4": "pass",
+   "claimed_speedup": 3913
+  },
+  "disagreements": {
+   "R2": [
+    "pass",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P00178",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "fail",
+   "R4": "fail",
+   "claimed_speedup": 239.75
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "fail",
+   "R4": "fail",
+   "claimed_speedup": 239.75
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00181",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "fail",
+   "claimed_speedup": 1.67
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "fail",
+   "claimed_speedup": 1.67
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ]
+  }
+ },
+ {
+  "pid": "P00183",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": 10000
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": 31623
+  },
+  "disagreements": {
+   "R2": [
+    "partial",
+    "pass"
+   ],
+   "claimed_speedup": [
+    10000,
+    31623
+   ]
+  }
+ },
+ {
+  "pid": "P00193",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "fail",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "na",
+   "R2": "na",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "na"
+   ],
+   "R2": [
+    "fail",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P00238",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": 2.55
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "pass"
+   ],
+   "R2": [
+    null,
+    "pass"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "pass"
+   ],
+   "claimed_speedup": [
+    null,
+    2.55
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-MLONLY",
+    null
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00309",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    null
+   ],
+   "R2": [
+    "na",
+    null
+   ],
+   "R3": [
+    "na",
+    null
+   ],
+   "R4": [
+    "partial",
+    null
+   ],
+   "decision": [
+    "include",
+    "exclude"
+   ],
+   "ft_code": [
+    null,
+    "FT-NOBASELINE"
+   ],
+   "stratum": [
+    "quality",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P00313",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R2": [
+    "pass",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P00335",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00358",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "na",
+   "R2": "na",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "na",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P00373",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R2": [
+    "pass",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P00375",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R3": [
+    "na",
+    "fail"
+   ],
+   "R4": [
+    "partial",
+    "pass"
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00519",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "na",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "partial",
+   "claimed_speedup": 13800
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "pass"
+   ],
+   "R2": [
+    "na",
+    "partial"
+   ],
+   "R3": [
+    "partial",
+    "pass"
+   ],
+   "claimed_speedup": [
+    null,
+    13800
+   ]
+  }
+ },
+ {
+  "pid": "P00523",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-SCOPE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "pass",
+   "R4": "partial",
+   "claimed_speedup": 144000
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "pass"
+   ],
+   "R2": [
+    null,
+    "pass"
+   ],
+   "R3": [
+    null,
+    "pass"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "claimed_speedup": [
+    null,
+    144000
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-SCOPE",
+    null
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00527",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": 0.000765
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": 0.00077
+  },
+  "disagreements": {
+   "R2": [
+    "na",
+    "pass"
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00533",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00537",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00549",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 18000
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 28200
+  },
+  "disagreements": {
+   "claimed_speedup": [
+    18000,
+    28200
+   ]
+  }
+ },
+ {
+  "pid": "P00550",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "partial",
+   "claimed_speedup": 26.5
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "partial"
+   ],
+   "R2": [
+    null,
+    "pass"
+   ],
+   "R3": [
+    null,
+    "fail"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "access": [
+    "not_full_text",
+    "full_text"
+   ],
+   "claimed_speedup": [
+    null,
+    26.5
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00597",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00601",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00605",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00610",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "partial",
+   "claimed_speedup": 5473
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "pass"
+   ],
+   "R2": [
+    null,
+    "partial"
+   ],
+   "R3": [
+    null,
+    "pass"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "access": [
+    "not_full_text",
+    "full_text"
+   ],
+   "claimed_speedup": [
+    null,
+    5473
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00624",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00647",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "fail",
+   "claimed_speedup": 2400
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "fail",
+   "claimed_speedup": 2400
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00648",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "partial"
+   ],
+   "R2": [
+    null,
+    "na"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "access": [
+    "not_full_text",
+    "full_text"
+   ],
+   "stratum": [
+    null,
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P00663",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "partial",
+   "claimed_speedup": 1.16
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "partial",
+   "claimed_speedup": 1.15
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00676",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "pass"
+   ],
+   "R2": [
+    null,
+    "na"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-DUPLICATE",
+    null
+   ],
+   "stratum": [
+    null,
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P00698",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    null
+   ],
+   "R2": [
+    "pass",
+    null
+   ],
+   "R3": [
+    "partial",
+    null
+   ],
+   "R4": [
+    "partial",
+    null
+   ],
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "stratum": [
+    "speed",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P00705",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00707",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00709",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "exclude"
+  },
+  "disagreements": {
+   "decision": [
+    "include",
+    "exclude"
+   ]
+  }
+ },
+ {
+  "pid": "P00712",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00740",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "pass",
+   "R4": "pass",
+   "claimed_speedup": 1.86
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {
+   "R1": [
+    "pass",
+    null
+   ],
+   "R2": [
+    "pass",
+    null
+   ],
+   "R3": [
+    "pass",
+    null
+   ],
+   "R4": [
+    "pass",
+    null
+   ],
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "claimed_speedup": [
+    1.86,
+    null
+   ],
+   "stratum": [
+    "speed",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P00755",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": 2160
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 2160
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R4": [
+    "pass",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P00786",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 500
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    null
+   ],
+   "R2": [
+    "pass",
+    null
+   ],
+   "R3": [
+    "partial",
+    null
+   ],
+   "R4": [
+    "partial",
+    null
+   ],
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "claimed_speedup": [
+    500,
+    null
+   ],
+   "stratum": [
+    "speed",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P00803",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00808",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": 1.885
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "partial"
+   ],
+   "R2": [
+    null,
+    "partial"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "access": [
+    "not_full_text",
+    "full_text"
+   ],
+   "claimed_speedup": [
+    null,
+    1.885
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00822",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00827",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": 10000
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": 10000
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00837",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-TYPE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-TYPE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00842",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": 0.06
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "partial"
+   ],
+   "R2": [
+    null,
+    "pass"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "access": [
+    "not_full_text",
+    "full_text"
+   ],
+   "claimed_speedup": [
+    null,
+    0.06
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00860",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00875",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00890",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 12
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": 12
+  },
+  "disagreements": {
+   "R2": [
+    "partial",
+    "pass"
+   ],
+   "R4": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P00893",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "disagreements": {
+   "access": [
+    "not_full_text",
+    "full_text"
+   ],
+   "decision": [
+    "include",
+    "exclude"
+   ],
+   "ft_code": [
+    null,
+    "FT-NOBASELINE"
+   ]
+  }
+ },
+ {
+  "pid": "P00918",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "fail",
+   "R4": "partial",
+   "claimed_speedup": 2.67
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "partial"
+   ],
+   "R2": [
+    null,
+    "pass"
+   ],
+   "R3": [
+    null,
+    "fail"
+   ],
+   "R4": [
+    null,
+    "partial"
+   ],
+   "access": [
+    "not_full_text",
+    "full_text"
+   ],
+   "claimed_speedup": [
+    null,
+    2.67
+   ],
+   "stratum": [
+    null,
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P00925",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P00983",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01004",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01016",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01105",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {
+   "R1": [
+    "pass",
+    null
+   ],
+   "R2": [
+    "na",
+    null
+   ],
+   "R3": [
+    "na",
+    null
+   ],
+   "R4": [
+    "partial",
+    null
+   ],
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "stratum": [
+    "quality",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P01151",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01152",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01164",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-OTHER"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-OTHER",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P01176",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "disagreements": {
+   "ft_code": [
+    "FT-NOBASELINE",
+    "FT-MLONLY"
+   ]
+  }
+ },
+ {
+  "pid": "P01214",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-MLONLY"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01217",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "fail",
+   "claimed_speedup": 10
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 10
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R4": [
+    "fail",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P01219",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "pass",
+   "claimed_speedup": 2073.7
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R2": [
+    "na",
+    "partial"
+   ],
+   "R3": [
+    "na",
+    "pass"
+   ],
+   "claimed_speedup": [
+    null,
+    2073.7
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P01232",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    null
+   ],
+   "R2": [
+    "na",
+    null
+   ],
+   "R3": [
+    "na",
+    null
+   ],
+   "R4": [
+    "fail",
+    null
+   ],
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "stratum": [
+    "quality",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P01268",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01289",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01320",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "fail",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R4": [
+    "pass",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P01390",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01468",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DUPLICATE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "na",
+   "R2": "na",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "na"
+   ],
+   "R2": [
+    null,
+    "na"
+   ],
+   "R3": [
+    null,
+    "na"
+   ],
+   "R4": [
+    null,
+    "fail"
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-DUPLICATE",
+    null
+   ],
+   "stratum": [
+    null,
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P01517",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "partial",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": 1.23
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "pass",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": 1.23
+  },
+  "disagreements": {
+   "R2": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P01670",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01788",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-TYPE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-TYPE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01813",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "pass",
+   "R4": "partial",
+   "claimed_speedup": 40000
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R2": [
+    "na",
+    "partial"
+   ],
+   "R3": [
+    "na",
+    "pass"
+   ],
+   "R4": [
+    "fail",
+    "partial"
+   ],
+   "claimed_speedup": [
+    null,
+    40000
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P01827",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01870",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01900",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-DOMAIN"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    null,
+    "pass"
+   ],
+   "R2": [
+    null,
+    "na"
+   ],
+   "R3": [
+    null,
+    "partial"
+   ],
+   "R4": [
+    null,
+    "pass"
+   ],
+   "decision": [
+    "exclude",
+    "include"
+   ],
+   "ft_code": [
+    "FT-DOMAIN",
+    null
+   ],
+   "stratum": [
+    null,
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P01905",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "exclude"
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    null
+   ],
+   "R2": [
+    "na",
+    null
+   ],
+   "R3": [
+    "na",
+    null
+   ],
+   "R4": [
+    "partial",
+    null
+   ],
+   "access": [
+    "full_text",
+    "not_full_text"
+   ],
+   "decision": [
+    "include",
+    "exclude"
+   ],
+   "stratum": [
+    "quality",
+    null
+   ]
+  }
+ },
+ {
+  "pid": "P01907",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P01960",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "fail",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": 8.76
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R2": [
+    "na",
+    "partial"
+   ],
+   "claimed_speedup": [
+    null,
+    8.76
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P01971",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": 0.00093
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R3": [
+    "na",
+    "partial"
+   ],
+   "claimed_speedup": [
+    null,
+    0.00093
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P01974",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "fail",
+   "R2": "partial",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": 3.33
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "fail",
+    "partial"
+   ],
+   "R2": [
+    "partial",
+    "na"
+   ],
+   "R4": [
+    "partial",
+    "fail"
+   ],
+   "claimed_speedup": [
+    3.33,
+    null
+   ],
+   "stratum": [
+    "speed",
+    "quality"
+   ]
+  }
+ },
+ {
+  "pid": "P01994",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "exclude"
+  },
+  "disagreements": {
+   "decision": [
+    "include",
+    "exclude"
+   ]
+  }
+ },
+ {
+  "pid": "P02042",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R2": [
+    "partial",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P02074",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "fail",
+   "R2": "na",
+   "R3": "na",
+   "R4": "fail",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "fail"
+   ],
+   "R2": [
+    "pass",
+    "na"
+   ]
+  }
+ },
+ {
+  "pid": "P02084",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P02128",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P02187",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": 4
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "pass",
+   "R3": "partial",
+   "R4": "pass",
+   "claimed_speedup": 4
+  },
+  "disagreements": {
+   "R2": [
+    "partial",
+    "pass"
+   ]
+  }
+ },
+ {
+  "pid": "P02296",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P02306",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOBASELINE"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P02328",
+  "first": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOML"
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "exclude",
+   "ft_code": "FT-NOML"
+  },
+  "disagreements": {}
+ },
+ {
+  "pid": "P02361",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "pass",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "pass",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R1": [
+    "partial",
+    "pass"
+   ],
+   "R4": [
+    "pass",
+    "partial"
+   ]
+  }
+ },
+ {
+  "pid": "P02476",
+  "first": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "quality",
+   "R1": "partial",
+   "R2": "na",
+   "R3": "na",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "second": {
+   "access": "full_text",
+   "decision": "include",
+   "stratum": "speed",
+   "R1": "partial",
+   "R2": "partial",
+   "R3": "partial",
+   "R4": "partial",
+   "claimed_speedup": null
+  },
+  "disagreements": {
+   "R2": [
+    "na",
+    "partial"
+   ],
+   "R3": [
+    "na",
+    "partial"
+   ],
+   "stratum": [
+    "quality",
+    "speed"
+   ]
+  }
+ },
+ {
+  "pid": "P02479",
+  "first": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "second": {
+   "access": "not_full_text",
+   "decision": "include"
+  },
+  "disagreements": {}
+ }
+]

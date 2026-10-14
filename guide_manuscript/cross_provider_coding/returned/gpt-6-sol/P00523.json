@@ -1,0 +1,38 @@
+{
+  "pid": "P00523",
+  "citation": {
+    "title": "A Supervised Machine Learning Approach for Accelerating the Design of Particulate Composites: Application to Thermal Conductivity",
+    "authors": "Mohammad Saber Hashemi, Masoud Safdari, Azadeh Sheidaei",
+    "year": 2021,
+    "venue": "Computational Materials Science",
+    "doi": "10.1016/j.commatsci.2021.110664",
+    "arxiv_id": "2010.00041",
+    "version_coded": "arXiv PDF 2010.00041"
+  },
+  "access": "full_text",
+  "stage": "cross_provider_pass",
+  "coder": {
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-SCOPE",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "thermal",
+    "dim": "3d"
+  },
+  "claim": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "Sections 2.3 and 3.3: outside the protocol's TO/architected-material comparison scope."},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "Sections 2.3 and 3.3: outside the protocol's TO/architected-material comparison scope."},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "Sections 2.3 and 3.3: outside the protocol's TO/architected-material comparison scope."},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "Sections 2.3 and 3.3: outside the protocol's TO/architected-material comparison scope."}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Sections 2.3 and 3.3 optimize six particulate-composite descriptors with a genetic algorithm using an ML conductivity surrogate. The timed conventional comparator is microstructure packing plus FFT forward homogenization, not a topology-optimization or homogenization-based inverse-design optimization run."
+}

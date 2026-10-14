@@ -1,0 +1,44 @@
+{
+  "pid": "P00170",
+  "citation": {
+    "title": "Machine Learning based parameter tuning strategy for MMC based topology optimization",
+    "authors": "Xinchao Jiang, Hu Wang, Yu Li, Kangjia Mo",
+    "year": 2020,
+    "venue": "Advances in Engineering Software, vol. 149, art. 102841 (published 2020-11, Crossref metadata checked 2026-09-24); arXiv preprint",
+    "doi": "10.1016/j.advengsoft.2020.102841",
+    "arxiv_id": "1910.07227",
+    "version_coded": "arXiv v1 (submitted 16 Oct 2019; only version on the abs page), full text read from the PDF (https://arxiv.org/pdf/1910.07227). The version of record (ScienceDirect, PII S0965997820300363) was attempted via the doi.org and Elsevier link-resolver chain; the ScienceDirect article page returned HTTP 403 with a CAPTCHA challenge to an anonymous request and was not read further (no bot check bypassed)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-MLONLY",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: an Extra-Trees image classifier, trained on Bag-of-Visual-Words features of MMC-based solutions labeled feasible/infeasible, is embedded in a closed loop with Particle Swarm Optimization to auto-tune the MMA optimizer's parameters; on two 2D compliance-minimization cases (cantilever, L-shape beam) it reaches a feasible optimum (C = 74.02 and C = 183.76) without manual parameter tuning.",
+    "location": "Abstract; Sec. 3-4 (main text)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No classical, non-learned parameter-tuning or TO baseline is run, timed or cited anywhere in the article; the motivation ('parameters are tuned according to the experience', 'saves a lot of manpower') is qualitative only, with no measured manual-tuning time, iteration count or cost figure given for comparison. The only quantitative comparisons in the article (Tables 4 and 7, Sec. 4.2: P, R, F1, ACC, AUC, P-R and ROC plots) are among four machine-learning classifiers -- Extra-Trees, Random Forest, AdaBoost, GradientBoost -- for feasibility-classification quality, not a classical TO comparator."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL Sec.4 and the FT-MLONLY full-text exclusion code (screening_codes.md, second table): the article's only quantitative comparisons are among four machine-learning classifiers (Extra-Trees, Random Forest, AdaBoost, GradientBoost; Tables 4 and 7, Sec. 4.2) for feasibility-classification quality (P, R, F1, ACC, AUC; P-R and ROC plots, Figs. 9 and 12). No classical, non-learned TO or parameter-tuning method (e.g. default/manually tuned MMC-TO, SIMP) is run, timed or cited with a comparable cost or result anywhere in the article. Two compliance-minimization cases are solved with the proposed closed loop (cantilever, 40x80-element mesh, C=74.02 at iteration ~67, Table 5/Fig. 10; L-shape beam, 4864-element mesh, C=183.76 at iteration ~62, Table 8/Fig. 13), but neither is compared against a non-ML-tuned run of the same problem, and no wall-clock times are reported for any run. Secondary reason for the verifier: FT-NOBASELINE is also defensible on the same facts (no classical method's cost or result is run, timed or cited at all, so 'no comparison of any kind' also holds); FT-MLONLY is used here because table order (screening_codes.md) places it before FT-NOBASELINE and the article does perform a quantitative comparison, confined to ML methods. included.method_family is 'other' because Extremely Randomized Trees is a tree-ensemble classifier, not covered by the schema's cnn/gan/vae/diffusion_flow/transformer/gnn/llm_agent/rl/neural_reparam/surrogate_mlp_gp categories. Physics is mini-compliance in both cases (Sec. 4.2, 4.2 [L-shape numbered as a second '4.2' in the PDF]); dim is 2d (40x80 and 4864-element planar meshes). Citation year confirmed via Crossref metadata (api.crossref.org, 2026-09-24): published 2020-11, vol. 149, art. 102841, under an Elsevier TDM licence (not open access), consistent with the CAPTCHA block encountered on ScienceDirect. Code: 'All of the code can be found in https://github.com/yoton12138' (Sec. 'Replication of result'); not downloaded or run (out of scope for an excluded record). No author named Jun Wang (authors: Xinchao Jiang, Hu Wang, Yu Li, Kangjia Mo). Duplicate check: audit/pool/pool.csv searched by title on 2026-09-24; no second pool record found for this article (a single pid, P00170, carries both the arXiv id and the journal DOI)."
+}

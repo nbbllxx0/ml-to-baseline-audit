@@ -1,0 +1,88 @@
+{
+  "pid": "P00073",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "An Uncertainty-aware Deep Learning Framework-based Robust Design Optimization of Metamaterial Units",
+    "authors": "Zihan Wang, Anindya Bhaduri, Hongyi Xu, Liping Wang",
+    "year": 2024,
+    "venue": "arXiv preprint (eess.SP; also cond-mat.mtrl-sci, cs.LG). Version of record: Structural and Multidisciplinary Optimization 68(3), article 47 (March 2025), doi 10.1007/s00158-025-03979-z (Crossref); the Springer page marks it as not open access, so it was not read. Its abstract is identical to the arXiv v1 abstract",
+    "doi": "10.48550/arXiv.2407.20251",
+    "arxiv_id": "2407.20251",
+    "version_coded": "arXiv v1 (19 Jul 2024; only version on the abs page), full text incl. Appendices A-D read from https://arxiv.org/html/2407.20251"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screening code confirmed at full text)",
+    "stratum": "quality",
+    "method_family": "vae",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For bulk-modulus maximization at volume fraction 0.3, the robust VAE–MDN design re-analysed by FEA on the 26×26×26 domain gives 5954.8 MPa (volume fraction 0.302) versus 5577.8 MPa for a literature TO design (0.3) (Table 5).",
+    "key_phrase": "yielded designs with a higher normalized bulk modulus",
+    "location": "Section 4.2.1, Table 5 (first quantitative classical comparison; the Abstract, Section 5 conclusion and Introduction compare only qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime of TO or of design inference is reported. Sec. 4.2.1 states only qualitatively that design inference is fast after training while TO needs costly iterations. Only training costs are given (Table 1). Not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 4.2.1, qualitative cost claim: after training, new designs and their uncertainties come quickly, while TO iterates; in the same list the authors concede that TO property values are exact while theirs carry prediction errors. (2) Abstract, qualitative: robust designs are validated against TO designs and against a deterministic deep-learning optimization. (3) Case 2 (Table 6, Figs. 10-11): robust vs deterministic deep-learning designs, an ML baseline only. (4) Table 4: FEA bulk modulus of the six β designs, 4554.07-6347.29 MPa on the 48³ grid."
+  },
+  "baseline": {
+    "classical_method": "A published TO design for maximum bulk modulus at volume fraction 0.3 from ref. [77] (Huang, Radman, Xie 2011, Computational Materials Science 50(6) 1861-1870, per the reference list); the TO algorithm is not named in this article and the design is not re-run (Sec. 4.2.1)",
+    "implementation": "literature result [77]; how its geometry was reproduced for the FEA, and which material properties it was given, are not stated",
+    "solver": "not stated (dataset FEA in ABAQUS with a user subroutine and periodic boundary conditions, Sec. 3; the Table 5 FEA uses 8-node bricks, software not stated)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "ML: 48×48×48-voxel unit cells, with the 24×24×24 octant as network input (Sec. 3, 4.1.1); comparison on the 26×26×26 domain of [77] after resizing the ML design (Sec. 4.2.1)",
+    "classical_iterations": "not stated (literature result)",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "about 442.1 min with progressive transfer learning vs about 234.6 min from scratch (Table 1); hardware not stated",
+    "data_generation_cost": "not stated; 46,840 unit cells simulated in ABAQUS, with Young's modulus and Poisson's ratio sampled at a standard deviation of 1% of the mean (Sec. 3)",
+    "quality_metric": "FEA bulk modulus K = E/(3(1-2ν)) (Eq. 17) of the returned design, with its volume fraction (Table 5)",
+    "quality_gap": "Robust design 5954.8 MPa at volume fraction 0.302 vs TO [77] 5577.8 MPa at 0.3 (Table 5) [derived: +6.76% bulk modulus with +0.67% material]. The β = 5 design had FEA K 6300.38 MPa at 0.2998 on the 48³ grid (Table 4) [the Table 5 design is inferred to be this design after resizing]"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.2.1, Table 5: one robust design (volume fraction 0.302) is compared with one literature TO design (0.3) [77]; both are analysed with 8-node bricks on the 26×26×26 domain of [77] after the robust design is resized from 48³. The robust design carries 0.67% more material [derived] and lies outside the ±0.001 volume tolerance of Eq. 18 after resizing [derived]. The TO design is not re-run: its stopping rule, material properties and the way its geometry was reproduced are not stated. No compute budget is compared."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "The classical comparator is a published 2011 TO result for maximum bulk modulus [77] at 26³ resolution, re-analysed with the authors' FEA [inferred from the Table 5 caption]. The article gives no information on its settings or convergence, so its competence cannot be judged from the text. No runtimes exist, so markers (a)-(e) cannot apply. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "Quality stratum; the only speed statement is qualitative (Sec. 4.2.1). For C3: training about 442.1 min with progressive transfer learning vs about 234.6 min from scratch (Table 1; hardware not stated); 46,840 ABAQUS unit-cell simulations for the dataset (Sec. 3), cost not stated; the cost of the NSGA-II latent search with 80 latent samples per evaluation (App. B) is not stated."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Sec. 4.2.1, Tables 4-5: the returned designs are decoded to voxels and re-analysed by FEA (FEA bulk modulus for all six β values; Table 5 for the resized design), and the volume fraction of every design is reported. Floating material is disclosed for β = 0.5 and 1, whose FEA values fall well below the predictions (6347.29 vs 7422.34 MPa and 4554.07 vs 7321.25 MPa, Table 4). The choice of β = 5 follows a stated rule (Sec. 4.2.1). Case 2 designs are also checked by simulation (Table 6)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Case 1: one robust design vs one literature TO design (Table 5), plus six β values (Table 4); Case 2: 10 robust vs 10 deterministic deep-learning Pareto designs (Table 6; ML baseline only)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code I-QUALITY confirmed at full text. Scope: 3D unit-cell inverse design with a TO comparator (§3.1). The primary outcome is the only quantitative classical comparison (Table 5), a single design pair. Internal inconsistency: Sec. 4.2.1 speaks of a higher normalized bulk modulus, while Table 5 gives K in MPa. The Table 5 robust design is taken to be the β = 5 design selected in Sec. 4.2.1 [inferred]; if so, resizing to 26³ lowered its K from 6300.38 to 5954.8 MPa [derived]. Case 2 compares only with a deterministic deep-learning optimization (Table 6), so it is not a classical comparison. Reporting locators: failure_rate_reported = yes because floating material is disclosed for 2 of the 6 β designs (Sec. 4.2.1, Table 4), with no rate over a test set; seeds_or_variance = no because the predicted and FEA-sampled aleatoric uncertainties are property statistics, not run-to-run variance, and NSGA-II seeds are not reported; training cost = Table 1. No code, data or hardware statement in arXiv v1; one of the three data sources ([71]) is an open dataset. Version of record (SMO 2025) is paywalled and was not read; its abstract matches arXiv v1. retest_candidate false: quality stratum, no speed claim, no public code."
+}

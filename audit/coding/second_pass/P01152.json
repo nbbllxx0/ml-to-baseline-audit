@@ -1,0 +1,44 @@
+{
+  "pid": "P01152",
+  "citation": {
+    "title": "Topology optimization of 2D structures with nonlinearities using deep learning (titled \"Deep learning accelerated topology optimization of linear and nonlinear structures\" on early arXiv versions and in this pool record)",
+    "authors": "Diab W. Abueidda, Seid Koric, Nahil A. Sobh",
+    "year": 2020,
+    "venue": "arXiv preprint (cs.CE; cs.LG); version of record at Computers & Structures",
+    "doi": "10.1016/j.compstruc.2020.106283",
+    "arxiv_id": "2002.01896",
+    "version_coded": "Identified via OpenAlex (api.openalex.org/works/W3170853183, the ID behind this pool record): its primary_location resolves to arxiv.org/abs/2002.01896v3. The arXiv abs page (checked 2026-09-24) shows 4 versions (v1 31 Jan 2020 under this pool record's title; v2 6 Feb 2020; v3 17 Mar 2020; v4 13 Apr 2020, current title 'Topology optimization of 2D structures with nonlinearities using deep learning'), plus a related journal DOI 10.1016/j.compstruc.2020.106283 (Computers & Structures). That DOI redirects to linkinghub.elsevier.com then sciencedirect.com, which returned HTTP 403 to scripted access (no bypass attempted). The full text of arXiv v4 (https://arxiv.org/pdf/2002.01896v4) was downloaded and read in full to confirm this identification and the duplicate finding below."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded in this record (duplicate). Headline, for reference: three CNN models predict SIMP-optimized 2D density fields (linear elasticity, neo-Hookean hyperelasticity, and linear elasticity with a stress constraint) from boundary/load/volume inputs, matching ground truth by Dice similarity >0.95, with the abstract claiming 'negligible inference computational time' versus the 25-90 minutes per sample needed to generate training data with ABAQUS-based SIMP on a personal computer.",
+    "location": "not coded (duplicate)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "not coded (duplicate)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "IMPORTANT DUPLICATE FINDING: pool.csv contains two separate entries for the same article. P01152 (this queue item; title 'Deep learning accelerated topology optimization of linear and nonlinear structures', DOI and arxiv_id columns empty, OpenAlex W3170853183, 0 cited_by) and P00165 (title 'Topology optimization of 2D structures with nonlinearities using deep learning', DOI 10.1016/j.compstruc.2020.106283, arxiv_id 2002.01896, OpenAlex W3025017190, 2 cited_by) share identical authors (Diab W. Abueidda, Seid Koric/Koric, Nahil (A.) Sobh) and an identical pool date (2020-01-31). Querying OpenAlex directly for W3170853183 (the ID behind P01152) returns primary_location = arxiv.org/abs/2002.01896v3 - the exact same arXiv paper that P00165's own arxiv_id field names. This is a single article indexed twice under its old (pre-retitle) and new arXiv titles, not two different versions or two different papers: arXiv 2002.01896 was submitted under the title in P01152's pool record (v1-v2, Jan-Feb 2020) and later retitled to P00165's title for v3/v4 (Mar-Apr 2020) and for the Computers & Structures publication. I read the full text of the latest arXiv version (v4) to confirm the identification before concluding this. Per the task's duplicate rule, the primary version is the version of record if open access, else the latest arXiv version; the Computers & Structures version of record is not open access to this coder (ScienceDirect returned HTTP 403, no bypass attempted), so the primary version is arXiv v4 (2002.01896). Between the two redundant pool pids for that same version, P00165 carries the complete, current, and verifiably correct bibliographic record (correct title, DOI, arxiv_id, nonzero citation count), while P01152's own pool metadata is the stale pre-retitle capture with no DOI or arxiv_id populated. I am therefore coding THIS record (P01152) as the non-primary duplicate (FT-DUPLICATE), naming P00165 as the other pid holding the primary version, so the article is not double-counted in the audit's pooled statistics; substantive R1-R4/baseline coding is left to whichever record ends up representing P00165, and is not repeated here. If the audit team's own pool-management records already resolved this differently (e.g. already merged or already flagged the other way), this note should be reconciled against that. No author of this article is named Jun Wang (authors: Diab W. Abueidda, Seid Koric, Nahil A. Sobh)."
+}

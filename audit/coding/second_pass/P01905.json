@@ -1,0 +1,44 @@
+{
+  "pid": "P01905",
+  "citation": {
+    "title": "Scaling atom-by-atom inverse design using nano-topology optimization and diffusion models",
+    "authors": "Chun-Teh Chen, Denvid Lau",
+    "year": 2026,
+    "venue": "Materials Horizons (Royal Society of Chemistry)",
+    "doi": "10.1039/d6mh00986g",
+    "arxiv_id": "",
+    "version_coded": "Not read (excluded as a duplicate before full-text coding; see notes). The RSC landing page (pubs.rsc.org) returned an HTTP 403 Cloudflare challenge ('Just a moment...') to a plain scripted GET, not bypassed; independently, OpenAlex and PubMed both record this location as not open access (is_oa=false), so no legal open copy of this version of record exists for this coder even apart from the bot check."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "other",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as a duplicate). Per the OpenAlex-reconstructed abstract (the only material read for this record): the article studies atomistic ('Nano-TO') topology optimization of aluminum nanocantilevers and nanopillars, reports that atomistic optimization outperforms continuum topology-optimized designs at the nanoscale, and uses conditional diffusion models trained on Nano-TO data to generate further candidate designs.",
+    "location": "abstract (only source consulted; full text not read because this record is a duplicate exclusion)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text as a duplicate before any speed-claim assessment)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Duplicate check (pool.csv, searched by title on 2026-09-24): this pool record (P01905) shares the same substantive content, DOI root and authorship as pool id P00242, 'Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models' (preprint, arXiv 2604.03276, dated 2026-03-24; titles differ only by 'using' vs 'with'). Pool.csv also lists three linked peer-review records under the same DOI root (P01906 review, P01908 author response, P01909 decision letter) and an OSF Preprints code/data description (P01942, 'Diffusion-Nano-TO'), confirming this is one article with multiple pool entries. Per the protocol's duplicate rule, the primary version is the version of record if open access, else the latest arXiv version. OpenAlex reports this DOI's open-access status as overall 'green' (i.e. only available via a repository): the Materials Horizons location itself is_oa=false, the PubMed listing is_oa=false, and only the arXiv location (doi.org/10.48550/arxiv.2604.03276, i.e. pool id P00242) is is_oa=true. The RSC landing page also sits behind a Cloudflare bot check (HTTP 403, 'Just a moment...'), independently confirming inaccessibility. Because the version of record (this record, P01905) is not open access, the primary version is the arXiv preprint, pool id P00242 -- named here per the duplicate-handling instructions. This record (the non-primary version of record) is therefore coded FT-DUPLICATE and not further assessed; P00242 is outside this coder's queue and is not coded here. Author check: no author named Jun Wang (authors: Chun-Teh Chen, Denvid Lau)."
+}

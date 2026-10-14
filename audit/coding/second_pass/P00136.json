@@ -1,0 +1,88 @@
+{
+  "pid": "P00136",
+  "citation": {
+    "title": "Robust Topology Optimization Using Multi-Fidelity Variational Autoencoders",
+    "authors": "Rini Jasmine Gladstone, Mohammad Amin Nabian, Vahid Keshavarzzadeh, Hadi Meidani",
+    "year": 2021,
+    "venue": "arXiv preprint (cs.LG)",
+    "doi": "10.48550/arxiv.2107.10661",
+    "arxiv_id": "2107.10661",
+    "version_coded": "arXiv v2 (dated 22 Aug 2024 per the PDF's own header and metadata; submission history shows v1 19 Jul 2021, v2 20 Aug 2024 -- only v2 is the latest version), full text read in full from https://arxiv.org/pdf/2107.10661"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "vae",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For an L-bracket with a single uncertain load angle (100x100 design), gradient descent in a VAE latent space (trained on 600 SIMP-derived deterministic designs) finds a design with robust compliance Qrob=69.84, lower (better) than the best of 1000 SIMP-derived deterministic designs evaluated under the same robust-compliance criterion (Qrob=71.59). The article's own conclusion immediately qualifies this: because the search is restricted to the VAE's learned subspace, the authors state they cannot conclude the method outperforms the true robust-optimal design a full finite-element/SIMP-based approach would give.",
+    "key_phrase": "it cannot still outperform the best robust design obtained from SIMP",
+    "location": "Sec. 4.1.3 (main text); the qualitative hedge is repeated in Sec. 5 Conclusions. The Abstract and Conclusion contain only qualitative efficiency/quality statements with no numbers, so per PROTOCOL 5.1 step 2 this main-text quantitative comparison is the primary outcome.",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed or cost comparison against a classical method appears anywhere. The only timing/cost numbers in the article compare the proposed method's own single-fidelity vs. multi-fidelity variants (both ML), e.g. data-generation time of 3.55 hours (600 SIMP samples, 100x100) vs. 34 minutes (700 low-res + 20 high-res samples), and 12.75 hours (600 SIMP samples, 128x128) vs. 1.9 hours (90 multi-fidelity samples) (Sec. 4.1.4, 4.2); these are ML-vs-ML comparisons, not ML-vs-classical, so they cannot support a claimed_speedup under this protocol.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 4.1.4: multi-fidelity optimum Qrob=69.09 vs best of the 20 high-fidelity training samples (SIMP-derived) Qrob=70.85. (2) Sec. 4.2: multi-load L-bracket, multi-fidelity optimum Qrob=350.49 vs single-fidelity optimum Qrob=382.10 vs best training sample (SIMP-derived) Qrob=388.01. (3) Sec. 5 Conclusions (qualitative, no number): 'we could not conclude that it can produce a robust optimal design that is better than what a finite element approach offers.' (4) ML-vs-ML per-iteration and data-generation timing comparisons (Sec. 4.1.4, 4.2), not usable as a classical comparison but relevant to R3-style cost accounting within the method itself."
+  },
+  "baseline": {
+    "classical_method": "SIMP (power-law / density-based topology optimization), used only to generate deterministic-optimal designs for individual realizations of the random load angle. The comparator for the primary outcome is the best-performing of 1000 (single-load case) or of the high-fidelity training pool (multi-load case) such SIMP-derived deterministic designs, scored under the same robust-compliance criterion -- not an independent classical solution of the robust/probabilistic optimization problem itself [inferred: no direct classical RTO solve, e.g. gradient-based optimization of Eq. 2 over the full design space, is reported anywhere in the article]",
+    "implementation": "88-line MATLAB SIMP code (Andreassen et al. 2011, ref. [73]) for the single-load L-bracket case (Sec. 4.1.1); implementation not stated for the multi-load case",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "NVIDIA GeForce RTX 3080 (Sec. 4.1.4, 4.2; stated once, for all neural-network training)",
+    "problem_size": "L-bracket, single load: 100x100 pixel domain (n_theta=10,000), 1 random variable. L-bracket, multiple loads: 128x128 pixel domain (n_theta=16,384), 4 random variables (Sec. 4.1, 4.2)",
+    "classical_iterations": "not stated (SIMP convergence settings for the 1000 individual deterministic runs are not given)",
+    "classical_time": "not stated as a single comparable run time; only pooled data-generation time is given (see data_generation_cost) for producing the whole training set of SIMP designs, not a single classical RTO solve",
+    "ml_time": "not a single end-to-end value; per-iteration training times are given piecemeal, e.g. 0.17 s/iteration (single-fidelity VAE) and 0.09 s/iteration (single-fidelity compliance surrogate); 0.015 and 0.010 s/iteration for the high-fidelity VAE and compliance networks in the multi-fidelity approach (Sec. 4.1.4). No total wall-clock time for data generation + training + gradient-descent search combined is given for either case.",
+    "training_time": "Single-fidelity VAE and compliance surrogate trained for 5000 iterations at ~0.17 and ~0.09 s/iteration respectively (Sec. 4.1.4); multi-fidelity VAE converges in ~30 iterations vs. ~800 for a from-scratch high-fidelity VAE trained on the same 20 samples (Fig. 14)",
+    "data_generation_cost": "3.55 hours for 600 SIMP samples at 100x100 (single-load case) vs. 34 minutes for 700 low-res (30x30) + 20 high-res (100x100) samples in the multi-fidelity variant; 12.75 hours for 600 SIMP samples at 128x128 (multi-load case) vs. 1.9 hours for 90 high-res multi-fidelity samples (Sec. 4.1.4, 4.2)",
+    "quality_metric": "Robust compliance Qrob = E[compliance] + lambda*sqrt(Var[compliance]) over the load-angle distribution (Eq. 2/8), computed by Gauss-quadrature averaging of FE-evaluated deterministic compliances at 7 quadrature points (Sec. 4.1.2)",
+    "quality_gap": "Single-load case: VAE optimum Qrob=69.84 (ntrain=600) vs. best-of-1000 SIMP-derived designs Qrob=71.59, about 2.4% lower [derived]. Multi-load case: multi-fidelity optimum Qrob=350.49 vs. best training sample (SIMP-derived) Qrob=388.01, about 9.7% lower [derived]."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.1.2-4.1.3: both the SIMP-derived comparator designs and the VAE/gradient-descent design are scored by the same Qrob quadrature procedure, so the quality metric itself is matched. But the classical comparator is not an independent classical RTO solution -- it is the best of a sample of deterministic single-load SIMP designs never intended to solve the robust problem directly [inferred] -- and the article does not report the volume fraction of the specific final optimal design(s) shown in Fig. 11/17 to confirm it equals the classical designs' volume fraction (only a general statistic that under 1% of randomly-sampled, not gradient-descent-optimized, VAE outputs exceed alpha_v=0.4 is given, Sec. 4.1.1). Budget-matching between the SIMP sample generation and the VAE pipeline (training + search) is not addressed."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "The primary outcome compares design quality (robust compliance) only; no speed or cost claim is attached to it, so R2(a)-(e) do not bear on this outcome. For the record: no hardware or solver is stated for any SIMP run, so a hardware-based judgement is not possible even for the internal multi- vs. single-fidelity timing comparisons."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim is made against SIMP or any other classical method. Independently, the article is unusually transparent about its own data-generation and training costs (Sec. 4.1.4, 4.2 report both in detail, including the multi-fidelity approach's explicit rationale of reducing high-resolution data-generation cost), but since this is never converted into a classical-vs-ML speed comparison, R3 stays na for this record rather than pass/fail."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-partial-no-constraint-check",
+      "evidence": "Reported compliance values for the SIMP comparator designs and for the found optimum are consistently labelled with the true 'Qrob' notation (computed by FE-based quadrature per Sec. 4.1.2), which [inferred] suggests the final decoded design is re-evaluated by the same FE/quadrature procedure rather than reported as the surrogate network's own training-time prediction QNN -- but the article never explicitly states a distinct post-hoc FE-verification step for the specific z* found by gradient descent, as opposed to reusing the surrogate's optimized objective value. No volume-fraction, connectivity or feasibility check is reported for the specific final optimal designs in Fig. 11/17 (only a general, separate statistic about randomly generated, non-optimized samples' volume fractions, Sec. 4.1.1), and no failure/infeasibility rate is reported anywhere."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 example problems (L-bracket, single point load with 1 random load-angle variable, Sec. 4.1; L-bracket, 4 point loads with 4 random load-angle variables, Sec. 4.2), each run with single-fidelity and multi-fidelity VAE/compliance-NN variants at several training-set sizes",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Rini Jasmine Gladstone, Mohammad Amin Nabian, Vahid Keshavarzzadeh, Hadi Meidani). Duplicate check: audit/pool/pool.csv has exactly one row for this DOI/arXiv id (P00136); no other pool record shares this title or arXiv id, so FT-DUPLICATE does not apply. No code or data availability statement appears anywhere in the article (no such section exists in this preprint); no conflicts-of-interest or funding statement is given either. Direction was coded 'similar_or_mixed' rather than 'outperform' or 'underperform' because the two readings genuinely conflict: the one concrete number (69.84 vs 71.59) favours the ML method, but the article's own Sec. 4.1.3/Sec. 5 text explicitly declines to claim it beats a true classical robust-optimum, attributing the numeric win to the weakness of the classical comparator (best of unrelated single-load deterministic designs) rather than to genuine superiority -- this is itself relevant to the audit's C4 publication-bias indicator (a rare case of a paper voluntarily flagging that its own favourable number may not be a fair win). Key uncertainty for the verifier: whether the reported Qrob of the final gradient-descent-found design is an independently FE-recomputed value or the trained surrogate's own (potentially over-optimistic, since gradient descent can exploit surrogate error) predicted value -- the article's consistent 'Qrob' notation suggests the former, but this is not stated explicitly, which is why R4 was scored partial rather than pass. ood_test was coded 'no' under the audit's usual meaning (a different problem/domain than trained on); note for the verifier that the article does hold out the top-10 best-compliance training designs specifically to test whether the method can generate better-than-training designs (Sec. 4.1.1), which is a weaker, within-distribution form of extrapolation test, not a genuine OOD test."
+}

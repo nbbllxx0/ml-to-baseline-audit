@@ -1,0 +1,45 @@
+{
+  "pid": "P01151",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Two-scale topology optimization of multiscale structures and materials via deep neural networks for local and global buckling",
+    "authors": "Sobhan Honarvar, Nolan Black, Ahmad R. Najafi",
+    "year": 2026,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 458 (August 2026) 119038 (Crossref); published online 2026-05-09 per the pool record; hybrid open access, CC BY-NC 4.0 (Crossref licence metadata; Elsevier API core metadata: sponsor Drexel University)",
+    "doi": "10.1016/j.cma.2026.119038",
+    "arxiv_id": "",
+    "version_coded": "none; neither the full text nor an abstract could be read (OpenAlex and Crossref hold no abstract)"
+  },
+  "access": "no_access",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no full text and no abstract available). Only the title is known: deep neural networks are used in two-scale topology optimization of structures and their materials under local and global buckling.",
+    "location": "title only",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "not coded (no full text)",
+    "alternatives": "not assessed (no full text)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR (screened on the title; the pool record has no abstract). Access attempts on 2026-09-24, all anonymous with a generic User-Agent and no personal data: (1) doi.org -> linkinghub -> ScienceDirect article page (PII S0045782526003117), the only location OpenAlex lists: HTTP 403 with an 'Are you a robot?' captcha page, by curl and by WebFetch; not bypassed. (2) The Elsevier API link listed in Crossref, called without an API key: HTTP 200 with core metadata only (title, cover date 2026-08-15, open-access flags, CC BY-NC licence), no abstract or body text. No key was used. (3) OpenAlex (W7160711667) and Crossref hold no abstract. OpenAlex lists no repository copy. (4) arXiv API searches by title words and by the author Najafi found no preprint. The article is open access, so a human verifier can read it in a browser. Pointers for the verifier: check at full text (a) whether buckling (linear elastic stability) counts as elasticity under §3.1 [judgment; the physics list names compliance, stress and displacement]; (b) whether the neural networks replace homogenization or buckling analyses inside the optimization, and whether any classical run (e.g. FE-based homogenization or FE² buckling analysis) is timed. Related pool records from the same group, different studies by title: P00777 (Black and Najafi 2025, neural networks for nonlinear homogenization in multiscale optimization), P00827 (Black and Najafi 2024, stress-constrained multiscale optimization with ML) and P01738 (Perumal et al. 2023, a dissertation). COI check: no author named Jun Wang."
+}

@@ -1,0 +1,268 @@
+{
+ "log": "retest/logs/oat_pinned_retest_2026-09-24.log",
+ "method": "nvidia-smi board power, 100 ms, trapezoid; idle from a 5 s trace",
+ "by_stage": {
+  "energy OAT inference 256": {
+   "n_problems": 5,
+   "board_j_per_design_median": 102.44945207166673,
+   "above_idle_j_per_design_median": 67.24316227913422
+  },
+  "energy OAT inference 64": {
+   "n_problems": 5,
+   "board_j_per_design_median": 100.92862958252432,
+   "above_idle_j_per_design_median": 65.09029777793265
+  },
+  "energy ours GPU 256": {
+   "n_problems": 5,
+   "board_j_per_design_median": 1560.3297698246397,
+   "above_idle_j_per_design_median": 990.992079389148
+  },
+  "energy ours GPU 64": {
+   "n_problems": 5,
+   "board_j_per_design_median": 199.72629959619687,
+   "above_idle_j_per_design_median": 155.47519514477895
+  }
+ },
+ "rows": [
+  {
+   "stage": "energy ours GPU 256",
+   "method": "ours gpu",
+   "size": 256,
+   "problem_id": 1015,
+   "board_j_per_design": 630.485200818246,
+   "above_idle_j_per_design": 379.9431066514489,
+   "idle_w": 65.52695652173914,
+   "window_s": 11.470489740371704,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171354Z_ours_gpu_nito_n256_power"
+  },
+  {
+   "stage": "energy ours GPU 256",
+   "method": "ours gpu",
+   "size": 256,
+   "problem_id": 1676,
+   "board_j_per_design": 1949.3054304462476,
+   "above_idle_j_per_design": 1203.1346814774345,
+   "idle_w": 65.52695652173914,
+   "window_s": 34.16170024871826,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171354Z_ours_gpu_nito_n256_power"
+  },
+  {
+   "stage": "energy ours GPU 256",
+   "method": "ours gpu",
+   "size": 256,
+   "problem_id": 1839,
+   "board_j_per_design": 2387.8572921530417,
+   "above_idle_j_per_design": 1522.2104489344458,
+   "idle_w": 65.52695652173914,
+   "window_s": 39.63163661956787,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171354Z_ours_gpu_nito_n256_power"
+  },
+  {
+   "stage": "energy ours GPU 256",
+   "method": "ours gpu",
+   "size": 256,
+   "problem_id": 1935,
+   "board_j_per_design": 554.9574161601066,
+   "above_idle_j_per_design": 337.35805155709176,
+   "idle_w": 65.52695652173914,
+   "window_s": 9.96228313446045,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171354Z_ours_gpu_nito_n256_power"
+  },
+  {
+   "stage": "energy ours GPU 256",
+   "method": "ours gpu",
+   "size": 256,
+   "problem_id": 1961,
+   "board_j_per_design": 1560.3297698246397,
+   "above_idle_j_per_design": 990.992079389148,
+   "idle_w": 65.52695652173914,
+   "window_s": 26.065808057785034,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171354Z_ours_gpu_nito_n256_power"
+  },
+  {
+   "stage": "energy ours GPU 64",
+   "method": "ours gpu",
+   "size": 64,
+   "problem_id": 15,
+   "board_j_per_design": 221.2243734014812,
+   "above_idle_j_per_design": 171.97014930017625,
+   "idle_w": 27.195,
+   "window_s": 5.433449983596802,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171610Z_ours_gpu_nito_n64_power"
+  },
+  {
+   "stage": "energy ours GPU 64",
+   "method": "ours gpu",
+   "size": 64,
+   "problem_id": 676,
+   "board_j_per_design": 163.67517400304473,
+   "above_idle_j_per_design": 127.15916791001955,
+   "idle_w": 27.195,
+   "window_s": 4.028241157531738,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171610Z_ours_gpu_nito_n64_power"
+  },
+  {
+   "stage": "energy ours GPU 64",
+   "method": "ours gpu",
+   "size": 64,
+   "problem_id": 839,
+   "board_j_per_design": 199.72629959619687,
+   "above_idle_j_per_design": 155.47519514477895,
+   "idle_w": 27.195,
+   "window_s": 4.881533861160278,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171610Z_ours_gpu_nito_n64_power"
+  },
+  {
+   "stage": "energy ours GPU 64",
+   "method": "ours gpu",
+   "size": 64,
+   "problem_id": 935,
+   "board_j_per_design": 167.33341839949287,
+   "above_idle_j_per_design": 130.1657370523612,
+   "idle_w": 27.195,
+   "window_s": 4.100130319595337,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171610Z_ours_gpu_nito_n64_power"
+  },
+  {
+   "stage": "energy ours GPU 64",
+   "method": "ours gpu",
+   "size": 64,
+   "problem_id": 961,
+   "board_j_per_design": 354.65425451442906,
+   "above_idle_j_per_design": 276.8237274198263,
+   "idle_w": 27.195,
+   "window_s": 8.585827589035034,
+   "repeats": 3,
+   "run": "retest/runs/20260924T171610Z_ours_gpu_nito_n64_power"
+  },
+  {
+   "stage": "energy OAT inference 256",
+   "method": "OAT inference",
+   "size": 256,
+   "problem_id": 1015,
+   "board_j_per_design": 102.44945207166673,
+   "above_idle_j_per_design": 67.49659391852046,
+   "idle_w": 76.20304347826087,
+   "window_s": 4.586806058883667,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171658Z_oat_infer_n256_power"
+  },
+  {
+   "stage": "energy OAT inference 256",
+   "method": "OAT inference",
+   "size": 256,
+   "problem_id": 1676,
+   "board_j_per_design": 101.5708900889158,
+   "above_idle_j_per_design": 67.24316227913422,
+   "idle_w": 76.20304347826087,
+   "window_s": 4.5047712326049805,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171658Z_oat_infer_n256_power"
+  },
+  {
+   "stage": "energy OAT inference 256",
+   "method": "OAT inference",
+   "size": 256,
+   "problem_id": 1839,
+   "board_j_per_design": 100.78334863622814,
+   "above_idle_j_per_design": 66.45314994834304,
+   "idle_w": 76.20304347826087,
+   "window_s": 4.505095481872559,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171658Z_oat_infer_n256_power"
+  },
+  {
+   "stage": "energy OAT inference 256",
+   "method": "OAT inference",
+   "size": 256,
+   "problem_id": 1935,
+   "board_j_per_design": 102.58396114637203,
+   "above_idle_j_per_design": 66.93233139826603,
+   "idle_w": 76.20304347826087,
+   "window_s": 4.678504705429077,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171658Z_oat_infer_n256_power"
+  },
+  {
+   "stage": "energy OAT inference 256",
+   "method": "OAT inference",
+   "size": 256,
+   "problem_id": 1961,
+   "board_j_per_design": 104.04556149733068,
+   "above_idle_j_per_design": 69.87526859282931,
+   "idle_w": 76.20304347826087,
+   "window_s": 4.484111309051514,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171658Z_oat_infer_n256_power"
+  },
+  {
+   "stage": "energy OAT inference 64",
+   "method": "OAT inference",
+   "size": 64,
+   "problem_id": 15,
+   "board_j_per_design": 98.00068012893199,
+   "above_idle_j_per_design": 62.3990451335907,
+   "idle_w": 77.23978260869565,
+   "window_s": 4.609235525131226,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171744Z_oat_infer_n64_power"
+  },
+  {
+   "stage": "energy OAT inference 64",
+   "method": "OAT inference",
+   "size": 64,
+   "problem_id": 676,
+   "board_j_per_design": 105.27659682811142,
+   "above_idle_j_per_design": 69.23871759911523,
+   "idle_w": 77.23978260869565,
+   "window_s": 4.665714740753174,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171744Z_oat_infer_n64_power"
+  },
+  {
+   "stage": "energy OAT inference 64",
+   "method": "OAT inference",
+   "size": 64,
+   "problem_id": 839,
+   "board_j_per_design": 97.18211004393977,
+   "above_idle_j_per_design": 62.834342750667965,
+   "idle_w": 77.23978260869565,
+   "window_s": 4.446901082992554,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171744Z_oat_infer_n64_power"
+  },
+  {
+   "stage": "energy OAT inference 64",
+   "method": "OAT inference",
+   "size": 64,
+   "problem_id": 935,
+   "board_j_per_design": 104.12004562497141,
+   "above_idle_j_per_design": 68.6797902976119,
+   "idle_w": 77.23978260869565,
+   "window_s": 4.588342189788818,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171744Z_oat_infer_n64_power"
+  },
+  {
+   "stage": "energy OAT inference 64",
+   "method": "OAT inference",
+   "size": 64,
+   "problem_id": 961,
+   "board_j_per_design": 100.92862958252432,
+   "above_idle_j_per_design": 65.09029777793265,
+   "idle_w": 77.23978260869565,
+   "window_s": 4.639879941940308,
+   "repeats": 10,
+   "run": "retest/runs/20260924T171744Z_oat_infer_n64_power"
+  }
+ ]
+}

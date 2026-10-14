@@ -1,0 +1,57 @@
+{
+  "pid": "P00601",
+  "citation": {
+    "title": "Topology optimization with graph neural network enabled regularized thresholding",
+    "authors": "Georgios Barkoulis Gavris, WaiChing Sun",
+    "year": 2024,
+    "venue": "Extreme Mechanics Letters, vol. 71, article 102215",
+    "doi": "10.1016/j.eml.2024.102215",
+    "version_coded": "Not accessible in any form -- no full text and no abstract could be read. The DOI resolves through linkinghub.elsevier.com to https://www.sciencedirect.com/science/article/pii/S2352431624000956; both the abstract page and the PDF endpoint (…/pdfft) returned HTTP 403 with a CAPTCHA page (verified by string search for 'captcha' in the returned HTML) to a generic-UA curl request; this is a bot check and was not bypassed. OpenAlex marks the article 'bronze' OA at that same ScienceDirect URL only, with no alternate repository ('any_repository_has_fulltext: false') and no abstract on file. Crossref's metadata for this DOI also has no abstract field. The Semantic Scholar public API likewise returns abstract: null, and its only 'openAccessPdf' entry points back to the same doi.org URL (or to Unpaywall, which this task excludes). No arXiv preprint exists (web search found none), and the authors' own lab page (poromechanics.org/publications.html) lists only the same ScienceDirect link for this entry, with no PDF or preprint attached."
+  },
+  "access": "no_access",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "gnn",
+    "physics": "other",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not assessable: neither the full text nor the abstract could be read through any legal route (see citation.version_coded for the routes tried). Only the title, authors, journal, and publication date are verified.",
+    "location": "not accessible",
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not assessable; no text of any kind (abstract or full text) was readable."
+  },
+  "baseline": {
+    "classical_method": "not accessible",
+    "implementation": "not accessible",
+    "solver": "not accessible",
+    "hardware_classical": "not accessible",
+    "hardware_ml": "not accessible",
+    "problem_size": "not accessible",
+    "classical_iterations": "not accessible",
+    "classical_time": "not accessible",
+    "ml_time": "not accessible",
+    "training_time": "not accessible",
+    "data_generation_cost": "not accessible",
+    "quality_metric": "not accessible",
+    "quality_gap": "not accessible"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-no-access", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-no-access", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-no-access", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-no-access", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Georgios Barkoulis Gavris, WaiChing Sun, both Columbia University). Duplicate check: audit/pool/pool.csv has exactly one row for this DOI/title (P00601), with an empty abstract field there too, consistent with the independent finding that no metadata source (OpenAlex, Crossref, Semantic Scholar) holds an abstract for this record; no duplicate exists in the pool. This is coded access='no_access' rather than 'abstract_only' because I could not directly read a verified abstract from any primary or metadata source -- only third-party search-result paraphrases of uncertain provenance were found, which are not treated as a read source per the task's evidence rules (a locator-traceable read is required, and I have none). method_family='gnn' is taken directly and safely from the title's own wording ('graph neural network enabled'); physics is left as 'other' (the schema has no 'unclear' option for this field) because the title gives no physics detail beyond generic 'topology optimization', and dim is 'unclear' for the same reason. Per the task's access rules, the record is coded include, stratum 'none', with all rule verdicts na, rather than excluded or coded from unverified secondary sources. If full-text or abstract access becomes available later (e.g. the ScienceDirect bronze-OA copy without a bot check, or an author-deposited accepted manuscript once Elsevier's 356-day embargo on the accepted-manuscript licence, which lapsed 2025-08-23 per Crossref license metadata, is reflected on a repository), this record should be recoded from scratch."
+}

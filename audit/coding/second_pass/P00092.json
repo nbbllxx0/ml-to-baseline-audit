@@ -1,0 +1,88 @@
+{
+  "pid": "P00092",
+  "citation": {
+    "title": "Topology Optimization with Text-Guided Stylization",
+    "authors": "Shengze Zhong, Parinya Punpongsanon, Daisuke Iwai, Kosuke Sato",
+    "year": 2023,
+    "venue": "Structural and Multidisciplinary Optimization (Springer); arXiv preprint (cs.CE)",
+    "doi": "10.1007/s00158-023-03686-7",
+    "arxiv_id": "2310.15506",
+    "version_coded": "arXiv v1 (submitted 24 Oct 2023; only version on the abs page), full text read from https://arxiv.org/html/2310.15506. Used as primary per protocol because the version of record (Springer, Structural and Multidisciplinary Optimization) shows no open-access indication on its landing page (link.springer.com) and returns only a subscription view"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Across three 2D benchmarks, the proposed neural-field method with only its mechanical loss active nearly matches SIMP's compliance at matched volume fraction, while adding text-guided style and connectivity losses raises compliance by about 19.9-39.7% (mean ~30.3%) to gain stylization.",
+    "key_phrase": "convergence speed are not as good as traditional explicit methods",
+    "location": "Sec. 4.1 (Table 2, 'Mechanical Performance Comparison'); the Abstract, Conclusion (Sec. 6) and Introduction contain no quantitative classical comparison, and Sec. 5 (Limitations) states only qualitatively that the method is slower and lower-quality than traditional explicit optimizers",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no classical-SIMP wall-clock time is reported anywhere in the article. Sec. 4 'Computational Cost' reports only the proposed method's own runtime breakdown (256x256 Bridge case, 100 iterations, 0.587 s/iteration average, 58.66 s total), with no equivalent SIMP-alone timing for the same problem. Sec. 5 (Limitations) explicitly states the method's convergence speed 'are not as good as traditional explicit methods,' i.e. the article itself claims to be slower, not faster.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 4, Computational Cost: a self-contained runtime breakdown of the proposed method alone (0.587 s/iteration; 58.66 s total for a 256x256 case at 100 iterations; ~35% topology optimization, ~10% style optimization, ~24% connectivity optimization), with no classical-SIMP comparator time. (2) Sec. 5, Limitations: an explicit qualitative admission that 'both the optimization quality and the convergence speed are not as good as traditional explicit methods.' (3) Sec. 4.1: convergence described qualitatively as reaching 'a stable topology within 100 iterations,' with no classical-method iteration count given for comparison."
+  },
+  "baseline": {
+    "classical_method": "Density-based SIMP topology optimization minimizing compliance under a volume-fraction constraint (Sec. 3.1); used both as the mechanical-analysis engine inside the proposed method's own loss (Eq. 9) and as the standalone 'Traditional SIMP' comparator in Table 2 (Sec. 4.1)",
+    "implementation": "Not stated beyond 'the SIMP topological optimization method and finite element analysis'; no specific public code (e.g. an 88-line/99-line MATLAB code) or commercial package is named for the standalone SIMP comparator",
+    "solver": "Algebraic multigrid method for the deformation matrix U (Sec. 4, Experimental Environment), stated for the proposed method's mechanical loss; whether the standalone SIMP comparator in Table 2 uses the same solver is not stated explicitly [inferred: likely, since both rely on the same KU=F formulation]",
+    "hardware_classical": "Not stated separately from the ML hardware; one shared experimental setup is given for the article overall (Sec. 4): Intel Core i9-13900HX CPU, NVIDIA RTX 4080 GPU, Windows 11, Python 3.9. Whether the standalone SIMP comparator ran on CPU or GPU is not stated",
+    "hardware_ml": "Same machine: Intel Core i9-13900HX CPU, NVIDIA RTX 4080 GPU (Sec. 4)",
+    "problem_size": "2D benchmarks: Bridge, MBB beam and L-bracket (Sec. 4.1, Table 2), with topology optimized on a down-sampled grid via 4x4 average pooling while style/connectivity optimization use the original resolution (Sec. 3.1); the Computational Cost example (Sec. 4) uses a 256x256 grid. A 3D bookshelf case study is also fabricated (Sec. 4.3) but not included in the quantitative Table 2 comparison",
+    "classical_iterations": "Not stated for the standalone SIMP comparator in Table 2. The proposed method uses 500 optimization iterations and 2000 connected-component-labeling iterations (Table 1) and is reported to reach 'a stable topology within 100 iterations' (Sec. 4.1)",
+    "classical_time": "Not stated anywhere in the article; no wall-clock time is reported for the standalone SIMP comparator",
+    "ml_time": "For a 256x256 Bridge case with a style prompt, 100 iterations: average 0.587 s/iteration, 58.66 s total, split about 35% topology optimization (0.203 s/iter), 10% style optimization (0.060 s/iter) and 24% connectivity optimization (0.139 s/iter) (Sec. 4, Computational Cost; the remainder is not itemized in the reported breakdown). Sec. 5 (Limitations) states full 3D pipelines can take 'tens of minutes' per result",
+    "training_time": "Not applicable in the offline-dataset sense: the hash-encoded neural network is optimized from scratch for each new structure/prompt (per-instance neural reparameterization), so its 'training' cost is the per-run optimization time reported above rather than a separate offline training phase",
+    "data_generation_cost": "Not applicable: no labeled training dataset is used; network parameters are optimized directly against the mechanical, semantic (CLIP) and connectivity losses for each new problem instance (Sec. 3, Eq. 1)",
+    "quality_metric": "Compliance and achieved volume fraction, computed via the same SIMP/FEA mechanical model for both the classical and proposed-method designs (Table 2, Sec. 4.1); no independent third-party FE re-verification beyond this shared in-pipeline solver is described",
+    "quality_gap": "Table 2 (Sec. 4.1), mechanical-only variant vs. SIMP: Bridge 181.08 vs 181.06 (about +0.01% [derived]), MBB beam 40.80 vs 39.48 (about +3.3% [derived]), L-bracket 177.23 vs 169.80 (about +4.4% [derived]), at closely matched volume fractions (0.366 vs 0.368; 0.293 vs 0.293; 0.333 vs 0.332). Full method (adding style + connectivity losses) vs. SIMP: about 19.94%, 39.69% and 31.17% higher compliance for Bridge, MBB beam and L-bracket respectively (mean about 30.27% higher, stated directly in Sec. 4.1)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table 2 (Sec. 4.1): the mechanical-only variant is compared to SIMP at closely matched volume fractions, supporting a fair quality comparison on that dimension. However, SIMP's own convergence criterion or iteration count for this specific comparison is not stated, and no wall-clock time is reported for either side of the Table 2 comparison, so it cannot be confirmed whether the two runs used a comparable optimization budget."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unjustified",
+      "evidence": "Sec. 4 gives one shared hardware description (CPU + GPU) for the article's experiments but does not separately state which hardware ran the standalone 'Traditional SIMP' comparator in Table 2, nor its solver configuration beyond the general algebraic-multigrid mention for the proposed method's own mechanical loss. No re-test was performed by this coder, and nothing indicates a deliberately weak baseline, but the lack of a separately documented classical run prevents a clean pass."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 3: each structure/prompt is optimized from scratch via a per-instance hash-encoded neural field with no pre-collected training dataset and no offline training phase; the reported runtime (Sec. 4, Computational Cost) already covers the full per-instance optimization, so the cost sits inside R1/R2 rather than requiring separate data-generation/training accounting."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Compliance and volume are computed via the same FE-based SIMP mechanical model used throughout the pipeline (Table 2), not an image-similarity metric, and a dedicated connectivity loss plus connected-component labeling targets disconnected material (Sec. 3.3), with the ablation study reporting a 'notable inhibitory effect on disconnected parts.' However, no quantified failure or infeasibility rate (e.g. how often disconnected regions remain) is reported for the gallery of stylized results."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 base geometries (Bridge, MBB beam, L-bracket) shown with multiple style prompts (e.g. 'golden, Baroque style', 'spiderweb pattern', 'branch pattern') plus one 3D bookshelf case study; exact total count of geometry/prompt combinations is not stated as a single number",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": true,
+  "notes": "No author named Jun Wang. Duplicate check via audit/pool/pool.csv title search: only one matching row (P00092 itself), which already lists both the arXiv id (2310.15506) and the Springer DOI together, so no separate FT-DUPLICATE record exists to flag in the pool. Primary-outcome selection: the Abstract, Conclusion and Introduction contain no quantitative classical comparison, so the first main-text quantitative comparison (Table 2, Sec. 4.1, SIMP vs. the proposed method's mechanical-only and full variants) is used; this is a quality-only (compliance/volume) comparison, giving stratum = quality (I-QUALITY), consistent with the article's own explicit statement (Sec. 5) that its convergence speed is worse than traditional explicit methods, not better. Code/repo check (GitHub, 2026-09-24, no personal data sent): github.com/shzzhong/TGTO is public (8 stars, 17 commits) and its README matches the paper's method (CLIP-based stylization, connected-component labeling); no LICENSE file was identified, so licensing terms are unstated, but retest_candidate is set to true given the code is public, small, and directly runnable."
+}

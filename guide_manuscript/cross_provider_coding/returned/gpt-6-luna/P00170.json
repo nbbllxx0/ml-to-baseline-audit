@@ -1,0 +1,27 @@
+﻿{
+  "pid": "P00170",
+  "citation": {
+    "title": "Machine Learning based parameter tuning strategy for MMC based topology optimization",
+    "authors": "Xinchao Jiang, Hu Wang, Yu Li, Kangjia Mo",
+    "year": 2020,
+    "venue": "Advances in Engineering Software",
+    "doi": "10.1016/j.advengsoft.2020.102841",
+    "arxiv_id": "1910.07227",
+    "version_coded": "arXiv:1910.07227 (full text; 2019 preprint)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "other", "physics": "compliance", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "The classifier-guided strategy is presented as eliminating manual MMA parameter tuning, reducing the effort needed to obtain feasible MMC designs.", "key_phrase": "free from the manual parameter adjustment", "location": "abstract; conclusion", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "The article claims reduced manual tuning effort but reports no comparative runtime or derivable speed-up factor.", "direction": "outperform", "alternatives": "For two cases, the proposed process reaches feasible designs; classifier performance is compared quantitatively with other ML classifiers (Sections 4–5)."},
+  "baseline": {"classical_method": "MMC topology optimization using MMA with manual or selected parameters", "implementation": "MMC framework; implementation details not stated", "solver": "Finite-element/Galerkin analysis with MMA optimizer (Section 2)", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "Case I: 40 × 20 mesh (Section 4.2); Case II: 4864 FEM meshes (Section 4.3)", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "150 samples per case, with 50 for training and 100 for testing (Sections 4.2–4.3); generation time not stated", "quality_metric": "Feasibility and compliance minimization (Sections 2, 4)", "quality_gap": "not stated against a matched classical result"},
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-unmatched", "evidence": "Sections 4–5 show feasible/infeasible structures and give compliance for proposed outputs, but do not compare matched objective values or quality at equal time/budget against manual-parameter MMC."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Sections 2 and 4 identify MMA and the MMC cases, but do not report a per-iteration baseline time, solver class comparison, or hardware that establishes an R2 criterion."},
+    "R3": {"verdict": "fail", "marker": "R3-no-data-cost", "evidence": "Sections 3–4 report 50 training samples per case but no data-generation time, training time, or amortization for the claimed reduction in tuning effort."},
+    "R4": {"verdict": "partial", "marker": "R4-failure-rate-unreported", "evidence": "Sections 2 and 4 report compliance and feasible/infeasible output examples from the finite-element workflow, but do not count the final method's infeasible or failed designs."}
+  },
+  "reporting": {"n_test_cases": "Two structural cases; 150 samples in each classifier dataset (Sections 4.2–4.3)", "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no", "timing_protocol_stated": "no", "runtimes_all_cases": "no", "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The full text describes the conventional manual MMA-parameter tuning burden and reports feasible/infeasible MMC results, while the proposed classifier-guided PSO strategy seeks feasible designs without manual parameter adjustment. It does not quantify runtime savings. The authors state that all code is at https://github.com/yoton12138, but a runnable benchmark and licence permitting a retest were not established."
+}

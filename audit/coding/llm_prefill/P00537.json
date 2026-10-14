@@ -1,0 +1,44 @@
+{
+  "pid": "P00537",
+  "citation": {
+    "title": "Non-iterative structural topology optimization using deep learning",
+    "authors": "Baotong Li, Congjia Huang, Xin Li, Shuai Zheng, Jun Hong",
+    "year": 2019,
+    "venue": "Computer-Aided Design 115 (2019) 172-180 (online 2019-05-29; closed access per OpenAlex)",
+    "doi": "10.1016/j.cad.2019.05.038",
+    "arxiv_id": "none found (arXiv API title search, 2026-09-24)",
+    "version_coded": "none: abstract only, read on the LSU institutional repository record page (repository.lsu.edu/eecs_pubs/698), which states the document itself is not available there; the pool record has no abstract"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "gan",
+    "physics": "thermal",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (abstract only). The abstract claims that a two-stage predictor, a GAN for a low-resolution layout plus an SRGAN for refinement, trained on many TO runs, estimates conductive heat-transfer topologies accurately in negligible computational time; no numbers are given.",
+    "location": "Abstract (LSU repository record page)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with a generic browser User-Agent and no personal data. (1) The only open copy OpenAlex lists is the green LSU Digital Commons record (digitalcommons.lsu.edu/eecs_pubs/698, redirecting to repository.lsu.edu/eecs_pubs/698). The page shows the abstract but says 'This document is currently not available here'. (2) The version of record at ScienceDirect is closed access per OpenAlex, so it offers no legal open copy. (3) arXiv API: no version. Descriptive fields were updated from the abstract: GAN plus SRGAN (method_family gan), conductive heat transfer despite the word 'structural' in the title (physics thermal), black-and-white pixel images (dim 2d [inferred]). The abstract suggests a speed claim (negligible computational time) at full text [inferred]. Duplicate check: the screening flag 'possible duplicate of P00638' is a title-similarity false positive (P00638 is a 2024 Journal of Computational Physics article by different authors: Gao, Zhou, Li). Related work by the same group, P00539 (International Communications in Heat and Mass Transfer 2018, conductive heat transfer TO with deep learning), is a different article [inferred from venue, year and author list]. No author named Jun Wang (the authors include Jun Hong). Screening code was I-UNCLEAR."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00174",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Deep Generative Design: Integration of Topology Optimization and Generative Models",
+    "authors": "Sangeun Oh, Yongsu Jung, Seongsin Kim, Ikjin Lee, Namwoo Kang",
+    "year": 2019,
+    "venue": "Journal of Mechanical Design 141(11), 111405 (arXiv journal reference); arXiv preprint (cs.LG; also cs.CE, cs.NE). A first-page note says an earlier version was presented at ASME IDETC 2018",
+    "doi": "10.1115/1.4044229",
+    "arxiv_id": "1903.01548",
+    "version_coded": "arXiv v2 (20 May 2019; v1 1 Mar 2019), PDF, 22 pages; its header marks it as the manuscript submitted to JMD. The arXiv HTML returned 404. The ASME version of record returned HTTP 403 to scripted access and was not read"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the only classical comparison is a qualitative diversity comparison with TO-only exploration, Sec. 7.1, Figs. 13-14; no runtime of any method is compared)",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The TO-plus-GAN framework is claimed to yield more aesthetic, diverse and robust wheel designs than earlier generative-design methods; the supporting classical runs are qualitative: TO without reference designs gives near-identical or unconverged results (Sec. 7.1).",
+    "key_phrase": "better aesthetics, diversity, and robustness of generated designs than previous generative design methods",
+    "location": "Abstract (qualitative; §5.1 rule 3, because no quantitative comparison of the learned model with a classical method exists anywhere); supporting classical runs in Section 7.1, Figs. 13-14 (pp. 16-17)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime of TO or of the GAN is compared. Only BEGAN training time is given (about 3 h on four GTX 1080 GPUs, Sec. 6.1.2). Not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 8 conclusion: more diverse designs than conventional generative design (qualitative), and better robustness than plain generative models, which suffer mode collapse (an ML comparison). (2) Sec. 7.1, Fig. 14: iterative TO-only exploration from 4 TO references gives similar designs (qualitative). (3) Table 2: compliance of TO with market reference designs vs plain TO (similarity 0): 5.28 vs 5.23–9.28 (design A) and 8.88 vs 8.90–13.02 (design B); this measures the trade-off of the similarity term, with no learned model involved. (4) Sec. 7.2: BEGAN vs DCGAN and VAE (ML only). (5) Sec. 7.3: autoencoder novelty classifier with precision and recall 91.6% (ML only)."
+  },
+  "baseline": {
+    "classical_method": "Three-field SIMP compliance minimization with OC updates, density filter and Heaviside projection (Sec. 4.1). Classical baseline for the claim: TO without reference designs at 5 force ratios (Fig. 13) and iterative TO-only exploration that reuses TO results as references (Fig. 14)",
+    "implementation": "authors' MATLAB code built on the 99- and 88-line educational codes (Sec. 4.1.1, 4.2)",
+    "solver": "not stated",
+    "hardware_classical": "not stated (TO runs executed in parallel, Sec. 6.1.1)",
+    "hardware_ml": "four GTX 1080 GPUs for BEGAN training (Sec. 6.1.2)",
+    "problem_size": "128×128 elements; 2D wheel with a non-design rim and a fixed hub (Sec. 4.2)",
+    "classical_iterations": "not stated; convergence when the design change falls below a tolerance described as typically 0.01 (Eq. 7); the value used is not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "about 3 h on four GTX 1080 GPUs for BEGAN (Sec. 6.1.2); autoencoder training time not stated",
+    "data_generation_cost": "not stated; iteration 1: 658 web-crawled wheel images × 25 condition pairs [derived: up to 16,450 TO runs], 1,619 kept; iteration 2: 128 GAN references × 25 [derived: up to 3,200 TO runs], 385 kept (rule of Sec. 4.2 with Table 1; Table 3)",
+    "quality_metric": "No diversity or aesthetics metric is computed for the classical comparison. The framework counts new designs after pixel-wise L1 filtering (threshold 10^3, Sec. 3), scores novelty by autoencoder reconstruction error and reports compliance and cost of the TO outputs (Fig. 11)",
+    "quality_gap": "Qualitative only: without reference designs TO returns the same optimum for fixed boundary conditions and does not converge for two of five force ratios (Fig. 13a-b); TO-only iteration yields similar designs (Fig. 14). The framework yields 2,004 new designs after two iterations (Table 3)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 7.1, Figs. 13-14, Sec. 4.2 and Table 3: the diversity comparison is qualitative and not budget-matched. The framework runs TO for 658 market references × 25 condition pairs [derived: up to 16,450 runs] and 128 GAN references × 25 [derived: up to 3,200 runs], plus about 3 h of BEGAN training (Sec. 6.1.2). The TO-only baseline shows 5 runs without references (Fig. 13) and 12 selected results from 4 TO references (Fig. 14) [counted from the figure]; the number of baseline runs and the stopping tolerance used are not stated. No diversity metric is computed for the baseline."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 4.1-4.2 and 7.1: the classical engine is the authors' three-field SIMP code (OC, density filter, Heaviside projection) built on the 99- and 88-line MATLAB codes, the same engine used inside the framework, on 128×128 elements. The TO-only baseline varies only the force ratio (5 levels) from a uniform start; the authors report that it does not converge for two force ratios (Fig. 13a-b) and that reusing TO outputs as references gives similar designs (Fig. 14). A broader classical exploration (varying supports, volume fraction or initial designs) is not tried [inferred]. No runtimes exist, so markers (a)-(e) cannot apply. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "Quality stratum; no speed or cost claim against TO. For C3: BEGAN training about 3 h on four GTX 1080 GPUs (Sec. 6.1.2); TO run counts as derived under R1; TO run times are not reported."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "All final designs are TO outputs, so their compliance and cost come from FE-based optimization (Fig. 11 for 2,004 designs; Table 2). But the claimed advantage (aesthetics, diversity) is judged from images: pixel-wise L1 filtering (threshold 10^3, Sec. 3) and visual examples (Figs. 7, 10, 13-14); aesthetics is assumed from market designs, not measured (Sec. 3, Stage 2). Rejection counts are not reported: neither the number of GAN samples before Stage-6 filtering nor any non-converged TO runs inside the framework. Fig. 14 states its selection rule (the most different results); Fig. 10 does not. A strict reading (image metric only) gives fail."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "One 2D wheel problem (128×128); 2,004 generated designs after two iterations (Table 3); classical comparison: 5 TO runs without references (Fig. 13) and 12 selected TO-only results from 4 references (Fig. 14) [counted from the figure]",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR. Inclusion judgment: the article runs a classical method and reports its results (TO without reference designs, Figs. 13-14), so the FT-NOBASELINE clarification does not apply; the comparison is qualitative. Scope judgment for the verifier: the GAN only proposes reference shapes, and every final design is a classical TO output (Stage 2, Sec. 3). If §3.1 is read as requiring the learned model to produce, accelerate or replace the TO result itself, FT-SCOPE applies. Primary outcome: the Abstract compares with earlier generative-design methods, which Sec. 1.1 describes as TO-based design exploration [inferred to be the classical comparator]; its robustness part refers to generative models (Sec. 1.2, Sec. 8), an ML comparison. Possible inconsistency: Sec. 4.2 defines the force ratio as normal over shear force, but Sec. 7.1 attributes the non-converged runs at ratios 0 and 0.1 to the absence of shear force. Aesthetics is assumed from market designs (Sec. 3, Stage 2) and never measured. The L1 threshold of 10^3 was checked on the rendered PDF page 5. hardware_per_method_stated = partial: GPUs are given for BEGAN only. No code or data statement in arXiv v2. retest_candidate false: quality stratum, qualitative claim, no public code."
+}

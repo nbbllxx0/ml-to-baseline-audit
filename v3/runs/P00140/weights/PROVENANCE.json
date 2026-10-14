@@ -1,0 +1,29 @@
+{
+ "source": "Deep De-Homogenization: pretrained models, doi 10.11583/DTU.16902961, CC BY 4.0",
+ "files": [
+  {
+   "file": "DehomNet_step1_period10.pth",
+   "url": "https://ndownloader.figshare.com/files/31257637",
+   "md5": "44980731975a230c8210592d48a6dbab",
+   "status": "present"
+  },
+  {
+   "file": "DehomNet_step1_period20.pth",
+   "url": "https://ndownloader.figshare.com/files/31257640",
+   "md5": "fa577cfc5b1ff494cf5996ec2446fb85",
+   "status": "present"
+  },
+  {
+   "file": "DehomNet_step2_period10.pth",
+   "url": "https://ndownloader.figshare.com/files/31257643",
+   "md5": "6fc972b49bb745ffa07b3187c4876a0d",
+   "status": "present"
+  },
+  {
+   "file": "DehomNet_step2_period20.pth",
+   "url": "https://ndownloader.figshare.com/files/31257646",
+   "md5": "249701908104bd82822cf4894856a794",
+   "status": "present"
+  }
+ ]
+}

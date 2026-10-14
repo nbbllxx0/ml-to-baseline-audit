@@ -1,0 +1,45 @@
+stage,item,count
+returned,arxiv:AX1,187
+returned,arxiv:AX2,407
+returned,arxiv:AX3,35
+returned,arxiv:AX4,15
+returned,arxiv:AX5,33
+returned,arxiv:AX6,8
+returned,openalex:OA1,1872
+returned,openalex:OA2,340
+returned,openalex:OA3,515
+returned,forward:FC1,30
+returned,forward:FC2,53
+returned,forward:FC3,197
+returned,forward:FC4,247
+returned,forward:FC5,200
+returned,forward:FC6,72
+returned,backward:BC1_chunk00,49
+returned,backward:BC1_chunk01,43
+returned,backward:BC1_chunk02,42
+returned,backward:BC2_chunk00,49
+returned,backward:BC2_chunk01,26
+returned,backward:BC3,64
+dedup,unique records,2591
+screening (LLM),E-DOMAIN,324
+screening (LLM),E-FORWARD,58
+screening (LLM),E-MLONLY,34
+screening (LLM),E-NOCLAIM,35
+screening (LLM),E-NOML,234
+screening (LLM),E-OTHER,136
+screening (LLM),E-SCOPE,685
+screening (LLM),E-TYPE,376
+screening (LLM),I-QUALITY,47
+screening (LLM),I-SPEED,215
+screening (LLM),I-UNCLEAR,447
+full text excluded,FT-DOMAIN,2
+full text excluded,FT-DUPLICATE,7
+full text excluded,FT-MLONLY,6
+full text excluded,FT-NOBASELINE,9
+full text excluded,FT-NOML,1
+full text excluded,FT-OTHER,1
+full text excluded,FT-SCOPE,1
+full text excluded,FT-TYPE,2
+included,stratum none,27
+included,stratum quality,42
+included,stratum speed,49

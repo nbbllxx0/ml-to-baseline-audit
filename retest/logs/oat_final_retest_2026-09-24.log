@@ -1,0 +1,832 @@
+=== OAT SIMP 256 MultiGrid(5)+OC ===
+problem 1015 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+problem 1676 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+problem 1839 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+problem 1935 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+problem 1961 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+run dir: retest/runs/20260924T154129Z_oat_simp_n256
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+=== OAT SIMP 256 CG+OC ===
+problem 1015 CG        OC :    93.13 s  c_last 9.85872
+problem 1676 CG        OC :    75.02 s  c_last 5.2984
+problem 1839 CG        OC :    47.12 s  c_last 35.8779
+problem 1935 CG        OC :    26.28 s  c_last 5.69434
+problem 1961 CG        OC :    47.14 s  c_last 34.3009
+run dir: retest/runs/20260924T154230Z_oat_simp_n256
+=== OAT SIMP 64 MultiGrid(3)+OC ===
+problem 15 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+problem 676 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+problem 839 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+problem 935 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+problem 961 MultiGrid OC : ERROR CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+run dir: retest/runs/20260924T154736Z_oat_simp_n64
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+=== OAT SIMP 64 CG+OC ===
+problem 15 CG        OC :    33.07 s  c_last 5.63103
+problem 676 CG        OC :    12.34 s  c_last 3.68201
+problem 839 CG        OC :    17.73 s  c_last 3.83298
+problem 935 CG        OC :    18.12 s  c_last 9.65775
+problem 961 CG        OC :    45.11 s  c_last 25.4831
+run dir: retest/runs/20260924T154743Z_oat_simp_n64
+=== OAT SIMP 64 SPSOLVE+OC ===
+problem 15 SPSOLVE   OC :    48.00 s  c_last 5.63137
+problem 676 SPSOLVE   OC :    47.49 s  c_last 3.682
+problem 839 SPSOLVE   OC :    48.87 s  c_last 3.8328
+problem 935 SPSOLVE   OC :    47.61 s  c_last 9.6542
+problem 961 SPSOLVE   OC :    47.96 s  c_last 25.4651
+run dir: retest/runs/20260924T155001Z_oat_simp_n64
+=== ours GPU 256 ===
+problem 1015: median 3.693 s  c_last 8.13878  pcg med 11.0 max 16 fb 0
+problem 1676: median 11.375 s  c_last 5.20217  pcg med 44.0 max 67 fb 0
+problem 1839: median 14.650 s  c_last 34.8455  pcg med 63.0 max 73 fb 0
+problem 1935: median 3.133 s  c_last 5.68406  pcg med 8.0 max 28 fb 0
+problem 1961: median 9.698 s  c_last 34.0523  pcg med 40.0 max 46 fb 0
+run dir: retest/runs/20260924T155416Z_ours_gpu_nito_n256
+=== ours GPU 64 ===
+problem 15: median 1.997 s  c_last 5.62289  pcg med 13.0 max 28 fb 0
+problem 676: median 1.409 s  c_last 3.67247  pcg med 6.0 max 12 fb 0
+problem 839: median 1.775 s  c_last 3.83234  pcg med 12.0 max 18 fb 0
+problem 935: median 1.457 s  c_last 9.65614  pcg med 7.0 max 14 fb 0
+problem 961: median 3.284 s  c_last 25.7938  pcg med 29.0 max 35 fb 0
+run dir: retest/runs/20260924T155632Z_ours_gpu_nito_n64
+=== ours PARDISO 64 ===
+problem 15: median 0.741 s  c_last 5.62289
+problem 676: median 0.744 s  c_last 3.67247
+problem 839: median 0.779 s  c_last 3.83234
+problem 935: median 0.777 s  c_last 9.65614
+problem 961: median 0.793 s  c_last 25.7938
+run dir: retest/runs/20260924T155707Z_ours_pardiso_nito_n64
+=== ours PARDISO 256 ===
+problem 1015: median 19.568 s  c_last 8.13878
+problem 1676: median 21.422 s  c_last 5.20217
+problem 1839: median 20.201 s  c_last 34.8455
+problem 1935: median 18.914 s  c_last 5.68406
+problem 1961: median 19.614 s  c_last 34.0523
+run dir: retest/runs/20260924T155739Z_ours_pardiso_nito_n256
+=== OAT inference 256 ===
+There are modules in CTOPUNet that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Loading weights from local directory
+problem 1015: median 0.549 s  mean 0.554 s  shape (256, 256)
+problem 1676: median 0.585 s  mean 0.627 s  shape (256, 256)
+problem 1839: median 0.533 s  mean 0.536 s  shape (256, 256)
+problem 1935: median 0.506 s  mean 0.509 s  shape (256, 256)
+problem 1961: median 0.522 s  mean 0.533 s  shape (256, 256)
+run dir: retest/runs/20260924T160355Z_oat_infer_n256
+=== OAT inference 64 ===
+There are modules in CTOPUNet that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Loading weights from local directory
+problem 15: median 0.514 s  mean 0.517 s  shape (64, 64)
+problem 676: median 0.525 s  mean 0.523 s  shape (64, 64)
+problem 839: median 0.521 s  mean 0.523 s  shape (64, 64)
+problem 935: median 0.516 s  mean 0.517 s  shape (64, 64)
+problem 961: median 0.521 s  mean 0.527 s  shape (64, 64)
+run dir: retest/runs/20260924T160438Z_oat_infer_n64
+FINAL RETEST DONE

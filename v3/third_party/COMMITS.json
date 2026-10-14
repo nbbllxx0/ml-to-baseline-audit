@@ -1,0 +1,65 @@
+[
+  {
+    "pid": "P00080",
+    "repo": "https://github.com/UW-ERSL/VoroTO",
+    "dir": "VoroTO",
+    "commit": "d407d15d9c876338f1b47e54cb41ff9dc9dcb381",
+    "commit_date": "2024-04-30T07:52:08-05:00",
+    "licence": "MIT",
+    "cloned": "2026-09-25"
+  },
+  {
+    "pid": "P00140",
+    "repo": "https://github.com/elingaard/deep-dehom",
+    "dir": "deep-dehom",
+    "commit": "73529a9340287a4e14a5e80250dc46fb213a866c",
+    "commit_date": "2021-11-16T22:50:26+01:00",
+    "licence": "none (no licence file; local use only, not redistributed)",
+    "cloned": "2026-09-25"
+  },
+  {
+    "pid": "P00183",
+    "repo": "https://github.com/DesignInformaticsLab/Theory_Driven_TO",
+    "dir": "Theory_Driven_TO",
+    "commit": "02de10e0a04c334c809084a0ba4743438f7afb95",
+    "commit_date": "2019-04-07T21:18:45-07:00",
+    "licence": "none (no licence file; local use only, not redistributed)",
+    "cloned": "2026-09-25"
+  },
+  {
+    "pid": "P00610",
+    "repo": "https://github.com/adama-wzr/Keff-CFD",
+    "dir": "Keff-CFD",
+    "commit": "48700a842afaaceef247572ddd17668d0d376548",
+    "commit_date": "2025-07-11T11:15:18-04:00",
+    "licence": "MIT",
+    "cloned": "2026-09-25"
+  },
+  {
+    "pid": "P00610",
+    "repo": "https://github.com/adama-wzr/CNN-Keff",
+    "dir": "CNN-Keff",
+    "commit": "46ec2b6553567bc3c02092ec8022a0a51d5740b7",
+    "commit_date": "2025-09-17T14:19:45-04:00",
+    "licence": "none (no licence file; local use only, not redistributed)",
+    "cloned": "2026-09-25"
+  },
+  {
+    "pid": "P00647",
+    "repo": "https://github.com/AshaV17/DL3DTO-Deep-Learning-for-3D-Topology-Optimization",
+    "dir": "DL3DTO-Deep-Learning-for-3D-Topology-Optimization",
+    "commit": "d9db8b2dc285ca169f15e7c0d0a77cb0c4f81ef5",
+    "commit_date": "2023-08-01T22:51:19+04:00",
+    "licence": "none (no licence file; local use only, not redistributed)",
+    "cloned": "2026-09-25"
+  },
+  {
+    "pid": "P00663",
+    "repo": "https://github.com/MarvinHaa/DeepNNforTopoOptisation",
+    "dir": "DeepNNforTopoOptisation",
+    "commit": "6c042e57b289a29fd4703ccd35472c703266f5c1",
+    "commit_date": "2021-05-13T21:38:45+02:00",
+    "licence": "none (no licence file; local use only, not redistributed)",
+    "cloned": "2026-09-25"
+  }
+]

@@ -1,0 +1,45 @@
+{
+ "note": "Reconstructed from the run logs (processes stopped or failed before writing JSON; CENSUS_PREREG \u00a79 dev15-16)",
+ "gpu_1440x720": {
+  "runs": [
+   {
+    "t_setup_s": 3.489989100024104,
+    "t_1000_s": 1536.215192600037,
+    "c_final": 82.0014420027938,
+    "change_final": 0.2,
+    "fallbacks": 0,
+    "first_iter_change_below_0.01": null
+   },
+   {
+    "t_setup_s": 3.4842672999948263,
+    "t_1000_s": 1546.1991745011183,
+    "c_final": 82.00144197465255,
+    "change_final": 0.20000000000000007,
+    "fallbacks": 0,
+    "first_iter_change_below_0.01": null
+   },
+   {
+    "t_setup_s": 3.5818433000240475,
+    "t_1000_s": 1565.904811300221,
+    "c_final": 82.00144199332718,
+    "change_final": 0.20000000000000007,
+    "fallbacks": 0,
+    "first_iter_change_below_0.01": null
+   }
+  ],
+  "t_1000_median_s": 1546.1991745011183,
+  "article_projection_s": 16000
+ },
+ "cpu_1440x720": {
+  "warmup_s": 80.8774608001113,
+  "timed_s": [
+   77.18548149999697,
+   75.93593659996986,
+   75.23775800003204
+  ],
+  "unit_median_s": 75.93593659996986,
+  "projection_1000_s": 75935.93659996986,
+  "article_unit_s": 16.0
+ },
+ "2400x1200": "not measured (CPU: SuperLU exited during setup; GPU: memory oversubscription)"
+}

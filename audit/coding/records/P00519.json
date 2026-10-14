@@ -1,0 +1,139 @@
+{
+  "pid": "P00519",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Toward Signed Distance Function based Metamaterial Design: Neural Operator Transformer for Forward Prediction and Diffusion Model for Inverse Design",
+    "authors": "Qibang Liu; Seid Koric; Diab Abueidda; Hadi Meidani; Philippe Geubelle",
+    "year": 2025,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 446, 118316 (2025), per Crossref search; arXiv preprint coded",
+    "doi": "10.1016/j.cma.2025.118316",
+    "arxiv_id": "2504.01195",
+    "version_coded": "arXiv v3 (28 May 2025), full HTML text including Supplementary S0-S5 read. The version of record is CC BY 4.0 per Crossref but was not reachable by this agent (ScienceDirect blocked). The v3 title matches the version-of-record title; the pool title comes from v1."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The paper presents its SDF-conditioned diffusion model as an efficient one-shot route to inverse design. It contrasts this with iterative gradient-based TO, which it calls computationally intensive and prone to local minima. No classical optimizer is run or timed.",
+    "key_phrase": "enabling efficient one-shot design synthesis",
+    "location": "Abstract (qualitative; the classical comparator is named earlier in the Abstract as gradient-based optimization). The contrast with TO is explicit in Sec. 1 Introduction and Sec. 4 Conclusions. No quantitative comparison with a classical method exists anywhere, so protocol Sec. 5.1 rule 3 applies.",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No classical optimizer time is reported. Table S7 (Supplementary S5) gives a forward FE simulation time of 2.3 min/sample on 1 CPU and an inverse-design time of 0.46 s/solution. The FE figure is a forward analysis, not a classical optimization, so no speed-up versus a classical method can be derived.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract: SDF boundaries avoid the jagged pixel edges of gradient-based optimization (and of earlier generative models) and remove post-processing; this is a representation or quality claim and is emphasized by the title. (2) Sec. 1: level-set TO is called computationally expensive and weak at creating new holes. (3) Table S7: per-task ML and FE-forward times, with no classical optimizer."
+  },
+  "baseline": {
+    "classical_method": "None run. Gradient-based topology optimization and genetic algorithms are named only as traditional alternatives (Sec. 1, Sec. 4).",
+    "implementation": "not applicable (no classical optimizer implemented)",
+    "solver": "not applicable. The data-generation FE uses the Abaqus 2024 implicit dynamic solver (Sec. 3.2).",
+    "hardware_classical": "not applicable. FE data generation ran on CPUs of the NCSA Delta machine (Sec. 3.2; Supplementary S5).",
+    "hardware_ml": "Training: one NVIDIA H100 GPU with 90GB memory (DeltaAI, NCSA; Sec. 3.4). Inference: one NVIDIA A100 GPU (Delta, NCSA; Sec. 3.5).",
+    "problem_size": "2D unit cell on a [0, 1 mm]^2 domain. Geometry from a 64x64 Gaussian random field; SDF on a 120x120 grid (Sec. 2.1, 3.1). FE global mesh size 0.04 mm, 51 load steps to 0.2 compressive strain (Sec. 3.2).",
+    "classical_iterations": "not applicable. The diffusion model uses T = 500 time steps (Table S6).",
+    "classical_time": "not stated (no classical optimizer). Forward FE simulation: 2.3 min/sample on 1 CPU (Table S7).",
+    "ml_time": "Inverse design 0.46 s/solution. NOT inference 1.6e-4 s/solution (stress-strain curve) and 1.0e-2 s/solution (full field). (Table S7)",
+    "training_time": "NOT: 16 s/epoch (stress-strain curve, 500 epochs) and 96 s/epoch (full field, 300 epochs). Diffusion model: 47 s/epoch (300 epochs). (Table S7; Tables S4, S6)",
+    "data_generation_cost": "2.3 min/sample on 1 CPU (Table S7) for about 10,000 FE-simulated geometries (Sec. 2.1, 3.1). Augmentation by periodic shifts gives 73,879 samples with no extra FE runs (Supplementary S2.4).",
+    "quality_metric": "L2 relative error between the target and the designed stress-strain curves. All generated samples are screened by the NOT surrogate; the 4 selected designs per target are checked with Abaqus FE (Figs. 6, 9; Sec. 3.6).",
+    "quality_gap": "No comparison with classical designs. L2 errors of the selected designs appear only in the legends of Figs. 6(a,b) and 9(a,b)."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "na",
+      "marker": "excluded-FT-NOBASELINE",
+      "evidence": "Excluded at full text as FT-NOBASELINE (PROTOCOL §11 no-baseline clarification, which lists this article): no classical optimizer is run, timed or cited with a cost or result (Sec. 1, p. 2; Sec. 4; Supplementary S5). Gradient-based TO appears only as qualitative motivation."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "excluded-FT-NOBASELINE",
+      "evidence": "Excluded at full text as FT-NOBASELINE; there is no classical optimization baseline whose efficiency could be judged (Sec. 1-4; Supplementary S5)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "excluded-FT-NOBASELINE",
+      "evidence": "Excluded at full text as FT-NOBASELINE. For C3 context only: Table S7 (Supplementary S5) reports 2.3 min per FE sample on 1 CPU for about 10,000 samples and training at 16, 96 and 47 s per epoch; no break-even is given."
+    },
+    "R4": {
+      "verdict": "na",
+      "marker": "excluded-FT-NOBASELINE",
+      "evidence": "Excluded at full text as FT-NOBASELINE. For context: the 4 designs per target with the lowest surrogate error are re-simulated in Abaqus (Figs. 6(b), 9(b)); samples with islands are filtered out without a count (Sec. 3.5)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Inverse design: 4 targets. Two are test-set curves with 200 samples each (Fig. 6); two are Ramberg-Osgood curves with 500 samples each (Fig. 9). Forward NOT: 20% test split (Sec. 3.4) of 73,879 samples (Supplementary S2.4).",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "INCLUSION IS BORDERLINE. The article runs no classical optimizer. Its speed claim is qualitative: the Abstract's one-shot wording, and the Introduction and Conclusions calling TO computationally intensive. It was coded as speed stratum under the protocol's speed-proxy example 'without iterative optimization'. Alternatives: exclude as having no comparison with a classical method, or code the Abstract's SDF-versus-pixel boundary claim as a quality-stratum outcome. Reporting locators: ood_test is 'unclear' because the custom Ramberg-Osgood targets (Sec. 2.3, Fig. 9) are not described as out-of-distribution. The forward-model test error is reported as mean and SD (2.6% +/- 2.4% for curves; 10.3% +/- 4.6% for fields; Sec. 2.2, Supplementary S3.3), but no seeds or variance are given for inverse design. Hardware and times per task are in Supplementary S5 and Table S7, with no warm-up or batch details. Code: GitHub QibangLiu/SDFGeoDesign (Code availability). Data: Zenodo doi 10.5281/zenodo.15121966 (Data availability). Derived totals [inferred]: about 23,000 CPU-minutes (about 383 CPU-hours) of FE for about 10,000 samples; training about 2.2 h (NOT curve), 8.0 h (NOT field) and 3.9 h (diffusion). retest_candidate is false for three reasons: there is no classical benchmark in the article to re-run, FE checking needs Abaqus (commercial), and the repository licence was not checked. Adjudication (2026-09-24): excluded as FT-NOBASELINE. PROTOCOL §11 (no-baseline clarification) names P00519 among the affected prefills, and audit/coding/verifier_flags.csv flags it as an FT-NOBASELINE candidate. The adjudicator re-read arXiv v3 (HTML, main text and Supplementary S0-S5): gradient-based TO and genetic algorithms appear only as qualitative motivation (Sec. 1; Sec. 4), and no classical optimizer is run, timed or cited with a cost or result. The only classical timing, Abaqus forward simulation at 2.3 min/sample (Table S7), is the data-generation analysis cost, not an optimization method (§3.2; §4 forward-analysis exclusion). Earlier codes in the closed list do not apply: the article is architected-material inverse design (not FT-SCOPE), the diffusion model does inverse design (not FT-FORWARD), and no ML baseline is run (not FT-MLONLY). Access: arXiv v3 is the latest arXiv version (abs page lists v1-v3). The CC BY 4.0 version of record (CMAME 446, 118316, Nov 2025; Crossref) returned HTTP 403 from ScienceDirect to one scripted request; the Elsevier text-mining API link in the Crossref record was not tried, because that API takes an API key [recalled, not tested], which the access rules forbid; and a web search showed no other legal copy (only ResearchGate, which the rules exclude). The version of record therefore stays unread; if it adds a classical baseline, the exclusion should be revisited.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "fail",
+        "second": "pass",
+        "decision": "na",
+        "reason": "arXiv v3 runs, times or cites no classical optimizer: gradient-based TO appears only as qualitative motivation (Sec. 1, p. 2; Sec. 4), the case PROTOCOL §11 (no-baseline clarification, which lists P00519) excludes as FT-NOBASELINE. The second coder's Table S7 timing (Supplementary S5) sets Abaqus forward simulation against the NOT surrogate, a forward-analysis comparison that §3.2 and §4 do not accept, so the record is excluded and R1 is na."
+      },
+      "R2": {
+        "first": "na",
+        "second": "partial",
+        "decision": "na",
+        "reason": "Excluded as FT-NOBASELINE (see R1). No classical optimization baseline exists whose solver or hardware could be judged (Sec. 1-4; Supplementary S5); the CPU-vs-GPU contrast the second coder cites concerns forward FE simulation, not an optimizer."
+      },
+      "R3": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "na",
+        "reason": "Excluded as FT-NOBASELINE (see R1), so no rule verdict applies. The data-generation and training costs of Table S7 (Supplementary S5) stay in the baseline fields for C3 context."
+      },
+      "claimed_speedup": {
+        "first": null,
+        "second": 13800,
+        "decision": null,
+        "reason": "The second coder's 13,800 divides Abaqus forward simulation (2.3 min/sample) by NOT full-field inference (1.0e-2 s/solution) from Table S7 (Supplementary S5): a surrogate-versus-analysis ratio, not a classical-optimization-versus-ML ratio. The article states no speed-up factor, and the record is excluded."
+      }
+    },
+    "consequential_changes": {
+      "decision": {
+        "first": "include (I-SPEED)",
+        "second": "include (I-SPEED)",
+        "decision": "exclude (FT-NOBASELINE)",
+        "reason": "Not a disputed item. Deciding R1-R3 from the article and PROTOCOL §11 leaves no classical comparison to code, so the record cannot stay a speed-stratum include; FT-NOBASELINE is the first applicable code in the closed list (screening_codes.md, second table)."
+      },
+      "stratum": {
+        "first": "speed",
+        "second": "speed",
+        "decision": "none",
+        "reason": "An excluded record has stratum none (adjudication_instructions.md, procedure step 3)."
+      },
+      "R4": {
+        "first": "partial",
+        "second": "partial",
+        "decision": "na",
+        "reason": "An excluded record has all rule verdicts na (adjudication_instructions.md, procedure step 3)."
+      }
+    }
+  }
+}

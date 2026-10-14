@@ -1,0 +1,155 @@
+﻿[
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "FT-NOBASELINE",
+        "pid":  "P00005",
+        "rationale":  "Sections 3 and 4: the paper presents its differentiable TO pipeline and compares its own optimization variants, but reports no result or cost comparison against a classical optimization method.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "FT-FORWARD",
+        "pid":  "P00069",
+        "rationale":  "Sections 3.4鈥?: the neural network predicts lattice constitutive behavior inside a conventional topology optimizer; validation compares material response, not ML and classical TO outcomes.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "I-QUALITY",
+        "pid":  "P00110",
+        "rationale":  "Section 4.2, Table 4: DDTO and the classical constitutive-model TO method are compared by optimized compliance and design, with DDTO results reported within 3% of the classical result.",
+        "decision":  "include",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "FT-NOML",
+        "pid":  "P00390",
+        "rationale":  "Sections 2 and 4: the method uses variational quantum algorithms on a quantum device, not a learned model of the kinds covered by the protocol.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "FT-MLONLY",
+        "pid":  "P00586",
+        "rationale":  "Section 3.1, Figure 7: its explicit model comparison is between derivative-aware and conventional neural networks; no classical optimization method is compared.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "I-UNCLEAR",
+        "pid":  "P00869",
+        "rationale":  "Abstract: neural geometry representations are used to optimize lattice structures, but the abstract gives no outcome comparison with a classical method; its design-space contrast leaves the full-text criterion unresolved.",
+        "decision":  "include",
+        "llm_date":  "2026-09-26",
+        "access":  "abstract_only"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "I-QUALITY",
+        "pid":  "P00972",
+        "rationale":  "Section 4.2, Figures 7 and 11 and Table 5: the proposed VAE-based method is compared with established multi-material TO results using optimized designs and compliance values.",
+        "decision":  "include",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "I-SPEED",
+        "pid":  "P01017",
+        "rationale":  "Section 6, Figure 10: the paper reports topology-optimization runtime against a classical FE2 approach and gives an approximately 1,410-fold online acceleration.",
+        "decision":  "include",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "E-NOML",
+        "pid":  "P01358",
+        "rationale":  "Abstract: the shielding design uses an analytical attenuation model and conventional topology optimization; no learned model is described.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "abstract_only"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "FT-DOMAIN",
+        "pid":  "P01375",
+        "rationale":  "Sections 1 and 4: the work optimizes ferromagnetic material layouts and magnetic actuators, placing it in the excluded electromagnetic domain.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "I-UNCLEAR",
+        "pid":  "P01432",
+        "rationale":  "Abstract: a curve-reconstruction neural network supports topology optimization and claims improved structural performance, but it does not establish a comparison with a classical method.",
+        "decision":  "include",
+        "llm_date":  "2026-09-26",
+        "access":  "abstract_only"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "E-OTHER",
+        "pid":  "P01585",
+        "rationale":  "Abstract and record: the SSRN-hosted preprint is outside the journal, conference, or arXiv document types admitted by the protocol.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "abstract_only"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "FT-TYPE",
+        "pid":  "P02003",
+        "rationale":  "Section 4.3 and document record: although the paper compares generative designs, it is an engrXiv preprint rather than a journal article, conference paper, or arXiv preprint.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "full_text"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "E-SCOPE",
+        "pid":  "P02211",
+        "rationale":  "Abstract: the neural surrogate supports cross-section sizing of nonlinear trusses; it does not optimize topology or architected-material layout.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "abstract_only"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "E-SCOPE",
+        "pid":  "P02212",
+        "rationale":  "Abstract: the deep-learning method optimizes truss member sizes under structural constraints, rather than topology or architected-material layout.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "abstract_only"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "E-SCOPE",
+        "pid":  "P02282",
+        "rationale":  "Abstract: the Neural Optimization Machine addresses general optimization of neural-network objectives and constraints, not topology optimization.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "abstract_only"
+    },
+    {
+        "llm_model":  "gpt-6-luna",
+        "code":  "E-NOML",
+        "pid":  "P02535",
+        "rationale":  "Abstract: Fourier basis functions parameterize the density field and reduce design variables; no learned model is used.",
+        "decision":  "exclude",
+        "llm_date":  "2026-09-26",
+        "access":  "abstract_only"
+    }
+]

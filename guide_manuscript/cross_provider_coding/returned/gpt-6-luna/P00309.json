@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00309",
+    "citation":  {
+                     "title":  "Evolutionary de-homogenization using a generative model for optimizing solid-porous infill structures considering the stress concentration issue",
+                     "authors":  "Shuzhi Xu, Hiroki Kawabe, Kentaro Yaji",
+                     "year":  2024,
+                     "venue":  "arXiv preprint",
+                     "doi":  "10.1016/j.matdes.2025.114380",
+                     "arxiv_id":  "2412.19154",
+                     "version_coded":  "arXiv v1 (26 Dec 2024)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "stage":  "cross_provider_pass",
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-QUALITY",
+                     "stratum":  "quality",
+                     "method_family":  "vae",
+                     "physics":  "stress",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "Against traditional single-material Stress-TO, low-fidelity optimization lowers maximum stress by 13% at a 13% target volume fraction and 9.7% at an 18% target.",
+                  "key_phrase":  "",
+                  "location":  "Section 4.5, Fig. 19",
+                  "quantitative":  true,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No speed-up comparison reported.",
+                  "direction":  "outperform",
+                  "alternatives":  "Conclusion item 5 qualitatively says low-fidelity optimization has performance advantages over traditional single-material stress optimization, amplified when used to initialize MFTD."
+              },
+    "baseline":  {
+                     "classical_method":  "Traditional single-material stress-based topology optimization (Stress-TO); low-fidelity method also compared with MFTD",
+                     "implementation":  "not stated",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "2D; mesh resolution not stated for primary comparison",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "not stated",
+                     "quality_metric":  "Maximum von Mises stress and volume fraction",
+                     "quality_gap":  "Section 4.5, Fig. 19: maximum stress reductions of 13% and 9.7% at target volume fractions 13% and 18%, respectively; reported volume fractions are 13.12% vs 13.74% and 17.89% vs 18.11%."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "R1-not-speed-outcome",
+                             "evidence":  "Conclusion: the primary comparison is design quality; no speed comparison is made."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Sections 4.5–4.6: no solver efficiency, hardware mismatch, iteration excess, or per-iteration baseline comparison established."
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "R3-no-speed-claim",
+                             "evidence":  "Conclusion: no speed claim is made."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-no-failure-rate",
+                             "evidence":  "Sections 4.5–4.6 and Figs. 19, 21: detailed CAD designs are evaluated with high-fidelity finite-element stress analysis and volume fractions, but failed or infeasible designs are not counted."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Several numerical cases; counts not stated (Sections 4.1–4.6).",
+                      "ood_test":  "unclear",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  ""
+}

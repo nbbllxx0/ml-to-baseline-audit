@@ -1,0 +1,88 @@
+{
+  "pid": "P00375",
+  "citation": {
+    "title": "Diffusing the Optimal Topology: A Generative Optimization Approach",
+    "authors": "Giorgio Giannone; Faez Ahmed",
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "doi": "10.1115/detc2023-116595",
+    "arxiv_id": "2303.09760",
+    "version_coded": "arXiv v1 (full text at arXiv:2303.09760)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The authors combine a diffusion-generated starting design with a few SIMP refinement steps to obtain feasible, higher-performing topologies efficiently.",
+    "key_phrase": "computationally expensive",
+    "location": "abstract",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up over a classical baseline is stated or derivable; the 53.93% reduction in the introduction is relative to other generative-model baselines.",
+    "direction": "outperform",
+    "alternatives": "Introduction: inference time for TopoDiff-FF is reported as 53.93% lower than generative-model baselines; this is not a classical comparison. Section 5.6 compares SIMP refinement variants on quality."
+  },
+  "baseline": {
+    "classical_method": "SIMP refinement; also SIMP dataset/quality reference",
+    "implementation": "SIMP (10) refinement; implementation details not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "2D topology configurations; grid size not stated in coded comparison",
+    "classical_iterations": "5 or 10 SIMP refinement iterations (Table 9)",
+    "classical_time": "not stated",
+    "ml_time": "Inference and preprocessing compared among generative models in Figure 8; numerical values not stated in text",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "compliance, compliance error, volume-fraction error, floating material",
+    "quality_gap": "SIMP refinement improves compliance and compliance error over the unrefined generative design (Table 9); no classical-convergence match stated"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Tables 5–7 and 9 report quality metrics and selected SIMP refinements, but do not match a speed comparison to equal quality or equal time/budget against a converged classical result."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sections 5.1–5.6 do not establish an inefficient classical implementation, CPU/GPU mismatch, or an excessive fixed iteration count."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-data-cost",
+      "evidence": "The speed discussion reports no training or data-generation cost or amortization (Sections 5.5–5.6)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Tables 5–7 report engineering metrics including compliance and volume error, and floating material; failed-design rates are not reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Three test tasks; number of individual configurations not stated in this record",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Full text read from https://arxiv.org/pdf/2303.09760. The abstract emphasizes efficiency but does not quantify speed against a classical baseline.",
+  "stage": "cross_provider_pass"
+}

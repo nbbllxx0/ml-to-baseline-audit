@@ -1,0 +1,88 @@
+{
+  "pid": "P00238",
+  "citation": {
+    "title": "AutoMS: Multi-Agent Evolutionary Search for Cross-Physics Inverse Microstructure Design",
+    "authors": "Zhenyuan Zhao, Yu Xing, Tianyang Xue, Lingxin Cao, Xin Yan, Lin Lu",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.AI)",
+    "doi": "10.48550/arxiv.2603.27195",
+    "arxiv_id": "2603.27195",
+    "version_coded": "arXiv v2 (12 Apr 2026; latest of 2 versions on the abs page), PDF downloaded directly from arxiv.org, 24 pages, read in full including all main-text tables (1-4) and Appendix C-E (benchmark suite, additional results, metric definitions); Appendix A (agent prompts) and most of Appendix D's physics-simulation derivations were not needed for coding and were skimmed only."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (this coder has no access to the title/abstract screening record; assigned from full text -- Table 1 reports both success rate and wall-clock time for AutoMS against classical non-learned optimizers, NSGA-II/BayesOpt/CMA-ES, run on the identical simulation engine and hardware)",
+    "stratum": "speed",
+    "method_family": "llm_agent",
+    "physics": "multiphysics",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "AutoMS (an LLM-agent orchestration layer plus a Simulation-Aware Evolutionary Search over the conditioning parameters of a pre-trained microstructure generator) is benchmarked against classical optimizers -- NSGA-II, Bayesian Optimization and CMA-ES -- all using the identical generator and cross-physics simulator on the same compute cluster. Averaged over 17 tasks and 4 runs, AutoMS reaches an 83.8% success rate in 2180.5 s, versus 43.7% in 5550.2 s (NSGA-II), 65.0% in 3982.9 s (BayesOpt), and 66.7% in 4202.3 s (CMA-ES) -- higher success on a coupled cross-physics inverse-design task, in less wall-clock time, for every classical baseline.",
+    "key_phrase": "nearly doubling the performance of traditional NSGA-II",
+    "location": "Table 1, Section 4 'Experimental Setup' / Section 5.1 (main text); the Introduction's contributions bullet previews the same success-rate numbers for NSGA-II/BayesOpt/CMA-ES, and separately states a wall-clock reduction, but that reduction is stated only against the agentic ReAct baseline, not a classical method",
+    "quantitative": true,
+    "claimed_speedup": 2.55,
+    "claimed_speedup_basis": "Derived (not stated as a ratio by the authors): Table 1, NSGA-II time / AutoMS time = 5550.2 s / 2180.5 s = 2.55. NSGA-II is used as the reference because the article itself frames it as the primary classical baseline ('traditional NSGA-II'). The same table gives smaller derived ratios against the other two classical baselines: BayesOpt 3982.9/2180.5 = 1.83, CMA-ES 4202.3/2180.5 = 1.93. The only speedup number the authors state explicitly is a 23.3% wall-clock reduction 'compared to ReAct' (Introduction, Conclusion) -- ReAct is a single-agent LLM baseline, not a classical method, so it is not used as the claimed_speedup basis.",
+    "direction": "outperform",
+    "alternatives": "(1) The explicitly stated claim, '[AutoMS] reduces the total wall-clock time by 23.3% compared to ReAct-based LLM baselines' (Introduction; restated in the Conclusion as '23.3% reduction in execution time compared to existing agentic baselines') -- a comparison with an LLM-agent method, not a classical one. (2) Table 1's quality-only reading: AutoMS 83.8% success rate vs NSGA-II 43.7%, BayesOpt 65.0%, CMA-ES 66.7%, with Mean Relative Error 0.0140 versus NSGA-II's 0.4276 -- this is the comparison the Introduction and Section 5.1 heading ('Superiority in Validity and Precision') foreground most prominently, ahead of the wall-clock discussion which follows under a separate subheading ('Efficiency via Intelligent Orchestration')."
+  },
+  "baseline": {
+    "classical_method": "NSGA-II (a classic multi-objective genetic algorithm), Bayesian Optimization (standard Gaussian-process BayesOpt), and CMA-ES (Covariance Matrix Adaptation Evolution Strategy) -- all optimizing the same mechanical conditioning parameters (E, G, nu) fed to the shared pre-trained MIND generator, under 'the identical microstructure generation model and cross-physics simulation engine' as AutoMS (Section 4, 'Baselines').",
+    "implementation": "Not named beyond the standard-algorithm citations (Deb et al. 2002 for NSGA-II; Snoek et al. 2012 for BayesOpt; Hansen & Ostermeier 2001 for CMA-ES); described as operating 'on the same conditioning space and simulation feedback' / 'under the same simulator budget' as AutoMS.",
+    "solver": "The shared cross-physics simulator is JAX-FEM (Xue et al. 2023) performing homogenization (Appendix D.1) and plasticity analysis; not described as sparse-direct vs iterative.",
+    "hardware_classical": "Same as the ML method: a computing cluster with two NVIDIA A40 GPUs (48 GB VRAM each), 512 GB RAM, and a 64-core AMD EPYC 7763 processor (Section 4, 'Hardware and Software Configuration' -- explicitly stated to be shared by 'all experiments').",
+    "hardware_ml": "Same cluster as above; LLM inference uses DeepSeek-V3.2 as the default backbone (with GPT-4o, GPT-5.2, Claude Haiku 4.5 and Qwen3-Max tested separately for robustness, Table 4).",
+    "problem_size": "17 benchmark tasks spanning single-objective (5), multi-objective with 2-5 constraints (8), and Pareto-frontier exploration (4); materials include Al6061, Ti6Al4V, AlSi10Mg, ABS and TPU; tasks stratified Easy(3)/Medium(8)/Hard(6) (Section 4, 'Benchmark Tasks').",
+    "classical_iterations": "Average iterations to convergence (Table 1): NSGA-II 48.8, BayesOpt 39.2, CMA-ES 40.8, versus AutoMS 14.4 (averaged over 17 tasks x 4 runs).",
+    "classical_time": "5550.2 s (NSGA-II), 3982.9 s (BayesOpt), 4202.3 s (CMA-ES) -- average total wall-clock time per task (Table 1), explicitly stated to exclude plasticity simulations for all methods equally.",
+    "ml_time": "2180.5 s (AutoMS), same averaging and exclusion convention (Table 1); Table 10 further splits this into 669.4 s (30.7%) LLM inference and 1508.9 s (69.2%) simulation/tool execution.",
+    "training_time": "Not applicable as a separate cost for AutoMS's own claim: AutoMS performs no new offline training of its own. It orchestrates a previously published, pre-trained generative model, MIND (Xue et al. 2025), which is invoked identically (and its own prior training cost is shared identically) by every baseline in Table 1, including the classical optimizers.",
+    "data_generation_cost": "Not applicable: no new dataset is generated for AutoMS itself; MIND's own training data (from the cited prior work) is a shared, pre-existing asset used identically by all compared methods, not a cost unique to AutoMS's speed claim.",
+    "quality_metric": "Success Rate (SR, fraction of fully valid solutions) and Constraint Satisfaction Rate (CSR, partial fulfillment), both computed via the shared high-fidelity JAX-FEM cross-physics simulator; also Mean Relative Error (MRE), Best Property Match (BPM) and a composite Quality Score (QS) (Section 4, 'Evaluation Metrics'; Table 1).",
+    "quality_gap": "Table 1: AutoMS SR 83.8%, CSR 59.6%, MRE 0.0140, BPM 94.2%, QS 82.4, versus NSGA-II SR 43.7%/CSR 53.3%/MRE 0.4276/BPM 51.7%/QS 49.8; BayesOpt SR 65.0%/MRE 0.0194/BPM 85.6%/QS 73.7; CMA-ES SR 66.7%/MRE 0.0241/BPM 84.7%/QS 73.7. AutoMS has higher success and quality scores than all three classical baselines on every listed metric except CSR, where NSGA-II (53.3%), BayesOpt (55.6%) and CMA-ES (55.7%) are close to or slightly below AutoMS's 59.6%."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "The authors state explicitly: 'For a fair comparison, all methods (AutoMS and baselines) invoke the identical microstructure generation model and cross-physics simulation engine' (Section 4). Under this shared setup, Table 1 shows AutoMS strictly dominating NSGA-II, BayesOpt and CMA-ES on both quality (SR, MRE, BPM, QS all better) and wall-clock time (2180.5 s vs 5550.2/3982.9/4202.3 s) simultaneously -- the opposite of the 'faster but measurably worse' pattern the rule targets. No post-processing asymmetry is evident: the 'Time (s)' column excludes plasticity simulations identically for every method (Section 4, 'Evaluation Metrics')."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-matched-hardware",
+      "evidence": "Hardware and simulator are explicitly identical across AutoMS and all three classical baselines: 'All experiments were conducted on a high-performance computing cluster equipped with two NVIDIA A40 GPUs (48 GB VRAM each), 512 GB system RAM, and a 64-core AMD EPYC 7763 processor' (Section 4), with NSGA-II/BayesOpt/CMA-ES each described as using 'the same simulation engines' / 'the same simulator budget' / 'the same conditioning space and simulation feedback' as AutoMS. No R2(c) GPU-vs-CPU asymmetry exists. Per-iteration cost (derived) is actually higher for AutoMS (2180.5/14.4 = 151.4 s/iter) than for NSGA-II (5550.2/48.8 = 113.7 s/iter), so AutoMS's total-time advantage comes from needing far fewer iterations, not from an inefficient classical per-iteration cost -- the opposite of an R2(e) concern."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-shared-pretrained-component",
+      "evidence": "AutoMS performs no new offline training specific to its own speed claim; it orchestrates the pre-trained MIND generator (Xue et al. 2025), which every baseline in Table 1 -- including the classical optimizers NSGA-II/BayesOpt/CMA-ES -- also invokes identically (Section 4, 'Baselines'). The reported 2180.5 s already includes the full online cost of solving one task (LLM inference plus simulation/tool execution, Table 10), comparable in kind to the classical methods' own reported per-task times. There is therefore no separate, asymmetric data-generation or training cost to account for against this article's own comparison."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Quality and feasibility are computed via the shared high-fidelity JAX-FEM cross-physics simulator (homogenization and plasticity analysis, Appendix D), not an image-similarity proxy. Success Rate and Constraint Satisfaction Rate are explicit, systematically reported failure/feasibility metrics computed for every method across all 17 tasks and averaged over 4 independent runs each (Table 1, Table 6, Table 8), directly matching the protocol's request that infeasible or failed designs be counted rather than only illustrated on a handful of examples."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "17 diverse cross-physics tasks (Table 6), stratified Easy(3)/Medium(8)/Hard(6) by difficulty, each averaged over 4 independent runs (Table 8).",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "yes",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Stratum judgment (documented for the adjudicator, since this was a genuinely close call): the article's own narrative subordinates its wall-clock claim ('Furthermore, the hierarchical orchestration reduces wall-clock time by 23.3% ... compared to ReAct-based LLM baselines', Introduction) to its success-rate claim against the classical baselines NSGA-II/BayesOpt/CMA-ES, and the only wall-clock number the authors state in prose is against ReAct (an LLM-agent method, not classical). However, Table 1 -- described by the article itself as 'Comprehensive comparison of AutoMS against numerical and agentic baselines ... across three critical dimensions: Task Completion, Solution Quality and Efficiency' -- reports wall-clock time for every baseline including the three classical optimizers, and AutoMS is faster than all three there too (derived ratios 1.83x-2.55x). This coder treated Table 1 as the primary-outcome location (satisfying the speed-stratum definition via its Efficiency column against classical methods), rather than treating only the prose-emphasized ReAct comparison as primary; a coder who instead anchors on the prose emphasis alone could reasonably code stratum='quality' with the 23.3%-vs-ReAct figure recorded as a non-classical aside. Scope judgment: the classical comparators (NSGA-II, BayesOpt, CMA-ES) are general-purpose non-learned optimizers, not topology optimization by name; they are coded as satisfying protocol §3.1's 'classical comparator is TO or homogenization-based optimization' because they are applied here as classical, non-learned optimizers solving the same homogenization-based inverse-design problem (matching target homogenized thermal/electrical/elastic properties of an architected microstructure, Appendix D.1) using the same simulator as AutoMS. physics is coded 'multiphysics' (thermal conductivity, electrical conductivity, Young's modulus, Poisson's ratio and plasticity are all targeted across the 17 tasks, Table 2/6) rather than 'metamaterial_homogenization', though the underlying property-evaluation method is homogenization theory; dim is coded '3d' based on the periodic RVE formulation (Appendix D.1) and the mention of physical 3D-printed validation results (Appendix C). No author named Jun Wang (authors: Zhenyuan Zhao, Yu Xing, Tianyang Xue, Lingxin Cao, Xin Yan, Lin Lu); the reference list cites several unrelated 'Wang' authors (H. Wang, Z. Wang, L. Wang, X. Wang, W. Wang) in prior work, none of them 'Jun Wang' and none authors of this article. Duplicate check: pool.csv searched by title on 2026-09-24; only one matching record (P00238 itself) -- no duplicate found; no version-of-record exists yet (arXiv-only preprint). No code or data availability statement was found anywhere in the article. Access: arXiv PDF downloaded directly with no bot check, CAPTCHA, login or paywall."
+}

@@ -1,0 +1,41 @@
+pid,flag,note
+P00002,FT-NOBASELINE candidate,Listed in the PROTOCOL §11 no-baseline clarification. Cost claim against online homogenization; no classical run or timing.
+P00015,FT-NOBASELINE candidate,"Listed in the clarification. FE2 cost claim; no FE2 run, timing or cost figure."
+P00519,FT-NOBASELINE candidate,Listed in the clarification. Efficiency claim against gradient-based TO; no classical optimizer is run or timed.
+P00252,FT-NOBASELINE candidate,"Re-running TO is the named slow alternative but is never run, timed or evaluated. The quantitative comparisons are with direct density-space edits, which are not optimization methods (prefill notes)."
+P00313,FT-NOBASELINE candidate,"No TO run, runtime or FE-count comparison. Only a qualitative remark that the Pareto fronts agree with a TO reference (Sec. 3.3). Decide whether that counts as citing a classical result."
+P00041,FT-NOBASELINE candidate,The cost claim against homogenization-in-the-loop TO is never measured. Decide whether the single-scale tensile-bar run counts as a classical comparator (prefill notes list three options).
+P00064,stratum check,"The abstract frames ML as cheaper than computational homogenization but never measures it. Under the no-baseline clarification that framing is not a comparison, so the quality comparison stays primary. Confirm."
+P00375,stratum check,"Screening said speed; the prefill puts it in quality (Table 5: 4.16 % compliance error against SIMP references). Alternative primary outcome: Table 9, SIMP stopped after 5 or 10 iterations."
+P00512,R2 check,"If the ~4x and ~10x high-resolution claims are taken as primary, R2(c) becomes fail: GPU against a 2-thread CPU."
+P00150,R2 check,Timing hardware not stated (R2 pass or partial). The journal version's numbers differ from arXiv v2 (259x against 225x).
+P00428,conflict of interest,Co-authored by the user's PhD advisor. The second coder verifies this record; disclose in the manuscript.
+P00034,duplicate,Earlier version of P00235 (arXiv 2604.03522). P00235 is the primary record.
+P00100,note,"Reports the ML method about 4x slower than SIMP: a negative-direction record, relevant to C4."
+P00501,conflict of interest,Co-authored by the user's PhD advisor (confirmed by the user; PROTOCOL §11 access-routes and conflicts-of-interest row). Coded like all other records and disclosed in the manuscript.
+P00647,duplicate,Its arXiv preprint is P00826 (not yet coded); P00826 should become FT-DUPLICATE of P00647. The paper calls itself educational: FT-TYPE is possible.
+P00165,duplicate,P01152 (coded FT-DUPLICATE) and P00867 (not yet coded) are older titles of the same arXiv preprint.
+P00755,FT-NOBASELINE candidate,"The classical time (about 24 h) is an unexplained estimate, not a run. If an estimate does not count as timing, the record is FT-NOBASELINE."
+P00786,stratum check,"Speed stratum rests on a per-evaluation cost proxy (500x per homogenization call), as in P00149. No classical TO is run; if the proxy is rejected, FT-NOBASELINE."
+P00698,stratum check,Speed stratum rests on shares of run time spent in FE; the abstract's 40 % matches no FE share in Fig. 14.
+P00549,scope check,Elastic-wave phononic design: decide whether this is excluded 'acoustic' TO (FT-DOMAIN). Same question for P00605 and P00893. Speed via a per-evaluation proxy.
+P02328,exclusion check,"Coded FT-NOML: the 'data-driven' method is a nearest-neighbour database lookup. If that counts as a learned model, the code becomes FT-NOBASELINE."
+P01960,stratum check,"The body runs neither SIMP nor level-set; the 40 % weight gain is against a 'traditional hub'. If that is not a classical comparison, the Fig. 12 timing (8.8x derived) makes it speed stratum."
+P00140,stratum check,The quantitative part of the abstract claim is a quality gap; speed stratum is a judgment call. R1 could be partial instead of fail.
+P02074,exclusion check,"Comparator numbers cannot be traced to any described experiment (BESO bridge, smart grid, antenna studies). FT-OTHER or FT-SCOPE possible."
+P01971,stratum check,"No conclusion section. If the Discussion counts, the RL-vs-brute-force operation count becomes primary (speed stratum)."
+P01994,exclusion check,"Registered as a ResearchGate preprint (fails PROTOCOL 3.3, FT-OTHER); may also be an earlier version of P01997 (FT-DUPLICATE). Not readable by the coder."
+P02042,access route,"PDF taken from mdpi-res.com (MDPI's own file host, CC BY) because www.mdpi.com returned 403. Confirm this route is acceptable. Same for P00663 and P00698."
+P00786,access route,The PDF came from the publisher's own PDF server via the link on the OUP page; no challenge was solved.
+P00051,note,Re-test candidate: MIT-licensed code and configs (GINNs repository). The alternative primary outcome (9.1x and 4.2x vs a deflated barrier method) has 12-19 % worse compliance.
+P01900,conflict of interest (probable),"Both the wave-2 coder and the blind second-pass coder read a co-author Jun Wang, Department of Mechanical Engineering, Santa Clara University (pool metadata: 'Jun Liang Wang'). Same name and institution as the user's advisor; disclosed as a conflict. Not in the user-confirmed list."
+P01905,duplicate pair,"Same study as P00242 (arXiv 2604.03276). The first pass coded P01905 from the arXiv text. FT-DUPLICATE rule: the primary version is the version of record if open access, else the latest arXiv version; the RSC version is not open access."
+P00148,duplicate pair,"arXiv version of P00544, the paywalled JMD version of record (decision order 53)."
+P00676,duplicate pair,Coded FT-DUPLICATE of P00133 (arXiv 2109.01861); P00552 is the CAD version of record.
+P01004,duplicate pair,Coded FT-DUPLICATE of P00183; its v1 lacks the timing paragraph of v3.
+P01164,language,"Russian-language article, coded FT-OTHER under §3.3 (English only)."
+P01468,duplicate pair,Coded FT-DUPLICATE of P00141 (same arXiv 2105.03045); P02546 is a third record of the study.
+P00803,duplicate pair,"Coded FT-DUPLICATE of P00164 (open-access Nature Communications version of record, decision order 577), so the study leaves the 1-200 sample."
+P00193,duplicate pair,Coded as the primary version (arXiv); P01925 is the closed version of record.
+P00712,duplicate pair (unconfirmed),"Probable conference version of P00665 (DL-SCALE, same authors); neither full text was readable."
+P00136,related record,P01074 is a conference talk by the same authors; P00136 is the fuller version.

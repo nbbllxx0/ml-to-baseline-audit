@@ -1,0 +1,44 @@
+{
+  "pid": "P01176",
+  "citation": {
+    "title": "A Deep Reinforcement Learning Model-Based Optimization Method for Graphic Design",
+    "authors": "Qi Guo; Zhen Wang",
+    "year": 2024,
+    "venue": "Informatica",
+    "doi": "10.31449/inf.v48i5.5295",
+    "arxiv_id": "",
+    "version_coded": "Version of record, open access (Informatica is a diamond open-access journal). Downloaded from the publisher's own file host (https://www.informatica.si/index.php/informatica/article/download/5295/2669) and read in full (14 pp.) via PyMuPDF extraction."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-MLONLY",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "stress",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline (Sec. 5, Tables 3-6): the proposed 'DRL' method is reported at 61% computation time, 95% accuracy, 98% precision and 98% recall, versus 'MDP' (91%/75%/88%/66%), 'VR' (73%/65%/66%/77%) and 'AI' (81%/85%/75%/87%). None of these three comparators is a classical, non-learned topology-optimization method: they are cited to Ran & Dong (2022, a multi-objective building-interior-design optimization method), Wu (2022, a VR/5G-based architectural interior-design layout method) and Di & Yu (2021, a multi-agent reinforcement-learning furniture-layout method) -- three unrelated building/interior-layout papers, at least two of them (MDP, AI) themselves RL/ML-based, none a classical SIMP/OC/MMA/BESO/level-set structural optimizer.",
+    "location": "Section 5 (Results and discussion), Tables 3-6",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text as ML-only). Note for the record: Table 3 reports 'computation time (%)' (61% for the proposed method, no absolute baseline value given), while the Abstract instead states 'a computation time of 61s' (an absolute figure in seconds) -- an internal inconsistency in the source, not resolved here."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded as FT-MLONLY: the paper's only quantitative results (Sec. 5, Tables 3-6: computation time, accuracy, precision, recall) compare the proposed method against three named 'methods' (MDP, VR, AI) that trace to three unrelated interior-design/building-layout papers, none of which is a classical, non-learned topology-optimization baseline; no SIMP/OC/MMA/BESO/level-set comparator is ever run, timed, or cited with a number anywhere in the article, despite SIMP being mentioned narratively as background in Sec. 4.2. Also relevant for the verifier: the paper's technical formulation (Sec. 4.3-4.5, Eqs. 1-10) is a feedforward-network density-field parameterization with compliance minimization, a p-norm stress constraint, and adjoint/chain-rule sensitivity -- structurally a neural-reparameterization scheme (TOuNN-like), not a reinforcement-learning formulation (no state, action, or reward is ever defined for the density-update step). Sections 4.6-4.12 instead give a generic, self-contained tutorial on RL fundamentals (value functions, Bellman equations, policy gradients, actor-critic) that is never reconnected to the specific TO formulation of Sec. 4.3-4.5. Despite the title, abstract, and keywords all branding the method 'Deep Reinforcement Learning', no RL-specific mechanism (reward signal, policy, environment transition) is described for the topology-optimization task itself, which is why method_family is coded as 'neural_reparam' rather than 'rl'; this discrepancy should be checked by the verifier. included.physics='stress' reflects the stated p-norm von-Mises-stress constraint (Eq. 7) alongside compliance minimization; dim left 'unclear' since the article never states 2D or 3D for its own numerical results (Eq. 2-3 give both a 2D and a 3D density-field form, but Sec. 5 does not say which was actually run). The Introduction's literature-review Table 1 and much of Sec. 2 discuss unrelated fields (ophthalmology AI, river-flow forecasting, HVAC control, adaptive cruise control) with only loose narrative connection to structural topology optimization. No author named Jun Wang (authors: Qi Guo, Zhen Wang). Duplicate check (audit/pool/pool.csv): no other pool record matches this title or DOI; the closest title matches found while screening (P01096, P01333, P01976, P02008) all concern network/grid topology, a different scope, and are not duplicates."
+}

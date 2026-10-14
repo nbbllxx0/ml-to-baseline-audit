@@ -1,0 +1,12 @@
+tag unit_1thread threads=1 maxNumCompThreads=1 23.2.0.2459199 (R2023b) Update 5
+ It.:    1 Obj.:    -2.1437 Micro_Vol.:  0.470 Micro_ch.:  0.200 seconds:  129.109
+ It.:    2 Obj.:    -0.5348 Micro_Vol.:  0.352 Micro_ch.:  0.200 seconds:  136.937
+ It.:    3 Obj.:    -0.1269 Micro_Vol.:  0.280 Micro_ch.:  0.200 seconds:  124.454
+ It.:    4 Obj.:    -0.0446 Micro_Vol.:  0.280 Micro_ch.:  0.200 seconds:  119.978
+ It.:    5 Obj.:    -0.0581 Micro_Vol.:  0.280 Micro_ch.:  0.200 seconds:  111.930
+ It.:    6 Obj.:    -0.0864 Micro_Vol.:  0.280 Micro_ch.:  0.200 seconds:  112.326
+ It.:    7 Obj.:    -0.1488 Micro_Vol.:  0.280 Micro_ch.:  0.200 seconds:  112.671
+ It.:    8 Obj.:    -0.2654 Micro_Vol.:  0.280 Micro_ch.:  0.200 seconds:  124.175
+ It.:    9 Obj.:    -0.3611 Micro_Vol.:  0.280 Micro_ch.:  0.200 seconds:  110.357
+ It.:   10 Obj.:    -0.3913 Micro_Vol.:  0.280 Micro_ch.:  0.200 seconds:  146.226
+total 1228.7 s for 11 iterations including setup

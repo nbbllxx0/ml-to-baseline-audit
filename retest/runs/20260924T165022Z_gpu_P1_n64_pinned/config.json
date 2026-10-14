@@ -1,0 +1,36 @@
+{
+  "args": {
+    "solver": "gpu",
+    "problem": "P1",
+    "n": 64,
+    "iters": 150,
+    "repeats": 3,
+    "warmup": 10,
+    "tag": "_pinned",
+    "cpu_pinning": {
+      "pinned": true,
+      "affinity_mask": "0xfff",
+      "priority": "HIGH_PRIORITY_CLASS"
+    }
+  },
+  "problem": {
+    "name": "P1_cantilever",
+    "nelx": 64,
+    "nely": 64,
+    "volfrac": 0.4,
+    "rmin": 1.5,
+    "penal": 3.0,
+    "Emin": 1e-09,
+    "nu": 0.3
+  },
+  "python": "3.12.13",
+  "executable": "C:\\Users\\<user>\\anaconda3\\envs\\torch5090\\python.exe",
+  "numpy": "2.4.3",
+  "scipy": "1.17.1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "manifest_sha256": "fc6be24b21d7d548d80e6616f392856abd117a36b96481c5ad5a5ae9773feb87",
+  "started_utc": "20260924T165022Z",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "device": "NVIDIA GeForce RTX 5090"
+}

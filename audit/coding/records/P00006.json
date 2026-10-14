@@ -1,0 +1,101 @@
+{
+  "pid": "P00006",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Explainable quantum neural networks for multi-material topology optimization",
+    "authors": "Dahyun Joo, Naruethep Sukulthanasorn, Kenjiro Terada, Do-Nyun Kim",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.CE)",
+    "doi": "10.48550/arXiv.2607.00438",
+    "arxiv_id": "2607.00438",
+    "version_coded": "arXiv v1 (1 Jul 2026; the only version on the abs page), PDF (40 pp. including the Supplementary Information) read in full as text; Figs. 3 and S6-S8 viewed as rendered images for their printed accuracy and compliance values"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; no run time or iteration count is reported anywhere, and the emphasized quantitative classical comparison is material-type accuracy and normalized compliance against converged MMA layouts, §5.1 rules 2 and 4)",
+    "stratum": "quality",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On four unseen 2D load cases (50×25), XQNN material labels predicted from early-stopped MMA states matched converged MMA layouts at 76.7–93.5% accuracy, with compliance 0.96–1.16 times the MMA reference across 2–4 materials.",
+    "key_phrase": "can be generalized to handle out-of-distribution boundary/loading conditions",
+    "location": "Sec. 2.3 and Fig. 3a; per-case values printed in Supplementary Figs. S6-S8. Chosen under §5.1 rule 4 as the emphasized test: the abstract, introduction and discussion (the article has no separate conclusion) compare with MMA only qualitatively, and the first number in the main text is the validation accuracy of Sec. 2.2",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not stated and not derivable: no run time or iteration count is reported for any method. The acceleration from stopping MMA at the prediction iteration kpd (grayscale-ratio target 0.20, 0.15 or 0.10) is asserted only qualitatively (Sec. 2.2; Supplementary Note 2; Table S6 rationale), and kpd itself is never reported.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 2.2: validation accuracy 81.4-94.0% on V1-V3, which also serve for model selection and early stopping. (2) High-resolution transfer (Fig. 3b; Figs. S6-S8): accuracy 73.3-90.5%, normalized compliance 1.03-2.96; the two-material HR2 and HR3 layouts are 2.68 and 2.96 times as compliant as MMA. (3) 3D transfer (Sec. 2.3 text): mean accuracy 89.3%, 79.6% and 73.6% and mean normalized compliance 0.96, 0.98 and 0.83 for 2, 3 and 4 materials; the authors call the 3D layouts often stiffer than the MMA references but note that volume is not enforced at inference. (4) Qualitative: early stopping plus XQNN inference is said to accelerate MMTO (Sec. 1, 2.2; Supplementary Note 2), never measured."
+  },
+  "baseline": {
+    "classical_method": "Multi-material compliance TO with MMA: mapping-based interpolation (p-norm 6), SIMP penalty 3, density filter and Heaviside projection, one volume constraint per material type; run until the grayscale ratio G < 0.02 (G < 0.01 for the high-resolution cases) to give the ground-truth layouts (Methods 4.1; Supplementary Note 1; Table S2)",
+    "implementation": "The authors' adaptation of the MATLAB MMTO code of Zheng et al. (Applied Sciences 2024, ref. [15]) (Methods 4.1)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "AMD Ryzen 7 9700X 8-core CPU; exact statevector simulation with Qiskit SDK 2.3.1 and Qiskit Aer 0.17.2 in Python 3.12.10 (Methods 4.3; Supplementary Note 3)",
+    "problem_size": "2D 50×25 elements for training, validation and OOD tests; high-resolution meshes 100×50, 150×75 and 200×100; 3D 20×20×10 voxels (Sec. 2.2-2.3; Table S1)",
+    "classical_iterations": "Reference runs: until G < 0.02 (G < 0.01 for HR) (Methods 4.1); iteration counts not stated. XQNN inputs come from MMA runs stopped at kpd, where G reaches 0.20, 0.15 or 0.10 for 2, 3 or 4 materials (Supplementary Note 2); kpd values not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; 100 Adam epochs with parameter-shift gradients on 180-300 class-balanced sampled elements per epoch (Supplementary Note 3)",
+    "data_generation_cost": "not stated; training data are the MMA histories of three 50×25 problems (T1-T3) per material setting (Sec. 2.2; Table S1)",
+    "quality_metric": "Element-wise material-type accuracy against the mode-filtered converged MMA labels, and normalized compliance C_pred/C_GT of the predicted layout (Sec. 2.3; Figs. 3, S6-S8); how the predicted label field is analysed for compliance is not described [FE analysis inferred]",
+    "quality_gap": "OOD O1-O4 (Figs. 3a, S6-S8): 2 materials 89.6/89.1/87.6/93.5% with C_pred/C_GT 1.01/1.16/1.01/1.03; 3 materials 89.9/83.4/90.5/78.8% with 0.98/0.98/1.00/1.12; 4 materials 76.7/88.6/78.6/88.9% with 1.14/0.96/1.07/1.00. HR1-HR3 (Figs. S6-S8): 2 materials 90.3/86.3/78.0% with 1.03/2.68/2.96; 3 materials 90.5/79.4/85.6% with 1.06/1.09/1.04; 4 materials 73.3/76.0/83.0% with 1.12/1.10/1.08. 3D means (Sec. 2.3): 89.3/79.6/73.6% with 0.96/0.98/0.83. Achieved volume fractions are not reported for any prediction"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 2.3, Figs. 3 and S6-S8: XQNN layouts and the converged MMA references share the mesh, loads and material settings, and compliance is reported as C_pred/C_GT for every case. Matching is loose: XQNN assigns labels element by element and does not enforce the volume constraints at inference (Sec. 2.3), no achieved volume is reported, so ratios below 1 (3D means 0.83-0.98) may reflect extra material [inferred]; no compute budget or iteration count is compared."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) names no classical baseline and gives no numbers, so it cannot report a weaker baseline than Sec. 2.3 and Figs. S6-S8; (b) is not observed. No run time or iteration count of any method is reported (Sec. 2-4, Supplementary Notes 1-3). The comparator is the authors' adaptation of a published MMTO MATLAB code (Zheng et al. 2024), run to a grayscale ratio below 0.02 (0.01 for HR) (Methods 4.1)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No quantified speed claim; the early-stopping acceleration is asserted only qualitatively (Sec. 2.2; Supplementary Note 2; Table S6). For C3: training uses the MMA histories of three 50×25 problems per material setting and 100 Adam epochs (Supplementary Note 3); neither data-generation nor training time is reported, and every inference still needs an MMA run up to kpd (Sec. 2.1)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Sec. 2.3, Figs. 3 and S6-S8: the normalized compliance of each returned layout is reported against the MMA reference [FE evaluation inferred; the procedure is not described], and all OOD, HR and 3D cases are shown, so no selection issue. Volume-constraint satisfaction is not reported, and the authors state it is not enforced at inference. Weakly connected or disconnected parts in the two-material HR cases (C = 2.68 and 2.96) are described (Sec. 2.3) but not counted as failures."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "OOD: 4 load cases (O1-O4) × 3 material settings at 50×25; high resolution: 3 meshes × 3 settings; 3D: 4 cases × 3 settings (Table S1; Figs. S6-S8); validation: 3 cases × 3 settings (Fig. 2b)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR. Inclusion check: the learned model (a ten-qubit parameterized quantum circuit with a trained softmax readout) replaces the remaining MMA iterations after an early stop, so it is optimization-level, not forward analysis (FT-FORWARD does not apply). The article runs the classical MMA to convergence and scores the ML layouts against its compliance, so FT-NOBASELINE does not apply. Stratum judgment: the acceleration claim is qualitative only, while quantitative comparisons with MMA concern quality, so §5.1 puts the record in stratum Q. If a verifier instead takes the qualitative acceleration as primary (a departure from §5.1, which ranks quantitative comparisons first), the record would enter the speed stratum with R3 = fail, since no cost is reported. Internal inconsistencies: Fig. 3c labels the representative 3D2 predictions 94.9%/C=1.02, 86.9%/0.95 and 79.5%/0.93 for 2, 3 and 4 materials, while Figs. S6-S8 give 3D2 as 91.7%/0.85, 81.2%/1.00 and 75.1%/0.69; the 3D means in the text (89.3/79.6/73.6%; 0.96/0.98/0.83) match the S6-S8 values [derived]. Small mismatches between Fig. 3b and Figs. S6-S8 for HR3: 77.9% vs 78.0% and C 2.95 vs 2.96 (2 materials), 85.5% vs 85.6% (3 materials), C 1.09 vs 1.08 (4 materials). The quantum circuit runs as exact statevector simulation on a classical CPU; real-device noise is left to future work (Sec. 3; Methods 4.3). Reporting locators: OOD design = Sec. 2 opening and Table S1; hardware = Methods 4.3 (ML only); no timing anywhere; code 'will be made available on request' (Sec. 6) and data on reasonable request (Sec. 5). retest_candidate false: no public code and no speed claim. Related work by two of the authors: Sukulthanasorn & Terada, CMAME 448 (2026) 118411 (ref. [30], binary-topology QNN accelerator); no pool record found by author search. Duplicate check: no prefill matches the title, the arXiv id or the authors. No author named Jun Wang.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R2": {
+        "first": "na",
+        "second": "pass",
+        "decision": "na",
+        "reason": "Both coders code stratum Q, which the text supports: no run time or iteration count is reported anywhere, and acceleration is only asserted (arXiv v1, Sec. 2.2; Supplementary Note 2; Table S6). Under the §11 stratum-Q rule R2 is na unless criterion (b) applies, and the abstract (p. 1) names no baseline and gives no numbers, so (b) cannot apply."
+      }
+    }
+  }
+}

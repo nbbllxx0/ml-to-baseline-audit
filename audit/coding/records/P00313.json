@@ -1,0 +1,127 @@
+{
+  "pid": "P00313",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Populating cellular metamaterials on the extrema of attainable elasticity through neuroevolution",
+    "authors": "Maohua Yan, Ruicheng Wang, Ke Liu",
+    "year": 2025,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 440 (2025) 117950 (version of record per Crossref, not accessed); coded from arXiv (cs.NE; also cs.CE)",
+    "doi": "10.1016/j.cma.2025.117950",
+    "arxiv_id": "2412.11112",
+    "version_coded": "arXiv v4 (13 Mar 2025; v1 15 Dec 2024), PDF; version of record not open access per Crossref licence metadata, not accessed"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Qualitative: gradient-based TO is said to be inefficient for surveying the metamaterial design space and unable to reveal attainable property bounds, whereas CPPN neuroevolution efficiently finds Pareto-front designs; no TO is run and no cost is compared.",
+    "key_phrase": "they are not efficient tools for surveying the vast design space of metamaterials",
+    "location": "Abstract (§5.1 rule 3: no quantitative classical comparison anywhere); related qualitative statements in Sec. 3.3 and 3.5. Recorded for context only: the record is excluded as FT-NOBASELINE because this statement is qualitative motivation, not a comparison (PROTOCOL §11)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no runtime, no FE-evaluation count comparison and no classical run are reported. The method evolves a population of 500 for 800 generations per study on 256 CPU processors (Sec. 3); its runtime is not stated.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 3.3 (qualitative quality and coverage): after 800 iterations the three orthotropic trade-offs are consistent with Ref. [5], and unlike TO-driven methods, which give sparse Pareto points, the method fills the front densely and uniformly; Ref. [5] as printed is Babaee et al. 2013 (Adv. Mater.), and no Ref. [5] data appear in Fig. 11. (2) Sec. 3.5 (qualitative cost): collecting all evaluated designs into a database wastes no computation, unlike TO, which produces one design at a time. (3) Introduction (other methods, not this article's result): VAE generation is described as thousands of times faster than traditional TO."
+  },
+  "baseline": {
+    "classical_method": "Gradient-based TO for metamaterial design (density-based, level-set and phase-field methods named in the Introduction); not run. Sec. 3.3 compares qualitatively with results reported in Ref. [5]",
+    "implementation": "not applicable (no classical run). ML side: custom NEAT-style CPPN neuroevolution with RVEA reference-vector selection and constraint-violation ranking; FE homogenization on Delaunay triangle meshes (Sec. 2, App. A); software not stated",
+    "solver": "not stated",
+    "hardware_classical": "not applicable (no classical run)",
+    "hardware_ml": "Alibaba Cloud machines with AMD EPYC 7H12 64-core processors, 256 processors in total, 2.60 GHz, 503 GiB RAM; no GPU (Sec. 3)",
+    "problem_size": "2D periodic unit cells: a 35×35 point cloud on the symmetry patch, mapped by symmetry and meshed with Delaunay triangles (Sec. 2.1.3, 3); FE element count not stated",
+    "classical_iterations": "not applicable; the neuroevolution uses population 500 and 800 generations per study (Sec. 3)",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not applicable (no offline training; CPPNs are evolved per study from random networks, Sec. 1, 2)",
+    "data_generation_cost": "not applicable (data-free); the 486,852 evaluated designs form a by-product database (Sec. 2.1.1, 3.5)",
+    "quality_metric": "FE-homogenized effective properties (average E and ν from compliance-tensor components; C11, C12, C22, C33, C13) and Pareto-front coverage, shown in plots (Figs. 8-12, App. A)",
+    "quality_gap": "not quantified; no classical designs are evaluated. Examples: isotropic unit cell 1 has E = 0.0001 and ν = -0.8621; unit cell 6 has E = 0.0011 and ν = 0.9790 (Sec. 3.1)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "na",
+      "marker": "excluded-FT-NOBASELINE",
+      "evidence": "Excluded at full text as FT-NOBASELINE (PROTOCOL §11 no-baseline clarification; flagged in audit/coding/verifier_flags.csv): no classical optimizer is run, timed or cited with a cost or result. TO appears only as qualitative motivation (Abstract, p. 1; Sec. 1, p. 2; Sec. 3.5, p. 33). The Sec. 3.3 remark (p. 31) that the orthotropic fronts agree with 'topology optimization driven methods [5]' shows no Ref. [5] data (Fig. 11), and Ref. [5] as printed is a buckling-based design study, not an optimizer."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "excluded-FT-NOBASELINE",
+      "evidence": "Excluded at full text as FT-NOBASELINE; no classical optimization baseline is run or cited whose solver, hardware or iterations could be judged (Sec. 3, p. 25)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "excluded-FT-NOBASELINE",
+      "evidence": "Excluded at full text as FT-NOBASELINE. For context: CPPNs are evolved per study from random initial networks without prior data or offline training (Sec. 1 aim; Sec. 2; Conclusion); the evolutionary cost (population 500, 800 generations, Sec. 3) has no reported runtime."
+    },
+    "R4": {
+      "verdict": "na",
+      "marker": "excluded-FT-NOBASELINE",
+      "evidence": "Excluded at full text as FT-NOBASELINE. For context: every candidate's properties come from FE homogenization of the meshed design (Sec. 2, Fig. 1b, Alg. 1; App. A); designs with interior or exterior discontinuity stay in the population and are ranked by a constraint-violation measure (Sec. 2.2.3, Fig. 6), but the share of infeasible designs is not reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5 design studies: isotropic p31m (E-ν), tetragonal p4mm and p4 (E-ν), orthotropic p2mm (3 modulus pairs), fully anisotropic p1 (C12-C13); one run each, no repeats reported (Sec. 3.1-3.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Inclusion and stratum are judgment calls. The article never runs a classical optimizer and reports no runtime, no FE-evaluation count comparison and no quantitative quality comparison with TO. The primary outcome is the abstract's qualitative efficiency claim (§5.1 rule 3), so the record enters stratum speed with R1 = fail. If the verifier requires an executed or quantified classical comparison, the record becomes FT-NOCOMPARISON; if Sec. 3.3 (consistency with Ref. [5], denser Pareto coverage) is taken as the primary outcome, it becomes stratum Q. Ref. [5] as printed (Babaee et al. 2013, '3D Soft Metamaterials with Negative Poisson's Ratio') is cited as a TO-driven method, which its title does not suggest; the citation may be mis-numbered [inferred]. Method family neural_reparam: CPPNs are neural networks whose weights and topology are evolved per study without data (the screening code agreed). Evaluation budget: if each generation evaluates 500 offspring, one study uses about 4×10⁵ FE homogenizations [inferred from Sec. 3; the offspring count per generation is not stated]; the text reports 486,852 stored samples in total (Sec. 2.1.1). Reporting locators: hardware and settings = Sec. 3; constraints = Sec. 2.2.3; data statement = Data availability section (on request); no code statement. retest_candidate false: no public code and no classical speed claim to re-test. Coded arXiv v4; the CMAME version of record (doi from Crossref) was not accessed. Screening code was I-SPEED. Adjudication (2026-09-24): excluded as FT-NOBASELINE. audit/coding/verifier_flags.csv flags P00313 as an FT-NOBASELINE candidate and asks whether the Sec. 3.3 remark counts as citing a classical result. It does not: the arXiv v4 PDF (42 pages) was re-read in full, no classical optimizer is run or timed, and the Sec. 3.3 comparison with 'topology optimization driven methods [5]' (p. 31) gives no values and plots no Ref. [5] data (Fig. 11). The OpenAlex abstract of Ref. [5] (doi 10.1002/adma.201301986, retrieved anonymously 2026-09-24) describes buckling-based 3D auxetic building blocks demonstrated by experiments and FE simulations, not an optimization method. The remaining TO statements (Abstract; Sec. 1; Sec. 3.5, one structure at a time) are qualitative motivation, which §11 excludes. Earlier codes in the closed list do not apply: the article is architected-material inverse design with a neural-network representation (not FT-SCOPE, FT-NOML or FT-FORWARD), the physics is elasticity (not FT-DOMAIN), and no ML method's results are compared either (not FT-MLONLY). Version: the abs page lists v1-v4; the CMAME version of record carries only Elsevier TDM and STM licences (Crossref) and is closed per OpenAlex (W4408965191), so arXiv v4 is the primary version. Same handling as adjudicated record P00519.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "fail",
+        "second": "partial",
+        "decision": "na",
+        "reason": "arXiv v4 runs, times or cites no classical optimizer's cost or result: TO appears only as qualitative motivation (Abstract, p. 1; Sec. 1, p. 2; Sec. 3.5, p. 33), and the Sec. 3.3 comparison with 'topology optimization driven methods [5]' (p. 31) plots no Ref. [5] data (Fig. 11), while Ref. [5] is a buckling-based design study, not an optimizer (OpenAlex abstract). Under the §11 no-baseline clarification the record is FT-NOBASELINE (as for P00519), so R1 is na."
+      },
+      "R2": {
+        "first": "pass",
+        "second": "na",
+        "decision": "na",
+        "reason": "Excluded as FT-NOBASELINE (see R1): no classical optimization baseline is run or cited whose solver, hardware or iteration count could be judged (Sec. 3, p. 25)."
+      }
+    },
+    "consequential_changes": {
+      "decision": {
+        "first": "include (I-SPEED)",
+        "second": "include (I-SPEED)",
+        "decision": "exclude (FT-NOBASELINE)",
+        "reason": "Not a disputed item. verifier_flags.csv flags P00313 under the §11 no-baseline clarification, and the full text holds no classical comparison: nothing is run or timed, and the only cited 'TO' result, Ref. [5], is not a TO study and contributes no data (Sec. 3.3, p. 31; Fig. 11). FT-NOBASELINE is the first applicable code in the closed list (screening_codes.md, second table)."
+      },
+      "stratum": {
+        "first": "speed",
+        "second": "speed",
+        "decision": "none",
+        "reason": "An excluded record has stratum none (adjudication_instructions.md, procedure step 3)."
+      },
+      "R4": {
+        "first": "partial",
+        "second": "partial",
+        "decision": "na",
+        "reason": "An excluded record has all rule verdicts na (adjudication_instructions.md, procedure step 3)."
+      }
+    }
+  }
+}

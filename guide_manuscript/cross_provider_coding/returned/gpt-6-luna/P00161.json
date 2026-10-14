@@ -1,0 +1,27 @@
+{
+  "pid": "P00161",
+  "citation": {
+    "title": "Deep learning-based topological optimization for representing a user-specified design area",
+    "authors": "Keigo Nakamura, Yoshiro Suzuki",
+    "year": 2020,
+    "venue": "arXiv preprint arXiv:2004.05461",
+    "doi": "10.48550/arxiv.2004.05461",
+    "arxiv_id": "2004.05461",
+    "version_coded": "arXiv v2"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "cnn", "physics": "compliance", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "The CNN predicts 32 × 32 topology outputs in 0.07634 s per case versus 0.4393 s for SIMP, an 83% time reduction; the proposed design also has lower reported compliance error on the top 80% of test cases.", "key_phrase": "83% reduction in calculation time", "location": "Section 4.3, Table 1; Section 5", "quantitative": true, "claimed_speedup": 5.756, "claimed_speedup_basis": "0.4393 s SIMP time divided by 0.07634 s CNN time per case = 5.756 (Section 4.3/Table 1); article separately states an 83% reduction.", "direction": "outperform", "alternatives": "Table 2 compares compliance error, volume-fraction error, and design-area satisfaction with Yu's CNN; the proposed model's mean compliance error for the top 80% is 2.75%."},
+  "baseline": {"classical_method": "SIMP topology optimization", "implementation": "Open-source MATLAB topology optimization code (Andreassen et al., 2011)", "solver": "SIMP with finite-element analysis; linear solver not stated", "hardware_classical": "Same CPU as ML method; CPU model not stated", "hardware_ml": "Same CPU as SIMP method; CPU model not stated", "problem_size": "32 × 32 pixel elements (Section 4.2)", "classical_iterations": "not stated", "classical_time": "0.4393 s per case (Section 4.3, Table 1)", "ml_time": "0.07634 s per case (Section 4.3, Table 1)", "training_time": "not stated", "data_generation_cost": "not stated; 370,000 datasets generated and split 296,000/37,000/37,000 for training/validation/test (Section 4.2)", "quality_metric": "Mean compliance error, volume-fraction error, and design-area satisfaction rate (Section 4.3, Table 2)", "quality_gap": "For the top 80% of test outputs, mean-compliance error is 2.75%; mean volume-fraction error is 9.70%; 99.6% satisfy the design-area threshold of 0.01 (Section 4.3, Table 2 and Fig. 15)"},
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-loose", "evidence": "Section 4.3: time is compared per case on the same CPU, and quality is compared with SIMP, but the compliance result is summarized for the top 80% and the timed runs are not matched by a stated quality threshold."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 4.3 identifies the open-source SIMP implementation and says timings used the same CPU; no text evidence establishes an R2 failure criterion."},
+    "R3": {"verdict": "fail", "marker": "R3-no-data-cost", "evidence": "Section 4 reports the 370,000-case dataset size but no data-generation runtime, training time, or amortization for the speed claim."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 4.3 reports compliance and volume errors and a design-area satisfaction rate, and describes occasional disconnected outputs, but does not report their failure rate."}
+  },
+  "reporting": {"n_test_cases": "37,000 test cases (Section 4.2)", "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no", "timing_protocol_stated": "partial", "runtimes_all_cases": "yes", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "yes"},
+  "retest_candidate": false,
+  "notes": "Full text read from arXiv v2. The 83% timing comparison excludes training and data-generation costs. The paper's dataset uses SIMP-generated labels; no release of the article's model code or dataset is stated."
+}

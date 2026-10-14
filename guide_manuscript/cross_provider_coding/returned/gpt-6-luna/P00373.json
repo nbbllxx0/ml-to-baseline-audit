@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00373",
+    "citation":  {
+                     "title":  "Neural Level Set Topology Optimization Using Unfitted Finite Elements",
+                     "authors":  "Connor N. Mallon; Aaron W. Thornton; Matthew R. Hill; Santiago Badia",
+                     "year":  2025,
+                     "venue":  "International Journal for Numerical Methods in Engineering",
+                     "doi":  "10.1002/nme.70004",
+                     "arxiv_id":  "2303.13672",
+                     "version_coded":  "arXiv v2; open-access version of record identified"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-QUALITY",
+                     "stratum":  "quality",
+                     "method_family":  "neural_reparam",
+                     "physics":  "multiphysics",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The neural level-set approach produces more regular geometries with objective performance close to pixel-level and SIMP baselines on the MBB benchmark, and better performance on the heat benchmark.",
+                  "key_phrase":  "similar, in some cases better, performance compared to the well-known SIMP method",
+                  "location":  "Section 7.1.2, Figure 7; Conclusion",
+                  "quantitative":  true,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No speed-up is claimed; the Conclusion says the neural level-set method takes longer to converge than SIMP.",
+                  "direction":  "similar_or_mixed",
+                  "alternatives":  "Figure 8 shows pixel-SIMP converging fastest on heat and both SIMP variants converging faster than level-set methods on MBB."
+              },
+    "baseline":  {
+                     "classical_method":  "Pixel-LS and standard Pixel-SIMP topology optimization",
+                     "implementation":  "Authors\u0027 Julia/Gridap implementation; MMA for pixel methods",
+                     "solver":  "Unfitted finite elements; solver details for elasticity/heat systems not stated",
+                     "hardware_classical":  "AMD Ryzen 5950X CPU for benchmarks",
+                     "hardware_ml":  "AMD Ryzen 5950X CPU; neural computations use Julia/Flux; GPU not stated",
+                     "problem_size":  "Heat mesh 95 × 95; MBB mesh 287 × 95; both use 0.4 volume fraction",
+                     "classical_iterations":  "Convergence plots use objective-function calls; no fixed classical stopping rule stated",
+                     "classical_time":  "not stated as total runtime; convergence plotted against function calls",
+                     "ml_time":  "not stated; Figure 8 compares objective values per function call",
+                     "training_time":  "Per-problem neural parameter optimization; no offline training",
+                     "data_generation_cost":  "not applicable; no offline training dataset",
+                     "quality_metric":  "Objective/compliance values recomputed with FE machinery and geometry regularity; Section 7.1",
+                     "quality_gap":  "Figure 7 reports relative objective gaps: MBB methods within 2.6%; heat NN-LS is best and pixel-SIMP is 20.3% above best"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "R1-quality-primary",
+                             "evidence":  "The selected primary outcome is design quality; Section 7.1.2 compares objective values and regularity rather than claiming a speed advantage."
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "R2-quality-primary",
+                             "evidence":  "No primary speed advantage is claimed; Section 7.1.3 explicitly notes that SIMP converges faster on the MBB problem."
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "R3-per-problem-learning",
+                             "evidence":  "The neural network parameterizes and is optimized for each problem; no offline training is used (Sections 4 and 7)."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-FE-no-failure-rate",
+                             "evidence":  "Section 7.1.2 recomputes objectives for returned designs with FE machinery and reports 0.4 volume fractions, but does not report infeasibility/failure rates."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Two benchmark problems (heat conduction and MBB) plus an interface-coupled multiphysics example (Section 7)",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "selective",
+                      "code_available":  "yes",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  true,
+    "notes":  "The article\u0027s conclusion states that the method takes longer to converge than SIMP on simple problems. Public open-source implementation is identified in the article.",
+    "stage":  "cross_provider_pass"
+}

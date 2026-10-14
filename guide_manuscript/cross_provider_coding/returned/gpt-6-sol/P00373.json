@@ -1,0 +1,42 @@
+{
+  "pid": "P00373",
+  "citation": {"title": "Neural Level Set Topology Optimization Using Unfitted Finite Elements", "authors": "Connor N. Mallon, Aaron W. Thornton, Matthew R. Hill, Santiago Badia", "year": 2025, "venue": "International Journal for Numerical Methods in Engineering", "doi": "10.1002/nme.70004", "arxiv_id": "2303.13672", "version_coded": "arXiv v2"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "neural_reparam", "physics": "thermal and compliance; interface-coupled multiphysics demonstration", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "On the heat conduction benchmark, neural level-set optimization achieves the best objective; the non-neural level-set and SIMP results are 20.3% and 15.7% worse, respectively.",
+    "key_phrase": "",
+    "location": "Section 7.1.2, Figure 7",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up is claimed; Sections 7.1.3 and 8 report that SIMP converges faster.",
+    "direction": "outperform",
+    "alternatives": "Figure 7 MBB benchmark: neural LS is 2.6% above the best Pixel-SIMP objective; Section 8 describes similar or better performance but slower convergence."
+  },
+  "baseline": {
+    "classical_method": "pixel level-set and pixel SIMP with MMA (Section 7.1)",
+    "implementation": "authors' Julia/Gridap benchmark drivers (Section 9 replication)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "95 x 95 heat-conduction mesh; 287 x 95 MBB structural mesh (Section 7.1.1)",
+    "classical_iterations": "Figure 8 plots up to 1,000 objective calls, without a single fixed stopping count",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not applicable: network optimized separately for each design (Sections 4, 7)",
+    "data_generation_cost": "not applicable: no offline training set (Sections 4, 7)",
+    "quality_metric": "FE-computed heat objective or structural compliance at stated volume fraction (Sections 5, 7.1)",
+    "quality_gap": "heat: pixel-LS 20.3% and pixel-SIMP 15.7% above neural-LS objective; MBB: neural-LS 2.6% above pixel-SIMP (Figure 7)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-stratum", "evidence": "Section 7.1.2, Figure 7: primary comparison is objective quality; Section 8 concedes slower neural convergence."},
+    "R2": {"verdict": "na", "marker": "R2-quality-stratum", "evidence": "Figure 7: primary outcome is objective quality rather than a neural speed advantage."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "Sections 4 and 7: neural weights are optimization variables for each problem, with no offline training set."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 5 and 7.1, Figure 7: returned geometries are evaluated by FE objectives under volume constraints, but infeasible or failed-run rates are not reported."}
+  },
+  "reporting": {"n_test_cases": "two benchmark problems in Section 7.1 plus one fluid-structure demonstration in Section 7.2", "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "ArXiv v2 full text was read. The paper links public example drivers at https://github.com/ConnorMallon/NLSTO, but the repository page does not show a license, so retest permission was not established."
+}

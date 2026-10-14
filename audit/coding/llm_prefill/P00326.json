@@ -1,0 +1,88 @@
+{
+  "pid": "P00326",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Data-driven multifidelity topology design with multi-channel variational auto-encoder for concurrent optimization of multiple design variable fields",
+    "authors": "Hiroki Kawabe, Kentaro Yaji, Yuichiro Aoki",
+    "year": 2024,
+    "venue": "arXiv preprint (math.OC). Version of record: Computer Methods in Applied Mechanics and Engineering 437, 117772 (Mar 2025), doi 10.1016/j.cma.2025.117772 (arXiv related DOI; Crossref); open access under CC BY 4.0 per Crossref licence metadata (version-of-record licence from 20 Jan 2025, copyright The Authors) and the Elsevier API openaccess flag (1), but not retrievable here (see version_coded)",
+    "doi": "10.48550/arXiv.2409.04692",
+    "arxiv_id": "2409.04692",
+    "version_coded": "arXiv v1 (7 Sep 2024; only version on the abs page), full text read from https://arxiv.org/html/2409.04692. The open-access version of record was not coded because it could not be retrieved: ScienceDirect returned HTTP 403 to curl and to WebFetch, the Elsevier full-text API requires a key, Semantic Scholar lists only the publisher link, and the in-app browser was off-limits for this task. The verifier should read or code the version of record, which may differ from the September 2024 preprint."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "vae",
+    "physics": "stress",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "In stiffness maximization of a rib-reinforced cone shell, the MC-VAE framework's designs beat 100 reference designs from classical TO extruded to uniformly sampled heights at low volume; at equal volume 0.015 strain energy is 24% lower (9.9x10^3 vs 1.3x10^4).",
+    "key_phrase": "leading to a 24% lower strain energy than that of the reference model",
+    "location": "Sec. 5.2.1, Figs. 9-10 (first quantitative classical comparison; the abstract and conclusion state superiority over the reference solutions only qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime, hardware or evaluation count is reported for any method. The conclusion claims, without numbers, that the framework reduces computational demand by replacing parametric studies over HF parameters with a single run. Not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) Fig. 9 (read from the plot and the text): lower-volume optimized designs clearly outperform the reference set; at higher volume the two are equivalent. (2) Sec. 5.3.1, Fig. 14 (stress, equal volume 0.015): maximum von Mises stress 1.1x10^4 for an initial design from classical low-fidelity p-norm stress TO vs 7.2x10^3 after the framework with low-fidelity stress TO and 7.3x10^3 with low-fidelity stiffness TO [derived: about 35% lower]. (3) Sec. 5.3.1, Fig. 13 (ML vs ML): against the conventional framework with a single-channel VAE at fixed heights 0.01, 0.04, 0.07 and 0.1, the new framework covers more of the Pareto front, although the single-channel run at height 0.1 gave some better samples. (4) Conclusion, qualitative cost claim: one run replaces parametric studies over HF parameters (no numbers)."
+  },
+  "baseline": {
+    "classical_method": "100 reference solutions: low-fidelity stiffness-maximization TO (SIMP with density filter and Heaviside projection, MMA, discrete adjoint in COMSOL) over a range of maximum-volume constraints [inferred; the reference volumes are not listed], each extruded to a rib height sampled uniformly from the framework's HF-parameter range and evaluated with the same high-fidelity solid FE model (Sec. 3.1, 4.1, 5.2.1)",
+    "implementation": "COMSOL Multiphysics 6.1 controlled by MATLAB 2023a scripts (Sec. 4)",
+    "solver": "not stated (COMSOL)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated (TensorFlow 2.12.0 MC-VAE; HF evaluations run in parallel, Sec. 4)",
+    "problem_size": "Low fidelity: 64x64 shell elements on a cone surface (Table 2); high fidelity: extruded solid models with boundary-refined P1 tetrahedral meshes, size not stated (Sec. 4.3, 5.1)",
+    "classical_iterations": "Low-fidelity TO: at most 50 MMA iterations for stiffness maximization, 100 for stress, move limit 0.05, projection beta = 4 (Sec. 4.1, Table 2); the reference set is a single pass of 100 designs. Framework: converged at iteration 24 for stiffness (Sec. 5.2.2), with 256 MC-VAE samples per iteration plus mutants (Table 1)",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; the MC-VAE is retrained inside the loop (up to 300 epochs, Adam, batch 16, early stop after 40 epochs without improvement; Sec. 4.2)",
+    "data_generation_cost": "not stated; the initial dataset is 100 low-fidelity TO runs (Table 1), and every iteration adds HF evaluations of new samples",
+    "quality_metric": "High-fidelity FE strain energy (stiffness case) or maximum von Mises stress (stress case) together with volume of the binarized, extruded designs; hypervolume indicator (Sec. 3, 4.3, 5)",
+    "quality_gap": "At volume 0.015: strain energy 9.9x10^3 (framework) vs 1.3x10^4 (reference), stated as 24% lower (Sec. 5.2.1, Fig. 10 caption); equivalent at higher volume (Fig. 9). Hypervolume improved 2.0% over 24 iterations (Sec. 5.2.2)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 5.2.1, Figs. 9-10: both sets are scored by the same high-fidelity FE model and compared at equal volume (0.015 in Fig. 10; Pareto sets in Fig. 9). The budget is not matched: the reference set is 100 designs with randomly sampled heights, while the framework runs 24 iterations of 256 MC-VAE samples plus mutants [over 6,000 HF evaluations inferred from Table 1 and Algorithm 1], and neither side reports evaluation counts or times."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-weak-comparator [judgment]",
+      "evidence": "Quality stratum, competence of the comparator. Sec. 4.1, 5.2.1, Table 2: the reference designs come from standard SIMP/MMA runs in a general-purpose commercial code (COMSOL), capped at 50 MMA iterations with fixed projection beta = 4, and their rib heights are sampled uniformly rather than optimized, although height is exactly the variable the framework adds. No classical run that also optimizes the height (e.g., as a sizing variable) is tried. None of markers (a)-(e) applies; unsure whether a stronger classical comparator would close the gap."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Quality stratum; the VAE is retrained inside each design run with no offline training data (Sec. 2.2, 4.2), and no speed claim is quantified. For C3: no low-fidelity TO, HF evaluation or VAE training times are reported; the conclusion's cost-reduction claim has no numbers."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 4.3, 5.2.1: every candidate, including the reference designs, is binarized, extruded and analysed with the high-fidelity solid FE model, and the volume of each design is reported as the second objective (Figs. 9-10). Infeasible candidates are discarded before selection (Algorithm 1, line 12), and samples violating the volume constraint after smoothing were removed from the initial dataset (Sec. 5.2.1), with no counts. Fig. 10 shows one chosen pair at equal volume; Fig. 9 shows the full sets."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1 geometry (cantilever-type cone shell with ribs) and 2 problems: stiffness maximization (one run vs 100 reference designs) and maximum-stress minimization (two low-fidelity formulations, one run each; single-channel comparison at 4 fixed heights) (Sec. 5)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; full text gives stratum Q (I-QUALITY): the first quantitative comparison with a classical method (Sec. 5.2.1) is on structural performance, and no runtime appears anywhere. The article's other main comparison (Sec. 5.3.1, Fig. 13) is against the earlier single-channel VAE framework, an ML method, so it does not qualify as the classical comparison. physics = stress because maximum-stress minimization is the target application, but the primary outcome comes from the stiffness (compliance) validation case. dim = 3d: low-fidelity optimization on a curved shell surface in 3D, high-fidelity evaluation on extruded solids. method_family = vae: the MC-VAE acts as the crossover operator in an NSGA-II-based evolutionary loop with per-iteration retraining. Minor inconsistencies: Table 1 labels the hypervolume threshold with the symbol for HF (text uses HV); Sec. 5.3.2 once says maximum stiffness minimization where stress is meant; the conclusion credits the more indirect low-fidelity formulation (stiffness) with the more promising solutions, while Sec. 5.3.2 reports the larger hypervolume gain for the stress formulation (5.2% vs 4.2%) and Fig. 14 the lower maximum stress (7.2x10^3 vs 7.3x10^3) [inferred wording slip]. No code, data or hardware statement in v1; GitHub search on 2026-09-24 found no repository. retest_candidate false: no public code and no speed claim. Related pool records P00309 (Xu, Kawabe, Yaji; evolutionary de-homogenization) and P00333 (maximum stress minimization via data-driven MFTD) are different papers from the same research line, not duplicates. No author overlap with Jun Wang (authors at Osaka University and JAXA)."
+}

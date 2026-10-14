@@ -1,0 +1,88 @@
+{
+    "pid": "P01670",
+    "citation": {
+        "title": "Composite 3D-printed Plate-based Mechanical Metamaterials",
+        "authors": "Aya Hosoi, J. Wang, Yuki Fujita, T. Tanaka, J. Takahashi, Ajit Panesar",
+        "year": 2025,
+        "venue": "International Conference on Composite Materials (ICCM), 2025",
+        "doi": "10.5281/zenodo.18597653",
+        "arxiv_id": "none",
+        "version_coded": "abstract only; full text unavailable"
+    },
+    "access": "abstract_only",
+    "coder": {
+        "llm_model": "gpt-6-luna",
+        "llm_date": "2026-09-26",
+        "human_initials": null,
+        "human_date": null
+    },
+    "included": {
+        "decision": "include",
+        "reason": "I-UNCLEAR (no accessible full text)",
+        "stratum": "none",
+        "method_family": "other",
+        "physics": "metamaterial_homogenization",
+        "dim": "unclear"
+    },
+    "claim": {
+        "primary_outcome_paraphrase": "The abstract says its ML-based inverse-design framework extends metamaterial design to 3D and orthotropic materials; finite-element results favor optimized designs over uniform counterparts, with only marginal difference for isotropic materials.",
+        "key_phrase": "",
+        "location": "abstract",
+        "quantitative": false,
+        "claimed_speedup": null,
+        "claimed_speedup_basis": "No speed-up factor is available in the abstract.",
+        "direction": "similar_or_mixed",
+        "alternatives": "The abstract says the framework is intended to accelerate composite metamaterial development, but provides no quantitative speed/cost comparison with a classical optimizer."
+    },
+    "baseline": {
+        "classical_method": "not stated in accessible abstract",
+        "implementation": "not stated",
+        "solver": "not stated",
+        "hardware_classical": "not stated",
+        "hardware_ml": "not stated",
+        "problem_size": "3D unit lattice cells; exact test size not stated in accessible abstract",
+        "classical_iterations": "not stated",
+        "classical_time": "not stated",
+        "ml_time": "not stated",
+        "training_time": "not stated",
+        "data_generation_cost": "not stated",
+        "quality_metric": "finite-element evaluation; specific metrics not stated in accessible abstract",
+        "quality_gap": "Optimized designs reportedly perform better than uniformly designed counterparts; difference is marginal for isotropic materials (abstract)."
+    },
+    "rules": {
+        "R1": {
+            "verdict": "na",
+            "marker": "no-full-text",
+            "evidence": "no full text"
+        },
+        "R2": {
+            "verdict": "na",
+            "marker": "no-full-text",
+            "evidence": "no full text"
+        },
+        "R3": {
+            "verdict": "na",
+            "marker": "no-full-text",
+            "evidence": "no full text"
+        },
+        "R4": {
+            "verdict": "na",
+            "marker": "no-full-text",
+            "evidence": "no full text"
+        }
+    },
+    "reporting": {
+        "n_test_cases": "unclear",
+        "ood_test": "unclear",
+        "seeds_or_variance": "unclear",
+        "failure_rate_reported": "unclear",
+        "timing_protocol_stated": "partial",
+        "runtimes_all_cases": "no",
+        "code_available": "no",
+        "data_available": "no",
+        "hardware_per_method_stated": "no"
+    },
+    "retest_candidate": false,
+    "notes": "The author profile at Nagoya University provides an abstract, but Zenodo denied access to this network with HTTP 403. The queue's known Zenodo link also returned a 403. I did not bypass the block; no full-text rule coding was possible.",
+    "stage": "cross_provider_pass"
+}

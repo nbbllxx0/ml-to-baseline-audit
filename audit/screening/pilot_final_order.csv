@@ -1,0 +1,656 @@
+order,pid,llm_code,arxiv_id,doi,already_coded,possible_duplicate_of,title,part
+1,P02328,I-UNCLEAR,,10.1016/j.ijheatmasstransfer.2023.124823,False,,Two-scale data-driven design for heat manipulation,llm includes
+2,P00557,I-UNCLEAR,,10.1016/j.cma.2021.114158,False,,Machine learning-combined topology optimization for functionary graded composite structure design,llm includes
+3,P00751,I-UNCLEAR,,10.1016/j.cma.2025.118360,False,,A robust-weighted hybrid nonlinear regression for reliability based topology optimization with multi-source uncertainties,llm includes
+4,P00647,I-SPEED,,10.3389/fmech.2024.1417606,False,,Designing a TPMS metamaterial via deep learning and topology optimization,llm includes
+5,P00170,I-UNCLEAR,1910.07227,10.1016/j.advengsoft.2020.102841,False,,Machine Learning based parameter tuning strategy for MMC based topology optimization,llm includes
+6,P00616,I-UNCLEAR,,10.1016/j.cma.2026.118894,False,,A level-set-oriented and problem-independent robust topology optimization strategy based on convolutional neural networks and uncertainty clustering,llm includes
+7,P00607,I-UNCLEAR,,10.1016/j.cma.2023.116651,False,,Machine learning powered sketch aided design via topology optimization,llm includes
+8,P00183,I-SPEED,1807.10787,10.1016/j.cad.2018.12.008,True,,One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning,llm includes
+9,P00627,I-UNCLEAR,,10.1007/s00466-020-01859-5,False,,Topology optimization based on deep representation learning (DRL) for compliance and stress-constrained design,llm includes
+10,P01960,I-QUALITY,,10.1016/j.mex.2025.103539,False,,Reinforcement learning-based topology optimization for generative designed lightweight structures,llm includes
+11,P00786,I-SPEED,,10.1093/jcde/qwaf064,False,,Multi-scale topology optimization of multi-material heterogeneous microstructures based on deep learning,llm includes
+12,P00754,I-UNCLEAR,,10.1016/j.cma.2026.119135,False,,Machine-learning driven differentiable concurrent multiscale topology optimization framework for truss structures,llm includes
+13,P00732,I-UNCLEAR,,10.1016/j.ijmecsci.2026.111380,False,,Machine learning-based multiscale topology optimization framework for nonlinear materials,llm includes
+14,P01268,I-UNCLEAR,,10.1051/matecconf/202642203010,False,,Application of a Machine Learning-Based Topology Optimization Method on an Automotive B-Pillar for Crashworthy Lightweight Design,llm includes
+15,P00165,I-SPEED,2002.01896,10.1016/j.compstruc.2020.106283,False,,Topology optimization of 2D structures with nonlinearities using deep learning,llm includes
+16,P00979,I-SPEED,,10.1002/smll.202500634,False,,"Machine‐Learning‐Powered, Rapid, Accurate, and Multi‐Target Mechanical Metamaterials Inverse Design",llm includes
+17,P02179,I-UNCLEAR,,10.1016/j.ijsolstr.2026.113844,False,,Data-Driven-Design ( D 3 ) of multi-material systems: A novel framework and its application to viscoelastic metamaterials,llm includes
+18,P00019,I-UNCLEAR,2602.17783,10.1016/j.cma.2026.119163,True,,Multi-material Multi-physics Topology Optimization with Physics-informed Gaussian Process Priors,llm includes
+19,P00140,I-SPEED,2105.04232,10.1016/j.cma.2021.114197,False,,De-homogenization using Convolutional Neural Networks,llm includes
+20,P00767,I-SPEED,,10.12783/asc36/35824,False,,DEEP LEARNING FOR TOPOLOGY OPTIMIZATION OF TRIPLY PERIODIC MINIMAL SURFACE BASED GYROID-LIKE STRUCTURES,llm includes
+21,P01429,I-UNCLEAR,,10.1007/978-3-031-49791-9_9,False,,Highly Efficient Multi-resolution Topology Optimization Based on the Kriging-Interpolation Network,llm includes
+22,P01971,I-QUALITY,,10.70792/jngr5.0.v1i3.95,False,,Reinforcement Learning Guided Engineering Design: from Topology Optimization to Advanced Modelling,llm includes
+23,P01132,I-UNCLEAR,,10.1007/978-981-97-8197-3_10,False,,"Optimization of Electric-Bike’s Frame Using Topology Optimization, Back Propagation Neural Network and Genetic Algorithm",llm includes
+24,P00918,I-SPEED,,10.1016/j.cma.2025.118044,False,,Accelerating cell topology optimisation by leveraging similarity in the parametric input space,llm includes
+25,P01258,I-SPEED,,10.1049/icp.2025.4682,False,,Generative design and optimization of lightweight mechanical structures based on physics-constrained neural networks,llm includes
+26,P00610,I-SPEED,,10.1016/j.egyai.2023.100310,False,,Effective thermal conductivity estimation using a convolutional neural network and its application in topology optimization,llm includes
+27,P00804,I-UNCLEAR,,10.1016/j.engappai.2025.113136,False,,"Data-driven robust topology optimization using surrogate modeling, model reduction, and machine learning",llm includes
+28,P00874,I-UNCLEAR,,10.1016/j.ijhydene.2023.11.325,False,,Artificial neural network reinforced topological optimization for bionics-based tridimensional stereoscopic hydrogen sensor design and manufacture,llm includes
+29,P01870,I-UNCLEAR,,10.1016/j.matdes.2024.113087,False,,Exploring VAE-driven implicit parametric unit cells for multiscale topology optimization,llm includes
+30,P01214,I-SPEED,,10.1201/9781003658641-176,False,,Deep learning-based topology optimization design method for bridge structures guided by aesthetics,llm includes
+31,P02042,I-SPEED,,10.3390/app16094080,False,,DQN-Based Pre-Optimization for Dual-Scale Collaborative Topology Optimization of Anisotropic Materials,llm includes
+32,P01873,I-UNCLEAR,,10.1007/s10338-025-00587-8,False,,Efficient Topology Optimization Design for Three-Dimensional Heat Transfer Structure Based on ResUNet-Involved Generative Adversarial Nets,llm includes
+33,P00576,I-UNCLEAR,,10.1080/17452759.2021.1913783,False,,Multiscale topology optimisation with nonparametric microstructures using three-dimensional convolutional neural network (3D-CNN) models,llm includes
+34,P00375,I-SPEED,2303.09760,10.1115/detc2023-116595,True,,Diffusing the Optimal Topology: A Generative Optimization Approach,llm includes
+35,P00875,I-SPEED,,10.1002/nme.7221,False,,Learning topology optimization process via convolutional long‐short‐term memory autoencoder‐decoder,llm includes
+36,P00915,I-UNCLEAR,,10.1088/1361-665x/ad69ea,False,,Topology optimization of smart structures to enhance the performances of vibration control and energy harvesting,llm includes
+37,P01859,I-UNCLEAR,,10.1016/j.engappai.2024.109444,False,,Structural topology optimization based on diffusion generative adversarial networks,llm includes
+38,P00042,I-UNCLEAR,2506.17487,10.1007/s00366-025-02208-x,False,,Variational Quantum Latent Encoding for Topology Optimization,llm includes
+39,P00548,I-UNCLEAR,,10.1007/s00158-022-03223-y,False,,Improving connectivity and accelerating multiscale topology optimization using deep neural network techniques,llm includes
+40,P00550,I-UNCLEAR,,10.1016/j.cma.2022.115116,False,,Machine learning for topology optimization: Physics-based learning through an independent training strategy,llm includes
+41,P01500,I-SPEED,,10.1109/aero58975.2024.10521001,False,,Super-Resolution Based Topology Optimization for Rapid Generation of Low Mass Structural Designs,llm includes
+42,P00983,I-SPEED,,10.1016/j.tws.2025.112942,False,,A function online learning and prediction method for accelerating structural topology optimization and its application to pneumatic soft actuator,llm includes
+43,P00605,I-SPEED,,10.1111/mice.13100,False,,Fast topology optimization of phononic crystal‐based metastructures for vibration isolation by deep learning,llm includes
+44,P01151,I-UNCLEAR,,10.1016/j.cma.2026.119038,False,,Two-scale topology optimization of multiscale structures and materials via deep neural networks for local and global buckling,llm includes
+45,P00808,I-SPEED,,10.3390/sym18030537,False,,A Geometric-Enhanced Neural Network Method for Scalable and High-Resolution Topology Optimization,llm includes
+46,P00143,I-QUALITY,2104.04017,10.48550/arxiv.2104.04017,True,,Improving Solar Cell Metallization Designs using Convolutional Neural Networks,llm includes
+47,P00663,I-SPEED,,10.3390/a15070241,False,,Topology Optimisation under Uncertainties with Neural Networks,llm includes
+48,P01605,I-SPEED,,10.1109/mercon67903.2025.11217036,False,,Design-Aware Optimization of 2D Skeletal Structures Using conditional Generative Adversarial Networks (cGANs),llm includes
+49,P01517,I-UNCLEAR,,10.32604/cmes.2025.072447,False,,"A Multi-Grid, Single-Mesh Online Learning Framework for Stress-Constrained Topology Optimization Based on Isogeometric Formulation",llm includes
+50,P01928,I-UNCLEAR,,10.1007/978-981-95-1723-7_11,False,,A Two-Stage Integrated Approach for Accelerating Structural Topology Optimization Using VAE and SIMP,llm includes
+51,P00141,I-SPEED,2105.03045,10.1115/1.4052757,True,,GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning,llm includes
+52,P00858,I-UNCLEAR,,10.1016/j.engstruct.2025.121203,False,,Deep learning-driven topology optimization using principal stress information based on assumed source point,llm includes
+53,P00544,I-UNCLEAR,,10.1115/1.4050105,False,P00148,A Parametric Level Set Method for Topology Optimization Based on Deep Neural Network,llm includes
+54,P00833,I-UNCLEAR,,10.1007/s11081-023-09806-y,False,,Comparative study on manifold learning approaches for parametric topology optimization problem via unsupervised deep learning,llm includes
+55,P00719,I-UNCLEAR,,10.1007/s00158-022-03433-4,False,,Deep learning accelerated topology optimization with inherent control of image quality,llm includes
+56,P02398,I-UNCLEAR,,10.1007/s00158-025-03984-2,False,,Conditional diffusion models for the inverse design of lattice structures,llm includes
+57,P01101,I-UNCLEAR,,10.1016/j.engappai.2026.115159,False,,Topology optimization of piezoelectric structures based on multi-modal input neural network,llm includes
+58,P00092,I-UNCLEAR,2310.15506,10.1007/s00158-023-03686-7,False,,Topology Optimization with Text-Guided Stylization,llm includes
+59,P01729,I-UNCLEAR,,10.1109/icaace69793.2026.11508877,False,,Building Structure Optimization: A Framework Based on Multi-Agent Reinforcement Learning,llm includes
+60,P02490,I-SPEED,,10.1021/acsmaterialslett.1c00390,False,,Deep Reinforcement Learning for Digital Materials Design,llm includes
+61,P00139,I-UNCLEAR,2106.05710,10.48550/arxiv.2106.05710,True,,DNN-Based Topology Optimisation: Spatial Invariance and Neural Tangent Kernel,llm includes
+62,P02524,I-UNCLEAR,,10.1016/j.cma.2019.02.002,False,,Kriging-assisted topology optimization of crash structures,llm includes
+63,P00687,I-UNCLEAR,,10.1016/j.eml.2024.102237,False,,Problem-independent machine learning-enhanced structural topology optimization of complex design domains based on isoparametric elements,llm includes
+64,P02074,I-UNCLEAR,,10.1007/s41024-026-00833-7,False,,UDHF-SMERO: a unified deep hybrid framework for co-evolutionary smart material design and energy-adaptive structural optimizations,llm includes
+65,P00553,I-UNCLEAR,,10.1016/j.eml.2022.101887,False,,Problem-independent machine learning (PIML)-based topology optimization—A universal approach,llm includes
+66,P01855,I-UNCLEAR,,10.1115/detc2020-22399,False,,Generative Adversarial Networks With Synthetic Training Data for Enforcing Manufacturing Constraints on Topology Optimization,llm includes
+67,P00934,I-SPEED,,10.2514/1.j062195,False,,Theory of Machine Learning Assisted Structural Optimization Algorithm and Its Application,llm includes
+68,P00893,I-UNCLEAR,,10.1093/jcde/qwae037,False,,Deep learning-aided topology design of metasurfaces for Rayleigh waves,llm includes
+69,P00860,I-UNCLEAR,,10.1016/j.procir.2021.11.221,False,,AI-Based Topology Optimization of Freehand Sketches,llm includes
+70,P00615,I-UNCLEAR,,10.1016/j.engappai.2023.106436,False,,Supervised deep learning for the moving morphable components topology optimization framework,llm includes
+71,P00613,I-UNCLEAR,,10.1016/j.probengmech.2022.103356,False,,Reliability-based optimization of structural topologies using artificial neural networks,llm includes
+72,P01457,I-UNCLEAR,,10.26226/morressier.612f6735bc98103724100785,False,,CNN-driven Approximate Algorithm of Topology Optimization Based on Initial Stress Learning,llm includes
+73,P01994,I-UNCLEAR,,10.13140/rg.2.2.16548.95369,False,,Practical topology optimization with deep reinforcement learning,llm includes
+74,P02361,I-QUALITY,,10.1007/s00158-024-03836-5,False,,Distributed design optimization of multi-component systems using meta models and topology optimization,llm includes
+75,P00650,I-UNCLEAR,,10.1016/j.compstruc.2024.107527,False,,Enhancing topology optimization with adaptive deep learning,llm includes
+76,P00335,I-SPEED,2406.16066,10.1016/j.cma.2025.117735,True,,Constructing Boundary-identical Microstructures via Guided Diffusion for Fast Multiscale Topology Optimization,llm includes
+77,P00545,I-UNCLEAR,,10.1007/s00466-023-02333-8,False,,Convolution Hierarchical Deep-Learning Neural Network Tensor Decomposition (C-HiDeNN-TD) for high-resolution topology optimization,llm includes
+78,P01100,I-QUALITY,,10.1115/imece2022-94604,False,,Topology Optimization Through Deep Neural Network for Different Mechanical and Thermomechanical Problems,llm includes
+79,P00817,I-UNCLEAR,,10.1007/978-3-031-38271-0_54,False,,DL4TO : A Deep Learning Library for Sample-Efficient Topology Optimization,llm includes
+80,P01856,I-UNCLEAR,,10.1016/j.autcon.2024.105747,False,,Intelligent design of key joints in aerial building machine using topology optimization and generative adversarial network,llm includes
+81,P00150,I-SPEED,2012.06384,10.3390/app11199041,True,,An AI-Assisted Design Method for Topology Optimization Without Pre-Optimized Training Data,llm includes
+82,P00842,I-UNCLEAR,,10.1145/3485114.3485124,False,,Topology Optimization via Frequency Tuning of Neural Design Representations,llm includes
+83,P00755,I-SPEED,,10.1016/j.compbiomed.2022.106475,False,,Artificial neural network supported design of a lattice-based artificial spinal disc for restoring patient-specific anisotropic behaviors,llm includes
+84,P00149,I-SPEED,2012.15744,10.1016/j.cma.2021.113894,True,,Data-driven topology optimization of spinodoid metamaterials with seamlessly tunable anisotropy,llm includes
+85,P00925,I-SPEED,,,False,P00158,Generative Design by Reinforcement Learning: Maximizing Diversity of Topology Optimized Designs.,llm includes
+86,P00690,I-UNCLEAR,,10.1007/s00158-022-03181-5,False,,A machine learning-assisted structural optimization scheme for fast-tracking topology optimization,llm includes
+87,P02135,I-SPEED,,10.1080/09544828.2026.2624356,False,,Large language model agent as a mechanical designer,llm includes
+88,P00549,I-SPEED,,10.1016/j.ymssp.2023.110636,False,,Deep learning aided topology optimization of phononic crystals,llm includes
+89,P02084,I-SPEED,,10.1016/j.ijheatmasstransfer.2026.129081,False,,Hierarchical thermal design for battery packs using phase change materials,llm includes
+90,P00889,I-UNCLEAR,,10.1016/j.cirp.2025.04.068,False,,Implicit geometry representation via neural operators on Riemannian manifolds for topology optimisation,llm includes
+91,P01827,I-UNCLEAR,,10.70671/dq9am588,False,,TPMS-Optimized Cement Geometries for Carbon-Efficient Structural Performance,llm includes
+92,P01152,I-SPEED,,,False,P00867,Deep learning accelerated topology optimization of linear and nonlinear structures,llm includes
+93,P01398,I-SPEED,,10.1117/12.3111177,False,,CoPR-DTO: collaboratively driven and periodically recalibrated dynamic topology optimization,llm includes
+94,P00922,I-UNCLEAR,,10.1016/j.autcon.2024.105901,False,,Physics-guided deep learning for generative design of large-diameter tunnels under existing metro lines,llm includes
+95,P00533,I-QUALITY,,10.1016/j.cma.2023.116401,False,P00527,A complete Physics-Informed Neural Network-based framework for structural topology optimization,llm includes
+96,P00178,I-SPEED,1901.04859,10.48550/arxiv.1901.04859,True,,A Novel Topology Optimization Approach using Conditional Deep Learning,llm includes
+97,P00373,I-QUALITY,2303.13672,10.1002/nme.70004,False,,Neural Level Set Topology Optimization Using Unfitted Finite Elements,llm includes
+98,P00698,I-SPEED,,10.3390/app142311416,False,,Novel Artificial Neural Network Aided Structural Topology Optimization,llm includes
+99,P01016,I-SPEED,,10.1016/j.procir.2024.08.033,False,,Designing Porous Structure with Optimized Topology using Machine Learning,llm includes
+100,P00034,I-SPEED,2509.05800,10.48550/arxiv.2509.05800,True,,Transformer-based Topology Optimization,llm includes
+101,P01133,I-UNCLEAR,,10.1007/s10409-025-25750-x,False,,A new level set structual topology optimization framework enhanced by nested physical informed neural network,llm includes
+102,P00051,I-UNCLEAR,2502.13174,10.48550/arxiv.2502.13174,False,,Diverse Topology Optimization using Modulated Neural Fields,llm includes
+103,P00543,I-SPEED,,10.1115/1.4041319,False,,Machine Learning-Driven Real-Time Topology Optimization Under Moving Morphable Component-Based Framework,llm includes
+104,P00181,I-SPEED,1808.07440,10.48550/arxiv.1808.07440,False,,3D Topology Optimization using Convolutional Neural Networks,llm includes
+105,P01004,I-SPEED,,,False,P00183,One-Shot Optimal Topology Generation through Theory-Driven Machine Learning.,llm includes
+106,P00709,I-UNCLEAR,,10.1016/j.ymssp.2025.113670,False,,On demand design of two-dimensional phononic crystal bandgap based on machine learning and multi-objective topology optimization,llm includes
+107,P00797,I-UNCLEAR,,10.1016/j.cma.2022.115762,False,,SVR-TO-APMA: Hybrid efficient modelling and topology framework for stable topology optimization with accelerated performance measure approach,llm includes
+108,P01390,I-UNCLEAR,,10.1016/j.mfglet.2023.08.030,False,,Structural and thermal generative design using reinforcement learning-based search strategy for additive manufacturing,llm includes
+109,P02479,I-UNCLEAR,,10.1016/j.matdes.2021.109632,False,,Pragmatic generative optimization of novel structural lattice metamaterials with machine learning,llm includes
+110,P01232,I-UNCLEAR,,10.1088/1742-6596/2791/1/012064,False,,Research on topology optimization of carbon fiber reinforced composite electric vehicle helmet based on deep learning,llm includes
+111,P00676,I-UNCLEAR,,10.48550/arxiv.2109.01861,False,P00133;P00552,Length Scale Control in Topology Optimization using Fourier Enhanced\n Neural Networks,llm includes
+112,P01905,I-UNCLEAR,,10.1039/d6mh00986g,False,P00242,Scaling atom-by-atom inverse design using nano-topology optimization and diffusion models,llm includes
+113,P00358,I-UNCLEAR,2309.11601,10.1016/j.cad.2024.103707,True,,Latent Diffusion Models for Structural Component Design,llm includes
+114,P01105,I-QUALITY,,10.1016/j.matdes.2021.110083,False,,Optimisation of three-dimensional hierarchical structures with tailored lattice metamaterial anisotropy,llm includes
+115,P01279,I-UNCLEAR,,10.1016/j.cma.2026.118882,False,,A novel approach for topology optimization mirroring human intention: Introducing a pattern-embedded filter built by machine learning,llm includes
+116,P01382,I-SPEED,,10.1115/1.4072316,False,,Variable-Resolution Topology Optimization Based on Dynamic Vision Transformer,llm includes
+117,P02240,I-UNCLEAR,,10.1016/j.engappai.2024.109991,False,,A force neural network framework for structural optimization,llm includes
+118,P00938,I-UNCLEAR,,10.1016/j.ijmecsci.2025.110500,False,,Graph convolutional networks-driven multiscale topology optimization base on polygonal coarse-grid elements,llm includes
+119,P00648,I-QUALITY,,10.1016/j.matdes.2022.110672,False,,“Deep reinforcement learning for engineering design through topology optimization of elementally discretized design domains”,llm includes
+120,P00523,I-UNCLEAR,2010.00041,10.1016/j.commatsci.2021.110664,False,,A Supervised Machine Learning Approach for Accelerating the Design of Particulate Composites: Application to Thermal Conductivity,llm includes
+121,P00003,I-UNCLEAR,2608.22606,10.48550/arxiv.2608.22606,False,,Adversarial Agents on Topology Optimization: Understanding the Fragility and Robustness of Deep Learning-based and Physics-Based Design Models under Adversarial Perturbation,llm includes
+122,P02336,I-UNCLEAR,,10.1016/j.engstruct.2025.121417,False,,Inverse design of composite materials with desired mechanical behaviors based on conditional diffusion model,llm includes
+123,P01900,I-UNCLEAR,,10.1115/1.4071440,False,,To Quantize or Not to Quantize: Effects on Generative Models for Topology Optimization Problems,llm includes
+124,P00081,I-SPEED,2404.12244,10.1007/s00500-025-10919-y,True,,PyTOaCNN: Topology optimization using an adaptive convolutional neural network in Python,llm includes
+125,P01277,I-UNCLEAR,,10.1007/s10409-025-25942-x,False,,A high-performance parallel algorithm based on problem independent machine learning (PIML) for large-scale topology optimization,llm includes
+126,P02399,I-UNCLEAR,,10.1016/j.aei.2025.103524,False,,Integrating large models with topology optimization for conceptual design realization,llm includes
+127,P00309,I-UNCLEAR,2412.19154,10.1016/j.matdes.2025.114380,True,,Evolutionary de-homogenization using a generative model for optimizing solid-porous infill structures considering the stress concentration issue,llm includes
+128,P00957,I-UNCLEAR,,10.1109/aihcir65563.2024.00048,False,,Data-Driven AI for Topology Optimization: A Comparative Study of CNN and Self-Attention Enhanced Architectures in Data-Constrained Scenarios,llm includes
+129,P00536,I-SPEED,,10.1080/0305215x.2021.1902998,False,P00176,A deep convolutional neural network for topology optimization with perceptible generalization ability,llm includes
+130,P00148,I-UNCLEAR,2101.03286,10.48550/arxiv.2101.03286,False,,A Parametric Level Set Method for Topology Optimization based on Deep Neural Network (DNN),llm includes
+131,P01217,I-SPEED,,10.5281/zenodo.8003313,False,,Enhancing Structural Topology Optimization with Deep Learning: A Stress Field-Based Approach,llm includes
+132,P02292,I-UNCLEAR,,10.1115/1.4071438,False,,Heterogeneous Metamaterials Design Via Multiscale Neural Implicit Representation,llm includes
+133,P01887,I-UNCLEAR,,10.1016/j.istruc.2026.111755,False,,Intelligent generative design of novel aluminum joints connecting wood members using generative adversarial networks,llm includes
+134,P00822,I-SPEED,,10.1016/j.istruc.2024.106924,False,,Wasserstein generative adversarial networks for topology optimization,llm includes
+135,P02306,I-UNCLEAR,,10.1016/j.cma.2023.116126,False,,Denoising diffusion algorithm for inverse design of microstructures with fine-tuned nonlinear material properties,llm includes
+136,P02476,I-UNCLEAR,,10.1016/j.cma.2020.113377,False,,Deep generative modeling for mechanistic-based learning and design of metamaterial systems,llm includes
+137,P00006,I-UNCLEAR,2607.00438,10.48550/arxiv.2607.00438,False,,Explainable quantum neural networks for multi-material topology optimization,llm includes
+138,P00176,I-SPEED,1901.07761,10.48550/arxiv.1901.07761,True,,A deep Convolutional Neural Network for topology optimization with strong generalization ability,llm includes
+139,P01320,I-SPEED,,10.21494/iste.op.2024.1231,False,,Topology optimization using artificial intelligence,llm includes
+140,P00774,I-UNCLEAR,,10.1007/s00466-023-02358-z,False,,A multi-point synergistic gradient evolution method for topology optimization leveraging neural network with applications in converged and diverse designs,llm includes
+141,P02128,I-UNCLEAR,,10.1002/adfm.202404165,False,,Generative Lattice Units with 3D Diffusion for Inverse Design: GLU3D,llm includes
+142,P00551,I-SPEED,,10.1080/0305215x.2020.1846031,False,,Deep super-resolution neural network for structural topology optimization,llm includes
+143,P01813,I-SPEED,,10.1016/j.tws.2026.115420,False,,Diffusion-based cGAN framework for automated optimization and code-compliant generative design of thin-walled structures,llm includes
+144,P00902,I-UNCLEAR,,10.1016/j.engstruct.2026.122097,False,,Data-driven enhanced multi-scale topology optimization of lattice structures,llm includes
+145,P00748,I-SPEED,,10.1109/fiti52050.2020.9424894,False,,Initial Design of Trusses using Topology Optimization in a Deep Learning Environment,llm includes
+146,P02006,I-UNCLEAR,,10.1016/j.cma.2026.119446,False,,Continuous action reinforcement learning for topology optimization via capped-simplex projection,llm includes
+147,P00740,I-UNCLEAR,,10.1016/j.cad.2020.102947,False,,Image-Based Multiresolution Topology Optimization Using Deep Disjunctive Normal Shape Model,llm includes
+148,P01033,I-SPEED,,10.1002/nme.6814,False,,Topologically optimal design and failure prediction using conditional generative adversarial networks,llm includes
+149,P00781,I-UNCLEAR,,10.1016/j.icheatmasstransfer.2026.110632,False,,Machine learning-driven hotspot thermal management in chip heat sinks through topology optimization,llm includes
+150,P00598,I-UNCLEAR,,10.1115/1.4044228,False,,Machine Learning to Aid Tuning of Numerical Parameters in Topology Optimization,llm includes
+151,P00827,I-QUALITY,,10.1007/s00158-024-03821-y,False,,Stress-constrained optimization of multiscale structures with parameterized microarchitectures using machine learning,llm includes
+152,P00624,I-UNCLEAR,,10.1016/j.engappai.2023.107033,False,,Deep learning-based 3D multigrid topology optimization of manufacturable designs,llm includes
+153,P02227,I-UNCLEAR,,10.1016/j.finel.2025.104506,False,,Finite Operator Learning: Bridging neural operators and numerical methods for efficient parametric solution and optimization of PDEs,llm includes
+154,P01164,I-SPEED,,10.15593/perm.mech/2023.3.01,False,,MACHINE LEARNING METHOD IN ELASTIC PLATE TOPOLOGY OPTIMIZATION PROBLEMS,llm includes
+155,P02187,I-SPEED,,10.1093/jcde/qwae039,False,,Equivariant neural operators for gradient-consistent topology optimization,llm includes
+156,P00890,I-SPEED,,10.1038/s41598-023-42009-0,False,,Learning hyperparameter predictors for similarity-based multidisciplinary topology optimization,llm includes
+157,P00837,I-UNCLEAR,,,False,,Topology optimization for heat transfer problems : towards a finite element based neural network approach,llm includes
+158,P01289,I-SPEED,,10.1016/j.addma.2026.105094,False,,Process-aware topology optimization leveraging deep learning surrogate model-based functions for laser powder bed fusion,llm includes
+159,P00238,I-QUALITY,2603.27195,10.48550/arxiv.2603.27195,True,,AutoMS: Multi-Agent Evolutionary Search for Cross-Physics Inverse Microstructure Design,llm includes
+160,P01436,I-SPEED,,10.1115/imece2025-166864,False,,Latent Space Diffusion Models With Auxiliary Losses for Structural Topology Optimization,llm includes
+161,P00029,I-SPEED,2511.04795,10.48550/arxiv.2511.04795,False,,Accelerating metamaterial topology optimization using deep super-resolution networks,llm includes
+162,P01172,I-UNCLEAR,,10.1016/j.ast.2025.111566,False,,Model-and-data-driven robust concurrent optimization for structural topology and device layout integrating load location and non-design domain effects,llm includes
+163,P00798,I-UNCLEAR,,10.1016/j.ijmecsci.2025.110358,False,,Data-driven topology optimization design of phononic crystals for vibration control,llm includes
+164,P00649,I-UNCLEAR,,10.1115/detc2018-85506,False,,Design Automation by Integrating Generative Adversarial Networks and Topology Optimization,llm includes
+165,P01251,I-UNCLEAR,,10.1007/s00500-023-07864-z,False,,Intelligent generation method for innovative structures of the main truss in a steel bridge,llm includes
+166,P01853,I-SPEED,,10.1115/1.4056929,False,,Multidisciplinary Topology Optimization Using Generative Adversarial Networks for Physics-Based Design Enhancement,llm includes
+167,P01974,I-SPEED,,10.3390/jmmp10040117,False,,Toward Large Language Model-Driven Symbolic Topology Optimisation for Rapid Structural Concept Generation in Manufacturable Design,llm includes
+168,P00948,I-UNCLEAR,,10.1016/j.ijheatfluidflow.2026.110477,False,,Ai-driven bioinspired cooling plate design for enhanced lithium-ion battery thermal management: integrating topology optimization and deep learning,llm includes
+169,P00707,I-SPEED,,10.1016/j.engstruct.2025.120507,False,,A stochastic gradient online learning and prediction method for accelerating structural topology optimization using recurrent neural network,llm includes
+170,P02296,I-UNCLEAR,,10.1145/3811393,False,,Co-Optimization of Structure and Manufacturable Semi-Continuous Layers for Laminated Composites,llm includes
+171,P01877,I-QUALITY,,10.1115/detc2023-111265,False,,Tackling an Exact Maximum Stress Minimization Problem With Gradient-Free Topology Optimization Incorporating a Deep Generative Model,llm includes
+172,P00779,I-UNCLEAR,,10.1016/j.cad.2023.103639,False,,IF-TONIR: Iteration-free Topology Optimization based on Implicit Neural Representations,llm includes
+173,P02319,I-UNCLEAR,,10.1016/j.jmps.2024.105893,False,,A mechanics-based data-free Problem Independent Machine Learning (PIML) model for large-scale structural analysis and design optimization,llm includes
+174,P00801,I-SPEED,,10.1115/1.4062352,False,,A 3D Structure Mapping-Based Efficient Topology Optimization Framework,llm includes
+175,P01468,I-SPEED,,10.48550/arxiv.2105.03045,False,P00141,GANTL: Towards Practical and Real-Time Topology Optimization with\n Conditional GANs and Transfer Learning,llm includes
+176,P00712,I-SPEED,,10.1016/j.promfg.2020.02.273,False,,DL-Scale: Deep Learning for model upgrading in topology optimization,llm includes
+177,P00803,I-SPEED,,,False,,Deep-Learning-Enabled Simulated Annealing for Topology Optimization,llm includes
+178,P00567,I-UNCLEAR,,10.1016/j.cma.2023.116041,False,,Machine-learning assisted topology optimization for architectural design with artistic flavor,llm includes
+179,P00629,I-UNCLEAR,,10.1115/1.4064243,False,,Evaluation of Neural Network-Based Derivatives for Topology Optimization,llm includes
+180,P00136,I-SPEED,2107.10661,10.48550/arxiv.2107.10661,False,,Robust Topology Optimization Using Multi-Fidelity Variational Autoencoders,llm includes
+181,P00597,I-SPEED,,10.1016/j.matdes.2022.110885,False,,Topological dimensionality reduction-based machine learning for efficient gradient-free 3D topology optimization,llm includes
+182,P00519,I-UNCLEAR,2504.01195,,True,,Towards Signed Distance Function based Metamaterial Design: Neural Operator Transformer for Forward Prediction and Diffusion Model for Inverse Design,llm includes
+183,P00601,I-UNCLEAR,,10.1016/j.eml.2024.102215,False,,Topology optimization with graph neural network enabled regularized thresholding,llm includes
+184,P00313,I-SPEED,2412.11112,10.1016/j.cma.2025.117950,True,,Populating cellular metamaterials on the extrema of attainable elasticity through neuroevolution,llm includes
+185,P01219,I-SPEED,,10.1201/9781003483755-246,False,P00645,Real-time multi-objective topology optimization method via deep learning,llm includes
+186,P00537,I-UNCLEAR,,10.1016/j.cad.2019.05.038,False,,Non-iterative structural topology optimization using deep learning,llm includes
+187,P00535,I-UNCLEAR,,10.1007/s00158-020-02545-z,False,,Accelerated topology optimization by means of deep learning,llm includes
+188,P00161,I-SPEED,2004.05461,10.48550/arxiv.2004.05461,False,,Deep learning-based topological optimization for representing a user-specified design area,llm includes
+189,P01670,I-UNCLEAR,,10.5281/zenodo.18597653,False,,Composite 3D-printed Plate-based Mechanical Metamaterials,llm includes
+190,P01119,I-UNCLEAR,,10.1016/j.compstruc.2026.108161,False,,Feature extraction and topology optimization of periodic lattice structures using extended convolutional neural network,llm includes
+191,P01892,I-UNCLEAR,,10.1016/j.aei.2025.104275,False,,MG-LDM: A multimodal guided latent diffusion model with Mamba-based temporal encoding for inverse topological design of tissue engineering skin substitutes,llm includes
+192,P00193,I-QUALITY,2609.10643,,False,,Zero-shot rib design: merging training-free generative prior with topology optimization,llm includes
+193,P01907,I-QUALITY,,10.1016/j.icheatmasstransfer.2025.109098,False,,Evolutionary design of conductive pathways using a generative autoencoder,llm includes
+194,P01571,I-UNCLEAR,,10.1016/j.istruc.2026.113053,False,,A physics-constrained FEA-coupled deep learning framework for discrete topology and size optimization of steel braced frames and pedestrian bridges under structural design codes,llm includes
+195,P01176,I-UNCLEAR,,10.31449/inf.v48i5.5295,False,,A Deep Reinforcement Learning Model-based Optimization Method for Graphic Design,llm includes
+196,P00527,I-UNCLEAR,,10.1016/j.engstruct.2022.115484,False,,A Physics-Informed Neural Network-based Topology Optimization (PINNTO) framework for structural optimization,llm includes
+197,P01788,I-SPEED,,,False,,Physics-Data Structural Optimization: From Latent Spaces to Member Composition,llm includes
+198,P00566,I-UNCLEAR,,10.1016/j.knosys.2020.105887,False,,CNN-based image recognition for topology optimization,llm includes
+199,P00705,I-SPEED,,10.3390/jmmp8050220,False,,A Machine Learning Approach for Mechanical Component Design Based on Topology Optimization Considering the Restrictions of Additive Manufacturing,llm includes
+200,P00080,I-SPEED,2404.18300,10.1007/s00366-024-02077-w,False,,VoroTO: Multiscale Topology Optimization of Voronoi Structures using Surrogate Neural Networks,llm includes
+201,P01867,I-UNCLEAR,,10.1016/j.engappai.2024.108642,False,,Multi-labeled image data-based generative topology optimization of primary mirror with conditional designable generative adversarial network and reinforcement learning,llm includes
+202,P00992,I-UNCLEAR,,10.1007/s11433-024-2576-7,False,,A fully mesh-independent non-linear topology optimization framework based on neural representations: Quasi-static problem,llm includes
+203,P00638,I-UNCLEAR,,10.1016/j.jcp.2024.113506,False,P00537,Structural topology optimization based on deep learning,llm includes
+204,P01078,I-SPEED,,10.1007/s00158-026-04362-2,False,,Fail-safe topology optimization using artificial neural networks,llm includes
+205,P01554,I-UNCLEAR,,10.1016/j.engappai.2025.111011,False,,Physically interpretable discrete latent representations for the design of advanced mechanical metamaterials in complex geometries,llm includes
+206,P00669,I-SPEED,,10.1016/j.cma.2025.118244,False,,Fourier feature embedded physics-informed neural network-based topology optimization (FF-PINNTO) framework for geometrically nonlinear structures,llm includes
+207,P00254,I-UNCLEAR,2601.23269,,True,,Rank Reduction AutoEncoders for Mechanical Design: Advancing Novel and Efficient Data-Driven Topology Optimization,llm includes
+208,P00594,I-UNCLEAR,,10.1007/s00158-023-03539-3,False,,A machine-learning framework for isogeometric topology optimization,llm includes
+209,P01540,I-UNCLEAR,,10.1016/j.icheatmasstransfer.2026.111591,False,,Biomimetic topology optimization of anisotropic multi-material heat transfer structures with length-scale control using neural style transfer and EFGM,llm includes
+210,P01455,I-UNCLEAR,,10.1145/3377930.3390170,False,,Deep generative model for non-convex constraint handling,llm includes
+211,P01278,I-SPEED,,10.5281/zenodo.17916310,False,,AI-Accelerated Isogeometric Multi-Scale Topology Optimisation for Mechanical Metamaterials,llm includes
+212,P02100,I-UNCLEAR,,10.1016/j.eml.2020.101029,False,,A semi-supervised approach to architected materials design using graph neural networks,llm includes
+213,P01863,I-UNCLEAR,,10.1016/j.advengsoft.2020.102957,False,,GANs and DCGANs for generation of topology optimization validation curve through clustering analysis,llm includes
+214,P02146,I-SPEED,,10.1093/jcde/qwad025,False,,An finite element analysis surrogate model with boundary oriented graph embedding approach for rapid design,llm includes
+215,P00532,I-UNCLEAR,,10.1016/j.cad.2021.103017,False,,Multi-Material Topology Optimization Using Neural Networks,llm includes
+216,P00131,I-SPEED,2110.06458,10.48550/arxiv.2110.06458,False,,Stiffness minimisation of graded microstructural configurations using asymptotic analysis and machine learning,llm includes
+217,P00374,I-SPEED,2303.11757,10.1111/cgf.14700,True,,NSTO: Neural Synthesizing Topology Optimization for Modulated Structure Generation,llm includes
+218,P01092,I-UNCLEAR,,10.1115/detc2019-97833,False,,Topology Design With Conditional Generative Adversarial Networks,llm includes
+219,P00884,I-UNCLEAR,,10.1007/978-981-16-7381-8_111,False,,A Novel Method to Accelerate the Solution of Compliance Using Deep Learning for Topology Optimization,llm includes
+220,P01087,I-UNCLEAR,,10.1016/j.matcom.2026.02.009,False,,Topology optimization of heat conduction based on U-ResNet neural network,llm includes
+221,P00045,I-QUALITY,2504.14790,10.1007/s00158-025-04029-4,False,,Enhanced Data-driven Topology Design Methodology with Multi-level Mesh and Correlation-based Mutation for Stress-related Multi-objective Optimization,llm includes
+222,P00007,I-SPEED,2606.19921,10.48550/arxiv.2606.19921,False,,eCNNTO: A Highly Generalizable ConvNet for Accelerating Topology Optimization,llm includes
+223,P00657,I-UNCLEAR,,10.1016/j.engappai.2024.108559,False,,Deep learning accelerated efficient framework for topology optimization,llm includes
+224,P00898,I-SPEED,,10.1177/10812865241233013,False,,ResUNet involved generative adversarial network-based topology optimization for design of 2D microstructure with extreme material properties,llm includes
+225,P01328,I-UNCLEAR,,10.1002/advs.202518923,False,,A Bottom‐Up Design Framework for Multifunctional Lattice Metamaterials,llm includes
+226,P00790,I-UNCLEAR,,10.1016/j.cma.2022.114861,False,,Compliance minimisation of smoothly varying multiscale structures using asymptotic analysis and machine learning,llm includes
+227,P00872,I-SPEED,,10.1080/0305215x.2024.2357153,False,,Real-time topology optimization based on multi-scale convolutional attention mechanism,llm includes
+228,P00209,I-SPEED,2607.04123,,False,,"CertMix: Certified, Data-Efficient Metamaterial Design by Affine Mixing of Aligned Neural-Implicit Weight Spaces",llm includes
+229,P01186,I-UNCLEAR,,10.1145/3688574.3688590,False,,Topology Optimization of Industrial Equipment: A Deep Learning Approach and Software Implement,llm includes
+230,P01475,I-SPEED,,10.1007/978-3-031-33758-1_9,False,,Integrating Geometric Metamodel-Assisted Process Assurance into Topology Optimization of Low-Pressure Die Castings,llm includes
+231,P01111,I-UNCLEAR,,,False,P01091,Acceleration of topology optimization-based bone microstructure reconstruction using artificial neural networks,llm includes
+232,P01498,I-UNCLEAR,,10.1016/j.engappai.2026.114853,False,,Enabling inverse design of metamaterials via trustworthy and interpretable representation learning with epistemic uncertainty awareness,llm includes
+233,P01891,I-UNCLEAR,,10.26153/tsw/63399,False,,Generative Adversarial Networks for Topology Optimization with Orientation,llm includes
+234,P00130,I-SPEED,2112.02506,10.48550/arxiv.2112.02506,True,,Enhancing Data-driven Multiscale Topology Optimization with Generalized De-homogenization,llm includes
+235,P00759,I-UNCLEAR,,10.1109/icaml60083.2023.00018,False,,Research on Edge Network Topology Optimization Based on Machine Learning,llm includes
+236,P00879,I-UNCLEAR,,10.1007/s00158-026-04348-0,False,,A machine learning-based method for topology optimization by inserting voids in thin-walled crashworthiness structures,llm includes
+237,P00975,I-UNCLEAR,,10.52783/cana.v30.280,False,,Topology Optimization using Nonlinear Finite Element Analysis,llm includes
+238,P00665,I-UNCLEAR,,10.1007/s00521-020-05480-8,False,,DL-SCALE: a novel deep learning-based model order upscaling scheme for solving topology optimization problems,llm includes
+239,P00620,I-UNCLEAR,,10.1016/j.eml.2023.102041,False,,A Problem-Independent Machine Learning (PIML) enhanced substructure-based approach for large-scale structural analysis and topology optimization of linear elastic structures,llm includes
+240,P00716,I-QUALITY,,10.3390/ma14164551,False,,Integrating Geometric Data into Topology Optimization via Neural Style Transfer,llm includes
+241,P00166,I-QUALITY,2001.00635,10.48550/arxiv.2001.00635,True,,Convolutional Neural Network-based Topology Optimization (CNN-TO) By Estimating Sensitivity of Compliance from Material Distribution,llm includes
+242,P01344,I-UNCLEAR,,10.1007/s11424-026-5391-5,False,,Neural Topology Optimization Using B-Spline Positional Encoding,llm includes
+243,P00047,I-SPEED,2503.21456,10.48550/arxiv.2503.21456,True,,Mechanostat-type effective density correction for Carter-Hayes growth applied to topology optimization and its efficient interpolation for a target strain energy and volume fraction,llm includes
+244,P00093,I-SPEED,2310.02069,10.1007/978-981-96-1158-4_43,False,P00081,TOaCNN: Adaptive Convolutional Neural Network for Multidisciplinary Topology Optimization,llm includes
+245,P00539,I-UNCLEAR,,10.1016/j.icheatmasstransfer.2018.07.001,False,,Investigation into the topology optimization for conductive heat transfer based on deep learning approach,llm includes
+246,P00946,I-SPEED,,10.26153/tsw/17533,False,,Machine Learning Derived Graded Lattice Structures,llm includes
+247,P00564,I-UNCLEAR,,10.1016/j.compstruc.2023.107218,False,,Multi–materials topology optimization using deep neural network for coupled thermo–mechanical problems,llm includes
+248,P01393,I-UNCLEAR,,10.1016/j.aei.2025.103608,False,,Generation of innovative structural connection components using generative adversarial networks,llm includes
+249,P01086,I-SPEED,,10.23967/wccm-apcom.2022.002,False,,A Deep Convolutional Neural Network Approach as Surrogate Model for Topology Optimization,llm includes
+250,P00920,I-UNCLEAR,,10.1016/j.est.2026.122253,False,,Research on topology optimization constraint method for battery cold plates integrating machine learning and multi-objective optimization,llm includes
+251,P01418,I-SPEED,,10.1115/1.4071715,False,,Meta-Initialized Hierarchical Surrogate Optimization for Computationally Efficient Topology Optimization,llm includes
+252,P02353,I-UNCLEAR,,10.1016/j.ijheatmasstransfer.2024.125287,False,,Using conditional normalizing flows to generate material placements in an optimized thermal composite,llm includes
+253,P00850,I-UNCLEAR,,10.1016/j.compstruct.2024.118751,False,,Three-point bending behaviors of sandwich beams with data-driven 3D auxetic lattice core based on deep learning,llm includes
+254,P00177,I-SPEED,1901.07675,10.48550/arxiv.1901.07675,False,,A New CGAN Technique for Constrained Topology Design Optimization,llm includes
+255,P00844,I-UNCLEAR,,10.1007/s10409-024-24061-x,False,,Machine learning-encoded multiscale modelling and Bayesian optimization framework to design programmable metamaterials,llm includes
+256,P00640,I-SPEED,,,False,,Deep learning for topology optimization design.,llm includes
+257,P01972,I-UNCLEAR,,10.1007/s10489-024-05276-6,False,,Reinforcement learning based agents for improving layouts of automotive crash structures,llm includes
+258,P01966,I-UNCLEAR,,10.11916/j.issn.1005-9113.19078,False,,Structural Topology Optimization by Combining BESO with Reinforcement Learning,llm includes
+259,P01350,I-SPEED,,10.1142/s0219876223410074,False,,A Structural-Similarity Conditional GAN Method to Generate Real-Time Topology for Shell–Infill Structures,llm includes
+260,P01431,I-UNCLEAR,,10.48321/d1830ae318,False,,Multiscale Topology Optimization of Functionally Graded Multi-Morphology TPMS Structures,llm includes
+261,P00703,I-UNCLEAR,,10.1016/j.apm.2021.04.009,False,P00543,Accurate and real-time structural topology prediction driven by deep learning under moving morphable component-based framework,llm includes
+262,P00074,I-UNCLEAR,2407.13954,10.1007/s00158-025-04135-3,True,,"Neural topology optimization: the good, the bad, and the ugly",llm includes
+263,P01097,I-SPEED,,10.15625/0866-7136/23941,False,,Multi-material topology optimization using neural networks for plates with variable thickness,llm includes
+264,P00152,I-SPEED,2011.14177,10.48550/arxiv.2011.14177,True,,Scalable Deep-Learning-Accelerated Topology Optimization for Additively Manufactured Materials,llm includes
+265,P01021,I-QUALITY,,10.48550/arxiv.2110.14985,False,,A machine learning approach for fighting the curse of dimensionality in global optimization,llm includes
+266,P00892,I-UNCLEAR,,10.1016/j.cad.2025.103864,False,,Physically reliable 3D styled shape generation via structure-aware topology optimization in unified latent space,llm includes
+267,P01484,I-UNCLEAR,,,False,,Optimization of Thermochemical Energy Storage Reactors Using Machine Learning,llm includes
+268,P00652,I-UNCLEAR,,10.1007/s00158-022-03456-x,False,P00125,An adaptive and scalable artificial neural network-based model-order-reduction method for large-scale topology optimization designs,llm includes
+269,P00831,I-UNCLEAR,,10.1108/ec-05-2025-0557,False,,Convolutional neural network-based isogeometric topology optimization without pre-optimized training data,llm includes
+270,P00654,I-UNCLEAR,,10.1016/j.engappai.2024.108370,False,,Accelerating topology optimization using deep learning-based image super-resolution,llm includes
+271,P01216,I-UNCLEAR,,10.1007/s12206-024-0328-1,False,,Improving data-efficiency of deep generative model for fast design synthesis,llm includes
+272,P01866,I-UNCLEAR,,10.1016/j.cma.2025.117778,False,,A deep generative multiscale topology optimization framework considering manufacturing defects and parametrical uncertainties,llm includes
+273,P01071,I-UNCLEAR,,10.3233/faia230065,False,,Density Topology Optimization Method Based on Neural Network,llm includes
+274,P00186,I-SPEED,1801.05463,10.1007/s00158-018-2101-5,False,,Deep learning for determining a near-optimal topological design without any iteration,llm includes
+275,P02326,I-UNCLEAR,,10.1016/j.ijsolstr.2024.112737,False,,Intelligent design and buckling experiment of curvilinearly stiffened thin-walled structures,llm includes
+276,P02090,I-UNCLEAR,,10.1007/s00158-019-02222-w,False,,Deep learning–based inverse method for layout design,llm includes
+277,P01175,I-UNCLEAR,,10.4203/ccc.5.2.4,False,,Sketch driven machine-learning based topology optimization,llm includes
+278,P00004,I-UNCLEAR,2607.22019,10.48550/arxiv.2607.22019,False,,PIML-OFEM: A New Large-Scale Structural Analysis Method Based on Problem-Independent Machine Learning and Overlapping Finite Element Technique,llm includes
+279,P00580,I-UNCLEAR,,10.1016/j.cma.2025.117837,False,,Data-driven reliability-based topology optimization by using the extended multi scale finite element method and neural network approach,llm includes
+280,P00960,I-SPEED,,10.1080/0305215x.2024.2424368,False,,An advanced topology optimization technique for high-resolution designs at arbitrary scale,llm includes
+281,P00559,I-UNCLEAR,,10.1016/j.engstruct.2024.119194,False,,An advanced physics-informed neural network-based framework for nonlinear and complex topology optimization,llm includes
+282,P00428,I-QUALITY,2103.02588,10.1016/j.cma.2022.115060,True,,IH-GAN: A Conditional Generative Model for Implicit Surface-Based Inverse Design of Cellular Structures,llm includes
+283,P00715,I-UNCLEAR,,10.1016/j.advengsoft.2022.103300,False,,Novel material representation method via a deep learning model for multi-scale topology optimization,llm includes
+284,P00897,I-SPEED,,10.1520/ssms20180039,False,,Learn to Learn: Application to Topology Optimization,llm includes
+285,P00854,I-UNCLEAR,,10.1016/j.finel.2021.103719,False,,Allying topology and shape optimization through machine learning algorithms,llm includes
+286,P00501,I-QUALITY,2603.25099,10.1016/j.advengsoft.2026.104304,True,,Large Language Models as Optimization Controllers: Adaptive Continuation for SIMP Topology Optimization,llm includes
+287,P02202,I-UNCLEAR,,10.1016/j.compstruct.2025.119834,False,,Deep-learning approaches for a generator of orthotropic porous microstructures: Numerical and experimental application,llm includes
+288,P00904,I-UNCLEAR,,10.1007/s00158-025-04192-8,False,,Machine learning-based constraints for manufacturing-oriented topology optimization of rollbonded cooling plates,llm includes
+289,P00617,I-UNCLEAR,,10.1007/s00366-023-01846-3,False,,Real-time topology optimization based on convolutional neural network by using retrain skill,llm includes
+290,P00742,I-SPEED,,10.1007/s00707-025-04380-z,False,,Machine learning-assisted topology optimization framework for designing 2D structures based on micropolar elasticity,llm includes
+291,P00820,I-UNCLEAR,,10.1016/j.engappai.2024.107916,False,,Dynamic graph-based convergence acceleration for topology optimization in unstructured meshes,llm includes
+292,P02163,I-UNCLEAR,,10.3390/app15052753,False,,Sketch-Guided Topology Optimization with Enhanced Diversity for Innovative Structural Design,llm includes
+293,P00882,I-SPEED,,10.1007/s00158-024-03851-6,False,,Data-driven topology optimization using a multitask conditional variational autoencoder with persistent homology,llm includes
+294,P00721,I-SPEED,,10.3390/app112412005,False,,Deep Learning-Based Accuracy Upgrade of Reduced Order Models in Topology Optimization,llm includes
+295,P00531,I-UNCLEAR,,10.1016/j.cma.2021.114083,False,,TONR: An exploration for a novel way combining neural network with topology optimization,llm includes
+296,P00839,I-SPEED,,10.32604/cmes.2021.016737,False,,An Improved Data-Driven Topology Optimization Method Using Feature Pyramid Networks with Physical Constraints,llm includes
+297,P00813,I-UNCLEAR,,10.1016/j.istruc.2025.109192,False,,Image-based topology optimization using a deep learning-driven optimizer network,llm includes
+298,P01227,I-UNCLEAR,,10.13118/rakesh-kumar-tota_phd2024-09-12,False,,Numerical Modeling and Optimization of Fractured Structures via Machine Learning and Topology Optimization,llm includes
+299,P00406,I-UNCLEAR,2112.00648,10.1007/s00158-022-03224-x,False,,Remixing Functionally Graded Structures: Data-Driven Topology Optimization with Multiclass Shape Blending,llm includes
+300,P01894,I-QUALITY,,10.1115/1.4064979,False,,Latent Crossover for Data-Driven Multifidelity Topology Design,llm includes
+301,P00862,I-SPEED,,10.1002/nme.7541,False,,A decoupled probabilistic constrained topology optimization method based on the constraint shift,llm includes
+302,P00655,I-UNCLEAR,,10.1007/s00158-022-03231-y,False,,Cross-resolution topology optimization for geometrical non-linearity by using deep learning,llm includes
+303,P02101,I-UNCLEAR,,10.1016/j.compstruct.2021.114808,False,,Deep-learning-based isogeometric inverse design for tetra-chiral auxetics,llm includes
+304,P00955,I-UNCLEAR,,10.1016/j.engappai.2025.110356,False,,Hierarchical graph-based machine learning model for optimization of three-dimensional braced steel frame,llm includes
+305,P00830,I-QUALITY,,10.1115/1.4067528,False,,Multi-Lattice Topology Optimization Via Generative Lattice Modeling,llm includes
+306,P02162,I-UNCLEAR,,10.1007/s00158-025-04179-5,False,,Compliance minimization via physics-informed Gaussian processes,llm includes
+307,P00694,I-UNCLEAR,,10.1007/978-3-030-05363-5_1,False,,Toward the Rapid Design of Engineered Systems Through Deep Neural Networks,llm includes
+308,P02445,I-UNCLEAR,,10.1016/j.eml.2017.10.001,False,,De novo composite design based on machine learning algorithm,llm includes
+309,P02546,I-UNCLEAR,,,False,P00141;P01468,Gantl: Toward practical and real-time topology optimization with conditional generative adversarial networks and transfer learning,llm includes
+310,P01450,I-UNCLEAR,,10.1007/s00170-026-18652-y,False,,Additive manufacturing of lightweight lattice structure gears designed by topology optimization and surrogate modeling,llm includes
+311,P02237,I-UNCLEAR,,10.1093/pnasnexus/pgae186,False,,Weak-formulated physics-informed modeling and optimization for heterogeneous digital materials,llm includes
+312,P01862,I-QUALITY,,10.1115/1.4055377,False,,Multiphysics Design Optimization via Generative Adversarial Networks,llm includes
+313,P01569,I-UNCLEAR,,10.1109/iciics67880.2026.11483515,False,,Optimization-Guided Structural Feature Encoding for Machine Learning–Based Architectural Structural Design Optimization,llm includes
+314,P01116,I-UNCLEAR,,10.1016/j.aei.2024.102869,False,,Improving efficiency in structural optimization using RBFNN and MMA-Adam hybrid method,llm includes
+315,P01929,I-SPEED,,10.1115/detc2024-142052,False,,To Quantize or Not to Quantize: Effects on Generative Models for 2D Heat Sink Design,llm includes
+316,P00565,I-UNCLEAR,,10.1007/s00158-022-03194-0,False,,Accelerated topology optimization design of 3D structures based on deep learning,llm includes
+317,P01238,I-UNCLEAR,,,False,P00668,Machine-learning-aided heat conductive topology optimization with stochastic gradient descent optimizer,llm includes
+318,P02572,I-UNCLEAR,,,False,,"Constraining generative models for engineering design with negative data, 2024",llm includes
+319,P00171,I-SPEED,2001.04350,10.20944/preprints201910.0137.v1,False,,An efficient and high-resolution topology optimization method based on convolutional neural networks,llm includes
+320,P00603,I-UNCLEAR,,10.1115/1.4055505,False,,Neural Network-Assisted Design: A Study of Multiscale Topology Optimization With Smoothly Graded Cellular Structures,llm includes
+321,P00795,I-UNCLEAR,,10.1016/j.advengsoft.2025.104064,False,,Domain-embedded deep learning frameworks for topology optimization: Enhancing structural performance under data scarce environments,llm includes
+322,P00370,I-UNCLEAR,2306.12047,10.1016/j.cma.2023.116595,False,,Residual-Based Error Corrector Operator to Enhance Accuracy and Reliability of Neural Operator Surrogates of Nonlinear Variational Boundary-Value Problems,llm includes
+323,P00811,I-SPEED,,10.1007/s00158-024-03850-7,False,,Automatic hyperparameter tuning of topology optimization algorithms using surrogate optimization,llm includes
+324,P00591,I-UNCLEAR,,10.1007/s00466-021-02069-3,False,,Robust topology optimization with low rank approximation using artificial neural networks,llm includes
+325,P01010,I-UNCLEAR,,10.1016/j.ijmecsci.2026.111831,False,,Deep learning-driven multi-scale optimization for high-performance TPMS-based piezoelectric metamaterials,llm includes
+326,P00210,I-UNCLEAR,2607.01812,10.48550/arxiv.2607.01812,False,,TO-Master: an LLM-agent framework for automated topology optimization,llm includes
+327,P02185,I-SPEED,,10.2514/6.2023-4375,False,,Machine Learning Surrogates for Optimal 2D Spatial Packaging of Interconnected Systems with Physics Interactions (SPI2),llm includes
+328,P01946,I-SPEED,,10.1016/j.smmf.2026.100129,False,,Guided diffusion for fast inverse design of voxel-based mechanical metamaterials,llm includes
+329,P02249,I-UNCLEAR,,10.1016/j.engstruct.2023.117103,False,,Bayesian optimization-based topology optimization using moving morphable bars for flexible structure design problems,llm includes
+330,P02236,I-UNCLEAR,,10.1016/j.ast.2023.108405,False,,Data-driven non-intrusive shape-topology optimization framework for curved shells,llm includes
+331,P00630,I-SPEED,,10.3389/fbuil.2020.00059,False,,Reinforcement Learning and Graph Embedding for Binary Truss Topology Optimization Under Stress and Displacement Constraints,llm includes
+332,P01257,I-UNCLEAR,,10.1109/icmnwc66779.2025.11354187,False,,Neural Network-Based Integrated Design and Adaptive Control Framework for Robotic Mechanical Structures,llm includes
+333,P01245,I-SPEED,,10.1109/csnt69054.2026.11502320,False,,Intelligent Form Finding for Lightweight Large-Span Structures Based on Topology Optimization and Deep Learning,llm includes
+334,P00608,I-SPEED,,10.1109/access.2021.3125014,False,,Unit Module-Based Convergence Acceleration for Topology Optimization Using the Spatiotemporal Deep Neural Network,llm includes
+335,P01505,I-SPEED,,10.1007/s00366-026-02383-5,False,,"A multi-grid, single-mesh online learning framework for efficient large-scale topology optimization",llm includes
+336,P02229,I-UNCLEAR,,10.1007/s00366-022-01760-0,False,,Physics-informed neural energy-force network: a unified solver-free numerical simulation for structural optimization,llm includes
+337,P01405,I-UNCLEAR,,10.1109/atigb66719.2025.11142189,False,,Structural Optimization and Performance Evaluation of Spain's 3D-Printed Concrete Bridges Using AI-Based Design Approaches,llm includes
+338,P00090,I-SPEED,2311.08473,10.1002/nme.7502,False,,Real-time topology optimization via learnable mappings,llm includes
+339,P00941,I-UNCLEAR,,10.1016/j.euromechsol.2025.105645,False,,Topology optimization of multi-material structures with length-scale control based on Neural Style Transfer and element-free Galerkin method,llm includes
+340,P01417,I-QUALITY,,10.1115/detc2022-89997,False,,Generative Adversarial Design Analysis of Non-Convexity in Topology Optimization,llm includes
+341,P01924,I-UNCLEAR,,10.1115/detc2025-169143,False,,Data-Driven Multifidelity Topology Optimization for Reinforced Skin Structure in Aircraft Design,llm includes
+342,P01149,I-UNCLEAR,,10.1016/j.ijmecsci.2023.108352,False,,Design of patterns in tubular robots using DNN-metaheuristics optimization,llm includes
+343,P01883,I-UNCLEAR,,10.1016/j.sasc.2026.200468,False,,Generative design combined with topology optimization for lightweight product structure: An implementation path,llm includes
+344,P00673,I-UNCLEAR,,10.25046/aj060427,False,,A New Topology Optimization Approach by Physics-Informed Deep Learning Process,llm includes
+345,P00086,I-SPEED,2402.05073,10.48550/arxiv.2402.05073,False,,NITO: Neural Implicit Fields for Resolution-free Topology Optimization,llm includes
+346,P00670,I-UNCLEAR,,10.1016/j.apm.2024.02.011,False,,A Fourier neural operator-based lightweight machine learning framework for topology optimization,llm includes
+347,P00207,I-UNCLEAR,2607.07682,10.1109/tevc.2026.3708401,False,,Neural Operator-enabled Topology-informed Evolutionary Strategy for PDE-Constrained Optimization,llm includes
+348,P01163,I-SPEED,,10.1201/9781003322641-147,False,P00645,Stress-based topology optimization method using deep learning,llm includes
+349,P00054,I-SPEED,2502.01830,10.1016/j.engappai.2026.115763,True,,Meta-neural Topology Optimization: Knowledge Infusion with Meta-learning,llm includes
+350,P00281,I-SPEED,2508.05624,,False,,Latent Space Diffusion for Topology Optimization,llm includes
+351,P00692,I-UNCLEAR,,10.1016/j.ijmecsci.2023.108441,False,,Higher-order topological insulators by ML-enhanced topology optimization,llm includes
+352,P01901,I-UNCLEAR,,10.1016/j.apenergy.2024.124596,False,,Data-driven multi-fidelity topology design of fin structures for latent heat thermal energy storage,llm includes
+353,P02107,I-QUALITY,,10.48550/arxiv.1909.04240,False,,"Data files for ""Neural reparameterization improves structural optimization""",llm includes
+354,P01930,I-SPEED,,10.2351/7.0001931,False,,Topology optimization of additively manufactured components using artificial intelligence: A method for the integration of composite lattice structures,llm includes
+355,P01074,I-UNCLEAR,,10.26226/morressier.612f6737bc981037241008e5,False,,Robust topology optimization using efficient neural network surrogates,llm includes
+356,P02478,I-UNCLEAR,,10.1016/j.compstruct.2019.111264,False,,Prediction and optimization of mechanical properties of composites using convolutional neural networks,llm includes
+357,P02487,I-UNCLEAR,,10.1038/s41524-021-00609-2,False,,Deep learning framework for material design space exploration using active transfer learning and data augmentation,llm includes
+358,P01249,I-UNCLEAR,,10.1007/978-3-032-16253-3_14,False,,Modeling and Optimization of Irregular Cellular Materials Using Parametric Physics-Augmented Neural Networks,llm includes
+359,P00555,I-UNCLEAR,,10.1007/s00158-021-03028-5,False,,Multi-stage deep neural network accelerated topology optimization,llm includes
+360,P00688,I-UNCLEAR,,10.1016/j.ijheatmasstransfer.2025.127902,False,,Physics-informed neural network based topology optimization for thin-film evaporation in hierarchical structures,llm includes
+361,P00525,I-QUALITY,,10.1016/j.cma.2018.09.007,False,,Multiscale topology optimization using neural network surrogate models,llm includes
+362,P00133,I-UNCLEAR,2109.01861,,True,,Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks,llm includes
+363,P00713,I-UNCLEAR,,10.3390/math12152350,False,,Isogeometric Topology Optimization of Multi-Material Structures under Thermal-Mechanical Loadings Using Neural Networks,llm includes
+364,P02251,I-UNCLEAR,,10.1016/j.procir.2023.02.143,False,,A data-driven topology optimization approach to handle geometrical manufacturing constraints in the earlier steps of the design phase,llm includes
+365,P00743,I-SPEED,,10.1016/j.ast.2023.108836,False,,Accelerating reliability-based topology optimization via gradient online learning and prediction,llm includes
+366,P00541,I-UNCLEAR,,10.1016/j.advengsoft.2022.103359,False,P00113;P00123,Graded multiscale topology optimization using neural networks,llm includes
+367,P00628,I-UNCLEAR,,10.1142/s0219876221420135,False,,Material Design with Topology Optimization Based on the Neural Network,llm includes
+368,P00122,I-UNCLEAR,2204.06684,10.1103/physrevresearch.4.023210,False,,Multifidelity deep neural operators for efficient learning of partial differential equations with application to fast inverse design of nanoscale heat transport,llm includes
+369,P00076,I-QUALITY,2407.07288,10.48550/arxiv.2407.07288,False,,Structural Design Through Reinforcement Learning,llm includes
+370,P00592,I-UNCLEAR,,10.1007/978-981-15-5432-2_26,False,P00081;P00093,Topology Optimization Using Convolutional Neural Network,llm includes
+371,P02316,I-SPEED,,10.1093/nsr/nwaf053,False,,Intelligent design of mechanical metamaterials: a GCNN-based structural genome database approach,llm includes
+372,P00621,I-UNCLEAR,,10.1115/detc2022-89538,False,,Multi-Scale Topology Optimization With Neural Network-Assisted Optimizer,llm includes
+373,P00658,I-SPEED,,10.4271/2019-01-0829,False,,Application of Adversarial Networks for 3D Structural Topology Optimization,llm includes
+374,P00022,I-QUALITY,2601.10859,10.48550/arxiv.2601.10859,False,,AI-Guided Human-In-the-Loop Inverse Design of High Performance Engineering Structures,llm includes
+375,P01267,I-SPEED,,10.1088/1742-6596/3019/1/012055,False,,Research on topology optimization algorithm in additive manufacturing of continuous fiber reinforced composites based on deep learning,llm includes
+376,P02245,I-SPEED,,10.1016/j.cma.2025.118503,False,,A surrogate model for topology optimisation of elastic structures via parametric autoencoders,llm includes
+377,P01491,I-SPEED,,10.3130/aijjse.70b.0_179,False,,A GENERATION METHOD OF OPTIMAL TRUSS TOPOLOGY USING DEEP LEARNING AND LINEAR PROGRAMMING,llm includes
+378,P00326,I-UNCLEAR,2409.04692,10.1016/j.cma.2025.117772,True,,Data-driven multifidelity topology design with multi-channel variational auto-encoder for concurrent optimization of multiple design variable fields,llm includes
+379,P00138,I-SPEED,2106.13652,10.48550/arxiv.2106.13652,False,,A mechanistic-based data-driven approach to accelerate structural topology optimization through finite element convolutional neural network (FE-CNN),llm includes
+380,P00581,I-QUALITY,,10.1115/1.4045040,False,,Convolutional Neural Network Surrogate Models for the Mechanical Properties of Periodic Structures,llm includes
+381,P00583,I-SPEED,,10.1016/j.matdes.2021.110179,False,,A deep learning approach for efficient topology optimization based on the element removal strategy,llm includes
+382,P00641,I-UNCLEAR,,10.1007/s12206-022-0628-2,False,,Bi-directional evolutionary 3D topology optimization with a deep neural network,llm includes
+383,P00736,I-UNCLEAR,,10.1016/j.cma.2024.116911,False,,Dynamic optimisation for graded tissue scaffolds using machine learning techniques,llm includes
+384,P00901,I-UNCLEAR,,10.1007/s00158-025-04064-1,False,,Compliant mechanism design using neural networks focusing on its procedure and limitations,llm includes
+385,P00741,I-UNCLEAR,,10.1016/j.cad.2023.103634,False,,Taming Connectedness in Machine-Learning-Based Topology Optimization with Connectivity Graphs,llm includes
+386,P00214,I-UNCLEAR,2607.24777,10.48550/arxiv.2607.24777,True,,Steering topology distributions for unified generative design of architected metamaterials,llm includes
+387,P01925,I-UNCLEAR,,10.1016/j.aei.2026.105276,False,P00193,Zero-shot rib design: Merging a training-free generative prior with topology optimization,llm includes
+388,P00905,I-UNCLEAR,,10.1016/j.engstruct.2025.121700,False,,Real-time generalizable structural topology generation via fourier and latent modulated neural networks informed by few prior designs,llm includes
+389,P01880,I-UNCLEAR,,10.1016/j.ast.2026.111850,False,,An implicit generative topology optimization method based on neural compression and diffusion models,llm includes
+390,P00928,I-UNCLEAR,,10.1007/s12008-025-02349-9,False,,2D Frequency-based topological optimization: efficient dataset creation for neural networks to aid in tuning simulation parameters,llm includes
+391,P00271,I-UNCLEAR,2510.07057,10.1016/j.apenergy.2025.127322,False,,TOMATOES: Topology and Material Optimization for Latent Heat Thermal Energy Storage Devices,llm includes
+392,P00722,I-SPEED,,10.1016/j.cma.2025.118577,False,,A machine learning-aided robust topology optimization method for the design of auxetic metamaterials,llm includes
+393,P01539,I-SPEED,,,False,P00131,Stiffness optimisation of graded microstructal configurations using asymptotic analysis and machine learning.,llm includes
+394,P00780,I-SPEED,,10.3389/fmats.2022.1075073,False,,Optimal design of topological waveguides by machine learning,llm includes
+395,P00699,I-SPEED,,10.1021/acs.jpcb.1c02004,False,,Prediction and Optimization of Ion Transport Characteristics in Nanoparticle-Based Electrolytes Using Convolutional Neural Networks,llm includes
+396,P01389,I-SPEED,,10.19693/j.issn.1673-3185.04347,False,,A fast topology optimization method for general ship cross-sections using U-Net,llm includes
+397,P00739,I-UNCLEAR,,10.1007/s00170-021-08014-1,False,,An intelligent algorithm for topology optimization in additive manufacturing,llm includes
+398,P00249,I-QUALITY,2603.08233,,False,,Computationally Efficient Data-Driven Topology Design Independent from High-Infoentropy Initial Dataset,llm includes
+399,P01126,I-QUALITY,,10.1016/j.matdes.2025.114290,False,,Data-driven design of topologically optimized auxetic metamaterials for tailored stress–strain and Poisson’s ratio-strain behaviors,llm includes
+400,P00174,I-UNCLEAR,1903.01548,10.1115/1.4044229,True,,Deep Generative Design: Integration of Topology Optimization and Generative Models,llm includes
+401,P00672,I-UNCLEAR,,10.1016/j.mtcomm.2022.103186,False,,Machine learning-based inverse design of auxetic metamaterial with zero Poisson's ratio,llm includes
+402,P00945,I-UNCLEAR,,10.1016/j.euromechsol.2025.105631,False,,Dragonfly-like wing structure enabled by a novel skeleton-reinforced neural style transfer assisted topology optimization and additive manufacturing,llm includes
+403,P01136,I-UNCLEAR,,10.1007/978-981-95-7342-4_43,False,,Topology Optimization of Orthotropic Multi-material Structures Based on Neural Network and Element-Free Galerkin Method,llm includes
+404,P01937,I-QUALITY,,10.1115/detc2023-111079,False,P01894,Data-Driven Multifidelity Topology Design With a Latent Crossover Operation,llm includes
+405,P01441,I-UNCLEAR,,10.1007/s12008-026-02684-5,False,,A physics-informed multi-stage contrastive cGANs approach for topology optimization,llm includes
+406,P00980,I-UNCLEAR,,10.1007/978-3-031-76597-1_3,False,,2D Frequency-Based Topological Optimization: Machine Learning to Aid Tuning Simulation Parameters,llm includes
+407,P00757,I-UNCLEAR,,10.1016/j.engstruct.2023.116376,False,,Real-Time structure topology optimization using CNN driven Moving Morphable component method,llm includes
+408,P00919,I-SPEED,,10.1038/s41598-025-92793-0,False,,Two stage multiobjective topology optimization method via SwinUnet with enhanced generalization,llm includes
+409,P00145,I-SPEED,2102.07657,10.1016/j.cad.2021.103014,False,,Real-Time Topology Optimization in 3D via Deep Transfer Learning,llm includes
+410,P02238,I-SPEED,,10.1080/15376494.2023.2253018,False,,Collaborative optimization of composite structure and fiber orientation through real-time correction of deep neural network (DNN) models with elite samples,llm includes
+411,P00888,I-UNCLEAR,,10.1007/978-3-030-79457-6_19,False,,Deep Learning Architecture for Topological Optimized Mechanical Design Generation with Complex Shape Criterion,llm includes
+412,P00836,I-UNCLEAR,,10.1016/j.apm.2026.117002,False,,Physics-informed neural networks enhanced with combination line sampling for reliability-based topology optimization,llm includes
+413,P00917,I-SPEED,,10.1002/nme.70034,False,,KATO: Neural‐Reparameterized Topology Optimization Using Convolutional Kolmogorov‐Arnold Network for Stress Minimization,llm includes
+414,P01166,I-UNCLEAR,,10.1016/j.engappai.2023.106998,False,,Deep reinforcement learning for the rapid on-demand design of mechanical metamaterials with targeted nonlinear deformation responses,llm includes
+415,P02001,I-UNCLEAR,,10.13140/rg.2.2.21618.88002,False,,Current state of the art in topology optimization by pure deep reinforcement learning,llm includes
+416,P00235,I-SPEED,2604.03522,10.1007/s00158-026-04342-6,True,,Physics-Informed Transformer for Real-Time High-Fidelity Topology Optimization,llm includes
+417,P00752,I-UNCLEAR,,10.18321/ectj1471,False,,Reduction of Material Usage in 3D Printable Structures Using Topology Optimization Accelerated with U-Net Convolutional Neural Network,llm includes
+418,P02293,I-UNCLEAR,,10.1016/j.cagd.2026.102564,False,,Topology optimization using Gaussian,llm includes
+419,P01865,I-UNCLEAR,,10.32604/cmes.2024.052620,False,,Data-Driven Structural Topology Optimization Method Using Conditional Wasserstein Generative Adversarial Networks with Gradient Penalty,llm includes
+420,P00645,I-UNCLEAR,,10.1016/j.tws.2022.110055,False,P00560,Real-time stress-based topology optimization via deep learning,llm includes
+421,P00724,I-UNCLEAR,,10.1016/j.aei.2025.104111,False,,Topology optimization approach using a training-dataset-free neural network reparameterization framework,llm includes
+422,P00878,I-UNCLEAR,,10.1007/s00521-023-09308-z,False,,Convolutional encoder–decoder network using transfer learning for topology optimization,llm includes
+423,P00604,I-UNCLEAR,,10.3390/ma14247680,False,,Intelligent Generation Method of Innovative Structures Based on Topology Optimization and Deep Learning,llm includes
+424,P00239,I-SPEED,2603.26926,10.48550/arxiv.2603.26926,True,,TopoCtrl: Post-Optimization Topology Editing Toward Target Structural Characteristics,llm includes
+425,P01919,I-SPEED,,10.52842/conf.caadria.2022.1.121,False,,OptiGAN: Topological Optimization in Design Form-Finding With Conditional GANs,llm includes
+426,P01341,I-SPEED,,10.1109/iscon65210.2025.11341295,False,,Optimization of Topology Using Integrated Machine Learning and Generative AI,llm includes
+427,P00700,I-UNCLEAR,,10.1016/j.apm.2024.115738,False,,Deep learning-based topology optimization for multi-axis machining,llm includes
+428,P01445,I-SPEED,,10.1063/5.0338659,False,,Topology optimization for thin-walled structure based on random forest regression,llm includes
+429,P00568,I-SPEED,,10.1111/mice.12933,False,,A topology description function-enhanced neural network for topology optimization,llm includes
+430,P00828,I-UNCLEAR,,10.1007/s10409-023-23185-x,False,,Efficient multi-material topology optimization design with minimum compliance based on ResUNet involved generative adversarial network,llm includes
+431,P02413,I-UNCLEAR,,10.1016/j.compositesa.2025.109050,False,,A deep learning-assisted inverse design framework for nacre-like composites with excellent specific damping performance,llm includes
+432,P00002,I-SPEED,2608.28513,10.48550/arxiv.2608.28513,True,,Machine-learning-assisted multiscale topology optimization of functionally graded superimposed lattice structures,llm includes
+433,P01212,I-SPEED,,10.1007/s44163-026-00835-x,False,,Deep learning-enabled generative acceleration for topology-optimized structures in 2D and 3D domain,llm includes
+434,P00951,I-UNCLEAR,,10.1007/s00158-025-04049-0,False,,Accelerating level-set based topology optimization using gradient and stochastic gradient online learning and prediction methods,llm includes
+435,P00908,I-SPEED,,10.3390/pr11030802,False,,Real-Time Structure Generation Based on Data-Driven Using Machine Learning,llm includes
+436,P00867,I-UNCLEAR,,,False,,Machine learning accelerated topology optimization of nonlinear structures.,llm includes
+437,P00660,I-UNCLEAR,,10.1016/j.ijmecsci.2025.110230,False,,Machine learning-based mechanical performance prediction and design of lattice structures,llm includes
+438,P02423,I-UNCLEAR,,10.1007/s00158-025-04200-x,False,,Design of graded cellular structures with data-driven inverse homogenization for microstructures with cubic symmetry,llm includes
+439,P00772,I-UNCLEAR,,10.1007/s10999-023-09676-3,False,,Deep learning-driven topology optimization for heat dissipation of integrated electrical components using dual temperature gradient learning and MMC method,llm includes
+440,P00125,I-SPEED,2203.10515,10.48550/arxiv.2203.10515,True,,An Adaptive and Scalable ANN-based Model-Order-Reduction Method for Large-Scale TO Designs,llm includes
+441,P01146,I-UNCLEAR,,10.1007/s00366-026-02400-7,False,P01136,Neural network-driven multi-material topology optimization for orthotropic structures using the element-free Galerkin method,llm includes
+442,P00777,I-SPEED,,10.1007/s00158-025-04133-5,False,,Neural networks for nonlinear homogenization in multiscale structural optimization,llm includes
+443,P01256,I-SPEED,,10.5281/zenodo.22899905,False,,"Neuro-Symbolic Generative Design for Additive Manufacturing in Microgravity Environments: Physics-Informed Graph Neural Networks, Variable Gravitational Topology Optimization, and In-Situ Resource Utilization (ISRU) for Deep-Space Exploration",llm includes
+444,P01379,I-UNCLEAR,,10.5281/zenodo.14900138,False,,Learning homogenized hyperelastic behavior for topology optimization of lattice structures,llm includes
+445,P02102,I-UNCLEAR,,10.1007/s00158-021-02926-y,False,,Data-driven topology design using a deep generative model,llm includes
+446,P01473,I-SPEED,,10.17762/turcomat.v9i2.13870,False,,Optimization of Isogeometric Analysis-Based Topology Optimization Design with Global Stress Constraint in AI,llm includes
+447,P00704,I-UNCLEAR,,10.1115/1.4062980,False,,Generative Design by Embedding Topology Optimization into Conditional Generative Adversarial Network,llm includes
+448,P01285,I-QUALITY,,10.1007/978-981-92-0615-5_16,False,,Physics-Informed Neural Networks with SIMP Hot-Starting for Nonlinear Structural Analysis in Architectural Geometry Optimization,llm includes
+449,P00602,I-UNCLEAR,,10.1007/s00158-023-03688-5,False,,High-resolution topology optimization method of multi-morphology lattice structures based on three-dimensional convolutional neural networks (3D-CNN),llm includes
+450,P00667,I-UNCLEAR,,10.1016/j.cma.2023.116052,False,P00144,Topology optimization via implicit neural representations,llm includes
+451,P02480,I-UNCLEAR,,10.1016/j.cma.2020.112966,False,,Topology optimization using material-field series expansion and Kriging-based algorithm: An effective non-gradient method,llm includes
+452,P01854,I-UNCLEAR,,10.1016/j.aei.2024.102966,False,,Research on multi-stage topology optimization method based on latent diffusion model,llm includes
+453,P00622,I-UNCLEAR,,10.1016/j.cma.2025.118043,False,,An efficient discrete physics-informed neural networks for geometrically nonlinear topology optimization,llm includes
+454,P00734,I-UNCLEAR,,10.1007/s00366-026-02344-y,False,,Graph neural network-based topology optimization for efficient support structure design in additive manufacturing,llm includes
+455,P00816,I-UNCLEAR,,10.1016/j.cad.2023.103631,False,,Machine learning-driven optimization design of hydrogel-based negative hydration expansion metamaterials,llm includes
+456,P01469,I-UNCLEAR,,10.1016/j.engappai.2026.114974,False,,Accelerated three-dimensional topology optimization via deep transfer reinforcement learning,llm includes
+457,P01314,I-SPEED,,10.1115/detc2023-116678,False,,When Is it Actually Worth Learning Inverse Design?,llm includes
+458,P00949,I-UNCLEAR,,10.21656/1000-0887.440033,False,,The Perturbation Neural Network Surrogate Model Method for Size-Topology Synthetical Optimization of Wing Rib Trailing Edges With Flap Tracks,llm includes
+459,P01076,I-SPEED,,10.1115/imece2023-109442,False,,Topology Optimization Using Neural Network for Stress Constrained Problems,llm includes
+460,P00517,I-SPEED,2403.04937,10.1007/s00466-024-02565-2,False,,Gradient-free neural topology optimization: Towards effective fracture-resistant designs,llm includes
+461,P01902,I-UNCLEAR,,,False,P00174,Generative Design Exploration by Integrating Deep Generative Models and Topology Optimization.,llm includes
+462,P02481,I-UNCLEAR,,10.1038/s41467-020-17947-2,False,,Automatic design of mechanical metamaterial actuators,llm includes
+463,P01463,I-UNCLEAR,,10.1016/j.cnsns.2026.110732,False,,A fully physics-informed and microstructurally interconnected multi-scale topology optimization method within the phase-field framework,llm includes
+464,P00119,I-UNCLEAR,2205.03737,10.1016/j.cad.2022.103449,False,,FRC-TOuNN: Topology Optimization of Continuous Fiber Reinforced Composites using Neural Network,llm includes
+465,P00530,I-UNCLEAR,,10.1002/advs.201902607,False,,Generative Deep Neural Networks for Inverse Materials Design Using Backpropagation and Active Learning,llm includes
+466,P01980,I-UNCLEAR,,10.1007/s00158-026-04268-z,False,,Multi-scale multi-resolution reinforcement learning topology optimization: application to elastic-wave metamaterial design,llm includes
+467,P00100,I-QUALITY,2305.04107,10.1007/s00366-023-01904-w,True,,DMF-TONN: Direct Mesh-free Topology Optimization using Neural Networks,llm includes
+468,P00518,I-UNCLEAR,2602.20173,,True,,Machine learning-enabled inverse design of bimaterial thermoelastic lattice metamaterials,llm includes
+469,P01514,I-UNCLEAR,,10.1109/aiam48774.2019.00140,False,,A Predicting Initial Layout of Components Method Using Machine Learning,llm includes
+470,P00782,I-SPEED,,10.1145/3205455.3205528,False,,Learning-based topology variation in evolutionary level set topology optimization,llm includes
+471,P01388,I-SPEED,,10.1080/0305215x.2022.2144847,False,,Geometrically-driven generation of mechanical designs through deep convolutional GANs,llm includes
+472,P00666,I-UNCLEAR,,10.1016/j.jmsy.2021.04.007,False,,Generative adversarial network for early-stage design flexibility in topology optimization for additive manufacturing,llm includes
+473,P01589,I-SPEED,,10.1177/09544062251367618,False,,Development of an ML-based design tool for predicting optimal lattice configurations for patient-specific endoprostheses,llm includes
+474,P01730,I-SPEED,,10.4103/atmr.atmr_103_25,False,,Dynamic Transfer Learning with Real-time Finite Element Analysis for Adaptive and Optimized Three-dimensional Printed Maxillofacial Implant Design,llm includes
+475,P00327,I-UNCLEAR,2409.01607,10.1007/s00158-025-04036-5,True,,Data-driven topology design based on principal component analysis for 3D structural design problems,llm includes
+476,P00618,I-UNCLEAR,,10.1016/j.ijmecsci.2022.107920,False,,A deep learning approach for inverse design of gradient mechanical metamaterials,llm includes
+477,P00524,I-UNCLEAR,,10.1007/s00158-020-02748-4,False,P00123,TOuNN: Topology Optimization using Neural Networks,llm includes
+478,P00371,I-UNCLEAR,2305.18470,10.48550/arxiv.2305.18470,True,,Aligning Optimization Trajectories with Diffusion Models for Constrained Design Generation,llm includes
+479,P00242,I-UNCLEAR,2604.03276,,False,,Scaling atom-by-atom inverse design with nano-topology optimization and diffusion models,llm includes
+480,P00089,I-SPEED,2312.06993,10.1016/j.cma.2024.117004,False,,Dynamically configured physics-informed neural network in topology optimization applications,llm includes
+481,P01557,I-SPEED,,10.2514/6.2023-0951,False,,Implementation of Machine Learning-based Lattice Generation Strategy for Elliptic-cavity Lattice Cell,llm includes
+482,P00554,I-UNCLEAR,,10.1016/j.finel.2019.07.001,False,,A novel deep learning based method for the computational material design of flexoelectric nanostructures with topology optimization,llm includes
+483,P00940,I-UNCLEAR,,10.1016/j.tws.2026.115352,False,,A physics-informed Deep Isogeometric Topology Optimization framework for designs of continuum structures using double pathway networks,llm includes
+484,P01194,I-UNCLEAR,,10.1299/jsmehs.2021.58.e022,False,,Investigation of a topology optimization method using machine learning technologies,llm includes
+485,P02404,I-UNCLEAR,,10.1016/j.tws.2025.113466,False,,An inverse design method of 3D plate microstructures using conditional diffusion model,llm includes
+486,P02013,I-UNCLEAR,,10.13140/rg.2.2.16993.06246,False,P02011,Design Strategies for Stress-and Compliance-Driven Topology Optimization Using Graph-Based Deep Reinforcement Learning,llm includes
+487,P00589,I-UNCLEAR,,10.1016/j.addma.2022.103238,False,,Machine learning based lattice generation method derived from topology optimisation,llm includes
+488,P02570,I-UNCLEAR,,,False,,"Towards domain-adaptive, resolution-free 3d topology optimization with neural implicit fields",llm includes
+489,P00144,I-UNCLEAR,2102.10782,10.3929/ethz-b-000522197,False,,NTopo: Mesh-free Topology Optimization using Implicit Neural Representations,llm includes
+490,P01916,I-UNCLEAR,,10.1016/j.engstruct.2026.122180,False,,Intelligent generation and performance analysis of intersect joint of three rectangular tubes based on generative adversarial networks,llm includes
+491,P00809,I-UNCLEAR,,10.1016/j.engappai.2025.113007,False,,Versatile topology optimization framework using embedded self-improving neural network,llm includes
+492,P01961,I-UNCLEAR,,10.1016/j.advengsoft.2021.103032,False,,Machine-specified ground structures for topology optimization of binary trusses using graph embedding policy network,llm includes
+493,P01674,I-QUALITY,,10.1093/jcde/qwag034,False,,Automated synthesis of planar linkage mechanisms with diverse joint types via spring-connected link models and contrastive graph learning,llm includes
+494,P00868,I-UNCLEAR,,10.1016/j.ijmecsci.2026.111667,False,,Hybrid multilayer perceptron-convolutional neural network model for non-iterative topology optimization of 2D chiral metamaterials with shear-shear coupling,llm includes
+495,P00182,I-UNCLEAR,1808.02334,10.48550/arxiv.1808.02334,True,,A novel topology design approach using an integrated deep learning network architecture,llm includes
+496,P00012,I-SPEED,2605.02158,10.48550/arxiv.2605.02158,False,,Diffusion Transformers with Hybrid Conditioning for Structural Optimization,llm includes
+497,P01231,I-UNCLEAR,,10.3389/fmech.2024.1329345,False,,Efficient design of sandwich panels with cellular truss cores and large phononic band gaps using surrogate modeling and global optimization,llm includes
+498,P00810,I-SPEED,,10.1109/smartnets58706.2023.10216161,False,,Machine Learning-Based Topology Optimization in 3D Printing,llm includes
+499,P00020,I-SPEED,2602.13513,10.1016/j.cma.2026.119099,True,,Learning Gradient Flow: Using Equation Discovery to Accelerate Engineering Optimization,llm includes
+500,P00015,I-SPEED,2604.06519,10.1016/j.cma.2026.119270,True,,Multiscale topology optimization of compressible and nearly incompressible anisotropic hyperelastic structures using physics-augmented neural networks,llm includes
+501,P01653,I-UNCLEAR,,10.1109/tmech.2026.3694983,False,,Optimum Design of Multisegment Compliant Finger via Fractional Kolmogorov-Arnold Network-Based Parameterization Framework,llm includes
+502,P00585,I-SPEED,,10.1115/1.4044332,False,,An Artificial Neural Network Approach for Generating High-Resolution Designs From Low-Resolution Input in Topology Optimization,llm includes
+503,P01890,I-UNCLEAR,,10.1016/j.aei.2025.104292,False,,TO-MambaLDM: Multi-physics informed Mamba-enhanced latent diffusion for cooling structure topology optimization,llm includes
+504,P00662,I-UNCLEAR,,10.1016/j.autcon.2022.104492,False,P00645,Real-time topology optimization based on deep learning for moving morphable components,llm includes
+505,P00573,I-UNCLEAR,,10.1016/j.tws.2020.107263,False,,Generating three-dimensional structural topologies via a U-Net convolutional neural network,llm includes
+506,P00560,I-UNCLEAR,,10.1016/j.aei.2021.101472,False,,Deep learning driven real time topology optimisation based on initial stress learning,llm includes
+507,P00802,I-UNCLEAR,,10.1016/j.engstruct.2025.121610,False,,Topology optimization framework for 3D structural design based on micropolar elasticity and enhanced by machine learning,llm includes
+508,P00677,I-SPEED,,10.1016/j.procir.2022.05.317,False,,Deep Learning for Additive Manufacturing-driven Topology Optimization,llm includes
+509,P01832,I-SPEED,,10.31705/cers.2025.16,False,,Design-aware optimisation of 2D skeletal structures using cGANs,llm includes
+510,P02166,I-UNCLEAR,,10.1016/j.eml.2025.102321,False,,Real-time generative design of diverse optimized structures with controllable structural complexities and high quality,llm includes
+511,P01828,I-UNCLEAR,,10.32996/jmcie.2026.7.3.3,False,,AI-Integrated Structural Optimization Framework for Lightweight Heavy Fabrication Systems in Smart Manufacturing Environments,llm includes
+512,P00745,I-SPEED,,10.32604/cmes.2024.048118,False,,Multi-Material Topology Optimization of 2D Structures Using Convolutional Neural Networks,llm includes
+513,P00244,I-UNCLEAR,2603.18960,10.1145/3772363.3798434,True,,Sketch2Topo: Using Hand-Drawn Inputs for Diffusion-Based Topology Optimization,llm includes
+514,P01531,I-SPEED,,10.12732/ijam.v38i11s.1355,False,,AI-ENHANCED COMPUTER-AIDED DESIGN (CAD) SYSTEMS: UTILIZING DEEP LEARNING FOR INTELLIGENT ENGINEERING PRODUCT OPTIMIZATION,llm includes
+515,P00582,I-QUALITY,,10.1002/nme.6809,False,,Machine learning based topology optimization of fiber orientation for variable stiffness composite structures,llm includes
+516,P00321,I-UNCLEAR,2410.23295,10.1002/aidi.202400015,False,,Simultaneous Topology Optimization of Differentiable and Non-Differentiable Objectives via Morphology Learning: Stiffness and Cell Growth on Scaffold,llm includes
+517,P00578,I-SPEED,,10.1142/s1758825121500423,False,,Acceleration Design for Continuum Topology Optimization by Using Pix2pix Neural Network,llm includes
+518,P02273,I-UNCLEAR,,10.1016/j.mtcomm.2025.113057,False,,BDH-NN: Bi-Directional Homogenization method using Neural Networks for the mechanical metamaterial design,llm includes
+519,P00534,I-UNCLEAR,,10.1016/j.cma.2019.112739,False,,Universal machine learning for topology optimization,llm includes
+520,P00913,I-UNCLEAR,,10.1016/j.cad.2025.103939,False,,Direct mesh-free topology optimization using random feature method,llm includes
+521,P02569,I-UNCLEAR,,,False,P00086,"Nito: Neural implicit fields for resolution-free topology optimization, 2024a",llm includes
+522,P00714,I-SPEED,,10.1016/j.jmrt.2024.09.051,False,,Design of nonlinear gradient sheet-based TPMS-lattice using artificial neural networks,llm includes
+523,P00881,I-UNCLEAR,,10.1016/j.compstruct.2025.119179,False,,A deep learning and finite element approach for exploration of inverse structure–property designs of lightweight hybrid composites,llm includes
+524,P01852,I-UNCLEAR,,10.1016/j.compstruct.2020.113254,False,,Generative adversarial network guided topology optimization of periodic structures via Subset Simulation,llm includes
+525,P00154,I-UNCLEAR,2010.11833,10.48550/arxiv.2010.11833,False,,Shape related constraints aware generation of Mechanical Designs through Deep Convolutional GAN,llm includes
+526,P01352,I-QUALITY,,10.1115/1.4066102,False,,Mean Squared Error May Lead You Astray When Optimizing Your Inverse Design Methods,llm includes
+527,P00599,I-UNCLEAR,,10.3390/app112412044,False,,MLGen: Generative Design Framework Based on Machine Learning and Topology Optimization,llm includes
+528,P02285,I-SPEED,,10.1016/j.mfglet.2025.06.125,False,,CRONet: A convolutional recurrent operator approximator network to accelerate topology optimization,llm includes
+529,P00953,I-UNCLEAR,,10.1109/cec55065.2022.9870326,False,,Cooperative Multi-objective Topology Optimization Using Clustering and Metamodeling,llm includes
+530,P01091,I-UNCLEAR,,,False,,Topology optimization-based bone microstructure reconstruction complemented by neural networks,llm includes
+531,P01259,I-UNCLEAR,,10.1088/2631-8695/ae5ec6,False,,Research and application of an intelligent mechanical structure generation algorithm integrating recurrent neural network,llm includes
+532,P01265,I-UNCLEAR,,10.4203/ccc.11.4.2,False,,Machine Learning-Powered Geometry-Aware Filter: A Novel Human-Informed Approach for Advanced Topology Optimization,llm includes
+533,P01372,I-SPEED,,10.1016/j.engappai.2025.110906,False,,Symmetric positive definite convolutional network for surrogate modeling and optimization of modular structures,llm includes
+534,P00438,I-UNCLEAR,2009.10072,,False,,Topology Optimization through Differentiable Finite Element Solver,llm includes
+535,P01061,I-UNCLEAR,,10.1007/s00158-020-02523-5,False,,Data-driven metamaterial design with Laplace-Beltrami spectrum as “shape-DNA”,llm includes
+536,P01525,I-SPEED,,10.14495/jsiaml.16.121,False,,Numerical experiments on density-based topology optimization of two-layer material structure using a modified optimality criteria method,llm includes
+537,P02493,I-UNCLEAR,,10.1016/j.eml.2021.101528,False,,Data-driven and topological design of structural metamaterials for fracture resistance,llm includes
+538,P00027,I-UNCLEAR,2511.14623,10.48550/arxiv.2511.14623,False,,A Unified Phase-Field Fourier Neural Network Framework for Topology Optimization,llm includes
+539,P00812,I-UNCLEAR,,10.1016/j.ijheatmasstransfer.2025.128011,False,,Integrated graph neural network framework for threshold-driven topology optimization of transient phase change thermal energy storage,llm includes
+540,P02221,I-UNCLEAR,,10.1016/j.euromechsol.2022.104869,False,,Optimum design of nonlinear structures via deep neural network-based parameterization framework,llm includes
+541,P02491,I-UNCLEAR,,10.1016/j.compstruct.2021.114949,False,,Data-driven multiscale design of cellular composites with multiclass microstructures for natural frequency maximization,llm includes
+542,P01869,I-UNCLEAR,,10.1016/j.autcon.2024.105707,False,,Generation and evaluation of unimaginable three-dimensional structural joints using generative adversarial networks,llm includes
+543,P00232,I-UNCLEAR,2604.21315,10.48550/arxiv.2604.21315,False,,TopoStyle: Supporting Iterative Design with Generative AI for 2.5D Topology Optimization,llm includes
+544,P00385,I-SPEED,2210.01659,,True,,Conceptual Design of Cellular Auxetic Systems with Passive Adaptation to Loading,llm includes
+545,P00636,I-SPEED,,10.1016/j.promfg.2020.02.251,False,,DzAIℕ: Deep learning based generative design,llm includes
+546,P00753,I-UNCLEAR,,10.1016/j.cma.2023.116276,False,,DL-MSTO+: A deep learning-based multi-scale topology optimization framework via positive definiteness ensured material representation network,llm includes
+547,P00678,I-UNCLEAR,,10.1016/j.enganabound.2022.11.034,False,,Deep learning driven real time topology optimization based on improved convolutional block attention (Cba-U-Net) model,llm includes
+548,P00277,I-UNCLEAR,2509.10277,10.1038/s41467-026-74173-y,False,,Morphogenetic mechanical metamaterials: Emerging tensor properties from self-organized structures,llm includes
+549,P01661,I-SPEED,,10.23967/c.wccm.2024.128,False,,Structural optimization through generative adversarial networks,llm includes
+550,P00129,I-SPEED,2112.04552,10.48550/arxiv.2112.04552,False,,PATO: Producibility-Aware Topology Optimization using Deep Learning for Metal Additive Manufacturing,llm includes
+551,P00187,I-SPEED,1709.09578,10.1515/rnam-2019-0018,False,,Neural networks for topology optimization,llm includes
+552,P00924,I-SPEED,,10.1145/3745778.3766645,False,,Random-Walk Microstructures for Differentiable Topology Optimization,llm includes
+553,P00835,I-SPEED,,10.1007/s00158-025-04115-7,False,,Multiscale topology optimization using machine learning and displacement-driven microstructures,llm includes
+554,P00079,I-UNCLEAR,2405.06248,10.65135/atsf.2026.13,False,,Adversarial neural network methods for topology optimization of eigenvalue problems,llm includes
+555,P01970,I-UNCLEAR,,10.1002/advs.202410428,False,,"Near‐Isotropic, Extreme‐Stiffness, Continuous 3D Mechanical Metamaterial Sequences Using Implicit Neural Representation",llm includes
+556,P00546,I-SPEED,,10.1007/s11465-020-0614-2,False,P00171,"Efficient, high-resolution topology optimization method based on convolutional neural networks",llm includes
+557,P01831,I-UNCLEAR,,10.1016/j.ijmecsci.2026.112035,False,,LLM-driven hybrid truss-lattice design via structural gene recombination,llm includes
+558,P00512,I-UNCLEAR,2609.15001,10.48550/arxiv.2609.15001,True,,HGTO: A Unified Graph-Based Physics-Informed Formulation for Structural Topology Optimization,llm includes
+559,P00668,I-UNCLEAR,,10.1016/j.ijheatmasstransfer.2024.125226,False,,Machine-learning topology optimization with stochastic gradient descent optimizer for heat conduction problems,llm includes
+560,P02114,I-UNCLEAR,,10.1038/s42256-023-00762-x,False,,Inverse design of nonlinear mechanical metamaterials via video denoising diffusion models,llm includes
+561,P00333,I-QUALITY,2407.06746,10.1115/1.4067750,False,,Maximum stress minimization via data-driven multifidelity topology design,llm includes
+562,P00059,I-SPEED,2410.14342,10.1016/j.jcp.2026.114666,True,,A dual physics-informed neural network for topology optimization,llm includes
+563,P00826,I-SPEED,,10.48550/arxiv.2303.10007,False,P00526,Gyroid-like metamaterials: Topology optimization and Deep Learning,llm includes
+564,P00569,I-UNCLEAR,,10.1007/s00158-020-02788-w,False,,Two-stage convolutional encoder-decoder network to improve the performance and reliability of deep learning models for topology optimization,llm includes
+565,P00001,I-SPEED,2609.27216,10.2139/ssrn.6748601,False,,KATOsuper: Surrogate-accelerated neural topology optimization with sensitivity-consistent Fourier neural operators,llm includes
+566,P01675,I-QUALITY,,10.1109/access.2022.3219979,False,,Explicitly Constrained Black-Box Optimization With Disconnected Feasible Domains Using Deep Generative Models,llm includes
+567,P01005,I-UNCLEAR,,10.1016/j.cma.2026.118955,False,,High-Generalization AI-Enhanced mechanical analysis and topology optimization via cubic bézier interpolation of substructure boundary displacements,llm includes
+568,P01141,I-UNCLEAR,,10.48084/etasr.10101,False,,Enhancing 3D Printing Workflows through Multi-Objective Optimization and Reinforcement Learning Techniques,llm includes
+569,P00864,I-SPEED,,10.3390/civileng6040068,False,,Hybrid Topology Optimization of a Concrete Structure via Finite Element Analysis and Deep Learning Surrogates,llm includes
+570,P02133,I-UNCLEAR,,10.1016/j.engappai.2025.110417,False,,Generative adversarial network-based inverse design of self-deploying soft kirigami composites for targeted shape transformation,llm includes
+571,P00737,I-UNCLEAR,,10.1007/s00158-024-03888-7,False,,Multiscale topology optimization via dual neural networks and cutting level sets with non-uniform parameterized microstructures,llm includes
+572,P00497,I-QUALITY,2605.19110,10.48550/arxiv.2605.19110,False,,IterSIMP-σ: Evaluating LLM-Assisted Spatial Interventions in Stress-Aware Topology Optimization,llm includes
+573,P00057,I-SPEED,2411.13869,10.48550/arxiv.2411.13869,False,,Topology optimization of periodic lattice structures for specified mechanical properties using machine learning considering member connectivity,llm includes
+574,P01027,I-SPEED,,10.2514/6.2023-0950,False,,"Application of Machine Learning in Rapid Generation of Support-free, Topologically-optimised Structures",llm includes
+575,P00843,I-UNCLEAR,,10.1007/s40304-021-00253-8,False,P00638,Isogeometric Topology Optimization Based on Deep Learning,llm includes
+576,P01875,I-UNCLEAR,,10.1016/j.tws.2024.112599,False,,Nonlinear vibration analysis of sandwich plates with inverse-designed 3D auxetic core by deep generative model,llm includes
+577,P00164,I-SPEED,2002.01927,10.1038/s41467-021-27713-7,False,,Self-Directed Online Machine Learning for Topology Optimization,llm includes
+578,P01013,I-SPEED,,10.1080/0305215x.2025.2560642,False,,A novel insight into piecewise constant level-set topology optimization based on meta deep energy modelling,llm includes
+579,P00683,I-UNCLEAR,,10.1016/j.engappai.2023.106284,False,,Graph neural networks and implicit neural representation for near-optimal topology prediction over irregular design domains,llm includes
+580,P01532,I-UNCLEAR,,10.1016/j.irbm.2025.100889,False,,Patchwise Trabecular Bone Reconstruction of a 2D Proximal Femur Using Deep Learning and Seamless Quilting Algorithm,llm includes
+581,P00681,I-UNCLEAR,,10.1016/j.engappai.2024.108185,False,,A two-stage network framework for topology optimization incorporating deep learning and physical information,llm includes
+582,P01507,I-QUALITY,,10.3390/buildings16163329,False,,More Efficient Arm Structures for Construction Robots by Deep Generative Models Based on Topology Optimization,llm includes
+583,P00932,I-SPEED,,10.1080/0305215x.2024.2338189,False,,Topology optimization based on improved DoubleU-Net using four boundary condition datasets,llm includes
+584,P01931,I-SPEED,,10.4208/cicp.oa-2024-0308,False,,A Diffusion Model Based Iterative Convolution Thresholding Method for Structural Topological Optimization,llm includes
+585,P01030,I-UNCLEAR,,10.1016/j.engstruct.2026.122326,False,,Intelligent lightweight design of bolted spherical joints in spatial grid structures based on topology optimization with 3D-LSGAN predictor,llm includes
+586,P00637,I-UNCLEAR,,10.1007/s10409-024-24207-x,False,,An efficient deep learning-based topology optimization method for continuous fiber composite structure,llm includes
+587,P01167,I-QUALITY,,10.1016/j.cja.2021.12.010,False,,Collaborative optimization design of process parameter and structural topology for laser additive manufacturing,llm includes
+588,P00853,I-UNCLEAR,,10.1007/s10999-025-09811-2,False,,Generative adversarial network for stress-minimizing topology optimization,llm includes
+589,P00030,I-SPEED,2510.23667,,False,,Optimize Any Topology: A Foundation Model for Shape- and Resolution-Free Structural Topology Optimization,llm includes
+590,P00073,I-QUALITY,2407.20251,10.1007/s00158-025-03979-z,True,,An Uncertainty-aware Deep Learning Framework-based Robust Design Optimization of Metamaterial Units,llm includes
+591,P00552,I-UNCLEAR,,10.1016/j.cad.2022.103277,False,P00133,Approximate Length Scale Filter in Topology Optimization using Fourier Enhanced Neural Networks,llm includes
+592,P02484,I-UNCLEAR,,10.1007/s00158-020-02648-7,False,,High-risk prediction localization: evaluating the reliability of black box models for topology optimization,llm includes
+593,P00538,I-UNCLEAR,,10.1007/s00158-020-02770-6,False,P00156,Accelerating gradient-based topology optimization design with dual-model artificial neural networks,llm includes
+594,P00425,I-SPEED,2104.12282,10.1109/ijcnn52387.2021.9533789,True,,Speeding up Computational Morphogenesis with Online Neural Synthetic Gradients,llm includes
+595,P01199,I-SPEED,,10.1115/1.4071233,False,,Machine Learning-Enhanced Topology Optimization for Beam-Stiffened Hybrid-Element Structures,llm includes
+596,P00815,I-UNCLEAR,,10.1016/j.compstruct.2026.120354,False,,Novel hybrid machine learning and multi-material topology optimization for composite compliance structures,llm includes
+597,P00689,I-UNCLEAR,,10.1007/s00158-022-03170-8,False,,Data-driven geometry-based topology optimization,llm includes
+598,P01524,I-UNCLEAR,,10.1007/s11665-026-14496-5,False,,Hybrid Multi-objective Optimization of Crane Hook through Aided Deep Learning Algorithm,llm includes
+599,P00064,I-SPEED,2408.13843,10.1016/j.jmps.2024.106015,True,,Consistent machine learning for topology optimization with microstructure-dependent neural network material models,llm includes
+600,P02226,I-UNCLEAR,,10.1145/3730922,False,,"Neural Co-Optimization of Structural Topology, Manufacturable Layers, and Path Orientations for Fiber-Reinforced Composites",llm includes
+601,P00718,I-SPEED,,10.1007/s00158-022-03461-0,False,,Topology optimization with advanced CNN using mapped physics-based data,llm includes
+602,P01704,I-UNCLEAR,,10.1007/978-3-031-77489-8_45,False,,Data-Driven Design of Auxetic Metamaterials for Prescribed Nonlinear Mechanical Behaviors with Feature Geometric Parameters,llm includes
+603,P01220,I-SPEED,,10.1117/12.3006587,False,,Research on the efficiency of combined convolutional neural network and traditional optimization methods,llm includes
+604,P02089,I-UNCLEAR,,10.1007/s00158-019-02424-2,False,,A deep learning–based method for the design of microstructural materials,llm includes
+605,P01851,I-UNCLEAR,,10.2514/6.2018-0804,False,,An Indirect Design Representation for Topology Optimization Using Variational Autoencoder and Style Transfer,llm includes
+606,P01383,I-UNCLEAR,,10.1016/j.ijmecsci.2026.112008,False,,An adaptive online transfer learning framework for isogeometric topology optimization,llm includes
+607,P00606,I-UNCLEAR,,10.1016/j.compstruct.2024.118165,False,,Multi-scale collaborative prediction of optimal configuration for carbon fiber woven composites based on deep learning neural networks,llm includes
+608,P00784,I-QUALITY,,10.2514/6.2022-0802,False,,Topology Optimization Integrated Deep Learning for Multiphysics Problems,llm includes
+609,P01667,I-UNCLEAR,,10.1051/matecconf/202541308001/pdf,False,,Generative design method of machine tool conceptual configuration and its application,llm includes
+610,P00526,I-SPEED,,10.1016/j.matdes.2020.109098,False,P00165,Deep learning for topology optimization of 2D metamaterials,llm includes
+611,P01190,I-UNCLEAR,,10.23967/eccomas.2024.214,False,,Design Domain Distribution for Topology Optimization using Machine Learning,llm includes
+612,P01108,I-SPEED,,10.32393/csme.2021.224,False,,Mass Optimization Of 3D-Printed Composites Using Topology Optimization And Artificial Neural Network,llm includes
+613,P01921,I-UNCLEAR,,10.1016/j.compstruct.2026.120764,False,,A CVAE-enhanced generative adversarial network for end-to-end designs of auxetic metamaterials using NURBS control-point density representations,llm includes
+614,P00600,I-UNCLEAR,,10.1007/s00158-024-03856-1,False,,Physics-informed neural network based topology optimization through continuous adjoint,llm includes
+615,P01956,I-UNCLEAR,,10.3390/designs4020010,False,,Generative Design by Using Exploration Approaches of Reinforcement Learning in Density-Based Structural Topology Optimization,llm includes
+616,P00123,I-UNCLEAR,2204.06682,10.48550/arxiv.2204.06682,False,P00113,GM-TOuNN: Graded Multiscale Topology Optimization using Neural Networks,llm includes
+617,P00791,I-UNCLEAR,,10.1007/978-981-19-9398-5_80,False,,Topology Optimization and Performance Prediction for Compliant Mechanism with Composites by Neural Network,llm includes
+618,P01322,I-SPEED,,10.1016/j.ijmecsci.2025.111008,False,,Data-driven inverse design framework for broadband mode-selective elastic metasurfaces,llm includes
+619,P01263,I-SPEED,,10.1016/j.procs.2026.05.272,False,,Lightweight Structure Design of Crossover Equipment Based On Deep Learning and Topology Optimization-Control Integrated Algorithm,llm includes
+620,P01377,I-UNCLEAR,,10.1016/j.ijmecsci.2026.112007,False,,Problem-independent transfer learning for complex-domain 3D topology optimization,llm includes
+621,P01391,I-UNCLEAR,,10.5281/zenodo.18814259,False,,Generative Design and AI Driven Topology Optimization for Sustainable Aerospace Structures,llm includes
+622,P01542,I-UNCLEAR,,10.1016/j.enganabound.2026.106797,False,,Geometric continuity preservation in data-driven topology optimization via boundary-weighted eikonal loss and signed distance functions,llm includes
+623,P02231,I-UNCLEAR,,10.1007/s00366-022-01736-0,False,,Integrating material selection with design optimization via neural networks,llm includes
+624,P01666,I-UNCLEAR,,10.1109/cict67193.2025.11399135,False,,AI-Assisted Analysis of Biomaterials for Patient-Specific Implant Design and Fabrication,llm includes
+625,P00684,I-SPEED,,10.3390/app13010479,False,,Computational Acceleration of Topology Optimization Using Deep Learning,llm includes
+626,P01415,I-SPEED,,10.1145/3803291.3803331,False,,Attention-Gated Residual U-Net for Accelerated Topology Optimization,llm includes
+627,P00746,I-UNCLEAR,,10.1016/j.tws.2024.112595,False,,A one-time training machine learning method for general structural topology optimization,llm includes
+628,P00208,I-UNCLEAR,2607.07233,10.1016/j.asoc.2026.115899,True,,HPG-Diff: Hierarchical physics-guided diffusion with differentiable connectivity constraints for topology optimization,llm includes
+629,P00883,I-SPEED,,10.1002/nme.7428,False,,TO‐NODE: Topology optimization with neural ordinary differential equation,llm includes
+630,P01443,I-UNCLEAR,,10.1007/s10338-025-00661-1,False,P01437,Skeleton-Reinforced Neural Style Transfer-Assisted Topology Optimization Method for the Aesthetic and Manufacturable Design,llm includes
+631,P00994,I-QUALITY,,10.1115/detc2024-145592,False,,Multi-Lattice Topology Optimization With Lattice Representation Learned by Generative Models,llm includes
+632,P02206,I-SPEED,,10.1080/15397734.2026.2709797,False,,Fast surrogate prediction of SIMP-based structural topology optimization using dual-branch attention fusion,llm includes
+633,P00252,I-SPEED,2602.22430,,True,,TopoEdit: Fast Post-Optimization Editing of Topology Optimized Structures,llm includes
+634,P00116,I-QUALITY,2207.03072,10.1007/s00707-022-03449-3,False,,Deep energy method in topology optimization applications,llm includes
+635,P00771,I-UNCLEAR,,10.1016/j.asoc.2021.108031,False,,"Topology and size optimization for a flexure hinge using an integration of SIMP, deep artificial neural network, and water cycle algorithm",llm includes
+636,P00664,I-SPEED,,10.1080/15376494.2025.2458780,False,,Data-driven topology optimization of mechanical metamaterials via deep neural network and material-field function,llm includes
+637,P00760,I-UNCLEAR,,10.1016/j.compstruc.2025.108070,False,,Designer preference-driven topology optimization using a human-in-the-loop neural network,llm includes
+638,P00158,I-SPEED,2008.07119,10.1016/j.cad.2022.103225,True,,Generative Design by Reinforcement Learning: Enhancing the Diversity of Topology Optimization Designs,llm includes
+639,P00728,I-SPEED,,10.1016/j.compstruc.2025.107825,False,,Approximated and neural network assisted quadratic programming and its applications in structural topology optimization,llm includes
+640,P01898,I-UNCLEAR,,10.12677/jsta.2024.121003,False,,Topology Optimization Based on Diffusion Model,llm includes
+641,P01294,I-UNCLEAR,,10.1115/1.4037620,False,,Optimal Design of Nonlinear Multimaterial Structures for Crashworthiness Using Cluster Analysis,llm includes
+642,P00921,I-UNCLEAR,,10.1016/j.engappai.2025.110473,False,,Navigating beyond the training set: A deep learning framework for inverse design of architected composite materials,llm includes
+643,P00899,I-UNCLEAR,,10.1016/j.ijhydene.2025.05.177,False,,Artificial neural network reinforced topological optimization for bionics-based high-performance hydrogen sensor design under multi-physical field coupling,llm includes
+644,P01893,I-UNCLEAR,,10.1007/s00158-023-03732-4,False,,Manufacturability-aware deep generative design of 3D metamaterial units for additive manufacturing,llm includes
+645,P01305,I-UNCLEAR,,10.1007/s42853-026-00313-3,False,,Topology Optimisation Leveraging Artificial Intelligence for a Six-wheeled Weeding Robot,llm includes
+646,P00987,I-QUALITY,,10.1115/detc2021-68487,False,,Evolutionary Discrete Multi-Material Topology Optimization Using CNN-Based Simulation Without Labeled Training Data,llm includes
+647,P00794,I-UNCLEAR,,10.1007/s12541-024-01191-5,False,,Disp2Topo Method: A Novel Deep Learning Framework for Efficient Topology Optimization,llm includes
+648,P01248,I-UNCLEAR,,10.1007/s00158-026-04404-9,False,,Problem-independent machine learning-accelerated fail-safe topology optimization of 3D continuum structures,llm includes
+649,P00156,I-SPEED,2009.06245,10.48550/arxiv.2009.06245,True,,Accelerating gradient-based topology optimization design with dual-model neural networks,llm includes
+650,P01996,I-UNCLEAR,,10.1016/j.istruc.2026.111847,False,,Generalized topology optimization through hierarchical reinforcement learning,llm includes
+651,P01958,I-UNCLEAR,,10.1016/j.cma.2025.118338,False,,A dual-energy physics-informed multi-material topology optimization method within the phase-field framework,llm includes
+652,P00562,I-SPEED,,10.2514/1.j061664,False,,Development of Deep Convolutional Neural Network for Structural Topology Optimization,llm includes
+653,P02488,I-UNCLEAR,,10.1007/s00158-021-02953-9,False,,Integrating deep learning into CAD/CAE system: generative design and evaluation of 3D conceptual wheel,llm includes
+654,P01914,I-SPEED,,10.3389/fphy.2023.1174262,False,,Isogeometric multi-patch topology optimization based on pix2pix,llm includes
+655,P00041,I-SPEED,2506.23420,10.48550/arxiv.2506.23420,True,,Data-Driven Topology Optimization for Multiscale Biomimetic Spinodal Design,llm includes

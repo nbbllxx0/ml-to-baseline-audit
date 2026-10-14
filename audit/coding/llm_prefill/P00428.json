@@ -1,0 +1,88 @@
+{
+  "pid": "P00428",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "IH-GAN: A Conditional Generative Model for Implicit Surface-Based Inverse Design of Cellular Structures",
+    "authors": "Jun Wang, Wei (Wayne) Chen, Daicong Da, Mark Fuge, Rahul Rai",
+    "year": 2022,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 396 (2022) 115060 (version of record, not accessed); coded from arXiv (cs.CE; also cs.LG, stat.ML)",
+    "doi": "10.1016/j.cma.2022.115060",
+    "arxiv_id": "2103.02588",
+    "version_coded": "arXiv v5 (12 May 2022; comment: accepted by CMAME; v1 3 Mar 2021), PDF and https://arxiv.org/html/2103.02588. Version of record not open access per Crossref licence metadata (only the accepted manuscript carries an open user licence, from 23 May 2023); not accessed"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screening code confirmed at full text)",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "In the minimum-compliance cantilever at 45% density, the IH-GAN multi-type graded cellular beam had 79.7% lower peak von Mises stress (10,302.0 vs 50,800.8 MPa) and 3.03% lower maximum displacement than the variable-density single-type TPMS beam.",
+    "key_phrase": "improve the optimized structural performance over the conventional variable-density single-type structure",
+    "location": "Abstract (also Sec. 1 contribution 5 and the Conclusion); numbers in Table 2 and Sec. 8.4.1",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Quality-only primary outcome; no classical runtime is reported. IH-GAN training takes 38 s and inference under 1 s (Sec. 7.2); the 93 h quoted for Zhu et al.'s level-set gamut construction (Sec. 2.1.2) is a literature figure for a different pipeline, not a measured comparison. Not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract: target-deformation MSE (FE of the assembled structure) 0.00084 vs 0.0062 (half sine, 86.4% lower) and 0.0409 vs 0.2001 (full sine, 79.6% lower) vs the variable-density structure (Table 3, Sec. 8.4.2); before assembly (scale separation) the variable-density full-sine MSE is lower, 0.0016 vs 0.0034 (Table 3). (2) Table 2 compliance: 7.3876 vs 7.4155 N·mm, 0.38% lower [derived]. (3) Sec. 9.1 and Fig. 18 (negative result, not in the abstract): a SIMP solid-material design at the same 45% volume has lower max displacement (0.1326 vs 0.1630 mm), compliance (7.1227 vs 7.3876 N·mm) and max stress (7,630.4 vs 10,302.0 MPa) than the IH-GAN design. (4) Cost contrast, not a run comparison: IH-GAN trains in 38 s and infers in under 1 s (Sec. 1, 7.2) vs up to 93 h quoted for Zhu et al. (Sec. 2.1.2)."
+  },
+  "baseline": {
+    "classical_method": "Variable-density single-type D-surface TPMS cellular structure whose unit-cell densities are optimized by the method of Li et al. [23] (J. Mech. Des. 141(7)); uniform D-surface structure without optimization; in Sec. 9.1, a SIMP solid-material design at the same volume fraction (Sec. 8.4, 9.1)",
+    "implementation": "not stated for the [23] optimization or the SIMP solid design. IH-GAN side: modified SIMP over E, ν and ρ maps with a property-space distance constraint (Sec. 6). FE validation of all assembled designs with iso2mesh and ABAQUS 2017 (footnote 5)",
+    "solver": "not stated for the TO runs; FE validation in ABAQUS 2017, solver settings not stated (footnote 5)",
+    "hardware_classical": "not stated for TO; meshing and FE validation on a PC with a 2.9 GHz Intel Core i9-8950HK CPU and 32 GB RAM (footnote 5)",
+    "hardware_ml": "IH-GAN training on a GeForce GTX TITAN X (Sec. 7.2); TO hardware not stated",
+    "problem_size": "Cantilever 30 mm × 10 mm × 1 mm with 30×10×1 unit cells and a 100 N point load (Fig. 12, Table 2, Sec. 9.1); unit cells voxelized at 40×40×40 for homogenization (Sec. 4); FE meshes of 650,000+ tetrahedra (footnote 5)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "IH-GAN inference under 1 s (Sec. 7.2); TO time not stated; meshing 20+ s and ABAQUS 80+ s per job on average (footnote 5)",
+    "training_time": "38 s on a GTX TITAN X, 5000 iterations, mini-batch 32 (Sec. 7.2)",
+    "data_generation_cost": "not stated; 924 unit cells homogenized on 40×40×40 voxels, split 739/185 (Sec. 4, 7.1)",
+    "quality_metric": "FE (ABAQUS) max displacement, max von Mises stress and compliance of the assembled structures at 45% density (Table 2); MSE between target and FE-simulated displacements at 31 bottom-edge nodes (Table 3); unit-cell property R² and percentage errors by homogenization (Figs. 9, 11); interface overlap percentage (Sec. 8.3)",
+    "quality_gap": "Table 2 (IH-GAN / variable-density / uniform): max displacement 0.1630 / 0.1681 / 0.4831 mm; max stress 10,302.0 / 50,800.8 / 30,765.7 MPa; compliance 7.3876 / 7.4155 / 21.1058 N·mm. Table 3: MSE 0.00084 vs 0.0062 (half sine) and 0.0409 vs 0.2001 (full sine). Sec. 9.1: SIMP solid design 0.1326 mm, 7.1227 N·mm, 7,630.4 MPa, better than IH-GAN on all three"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table 2 and Sec. 8.4.1: all three structures carry the same 100 N load at the same 45% density, so volume is matched. Matching is loose: no iteration count, stopping rule or compute budget is stated for the modified SIMP (IH-GAN side) or for the [23] variable-density optimization; the headline gain is in peak von Mises stress (10,302.0 vs 50,800.8 MPa), which is not the optimization objective and which the authors call mesh-sensitive (Sec. 9.1), while compliance differs by 0.38% [derived]; the target-deformation comparison drops the mass constraint and reports no density for either design (Sec. 6.2, Table 3)."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2(b) [judgment call]",
+      "evidence": "Abstract vs Sec. 9.1 and Fig. 18: the abstract reports gains only against the variable-density single-type D-surface structure, while Sec. 9.1 reports a SIMP solid-material design at the same 45% volume that beats the IH-GAN design on max displacement (0.1326 vs 0.1630 mm), compliance (7.1227 vs 7.3876 N·mm) and max stress (7,630.4 vs 10,302.0 MPa). The authors treat the solid design as a different design class and argue for porous designs' other benefits. A strict reading of (b) gives fail; a same-class scope reading gives pass. The [23] comparator's implementation, solver and iteration count are not stated (Sec. 8.4)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "The primary outcome is design quality only; no classical runtime is compared. For C3: IH-GAN training 38 s on a GTX TITAN X and inference under 1 s (Sec. 7.2); the cost of homogenizing the 924 training unit cells is not reported (Sec. 7.1); the 93 h figure (Sec. 2.1.2) is quoted from Zhu et al. [22], not measured here."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Sec. 8.4 and footnote 5: the assembled IH-GAN and comparator structures are meshed (650,000+ tetrahedra) and analysed in ABAQUS, so quality rests on FE analysis of the returned designs. Table 2 lists the prescribed 45% density; the achieved density of the assembled structures is not reported, although generated cells carry volume-fraction errors (most means within -2% to 3%, Fig. 11), and the target-deformation designs have no reported density. Connectivity is reported as mean interface overlap 96.43% with a minimum of 30.0% (Sec. 8.3), but the number of weak interfaces and whether blending was applied before the FE runs are not stated; the rule for choosing the best candidates among GAN samples (Fig. 2c) is not given."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "One cantilever (30×10×1 unit cells) in three design problems: compliance minimization (Table 2) and half- and full-sine target deformation (Table 3); generator accuracy on 185 test unit cells (Fig. 9) and on 50 conditions × 50 noise samples (Fig. 11)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "COI: advisor co-author. Coded with the same procedure as the other articles. Stratum Q confirmed: the abstract's quantitative comparison with a classical method is quality-only, and no classical runtime appears anywhere. R2 is the main judgment call: the abstract names only the variable-density single-type structure, while Sec. 9.1 shows a SIMP solid design that is better on displacement, compliance and stress. The authors justify porous designs by design diversity, high-resolution representation, heat dissipation, self-support and damage tolerance (Sec. 9.1-9.2); design diversity is among the benefits that protocol §10 places outside the rules. The stress metric is one peak value under a point load; the authors state that concentrated stress is mesh-sensitive and standardized the meshes for the Sec. 9.1 comparison, but mesh standardization for Table 2 is not stated. seeds_or_variance = yes refers to Fig. 11 (mean and SD over noise samples); the structural comparisons are single designs. runtimes_all_cases = no: no TO run is timed for either method. Code and data: https://github.com/IDEALLab/IH-GAN_CMAME_2022 (linked in Sec. 1 and 7), MIT licence; it holds the IH-GAN Python code, the unit-cell dataset and two MATLAB TO scripts (TO_opt/), but no code for the [23] comparator, the assembly and meshing, or the ABAQUS runs [repository listing and README read 2026-09-24]. retest_candidate false: quality-only primary outcome with no speed claim, and the comparator and FE validation (commercial ABAQUS) cannot be reproduced from the repository. Version of record not accessed; arXiv v5 is marked accepted by CMAME. Reporting locators: n = Sec. 7.1, 8.1, 8.4; timing = Sec. 7.2 and footnote 5; hardware = Sec. 7.2 and footnote 5. Screening code was I-QUALITY."
+}

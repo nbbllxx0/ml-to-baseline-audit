@@ -1,0 +1,13 @@
+{
+  "pid": "P00139",
+  "citation": {"title": "DNN-based Topology Optimisation: Spatial Invariance and Neural Tangent Kernel", "authors": "Benjamin Dupuis, Arthur Jacot", "year": 2021, "venue": "NeurIPS 2021", "doi": "10.48550/arxiv.2106.05710", "arxiv_id": "2106.05710", "version_coded": "arXiv v3"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-MLONLY", "stratum": "none", "method_family": "neural_reparam", "physics": "compliance", "dim": "2d"},
+  "claim": {},
+  "rules": {"R1": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion: no classical benchmark result."}, "R2": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion: no classical benchmark result."}, "R3": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion: no classical benchmark result."}, "R4": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion: no classical benchmark result."}},
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Sections 2–4 derive an analogy between neural tangent kernel filtering and classical SIMP filtering and show DNN variants, but the paper does not run, time or cite a classical method's specific cost or result. The empirical comparisons are between neural-model variants; the theoretical analogy alone is not a benchmark comparison under the protocol clarification."
+}

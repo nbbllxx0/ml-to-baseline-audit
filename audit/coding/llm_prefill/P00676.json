@@ -1,0 +1,44 @@
+{
+  "pid": "P00676",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks",
+    "authors": "Aaditya Chandrasekhar, Krishnan Suresh",
+    "year": 2021,
+    "venue": "arXiv preprint 2109.01861 (the pool record is OpenAlex's record of the arXiv preprint, keyed by the arXiv DOI). Version of record, retitled 'Approximate Length Scale Filter in Topology Optimization using Fourier Enhanced Neural Networks', Computer-Aided Design 150 (2022) 103277, doi 10.1016/j.cad.2022.103277 (pool P00552; per P00133 not open access, not accessed)",
+    "doi": "10.48550/arXiv.2109.01861",
+    "arxiv_id": "2109.01861",
+    "version_coded": "arXiv v1 (4 Sep 2021; the only version), identity check only: arXiv API record and abs page (title, authors, date, single version, HTML and PDF available) read 2026-09-24. The full text is coded under P00133"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as a second pool record of arXiv 2109.01861, coded as P00133). See P00133 for the primary outcome (Sec. 5.1, Fig. 9: compliance and FE-iteration counts of Fourier-TOuNN vs the 88-line SIMP code).",
+    "location": "not coded; see P00133",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). P00133 records no claimed speed-up (FE-iteration proxy 0.79 [derived there])."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00133)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00133)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00133)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE of P00133)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (duplicates) and the closed list (FT-DUPLICATE, first applicable). Primary record: P00133 (arXiv 2109.01861 v1, already coded; stratum speed; retest_candidate true). P00676's DOI 10.48550/arxiv.2109.01861 is the arXiv DOI of the same preprint, so the two pool records are one arXiv record: the arXiv API and abs page (2026-09-24) give the same title, the same two authors, submission on 4 Sep 2021 and a single version, v1. The screening sheet already flagged P00676 as a possible duplicate of P00133 and P00552 (audit/pool/possible_duplicates.csv: title similarity 1.00 with P00133, 0.73 with P00552). P00552 (Computer-Aided Design 2022, retitled) is the version of record of the same study. P00133 reports it as not open access (only an accepted-manuscript licence from 2023-05-10 in Crossref), so under the FT-DUPLICATE definition the latest arXiv version, i.e. the record P00133 codes, is the primary version. P00552 is not coded; if its version of record becomes readable, the verifier should decide whether it replaces P00133 as primary. Decision-order positions (audit/screening/pilot_final_order.csv): P00676 = 111, P00133 = 362, P00552 = 591; the G1 walk skips FT-DUPLICATE records (PROTOCOL §11). No author named Jun Wang. Screening code was I-UNCLEAR."
+}

@@ -1,0 +1,87 @@
+{
+  "pid": "P01217",
+  "citation": {
+    "title": "Enhancing Structural Topology Optimization with Deep Learning: A Stress Field-Based Approach",
+    "authors": "Sourav Parida, Rati Ranjan Dash",
+    "year": 2023,
+    "venue": "Advancement in Mechanical Engineering and Technology, vol. 6, issue 2, pp. 24-37 (HBRP Publication); deposited on Zenodo",
+    "doi": "10.5281/zenodo.8003313",
+    "version_coded": "Publisher PDF ('Enhancing Structural Topology Optimization.pdf', CC-BY-4.0), downloaded from the Zenodo record https://zenodo.org/records/8003313, read in full (14 pages)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (the abstract explicitly claims a speed advantage: 'outperforming in terms of computational efficiency by taking 1/10th of their total time' compared to conventional FEA methods, with a stated quality caveat of within 5% volume-fraction error)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a 2D cantilever beam benchmark, the Attention-Res-U-Net topology predictor matches baseline SIMP and Abaqus CAE results within about 5-8% volume-fraction and strain-energy deviation while the abstract states it runs in about 1/10th of their total solution time.",
+    "key_phrase": "within 1/10th of the time taken by both baseline SIMP and Abaqus CAE",
+    "location": "Abstract (quantitative '1/10th' claim, repeated in the Conclusion); detailed numbers in the main text, Table 3, Table 4, Fig. 9-10",
+    "quantitative": true,
+    "claimed_speedup": 10,
+    "claimed_speedup_basis": "Stated directly in the Abstract and Conclusion ('1/10th of their total time'). This does not match what Table 4 itself prints: total time (pre-processing 3 s + solution 0.004 s = 3.004 s) for the proposed DL model vs. SIMP's solution time of 10 s (ratio 10/3.004 = 3.33x [derived]) and Abaqus CAE's 20 s (ratio 20/3.004 = 6.66x [derived]); using only the DL 'solution time' column (0.004 s, ignoring its own 3 s pre-processing) instead gives 2500x and 5000x, which is clearly not what '1/10th' means either. The stated 10x figure is recorded here as instructed, but it is not reproducible from the article's own Table 4 under any consistent reading, which is flagged as an internal inconsistency (see notes).",
+    "direction": "outperform",
+    "alternatives": "Table 3: average prediction accuracy for volume fraction across 5 load cases - Proposed DL 96.86%, Abaqus CAE 98.11%, SIMP 98.40% (i.e., the DL model's own volume-fraction match to target VF is slightly worse than either classical method's). Fig. 10 (narrative only, no summary number): DL and Abaqus strain energies compared against baseline SIMP, 'case 2... closest... rest lie within 8% of the baseline value'."
+  },
+  "baseline": {
+    "classical_method": "Two classical comparators: (1) the original 99-line MATLAB SIMP code (Sigmund, 2001), penalty factor 3, filter radius 1.5; (2) Abaqus CAE's own topology optimization module (also used to generate all training data)",
+    "implementation": "SIMP: 'the original 99-line MATLAB code' - an explicitly named, unvectorized, pedagogical reference implementation. Abaqus CAE: commercial FEA/TO software. Proposed DL: Attention-Res-U-Net built from scratch in TensorFlow-Keras",
+    "solver": "not stated for either SIMP's or Abaqus's linear solve (direct/iterative unspecified)",
+    "hardware_classical": "Not explicitly tied to the Table 4 timing comparison. The article states a 'local PC with AMD Ryzen 5 5600X paired with a Nvidia GeForce RTX-2060' was used 'for training data generation process' (i.e., running Abaqus/SIMP to build the dataset); whether this same machine produced the Table 4 timing numbers for SIMP/Abaqus is not restated",
+    "hardware_ml": "DL model training: 'Kaggle's data science platform utilizing 2x Nvidia Tesla T4 GPUs'. Hardware for the DL inference times in Table 4 is not restated separately",
+    "problem_size": "2D cantilever beam, 32x96 element mesh (3,072 elements), 100 N concentrated load at an arbitrary point on the perimeter, target volume fractions of 0.5/0.65/0.8 for training and 0.5 for the head-to-head comparison (5 load cases L1-L5)",
+    "classical_iterations": "not stated for either SIMP or Abaqus CAE (no iteration count or convergence tolerance is given for the comparison runs)",
+    "classical_time": "Table 4: SIMP solution time 10 s (pre-processing not stated/'-'); Abaqus CAE solution time 20 s (pre-processing not stated/'-')",
+    "ml_time": "Table 4: proposed DL pre-processing time 3 s, solution time 0.004 s (total 3.004 s)",
+    "training_time": "'approximately 0.9 hours' (about 54 minutes) for the full training run, 50 epochs configured, with convergence observed by epoch 40 (Table 1, main text)",
+    "data_generation_cost": "Not reported in wall-clock terms. 2,000 base samples were generated by automated Abaqus CAE simulations (Python-scripted), then expanded to 8,000 via 4x image augmentation (rotation/reflection); no aggregate time for the 2,000 Abaqus runs is given",
+    "quality_metric": "Volume fraction achieved by the returned design (Table 3, a directly measured geometric quantity) and structural strain energy (Fig. 10, described as being 'compared' across all three methods to 'verify the mechanical performance' - the text does not fully spell out whether the DL output was independently re-analyzed by FEA to obtain this strain energy or how exactly it was obtained). On the held-out 600-sample test set (not the 5-case comparison): binary cross-entropy, accuracy, MSE, MAE, and Dice coefficient against the SIMP/Abaqus ground truth used to train the model (Table 2)",
+    "quality_gap": "Table 3: average VF-prediction accuracy across 5 load cases - Proposed DL 96.86%, Abaqus CAE 98.11%, SIMP 98.40%; per-case VF values are 0.53-0.54 (DL) vs 0.49-0.50 (Abaqus) vs 0.49-0.51 (SIMP). Text (p. 34): 'highest deviation between Abaqus CAE and the DL model is 6% and between SIMP and DL is 8%'; strain energy 'within 8% of the baseline [SIMP] value' for 4 of 5 cases. Held-out test set (Table 2, not the head-to-head comparison): BCE 0.0353, accuracy 98.91%, MSE 0.0084, MAE 0.0129, Dice coefficient 98.16%, correlation R 0.9972 between predicted and target volume fraction."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Quality is reported for the same 5 load cases used for timing (volume fraction, Table 3; strain energy, Fig. 10), showing the DL output within about 5-8% of the SIMP/Abaqus baselines - a genuine attempt at matching. However, the classical methods' stopping rule/iteration count is never stated for either SIMP or Abaqus CAE, matching the protocol's own partial example ('the classical stopping rule is unstated'), and the abstract's headline speed figure (10x) does not match what Table 4's own printed numbers derive (3.3x-6.7x), so the 'matched-quality, faster' claim as stated in the abstract is not fully traceable to the reported data."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-implementation-inefficient",
+      "evidence": "The SIMP baseline is explicitly 'the original 99-line MATLAB code' (Sigmund, 2001) - the canonical unvectorized, pedagogical reference implementation, matching the protocol's own partial example ('an unvectorized educational code'). The problem size (3,072 elements) is far below the 10^5-DOF threshold for R2(c), so the DL/GPU vs. classical/CPU hardware asymmetry (Kaggle 2x Tesla T4 for DL training vs. a local Ryzen 5/RTX-2060 PC for data generation) is not itself disqualifying, but which hardware actually produced the Table 4 timing numbers is not stated for any of the three methods, so the hardware basis for the speed comparison cannot be fully checked."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "A speed claim is made (Abstract, Conclusion: '1/10th of their total time') and the DL model's own training cost is reported (~0.9 hours, Table 1/main text) - but the cost of generating the 2,000 base Abaqus training samples (before 4x image augmentation to 8,000) is never given in wall-clock terms, and no amortization or break-even number of uses is computed anywhere. This matches the protocol's R3 partial condition exactly: training cost reported, data-generation cost missing, no amortization."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Volume fraction is a directly measured property of the returned design (Table 3), and strain energy is described as being computed and 'compared' across all three methods 'to verify the mechanical performance' (p. 34) rather than via an explicit image-similarity metric, though the exact procedure for obtaining the DL output's strain energy (e.g., whether it was re-analyzed by FEA) is not fully spelled out. No connectivity, disconnected-member, or other failure/infeasibility rate is reported anywhere for the DL-predicted topologies, despite this being a known risk for direct CNN-based topology prediction."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Primary speed/quality comparison: 5 load cases (L1-L5) at 50% target volume fraction (Table 3, Table 4, Fig. 9-10). Separate statistical evaluation: 600 held-out test samples spanning target VF in {0.5, 0.65, 0.8} (Table 2, Fig. 7-8)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Access: the Zenodo record page (https://zenodo.org/records/8003313) and its attached PDF both downloaded cleanly (HTTP 200) with no bot-check; the record is CC-BY-4.0. Full text (14 pages) read in full. No author named Jun Wang (authors: Sourav Parida, Rati Ranjan Dash); the reference list cites unrelated prior work by a 'Michael Yu Wang' (refs. 5 and 7, level-set TO) and a 'D. Wang' (ref. 12, a CNN generalization-ability paper), neither of whom is an author of this article. Duplicate check: audit/pool/pool.csv searched for the full title (case-insensitive) returned exactly one match (this record, pid P01217); no FT-DUPLICATE applies. The venue ('Advancement in Mechanical Engineering and Technology', HBRP Publication) is a smaller regional journal rather than a well-known venue, but the article has a complete, standard research-article structure (problem formulation, method, results, comparison, conclusion) with no indication it is a review, thesis, or abstract-only record, so FT-TYPE does not apply. The most notable finding for this record is the mismatch between the abstract's rounded '1/10th of the time' headline claim and Table 4's own printed pre-processing/solution times, which derive to roughly 3.3x (vs. SIMP) and 6.7x (vs. Abaqus CAE) when totalled, or two to three orders of magnitude if only the 0.004 s 'solution time' cell is used against the classical solution times - neither reading reproduces '1/10th' exactly, so this is flagged for the adjudicator rather than silently reconciled. No code or dataset availability statement of any kind appears in the article."
+}

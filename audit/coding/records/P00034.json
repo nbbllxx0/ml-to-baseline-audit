@@ -1,0 +1,100 @@
+{
+  "pid": "P00034",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Transformer-based Topology Optimization",
+    "authors": "Aaron Lutheran, Srijan Das, Alireza Tabarraei",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.CE); the arXiv HTML header of v2 reads 'Journal: Structural and Multidisciplinary Optimization'",
+    "doi": "10.48550/arXiv.2509.05800",
+    "arxiv_id": "2509.05800",
+    "version_coded": "arXiv v2 (17 Sep 2025; v1 6 Sep 2025), full HTML text read from https://arxiv.org/html/2509.05800. Later version of the same study: arXiv 2604.03522 v1 (4 Apr 2026, pool P00235), published as Structural and Multidisciplinary Optimization (doi 10.1007/s00158-026-04342-6, published online 16 May 2026); the Springer article page lists it as not open access (checked 2026-09-24), so it was not read"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "transformer",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as an earlier version of P00235). Would-be primary outcome in this version: static 64×64 designs in about 2 s vs 66 s average for the original topology-optimization runs (33×) at a 1.88% mean compliance error.",
+    "location": "Section 5, last paragraph (abstract, introduction and conclusion hold only qualitative classical comparisons)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). Would-be values, both stated in Section 5: static 66 s ÷ about 2 s = 33; dynamic 8900 s ÷ 2 s = 4,450.",
+    "direction": "outperform"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "FT-DUPLICATE: non-primary version of the article coded under P00235 (arXiv 2604.03522; version of record Structural and Multidisciplinary Optimization, doi 10.1007/s00158-026-04342-6). Excluded under PROTOCOL §4 and screening_codes.md (primary version = version of record if open access, else the latest arXiv version). Evidence that 2509.05800 and 2604.03522 are versions of one article: same three authors; the arXiv HTML of both manuscripts opens with 'Journal: Structural and Multidisciplinary Optimization'; same method (ViT with a class/conditioning token, strain-energy and von Mises input fields, auxiliary volume, load and floating-material losses, FFT encoding and transfer learning for dynamic loads); same dataset construction (64×64, six load angles, one to four supports, volume fraction 30-50%); the dynamic results table is identical (Table 3 here, Table 7 in 2604.03522: 15.14/12.72/12.93/4.81% compliance error, 48.0% floating material), and the dynamic validation-sample figures carry the same caption and sample labels (Fig. 6 here, Fig. 11 there); same dynamic classical time (8900 s); the SMO version of record carries the 2604.03522 title. Adjudicator check (2026-09-24): the Springer article page for doi 10.1007/s00158-026-04342-6 lists 'Open Access: N', access type no-access, published 16 May 2026, so the primary version is the latest arXiv version, 2604.03522 v1 (pool P00235, decision-order position 416; P00034 is at position 100). The pool records are different versions, so the §11 same-version tie-break does not apply. Differences seen in 2604.03522 (not coded here): 30,000 static samples (60,000 here, Sec. 4.1), inference 1.26 s with model loading or 0.36 s preloaded (Sec. 5.5), added post-processing and generalization analyses (Sec. 5.3-5.4), and an abstract claiming fidelity beyond diffusion models. Verifier: if P00034 is kept instead of P00235, would-be coding of this version is: stratum speed; primary outcome Section 5 (33× static at 1.88% mean compliance error; alternative 4,450× dynamic at 4.81%, Table 3 decoder-layers model), chosen under §5.1 rule 4 over the earlier Table 2 quality comparison because the abstract and conclusion stress real-time, iteration-free generation against classical solvers. R1 fail (R1-unmatched): about 2 s inference vs full optimization runs while ViT-Small outputs are measurably worse (Table 2: mean compliance error 1.88%, 5.2% of samples above 30% error, volume-fraction error 1.01%, floating material 12.2%); no matching; partial if the stated 1.88% is read as the method's reported error. R2 partial (R2-inefficient-impl [inferred]; hardware unstated): implementation, solver, iteration count and hardware are not stated for either method; 66 s per 64×64 static run looks slow [inferred]; (c) n/a (64×64). R3 fail (R3-no-cost): training is 800,000 iterations at batch 256 with no time; 60,000 static and about 6,000 dynamic samples are never costed [inferred ≈1,100 h and ≈14,800 h at 66 s and 8,900 s per run]; no break-even. R4 pass (R4-verified [FE inferred]): compliance error, volume-fraction error, load discrepancy, floating-material share and the share above 30% error are reported for 500 validation samples, the same samples for all models (Section 5); the compliance evaluator is not described. Reporting (this version): n = 500 validation samples; OOD no; seeds no; failure rate yes (Table 2); timing protocol no; runtimes: dataset averages only; code and data on request (Declarations); hardware not stated. Screening code was I-SPEED.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "decision": {
+        "first": "exclude",
+        "second": "include",
+        "decision": "exclude",
+        "reason": "arXiv 2509.05800 v2 is an earlier version of the article published in SMO (doi 10.1007/s00158-026-04342-6), whose later preprint is arXiv 2604.03522 (P00235): same authors, both arXiv HTML headers name SMO, and the dynamic results table is identical (Table 3 here, Table 7 there). The second coder searched the pool by title only, and P00235 has a different title."
+      },
+      "ft_code": {
+        "first": "FT-DUPLICATE",
+        "second": null,
+        "decision": "FT-DUPLICATE",
+        "reason": "The Springer page of the version of record lists it as not open access (checked 2026-09-24), so the primary version is the latest arXiv version, 2604.03522 v1 (P00235), and P00034 is the non-primary version. FT-DUPLICATE is first in the closed list, and the same-version tie-break of §11 does not apply because the records hold different versions."
+      },
+      "stratum": {
+        "first": null,
+        "second": "speed",
+        "decision": "none",
+        "reason": "A full-text exclusion carries stratum none (adjudication instructions, step 3); the would-be speed-stratum coding of this version (Sec. 5, 33× at 1.88% compliance error) is kept in notes only."
+      },
+      "R1": {
+        "first": null,
+        "second": "fail",
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE, so all rule verdicts are na (adjudication instructions, step 3); the study is coded under P00235."
+      },
+      "R2": {
+        "first": null,
+        "second": "partial",
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE, so all rule verdicts are na (adjudication instructions, step 3); the study is coded under P00235."
+      },
+      "R3": {
+        "first": null,
+        "second": "fail",
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE, so all rule verdicts are na (adjudication instructions, step 3); the study is coded under P00235."
+      },
+      "R4": {
+        "first": null,
+        "second": "pass",
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE, so all rule verdicts are na (adjudication instructions, step 3); the study is coded under P00235."
+      },
+      "claimed_speedup": {
+        "first": null,
+        "second": 33,
+        "decision": null,
+        "reason": "Not coded for an excluded record. The 33× figure is stated in Sec. 5 (66 s vs about 2 s, static) and is kept in claimed_speedup_basis for reference only."
+      }
+    }
+  }
+}

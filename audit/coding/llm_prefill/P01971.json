@@ -1,0 +1,88 @@
+{
+  "pid": "P01971",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Reinforcement Learning Guided Engineering Design: from Topology Optimization to Advanced Modelling",
+    "authors": "Giorgi Tskhondia",
+    "year": 2025,
+    "venue": "Journal of Next-Generation Research 5.0 (JNGR 5.0), vol. 1, issue 3 (March-April 2025), ISSN 3075-2868; published 2025-03-12 (journal landing page); CC BY-SA per OpenAlex",
+    "doi": "10.70792/jngr5.0.v1i3.95",
+    "arxiv_id": "none found (arXiv author search for Tskhondia returned no records)",
+    "version_coded": "Version of record: publisher PDF (17 pp.) from jngr5.com (article/download/95/74), read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screening code confirmed at full text)",
+    "stratum": "quality",
+    "method_family": "rl",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a 10×10 cantilever grid, refining a genetic-algorithm layout (about 1 min) with PPO (about 32 min) lowers the compliance metric from 19.3654 to 18.2786; the author states GA alone does worse for the same wall-clock time.",
+    "key_phrase": "GA pre-training + RL refinement was better than GA alone",
+    "location": "Sec. 3, pp. 9-10 (first quantitative comparison with a non-learned method; the abstract states the GA comparison only qualitatively, the introduction has none, and there is no conclusion section: the closing Discussion restates the GA claim qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up over a classical method is claimed; the Discussion (p. 13) concedes that traditional TO is almost always faster in wall-clock time. Appendix, 5×5 grid: SIMP (topopt_cholmod.py) about 1 s vs PPO about 18 min (ML about 1,080× slower [derived]); brute force about 5.8 h (PPO about 19× faster [derived]).",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract, qualitative: GA alone could not reach the GA+RL topology in comparable wall-clock time. (2) Discussion, p. 13, quantitative cost proxy: HRL needs about 11 × 4500 = 49,500 actions vs 2^16 = 65,536 states for brute-force enumeration on the 4×4 grid (1.32× fewer [derived]), explicitly not faster in wall-clock time; if the Discussion is read as the conclusion, this becomes primary (speed stratum). (3) Discussion, qualitative: gradient TO said to handle at most about 30,000 elements and not to reach GA+RL optimality (no numbers). (4) Appendix, 5×5: compliance 89.63 (SIMP, about 1 s), 33.6 (PPO, about 18 min), 29.6 (brute force, about 5.8 h)."
+  },
+  "baseline": {
+    "classical_method": "Genetic algorithm (DEAP) placing elements on the binary 10×10 grid, run for about 1 min (Sec. 3). Appendix only: SIMP via topopt_cholmod.py (Python version of the 88-line code [11]) and brute-force enumeration on a 5×5 grid",
+    "implementation": "DEAP GA with the FE code of Greydanus's structural-optimization tutorial [23] (Sec. 2.5, 3); topopt_cholmod.py for the appendix SIMP run",
+    "solver": "not stated",
+    "hardware_classical": "Apple M1 Pro for the GA+RL experiment, GA included (Sec. 3, p. 9); not stated for the appendix runs",
+    "hardware_ml": "PPO (6×6, 5×5): 2.9 GHz dual-core Intel Core i5, 1M steps in about 80 min; HRL (4×4): Apple M1 Pro, 5000 steps; GA+RL (10×10): Apple M1 Pro (Sec. 3, pp. 7 and 9)",
+    "problem_size": "10×10 element grid for the primary comparison [≈242 DOFs, derived]; 6×6 and 5×5 (PPO), 4×4 (HRL); cantilever with load at the bottom right corner (Sec. 3, Figs. 2 and 5)",
+    "classical_iterations": "GA: about 1 min wall-clock; generations, population and stopping rule not stated (Sec. 3). Appendix SIMP: not stated",
+    "classical_time": "GA about 1 min (Sec. 3); appendix 5×5: SIMP about 1 s, brute force about 5.8 h",
+    "ml_time": "PPO refinement about 32 min after the 1 min GA (Sec. 3); appendix 5×5: PPO about 18 min",
+    "training_time": "RL is trained per problem, so training is the optimization run: PPO 1M steps about 80 min (i5); HRL 5000 steps with optuna hyperparameter search, time not stated (Sec. 3, 4)",
+    "data_generation_cost": "none (no dataset; RL with FE in the loop)",
+    "quality_metric": "Compliance evaluated with the code of [23] (Sec. 3; Appendix); definition, normalization and material volume not reported",
+    "quality_gap": "10×10: GA 19.3654 vs GA+RL 18.2786, 5.6% lower [derived] (Sec. 3, p. 10). Appendix 5×5: SIMP 89.63, PPO 33.6, brute force 29.6"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 3, pp. 9-10: the printed numbers compare the GA output after about 1 min with GA+RL after about 1 + 32 min, so the budgets are unequal. The equal-wall-clock GA-alone result is asserted but not printed. GA generations, population and stopping rule are not stated, and the material volume of neither design is reported."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 3: the GA and the RL refinement run on the same Apple M1 Pro with the same FE code [23]; the grid has ≈242 DOFs [derived], so (c) does not apply; the abstract gives no baseline figure (b); the GA ran shorter, not longer, than needed (d); no per-iteration time exists (e). A GA is a weak TO method compared with gradient TO (the appendix SIMP run takes about 1 s), but no R2 marker covers the choice of method. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "No speed claim against a classical method is primary, and the RL agents are trained per problem (the PPO refinement of the 10×10 case is itself the 32 min run), which is R3's n/a case. For C3: PPO 1M steps about 80 min on an i5 (Sec. 3); HRL hyperparameter search time not stated."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Sec. 3: both designs are scored by the FE code of [23] in the same environment [inferred], one run each. Material volume, failed runs and seeds are not reported, and the metric is not defined. Removal-only refinement (Sec. 3, step 2) lowering compliance at a fixed load is inconsistent with pure compliance [inferred], so the metric may include a volume term. Fig. 3(c) (HRL, not the primary outcome) is labelled cherry-picked. A stricter reading gives fail."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1 for the primary comparison (10×10 cantilever, one GA and one GA+RL run, Sec. 3); PPO 6×6 and 5×5 with and without load randomization, HRL 4×4 (Sec. 3, Fig. 3); one 5×5 benchmark (Appendix)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Primary-outcome judgment: the article has no conclusion section; its closing 'Discussion' restates the GA claim qualitatively. Taking the first quantitative classical comparison in the main text gives the Sec. 3 GA vs GA+RL result, which the abstract also emphasizes (rule 4). If a verifier treats the Discussion as the conclusion, the HRL vs brute-force operation count (alternative 2) becomes primary and the record moves to the speed stratum. R3 would then be n/a (per-problem learning), and R1 would likely fail: no quality values are printed for the 4×4 HRL design, only that 4500 iterations reach the optimum. GA is treated as a classical, non-learned optimization method (screening did the same); only the appendix uses a gradient TO method. Appendix caveat [inferred]: the SIMP command line (5 5 0.05 1 2 1) suggests a volume fraction of 0.05 if the script follows the usual argument order [recalled, not verified in-session]. Loads, supports and volumes of the SIMP and PPO runs are not stated, so the 89.63 vs 33.6 gap may reflect different problems or material amounts. OOD = yes: PPO was tested with load positions not used in training, one qualitative example (Fig. 3a). Code: https://github.com/gigatskhondia/gigala. Its LICENSE file is MIT; GitHub labels it 'Other' because of an extra header line. The repo holds GA+RL refinement notebooks (gen_rl/TO_by_GA_and_RL_refinement_v1-v4) and HRL scripts, checked 2026-09-24. Which notebook produced the article's numbers was not verified. retest_candidate false: there is no speed-up claim to re-test, and the article concedes that classical TO is faster. No data statement beyond the code. Related pool records by the same author: P01994 (ResearchGate item 'Practical topology optimization with deep reinforcement learning', queue C4), P01997 (Am. J. Appl. Sci. Res. 2026, 'Practical Topology Optimization with Deep Reinforcement Learning and Genetic Algorithms') and P02001 (ResearchGate 2026). The article cites the author's preprints [16]-[18] (e.g. 'Topology optimization by genetic algorithms pre-training and reinforcement learning refinement', 2025). None is coded yet, so no FT-DUPLICATE here; the coder of P01994 or P01997 should check for overlapping studies. Single author (independent researcher); no author named Jun Wang. Screening code was I-QUALITY."
+}

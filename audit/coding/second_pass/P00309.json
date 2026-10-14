@@ -1,0 +1,44 @@
+{
+  "pid": "P00309",
+  "citation": {
+    "title": "Evolutionary de-homogenization using a generative model for optimizing solid-porous infill structures considering the stress concentration issue",
+    "authors": "Shuzhi Xu; Hiroki Kawabe; Kentaro Yaji",
+    "year": 2025,
+    "venue": "Materials & Design (version of record, gold OA per OpenAlex); arXiv preprint 2412.19154",
+    "doi": "10.1016/j.matdes.2025.114380",
+    "arxiv_id": "2412.19154",
+    "version_coded": "arXiv v1 (26 Dec 2024; only version on the abs page), full text (34 pp., main text and figures) downloaded as PDF from https://arxiv.org/pdf/2412.19154 and read in full with a local PDF text extraction (PyMuPDF), then whole-document keyword-searched. The Materials & Design version of record is gold OA per OpenAlex but its ScienceDirect page returned HTTP 403 to automated access, so it was not read directly; the arXiv preprint (same authors, CC BY 4.0) was used as the practical full-text source."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "vae",
+    "physics": "stress",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: a multi-fidelity framework ('MFTD') couples a classical multi-field, SIMP-based, stress-constrained low-fidelity optimization with de-homogenization to precise geometry, then uses a VAE plus a multi-objective evolutionary algorithm to refine the latent design so as to reduce stress concentration while keeping accurate geometry, demonstrated on an L-bracket and a symmetric tension beam (2D only). The paper's only classical-method comparison (Sec. 4.2.2: their multi-field low-fidelity optimization vs. 'traditional single-material, stress-based topology optimization (Stress-TO)') is between two non-learned methods and does not involve the VAE/evolutionary stage at all.",
+    "location": "Abstract; Introduction; Section 4.2.2; Conclusion",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). A whole-document keyword search (34 pages) found zero occurrences of 'CPU', 'GPU', 'hardware', 'wall-clock', 'seconds', 'minutes', 'hours', 'speed', 'faster' or 'slower' anywhere in the paper; no timing or hardware information of any kind is given for any method."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 and the 2026-09-24 FT-NOBASELINE clarification, after a full-text read (PDF extracted locally, whole document keyword-searched, not sampled). The article's learned-model contribution is the VAE-based generative model combined with a multi-objective evolutionary algorithm ('MFTD') that refines an initial population of designs; this stage is never compared, on speed or on quality, against any classical/non-learned competing method. Its only benchmark is internal: the initial population (100 samples from the low-fidelity optimization + direct de-homogenization mapping, i.e. generation 0 of the pipeline's own workflow) versus the final elite population after 90 iterations, tracked only via a hypervolume indicator ('reaches approximately 1.18') with no paired stress or mass numbers reported for generation 0 vs. final (confirmed by targeted extraction of Section 4.1.3/4.2 and by the absence of any 'reduced from X to Y' phrasing anywhere in the extracted text). The one place the paper does compare against a named classical method - Section 4.2.2, 'traditional single-material, stress-based topology optimization (Stress-TO)', 160 designs each, both yielding 34 Rank-1 solutions on a shared Pareto front (Figs. 18-19) - is a classical-vs-classical ablation: it validates the paper's own multi-field SIMP-based 'low-fidelity optimization' (itself non-learned, using SIMP penalization and P-norm stress aggregation, Sec. 2.1) against a simpler classical baseline, and does not involve the VAE/evolutionary stage at all. Per §3's inclusion test, the comparison must be between 'the ML method' and a classical method; since no such comparison exists here for either speed or quality, this is the FT-NOBASELINE case ('the article does not run, time or cite a classical method's cost or result' for the ML component), not an include-as-quality-stratum case. The Introduction's discussion of multiscale TO's 'high computational cost, leading to a slowdown in research' and de-homogenization's own limitations is generic literature motivation with citations to prior methods, not a timed or numerically cited classical result for this article's own problem. The Conclusion (point 5) states the low-fidelity optimization 'demonstrates performance advantages compared to traditional single-material stress optimization' - the same classical-vs-classical comparison, restated, not a new one involving the ML stage. No hardware, CPU/GPU, wall-clock time, code availability, or data availability statement appears anywhere in the 34-page document (confirmed by full-document keyword search). The method is explicitly limited to 2D ('the developed method is focused solely on 2D problems', Conclusion, limitations). physics is coded 'stress' (von Mises for solid regions, Tsai-Hill for porous regions, combined via an interpolated criterion) rather than 'compliance', since stress minimization/constraint is the explicit objective, not compliance. No author named Jun Wang (authors: Shuzhi Xu, Hiroki Kawabe, Kentaro Yaji, Osaka University). No second, differently-numbered pool entry for this DOI/arXiv id/title was found in audit/pool/pool.csv (only P00309 itself, which already carries both the DOI and the arXiv id), so no separate FT-DUPLICATE applies."
+}

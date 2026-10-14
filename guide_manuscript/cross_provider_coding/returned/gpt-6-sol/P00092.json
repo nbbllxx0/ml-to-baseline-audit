@@ -1,0 +1,51 @@
+{
+  "pid": "P00092",
+  "citation": {
+    "title": "Topology Optimization with Text-Guided Stylization",
+    "authors": "Shengze Zhong; Parinya Punpongsanon; Daisuke Iwai; Kosuke Sato",
+    "year": 2023, "venue": "Structural and Multidisciplinary Optimization",
+    "doi": "10.1007/s00158-023-03686-7", "arxiv_id": "2310.15506",
+    "version_coded": "open-access version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "neural_reparam", "physics": "compliance", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "On the bridge benchmark without stylization loss, the learned representation and SIMP produce nearly equal compliance, 181.08 and 181.06 respectively, with volumes 0.366 and 0.368.",
+    "key_phrase": "", "location": "§4.1, mechanical-performance comparison; Fig. 6", "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No numerical runtime comparison against SIMP is supplied; §5.3 says the proposed method converges more slowly for pure TO.",
+    "direction": "similar_or_mixed",
+    "alternatives": "§4.1 also reports MBB and L-bracket compliance and that fully stylized designs have about 30.27% higher compliance across the three tasks; §5.3 qualitatively says pure TO quality and convergence are worse than traditional explicit methods."
+  },
+  "baseline": {
+    "classical_method": "SIMP (§4.1)",
+    "implementation": "165-line Python SIMP code by Niels Aage and Villads Egede Johansen (§4.1)",
+    "solver": "not stated for SIMP; learned method uses algebraic multigrid for FE solve (§4, experiment environment)",
+    "hardware_classical": "not stated explicitly for SIMP",
+    "hardware_ml": "Laptop Intel Core i9-13900HX CPU and Nvidia RTX4080 GPU (§4, experiment environment)",
+    "problem_size": "64 × 64 FE analysis; learned appearance representation at 256 × 256 (§4.1)",
+    "classical_iterations": "not stated; Fig. 6 compares designs after 100 learned-method iterations (§4.1)",
+    "classical_time": "not stated",
+    "ml_time": "Bridge 256 × 256: 0.587 s/iteration and 58.66 s for 100 iterations (§5.2, computational cost)",
+    "training_time": "Bridge 256 × 256: 58.66 s for 100 iterations, per-problem (§5.2, computational cost)",
+    "data_generation_cost": "not stated; each optimization task trains a separate representation (§4, initialization discussion)",
+    "quality_metric": "FE-based compliance and volume fraction (§4.1, Fig. 6)",
+    "quality_gap": "Bridge compliance: SIMP 181.06, learned mechanical-only 181.08; volume fractions 0.368 and 0.366 (§4.1, Fig. 6)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-stratum", "evidence": "§4.1: primary outcome compares compliance and volume, without a speed claim."},
+    "R2": {"verdict": "na", "marker": "R2-quality-stratum", "evidence": "§4.1: primary outcome compares compliance and volume, without a speed claim."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "§4: a representation is trained separately for each design; no offline training set is used."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "§4.1 Fig. 6: FE compliance and volume are reported for produced designs; §4–5 do not give a rate of failed or infeasible outputs."}
+  },
+  "reporting": {
+    "n_test_cases": "3 classical-comparison tasks: bridge, MBB beam, L-bracket (§4.1); additional stylization demonstrations (§4.2)",
+    "ood_test": "no", "seeds_or_variance": "yes", "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial", "runtimes_all_cases": "selective",
+    "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": true,
+  "notes": "§4 reports that random initialization can cause about ±3% variation, without a benchmark-wide seed distribution. §5.3 states pure TO convergence is slower than traditional explicit methods. The version of record provides the project code URL in its replication statement."
+}

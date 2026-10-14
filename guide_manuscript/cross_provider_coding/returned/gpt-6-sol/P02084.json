@@ -1,0 +1,14 @@
+{
+  "pid": "P02084",
+  "citation": {"title": "Hierarchical thermal design for battery packs using phase change materials", "authors": "Matei C. Ignuta-Ciuncanu, Monica Marinescu, Ricardo F. Martinez-Botas", "year": 2026, "venue": "International Journal of Heat and Mass Transfer 269, 129081", "doi": "10.1016/j.ijheatmasstransfer.2026.129081", "version_coded": "abstract only; no full text coded"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED (no accessible full text)", "stratum": "none", "method_family": "vae", "physics": "thermal", "dim": "unclear"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "no full text", "direction": "outperform", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}, "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}, "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}, "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}},
+  "reporting": {"n_test_cases": "no full text", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Publisher labels the article open access, but its PDF endpoint returned HTTP 403. No legal author or institutional full-text copy was found. The abstract claims more than 95% fewer design variables than pixel-wise topology optimization, a computational-cost proxy; method details and eligibility remain unverified without full text."
+}

@@ -1,0 +1,3249 @@
+/opt/conda/envs/dnn/lib/python3.9/site-packages/ufl/__init__.py:250: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/opt/conda/envs/dnn/lib/python3.9/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.26.4)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Object cannot be plotted directly, projecting to piecewise linears.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Object cannot be plotted directly, projecting to piecewise linears.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+
+Iter: 1
+solving...
+J= 4169.02404744929
+
+Iter: 2
+solving...
+J= 8210.203438641047
+
+Iter: 3
+solving...
+J= 8260.825462276422
+
+Iter: 4
+solving...
+J= 8136.540905192977
+
+Iter: 5
+solving...
+J= 8031.668877291553
+
+Iter: 6
+solving...
+J= 7859.433185533949
+
+Iter: 7
+solving...
+J= 7595.982183118603
+
+Iter: 8
+solving...
+J= 7226.986349072611
+
+Iter: 9
+solving...
+J= 6918.49841464603
+
+Iter: 10
+solving...
+J= 6696.300752549897
+
+Iter: 11
+solving...
+J= 6522.073872196686
+
+Iter: 12
+solving...
+J= 6376.522063329724
+
+Iter: 13
+solving...
+J= 6249.8697281452605
+
+Iter: 14
+solving...
+J= 6136.645709108719
+
+Iter: 15
+solving...
+J= 6033.49715155999
+
+Iter: 16
+solving...
+J= 5938.236781256487
+
+Iter: 17
+solving...
+J= 5849.366444264658
+
+Iter: 18
+solving...
+J= 5765.819036375658
+
+Iter: 19
+solving...
+J= 5686.808745135357
+
+Iter: 20
+solving...
+J= 5611.739609793386
+
+Iter: 21
+solving...
+J= 5540.147346140176
+
+Iter: 22
+solving...
+J= 5471.312665135212
+
+Iter: 23
+solving...
+J= 5405.723798453673
+
+Iter: 24
+solving...
+J= 5344.993782381323
+
+Iter: 25
+solving...
+J= 5286.233285601679
+
+Iter: 26
+solving...
+J= 5229.474365490092
+
+Iter: 27
+solving...
+J= 5174.567508886244
+
+Iter: 28
+solving...
+J= 5121.378014927377
+
+Iter: 29
+solving...
+J= 5069.78172142889
+
+Iter: 30
+solving...
+J= 5019.636318390635
+
+Iter: 31
+solving...
+J= 4969.7364108670145
+
+Iter: 32
+solving...
+J= 4924.05759017361
+
+Iter: 33
+solving...
+J= 4879.818062057489
+
+Iter: 34
+solving...
+J= 4836.804668093316
+
+Iter: 35
+solving...
+J= 4794.691436980118
+
+Iter: 36
+solving...
+J= 4753.420501851078
+
+Iter: 37
+solving...
+J= 4712.908943852653
+
+Iter: 38
+solving...
+J= 4673.074073773693
+
+Iter: 39
+solving...
+J= 4633.834305943358
+
+Iter: 40
+solving...
+J= 4595.088315820848
+
+Iter: 41
+solving...
+J= 4556.647180016754
+
+Iter: 42
+solving...
+J= 4519.417741274772
+
+Iter: 43
+solving...
+J= 4482.327080556969
+
+Iter: 44
+solving...
+J= 4445.68235399974
+
+Iter: 45
+solving...
+J= 4409.164241612911
+
+Iter: 46
+solving...
+J= 4372.795882124248
+
+Iter: 47
+solving...
+J= 4336.707001967666
+
+Iter: 48
+solving...
+J= 4300.960932991338
+
+Iter: 49
+solving...
+J= 4265.139303496931
+
+Iter: 50
+solving...
+J= 4229.1356120010905
+
+Iter: 51
+solving...
+J= 4192.898252570068
+
+Iter: 52
+solving...
+J= 4157.071504179768
+
+Iter: 53
+solving...
+J= 4120.909966543684
+
+Iter: 54
+solving...
+J= 4084.47529681613
+
+Iter: 55
+solving...
+J= 4047.7730028058195
+
+Iter: 56
+solving...
+J= 4010.6847841353533
+
+Iter: 57
+solving...
+J= 3973.606599534702
+
+Iter: 58
+solving...
+J= 3936.6322503095794
+
+Iter: 59
+solving...
+J= 3899.349992401267
+
+Iter: 60
+solving...
+J= 3862.089586901514
+
+Iter: 61
+solving...
+J= 3825.0923499728005
+
+Iter: 62
+solving...
+J= 3787.979615147927
+
+Iter: 63
+solving...
+J= 3752.3484541890393
+
+Iter: 64
+solving...
+J= 3718.092386945171
+
+Iter: 65
+solving...
+J= 3684.6133780252817
+
+Iter: 66
+solving...
+J= 3652.275362205711
+
+Iter: 67
+solving...
+J= 3619.9808883722794
+
+Iter: 68
+solving...
+J= 3588.3560809128317
+
+Iter: 69
+solving...
+J= 3557.360208830387
+
+Iter: 70
+solving...
+J= 3526.5388164859955
+
+Iter: 71
+solving...
+J= 3495.680540318897
+
+Iter: 72
+solving...
+J= 3465.169893636987
+
+Iter: 73
+solving...
+J= 3435.177013515528
+
+Iter: 74
+solving...
+J= 3405.307001220297
+
+Iter: 75
+solving...
+J= 3375.424428504369
+
+Iter: 76
+solving...
+J= 3345.5502962553815
+
+Iter: 77
+solving...
+J= 3315.599360286035
+
+Iter: 78
+solving...
+J= 3285.8513294723516
+
+Iter: 79
+solving...
+J= 3256.557223010679
+
+Iter: 80
+solving...
+J= 3227.627596486206
+
+Iter: 81
+solving...
+J= 3198.8802402583283
+
+Iter: 82
+solving...
+J= 3169.8679404740615
+
+Iter: 83
+solving...
+J= 3140.6614253139433
+
+Iter: 84
+solving...
+J= 3111.515013278997
+
+Iter: 85
+solving...
+J= 3082.3743930946953
+
+Iter: 86
+solving...
+J= 3053.686142992446
+
+Iter: 87
+solving...
+J= 3025.312198541809
+
+Iter: 88
+solving...
+J= 2997.4522786031125
+
+Iter: 89
+solving...
+J= 2969.8335477353685
+
+Iter: 90
+solving...
+J= 2942.3531937860016
+
+Iter: 91
+solving...
+J= 2914.72655270125
+
+Iter: 92
+solving...
+J= 2887.181938647941
+
+Iter: 93
+solving...
+J= 2859.853893996308
+
+Iter: 94
+solving...
+J= 2832.50005621302
+
+Iter: 95
+solving...
+J= 2805.2718452116933
+
+Iter: 96
+solving...
+J= 2778.663917051931
+
+Iter: 97
+solving...
+J= 2752.1064896247653
+
+Iter: 98
+solving...
+J= 2725.6021112329527
+
+Iter: 99
+solving...
+J= 2699.3453907437924
+
+Iter: 100
+solving...
+J= 2673.841925385911
+
+Iter: 101
+solving...
+J= 2648.962991529645
+
+Iter: 102
+solving...
+J= 2624.6671819583316
+
+Iter: 103
+solving...
+J= 2600.6640532847787
+
+Iter: 104
+solving...
+J= 2576.78526740674
+
+Iter: 105
+solving...
+J= 2552.9325524983155
+
+Iter: 106
+solving...
+J= 2529.2585947769753
+
+Iter: 107
+solving...
+J= 2505.73355972324
+
+Iter: 108
+solving...
+J= 2482.6861665598576
+
+Iter: 109
+solving...
+J= 2459.5979441012278
+
+Iter: 110
+solving...
+J= 2437.3233658178174
+
+Iter: 111
+solving...
+J= 2415.2924462984543
+
+Iter: 112
+solving...
+J= 2393.6550698408632
+
+Iter: 113
+solving...
+J= 2372.663387970589
+
+Iter: 114
+solving...
+J= 2354.0503732821144
+
+Iter: 115
+solving...
+J= 2335.7300730149377
+
+Iter: 116
+solving...
+J= 2317.9277642821608
+
+Iter: 117
+solving...
+J= 2301.383396229826
+
+Iter: 118
+solving...
+J= 2286.1000172702147
+
+Iter: 119
+solving...
+J= 2271.3880270024843
+
+Iter: 120
+solving...
+J= 2256.1480227112643
+
+Iter: 121
+solving...
+J= 2241.3210961175437
+
+Iter: 122
+solving...
+J= 2226.636599432526
+
+Iter: 123
+solving...
+J= 2211.907208766075
+
+Iter: 124
+solving...
+J= 2197.7045004646516
+
+Iter: 125
+solving...
+J= 2183.4780078716944
+
+Iter: 126
+solving...
+J= 2169.2768567718767
+
+Iter: 127
+solving...
+J= 2154.947925417518
+
+Iter: 128
+solving...
+J= 2140.716896502741
+
+Iter: 129
+solving...
+J= 2126.7307855668896
+
+Iter: 130
+solving...
+J= 2112.168073320229
+
+Iter: 131
+solving...
+J= 2097.412334829125
+
+Iter: 132
+solving...
+J= 2082.798125756861
+
+Iter: 133
+solving...
+J= 2067.3393995080996
+
+Iter: 134
+solving...
+J= 2051.5171138387072
+
+Iter: 135
+solving...
+J= 2035.7279404881695
+
+Iter: 136
+solving...
+J= 2019.21198983268
+
+Iter: 137
+solving...
+J= 2002.360270743598
+
+Iter: 138
+solving...
+J= 1985.2581485274131
+
+Iter: 139
+solving...
+J= 1968.3922920455523
+
+Iter: 140
+solving...
+J= 1951.8818233970924
+
+Iter: 141
+solving...
+J= 1935.4344311425546
+
+Iter: 142
+solving...
+J= 1919.5031718812188
+
+Iter: 143
+solving...
+J= 1903.8073114096305
+
+Iter: 144
+solving...
+J= 1888.3094547763596
+
+Iter: 145
+solving...
+J= 1873.0725243258964
+
+Iter: 146
+solving...
+J= 1858.7124759436917
+
+Iter: 147
+solving...
+J= 1844.8880822440533
+
+Iter: 148
+solving...
+J= 1831.2977185507666
+
+Iter: 149
+solving...
+J= 1817.7847115968198
+
+Iter: 150
+solving...
+J= 1804.6646380029272
+
+Iter: 151
+solving...
+J= 1791.651717095848
+
+Iter: 152
+solving...
+J= 1778.9696972681957
+
+Iter: 153
+solving...
+J= 1767.1399605725082
+
+Iter: 154
+solving...
+J= 1755.917949954037
+
+Iter: 155
+solving...
+J= 1744.9240505739845
+
+Iter: 156
+solving...
+J= 1734.348573862306
+
+Iter: 157
+solving...
+J= 1723.7876162205696
+
+Iter: 158
+solving...
+J= 1713.4836464803539
+
+Iter: 159
+solving...
+J= 1703.5561762041198
+
+Iter: 160
+solving...
+J= 1693.7769347319993
+
+Iter: 161
+solving...
+J= 1684.8868697715964
+
+Iter: 162
+solving...
+J= 1676.1608867994726
+
+Iter: 163
+solving...
+J= 1667.5418407579368
+
+Iter: 164
+solving...
+J= 1658.9908909242204
+
+Iter: 165
+solving...
+J= 1650.7512521723345
+
+Iter: 166
+solving...
+J= 1642.3638310654544
+
+Iter: 167
+solving...
+J= 1634.1457085832903
+
+Iter: 168
+solving...
+J= 1626.0311508908917
+
+Iter: 169
+solving...
+J= 1618.1622893104518
+
+Iter: 170
+solving...
+J= 1610.4504515682481
+
+Iter: 171
+solving...
+J= 1602.8254271289125
+
+Iter: 172
+solving...
+J= 1595.408274494998
+
+Iter: 173
+solving...
+J= 1588.4317005840737
+
+Iter: 174
+solving...
+J= 1581.5225168318157
+
+Iter: 175
+solving...
+J= 1575.1915042632756
+
+Iter: 176
+solving...
+J= 1569.2975373650363
+
+Iter: 177
+solving...
+J= 1563.221177223033
+
+Iter: 178
+solving...
+J= 1557.675052113364
+
+Iter: 179
+solving...
+J= 1552.2911222358512
+
+Iter: 180
+solving...
+J= 1547.6818716597684
+
+Iter: 181
+solving...
+J= 1543.3705367839932
+
+Iter: 182
+solving...
+J= 1539.193323562623
+
+Iter: 183
+solving...
+J= 1535.645227702108
+
+Iter: 184
+solving...
+J= 1532.6560593196143
+
+Iter: 185
+solving...
+J= 1529.8616080064592
+
+Iter: 186
+solving...
+J= 1527.236515098238
+
+Iter: 187
+solving...
+J= 1525.0251603764707
+
+Iter: 188
+solving...
+J= 1523.291047700165
+
+Iter: 189
+solving...
+J= 1522.1487522073874
+
+Iter: 190
+solving...
+J= 1521.0776176010681
+
+Iter: 191
+solving...
+J= 1520.1794430937637
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Object cannot be plotted directly, projecting to piecewise linears.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Object cannot be plotted directly, projecting to piecewise linears.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+
+Iter: 192
+solving...
+J= 1519.3906826528842
+
+Iter: 193
+solving...
+J= 1518.610529140343
+
+Iter: 194
+solving...
+J= 1517.8409819704032
+
+Iter: 195
+solving...
+J= 1517.0819263529595
+
+Iter: 196
+solving...
+J= 1516.5359851012877
+
+Iter: 197
+solving...
+J= 1516.230262296598
+
+Iter: 198
+solving...
+J= 1516.1559219803235
+
+Iter: 199
+solving...
+J= 1516.3230251648604
+
+Iter: 200
+solving...
+J= 1516.6160450453551
+
+Iter: 201
+solving...
+J= 1516.9191389613839
+
+Iter: 202
+solving...
+J= 1517.220776307598
+
+Iter: 203
+solving...
+J= 1517.8655678325804
+
+Iter: 204
+solving...
+J= 1518.865704378828
+
+Iter: 205
+solving...
+J= 1520.0180368856813
+
+Iter: 206
+solving...
+J= 1521.4590409515208
+
+Iter: 207
+solving...
+J= 1522.7336484011441
+
+Iter: 208
+solving...
+J= 1523.2827835025014
+
+Iter: 209
+solving...
+J= 1524.0957376067417
+
+Iter: 210
+solving...
+J= 1525.1663499784431
+
+Iter: 211
+solving...
+J= 1526.386596602774
+
+Iter: 212
+solving...
+J= 1527.381068165825
+
+Iter: 213
+solving...
+J= 1528.1437131059618
+
+Iter: 214
+solving...
+J= 1529.423403053017
+
+Iter: 215
+solving...
+J= 1530.8598235204297
+
+Iter: 216
+solving...
+J= 1531.9837033667227
+
+Iter: 217
+solving...
+J= 1533.333140280825
+
+Iter: 218
+solving...
+J= 1534.5249713118346
+
+Iter: 219
+solving...
+J= 1535.9717145110512
+
+Iter: 220
+solving...
+J= 1537.5940809621459
+
+Iter: 221
+solving...
+J= 1538.651688011133
+
+Iter: 222
+solving...
+J= 1539.2573061900396
+
+Iter: 223
+solving...
+J= 1540.0415187571937
+
+Iter: 224
+solving...
+J= 1540.9179404912486
+
+Iter: 225
+solving...
+J= 1542.0274591335672
+
+Iter: 226
+solving...
+J= 1543.0631301103574
+
+Iter: 227
+solving...
+J= 1544.0506887660692
+
+Iter: 228
+solving...
+J= 1545.1368009400912
+
+Iter: 229
+solving...
+J= 1545.8339108710925
+
+Iter: 230
+solving...
+J= 1546.555253594817
+
+Iter: 231
+solving...
+J= 1547.1541574926632
+
+Iter: 232
+solving...
+J= 1547.4847859005172
+
+Iter: 233
+solving...
+J= 1547.811994924833
+
+Iter: 234
+solving...
+J= 1547.8282175782128
+
+Iter: 235
+solving...
+J= 1547.6404588999026
+
+Iter: 236
+solving...
+J= 1547.2566225789208
+
+Iter: 237
+solving...
+J= 1546.7756168877138
+
+Iter: 238
+solving...
+J= 1546.3980062267838
+
+Iter: 239
+solving...
+J= 1546.5005355888704
+
+Iter: 240
+solving...
+J= 1547.2774827036035
+
+Iter: 241
+solving...
+J= 1548.2826328918231
+
+Iter: 242
+solving...
+J= 1549.4722071044894
+
+Iter: 243
+solving...
+J= 1550.583878777568
+
+Iter: 244
+solving...
+J= 1551.3297813072584
+
+Iter: 245
+solving...
+J= 1551.4902567461388
+
+Iter: 246
+solving...
+J= 1550.6432180676743
+
+Iter: 247
+solving...
+J= 1545.991523283451
+
+Iter: 248
+solving...
+J= 1543.5755894934957
+refine mesh..
+
+Iter: 249
+solving...
+J= 1680.0905046849684
+
+Iter: 250
+solving...
+J= 1450.8693414302006
+
+Iter: 251
+solving...
+J= 1414.8109742596453
+
+Iter: 252
+solving...
+J= 1404.6626405893926
+
+Iter: 253
+solving...
+J= 1402.9333932618906
+
+Iter: 254
+solving...
+J= 1400.9676240246085
+
+Iter: 255
+solving...
+J= 1399.7440096953756
+
+Iter: 256
+solving...
+J= 1398.173096803252
+
+Iter: 257
+solving...
+J= 1396.8083903567663
+
+Iter: 258
+solving...
+J= 1395.8062759641377
+
+Iter: 259
+solving...
+J= 1395.160189780683
+
+Iter: 260
+solving...
+J= 1394.8072285043077
+
+Iter: 261
+solving...
+J= 1394.76095433371
+
+Iter: 262
+solving...
+J= 1394.8877383012991
+
+Iter: 263
+solving...
+J= 1395.0908187248663
+
+Iter: 264
+solving...
+J= 1395.3620784414848
+
+Iter: 265
+solving...
+J= 1395.8142088273664
+
+Iter: 266
+solving...
+J= 1396.2325128657292
+
+Iter: 267
+solving...
+J= 1396.4327343680975
+
+Iter: 268
+solving...
+J= 1396.5544981300748
+
+Iter: 269
+solving...
+J= 1396.6905009398788
+
+Iter: 270
+solving...
+J= 1396.8752695128114
+
+Iter: 271
+solving...
+J= 1397.381285111557
+
+Iter: 272
+solving...
+J= 1397.903335410513
+
+Iter: 273
+solving...
+J= 1398.3494485980073
+
+Iter: 274
+solving...
+J= 1398.522044846527
+
+Iter: 275
+solving...
+J= 1398.8374416755719
+
+Iter: 276
+solving...
+J= 1398.9308136504258
+
+Iter: 277
+solving...
+J= 1399.2375481436038
+
+Iter: 278
+solving...
+J= 1398.809642919653
+
+Iter: 279
+solving...
+J= 1399.0357105157261
+
+Iter: 280
+solving...
+J= 1399.6586564472375
+
+Iter: 281
+solving...
+J= 1400.5228307726593
+
+Iter: 282
+solving...
+J= 1401.4751681547268
+
+Iter: 283
+solving...
+J= 1402.5796235685323
+
+Iter: 284
+solving...
+J= 1403.7561926744436
+
+Iter: 285
+solving...
+J= 1404.5419328551475
+
+Iter: 286
+solving...
+J= 1405.3602317454934
+
+Iter: 287
+solving...
+J= 1406.165951613519
+
+Iter: 288
+solving...
+J= 1406.6645250168185
+
+Iter: 289
+solving...
+J= 1407.4145880720455
+
+Iter: 290
+solving...
+J= 1407.6577276725325
+
+Iter: 291
+solving...
+J= 1408.3956566869197
+
+Iter: 292
+solving...
+J= 1408.8435741901455
+
+Iter: 293
+solving...
+J= 1409.640073271484
+
+Iter: 294
+solving...
+J= 1410.2332131316055
+
+Iter: 295
+solving...
+J= 1410.9510171310092
+
+Iter: 296
+solving...
+J= 1411.7080550938156
+
+Iter: 297
+solving...
+J= 1412.4695556454267
+
+Iter: 298
+solving...
+J= 1413.222600687982
+
+Iter: 299
+solving...
+J= 1413.9561528905897
+
+Iter: 300
+solving...
+J= 1414.5233994260236
+
+Iter: 301
+solving...
+J= 1415.2172208778115
+
+Iter: 302
+solving...
+J= 1415.5523584316848
+
+Iter: 303
+solving...
+J= 1416.127676730791
+
+Iter: 304
+solving...
+J= 1416.1680549145506
+
+Iter: 305
+solving...
+J= 1416.914956417718
+
+Iter: 306
+solving...
+J= 1416.7676004341631
+
+Iter: 307
+solving...
+J= 1417.7225367990845
+
+Iter: 308
+solving...
+J= 1417.4823129803813
+
+Iter: 309
+solving...
+J= 1418.6705485988994
+
+Iter: 310
+solving...
+J= 1418.3948914024882
+
+Iter: 311
+solving...
+J= 1419.4635333669776
+
+Iter: 312
+solving...
+J= 1419.0509652101202
+
+Iter: 313
+solving...
+J= 1419.89551944647
+
+Iter: 314
+solving...
+J= 1419.4266626723352
+
+Iter: 315
+solving...
+J= 1420.1387149999473
+
+Iter: 316
+solving...
+J= 1419.52320303175
+
+Iter: 317
+solving...
+J= 1420.0848765556277
+
+Iter: 318
+solving...
+J= 1419.43210929455
+
+Iter: 319
+solving...
+J= 1419.8967993903686
+
+Iter: 320
+solving...
+J= 1419.5600891426675
+
+Iter: 321
+solving...
+J= 1420.3095726268568
+
+Iter: 322
+solving...
+J= 1420.3137311590865
+
+Iter: 323
+solving...
+J= 1421.2579395316423
+
+Iter: 324
+solving...
+J= 1421.2557397215094
+
+Iter: 325
+solving...
+J= 1422.2385180822564
+
+Iter: 326
+solving...
+J= 1422.3499840589252
+
+Iter: 327
+solving...
+J= 1423.226215654446
+
+Iter: 328
+solving...
+J= 1423.4261780397405
+
+Iter: 329
+solving...
+J= 1424.2593466645872
+
+Iter: 330
+solving...
+J= 1424.5796536996982
+
+Iter: 331
+solving...
+J= 1425.4247193880014
+
+Iter: 332
+solving...
+J= 1426.0298213890135
+
+Iter: 333
+solving...
+J= 1426.9414998971579
+
+Iter: 334
+solving...
+J= 1427.5561778658896
+
+Iter: 335
+solving...
+J= 1428.0655678568794
+
+Iter: 336
+solving...
+J= 1428.682955510142
+
+Iter: 337
+solving...
+J= 1429.377445010962
+
+Iter: 338
+solving...
+J= 1430.0932040395423
+
+Iter: 339
+solving...
+J= 1430.8003307178062
+
+Iter: 340
+solving...
+J= 1431.6480164650256
+
+Iter: 341
+solving...
+J= 1432.2852691132287
+
+Iter: 342
+solving...
+J= 1432.8875164923227
+
+Iter: 343
+solving...
+J= 1433.3202155451736
+
+Iter: 344
+solving...
+J= 1433.6143535436702
+
+Iter: 345
+solving...
+J= 1434.1301311532711
+
+Iter: 346
+solving...
+J= 1434.4860201039537
+
+Iter: 347
+solving...
+J= 1435.1726358455614
+
+Iter: 348
+solving...
+J= 1435.548983804596
+
+Iter: 349
+solving...
+J= 1435.7629802350011
+
+Iter: 350
+solving...
+J= 1435.9374065586649
+
+Iter: 351
+solving...
+J= 1436.070731051321
+
+Iter: 352
+solving...
+J= 1436.313611161155
+
+Iter: 353
+solving...
+J= 1436.5325282273284
+
+Iter: 354
+solving...
+J= 1436.9056238056107
+
+Iter: 355
+solving...
+J= 1437.2379255518497
+
+Iter: 356
+solving...
+J= 1437.762325150612
+
+Iter: 357
+solving...
+J= 1438.1495706203382
+
+Iter: 358
+solving...
+J= 1438.6983579983255
+
+Iter: 359
+solving...
+J= 1439.3024653089012
+
+Iter: 360
+solving...
+J= 1439.9342017883694
+
+Iter: 361
+solving...
+J= 1440.4424489995602
+
+Iter: 362
+solving...
+J= 1440.6838105963316
+
+Iter: 363
+solving...
+J= 1440.5463179571066
+
+Iter: 364
+solving...
+J= 1440.4209479584804
+
+Iter: 365
+solving...
+J= 1440.3933442601788
+
+Iter: 366
+solving...
+J= 1440.5184803509187
+
+Iter: 367
+solving...
+J= 1440.3934627222948
+
+Iter: 368
+solving...
+J= 1439.7215868596982
+
+Iter: 369
+solving...
+J= 1438.764614075952
+
+Iter: 370
+solving...
+J= 1437.6628186781247
+
+Iter: 371
+solving...
+J= 1436.3945345276109
+
+Iter: 372
+solving...
+J= 1434.9570496735046
+
+Iter: 373
+solving...
+J= 1433.4283283326622
+
+Iter: 374
+solving...
+J= 1432.2374825990778
+
+Iter: 375
+solving...
+J= 1431.0299368664364
+
+Iter: 376
+solving...
+J= 1429.7061460991351
+
+Iter: 377
+solving...
+J= 1428.3817110207497
+
+Iter: 378
+solving...
+J= Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Object cannot be plotted directly, projecting to piecewise linears.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Object cannot be plotted directly, projecting to piecewise linears.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+Solving linear variational problem.
+1427.0122787597413
+
+Iter: 379
+solving...
+J= 1425.7503663960908
+
+Iter: 380
+solving...
+J= 1423.9776786668515
+
+Iter: 381
+solving...
+J= 1422.0324440019663
+
+Iter: 382
+solving...
+J= 1419.5567225119926
+
+Iter: 383
+solving...
+J= 1417.4122924796477
+
+Iter: 384
+solving...
+J= 1415.4945440959343
+
+Iter: 385
+solving...
+J= 1413.4576870194908
+
+Iter: 386
+solving...
+J= 1410.83386026634
+
+Iter: 387
+solving...
+J= 1408.1321372847601
+
+Iter: 388
+solving...
+J= 1406.4761773520613
+
+Iter: 389
+solving...
+J= 1405.179346661141
+
+Iter: 390
+solving...
+J= 1404.7536861229978
+
+Iter: 391
+solving...
+J= 1403.6284889980675
+
+Iter: 392
+solving...
+J= 1401.891678026045
+
+Iter: 393
+solving...
+J= 1400.7962381636453
+
+Iter: 394
+solving...
+J= 1399.7221950533697
+
+Iter: 395
+solving...
+J= 1398.1662067439515
+
+Iter: 396
+solving...
+J= 1395.9767911402364
+
+Iter: 397
+solving...
+J= 1393.9346313710062
+
+Iter: 398
+solving...
+J= 1392.6005088085997
+
+Iter: 399
+solving...
+J= 1391.4039013277777
+
+Iter: 400
+solving...
+J= 1389.9436342037147
+
+Iter: 401
+solving...
+J= 1387.5768760832955
+
+Iter: 402
+solving...
+J= 1385.6708655984835
+
+Iter: 403
+solving...
+J= 1383.2384910963178
+
+Iter: 404
+solving...
+J= 1381.866161216167
+
+Iter: 405
+solving...
+J= 1379.846901237499
+
+Iter: 406
+solving...
+J= 1377.8615254624845
+
+Iter: 407
+solving...
+J= 1376.3047201926252
+
+Iter: 408
+solving...
+J= 1375.631661384851
+
+Iter: 409
+solving...
+J= 1373.6114073605324
+
+Iter: 410
+solving...
+J= 1372.0796367356143
+
+Iter: 411
+solving...
+J= 1371.7597312052817
+
+Iter: 412
+solving...
+J= 1371.4665909043838
+
+Iter: 413
+solving...
+J= 1371.1166811768753
+
+Iter: 414
+solving...
+J= 1370.0090854342866
+
+Iter: 415
+solving...
+J= 1368.7082480517363
+
+Iter: 416
+solving...
+J= 1367.0166161518318
+
+Iter: 417
+solving...
+J= 1365.3131067484455
+
+Iter: 418
+solving...
+J= 1363.3428582748834
+
+Iter: 419
+solving...
+J= 1361.2236821632935
+
+Iter: 420
+solving...
+J= 1358.8849002955708
+
+Iter: 421
+solving...
+J= 1355.213432719129
+
+Iter: 422
+solving...
+J= 1355.3264802757785
+
+Iter: 423
+solving...
+J= 1355.6539637295502
+
+Iter: 424
+solving...
+J= 1354.7872731791174
+
+Iter: 425
+solving...
+J= 1353.5704232086941
+
+Iter: 426
+solving...
+J= 1352.3068493242608
+refine mesh..
+refine mesh..
+
+Iter: 427
+solving...
+J= 1437.1847512860745
+
+Iter: 428
+solving...
+J= 1338.2670521013906
+
+Iter: 429
+solving...
+J= 1331.57261951293
+
+Iter: 430
+solving...
+J= 1329.8510958989827
+
+Iter: 431
+solving...
+J= 1329.4794377147136
+
+Iter: 432
+solving...
+J= 1329.1820056662523
+
+Iter: 433
+solving...
+J= 1328.367363950456
+
+Iter: 434
+solving...
+J= 1327.117026040243
+
+Iter: 435
+solving...
+J= 1325.5350448589022
+
+Iter: 436
+solving...
+J= 1324.1247706007948
+
+Iter: 437
+solving...
+J= 1322.9951336592576
+
+Iter: 438
+solving...
+J= 1321.9729010713363
+
+Iter: 439
+solving...
+J= 1321.0652245828114
+
+Iter: 440
+solving...
+J= 1320.0761616908028
+
+Iter: 441
+solving...
+J= 1319.0572364864875
+
+Iter: 442
+solving...
+J= 1318.1055629900193
+
+Iter: 443
+solving...
+J= 1317.0851659089099
+
+Iter: 444
+solving...
+J= 1315.91327025638
+
+Iter: 445
+solving...
+J= 1314.6301171552152
+
+Iter: 446
+solving...
+J= 1313.2042601739347
+
+Iter: 447
+solving...
+J= 1311.7832747190757
+
+Iter: 448
+solving...
+J= 1310.5339483177759
+
+Iter: 449
+solving...
+J= 1309.4207245571959
+
+Iter: 450
+solving...
+J= 1308.2775861895775
+
+Iter: 451
+solving...
+J= 1306.9525645689791
+
+Iter: 452
+solving...
+J= 1305.7087563426007
+
+Iter: 453
+solving...
+J= 1304.419570904334
+
+Iter: 454
+solving...
+J= 1303.6844869817858
+
+Iter: 455
+solving...
+J= 1303.0715131510692
+
+Iter: 456
+solving...
+J= 1302.649438737691
+
+Iter: 457
+solving...
+J= 1302.427672996438
+
+Iter: 458
+solving...
+J= 1302.173283421919
+
+Iter: 459
+solving...
+J= 1302.152362194504
+
+Iter: 460
+solving...
+J= 1302.7081703591903
+
+Iter: 461
+solving...
+J= 1302.795238636248
+
+Iter: 462
+solving...
+J= 1302.8702739388364
+
+Iter: 463
+solving...
+J= 1303.1227716977655
+
+Iter: 464
+solving...
+J= 1303.1224708201173
+
+Iter: 465
+solving...
+J= 1303.1484313208096
+
+Iter: 466
+solving...
+J= 1302.5601135042175
+
+Iter: 467
+solving...
+J= 1301.479111052463
+
+Iter: 468
+solving...
+J= 1299.9675161351975
+
+Iter: 469
+solving...
+J= 1298.2407488926783
+
+Iter: 470
+solving...
+J= 1296.577920586934
+
+Iter: 471
+solving...
+J= 1295.0521744728126
+
+Iter: 472
+solving...
+J= 1293.613620283019
+
+Iter: 473
+solving...
+J= 1292.788901233631
+
+Iter: 474
+solving...
+J= 1292.501787614529
+
+Iter: 475
+solving...
+J= 1291.5308998421992
+
+Iter: 476
+solving...
+J= 1291.0868817226387
+
+Iter: 477
+solving...
+J= 1290.3459296869935
+
+Iter: 478
+solving...
+J= 1289.3913090201652
+
+Iter: 479
+solving...
+J= 1288.2814790370473
+
+Iter: 480
+solving...
+J= 1287.1670388880266
+
+Iter: 481
+solving...
+J= 1286.0703802871826
+
+Iter: 482
+solving...
+J= 1286.9011551250428
+
+Iter: 483
+solving...
+J= 1287.2332990712189
+
+Iter: 484
+solving...
+J= 1287.2597553036935
+
+Iter: 485
+solving...
+J= 1287.535310126239
+
+Iter: 486
+solving...
+J= 1287.713541935001
+
+Iter: 487
+solving...
+J= 1287.060039845714
+
+Iter: 488
+solving...
+J= 1285.6890378170592
+refine mesh..
+refine mesh..
+refine mesh..
+
+Iter: 489
+solving...
+J= 1344.0962924605801
+
+Iter: 490
+solving...
+J= 1274.1736164319161
+
+Iter: 491
+solving...
+J= 1271.8951688656418
+
+Iter: 492
+solving...
+J= 1271.6415479054997
+
+Iter: 493
+solving...
+J= 1272.2254813081386
+
+Iter: 494
+solving...
+J= 1273.294247345315
+
+Iter: 495
+solving...
+J= 1273.9912600846637
+
+Iter: 496
+solving...
+J= 1273.9096760549708
+
+Iter: 497
+solving...
+J= 1273.4782409462944
+
+Iter: 498
+solving...
+J= 1272.8392577739776
+
+Iter: 499
+solving...
+J= 1272.1091480289956
+
+Iter: 500
+solving...
+J= 1271.2907754379155
+
+Iter: 501
+solving...
+J= 1270.4795685632023
+
+Iter: 502
+solving...
+J= 1269.5401923502347
+
+Iter: 503
+solving...
+J= 1268.4653180135092
+
+Iter: 504
+solving...
+J= 1267.149236233802
+
+Iter: 505
+solving...
+J= 1265.7383905718807
+
+Iter: 506
+solving...
+J= 1264.4056175154028
+
+Iter: 507
+solving...
+J= 1263.5353434805215
+
+Iter: 508
+solving...
+J= 1262.2145285657064
+
+Iter: 509
+solving...
+J= 1260.9069436985098
+
+Iter: 510
+solving...
+J= 1259.796096430638
+
+Iter: 511
+solving...
+J= 1258.6856603364631
+
+Iter: 512
+solving...
+J= 1257.3628990434543
+
+Iter: 513
+solving...
+J= 1256.0583880869845
+
+Iter: 514
+solving...
+J= 1254.5661662767882
+
+Iter: 515
+solving...
+J= 1253.0394855238599
+
+Iter: 516
+solving...
+J= 1251.5026284119074
+
+Iter: 517
+solving...
+J= 1249.9521947511225
+
+Iter: 518
+solving...
+J= 1248.5784965722037
+
+Iter: 519
+solving...
+J= 1247.134454558221
+
+Iter: 520
+solving...
+J= 1245.7350113756106
+
+Iter: 521
+solving...
+J= 1244.3666130707147
+
+Iter: 522
+solving...
+J= 1243.0743622316597
+
+Iter: 523
+solving...
+J= 1242.0395325250045
+
+Iter: 524
+solving...
+J= 1240.9284205161264
+
+Iter: 525
+solving...
+J= 1240.0959411887256
+
+Iter: 526
+solving...
+J= 1238.4743313468614
+
+Iter: 527
+solving...
+J= 1237.4899420508932
+
+Iter: 528
+solving...
+J= 1235.952262880184
+
+Iter: 529
+solving...
+J= 1235.20317431565
+
+Iter: 530
+solving...
+J= 1233.75853009012
+
+Iter: 531
+solving...
+J= 1232.8955875105437
+
+Iter: 532
+solving...
+J= 1231.390190613947
+
+Iter: 533
+solving...
+J= 1230.1052880302855
+
+Iter: 534
+solving...
+J= 1229.9603067794862
+
+Iter: 535
+solving...
+J= 1230.5032567385074
+
+Iter: 536
+solving...
+J= 1231.2168998615698
+
+Iter: 537
+solving...
+J= 1231.5488332332109
+
+Iter: 538
+solving...
+J= 1231.7390261637458
+Time passed: 0hour:0min:50sec
+converge
+J= 1231.7390261637458
+complince: 1173.2252426366663
+RESULT {"alg": "classic", "seconds": 49.54420677999997, "iterations": 538, "J": 1231.7390261637458, "compliance": 1173.2252426366663, "vertices": 15262}

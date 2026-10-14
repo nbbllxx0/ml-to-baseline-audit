@@ -1,0 +1,22 @@
+cupy 14.2.0; CUDA runtime 13020; device NVIDIA GeForce RTX 5090
+outer 0: n = 544, relative residual 2.98e-10
+FAILED at outer iteration 6
+Traceback (most recent call last):
+  File "E:\AI\ml-to-baseline-audit\retest\oat_harness\repro_spsm.py", line 66, in main
+    x = lu.solve(b)
+        ^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\scipy\sparse\linalg\_solve.py", line 609, in solve
+    x = sm(self.U, x, lower=False, transa=trans)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\scipy\sparse\linalg\_solve.py", line 591, in spsm
+    return cusparse.spsm(A, B, lower=lower, transa=transa)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\cusparse.py", line 2398, in spsm
+    _cusparse.spSM_solve(
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 3442, in cupy_backends.cuda.libs.cusparse.spSM_solve
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 3446, in cupy_backends.cuda.libs.cusparse.spSM_solve
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 1355, in cupy_backends.cuda.libs.cusparse._setStream
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 1337, in cupy_backends.cuda.libs.cusparse.setStream
+  File "cupy_backends/cuda/api/runtime.pyx", line 1040, in cupy_backends.cuda.api.runtime.streamIsCapturing
+  File "cupy_backends/cuda/api/runtime.pyx", line 146, in cupy_backends.cuda.api.runtime.check_status
+cupy_backends.cuda.api.runtime.CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered

@@ -1,0 +1,72 @@
+﻿{
+  "pid": "P01320",
+  "citation": {
+    "title": "Topology optimization using artificial intelligence",
+    "authors": "Ahmed Ait Ouchaoui, Mohammed Nassraoui, Bouchaib Radi",
+    "year": 2024,
+    "venue": "Incertitudes et Fiabilité des Systèmes Multiphysiques, 8(2), 38–42",
+    "doi": "10.21494/iste.op.2024.1231",
+    "arxiv_id": "",
+    "version_coded": "Version of record, open publisher PDF"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On one cantilever case, TopologyGAN's reported stress, displacement, and deformation energy exceed SIMP's values by 2.72, 5.62, and 8.08 times, respectively.",
+    "key_phrase": "",
+    "location": "Section 3, Table 1 and results discussion, p. 41",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The paper reports a 54-second computation but gives no comparable SIMP runtime, so a speed-up cannot be stated or derived.",
+    "direction": "underperform",
+    "alternatives": "The abstract and conclusion qualitatively claim improved computing performance/computational economy; no classical runtime comparison is supplied."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance topology optimization (Section 2, p. 39)",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "ASUS computer, Intel Core i7-8565U CPU @ 1.80 GHz (reported with 54-second result; Section 3, p. 41)",
+    "problem_size": "120×60 mm domain, 1 mm elements, 7,200 elements (Section 2, p. 40)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "54 seconds for the reported optimal shape; method attribution/comparability is unclear (Section 3, p. 41)",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "Maximum von Mises stress, maximum Y displacement, and deformation energy (Section 3, Table 1, p. 41)",
+    "quality_gap": "TopologyGAN versus SIMP: stress 0.809 vs 0.297 MPa; displacement 51.097 vs 9.09 ×10⁻⁵ mm; deformation energy 41.79 vs 5.17 ×10⁻⁷ mJ (Table 1, p. 41)."
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-unmatched", "evidence": "Section 3, Table 1, p. 41: the paper makes a qualitative computational-economy claim, while its GAN design has much higher reported stress, displacement, and deformation energy than SIMP; no matched-quality or matched-time comparison is shown."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Sections 2–3, pp. 39–41: the classical solver implementation and hardware are not reported, so no R2 inefficiency criterion is established."},
+    "R3": {"verdict": "fail", "marker": "R3-no-costs", "evidence": "Sections 2–4, pp. 39–42: a qualitative computational-economy claim is made without reporting training or data-generation cost."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 3, Table 1, p. 41: the returned SIMP and TopologyGAN designs receive static structural evaluation and volume/weight reduction is discussed, but infeasible or failed-design rates are not reported."}
+  },
+  "reporting": {
+    "n_test_cases": "1 cantilever beam (Sections 2–3, pp. 40–41)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "The paper describes a static cantilever comparison. It reports a 54-second computation but does not identify a comparable classical runtime; the qualitative speed/cost claim therefore cannot be quantified."
+}

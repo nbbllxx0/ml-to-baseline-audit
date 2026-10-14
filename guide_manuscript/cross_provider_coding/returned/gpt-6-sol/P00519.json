@@ -1,0 +1,34 @@
+{
+  "pid": "P00519",
+  "citation": {
+    "title": "Toward Signed Distance Function based Metamaterial Design: Neural Operator Transformer for Forward Prediction and Diffusion Model for Inverse Design",
+    "authors": "Qibang Liu; Seid Koric; Diab Abueidda; Hadi Meidani; Philippe Geubelle",
+    "year": 2025,
+    "venue": "arXiv preprint",
+    "doi": "",
+    "arxiv_id": "2504.01195",
+    "version_coded": "arXiv v3 (28 May 2025)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {},
+  "baseline": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion: no classical optimization result or cost is compared."},
+    "R2": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion: no classical optimization result or cost is compared."},
+    "R3": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion: no classical optimization result or cost is compared."},
+    "R4": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full-text exclusion: no classical optimization result or cost is compared."}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Full text read at https://arxiv.org/html/2504.01195 . The diffusion model performs inverse unit-cell design and some returned designs are checked in Abaqus (Section 2.3). Topology optimization is discussed only as motivation (Introduction and Conclusion). Supplement S5 Table S7 compares FE forward-simulation time with neural inference and gives inverse-design inference time, but does not run, time or cite the result/cost of a classical optimizer. Therefore the numerical FE timing is not an optimization-level baseline."
+}

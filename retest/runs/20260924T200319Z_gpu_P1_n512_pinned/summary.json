@@ -1,0 +1,28 @@
+{
+  "solver": "gpu",
+  "problem": "P1_cantilever",
+  "n": 512,
+  "iters": 150,
+  "total_s_median": 22.4042204003199,
+  "total_s_min": 21.886777499923483,
+  "total_s_max": 24.987957500328775,
+  "total_s_all": [
+    24.987957500328775,
+    22.4042204003199,
+    21.886777499923483
+  ],
+  "setup_s": 0.40775509999366477,
+  "warmup_s": 2.4546205999795347,
+  "per_iter_s_median": 0.14686619999702089,
+  "solve_s_median": 0.05378409998957068,
+  "c_last": 20.248185039320113,
+  "vol_last": 0.40000047712397113,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.950004488116799e-09,
+  "pcg_its_median": 16.5,
+  "pcg_its_max": 18,
+  "fallbacks": 0,
+  "idle_power_w": 76.40391304347825,
+  "energy_j_median": 4678.036654270699,
+  "energy_above_idle_j_median": 2939.434917443784
+}

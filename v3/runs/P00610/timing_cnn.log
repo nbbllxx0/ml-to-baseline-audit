@@ -1,0 +1,63 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790346436.988278   54088 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790346438.801472   54088 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From E:\AI\ml-to-baseline-audit\v3\.venv\census-tf\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+WARNING:tensorflow:From E:\AI\ml-to-baseline-audit\v3\.venv\census-tf\Lib\site-packages\tf_keras\src\saving\legacy\saved_model\load.py:109: The name tf.gfile.Exists is deprecated. Please use tf.io.gfile.exists instead.
+
+I0000 00:00:1790346441.495796   54088 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From E:\AI\ml-to-baseline-audit\v3\.venv\census-tf\Lib\site-packages\tf_keras\src\layers\pooling\max_pooling2d.py:161: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+WARNING:tensorflow:From E:\AI\ml-to-baseline-audit\v3\.venv\census-tf\Lib\site-packages\tf_keras\src\utils\tf_utils.py:585: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+cnn CirclePack/00089.jpg 10.0 0.008804842000827193
+cnn CirclePack/00089.jpg 50.0 0.008721139999106526
+cnn CirclePack/00089.jpg 100.0 0.00881386399967596
+cnn CirclePack/00089.jpg 341.7 0.008798741998616607
+cnn CirclePack/00454.jpg 10.0 0.008816616002004594
+cnn CirclePack/00454.jpg 50.0 0.008977759999688716
+cnn CirclePack/00454.jpg 100.0 0.008739486001431943
+cnn CirclePack/00454.jpg 341.7 0.008793547998648137
+cnn CirclePack/00471.jpg 10.0 0.008802326000295579
+cnn CirclePack/00471.jpg 50.0 0.0089176719984971
+cnn CirclePack/00471.jpg 100.0 0.008788825999945403
+cnn CirclePack/00471.jpg 341.7 0.008858153999317437
+cnn EllipsePack/00446.jpg 10.0 0.008915867998730391
+cnn EllipsePack/00446.jpg 50.0 0.008904957999475301
+cnn EllipsePack/00446.jpg 100.0 0.008903770002070814
+cnn EllipsePack/00446.jpg 341.7 0.008938084000255912
+cnn EllipsePack/00459.jpg 10.0 0.009016106000635772
+cnn EllipsePack/00459.jpg 50.0 0.009064408000558615
+cnn EllipsePack/00459.jpg 100.0 0.008928465999197215
+cnn EllipsePack/00459.jpg 341.7 0.009051066001411527
+cnn EllipsePack/00999.jpg 10.0 0.008748765999916941
+cnn EllipsePack/00999.jpg 50.0 0.008920569999609142
+cnn EllipsePack/00999.jpg 100.0 0.008954509999603033
+cnn EllipsePack/00999.jpg 341.7 0.009372302000410854
+cnn QuadrilateralPack/00047.jpg 10.0 0.008704652001615614
+cnn QuadrilateralPack/00047.jpg 50.0 0.009147043998818844
+cnn QuadrilateralPack/00047.jpg 100.0 0.008775746000465006
+cnn QuadrilateralPack/00047.jpg 341.7 0.009300094000063836
+cnn QuadrilateralPack/00118.jpg 10.0 0.008761850001756102
+cnn QuadrilateralPack/00118.jpg 50.0 0.008638031999580562
+cnn QuadrilateralPack/00118.jpg 100.0 0.008786450000479817
+cnn QuadrilateralPack/00118.jpg 341.7 0.008851457999553532
+cnn QuadrilateralPack/00290.jpg 10.0 0.008759824000298977
+cnn QuadrilateralPack/00290.jpg 50.0 0.008837328001391143
+cnn QuadrilateralPack/00290.jpg 100.0 0.008715798000339418
+cnn QuadrilateralPack/00290.jpg 341.7 0.008723766000475735
+cnn QSGS/00063.jpg 10.0 0.008837345999199896
+cnn QSGS/00063.jpg 50.0 0.0087604820006527
+cnn QSGS/00063.jpg 100.0 0.008916221999097616
+cnn QSGS/00063.jpg 341.7 0.008816347999963909
+cnn QSGS/00379.jpg 10.0 0.008685282000806182
+cnn QSGS/00379.jpg 50.0 0.008777558000292628
+cnn QSGS/00379.jpg 100.0 0.00877281199907884
+cnn QSGS/00379.jpg 341.7 0.008787999998312444
+cnn QSGS/00897.jpg 10.0 0.00875668799970299
+cnn QSGS/00897.jpg 50.0 0.008769347998313606
+cnn QSGS/00897.jpg 100.0 0.008706883999984712
+cnn QSGS/00897.jpg 341.7 0.00876036599976942
+wrote E:\AI\ml-to-baseline-audit\v3\runs\P00610\timing\cnn.json

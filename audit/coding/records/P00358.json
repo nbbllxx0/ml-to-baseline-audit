@@ -1,0 +1,101 @@
+{
+  "pid": "P00358",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Latent Diffusion Models for Structural Component Design",
+    "authors": "Ethan Herron; Jaydeep Rade; Anushrut Jignasu; Baskar Ganapathysubramanian; Aditya Balu; Soumik Sarkar; Adarsh Krishnamurthy",
+    "year": 2024,
+    "venue": "Computer-Aided Design 171, 103707 (2024), per Crossref search; arXiv preprint coded",
+    "doi": "10.1016/j.cad.2024.103707",
+    "arxiv_id": "2309.11601",
+    "version_coded": "arXiv v2 (24 Sep 2023), full HTML text read. The version of record (Elsevier, Computer-Aided Design) was not accessed: ScienceDirect is blocked for this agent, and its open-access status was not established."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For 100 test conditions (2,000 generated 3D designs), the distribution of surrogate-predicted strain energy shows no marked aggregate difference from the 100 matching SIMP designs. On this basis the paper presents the generated designs as near-optimal.",
+    "key_phrase": "there is no substantial difference in performance",
+    "location": "Sec. 6.2 Strain Energy Analysis, Fig. 8 (first quantitative performance comparison with SIMP); the Abstract and Conclusions give only the qualitative near-optimality claim",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed claim. No SIMP time and no LDM inference time are reported; Sec. 6.4 gives training times only.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 6.1, Fig. 6: cosine similarity between generated and SIMP designs, used to show diversity rather than performance. (2) Sec. 6.2, Fig. 7: volume-fraction distributions; mean absolute error 0.0989 between the average over the 20 generated designs and the SIMP design. (3) Abstract and Conclusions: qualitative claim that designs are inherently near-optimal because the training data come from SIMP."
+  },
+  "baseline": {
+    "classical_method": "SIMP topology optimization in ANSYS Mechanical APDL v19.2 (Sec. 5)",
+    "implementation": "Commercial: ANSYS Mechanical APDL v19.2 (Sec. 5)",
+    "solver": "not stated",
+    "hardware_classical": "not stated (Sec. 5 mentions a cluster only for voxelization)",
+    "hardware_ml": "not stated",
+    "problem_size": "SIMP mesh of a 1 m cube with 31093 nodes and 154,677 elements (Sec. 5). Designs voxelized to 32^3, 64^3 and 128^3 (Sec. 5). All quality analyses are at 32^3 (Sec. 6.4).",
+    "classical_iterations": "Not stated for the dataset. The subset saved for surrogate training averages 13 iterations per initial strain energy (Sec. 6.2).",
+    "classical_time": "not stated",
+    "ml_time": "Generation/inference time not stated",
+    "training_time": "VAE: about 2 min 20 s per epoch (32^3) and about 24 min per epoch (64^3). 128^3 with multi-grid training: under 2 hours, versus over 10 hours from scratch. DM training: about 6, 22 and 95 ms per sample (32^3, 64^3, 128^3). (Sec. 6.4)",
+    "data_generation_cost": "SIMP run time not stated. 66,000 samples generated (Sec. 5); dataset sizes about 66k (32^3), 25k (64^3) and 10k (128^3) (Sec. 1). Voxelization takes about 15 minutes per geometry, parallelized on a cluster (Sec. 5).",
+    "quality_metric": "Strain energy predicted by a surrogate encoder-decoder CNN trained on about 13.5K intermediate SIMP iterations; its accuracy is not reported (Sec. 6.2, Fig. 8). Also volume-fraction MAE (Sec. 6.2) and cosine similarity (Sec. 6.1).",
+    "quality_gap": "No numeric strain-energy gap is given; the comparison is visual (Fig. 8, Sec. 6.2). Volume-fraction MAE 0.0989 between generated and SIMP designs (Sec. 6.2)."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Stratum Q, so R1 applies as written (PROTOCOL §11, 2026-09-24). Each set of 20 generated designs shares the initial strain energy (load case) of its SIMP design (Sec. 6, p. 6). Volume fraction is not matched: the only LDM input is the initial strain-energy grid (Sec. 4, p. 4), the Conclusions name volume-fraction conditioning as future work (Sec. 7, p. 9), and the average generated volume fraction differs from the SIMP design by a mean absolute error of 0.0989 (Sec. 6.2, Fig. 7, p. 7) for targets of 10-50 % (Sec. 5, p. 6). The SIMP stopping rule is not stated (Sec. 5). The strain-energy comparison is of aggregate, surrogate-predicted distributions (Fig. 8; see R4). Quality is reported but matching is loose: the §5.3 partial case. No speed claim is made."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-no-speed-claim",
+      "evidence": "The primary outcome is quality only. SIMP (ANSYS Mechanical APDL v19.2, Sec. 5) supplies the reference designs, and its run time is never compared."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "There is no speed claim. For reference, training times are reported per epoch or per sample (Sec. 6.4); SIMP data-generation time is not stated; voxelization takes about 15 minutes per geometry (Sec. 5)."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-surrogate",
+      "evidence": "Sec. 6.2, Fig. 8: strain energy of the generated designs is predicted by a surrogate CNN whose accuracy is not reported. No FE analysis of any generated design is reported. Generated volume fractions deviate from the SIMP designs (MAE 0.0989). Floating or disconnected designs are not counted; floating artifacts are mentioned only for a rejected encoder variant (Sec. 4.1)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "100 test-set initial conditions x 20 generated designs = 2,000 generated vs 100 SIMP designs (Sec. 6)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Reporting locators: Sec. 6 (evaluation set); Fig. 10 shows per-condition spread across the 20 samples, but no seeds or repeated runs; Sec. 6.4 (training times only); no hardware, code or data statements in the text. Other observations: (1) The version of record could differ from arXiv v2, and the verifier should check it: added FE verification would change R4, and added timings could change the stratum. (2) The authors frame their task as generative design distinct from TO (Sec. 2). (3) Sec. 6.2 defines volume fraction as the ratio of occupied to unoccupied voxels, as printed. (4) The SIMP stopping rule is not stated. (5) The screening code was I-UNCLEAR; the full text supports stratum Q. Adjudication (2026-09-24): the adjudicator re-read arXiv v2 (PDF, 15 pp.). One scripted request for the version of record (doi.org redirect to ScienceDirect PII S0010448524000344) returned HTTP 403, and a web search showed no other legal copy (only arXiv, the ScienceDirect abstract page and a ResearchGate page, which the access rules exclude), so the version of record remains unread and arXiv v2 stays the coded version.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "na",
+        "second": "partial",
+        "decision": "partial",
+        "reason": "The §11 stratum-Q clarification (2026-09-24) makes R1 apply as written, so na is not available. The LDM takes only the initial strain energy (Sec. 4, p. 4), generated volume fractions deviate from the SIMP design (MAE 0.0989, Sec. 6.2, p. 7) and the SIMP stopping rule is unstated (Sec. 5): quality is reported with loose matching, the §5.3 R1 partial case."
+      }
+    }
+  }
+}

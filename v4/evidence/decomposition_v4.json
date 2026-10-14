@@ -1,0 +1,38 @@
+{
+ "note": "Fig. 2 inputs: v2_extras.json decomposition with OAT 64\u00b2 'strong' = our GPU baseline (N400)",
+ "decomposition": {
+  "OAT 256": {
+   "reported": 133.92156862745097,
+   "own_code": 78.61196519903235,
+   "strong": 18.594931111883444,
+   "matched": 3.4662195588802005,
+   "machine_factor": 1.7035774171067208,
+   "baseline_factor": 4.227601851603198
+  },
+  "OAT 64": {
+   "reported": 17.972440944881892,
+   "own_code": 31.33750361177639,
+   "strong": 4.055240913784251,
+   "matched": 0.6170275826344652,
+   "machine_factor": 1.7436420410495514,
+   "baseline_factor": 7.727655219017063
+  },
+  "HGTO 480x160": {
+   "reported": 4.171140611566878,
+   "own_code": 4.942126951631399,
+   "strong": 0.3896627461190311,
+   "matched": 0.21204162641880442,
+   "machine_factor": 1.1848382521381606,
+   "baseline_factor": 12.683088134172612
+  },
+  "HGTO 960x320": {
+   "reported": 9.604778960706717,
+   "own_code": 10.84630305861028,
+   "strong": 0.5392494547714574,
+   "matched": 0.15367386801422597,
+   "machine_factor": 1.1292610796128317,
+   "baseline_factor": 20.11370241108008
+  }
+ },
+ "preregistered_ratio_256": 1.724021812751362
+}

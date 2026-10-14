@@ -1,0 +1,47 @@
+{
+ "config": {
+  "solver": "gpu",
+  "size": 64,
+  "k": 1,
+  "iters": 5,
+  "repeats": 1,
+  "power": true,
+  "problem_ids": [
+   15
+  ],
+  "formulation": "nu=1/3, Emin=1e-9, rmin=1.5, p=3, top88 OC"
+ },
+ "results": [
+  {
+   "problem_id": 15,
+   "nelx": 64,
+   "nely": 64,
+   "volfrac": 0.30000001192092896,
+   "n_fixed_dofs": 69,
+   "total_s_all": [
+    0.08517449995269999
+   ],
+   "total_s_median": 0.08517449995269999,
+   "per_iter_s_median": 0.016691399971023202,
+   "c_last": 8.677522274071118,
+   "compliance": [
+    149.1690516811188,
+    41.52552847583744,
+    20.803980394942975,
+    12.337990138441004,
+    8.677522274071118
+   ],
+   "true_res_max": 5.444721003578266e-09,
+   "energy": {
+    "idle_w": 58.852391304347826,
+    "repeats": 1,
+    "window_s": 0.19098854064941406,
+    "board_j_per_design": 39.30540980100632,
+    "above_idle_j_per_design": 13.645760793945065
+   },
+   "pcg_its_median": 19,
+   "pcg_its_max": 28,
+   "fallbacks": 0
+  }
+ ]
+}

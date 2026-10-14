@@ -1,0 +1,3 @@
+FROM census-p00663:2
+# FEniCS compiles forms at run time (JIT) and needs a C++ compiler; conda-forge compilers matching the environment.
+RUN mamba install -y -n dnn -c conda-forge cxx-compiler make pkg-config && mamba clean -afy

@@ -1,0 +1,88 @@
+{
+  "pid": "P00385",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Conceptual Design of Cellular Auxetic Systems with Passive Adaptation to Loading",
+    "authors": "Joshua Prendergast, Manaswin Oddiraju, Mostafa Nouh, Souma Chowdhury",
+    "year": 2022,
+    "venue": "arXiv preprint (cs.CE); presented at ASME IDETC/CIE 2022 as paper DETC2022/MESA-90132 (arXiv comments). Version of record: Proc. ASME IDETC/CIE 2022, Vol. 3B, 48th Design Automation Conference, doi 10.1115/detc2022-90132 (Crossref); the ASME page returned HTTP 403 to scripted access, so it was not read",
+    "doi": "10.48550/arXiv.2210.01659",
+    "arxiv_id": "2210.01659",
+    "version_coded": "arXiv v1 (4 Oct 2022; only version on the abs page), full text read from https://arxiv.org/html/2210.01659"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; the abstract's computational-efficiency claim is qualitative and never measured, while its quantitative classical comparison, the fourfold reaction force, concerns quality only; §5.1 rule 1)",
+    "stratum": "quality",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliant_mechanism",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "In a gripper case study, the Bayesian-optimized auxetic-cell design gives 1.65 N contact reaction force versus 0.41 N for an ANSYS compliance-minimizing TO design of equal mass (8%) and 0.85 N at 25% volume (Table 6).",
+    "key_phrase": "four times better in terms of exhibited contact reaction force",
+    "location": "Abstract (quantitative classical comparison, §5.1 rule 1); numbers in Section 4, Table 6",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime of either method is reported. The Abstract and Sec. 1.1 call the parametric-cell approach computationally efficient and TO costly, without numbers. Not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract and Sec. 1.1, qualitative cost claim against system-scale TO (the basis of the I-SPEED screening code); never measured. (2) Table 6 against the 25% TO design: 1.65 vs 0.85 N [derived 1.94×]. (3) Table 6, peak von Mises stress, where TO is better: 31.17 MPa (auxetic) vs 7.41 MPa (TO 8%) and 2.01 MPa (TO 25%). (4) Sec. 4, Fig. 9g: loss of gripping force with payload, slope −0.00263 N/N (auxetic) vs −0.4515 N/N (solid gripper), about 172×; the solid gripper is not an optimized design. (5) Sec. 5, qualitative: the auxetic design needs no manual post-processing, unlike the TO designs."
+  },
+  "baseline": {
+    "classical_method": "ANSYS standard topology optimization minimizing compliance, run at 8% (same mass as the auxetic design) and at 25% volume fraction on the initial gripper envelope, with the envelope edges and the payload as exclusion zones and a symmetry constraint (Sec. 3, Table 5, Sec. 5)",
+    "implementation": "commercial general-purpose TO module (ANSYS, Sec. 5)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated (2D plane-stress gripper; FEniCS with Gmsh first-order triangles for the optimization, ANSYS 8-node-dominant quadrilaterals for validation; Sec. 2.2, Table 4)",
+    "classical_iterations": "at most 100, convergence accuracy 0.1%, converged after 27 iterations (Table 5)",
+    "classical_time": "not stated",
+    "ml_time": "not stated; Bayesian optimization with 500 initial samples and one new sample per iteration, 100 iterations planned, stopped at 80 (Table 3, Sec. 4)",
+    "training_time": "not stated (Gaussian-process surrogate inside the Bayesian-optimization loop)",
+    "data_generation_cost": "not stated; 500 initial samples plus 80 iterations (Table 3, Sec. 4) [inferred: about 580 FEniCS evaluations]",
+    "quality_metric": "Contact reaction force at the payload and peak von Mises stress from an ANSYS validation FEM (static plane stress, large deflection, bonded contact, 50 N input force, 20 N payload; Table 4) applied to all three designs (Table 6)",
+    "quality_gap": "Reaction force 1.65 N (auxetic, 8%) vs 0.41 N (TO, 8%) and 0.85 N (TO, 25%) [derived 4.02× and 1.94×]; peak von Mises stress 31.17 MPa vs 7.41 and 2.01 MPa [derived 4.2× and 15.5× higher for the auxetic design] (Table 6)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table 6 and Sec. 3: the 8% TO design has the same mass as the auxetic design (Table 6 footnote), and all three designs pass through the same ANSYS validation FEM (Table 4). Matching is loose: TO minimizes compliance on the initial envelope, while the Bayesian optimization maximizes a jaw displacement ratio (Eq. 1) and may change the outer envelope through the edge offset and cell sizes (Sec. 3) [inferred: design domains may differ; Sec. 2.2 says the outer geometry is fixed, so the article is inconsistent]. The TO outputs were manually post-processed on the outer contour before validation (Sec. 4). The Bayesian optimization was stopped at 80 of 100 planned iterations (Sec. 4), and no compute budget is compared."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl (general-purpose commercial TO module); comparator objective mismatch [judgment]",
+      "evidence": "Sec. 5 and Table 5: the classical comparator is ANSYS's standard TO module, a general-purpose commercial TO module (a listed partial case), minimizing compliance (at most 100 iterations, 0.1% convergence accuracy, converged in 27). Its objective differs from the gripping-force metric used in the comparison (Table 6) and from the Bayesian-optimization objective (jaw displacement ratio, Eq. 1). No mechanism-type TO formulation targeting jaw force or displacement is run [inferred to be the competent classical comparator for a gripper]. The authors note that the TO result could change with added constraints (Sec. 4). (b) does not apply: the abstract uses the equal-mass 8% design, which is the fair one; the 25% design uses about three times the material. No runtimes exist, so (a) and (c)-(e) cannot apply. A verifier who weighs the objective mismatch as decisive may choose fail."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "Quality stratum; the Abstract's efficiency claim is not quantified. For C3: the Bayesian optimization used 500 initial samples and was stopped after 80 one-sample iterations (Table 3, Sec. 4) [inferred: about 580 FEniCS evaluations], while TO converged in 27 iterations (Table 5); no times or hardware are reported."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Sec. 3 and 5, Tables 4 and 6: the returned auxetic design is re-analysed with a separate, higher-fidelity ANSYS validation FEM, and reaction force and peak von Mises stress are reported for all three designs, with mass fractions stated (8%, 8%, 25%). One returned design, so no failure rate applies. Satisfaction of the rib-overlap constraint g1 is not reported; unsure, so pass."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "One gripper case: 1 auxetic design vs 2 TO designs (8%, 25%) (Table 6); jaw displacements (Table 7); passive-adaptation check against a solid gripper (Fig. 9)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED. The Abstract holds a quantitative classical comparison (the fourfold reaction force), so §5.1 rule 1 makes it the primary outcome and the record goes to stratum Q; the efficiency statements are qualitative. Scope judgment for the verifier: the learned model is a Gaussian-process surrogate inside Bayesian optimization of five unit-cell parameters (Table 1, Sec. 2.3); §3.1 lists Gaussian processes as learned models and the comparator is TO, so the record is included; a verifier who treats GP-based Bayesian optimization as a classical optimizer would exclude it (FT-SCOPE). Internal inconsistencies: Sec. 2.2 says the outer geometry is not changed, while Sec. 3 says the edge offset changes the envelope during optimization; the Sec. 4 text describes Fig. 9 at a 10 N payload, while the Fig. 9 caption and Table 4 give 20 N. By the Table 7 jaw displacements, the 8% TO design has a larger x/y displacement ratio than the auxetic design (about 181 vs 27) [derived; units not stated], so under the validation FEM the Bayesian optimization's own objective favours TO, while the Abstract reports only the reaction force. The optimization was stopped early at 80 of 100 iterations (Sec. 4), which disadvantages the ML side. No code link, data or hardware statement in arXiv v1, although the framework is described as built from open-source tools (FEniCS, Gmsh). Version of record (ASME IDETC 2022) not read. retest_candidate false: quality stratum, no public code, and the classical side needs ANSYS."
+}

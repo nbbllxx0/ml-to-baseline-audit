@@ -1,0 +1,88 @@
+{
+  "pid": "P00313",
+  "citation": {
+    "title": "Populating cellular metamaterials on the extrema of attainable elasticity through neuroevolution",
+    "authors": "Maohua Yan, Ruicheng Wang, Ke Liu",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.NE; cs.CE); a version of record is also registered at Computer Methods in Applied Mechanics and Engineering",
+    "doi": "10.1016/j.cma.2025.117950",
+    "arxiv_id": "2412.11112",
+    "version_coded": "arXiv v4 (13 Mar 2025; latest of 4 versions: v1 15 Dec 2024, v2 17 Dec 2024, v3 25 Dec 2024, v4 13 Mar 2025), full text read from the PDF (https://arxiv.org/pdf/2412.11112v4). The journal DOI (10.1016/j.cma.2025.117950) redirects to linkinghub.elsevier.com then sciencedirect.com/science/article/pii/S0045782525002221; not fetched further given this session's consistent pattern of HTTP 403 responses from sciencedirect.com to scripted access (the version of record was not read; no bypass attempted)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (full-text determination, on the 'no wasted computation' / one-shot-vs-one-at-a-time efficiency framing that the Abstract and Sec. 3.5 both emphasize; this blind second-pass coder has no access to the original title/abstract screening code)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The Abstract states that gradient-based topology optimization, while effective for specific target designs, is 'not efficient' for surveying the full multi-objective design space and cannot reveal the attainable bound of competing elastic properties, whereas a single 800-iteration neuroevolution run (CPPN genomes evolved by a modified NEAT/MOEA) produces an entire population of designs spread across the Pareto front, with no computation discarded (unlike one-at-a-time topology optimization, Sec. 3.5).",
+    "key_phrase": "not efficient tools for surveying the vast design space of metamaterials",
+    "location": "Abstract (first and only classical-method comparison in the Abstract; the Conclusion and Introduction repeat the same qualitative framing with no numbers). No quantitative comparison with a classical method appears anywhere in the article (searched throughout)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no wall-clock time is reported anywhere for this study's own 800-iteration evolutionary runs, despite the article giving unusually detailed hardware specifications (Alibaba Cloud, dual AMD EPYC 7H12, 256 cores total, 503 GiB RAM, Sec. 3); no time or cost figure is given for the cited classical-TO comparator (Ref. [5]) either. The article's own efficiency argument is architectural ('no computation is wasted' by collecting every generated design instead of one-at-a-time TO runs, Sec. 3.5) rather than a measured time comparison.",
+    "direction": "outperform",
+    "alternatives": "Sec. 3.3 (orthotropic case, the only place with a concrete, named comparison): 'After 800 iterations, we observed that the outcomes...are consistent with the results reported in Ref. [5]. This not only validates the effectiveness of our approach but also underscores its capacity for more efficient control...Unlike the topology optimization driven methods [5], which yields sparse points on the Pareto front...our method discovers designs...uniformly and densely located on the Pareto front.' This is a quality/coverage comparison (Pareto-front density), qualitative (no point counts given for either side), against a specific prior topology-optimization-based study rather than a class comparison; per protocol Sec. 5.1's search order (quantitative, then qualitative in abstract->conclusion->introduction only), it is not reached as primary because the Abstract's qualitative statement already provides a candidate and the search order for the qualitative fallback does not extend into the main text."
+  },
+  "baseline": {
+    "classical_method": "Gradient-based topology optimization (density-based/level-set/phase-field, per the Introduction's survey) as the general class of comparator; specifically 'topology optimization driven methods' from Ref. [5] for the orthotropic elastic-tensor trade-off case (Sec. 3.3) - a prior study whose published results are compared against qualitatively, not re-run within this article",
+    "implementation": "not applicable/not stated: no classical baseline is executed within this study; Ref. [5]'s implementation is not described here",
+    "solver": "not stated",
+    "hardware_classical": "not stated (no classical baseline is run in this study)",
+    "hardware_ml": "Alibaba Cloud machines, dual AMD EPYC 7H12 64-core processors (256 processors total), 2.60 GHz base clock, 503 GiB DDR4 RAM; explicitly no GPU used (Sec. 3, 'GPUs were not required, as the simulations primarily relied on CPU-intensive tasks')",
+    "problem_size": "2D unit cells on a 35x35 point-cloud grid, population size 500, evolved for 800 iterations/generations, across 4 symmetry classes (Sec. 3)",
+    "classical_iterations": "not stated (no classical baseline run in this study); this study's own evolution runs for 800 iterations with population 500",
+    "classical_time": "not stated",
+    "ml_time": "not stated (no wall-clock time given anywhere for the 800-iteration evolutionary runs, despite the detailed hardware description above)",
+    "training_time": "not applicable in the offline-training sense: CPPN genomes are evolved directly via fitness (elastic-tensor) evaluation over 800 generations; this is the entire reported computation, with no separate pre-training phase",
+    "data_generation_cost": "not applicable as a separate cost: every genome evaluated during the 800-generation search is retained to build the final metamaterial database (Sec. 3.5), so there is no discarded/separate data-generation phase distinct from the reported search itself",
+    "quality_metric": "Homogenized elastic tensor components (average Young's modulus E and Poisson's ratio nu, or individual elastic tensor entries C_ij for orthotropic/anisotropic cases) computed by numerical (FEM-based) homogenization of the actual periodic unit cell (Appendix A), not an image-similarity or surrogate-predicted metric",
+    "quality_gap": "Not quantified against a classical baseline anywhere; Sec. 3.3 states only qualitatively that results are 'consistent with' Ref. [5] and that the Pareto front is 'densely' populated versus Ref. [5]'s 'sparse points', with no point counts or numeric density measure given for either method"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "The primary efficiency claim (Abstract, Sec. 3.5) has no numbers on either side: no classical-TO time or cost is stated, and this study's own 800-iteration run is never given a wall-clock time despite detailed hardware being reported. The nearest thing to a quality check is the qualitative, unquantified consistency claim against Ref. [5] in Sec. 3.3 (same elastic-tensor trade-off problem, 'consistent with the results reported in Ref. [5]', described as denser/more uniform than Ref. [5]'s 'sparse points'), which is not tied to the efficiency claim and gives no point counts for either method."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-no-baseline-run",
+      "evidence": "No classical topology-optimization baseline is executed within this study; the only classical-method reference (Ref. [5]) is compared against as a previously published result, not re-run, so there is no baseline run for this article to make efficient or inefficient, and R2(a)-(e) do not apply."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No quantitative speed-up or cost figure is claimed against a classical method anywhere in the article (see claimed_speedup_basis), so there is no speed claim for R3's cost-accounting criteria to test. Independently, the study's structure (evolving CPPN genomes directly via fitness evaluation over 800 generations, retaining every evaluated design to build the final database, Sec. 3.5) has no separate offline-training phase distinct from the reported search itself, similar in spirit to a per-problem optimization."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Elastic properties of every reported design are computed by genuine FEM-based numerical homogenization (Appendix A), not an image-similarity or surrogate-predicted metric, satisfying the core quality-verification requirement. Constraint violations during the search are handled by incorporating them into a constraint-violation (CV) metric rather than simple rejection (Sec. 2, 'we stress that simply discarding structures that violate these constraints would severely limit...'), showing engagement with infeasibility, but no final quantified failure or infeasibility rate is reported for the populations shown in the results (Sec. 3)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 symmetry classes (isotropic p31m; tetragonal p4mm and p4; orthotropic p2mm; fully anisotropic p1), each explored via one 800-iteration, population-500 evolutionary run producing a full Pareto-front population of designs (Sec. 3.1-3.4), plus a combined multi-symmetry database (Sec. 3.5, Table 1)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "As a blind second-pass coder I have no access to the original title/abstract screening file; the 'I-SPEED' reason reflects only my own full-text determination, and is a genuinely close call against 'quality' (see below). Primary-outcome reasoning: no quantitative classical-method comparison exists anywhere in the article (searched the full text for numeric TO times, costs, or Pareto-point counts). Per protocol Sec. 5.1 step 3, the qualitative fallback is searched only in abstract -> conclusion -> introduction (not main text), and the Abstract already supplies a qualitative efficiency claim ('not efficient tools for surveying the vast design space'), so that is taken as primary; Sec. 3.5's 'no computation is wasted' (one-shot database vs one-at-a-time TO) elaborates the same claim and is why stratum is coded 'speed' rather than 'quality' - but this is a judgment call, since the concrete, evidence-backed comparison in the paper (Sec. 3.3, versus Ref. [5]) is actually about Pareto-front density/coverage, a quality axis, not speed; a verifier could reasonably prefer stratum='quality' with Sec. 3.3 as the primary outcome instead. method_family is coded 'other' because the method (Compositional Pattern-Producing Networks evolved by a modified NEAT algorithm under a multi-objective evolutionary strategy) is neuroevolution, which does not fit any of the listed cnn/gan/vae/diffusion_flow/transformer/gnn/llm_agent/rl/neural_reparam/surrogate_mlp_gp categories (it is population-based and evolves network topology directly, unlike RL's reward/policy-gradient framework). No code-availability statement was found anywhere in the text (only 'Data will be made available on request', p.18, which is why data_available is 'on_request' but code_available is 'no'). No author of this article is named Jun Wang (authors: Maohua Yan, Ruicheng Wang, Ke Liu). Duplicates: pool.csv holds a single record for P00313 with no companion duplicate pid for this title, so FT-DUPLICATE does not apply."
+}

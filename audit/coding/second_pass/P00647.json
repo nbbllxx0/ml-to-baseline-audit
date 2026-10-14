@@ -1,0 +1,87 @@
+{
+  "pid": "P00647",
+  "citation": {
+    "title": "Designing a TPMS metamaterial via deep learning and topology optimization",
+    "authors": "Asha Viswanath, Diab W. Abueidda, Mohamad Modrek, Rashid K. Abu Al-Rub, Seid Koric, Kamran A. Khan",
+    "year": 2024,
+    "venue": "Frontiers in Mechanical Engineering, Vol. 10, Art. 1417606",
+    "doi": "10.3389/fmech.2024.1417606",
+    "version_coded": "Version of record (Frontiers in Mechanical Engineering 10:1417606, published 26 Aug 2024, open access CC BY); full main text, tables, figures, nomenclature and reference list read from the publisher's open-access PDF at frontiersin.org"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Generating the 2,751-design training set by running classical homogenization-based TO cost 2.4 CPU-hours per design (24 CPU-hours total, parallelized); after 5.5 GPU-hours of training, the CNN then predicts a new optimized gyroid topology in about 0.001 CPU-hours.",
+    "key_phrase": "TO will occur instantly, even on a laptop",
+    "location": "Section 3.1 and Table 2 (main text); the Abstract and Conclusion state the saving only qualitatively, and the Introduction gives only the classical side (about 67 s per iteration over 200-800 iterations) without a paired ML number",
+    "quantitative": true,
+    "claimed_speedup": 2400,
+    "claimed_speedup_basis": "Derived, not explicitly claimed as a ratio. Sec. 3.1: a single classical TO data point takes 2.4 CPU-hours on one HPC core. Table 2: DL prediction of a topology takes 0.001 CPU-hours [inferred: per single new prediction, consistent with the 'almost instant' description]. 2.4 / 0.001 = 2,400. A second, larger estimate is possible from the Introduction's ~67 s/iteration over 200-800 iterations for the same 32^3 mesh (about 3.7-14.9 CPU-hours per run), giving a ratio of roughly 3,700-14,900 against the same 0.001 CPU-hour prediction; the Table 2 based figure is entered as the primary derived value because Table 2 is the article's own dedicated cost-accounting comparison.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract and Sec. 5: surrogate fidelity via mean square error (0.0079 on the test set) and mean Dice similarity coefficient (about 95%) between CNN-predicted and classical-TO-generated ground-truth density fields - an image-similarity accuracy claim, not an independent design-quality comparison. (2) Sec. 5: mean volume-fraction deviation of predicted vs. ground-truth topologies, 0.24% mean (range 7.6e-4% to 1.73%). (3) Introduction: qualitative motivating statement that a single 32^3-mesh TO run needs about 200-800 iterations at about 67 s each, without a paired DL figure at that point in the text."
+  },
+  "baseline": {
+    "classical_method": "Homogenization-based topology optimization with SIMP-type density interpolation (penalization p = 5.0) and Heaviside projection filtering, maximizing bulk or shear modulus of a gyroid unit cell (Sec. 2.2, following Gao et al. 2018)",
+    "implementation": "Authors' own MATLAB implementation, adapted from a published 3D homogenization-based TO MATLAB code (Gao et al. 2018/2019b) and a 149-line homogenization MATLAB code (Dong et al. 2018); released in the paper's own GitHub repository together with the Python CNN code",
+    "solver": "not stated (global stiffness matrix K assembled and solved for 6 independent strain load cases per Sec. 2.2; the linear-solve method, e.g. direct vs iterative, is not named); a continuation scheme doubles the Heaviside parameter beta from 1 to 512 every 50 iterations or on convergence of the density change below 0.01 (Sec. 2.2)",
+    "hardware_classical": "Single CPU core per data-generation job, run in parallel batches of 10 designs per job (275 jobs total: 200 runs on 5 nodes x 40 cores at NCSA's iForge cluster, 75 runs on 1 node x 26 cores on an IBM HPC system with two 12-core Intel Xeon E5-2695 v2 CPUs, two NVIDIA K20M GPUs and 264 GB RAM) (Sec. 3.1)",
+    "hardware_ml": "Same two HPC systems for the 5.5 GPU-hours of training (GPU model not attributed between the K20M and V100 GPUs available at the two sites); deployment prediction is described as running 'even on a laptop' with no further hardware specification (Sec. 3.1, Sec. 5)",
+    "problem_size": "3D unit cell, 32x32x32 voxel/finite-element mesh (eight-node brick elements, stated as 6 d.o.f. per node [as printed]); 2,751 factorial design points over volume fraction 25-45% and filter radius 1.2-2.5 cm (Table 1, Sec. 3.1); total system DOF is not stated directly [inferred order of magnitude 1-2x10^5 from about 33^3 nodes]",
+    "classical_iterations": "Not a fixed count for the reported dataset. Introduction states a single 32^3-mesh TO run needs about 200-800 iterations at about 67 s/iteration to converge (Sec. 1). Runs were capped at 1,000 iterations; combinations that failed to converge by then, or gave infeasible (hollow) topologies, were discarded from the final dataset (2,751 candidates reduced to 2,597 for bulk modulus and 2,741 for shear modulus) (Sec. 5)",
+    "classical_time": "2.4 CPU-hours per data point on one core (Sec. 3.1); 24 CPU-hours reported in Table 2 as the total/parallelized time for all 2,751 points across the two HPC systems; Introduction separately gives about 67 s/iteration over about 200-800 iterations (about 3.7-14.9 CPU-hours) for the same mesh size (Sec. 1)",
+    "ml_time": "0.001 CPU-hours (Table 2) [inferred: per single new prediction], described narratively as near-instant, 'even on a laptop' (Sec. 3.1, Sec. 5)",
+    "training_time": "5.5 GPU-hours (Table 2); 150 epochs, batch size 128, Adam optimizer, learning rate 0.001, on 90% of the 2,597/2,741-point (bulk/shear) datasets (Sec. 3.1)",
+    "data_generation_cost": "24 CPU-hours total (2.4 CPU-hours per data point on a single core, run in parallel batches of 10 designs per HPC job across 275 jobs) to produce the 2,751-point labeled training set (Table 2, Sec. 3.1)",
+    "quality_metric": "Mean square error (MSE) and Dice similarity coefficient (DSC) between the CNN-predicted density field and the classical-TO ground-truth density field (image-similarity metrics on the voxel array, not an independent FE re-evaluation of the predicted design's bulk/shear modulus); also mean absolute deviation in volume fraction (Sec. 3.3, Sec. 5)",
+    "quality_gap": "Test-set MSE = 0.0079; mean DSC about 95% after about 100 training epochs; mean volume-fraction deviation 0.24% (range 7.6e-4% to 1.73%) (Sec. 5). The actual homogenized bulk/shear modulus of the CNN-predicted topology, independently recomputed by FE, is not reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 3.1, Table 2: the speed claim (2.4 CPU-hr classical vs. 0.001 CPU-hr DL prediction per design [derived, 2,400x]) is not matched at the level of the actual optimization objective. Quality is reported only as image-similarity between predicted and ground-truth density fields (MSE, DSC) plus mean volume-fraction deviation (0.24%, up to 1.73%; Sec. 5); the predicted topology's own homogenized bulk/shear modulus is never independently recomputed by FE and compared to the classical target, so it cannot be confirmed that the large time saving holds at matched design quality on the actual objective."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-educational-code",
+      "evidence": "Sec. 3.1, Data availability: the classical MATLAB TO code is the authors' own adaptation of a published academic homogenization/TO code, and the article repeatedly frames its own codes as intended for education rather than performance, with no stated solver type (direct/iterative/multigrid) or vectorization details, so efficiency cannot be judged directly [inferred: likely non-optimized]. The reported deployment comparison (0.001 CPU-hours, Table 2) is itself denominated in CPU-hours and described as running even on a laptop (Sec. 3.1, Sec. 5), so the primary speed claim is not a GPU-vs-CPU-only comparison; only the separately-reported 5.5-GPU-hour training step used GPU hardware, which R3 covers instead. Classical run hardware (single CPU core per job) is not otherwise justified against the HPC/GPU hardware available at the same sites."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-costs-reported",
+      "evidence": "Table 2 and Sec. 3.1 report both the data-generation cost (24 CPU-hours total, 2.4 CPU-hours per design) and the training cost (5.5 GPU-hours) as separate line items, and the article's ongoing benefit claim is explicitly limited to the per-query deployment cost once the model is trained (0.001 CPU-hours per new prediction; reusability across new parameter combinations is stated as the main advantage in Sec. 3.1 and the Conclusion). No explicit numerical break-even count of uses is computed, but both upstream costs are disclosed and the recurring claim is confined to inference."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Sec. 3.3 and Sec. 5: the CNN-predicted topology's quality is scored only by MSE and mean Dice similarity coefficient against the classical-TO ground truth, plus mean volume-fraction deviation; no independent FE analysis recomputes the predicted design's actual bulk/shear modulus. Non-convergent or infeasible classical runs were identified and discarded from the training set (Sec. 5), but no equivalent failure or infeasibility rate is reported for CNN-predicted designs."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5% of the dataset held out as a test set (about 130-137 of the 2,597-2,741 labeled designs, exact count not stated), plus two illustrative out-of-training-grid cases (Vf=35%, rmin=2 cm, bulk and shear) shown in Fig. 16",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": true,
+  "notes": "Duplicate found via audit/pool/pool.csv title search: P00826, 'Gyroid-like metamaterials: Topology optimization and Deep Learning' (arXiv 2303.10007, posted 2023-03-17), has the same author team and a near-verbatim abstract (including the identical 'low mean square error metric and a high Dice coefficient metric' clause). This is the earlier arXiv preprint of the present article. P00647 is the version of record (Frontiers, open access) and is coded here as the primary version; P00826 is the non-primary duplicate (FT-DUPLICATE), named here per protocol for the coder handling that pid. A separate, non-duplicate predecessor also exists in the pool: P00767 (Viswanath et al. 2021, ASC conference proceedings), which the article itself cites and explicitly distinguishes as narrower in scope (single parameter, bulk modulus only, non-0/1 densities) - not the same article, no action taken. No author named Jun Wang; the reference list cites an unrelated 'Wang et al. 2024' (a different plate-lattice TPMS paper) only as related work, not as an author of this article. Primary-outcome choice: the Abstract's MSE/DSC statement is a self-accuracy claim of the surrogate against its own training-label generator, not framed as a comparison of two competing methods' outcomes, so the first true cost/speed comparison (Table 2, Sec. 3.1) is taken as the primary outcome rather than the Abstract's accuracy statement; the latter is recorded as alternative (1). Table 2's 'CPU hours' label for data generation (24 h) is the article's own parallelized wall-time figure (275 HPC jobs run concurrently), not a serial CPU-hour sum; the cleaner single-core rate (2.4 CPU-hr/design, stated directly in Sec. 3.1) is used for the derived speed-up instead. Code/data check (GitHub, 2026-09-24, no personal data sent): github.com/AshaV17/Deep-Learning-for-3D-Topology-Optimization contains the MATLAB TO codes, the Python ResUNet code (gyr_ResUnet.py), the initial gyroid design and the 2,751-point parameter table (vfrmin.mat), but not the completed set of 2,751 optimized output topologies themselves (data_available = no); no LICENSE file is present in the repository, but the article's Data Availability Statement itself states the codes are provided for educational use, which supports retest_candidate = true despite the missing formal licence."
+}

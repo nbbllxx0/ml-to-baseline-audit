@@ -1,0 +1,2279 @@
+[
+ {
+  "pid": "P01283",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of brain-inspired neural network modelling for medical imaging; topology optimization refers to network structure. Bracketed PubMed title suggests a translated, non-English article."
+ },
+ {
+  "pid": "P01284",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Vague preprint on data-adaptive topology of geometric representations for datasets; no structural or material design content; possible duplicate of P01035;P01039;P01153;P01273"
+ },
+ {
+  "pid": "P01285",
+  "decision": "include",
+  "code": "I-QUALITY",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "PINN-based TO with SIMP hot-start for nonlinear architectural structures; claims 14-23% lower compliance than traditional methods at similar, slightly higher computing time."
+ },
+ {
+  "pid": "P01286",
+  "decision": "exclude",
+  "code": "E-FORWARD",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "ML builds a humanoid multibody model to estimate hip-joint loads; the implant TO itself is classical, so learning serves forward load prediction only."
+ },
+ {
+  "pid": "P01287",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "RL-driven adjustment of neural network connectivity; topology of a network architecture, not structural TO; possible duplicate of P01254;P01280"
+ },
+ {
+  "pid": "P01288",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Chapter of a published dissertation on learning-assisted generic TO for crashworthiness; thesis material rather than a journal or conference article."
+ },
+ {
+  "pid": "P01289",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "Learned surrogate predicts LPBF residual deformation and sensitivities inside process-aware TO; whole optimization reportedly ran faster than one FEA process simulation."
+ },
+ {
+  "pid": "P01290",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Another chapter of the same dissertation, on TO driven by learned sensitivity predictions; thesis material, excluded by type."
+ },
+ {
+  "pid": "P01291",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Neuron-level adaptive topology for neural network design; concerns network architecture, not structural TO; possible duplicate of P01254;P01273;P01280;P01284;P01287"
+ },
+ {
+  "pid": "P01292",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Dissertation on neuroevolution of CNN architectures; topology refers to network structure, unrelated to structural TO."
+ },
+ {
+  "pid": "P01293",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Generative-algorithm rewiring of neural network connections; network topology optimization, not structural TO; possible duplicate of P01036;P01037;P01038;P01045;P01254"
+ },
+ {
+  "pid": "P01294",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Clustering plus Kriging-type metamodel optimization for nonlinear multimaterial crash design, compared with conventional multimaterial TO; efficiency asserted but comparison outcome unstated."
+ },
+ {
+  "pid": "P01295",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "RL and a genetic algorithm generate and rewire neurographs for cognitive tasks; neural network topology, not structural TO."
+ },
+ {
+  "pid": "P01296",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "3d",
+  "rationale": "Dissertation on differentiable hyperelastic multiscale TO with PINN homogenization surrogates and large reported speedups; thesis, excluded by type."
+ },
+ {
+  "pid": "P01297",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Architecture sweep of autoregressive neural oscillators; topology denotes layer configurations, unrelated to structural TO."
+ },
+ {
+  "pid": "P01298",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Classical TO of a tire-machine pedestal, then an RBF-network surrogate with NSGA-II for sizing; learning serves post-TO parameter optimization, not the TO."
+ },
+ {
+  "pid": "P01299",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Adaptive matrix of node and edge connections for learning systems; network topology, not structural TO; possible duplicate of P01273;P01284"
+ },
+ {
+  "pid": "P01300",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Title (PINN thermal-conductivity modelling) and abstract (classical TO of an artificial ossicle) describe different works; neither shows ML producing or accelerating TO."
+ },
+ {
+  "pid": "P01301",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Vague quantum-inspired parameter optimization algorithm with placeholder text; no structural or material design content."
+ },
+ {
+  "pid": "P01302",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "RL-guided topology and material selection for terahertz photonic crystal fibres; photonic domain."
+ },
+ {
+  "pid": "P01303",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Adaptive model topology during ML training for generalization; not structural TO; possible duplicate of P01273;P01284;P01299"
+ },
+ {
+  "pid": "P01304",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Correction notice for a review on physics-informed ML in turbulence, TO and convergence; errata are excluded by type; possible duplicate of P00926"
+ },
+ {
+  "pid": "P01305",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates AI used in TO of a weeding-robot structure; the learning role and any classical comparison need the full text."
+ },
+ {
+  "pid": "P01306",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates grammar-based evolutionary generation of structural system layouts, with no learned model indicated."
+ },
+ {
+  "pid": "P01307",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "gan",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Vague preprint combining GANs and RL for structural geometry design, promising shorter design time than traditional methods; unclear whether real structural TO is done."
+ },
+ {
+  "pid": "P01308",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "RL learns and adjusts generic system topology under dynamic change; no structural or material design; possible duplicate of P01254;P01280;P01301"
+ },
+ {
+  "pid": "P01309",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Vague preprint: self-learning network refines topology and claims structures beating traditional methods; unclear whether structural TO; possible duplicate of P01273;P01284;P01299;P01303"
+ },
+ {
+  "pid": "P01310",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Presentation on autodiff-based TO of electromagnetic metamaterials and photonic solvers; a talk record in an excluded domain, without a learned model."
+ },
+ {
+  "pid": "P01311",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "RL and graph theory evolve complex network topologies for proteins and neural networks; not structural TO."
+ },
+ {
+  "pid": "P01312",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates TO of composite magnetic actuators for force and heat conduction, an electromagnetic domain, with no learned model indicated."
+ },
+ {
+  "pid": "P01313",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Policy-gradient RL rewires neural network connections; network architecture optimization, not structural TO."
+ },
+ {
+  "pid": "P01314",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Cost-benefit study of kNN, random-forest and deconvolutional-network warm starts for TO against the optimizer alone, counting data and training costs; mixed outcome."
+ },
+ {
+  "pid": "P01315",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates neural prediction of inverse system matrices for acoustic FE simulation and optimization; acoustic domain."
+ },
+ {
+  "pid": "P01316",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of graph analytics for communication network topology; unrelated to structural TO."
+ },
+ {
+  "pid": "P01317",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "2d",
+  "rationale": "Comparative evaluation of SIMP, ESO, level-set, MMC and neural-network TO on 2D benchmarks; benchmark study without a new method claim."
+ },
+ {
+  "pid": "P01318",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Neural architecture search via adaptive network topology; not structural TO."
+ },
+ {
+  "pid": "P01319",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Geometric-topology regularization to improve ML model generalization; not structural or material design."
+ },
+ {
+  "pid": "P01320",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "gan",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Compares GAN-based TO (TopologyGAN) with SIMP on a cantilever beam; claims gains in design accuracy and computing performance for the learned approach."
+ },
+ {
+  "pid": "P01321",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Vague preprint: neural representation plus RL optimizes topology of a geometric body, claiming gains over traditional optimization; unclear whether structural TO."
+ },
+ {
+  "pid": "P01322",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "CNN surrogate with sparrow search designs broadband mode-selective elastic metasurfaces in minutes, contrasted with slow conventional design including TO."
+ },
+ {
+  "pid": "P01323",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; generic book chapter on ML surrogate models, an overview record rather than a TO method article."
+ },
+ {
+  "pid": "P01324",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "gnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates GNN-based thermal hot-spot mapping in battery modules; no TO or architected-material design indicated."
+ },
+ {
+  "pid": "P01325",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of structural optimization, including TO, lattices and AI, for additively manufactured implants."
+ },
+ {
+  "pid": "P01326",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Adaptive model topology for ML on complex data; not structural TO; possible duplicate of P01254;P01308"
+ },
+ {
+  "pid": "P01327",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Supplementary document for a deep-learning-corrected photonic demultiplexer paper; supplementary material in an excluded domain; possible duplicate of P01276"
+ },
+ {
+  "pid": "P01328",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "gan",
+  "physics": "metamaterial_homogenization",
+  "dim": "3d",
+  "rationale": "3D CNN plus conditional GAN generates shell-lattice metamaterials for energy absorption; gains reported against conventional lattices, while TO is named only as limited prior practice."
+ },
+ {
+  "pid": "P01329",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "Thermal barrier coating design where ML and Bayesian optimization pick alloys and geometry beside TO; learning does not drive the TO, and comparison is with existing designs."
+ },
+ {
+  "pid": "P01330",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "Narrative review of TPMS lattice design, optimization and applications, including TO and ML."
+ },
+ {
+  "pid": "P01331",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates lattice design optimization under buckling constraints, with no learned model indicated."
+ },
+ {
+  "pid": "P01332",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Recurrence-based topology refinement aimed at protein-folding and neural-network design; not structural TO."
+ },
+ {
+  "pid": "P01333",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; deep RL optimizes topology of distributed trial networks, a network-configuration problem, not structural TO."
+ },
+ {
+  "pid": "P01334",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of algorithm-assisted absorption spectroscopy for gas sensing; resonator TO is a minor topic in an acoustic, non-structural context."
+ },
+ {
+  "pid": "P01335",
+  "decision": "exclude",
+  "code": "E-FORWARD",
+  "method_family": "cnn",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "CNN and feedforward networks quantify microscale uncertainty in a MEMS magnetometer; learning serves forward uncertainty modelling, while TO appears only as earlier work."
+ },
+ {
+  "pid": "P01336",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "2d",
+  "rationale": "DBSCAN and SVM-assisted global optimization for supersonic-flow topology design; fluid-flow domain."
+ },
+ {
+  "pid": "P01337",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Simulated annealing adjusts neuron connection probabilities; neural network topology, not structural TO."
+ },
+ {
+  "pid": "P01338",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "gnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Autoregressive and graph networks correct mesh topology of animation characters; computer graphics, not structural TO."
+ },
+ {
+  "pid": "P01339",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Supersonic-jet wall-pressure data modelled by a neural network whose architecture is topology-optimized; not structural TO."
+ },
+ {
+  "pid": "P01340",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; book chapter on deep learning for inverse problems, an overview record rather than a TO method article."
+ },
+ {
+  "pid": "P01341",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "both",
+  "rationale": "U-Net and Res-U-Net models predict 2D and 3D topologies to cut TO computing cost, claiming large speed-up without accuracy loss."
+ },
+ {
+  "pid": "P01342",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Synthetic power-grid scenario dataset for transmission topology optimization; power systems, not structural TO."
+ },
+ {
+  "pid": "P01343",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Sparse feature-topology network for bearing fault diagnosis; signal classification, not structural TO."
+ },
+ {
+  "pid": "P01344",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "neural_reparam",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates neural-network TO with B-spline positional encoding; any comparison with classical TO needs the full text."
+ },
+ {
+  "pid": "P01345",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Classical multi-condition TO of a vehicle subframe, followed by an RBF-network surrogate and NSGA-II sizing; learning does not produce or accelerate the TO."
+ },
+ {
+  "pid": "P01346",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title combines predictive ML and TO for seismic retrofit overlays; whether learning drives or speeds the TO is unclear."
+ },
+ {
+  "pid": "P01347",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "RL adjusts connections of neural and communication networks; not structural TO."
+ },
+ {
+  "pid": "P01348",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Hardware port of an existing TO network to AIE-ML; speed-ups are reported against GPU and apparently CPU inference, not classical TO; possible duplicate of P00013"
+ },
+ {
+  "pid": "P01349",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Information-theoretic topology framework for neural and biological networks; not structural TO."
+ },
+ {
+  "pid": "P01350",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "gan",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "SSIM-loss conditional GAN generates shell-infill topologies in real time, framed against costly physics-based TO; measured comparison only against a plain cGAN."
+ },
+ {
+  "pid": "P01351",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Overview of communication-topology optimization in decentralized federated learning; not structural TO."
+ },
+ {
+  "pid": "P01352",
+  "decision": "include",
+  "code": "I-QUALITY",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "kNN, random-forest and deconvolutional-network inverse design for TO warm starts; designs beat uniform initialization by about tenfold, and convergence-time effects are discussed."
+ },
+ {
+  "pid": "P01353",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "neural_reparam",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "Vague preprint: recurrent neural field represents 3D topology for stress or heat-transfer goals, claiming much faster optimization than traditional mesh-based methods."
+ },
+ {
+  "pid": "P01354",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Neural-network and gene-expression-programming turbulence estimators within fluid TO for gas turbines; fluid-flow domain."
+ },
+ {
+  "pid": "P01355",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "RL adapts connectivity of neuromorphic hardware; not structural TO."
+ },
+ {
+  "pid": "P01356",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Conference-abstract record: CNN compliance estimator supports SIMP toward better optima; abstracts-only records are excluded by type, though the content is in scope."
+ },
+ {
+  "pid": "P01357",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Dissertation on fibre-path and topology optimization of composites with an ML-assisted global search; thesis, excluded by type."
+ },
+ {
+  "pid": "P01358",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates TO of open radiation-shielding structures, with no learned model indicated."
+ },
+ {
+  "pid": "P01359",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Metaheuristic for communication and power network topology; not structural TO."
+ },
+ {
+  "pid": "P01360",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates liquid-cooled heat-sink design, a convective fluid-thermal problem outside the included physics; no learned model indicated."
+ },
+ {
+  "pid": "P01361",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "gnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; graph convolutional EEG classifier with optimized graph topology; not structural TO."
+ },
+ {
+  "pid": "P01362",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Title (metamaterial TO for shock response) and abstract (neural-network nonlinearity detection) describe different works; neither describes ML producing or accelerating TO."
+ },
+ {
+  "pid": "P01363",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Title (dynamic TO of PCB reinforcement) and abstract (neural-network nonlinearity detection) mismatch; neither describes ML producing or accelerating TO."
+ },
+ {
+  "pid": "P01364",
+  "decision": "exclude",
+  "code": "E-FORWARD",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "compliant_mechanism",
+  "dim": "unclear",
+  "rationale": "Deep network corrects deformation error in force sensing for a TO-derived compliant gripper; learning serves measurement, not optimization."
+ },
+ {
+  "pid": "P01365",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Vague preprint: statistical ML and evolutionary search tune physical-system topology; unclear whether structural TO or any classical comparison exists."
+ },
+ {
+  "pid": "P01366",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Direct binary search inverse design of a nanophotonic waveguide bend; photonic domain, no learned model."
+ },
+ {
+  "pid": "P01367",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "gnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Graph convolution identifies distribution-grid topology; power systems, not structural TO."
+ },
+ {
+  "pid": "P01368",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of topology-optimized rock-cutting tools and related modelling, including ML-enhanced prediction."
+ },
+ {
+  "pid": "P01369",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "multiphysics",
+  "dim": "2d",
+  "rationale": "NN surrogate for flow-dependent effective diffusion in homogenization-based TO of convective microchannel cooling; convection-dominated fluid-thermal domain."
+ },
+ {
+  "pid": "P01370",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "gnn",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "Peer-review record about a physics-informed GNN platform for vascular scaffold design; not a research article, and its physics is fluid flow."
+ },
+ {
+  "pid": "P01371",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Deep learning adapts an optimization algorithm to data features; no structural or material design."
+ },
+ {
+  "pid": "P01372",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "SPD-constrained CNN surrogate predicts module stiffness for gradient-based modular layout design; compared with density-based TO and claims up to 1000x speed-up over full simulation."
+ },
+ {
+  "pid": "P01373",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Deep learning with multi-objective optimization for automotive portfolio management; finance, not structural TO."
+ },
+ {
+  "pid": "P01374",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "Review of mechanical metamaterials covering auxetics, energy absorption and design strategies including TO and ML."
+ },
+ {
+  "pid": "P01375",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates graded structural design for magnetic-field applications, an electromagnetic domain; no learned model indicated."
+ },
+ {
+  "pid": "P01376",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "both",
+  "rationale": "Dissertation on composite multiscale TO with ResUNet acceleration reported up to 400x faster; thesis, excluded by type."
+ },
+ {
+  "pid": "P01377",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "No abstract; title indicates transfer learning for 3D TO on complex domains; comparison with classical TO needs the full text."
+ },
+ {
+  "pid": "P01378",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "neural_reparam",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Physics-informed Gaussian-process meshfree TO checked against COMSOL on Stokes-flow power dissipation; fluid-flow domain; possible duplicate of P00048;P00068"
+ },
+ {
+  "pid": "P01379",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "NN surrogate predicts homogenized hyperelastic tangent operators for lattice TO, avoiding prohibitive direct homogenization; HAL record type 'other', optimization-level comparison unclear."
+ },
+ {
+  "pid": "P01380",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "gan",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates a GAN surrogate for sensitivities in TO under uncertainty; any classical comparison needs the full text."
+ },
+ {
+  "pid": "P01381",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "2d",
+  "rationale": "Dissertation on ML (classifiers, regression, U-Net++) for design and TO of coupled component systems; thesis, excluded by type."
+ },
+ {
+  "pid": "P01382",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "transformer",
+  "physics": "compliance",
+  "dim": "both",
+  "rationale": "Dynamic ViT surrogate with super-resolution drives variable-resolution TO; reports 53% fewer iterations in 2D and 19% in 3D versus conventional high-resolution TO."
+ },
+ {
+  "pid": "P01383",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates online transfer learning within isogeometric TO; any classical comparison needs the full text."
+ },
+ {
+  "pid": "P01384",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Neural network adjusts resource-network topology for constraint satisfaction; not structural TO."
+ },
+ {
+  "pid": "P01385",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; graph imbalance learning with self-training; unrelated to TO."
+ },
+ {
+  "pid": "P01386",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates combined topology and shape optimization of stiffened shells by mesh deformation, with no learned model indicated."
+ },
+ {
+  "pid": "P01387",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Talk-style paper on coupling TO with deep generative models for dielectric and plasmonic metastructures; photonic domain."
+ },
+ {
+  "pid": "P01388",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "gan",
+  "physics": "compliance",
+  "dim": "2d",
+  "rationale": "Triple-discriminator GAN generates layout-constrained 2D mechanical designs in well under a second, positioned against traditional TO that struggles with such constraints."
+ },
+ {
+  "pid": "P01389",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "2d",
+  "rationale": "U-Net predicts ship cross-section topologies with FE model rebuilding; claims two orders of magnitude less time and under 3% performance deviation from iterative TO."
+ },
+ {
+  "pid": "P01390",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "rl",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "UCB bandit learning perturbs SIMP to yield diverse AM-constrained compliance and conduction designs; contrasted with data-driven DL, while comparison with plain SIMP is unstated."
+ },
+ {
+  "pid": "P01391",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "stress",
+  "dim": "unclear",
+  "rationale": "PINN-driven generative TO of aerospace brackets reports 45% weight saving against original components; comparison with a classical optimizer is not stated."
+ },
+ {
+  "pid": "P01392",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Distributed neighbour selection to optimize Bitcoin peer-to-peer overlay topology; not structural TO."
+ },
+ {
+  "pid": "P01393",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "gan",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates GANs generating structural connection components; the link to TO and any classical comparison need the full text."
+ },
+ {
+  "pid": "P01394",
+  "decision": "exclude",
+  "code": "E-NOCLAIM",
+  "method_family": "neural_reparam",
+  "physics": "stress",
+  "dim": "unclear",
+  "rationale": "GNN neural field over the FE mesh for stress-constrained, self-supporting TO; abstract describes capabilities without comparing against classical TO."
+ },
+ {
+  "pid": "P01395",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "gnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "GNN predicts network-on-chip configurations; hardware interconnect topology, not structural TO."
+ },
+ {
+  "pid": "P01396",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Survey of solar power forecasting methods; hidden-layer topology tuning only, unrelated to structural TO."
+ },
+ {
+  "pid": "P01397",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "non-English"
+ },
+ {
+  "pid": "P01398",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Coordinate network plus U-Net response predictor with periodic FE recalibration speeds dynamic TO, framed against expensive traditional dynamic-analysis loops."
+ },
+ {
+  "pid": "P01399",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "ANSYS TO of an educational robot chassis; neural networks appear only as future work for assessing learning outcomes."
+ },
+ {
+  "pid": "P01400",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "multiphysics",
+  "dim": "2d",
+  "rationale": "CNN, RL and GAN assist TO of liquid cold plates for thermal-fluid performance; convective fluid-thermal domain."
+ },
+ {
+  "pid": "P01401",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "stress",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates multi-material TO with material-specific stress constraints, with no learned model indicated."
+ },
+ {
+  "pid": "P01402",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "AI framework for biomimicry knowledge and physiomimetics; TO is only mentioned as a related tool."
+ },
+ {
+  "pid": "P01403",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "No abstract; title indicates curvature programming of bilayer ribbon mesostructures, with no learned model indicated."
+ },
+ {
+  "pid": "P01404",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "vae",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates VAE-based multiscale TO of thermal-fluid systems, an excluded fluid domain."
+ },
+ {
+  "pid": "P01405",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "AI methods (genetic algorithms, neural networks) for TO of 3D-printed concrete bridges; gains claimed over conventional design methods, which may not be optimization methods."
+ },
+ {
+  "pid": "P01406",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Variational EM refines graph topology for GCN node classification; not structural TO."
+ },
+ {
+  "pid": "P01407",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of continuum TO methods for lightweight design, including approximation and deep learning models."
+ },
+ {
+  "pid": "P01408",
+  "decision": "exclude",
+  "code": "E-FORWARD",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "CNN and GAN reconstruct compliance from TO contour images; forward field reconstruction compared only with other network architectures; possible duplicate of P01240"
+ },
+ {
+  "pid": "P01409",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "Dissertation on multi-layer TO of heat exchanger and cold plate designs with ANN surrogates; thesis with fluid-thermal physics."
+ },
+ {
+  "pid": "P01410",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates data-driven multi-fidelity microchannel TO, an excluded fluid-thermal domain."
+ },
+ {
+  "pid": "P01411",
+  "decision": "exclude",
+  "code": "E-NOCLAIM",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "metamaterial_homogenization",
+  "dim": "3d",
+  "rationale": "ANN surrogate trained on FEM data guides a genetic algorithm tuning gyroid metamaterial parameters; efficiency asserted without comparing against classical optimization."
+ },
+ {
+  "pid": "P01412",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates cross-scale co-design of light-driven micro/nanomotors; not TO or architected-material inverse design."
+ },
+ {
+  "pid": "P01413",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; graph topology optimization for driver action recognition; not structural TO."
+ },
+ {
+  "pid": "P01414",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "Review of energy-absorbing auxetic structures, covering TO and surrogate-assisted ML."
+ },
+ {
+  "pid": "P01415",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Attention-gated residual U-Net maps problem conditions to densities; claims much shorter inference than iterative TO, with accuracy compared against a standard U-Net."
+ },
+ {
+  "pid": "P01416",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Neural network with Maxwell constraints designs on-chip antennas faster than FEM iteration; electromagnetic domain."
+ },
+ {
+  "pid": "P01417",
+  "decision": "include",
+  "code": "I-QUALITY",
+  "method_family": "gan",
+  "physics": "compliance",
+  "dim": "2d",
+  "rationale": "Seventeen GAN surrogates across penalization and filter settings; estimates how often GAN-predicted 2D designs have lower compliance than TO results."
+ },
+ {
+  "pid": "P01418",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "rl",
+  "physics": "compliance",
+  "dim": "2d",
+  "rationale": "Meta-learning, hierarchical RL and GNN surrogate accelerate TO; reports 3.4-3.5x wall-clock reduction versus Soft-BESO and 7.2x versus SIMP for buckling."
+ },
+ {
+  "pid": "P01419",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "Dissertation on TO algorithms and data-driven surrogates for functionally graded metamaterials; thesis, excluded by type."
+ },
+ {
+  "pid": "P01420",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Dissertation on physics-informed ML replacing FEA and sensitivities in TO; thesis, excluded by type."
+ },
+ {
+  "pid": "P01421",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Conference talk on ML for battery cell design; the cited learning-based TO work is applied to electrochemical cells, not structures."
+ },
+ {
+  "pid": "P01422",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Topological homotopy framework for tensor decomposition convergence; unrelated to structural TO."
+ },
+ {
+  "pid": "P01423",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Dissertation on operator-learning surrogates for multiscale solid simulations, citing TO as a use; thesis with a forward-simulation focus."
+ },
+ {
+  "pid": "P01424",
+  "decision": "exclude",
+  "code": "E-FORWARD",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "ANSYS TO of a motorcycle swingarm; ML only predicts stress and deformation for thickness variants, a forward surrogate without optimization-level comparison."
+ },
+ {
+  "pid": "P01425",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "TO of photonic couplers for dipole emitters; photonic domain, no learned model."
+ },
+ {
+  "pid": "P01426",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review chapter on optimization methods for dental implants, including TO and ANN surrogates."
+ },
+ {
+  "pid": "P01427",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "SIMP and level-set impeller TO with a DNN CFD proxy; hydrodynamic fluid domain."
+ },
+ {
+  "pid": "P01428",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Talk on ML-assisted TO of optical metasurfaces; photonic domain."
+ },
+ {
+  "pid": "P01429",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates a Kriging-interpolation network for efficient multi-resolution TO; the learning role and comparison need the full text."
+ },
+ {
+  "pid": "P01430",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates feature-mapping TO with learned Heaviside boundary fields; any classical comparison needs the full text."
+ },
+ {
+  "pid": "P01431",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "metamaterial_homogenization",
+  "dim": "3d",
+  "rationale": "Multiscale TPMS lattice TO using physics-based ML to speed fine-scale analysis, citing high conventional cost; record type 'other' may be a thesis."
+ },
+ {
+  "pid": "P01432",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates human-aided MMC-based TO with splines, with no learned model indicated."
+ },
+ {
+  "pid": "P01433",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates additive design of high-torque wind generators, with no learned model indicated."
+ },
+ {
+  "pid": "P01434",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Dissertation on a DNN predicting overhang angles from SIMP density patches; thesis, and ML only assesses manufacturability."
+ },
+ {
+  "pid": "P01435",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "No abstract; title indicates problem-independent transfer learning for efficient 3D TO on complex domains; possible duplicate of P01377"
+ },
+ {
+  "pid": "P01436",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "diffusion_flow",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Latent diffusion with physics-aware autoencoder losses generates near-optimal topologies without FEA or optimization steps, framed against costly SIMP; accuracy compared with TopoDiff."
+ },
+ {
+  "pid": "P01437",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates neural style transfer assisting TO for aesthetic, manufacturable designs; any classical comparison needs the full text."
+ },
+ {
+  "pid": "P01438",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Adaptive topology structures for ML model generalization; not structural TO; possible duplicate of P01156"
+ },
+ {
+  "pid": "P01439",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Dataless generative-network global optimization of electromagnetic metasurfaces, benchmarked against standard TO; electromagnetic domain; possible duplicate of P00172"
+ },
+ {
+  "pid": "P01440",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Topology-optimized hard hat using classical TO and impact analysis; ML is named only as future work."
+ },
+ {
+  "pid": "P01441",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "gan",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates physics-informed multi-stage contrastive cGANs for TO; any classical comparison needs the full text."
+ },
+ {
+  "pid": "P01442",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates data-driven modelling of coded metasurfaces for electromagnetic energy harvesting; electromagnetic domain."
+ },
+ {
+  "pid": "P01443",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; journal record on neural style transfer assisting TO for aesthetic, manufacturable design, typed as book chapter; possible duplicate of P01437"
+ },
+ {
+  "pid": "P01444",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "diffusion_flow",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Text-to-image AI visions of future cities; TO appears only as a prompt term."
+ },
+ {
+  "pid": "P01445",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Random-forest inverse surrogate maps deformation targets to TO parameters; SIMP-trained model roughly halves cost versus conventional SIMP, level-set-trained one is slower."
+ },
+ {
+  "pid": "P01446",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates TO with learned displacement fields and analysis of model-induced errors; comparison with classical TO needs the full text."
+ },
+ {
+  "pid": "P01447",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "CNN and GNN reconstruct 3D pipeline models for rendering; path topology, not structural TO."
+ },
+ {
+  "pid": "P01448",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Survey of ML for electromagnetic metamaterial and metasurface design; review in an excluded domain."
+ },
+ {
+  "pid": "P01449",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of AI in additive manufacturing, with TO as one listed application."
+ },
+ {
+  "pid": "P01450",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates TO and surrogate modelling for lattice gears; whether the surrogate is learned and compared classically needs the full text."
+ },
+ {
+  "pid": "P01451",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "ML learns structure of abstract topological spaces; not structural TO; possible duplicate of P01156;P01438"
+ },
+ {
+  "pid": "P01452",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "vae",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "VaDE clusters TO-generated bridge designs and decodes new concepts for further optimization; supports concept exploration without claims against classical TO."
+ },
+ {
+  "pid": "P01453",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of deep learning for simulating medium and large structures, including TO."
+ },
+ {
+  "pid": "P01454",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Graph learning for corporate financial risk networks; not structural TO."
+ },
+ {
+  "pid": "P01455",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Deep generative decoder handles non-convex constraints in evolutionary optimization on TO-inspired tasks; fewer evaluations than an existing approach of unstated type."
+ },
+ {
+  "pid": "P01456",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "stress",
+  "dim": "unclear",
+  "rationale": "Classical TO of a control arm, then ANN proxies with metaheuristics for six-variable shape optimization; learning speeds the shape step, not the TO."
+ },
+ {
+  "pid": "P01457",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Title indicates a CNN approximating TO from initial stress fields; the abstract field is only a conference description, so record type and comparison are unclear."
+ },
+ {
+  "pid": "P01458",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Self-adjusting topology of deep network architectures; not structural TO."
+ },
+ {
+  "pid": "P01459",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "2d",
+  "rationale": "Thesis on generative networks and deep RL for acoustic metamaterial lens design; thesis in an excluded acoustic domain."
+ },
+ {
+  "pid": "P01460",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Graph colouring for cloud network topology; not structural TO."
+ },
+ {
+  "pid": "P01461",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "3d",
+  "rationale": "No abstract; title indicates shape-topology optimization of shell-lattice metamaterials for stiffness, with no learned model indicated."
+ },
+ {
+  "pid": "P01462",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "neural_reparam",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Dissertation on a deep network representing level-set functions for arbitrary geometries in TO; thesis, excluded by type."
+ },
+ {
+  "pid": "P01463",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates physics-informed multiscale phase-field TO; unclear whether a learned model is involved."
+ },
+ {
+  "pid": "P01464",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "No abstract; title indicates an adaptive MMC method for 3D TO, with no learned model indicated."
+ },
+ {
+  "pid": "P01465",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "ML surrogate guides Bezier-parameterized magnet shapes in electric-machine boundary TO; electromagnetic domain."
+ },
+ {
+  "pid": "P01466",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "2d",
+  "rationale": "PINN-based inverse design of parametric-curve metal shapes for target electric fields; electromagnetic domain."
+ },
+ {
+  "pid": "P01467",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Critical review of TO and 3D printing for prosthetic feet."
+ },
+ {
+  "pid": "P01468",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "gan",
+  "physics": "compliance",
+  "dim": "2d",
+  "rationale": "Conditional GAN with transfer learning targets real-time 2D TO, implying speed over gradient-based TO; explicit comparisons are with other networks; possible duplicate of P00141"
+ },
+ {
+  "pid": "P01469",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "No abstract; title indicates deep transfer RL to accelerate 3D TO; comparison details need the full text."
+ },
+ {
+  "pid": "P01470",
+  "decision": "exclude",
+  "code": "E-OTHER",
+  "method_family": "vae",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "VAE compresses TO shapes and histories to study designers' intuition of force flow; learning aids interpretation, not optimization."
+ },
+ {
+  "pid": "P01471",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "CNN transfer learning warm-starts CMA-ES for constrained TO of an interior permanent-magnet motor; electromagnetic domain."
+ },
+ {
+  "pid": "P01472",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Dynamic topology of quantum systems for QML training; not structural TO; possible duplicate of P01140;P01143;P01154;P01156;P01159;P01174;P01177"
+ },
+ {
+  "pid": "P01473",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "other",
+  "physics": "stress",
+  "dim": "unclear",
+  "rationale": "Deep networks guide IGA-based stress-constrained TO; claims better compliance and stress control than conventional methods and reduced computational cost."
+ },
+ {
+  "pid": "P01474",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Book chapter overview of TO and lattice structures for AM, including AI trends."
+ },
+ {
+  "pid": "P01475",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "3d",
+  "rationale": "Neural metamodel replaces casting process simulation inside TO, cutting hours to seconds; metamodel-based results match simulation-based results."
+ },
+ {
+  "pid": "P01476",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Book on optimization methods; broad overview including TO and ML."
+ },
+ {
+  "pid": "P01477",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of TO for space hardware qualification; ML-accelerated TO appears only as a research need."
+ },
+ {
+  "pid": "P01478",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "Book chapter introducing ML algorithms for structural and metamaterial optimization with code snippets; tutorial-style overview."
+ },
+ {
+  "pid": "P01479",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Self-organizing map generates polishing paths; topology refers to neural map structure."
+ },
+ {
+  "pid": "P01480",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates residual-based checks of AI surrogates in composite TO with small simulated data; optimization-level comparison unclear."
+ },
+ {
+  "pid": "P01481",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Talk on large-scale graph ML and architecture search as graph topology optimization; not structural TO."
+ },
+ {
+  "pid": "P01482",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "Conceptual classical TO formulations for space robot structures with simulation checks; ML is only mentioned as an emerging approach."
+ },
+ {
+  "pid": "P01483",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "RL-enhanced bee colony optimizes UAV swarm communication topology; not structural TO."
+ },
+ {
+  "pid": "P01484",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "ML surrogate for thermochemical reactor performance coupled with level-set TO of heat-conducting fins; direct simulation called prohibitive, no comparison stated."
+ },
+ {
+  "pid": "P01485",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "DNN with transfer learning replaces the FE model in MMC-based acoustic-structural TO for sound quality; acoustic domain."
+ },
+ {
+  "pid": "P01486",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; graph generation for wireless network topology; not structural TO."
+ },
+ {
+  "pid": "P01487",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates morphogenesis with element evolution and TO for machine-tool parts, with no learned model indicated."
+ },
+ {
+  "pid": "P01488",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Printed PZT sensors with a Bayesian-tuned neural network for fault diagnosis; network topology tuning only."
+ },
+ {
+  "pid": "P01489",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; portfolio optimization framework for the automotive industry; finance, not structural TO; possible duplicate of P01373"
+ },
+ {
+  "pid": "P01490",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of metasurfaces for quantum photonics; photonic-domain review."
+ },
+ {
+  "pid": "P01491",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "U-Net predicts axial forces of optimal trusses to prune design variables before linear programming; claims better efficiency than conventional truss optimization."
+ },
+ {
+  "pid": "P01492",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Neural-network inverse method for silicon nitride waveguide crossings; photonic domain."
+ },
+ {
+  "pid": "P01493",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "ML for 5G base-station placement; network topology, not structural TO."
+ },
+ {
+  "pid": "P01494",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Bitcoin overlay topology optimization; not structural TO."
+ },
+ {
+  "pid": "P01495",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; graph topology optimization for network traffic anomaly detection; not structural TO."
+ },
+ {
+  "pid": "P01496",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "Gaussian-process turbulence model for TO-based heat exchanger design; turbulent fluid-thermal domain."
+ },
+ {
+  "pid": "P01497",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of AI and additive manufacturing for rehabilitation devices, mentioning TO."
+ },
+ {
+  "pid": "P01498",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates interpretable representation learning with uncertainty for metamaterial inverse design; physics domain and comparisons need the full text."
+ },
+ {
+  "pid": "P01499",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Vague preprint: ML predicts target geometry to guide geometric topology optimization, claiming better convergence than traditional methods; unclear if structural; possible duplicate of P00594"
+ },
+ {
+  "pid": "P01500",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "cnn",
+  "physics": "other",
+  "dim": "2d",
+  "rationale": "Attention SRResU-Net upsamples fast coarse SIMP designs to fine resolution; claims 10x faster than high-resolution TO with comparable performance."
+ },
+ {
+  "pid": "P01501",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Autoencoder and Gaussian-process surrogate optimize woven structures for sound absorption; acoustic domain."
+ },
+ {
+  "pid": "P01502",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "ML adjusts adaptive topology of data-driven models; not structural TO; possible duplicate of P01140;P01177"
+ },
+ {
+  "pid": "P01503",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates online model-order reduction for dynamic sensitivities, with no learned model indicated."
+ },
+ {
+  "pid": "P01504",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of AI-aided TO for lightweight machine parts."
+ },
+ {
+  "pid": "P01505",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "both",
+  "rationale": "Online-trained Fourier neural operator surrogate with multi-grid patches accelerates large-scale 2D and 3D compliance TO, claiming major savings in full simulations."
+ },
+ {
+  "pid": "P01506",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Wing-rib weight reduction with conventional TO, CAD generative design and FEA; machine learning is mentioned generically, with no identifiable learned model."
+ },
+ {
+  "pid": "P01507",
+  "decision": "include",
+  "code": "I-QUALITY",
+  "method_family": "gan",
+  "physics": "compliance",
+  "dim": "3d",
+  "rationale": "3D-GAN trained on TO models generates robot-arm joints; reports about 29% lower mass than the topology-optimized model with maintained performance."
+ },
+ {
+  "pid": "P01508",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Surrogate-assisted deep RL for antenna topology optimization; electromagnetic domain."
+ },
+ {
+  "pid": "P01509",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "rl",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "GNN-assisted multi-agent RL for UAV communication topology; not structural TO."
+ },
+ {
+  "pid": "P01510",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "NN predicts antenna patterns for PSO-based MIMO array layout; array element topology, not structural TO."
+ },
+ {
+  "pid": "P01511",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Dynamic topology for adaptive ML classification; not structural TO."
+ },
+ {
+  "pid": "P01512",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Topology-based adaptive training of ML models; not structural TO; possible duplicate of P01140;P01511"
+ },
+ {
+  "pid": "P01513",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates AI generative design of TO-based lattices for AM; learning role and comparisons need the full text."
+ },
+ {
+  "pid": "P01514",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "SVR predicts MMC initial component layouts that meet an iteration target; convergence benefit over standard layouts is implied but not stated."
+ },
+ {
+  "pid": "P01515",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Review of multiscale simulation of wear-resistant coatings; TO appears only in a proposed future protocol."
+ },
+ {
+  "pid": "P01516",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Perspective on two-photon lithography of carbon micro-nano structures; TO is only mentioned as a possible aid."
+ },
+ {
+  "pid": "P01517",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "stress",
+  "dim": "unclear",
+  "rationale": "Online-learning multi-grid framework for stress-constrained isogeometric TO; abstract truncated after acceleration framing, so claims need the full text."
+ },
+ {
+  "pid": "P01518",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "gnn",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Graph attention network with learned curvature for bearing fault diagnosis; not structural TO."
+ },
+ {
+  "pid": "P01519",
+  "decision": "exclude",
+  "code": "E-DOMAIN",
+  "method_family": "other",
+  "physics": "multiphysics",
+  "dim": "unclear",
+  "rationale": "Neural reduced-order initialization improves TO of turbulent conjugate heat-transfer channels; fluid-thermal domain."
+ },
+ {
+  "pid": "P01520",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; review of ML-driven optimization of lightweight structural design."
+ },
+ {
+  "pid": "P01521",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "compliant_mechanism",
+  "dim": "unclear",
+  "rationale": "Review of TO for compliant mechanisms in micro/nano manufacturing, including ML trends."
+ },
+ {
+  "pid": "P01522",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "neural_reparam",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates neural representations for nonlinear TO with the material point method; any classical comparison needs the full text."
+ },
+ {
+  "pid": "P01523",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Vague preprint: ML adapts optimizer parameters for complex geometries, claiming better convergence; unclear whether structural TO or a classical comparison exists."
+ },
+ {
+  "pid": "P01524",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; title indicates deep-learning-aided multi-objective optimization of a crane hook; whether this is TO needs the full text."
+ },
+ {
+  "pid": "P01525",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "other",
+  "physics": "compliance",
+  "dim": "unclear",
+  "rationale": "Modified optimality-criteria TO of two-layer structures plus an ML design method intended to cut the computational cost of stiffness design."
+ },
+ {
+  "pid": "P01526",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Dynamic topology learning for multi-modal ML models; not structural TO."
+ },
+ {
+  "pid": "P01527",
+  "decision": "exclude",
+  "code": "E-FORWARD",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Neural black-box model of microacoustic resonator response from FEA data; forward surrogate, with TO only listed as an application."
+ },
+ {
+  "pid": "P01528",
+  "decision": "exclude",
+  "code": "E-SCOPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; evolutionary deep network segmenting 3D medical images; not structural TO."
+ },
+ {
+  "pid": "P01529",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; book chapter on optimization techniques for cold-formed steel structures, an overview record."
+ },
+ {
+  "pid": "P01530",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "No abstract; review of additive manufacturing of microchannel heat sinks."
+ },
+ {
+  "pid": "P01531",
+  "decision": "include",
+  "code": "I-SPEED",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Hybrid CNN, GNN and transformer framework augments CAD optimization; claims 41% higher TO efficiency and shorter design cycles than baseline CAD tools."
+ },
+ {
+  "pid": "P01532",
+  "decision": "include",
+  "code": "I-UNCLEAR",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "2d",
+  "rationale": "No abstract; deep learning reconstructs 2D femoral trabecular patches; a link to TO-based bone adaptation is plausible but unconfirmed."
+ },
+ {
+  "pid": "P01533",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "metamaterial_homogenization",
+  "dim": "3d",
+  "rationale": "No abstract; title indicates multiscale optimization of manufacturable shell lattices, with no learned model indicated."
+ },
+ {
+  "pid": "P01534",
+  "decision": "exclude",
+  "code": "E-TYPE",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "Talk record on ML-assisted photonic metasurface design; presentation in an excluded domain; possible duplicate of P00956"
+ },
+ {
+  "pid": "P01535",
+  "decision": "exclude",
+  "code": "E-NOML",
+  "method_family": "other",
+  "physics": "other",
+  "dim": "unclear",
+  "rationale": "PyTorch automatic differentiation supplies exact sensitivities for damper parameter and topology optimization; no learned model is trained."
+ }
+]

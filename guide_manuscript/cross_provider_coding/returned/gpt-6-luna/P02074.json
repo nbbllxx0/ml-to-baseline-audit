@@ -1,0 +1,59 @@
+﻿{
+  "pid": "P02074",
+  "citation": {
+    "title": "UDHF-SMERO: a unified deep hybrid framework for co-evolutionary smart material design and energy-adaptive structural optimizations",
+    "authors": "Rajesh M. Bhagat; Mangesh P. Bhorkar; Rajesh M. Dhoble; Buddharatna J. Godboley; Amar Jain; Hemant V. Hajare; Prashant B. Pande",
+    "year": 2026,
+    "venue": "Journal of Building Pathology and Rehabilitation 11, 165",
+    "doi": "10.1007/s41024-026-00833-7",
+    "version_coded": "Version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR", "stratum": "speed", "method_family": "other", "physics": "multiphysics", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "The integrated framework takes about 0.82 seconds per sample against 0.34 seconds for traditional topology optimization, despite claims of improved performance elsewhere.",
+    "key_phrase": "",
+    "location": "Section 4.4 Computation complexity",
+    "quantitative": true,
+    "claimed_speedup": 0.4146,
+    "claimed_speedup_basis": "Section 4.4: 0.34 s classical time / 0.82 s framework time = 0.4146; the framework is about 2.4 times slower.",
+    "direction": "underperform",
+    "alternatives": "Abstract claims policy convergence under 100 episodes and adaptive performance of at least 95%; neither is directly compared there to a classical method."
+  },
+  "baseline": {
+    "classical_method": "Traditional topology optimization models (Section 4.4); FEM solvers are also used as reference for structural response.",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "Traditional models use 0.34 s; hardware not separately specified.",
+    "hardware_ml": "NVIDIA RTX-class GPU (Section 4.4).",
+    "problem_size": "Initial material design tensor 64 × 64 × 16 × 6 (Section 4.1).",
+    "classical_iterations": "not stated",
+    "classical_time": "0.34 s (Section 4.4)",
+    "ml_time": "0.82 s per sample for full pipeline (Section 4.4)",
+    "training_time": "not stated; Section 4.1 reports 200 epochs for Co-PIGT",
+    "data_generation_cost": "not stated; Section 4.1 says datasets were partly synthesized and partly based on existing material-topology databases",
+    "quality_metric": "Topology-to-performance R², energy dissipation error, inverse design accuracy, thermomechanical compliance, and prediction errors (Sections 4.1–4.2).",
+    "quality_gap": "Section 4.2 claims baseline distortions above 8% versus below 3% for the proposed framework, without identifying the baseline implementation."
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-unmatched", "evidence": "Section 4.4 compares 0.82 s per sample with 0.34 s for traditional topology optimization; it does not match design quality or compare at equal time."},
+    "R2": {"verdict": "partial", "marker": "R2-hardware-unjustified", "evidence": "Section 4.4 specifies an NVIDIA RTX-class GPU for the framework but does not identify the classical implementation or its hardware."},
+    "R3": {"verdict": "fail", "marker": "R3-no-cost", "evidence": "Sections 4.1 and 4.4 give training epochs and sample inference time, but no training or data-generation cost and no amortization."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 4.1–4.2 use FEM models as ground truth and report prediction and compliance metrics, but do not report infeasible or failed returned designs."}
+  },
+  "reporting": {
+    "n_test_cases": "Static and sinusoidal loading profiles; Table 10 reports unseen design cases but does not give an overall count.",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Section 4.4 directly reports the integrated pipeline as slower than traditional topology optimization; the record retains inclusion because the article compares its computational cost with a classical TO method."
+}

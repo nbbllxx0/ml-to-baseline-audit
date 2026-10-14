@@ -1,0 +1,88 @@
+{
+  "pid": "P00252",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "TopoEdit: Fast Post-Optimization Editing of Topology Optimized Structures",
+    "authors": "Hongrui Chen, Josephine V. Carstensen, Faez Ahmed",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.GR; also cs.LG)",
+    "doi": "10.48550/arXiv.2602.22430",
+    "arxiv_id": "2602.22430",
+    "version_coded": "arXiv v1 (25 Feb 2026; only version on the abs page), PDF; Tables 1-4 read from https://arxiv.org/html/2602.22430 because the PDF text layout scrambles them"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; qualitative primary outcome)",
+    "stratum": "speed",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Qualitative: TopoEdit edits an optimized topology with sub-second diffusion sampling per candidate, whereas re-running topology optimization is described as slow and prone to drift; no re-optimization time or design is reported.",
+    "key_phrase": "re-running optimization is slow and may drift toward a qualitatively different design",
+    "location": "Abstract (the same contrast recurs in Sec. 1, the last paragraph of Sec. 4.1 and Sec. 4.3); only the ML time is quantified (Sec. 4.1). No quantitative comparison with a classical optimization method exists anywhere, so §5.1 rule 3 applies",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no re-optimization time is reported. ML side only: about 0.58 s per diffusion sample on an RTX Pro 6000 GPU, plus 1.13 s for 10 SIMP post-processing steps on a CPU for warps (Sec. 4.1).",
+    "direction": "outperform",
+    "alternatives": "(1) Quality vs direct density-space edits (non-learned, but not an optimization method), test sets, best-of-64 vs direct: warp step 0 CE 24.34% vs 28.61%, DE 25.86% vs 21.95%, failure 10.94% vs 8.59%; warp step 10 CE 4.15% vs 1.76%, DE 12.27% vs 50.05% (Table 2); lattice beat rate 100.00% (grid) and 96.00% (cross), failure 8.00% and 12.00% vs 52.00% and 48.00% (Table 3); no-design beat rate 100.00%, failure 0.00% vs 18.75% (Table 4). (2) Sec. 4.1, qualitative: sampling several candidates costs little compared with re-running full optimization. (3) Sec. 4.3, qualitative: re-running optimization for a late no-design region is time-consuming."
+  },
+  "baseline": {
+    "classical_method": "Re-running topology optimization from scratch (named as the slow alternative in the abstract, Sec. 1, 4.1 and 4.3; never run). The quantitative comparators are non-learned direct density-space edits (direct warp, direct lattice swap, direct hole); for warps, both direct and latent results get the same 10 SIMP OC post-processing steps (Sec. 3.4, 4.1-4.3)",
+    "implementation": "not stated (re-optimization not run). SIMP post-processing: density SIMP with p = 3 and optimality-criteria updates, warm-started from the edited design, warps only (Sec. 3.4); code not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated for re-optimization (not run); SIMP post-processing on 'the CPU', model not stated (Sec. 4.1)",
+    "hardware_ml": "PC with an RTX Pro 6000 GPU, 96 GB VRAM (Sec. 4)",
+    "problem_size": "not stated in this article; reference topologies come from the OAT training and test sets, which vary in resolution and aspect ratio (Sec. 3.1, 4)",
+    "classical_iterations": "re-optimization: not run; post-processing: 10 SIMP OC steps for warps only (Sec. 3.4, 4.1; Table 2b)",
+    "classical_time": "not stated for re-optimization; 10 SIMP post-processing steps take 1.13 s on the CPU for both direct and latent warps (Sec. 4.1)",
+    "ml_time": "about 0.58 s per diffusion sample on the GPU for the latent warp; the warp operator itself is too fast to register (Sec. 4.1). 64 samples are generated per edit for best-of-N (Sec. 4); the time for 64 samples, for the compliance evaluations used in selection, and for lattice and no-design edits is not stated. DDIM partial steps 20/20/25 of 100/200/100 total (Table 1)",
+    "training_time": "none for TopoEdit itself (frozen pretrained OAT weights, Fig. 1); OAT training cost not stated",
+    "data_generation_cost": "not stated; OAT is trained on 2.2 million optimized structures (Sec. 2)",
+    "quality_metric": "Compliance under the original loads and boundary conditions: compliance error CE% vs the original topology; failure rate (warp: compliance error above 100% [reading of the Table 2 caption]; lattice and no-design: compliance 1000 times the original, Tables 3-4); beat rate vs the direct edit. Also joint distance error DE%, volume-fraction error VFE%, IoU to the direct lattice, no-design violation ratio",
+    "quality_gap": "Only vs direct edits (test sets, best-of-64 vs direct): warp step 0 CE 24.34% vs 28.61%, DE 25.86% vs 21.95%, VFE 1.25% vs 5.93%, failure 10.94% vs 8.59%; warp step 10 CE 4.15% vs 1.76%, DE 12.27% vs 50.05%, failure 0.00% vs 0.00% (Table 2). Lattice: VFE 2.47% and 2.06%, IoU 0.54 and 0.59, beat rate 100.00% and 96.00%, failure 8.00% and 12.00% vs direct 52.00% and 48.00% (Table 3, grid and cross). No-design: VFE 0.06%, violation 5.37%, beat rate 100.00%, failure 0.00% vs direct 18.75% (Table 4). No comparison with re-optimized designs"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-no-quality-comparison",
+      "evidence": "Abstract, Sec. 1, Sec. 4.1 (last paragraph) and Sec. 4.3: the speed claim is against re-running optimization, which is never run, timed or compared on design quality; all quantitative quality comparisons (Tables 2-4) are against direct density-space edits. The headline time covers one diffusion sample (about 0.58 s, Sec. 4.1), while the reported quality uses best-of-64 selection (64 samples plus compliance evaluations, time not stated) and, for warps, 10 SIMP steps (1.13 s, reported separately in Sec. 4.1)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "No classical re-optimization is run, so the comparator's implementation, solver, iterations and hardware are unknown (Sec. 4). The only classical component is the 10-step SIMP OC post-processing on an unspecified CPU (1.13 s; Sec. 3.4, 4.1), shared by both edit pipelines. Problem sizes are not stated, so (c) cannot be established; (b), (d) and (e) are not derivable. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "TopoEdit runs on frozen pretrained OAT weights (Fig. 1); OAT is trained on 2.2 million optimized structures (Sec. 2). The article reports neither OAT's training cost nor the cost of generating those structures, and gives no break-even; the speed claim is framed per sample (abstract). TopoEdit itself adds no training."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Sec. 4.1-4.3 and Tables 2-4: compliance of every returned edit is computed under the original loads and boundary conditions (FE-based [inferred]); volume-fraction error, no-design violation ratio and failure rates are reported for every N and for the direct baselines; the best-of-N rule is stated (minimum sum of compliance and distance errors, Sec. 4.1). Figs. 4, 8 and 10 show selected examples, but the tables cover all test edits. Fig. 6 drops cases above 1000% compliance, which Table 2 counts as failures."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Test sets: warp 16 topologies and 123 warp operations as stated (Table 2 percentages fit 128 = 16 × 8 [inferred]); lattice 50 reference designs × 2 lattice types; no-design 15 topologies as stated (Table 4 percentages fit 16 [inferred]). Training-set runs: 122 topologies / 2208 warps, 150 lattice designs, 126 no-design topologies (Sec. 4.1-4.3). 64 samples per edit (Sec. 4)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Stratum is a judgment call. The only comparison with a classical optimization method (re-running TO) is qualitative: abstract, Sec. 1, Sec. 4.1 (sampling several candidates costs little compared with full re-optimization) and Sec. 4.3; re-optimization is never run, timed or evaluated. All quantitative comparisons are against direct density-space edits, which are non-learned but are not optimization methods (for warps, both pipelines share the same 10-step SIMP refinement). If the verifier accepts direct edits as the classical comparator, §5.1 rule 2 gives a quality-stratum primary outcome at Sec. 4.1/Table 2, with R3 = na. Within Table 2 the direct warp is better on compliance after refinement (CE 1.76% vs 4.15% at step 10) and on failure rate before refinement (8.59% vs 10.94% at step 0), so the abstract's claim of better-preserved mechanical performance holds for lattice and no-design edits (Tables 3-4) but not uniformly for warps. Count inconsistencies [inferred from printed percentages]: Table 2 failure rates are multiples of 1/128 while the text states 123 test warps; Table 4 rates are multiples of 1/16 while the text states 15 test topologies. Reporting locators: OOD = Sec. 4.3 (the authors frame no-design enforcement as outside OAT's training distribution); failure rates = Tables 2-4; timing and hardware = Sec. 4 and 4.1 (ML side and post-processing only); runtimes_all_cases = selective because times are given only for warp edits. No code or data availability statement for TopoEdit; availability of OAT's own code and data was not checked. retest_candidate false: no TopoEdit code statement and no classical timing to re-test. Screening code was I-SPEED."
+}

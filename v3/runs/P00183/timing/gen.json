@@ -1,0 +1,23 @@
+{
+ "meta": {
+  "pinning": {
+   "pinned": true,
+   "affinity_mask": "0xfff",
+   "priority": "HIGH_PRIORITY_CLASS"
+  },
+  "tensorflow": "2.21.0",
+  "checkpoint": "model_1D_sample_9",
+  "threads": 1
+ },
+ "per_angle": {
+  "median_s": 0.0034237756002694366,
+  "min_s": 0.0034212120003066955,
+  "max_s": 0.003436628399882466,
+  "repeats_s": [
+   0.003436628399882466,
+   0.0034212120003066955,
+   0.0034237756002694366
+  ]
+ },
+ "batch_size": 5
+}

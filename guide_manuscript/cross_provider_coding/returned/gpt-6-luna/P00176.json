@@ -1,0 +1,60 @@
+{
+  "stage": "cross_provider_pass",
+  "pid": "P00176",
+  "citation": {
+    "title": "A deep Convolutional Neural Network for topology optimization with strong generalization ability",
+    "authors": "Yiquan Zhang, Bo Peng, Xiaoyi Zhou, Cheng Xiang, Dalei Wang",
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.1901.07761",
+    "arxiv_id": "1901.07761",
+    "version_coded": "latest arXiv version"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "cnn", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The CNN reduced mean computation time from 3.913 s with SIMP to 0.001 s per case, while reported average compliance and volume-fraction errors were 4.16% and 0.13%.",
+    "key_phrase": "significant reduction in computation cost",
+    "location": "Abstract; Section 5, Table 1",
+    "quantitative": true,
+    "claimed_speedup": 3913,
+    "claimed_speedup_basis": "Section 5 reports average conventional time 3.913 s and proposed time 0.001 s; 3.913 ÷ 0.001 = 3913. The ML time is rounded to 0.001 s.",
+    "direction": "outperform",
+    "alternatives": "Conclusion qualitatively says the CNN solves the problem in negligible time; abstract also says it generalizes to unseen boundary conditions with lower accuracy."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization",
+    "implementation": "88-line MATLAB topology optimization code (Andreassen et al. 2011)",
+    "solver": "not stated",
+    "hardware_classical": "Intel Core i7-8700K CPU and NVIDIA GeForce GTX 1080 Ti GPU system (Section 5)",
+    "hardware_ml": "Intel Core i7-8700K CPU and NVIDIA GeForce GTX 1080 Ti GPU system (Section 5)",
+    "problem_size": "40 × 80 elements (Section 4.1)",
+    "classical_iterations": "not stated",
+    "classical_time": "3.913 s average per case (Section 5)",
+    "ml_time": "0.001 s average per case (Section 5)",
+    "training_time": "not stated; excluded from reported computation time (Section 5)",
+    "data_generation_cost": "not stated; excluded from reported computation time (Section 5)",
+    "quality_metric": "Finite-element compliance error, pixel-value error, and volume-fraction error (Table 1)",
+    "quality_gap": "Average compliance error 4.16% and volume-fraction error 0.13%; disconnected samples are excluded from averages (Table 1 footnote)."
+  },
+  "rules": {
+    "R1": {"verdict": "pass", "marker": "R1-quality-reported", "evidence": "Section 5 and Table 1 compare timed designs and report average compliance error of 4.16% and volume-fraction error of 0.13%; the article also reports disconnected cases separately."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 5 gives average times and a shared CPU/GPU system, but no solver details or evidence establishing R2(a)–(e)."},
+    "R3": {"verdict": "fail", "marker": "R3-no-data-cost", "evidence": "Section 5 explicitly excludes dataset-generation and neural-network training costs from the timing comparison and gives no amounts or break-even analysis."},
+    "R4": {"verdict": "pass", "marker": "R4-FE-and-failures-counted", "evidence": "Sections 5–6 report compliance and volume-fraction errors and count structural disconnections (4.12% in the cantilever test set; Tables 1–2)."}
+  },
+  "reporting": {
+    "n_test_cases": "8,000 cantilever cases; 8,000 each for simply supported and continuous beams (Sections 5–6)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Training and dataset preparation costs are excluded; no public code or data release is stated. Source: https://arxiv.org/pdf/1901.07761"
+}

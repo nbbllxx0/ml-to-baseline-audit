@@ -1,0 +1,88 @@
+{
+  "pid": "P00178",
+  "citation": {
+    "title": "A Novel Topology Optimization Approach using Conditional Deep Learning",
+    "authors": "Sharad Rawat; M.-H. Herman Shen",
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.1901.04859",
+    "arxiv_id": "1901.04859",
+    "version_coded": "arXiv v1"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For a trained CWGAN, generating a planar design takes about 0.35 seconds, compared with roughly 83.9 seconds for SIMP in the reported example.",
+    "key_phrase": "extremely computationally inexpensive",
+    "location": "Section 4, Table 1",
+    "quantitative": true,
+    "claimed_speedup": 239.8,
+    "claimed_speedup_basis": "Section 4, Table 1 and accompanying text: SIMP 83.914 s / CWGAN 0.350 s = 239.8 for the stated example.",
+    "direction": "outperform",
+    "alternatives": "Table 1 reports several volume-fraction settings; it also reports CWGAN mode collapse and poor results away from volume fraction 0.4."
+  },
+  "baseline": {
+    "classical_method": "SIMP topology optimization",
+    "implementation": "Conventional SIMP algorithm used to generate training data and comparison outputs; code implementation not specified",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Planar 2D structure; mesh resolution not stated in comparison table",
+    "classical_iterations": "not stated",
+    "classical_time": "83.914 s for the example cited in Section 4; other Table 1 cases range from 71.461 to 114.635 s",
+    "ml_time": "0.350 s for the example cited in Section 4; other Table 1 cases are approximately 0.339–0.353 s",
+    "training_time": "not stated",
+    "data_generation_cost": "Dataset of 3024 SIMP designs reported (Section 3); generation cost not stated",
+    "quality_metric": "Volume fraction and visual/qualitative comparison to SIMP topology",
+    "quality_gap": "The generated designs commonly approach volume fraction 0.4 even when other fractions are requested; authors report mode collapse and do not quantify objective/compliance gaps (Section 4, Table 1)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Section 4/Table 1 compares runtime, but does not establish matched quality; the authors report mode collapse and poor condition-following for several settings."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "The article does not provide evidence that the SIMP implementation or hardware comparison meets an R2 failure criterion."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "The speed claim reports no training time or data-generation cost (Sections 3–4)."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-examples-only",
+      "evidence": "Section 4 evaluates outputs through volume fraction and displayed examples; no FE verification of returned designs or failure-rate accounting is reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Five volume-fraction settings in Table 1; training set contains 3024 designs",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Full text read from https://arxiv.org/pdf/1901.04859.",
+  "stage": "cross_provider_pass"
+}

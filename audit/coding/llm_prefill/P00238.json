@@ -1,0 +1,45 @@
+{
+  "pid": "P00238",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "AutoMS: Multi-Agent Evolutionary Search for Cross-Physics Inverse Microstructure Design",
+    "authors": "Zhenyuan Zhao, Yu Xing, Tianyang Xue, Lingxin Cao, Xin Yan, Lin Lu",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.AI)",
+    "doi": "10.48550/arXiv.2603.27195",
+    "arxiv_id": "2603.27195",
+    "version_coded": "arXiv v2 (12 Apr 2026; v1 28 Mar 2026), full text read from https://arxiv.org/html/2603.27195"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-MLONLY",
+    "stratum": "none",
+    "method_family": "llm_agent",
+    "physics": "multiphysics",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: 83.8% success rate on 17 cross-physics tasks versus NSGA-II 43.7%, CMA-ES 66.7% and BayesOpt 65.0%, all baselines searching the inputs of the same learned MIND generator.",
+    "location": "Abstract; Section 1 contributions; Section 5.1, Table 1",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text).",
+    "direction": "outperform"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "excluded at full text"},
+    "R2": {"verdict": "na", "evidence": "excluded at full text"},
+    "R3": {"verdict": "na", "evidence": "excluded at full text"},
+    "R4": {"verdict": "na", "evidence": "excluded at full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded as ML-only (PROTOCOL §4). Every baseline (NSGA-II, BayesOpt with a Gaussian-process surrogate, CMA-ES, ReAct, and the SAES variants) optimizes the conditioning vector (E, G, ν) of the same pretrained MIND diffusion generator with the same simulator (Sec. 4 Baselines; App. B.2). No TO or inverse-homogenization comparator is run; TO appears only as motivation (abstract, Introduction, Related Work). Judgment call for the verifier: the authors call NSGA-II and CMA-ES traditional numerical baselines. If generator-wrapped evolutionary search is accepted as a classical comparator, the record would enter stratum Q with primary outcome SR 83.8% vs NSGA-II 43.7% (Table 1). Table 1 also lists wall-clock times of 2180.5 s (AutoMS), 5550.2 s (NSGA-II), 4202.3 s (CMA-ES) and 3982.9 s (BayesOpt), averaged over four runs, excluding plasticity simulations (Sec. 4; App. E.3); hardware is two NVIDIA A40 GPUs and a 64-core AMD EPYC 7763 (Sec. 4). Physics: homogenized elasticity, thermal and electrical conductivity, and plasticity on 64^3 voxels with C3D8 elements and a PCG solver (App. D.3). No code availability statement found. Screening code was I-QUALITY."
+}

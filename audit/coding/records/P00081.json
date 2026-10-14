@@ -1,0 +1,113 @@
+{
+  "pid": "P00081",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "PyTOaCNN: Topology optimization using an adaptive convolutional neural network in Python",
+    "authors": "Khaish Singh Chadha, Prabhat Kumar",
+    "year": 2024,
+    "venue": "arXiv preprint (cs.CE; 24 pages). Version of record: Soft Computing 30(1) 653-673 (online 25 Nov 2025), doi 10.1007/s00500-025-10919-y (Crossref); the Springer page marks it as not open access, so it was not read. Its abstract is reworded, e.g. it says the results hold for test problems and puts the code in Appendix A",
+    "doi": "10.48550/arXiv.2404.12244",
+    "arxiv_id": "2404.12244",
+    "version_coded": "arXiv v1 (18 Apr 2024; only version on the abs page), full text read from https://arxiv.org/html/2404.12244"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; no classical runtime appears anywhere, and the first quantitative classical comparison is volume and objective error against the MATLAB TO codes, §5.1 rule 2)",
+    "stratum": "quality",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the mid-load beam on a 100×100 grid, CNN designs at seven prescribed volume fractions differ from top88 SIMP designs by 0.053–5.4% in volume and 0.041–2.66% in compliance (Table 1); the authors call such errors negligible.",
+    "key_phrase": "negligible performance and volume fraction errors",
+    "location": "Section 7.1.1 and Table 1 (first quantitative classical comparison, in the main text; the Abstract, Section 8 and Introduction compare only qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No classical runtime is reported anywhere. The trained CNN is said to return a design instantly (Abstract) or in under a second (Sec. 7.1.1-7.1.3), with no number, hardware or MATLAB time. Not derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Abstract and Sec. 8, qualitative speed: the trained CNN returns designs instantly; no classical time is given, and quantitative comparisons exist, so §5.1 rule 3 does not apply. (2) Table 3, the only held-out test with the full training set: 5 unseen volume fractions of the end-loaded cantilever, volume error 0.11–2.17%, objective error 0.097–0.49%. (3) Table 4 (32 training samples, 6 unseen fractions): volume error up to 14.4%, objective error up to 2.36%. (4) Table 5 (TOPress arch): up to 4.20% and 4.90%; Table 6 (topX bulk modulus): up to 6.4% and 3%. (5) Table 7 (adaptive layer, n = 0–12000): volume error up to 12.4%, objective error up to 10.1873%. (6) Sec. 8: more precise results with much less training data than earlier CNN work (an ML comparison)."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization (modified SIMP, p = 3) with the top88 MATLAB code for the constant-load beams; TOPress MATLAB code for the design-dependent pressure-loaded arch; topX MATLAB code for bulk-modulus microstructure design (Sec. 4-5). The update scheme is not described in the article",
+    "implementation": "Public educational MATLAB codes, called open-source in the article: top88 (Andreassen et al. 2011) and topX (Xia and Breitkopf 2015) with penal 3, rmin 2.4, ft 1; TOPress (Kumar 2023) with penal 3, rmin 2.4, etaf 0.2, betaf 8, lst 1, maxit 100 (Sec. 5)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated (TensorFlow/Keras in a Jupyter Notebook, Sec. 6)",
+    "problem_size": "100×100 bilinear quadrilateral elements for every problem (Sec. 4-5) [derived: about 2.0×10^4 nodal DOFs]",
+    "classical_iterations": "not stated for top88 and topX (only input parameters are given); TOPress maxit = 100 (Sec. 5)",
+    "classical_time": "not stated",
+    "ml_time": "not stated numerically; under a second per design (Sec. 7.1.1-7.1.3)",
+    "training_time": "not stated; 2000 epochs per network (Sec. 6.5, 7.1)",
+    "data_generation_cost": "not stated; 95 MATLAB TO runs per problem (volume fraction 0.01-0.95, step 0.01), 68 for topX (0.03-0.70), 32 for the reduced-data test (0.02:0.03:0.95) (Sec. 5, 7.1.2, 7.1.4)",
+    "quality_metric": "Volume error from the mean of the CNN's grayscale density field vs the prescribed volume; objective error = relative difference between the MATLAB code's optimum and the objective of the CNN's grayscale field evaluated in the same MATLAB code (Sec. 7). The formulas are signed, but all tabulated values are non-negative [absolute values inferred]",
+    "quality_gap": "Volume / objective error ranges: Table 1 (mid-load, top88) 0.053-5.4% / 0.041-2.66%; Table 2 (end-loaded cantilever) 0.11-1.2% / 0.025-0.50%; Table 3 (unseen fractions) 0.11-2.17% / 0.097-0.49%; Table 4 (32 samples) 0.39-14.4% / 0.07-2.36%; Table 5 (TOPress arch) 0.08-4.20% / 0.039-4.90%; Table 6 (topX) 1.10-6.4% / 0.112-3%; Table 7 (adaptive layer) 0-12.4% / 0-10.1873%"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Stratum Q; R1 applies as written (PROTOCOL §11). Sec. 7 and Table 1 (p. 12): CNN and MATLAB designs share the problem, the grid and the prescribed volume fraction, and the CNN output is scored in the same MATLAB code. Matching is loose: the CNN's own volume misses the target by up to 5.4% (Table 1; up to 14.4% in Table 4), and the objective error is not corrected for that volume difference. The stopping rule of top88 and topX is not stated in the article (TOPress: maxit 100, Sec. 5), and no compute budget is compared."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) names the same open-source TO codes that Sec. 7 uses (top88, TOPress, topX) and gives no numbers, so it does not report a weaker baseline than Tables 1-7; (b) is not observed. No runtime of any method is reported anywhere."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "Quality stratum: no quantified speed claim against a classical method. For C3: data = 95 MATLAB TO runs per problem (68 for topX) and training = 2000 epochs; neither time nor hardware is reported (Sec. 5, 6.5)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 7 (p. 13) and Tables 1-7: the returned grayscale CNN field is evaluated in the same MATLAB code, so the objective is FE-computed, and the volume error is reported for every case. Failed or disconnected outputs are neither defined nor counted. The authors say they picked the volume fractions of Tables 1 and 2 arbitrarily from the training set (Sec. 7.1.2, p. 16); in Tables 1, 2, 5, 6 and 7 all of them lie inside the training sets [Tables 5-7 derived from the training ranges in Sec. 5, 7.1.3, 7.1.4 and 7.2]."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "7 volume fractions each for the mid-load beam (Table 1), end-loaded cantilever (Table 2), pressure arch (Table 5) and bulk-modulus cell (Table 6), all inside the training sets; 5 unseen fractions (Table 3); 6 unseen fractions with 32 training samples (Table 4); 7 fractions × 6 adaptive-layer widths for the centre-loaded cantilever (Table 7)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED (abstract: instant generation). At full text no classical runtime exists, so §5.1 rule 2 selects the first quantitative classical comparison, Table 1, which concerns quality; the record goes to stratum Q. If the verifier instead takes the abstract's instant-generation wording as the primary outcome, the record moves to the speed stratum: R3 would then fail (no training or data-generation cost), and R1 would turn on whether the reported errors count as matched quality. Unseen volume fractions (Tables 3-4) interpolate within the training range, and the article states that the network works only for the trained boundary conditions and 100×100 domain (Sec. 8), so ood_test = no. Code: the full 47-line Keras script is printed in Sec. 9 (the Python code appendix); the data-generating MATLAB codes are public per the article (Abstract, Sec. 8); the training images are not released. No separate software licence; the paper carries the arXiv non-exclusive licence. Version of record (Soft Computing, 2025/2026) is paywalled and was not read; its reworded abstract mentions test problems, so its evaluation may differ from arXiv v1 and should be checked by the verifier if access is available. retest_candidate false because the primary outcome carries no speed claim; a timing re-test would be cheap (100×100 grids, all code public) if the verifier moves the record to the speed stratum. Table 7 caption names the centre-loaded cantilever; Sec. 7.2 reports the best quality at n = 8000.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "partial",
+        "reason": "Same input and same scoring code, but the compared designs do not share the physical volume: the CNN volume misses the target by up to 5.4% in Table 1 (p. 12) and 14.4% in Table 4 (p. 16), with no correction. The top88/topX stopping rule is not stated (Sec. 5, p. 9), which is the §5.3 R1 partial example of loose matching."
+      },
+      "R2": {
+        "first": "pass",
+        "second": "na",
+        "decision": "na",
+        "reason": "Both coders code stratum Q, which the text supports: no runtime of any method appears (arXiv v1, Sec. 7-8). Under the §11 stratum-Q rule R2 is na unless criterion (b) applies, and the abstract (p. 1) names the same open-source codes that Tables 1-7 use and gives no numbers, so (b) does not apply."
+      },
+      "R4": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "partial",
+        "reason": "The objective is FE-computed and the volume error is reported for every case (Sec. 7, p. 13), but failed or disconnected designs are neither defined nor counted. The authors say they picked the in-sample volume fractions of Tables 1-2 arbitrarily (Sec. 7.1.2, p. 16). An unreported failure rate is the §5.3 R4 partial case."
+      }
+    }
+  }
+}

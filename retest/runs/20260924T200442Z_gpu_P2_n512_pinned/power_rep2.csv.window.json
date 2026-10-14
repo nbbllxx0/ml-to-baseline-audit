@@ -1,0 +1,1 @@
+{"t_start": 1790280344.352509, "t_stop": 1790280370.1133227, "interval_ms": 100, "query": "timestamp,power.draw.instant,power.draw,clocks.sm,utilization.gpu,memory.used"}

@@ -1,0 +1,65 @@
+{
+ "pid": "P01870",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Exploring VAE-driven implicit parametric unit cells for multiscale topology optimization",
+  "authors": "Chenchen Chu, Alexander Leichner, Franziska Wenz, Heiko Andr\u00e4",
+  "year": 2024,
+  "venue": "Materials & Design 244 (August 2024) 113087 (Crossref); gold open access, CC BY 4.0 (Crossref licence metadata; Elsevier API core metadata: DEAL agreement)",
+  "doi": "10.1016/j.matdes.2024.113087",
+  "arxiv_id": "",
+  "version_coded": "none; only the abstract was read (pool record from OpenAlex; the DOAJ API record repeats it). The version of record could not be retrieved"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "vae",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no full text). The abstract describes a VAE with a property regressor, trained on a unit-cell database built by an AAPO topology-optimization method plus a distortion filter, for multiscale thermo-mechanical metamaterial design. Efficiency is asserted, with no classical comparison named.",
+  "location": "abstract only",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "not coded (no full text); the abstract gives no time, cost or speed-up figure",
+  "alternatives": "not assessed (no full text)"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Screening code was I-UNCLEAR. Access attempts on 2026-09-24, all anonymous with a generic User-Agent and no personal data: (1) doi.org -> linkinghub -> ScienceDirect article page (PII S0264127524004611), the open-access copy that OpenAlex reports: HTTP 403 with an 'Are you a robot?' captcha page, by curl and by WebFetch; not bypassed. (2) The Elsevier text-mining link listed in Crossref (api.elsevier.com), called without an API key: HTTP 200 with core metadata only (title, open-access flags, licence), no body text. No key was used, because keys are credentials. (3) Fraunhofer-Publica (handle publica/473934), the repository copy that OpenAlex lists: an Anubis 'Making sure you're not a bot!' proof-of-work page, also on its DSpace REST API; not bypassed. (4) The DOAJ record holds the abstract and a link back to ScienceDirect only. (5) arXiv API searches by title phrase and by the author Leichner found no preprint. The article is open access (CC BY), so a human verifier can read it in a browser. Pointers from the abstract for the verifier: the abstract names no classical comparator and states no numbers. It mentions reducing the cost of repeated gradient-based TO designs through high-performance methods and automatic differentiation, and efficiency in generating unit-cell databases. At full text, check whether any classical method (e.g. direct inverse homogenization or concurrent TO without the VAE) is run, timed or cited; if not, FT-NOBASELINE is the likely code (FT-MLONLY if only ML methods are compared). Physics: composite metamaterial with double-negative thermal expansion and Poisson's ratio, i.e. thermo-mechanical homogenization [abstract]; dim unclear. Related pool records: none found by author surname (Chu, Leichner, Wenz, Andr\u00e4) apart from this one. COI check: no author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P01870.json",
+  "result": "full agreement"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "pid": "P00601",
+ "citation": {
+  "title": "Topology optimization with graph neural network enabled regularized thresholding",
+  "authors": "Georgios Barkoulis Gavris, WaiChing Sun",
+  "year": 2024,
+  "venue": "Extreme Mechanics Letters 71 (2024) 102215 (online 2024-08-23; bronze OA per OpenAlex; Crossref lists an Elsevier open-access licence for the accepted manuscript from 2025-08-23)",
+  "doi": "10.1016/j.eml.2024.102215",
+  "arxiv_id": "none found (arXiv API title searches, 2026-09-24)",
+  "version_coded": "none: no accessible full text or abstract"
+ },
+ "access": "no_access",
+ "coder": {
+  "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "stage": "ai_agreed",
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "gnn",
+  "physics": "compliance",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded: no accessible full text or abstract.",
+  "location": "not available",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "no full text"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all anonymous with a generic browser User-Agent and no personal data. (1) doi.org resolves via linkinghub.elsevier.com to ScienceDirect PII S2352431624000956, which returned HTTP 403 with a robot check (captcha). Stopped there; no bypass. (2) A web search indicates the NSF Public Access Repository (funder repository) holds the article. par.nsf.gov failed TLS certificate verification with curl, Python requests and WebFetch; the server presents a chain ending in a private OSTI root ('self-signed certificate in certificate chain'). Verification was not disabled, so this route was not used. (3) The group's publication page (poromechanics.org/publications.html) links only to ScienceDirect. (4) arXiv API: no version. (5) OpenAlex, Crossref and Semantic Scholar hold no abstract, and the pool record has none. (6) ResearchGate was not used (third-party upload site). Method fields are the screening values. For the full-text coder only, not used here: a search-engine summary of the NSF record describes a message-passing GNN filter that removes the grey transition zone on structured and polygonal meshes in 2D and 3D and says it may avoid excessive iterations, which hints at a speed-proxy claim; this is not a primary source. A reader with a trusted route to ScienceDirect or NSF PAR should code this record. No author named Jun Wang. Screening code was I-UNCLEAR.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00601.json",
+  "result": "full agreement"
+ }
+}

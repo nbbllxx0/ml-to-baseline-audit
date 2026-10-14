@@ -1,0 +1,76 @@
+{
+ "notebook": "generate_dataset",
+ "pinning": {
+  "pinned": true,
+  "affinity_mask": "0xfff",
+  "priority": "HIGH_PRIORITY_CLASS"
+ },
+ "cells": [
+  {
+   "index": 0,
+   "seconds": 1.5860547999618575,
+   "source": "import sys\nsys.path.append('../')\n\nimport yaml\nimport numpy as np\n\nimport mesher\nimport material\nimport utils\nimport homogenize\nimport voronoi\nimport matplotlib.pyplot as plt\n_Ext = utils.Extent\nimport matplotlib as mpl\nplt.rcParams[\"figure.figsize\"] = (15,10)\nmpl.rcParams['figure.dpi'] = 300\nrng = np.random.default_rng(seed=10)\n\nimport matplotlib.patches as patches"
+  },
+  {
+   "index": 1,
+   "seconds": 0.006310700089670718,
+   "source": "with open('../settings.yaml', 'r') as file:\n  config = yaml.safe_load(file)"
+  },
+  {
+   "index": 2,
+   "seconds": 6.400002166628838e-05,
+   "source": "voro_cfg = config['VORONOI_DATA']\nmat_cfg = config['MATERIAL']"
+  },
+  {
+   "index": 3,
+   "seconds": 0.0008295000297948718,
+   "source": "beta_extent = _Ext(voro_cfg['thick_min'], voro_cfg['thick_max'])\norient_ext = _Ext(voro_cfg['orient_min'], voro_cfg['orient_max'])\naniso_ext = _Ext(voro_cfg['aniso_min'], voro_cfg['aniso_max'])\n\nmacro_bbox = voronoi.VoronoiExtent(x=_Ext(0., 3.),\n                                   y=_Ext(0., 3.))\nmacro_mesh = mesher.Mesher(nelx=3,\n                           nely=3,\n                           bounding_box=macro_bbox)\n\n\nnx, ny = 120, 120\ncx_start, cx_end = int(0.34*nx), int(0.67*nx)\ncy_start, cy_end = int(0.34*ny), int(0.67*ny)\n\nnx_img = cx_end - cx_start\nny_img = cy_end - cy_start\n\nimg_mesh = mesher.Mesher(nelx=nx, nely=ny, bounding_box=macro_bbox)\n\nvoro_local_extent = voronoi.VoronoiExtent(x=_Ext(-0.5, 0.5),\n                                          y=_Ext(-0.5, 0.5))"
+  },
+  {
+   "index": 4,
+   "seconds": 5.819997750222683e-05,
+   "source": "struct_mat = material.MaterialConstants(youngs_modulus=mat_cfg['youngs_modulus'],\n                                        poissons_ratio=mat_cfg['poissons_ratio'])"
+  },
+  {
+   "index": 5,
+   "seconds": 0.0015838999534025788,
+   "source": "H = homogenize.Homogenization(lx=1.,\n                              ly=1.,\n                              nelx=nx_img,\n                              nely=ny_img,\n                              phiInDeg=90.,\n                              matProp=struct_mat,\n                              penal=3.)"
+  },
+  {
+   "index": 6,
+   "seconds": 2.2827491000061855,
+   "source": "num_samples = 12000\nnum_cells_x, num_cells_y = voro_cfg['cells_per_elem']\nmin_seperation = voro_cfg['min_seperation']\ncells_per_mstr = num_cells_x*num_cells_y\n\ncx = np.zeros((num_samples, macro_mesh.num_elems, cells_per_mstr))\ncy = np.zeros((num_samples, macro_mesh.num_elems, cells_per_mstr))\n\nckey, bkey, akey, okey = rng.spawn(4)\n\nfor s in range(num_samples):\n  for neigh in range(macro_mesh.num_elems):\n    cx[s,neigh,:], cy[s,neigh,:] = mesher.generate_randomly_perturbed_grid_points(\n                                                 num_cells_x,\n                                                 num_cells_y,\n                                                 min_seperation,\n                                                 voro_local_extent,\n                                                 ckey)\n\n\nbeta = utils.unnormalize(bkey.random((num_samples,)), beta_extent)\naniso = utils.unnormalize(akey.random((num_samples,)), aniso_ext)\norient = utils.unnormalize(okey.random((num_samples,)), orient_ext)"
+  },
+  {
+   "index": 7,
+   "seconds": 732.3514907000354,
+   "source": "mstr_imgs = np.zeros((num_samples, nx_img, ny_img))\nconstitutive_chol_data = np.zeros((num_samples, 9))\nvol_frac = np.zeros((num_samples))\n\nplot_interval = num_samples/20\n\nfor s in range(num_samples):\n  cx_glob, cy_glob = voronoi.compute_voronoi_cell_coordns_to_global_frame(\n                              cx[s,:,:], cy[s,:,:], macro_mesh)\n  \n  density = voronoi.compute_voronoi_density_field(img_mesh,\n                                                  cx_glob.reshape(-1),\n                                                  cy_glob.reshape(-1),\n                                                  beta[s],\n                                                  orient[s],\n                                                  aniso[s]\n                                              ).reshape((img_mesh.nelx, img_mesh.nely)).T\n  density_center = density[cx_start:cx_end, cy_start:cy_end]\n  C = H.homogenize(density_center)\n  L = np.linalg.cholesky(C)\n  vf = np.mean(density_center)\n\n  mstr_imgs[s, :, :] = density_center\n  constitutive_chol_data[s, 0] = L[0,0]\n  constitutive_chol_data[s, 1] = L[1,1]\n  constitutive_chol_data[s, 2] = L[2,2]\n  constitutive_chol_data[s, 3] = L[1,0]\n  constitutive_chol_data[s, 4] = L[2,0]\n  constitutive_chol_data[s, 5] = L[2,1]\n  vol_frac[s] = vf\n  if s%plot_interval == 0:\n    print(f'{s}/{num_samples}')\n    print('aniso', aniso[s])\n    print('theta', orient[s])\n    print('beta', beta[s])\n    print('vf', vf)\n    print('C_00', C[0, 0])\n    print('C_11', C[1, 1])\n    fig, ax = plt.subplots(1, 3)\n    ax[0].scatter(cx_glob, cy_glob)\n    rect = patches.Rectangle((1, 1), 1, 1, linewidth=1, edgecolor='r', facecolor='none')\n    ax[0].add_patch(rect)\n    ax[0].set_aspect('equal')\n    ax[1].imshow(density, cmap='coolwarm', origin='lower')\n    ax[2].imshow(density_center, cmap='coolwarm', origin='lower')\n    plt.show()"
+  },
+  {
+   "index": 8,
+   "seconds": 0.08337000000756234,
+   "source": "def save_gen_data():\n  np.save('../data/cx_aniso_raw', cx)\n  np.save('../data/cy_aniso_raw', cy)\n  np.save('../data/beta_aniso_raw', beta)\n  np.save('../data/orient_aniso_raw', orient)\n  np.save('../data/aniso_raw', aniso)\n  np.save('../data/vf_aniso_raw', vol_frac)\n  np.save('../data/const_chol_aniso_raw', constitutive_chol_data)\n  np.save('../data/mstr_imgs_aniso_raw', mstr_imgs)\n\nsave_gen_data()"
+  },
+  {
+   "index": 9,
+   "seconds": 0.021179900038987398,
+   "source": "\nL = np.zeros((num_samples, 3, 3))\nL[:,0,0] = constitutive_chol_data[:, 0]\nL[:,1,1] = constitutive_chol_data[:, 1]\nL[:,2,2] = constitutive_chol_data[:, 2]\nL[:,1,0] = constitutive_chol_data[:, 3]\nL[:,2,0] = constitutive_chol_data[:, 4]\nL[:,2,1] = constitutive_chol_data[:, 5]\n\nC_data = np.einsum('dij,djk->dik',L, L.transpose(0,2,1))\n\nimg = plt.hexbin(C_data[:,0,0], C_data[:,1,1], C=vol_frac, cmap='coolwarm', gridsize=20)\ncbar = plt.colorbar(img)\ncbar.ax.tick_params(labelsize=38, labelfontfamily=\"Times New Roman\")  \n\ncbar.set_label('Volume Fraction', fontname='Times New Roman', fontsize=35)\nplt.xlabel('$C_{00}$', fontname='Times New Roman', fontsize=35)\nplt.ylabel('$C_{11}$', fontname='Times New Roman', fontsize=35)\nplt.xticks(np.arange(0, 1.1, 0.2), fontname='Times New Roman', fontsize=35)\nplt.yticks(np.arange(0, 1.1, 0.2), fontname='Times New Roman', fontsize=35)\n\nplt.gca().tick_params(axis='both', which='major', length=18, width=1)\nplt.gca().tick_params(axis='both', which='minor', length=7, width=1)\nplt.gca().yaxis.set_minor_locator(plt.MultipleLocator(0.05)) \nplt.gca().xaxis.set_minor_locator(plt.MultipleLocator(0.05)) \n\nplt.show()"
+  },
+  {
+   "index": 10,
+   "seconds": 0.004132600035518408,
+   "source": "\nplt.figure()\nplt.scatter(orient, C_data[:, 0, 0])\nplt.xlabel('theta')\nplt.ylabel('C_00')\nplt.show()"
+  },
+  {
+   "index": 11,
+   "seconds": 0.15310750005301088,
+   "source": "# Input features\nfig, axs = plt.subplots(5,1)\nfor ftr,ttl,ax in zip(\n  [cx, cy, beta, orient, aniso],\n   ['cx','cy','beta', 'orient', 'aniso'],\n   axs.reshape(-1)):\n  ax.hist(ftr.reshape(-1))\n  ax.set_title(ttl)\n# plt.axis('equal')\nplt.show()\n\n# C components\nfig, axs = plt.subplots(2,3)\nfor ftr,ttl,ax in zip(\n  [C_data[:,0,0], C_data[:,1,1], C_data[:,2,2],\n                 C_data[:,0,1], C_data[:,0,2], C_data[:,1,2]],\n   ['C00','C11','C22','C01','C02','C12'],\n   axs.reshape(-1)):\n  ax.hist(ftr.reshape(-1))\n  ax.set_title(ttl)\nplt.show()\n\n# output features\nfig, axs = plt.subplots(2,3)\nfor ftr,ttl,ax in zip(\n  range(7), ['L00','L11','L22','L10','L20','L21'],\n   axs.reshape(-1)):\n  ax.hist(constitutive_chol_data[:,ftr].reshape(-1))\n  ax.set_title(ttl)\nplt.show()"
+  },
+  {
+   "index": 12,
+   "seconds": 0.0176299000158906,
+   "source": "\nplt.hist(vol_frac, bins=30, color='skyblue', edgecolor='black')\n\n# Customize fonts to Times New Roman\nplt.xlabel('Volume fraction', fontname='Times New Roman', fontsize=35)\nplt.ylabel('Frequency', fontname='Times New Roman', fontsize=35)\n\n\n# Adjust axis markers and labels\nplt.xticks(np.arange(0, 1.1, 0.2), fontname='Times New Roman', fontsize=35)\nplt.yticks(np.arange(0, 700, 100), fontname='Times New Roman', fontsize=35)\nplt.gca().yaxis.set_minor_locator(plt.MultipleLocator(20)) \nplt.gca().xaxis.set_minor_locator(plt.MultipleLocator(0.05)) \nplt.gca().tick_params(axis='both', which='major', length=18, width=1)\nplt.gca().tick_params(axis='both', which='minor', length=7, width=1)\nplt.show()"
+  }
+ ],
+ "total_seconds": 736.5090801999904
+}

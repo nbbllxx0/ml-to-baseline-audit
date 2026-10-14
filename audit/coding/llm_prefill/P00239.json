@@ -1,0 +1,88 @@
+{
+  "pid": "P00239",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "TopoCtrl: Post-Optimization Topology Editing Toward Target Structural Characteristics",
+    "authors": "Hongrui Chen, Dat Ha, Josephine V. Carstensen, Faez Ahmed",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.GR)",
+    "doi": "10.48550/arXiv.2603.26926",
+    "arxiv_id": "2603.26926",
+    "version_coded": "arXiv v1 (27 Mar 2026; only version on the abs page), full text read from https://arxiv.org/html/2603.26926"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Across 100 OAT test topologies, best-of-64 TopoCtrl edits reached 83.84–99.50% of the target characteristic ranges, versus 16.94–56.00% for re-running topology optimization with seven filter radii (Table 2).",
+    "key_phrase": "broader reachable characteristic coverage than the benchmark based on varying the filter radius",
+    "location": "Section 4.2, Table 2 (first quantitative classical comparison; abstract, conclusion and introduction compare only qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No classical runtime is reported. Only TopoCtrl inference (about 0.5 s per sample) and regressor training (about 3 min per characteristic) are given (Sec. 4). Not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract, qualitative: edits are said to keep the original layout and the designer's intent better than tuning solver parameters or applying simple geometric edits; no geometric-edit baseline appears in Sec. 4. (2) Abstract, cost proxy: no per-characteristic re-derivation of the problem or its sensitivities and no iterative re-solve is needed; not quantified, no classical time reported. (3) Table 2 at best-of-64 vs the filter-radius benchmark: volume-fraction error 0.03–0.10% vs 0.21%, IoU 79.21–84.93% vs 76.45%."
+  },
+  "baseline": {
+    "classical_method": "Re-running the conventional TO solver that generated the OAT dataset on each test problem with the filter radius varied from 1.5 to 12, 7 reruns per topology (Sec. 4.2, Fig. 6); the TO formulation is not described in this article",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "PC with an RTX Pro 6000 GPU, 96 GB VRAM (Sec. 4)",
+    "problem_size": "OAT test-set problems of varying domain size and aspect ratio; grid resolution not stated in this article; 100 test topologies (Sec. 4)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "about 0.5 s per sample on average; 64 samples per topology-target pair (Sec. 4)",
+    "training_time": "about 3 min per characteristic regressor (Sec. 4); OAT pretraining cost not stated",
+    "data_generation_cost": "not stated; regressors trained on a 150K-sample subset of the OAT pretraining set labelled by medial-axis analysis (Sec. 4)",
+    "quality_metric": "Coverage of the prescribed characteristic interval (Eq. 18), volume-fraction error (VFE), IoU with the original topology, failure rate = share of edits with compliance above 2× the ground-truth topology (Table 2)",
+    "quality_gap": "Best-of-64 coverage vs benchmark (BM): joints 94.82% vs 23.89%; members per joint 99.50% vs 56.00%; length 83.84% vs 43.80%; thickness 85.02% vs 16.94%. TopoCtrl failure rate 4.67–16.00% at best-of-64 and 38.67–49.00% at best-of-2; BM failure rate N/A (Table 2)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table 2 and Sec. 4.2: TopoCtrl best-of-N (N = 2-64 samples per topology-target pair, 16 target settings) vs 7 TO reruns per topology with filter radius 1.5-12. Volume is matched (VFE 0.03-0.10% vs 0.21% at best-of-64). Structural performance is not matched: TopoCtrl failure rates (compliance above 2× the original) are 4.67-16.00% at best-of-64, the BM failure rate is not reported, and compliance values are not tabulated. Neither the compute budget nor the TO stopping rule is stated."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome is controllability coverage only; no classical runtime is reported and no speed claim is quantified, so the efficiency criteria (a)-(e) do not apply."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No quantified speed claim against a classical method. For C3: regressor training (about 3 min per characteristic) and inference (about 0.5 s per sample) are reported (Sec. 4); OAT pretraining and OAT dataset-generation costs are not reported."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Sec. 4.2 and Table 2: characteristics are recomputed on the decoded topologies with the same medial-axis evaluator (not the regressor); failure rate (compliance above 2× ground truth, following the OAT protocol; FE-based [inferred]) and VFE are reported for every N; the best-of-N selection rule is stated. Qualitative figures show selected examples, but the quantitative results cover all 100 test topologies."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "100 OAT test topologies × 16 target settings over 4 characteristics, 64 samples each; plus one cantilever beam (Sec. 4, 4.3)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; full text gives stratum Q (I-QUALITY) because the first quantitative classical comparison (Table 2, coverage vs filter-radius TO reruns) concerns controllability, and no classical runtime is reported anywhere. The abstract's comparison with simple geometric edits has no matching experiment in Sec. 4. Sec. 4.2 says Table 2 reports compliance, but the table holds only the failure rate. Sec. 5 notes that fewer than 64 samples give insufficient accuracy. Reporting locators: n = Sec. 4; OOD = Sec. 4.3 (cantilever beam, qualitative only); failure rate = Table 2 (TopoCtrl only); timing and hardware = Sec. 4 (ML side only); code = GitHub link at the end of Sec. 1. Repository page read 2026-09-24: public demo (cantilever notebook), no licence file identified, README points to Hugging Face for the model checkpoints, no scripts for Table 2 or the filter-radius baseline. No data availability statement in the article. retest_candidate false: no speed claim to re-test and the benchmark scripts are not provided."
+}

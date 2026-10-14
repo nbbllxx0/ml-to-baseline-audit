@@ -1,0 +1,27 @@
+{
+  "pid": "P01004",
+  "citation": {
+    "title": "One-Shot Optimal Topology Generation through Theory-Driven Machine Learning",
+    "authors": "Ruijin Cang, Hope Yao, Yi Ren",
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "doi": "10.1016/j.cad.2018.12.008",
+    "arxiv_id": "1807.10787",
+    "version_coded": "arXiv v1 identified as earlier title/version of P00183; primary article coded from arXiv v3"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-DUPLICATE", "stratum": "none", "method_family": "other", "physics": "compliance", "dim": "2d"},
+  "claim": {},
+  "baseline": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-duplicate", "evidence": "arXiv v1 title and identifier: duplicate of P00183."},
+    "R2": {"verdict": "na", "marker": "R2-duplicate", "evidence": "arXiv v1 title and identifier: duplicate of P00183."},
+    "R3": {"verdict": "na", "marker": "R3-duplicate", "evidence": "arXiv v1 title and identifier: duplicate of P00183."},
+    "R4": {"verdict": "na", "marker": "R4-duplicate", "evidence": "arXiv v1 title and identifier: duplicate of P00183."}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "The exact queued title is the title of arXiv:1807.10787v1, with the same three authors as P00183. The revised arXiv v3 and Computer-Aided Design publication changed 'Optimal' to 'Near-Optimal'. P00183 is the primary coded record."
+}

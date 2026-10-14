@@ -1,0 +1,88 @@
+{
+  "pid": "P01390",
+  "citation": {
+    "title": "Structural and thermal generative design using reinforcement learning-based search strategy for additive manufacturing",
+    "authors": "Vysakh Venugopal; Sam Anand",
+    "year": 2023,
+    "venue": "Manufacturing Letters 35, 564–575",
+    "doi": "10.1016/j.mfglet.2023.08.030",
+    "arxiv_id": "none",
+    "version_coded": "publisher version (abstract only; full text unreachable)"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (no accessible full text)",
+    "stratum": "none",
+    "method_family": "rl",
+    "physics": "multiphysics",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The UCB-based reinforcement-learning search is presented as a computationally efficient way to generate diverse structural and thermal TO designs with additive-manufacturing filters.",
+    "key_phrase": "",
+    "location": "abstract",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No factor or times are available from the accessible abstract.",
+    "direction": "outperform",
+    "alternatives": "The abstract describes compliance minimization and thermal conduction examples, but provides no quantitative comparison."
+  },
+  "baseline": {
+    "classical_method": "not stated",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "not stated",
+    "quality_gap": "not stated"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "na",
+      "marker": "no full text",
+      "evidence": "no full text"
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "no full text",
+      "evidence": "no full text"
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "no full text",
+      "evidence": "no full text"
+    },
+    "R4": {
+      "verdict": "na",
+      "marker": "no full text",
+      "evidence": "no full text"
+    }
+  },
+  "reporting": {
+    "n_test_cases": "not stated",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Publisher version is marked open access, but the publisher PDF and full text could not be retrieved through the permitted access route; coded the accessible abstract only.",
+  "stage": "cross_provider_pass"
+}

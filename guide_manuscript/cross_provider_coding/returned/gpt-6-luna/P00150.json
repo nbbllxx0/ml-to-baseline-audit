@@ -1,0 +1,88 @@
+{
+  "pid": "P00150",
+  "citation": {
+    "title": "An Artificial Intelligence-Assisted Design Method for Topology Optimization without Pre-Optimized Training Data",
+    "authors": "Alex Halle; Lucio Flavio Campanile; Alexander Hasse",
+    "year": 2021,
+    "venue": "Applied Sciences, 11(19), 9041",
+    "doi": "10.3390/app11199041",
+    "arxiv_id": "2012.06384",
+    "version_coded": "Version of record; related arXiv preprint 2012.06384"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "After one training phase, the predictor produces designs similar to conventional topology optimization with much lower per-design computational effort.",
+    "key_phrase": "only a fraction of the computational effort",
+    "location": "abstract",
+    "quantitative": false,
+    "claimed_speedup": 260.3,
+    "claimed_speedup_basis": "Table 5, p. 19: conventional tTO = 1.9 s and PEN prediction tp = 7.3 ms; 1.9 / 0.0073 = 260.3. This excludes training, which the paper treats separately via break-even analysis.",
+    "direction": "outperform",
+    "alternatives": "Section 3.2 reports 3.25 h training, about 7.6 million randomly generated training points, and a break-even calculation."
+  },
+  "baseline": {
+    "classical_method": "SIMP density-filter topology optimization (top88)",
+    "implementation": "Sigmund/Andreassen 88-line MATLAB implementation cited as top88",
+    "solver": "not stated; authors note sparse solvers could reduce time (Conclusion)",
+    "hardware_classical": "Table 1 system: Nvidia Titan RTX 24 GB; AMD Ryzen Threadripper 2950X 16-Core; 128 GB RAM; Windows 10 1909",
+    "hardware_ml": "Table 1 system: Nvidia Titan RTX 24 GB; AMD Ryzen Threadripper 2950X 16-Core; 128 GB RAM; Windows 10 1909",
+    "problem_size": "64 × 64 resolution (Table 5)",
+    "classical_iterations": "not stated",
+    "classical_time": "1.9 s per topology-optimization result (Table 5, p. 19)",
+    "ml_time": "7.3 ms per PEN prediction (Table 5, p. 19)",
+    "training_time": "3.25 h (3:15:56), Section 3.2",
+    "data_generation_cost": "About 7.6 million random training points generated during training; separate generation time not reported (Section 3.2)",
+    "quality_metric": "compliance, volume fraction and elementwise density difference against top88 results",
+    "quality_gap": "For 100 validation inputs, 79.9% of PEN geometry elements differ in density by less than 1% from conventional results (Table 4); volume fraction deviation is nonzero"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose-match",
+      "evidence": "Section 3.2/Table 4 reports similarity over 100 matched input cases, but the PEN volume fraction is not exactly constrained and the classical stopping criterion is not stated."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient",
+      "evidence": "Conclusion notes the displacement calculation and says faster algorithms such as sparse solvers could remove the stated limitation; no direct stronger-baseline timing is given."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-cost-and-break-even",
+      "evidence": "Section 3.2 and Table 5 report training duration, prediction and classical times, and an explicit break-even calculation that includes training; random-point generation is part of the training process."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sections 2.7 and 3.2 evaluate generated designs using compliance and volume criteria, but the paper does not report infeasible/failure rates across outputs."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "100 held-out validation inputs",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Full text read from publisher-hosted open-access copy: https://mdpi-res.com/d_attachment/applsci/applsci-11-09041/article_deploy/applsci-11-09041-v2.pdf. The paper states validation data and predictor model are downloadable; no public runnable source code or licence was located in the article.",
+  "stage": "cross_provider_pass"
+}

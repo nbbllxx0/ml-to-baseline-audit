@@ -1,0 +1,61 @@
+{
+  "pid": "P01907",
+  "citation": {
+    "title": "Evolutionary design of conductive pathways using a generative autoencoder",
+    "authors": "Matei Cristian Ignuta-Ciuncanu, Hannes Stark, Ricardo Martinez-Botas",
+    "year": 2025,
+    "venue": "International Communications in Heat and Mass Transfer, vol. 166, article 109098",
+    "doi": "10.1016/j.icheatmasstransfer.2025.109098",
+    "version_coded": "Abstract only, from OpenAlex metadata (abstract_inverted_index for https://doi.org/10.1016/j.icheatmasstransfer.2025.109098); the version of record could not be read. OpenAlex marks it 'hybrid' open access (genuinely open, not merely free-to-read) at its only location, https://www.sciencedirect.com/science/article/pii/S073519332500524X. That URL returned HTTP 403 with a CAPTCHA page (verified by string search) to both a generic-UA curl request and to WebFetch, on both the abstract page and the /pdfft endpoint; this is a bot check and was not bypassed. No arXiv version exists. Imperial College London's institutional profile for co-author Ricardo Martinez-Botas lists this publication with only its DOI, no access-document link."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "vae",
+    "physics": "thermal",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Per the abstract only: a generative design framework couples a variational autoencoder (trained on microleaf structures, constructal patterns, and synthetic conductive networks) with an evolutionary algorithm to design bi-material heat-sink structures for the area-to-point conduction problem in space-constrained electronics. Compared with 'standard methods' (contrasted earlier in the same abstract with 'gradient-based techniques or parametric geometric shapes'), the pipeline reduces average device temperature by 10% and peak hotspot temperature by up to 1%, and increases Pareto-front hypervolume by 13%.",
+    "key_phrase": "reduces average device temperatures by 10% and peak hotspot temperatures by up to 1%",
+    "location": "abstract (read via OpenAlex abstract_inverted_index; full text not accessible)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The abstract reports quality/performance improvements (temperature reduction, Pareto-front hypervolume) but no runtime, iteration count, or computational-cost comparison of any kind against the 'standard methods' comparator.",
+    "direction": "outperform",
+    "alternatives": "none beyond the two headline figures given together (10%/1% temperature reduction and 13% hypervolume increase)"
+  },
+  "baseline": {
+    "classical_method": "not named specifically; the abstract contrasts the proposed approach with 'conventional thermal optimization methods' described as relying on 'gradient-based techniques or parametric geometric shapes' [inferred: likely gradient-based topology optimization, since the paper's own method explicitly 'integrates topology optimization, constructal theory, and bio-inspired principles']",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated (training set described only as 'a diverse dataset of microleaf structures, constructal patterns, and synthetic conductive networks', no size or generation cost given)",
+    "quality_metric": "Average device temperature, peak hotspot temperature, and Pareto-front hypervolume (multi-objective thermal trade-off)",
+    "quality_gap": "10% lower average device temperature, up to 1% lower peak hotspot temperature, 13% higher Pareto-front hypervolume vs. standard methods (abstract)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Matei Cristian Ignuta-Ciuncanu, Hannes Stark, Ricardo Martinez-Botas). Likely-duplicate alert for the verifier (not coded as FT-DUPLICATE here, since P01907 is the candidate primary version): audit/pool/pool.csv separately lists P01938, 'Bio-Inspired Design of Conductive Heat Sinks Using a Generative Autoencoder Framework' (SSRN Electronic Journal, preprint, doi 10.2139/ssrn.4576761, dated 2023), by the identical three authors in the identical order, on what reads as the same underlying bio-inspired/VAE-plus-evolutionary heat-sink design study, retitled and (2 years later) published as this journal article. P01938 is outside this queue and was not read (SSRN was not used as a substitute full-text source for P01907, to avoid conflating two separately pool-tracked records with possibly different reported numbers); if a coder confirms with both full texts that they are the same study, PROTOCOL's duplicate rule would make this journal version (P01907, hybrid open access) the primary record and P01938 the one coded FT-DUPLICATE, not the reverse. Per the task's abstract-only rule, this record is coded include, stratum 'none', with all rule verdicts na, rather than excluded or coded by substituting a different pid's text. Key uncertainty for a coder with full-text access: whether the 10%/1%/13% figures are compared at matched design effort or computational budget (R1), whether the 'standard methods' baseline is an efficiently implemented classical topology optimization (R2), and whether reported temperatures/hypervolume come from a stated FE or CFD verification of the returned design rather than a surrogate (R4) -- none of this is visible from the abstract. dim='3d' is taken directly from the abstract's explicit 'three-dimensional heat sink' statement; whether individual unit-cell optimization itself is 2D or 3D is not stated."
+}

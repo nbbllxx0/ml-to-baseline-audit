@@ -1,0 +1,88 @@
+{
+  "pid": "P01517",
+  "citation": {
+    "title": "A Multi-Grid, Single-Mesh Online Learning Framework for Stress-Constrained Topology Optimization Based on Isogeometric Formulation",
+    "authors": "Kangjie Li, Wenjing Ye",
+    "year": 2025,
+    "venue": "Computer Modeling in Engineering & Sciences (CMES), Vol. 145, No. 2, pp. 1665-1689",
+    "doi": "10.32604/cmes.2025.072447",
+    "arxiv_id": "",
+    "version_coded": "Version of record, open access (CC BY 4.0), downloaded from the publisher's own file host (cdn.techscience.press/files/CMES/2025/TSP_CMES-145-2/TSP_CMES_72447/TSP_CMES_72447.pdf), reached via doi.org -> techscience.com landing page -> PDF link. Full text (24 pages, all sections, tables and equations) read from the extracted text."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (full-text determination; this blind second-pass coder has no access to the original title/abstract screening code)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "stress",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For an L-bracket stress-constrained design (load case a), the online-learning framework (FNO-predicted sensitivities substituting for some IGA evaluations) reaches a design comparable to ground-truth TO-IGA (volume fraction 0.1489 vs 0.1500; max stress 24.92 vs 25.25 Pa against a 25 Pa limit) in 2062.78 s versus 2540.44 s, a 1.23x speedup, by cutting the number of true IGA evaluations from 210 to 150 within the same 210-iteration optimization budget.",
+    "key_phrase": "reducing the total computational time by about 20%",
+    "location": "Section 5.1, Table 1 (first case); this is the first quantitative comparison with the classical method anywhere in the article - the Abstract, Conclusion and Introduction state only qualitative acceleration claims about this work (the Introduction's only number, a 40-60% time reduction, is a different cited paper's result, not this article's own)",
+    "quantitative": true,
+    "claimed_speedup": 1.23,
+    "claimed_speedup_basis": "Explicitly stated in text (Sec. 5.2.4, p.1685: 'the speedup of 1.23 in Table 1'), and matches Table 1 case (a): ground-truth time 2540.44 s / online-learning time 2062.78 s = 1.2316 [derived, rounds to the stated 1.23]",
+    "direction": "outperform",
+    "alternatives": "(1) Table 1, case (b) (L-bracket, load applied on the side): 2429.20/2058.63 = 1.18 [derived; not explicitly named as a speedup in text]. (2) Table 2 (quarter annulus): 2x2 Gauss points 2406.58/1783.18 = 1.35 [derived]; 3x3 Gauss points 3316.6/2570.9 = 1.29 [derived]. (3) Sec. 5.2.4 parameter-tuning result: reducing n1 to 5 with the overlap strategy shortens the online-learning time to 1767.56 s, 'yielding a speedup of 1.44' (explicit), still on the same case-(a) problem. (4) Table 5 resolution-scaling study on the case-(a) geometry: 63x48 control points, 950.12/738.27 = 1.29x (explicit, 'the speedup drops to 1.29x'); 207x102 control points, 30604.28/17222.91 = 1.78x (explicit). The text notes the speedup approaches a theoretical upper bound of (n1+n2)/n1 = 2.0 as problem size grows (Fig. 13)."
+  },
+  "baseline": {
+    "classical_method": "Ground-truth isogeometric topology optimization (TO-IGA): NURBS control-point densities, p-norm stress aggregation (default p = 8) approximating the max von Mises stress constraint, beta-continuation projection (beta: 1 to 10, +1 every 10 iterations), MMA (Method of Moving Asymptotes) design update using directly computed (non-surrogate) sensitivities (Sec. 3, p.460; Sec. 5.1)",
+    "implementation": "Authors' own MATLAB 2020b implementation of the ITO/MMA loop; the online-learning FNO surrogate component in Python 3.8 with PyTorch 1.10.2 (Sec. 5)",
+    "solver": "not stated (the linear solver used for the IGA state/adjoint equations - direct vs iterative - is never named)",
+    "hardware_classical": "Same single machine as the ML side: Windows 10 Pro, Intel i7-11700 CPU, 16 GB RAM (Sec. 5, p.1678)",
+    "hardware_ml": "Same machine, NVIDIA RTX 3060 GPU with 12 GB RAM, used for the FNO surrogate (same locator)",
+    "problem_size": "Primary: L-bracket, 103x52 control points (2 load cases, Fig. 7), padded to 104x52 FNO input. Also: quarter annulus at a comparable resolution (Table 2, Fig. 8) and two additional L-bracket resolutions, 63x48 and 207x102 control points, for a scaling study (Table 5)",
+    "classical_iterations": "210 total optimization iterations, or earlier stop once the average design-variable change is below 1e-3 (Sec. 5.1); the online-learning run targets the same overall iteration budget but performs only 150 of its update steps as true IGA evaluations (the rest use FNO-predicted sensitivities)",
+    "classical_time": "2540.44 s and 2429.20 s (L-bracket load cases a, b; Table 1); 2406.58 s and 3316.6 s (quarter annulus, 2x2 and 3x3 Gauss points; Table 2); 950.12 s and 30,604.28 s (63x48 and 207x102 resolutions; Table 5)",
+    "ml_time": "2062.78 s and 2058.63 s (Table 1, cases a, b); 1783.18 s and 2570.9 s (Table 2); 738.27 s and 17,222.91 s (Table 5); 1767.56 s (n1=5-with-overlap variant, Sec. 5.2.4) - all reported as the total wall-clock time of the full online-learning run",
+    "training_time": "not reported separately; FNO training (150 epochs, batch size 12, Sec. 5.1) occurs online, using data from the run's own first n0+n1 = 30 true IGA iterations, and its cost is folded into the single reported 'online learning' time in Tables 1/2/5 rather than broken out",
+    "data_generation_cost": "not a separate cost: training data are the design/sensitivity results collected from the same run's own initial 20 (n0) + 10 (n1) true IGA iterations (Sec. 5.1), not a pre-generated external dataset; this is included in the reported online-learning time",
+    "quality_metric": "Volume fraction (vf) and the maximum von Mises stress (sigma_max, from p-norm aggregation, checked against the stated stress limit: 25 Pa for the L-bracket, 40 Pa for the quarter annulus) of the final optimized topology, from the same isogeometric analysis for both methods (Tables 1, 2, 5)",
+    "quality_gap": "Table 1 (primary outcome), online learning vs ground truth: case (a) vf 0.1489 vs 0.1500 (-0.7%), sigma_max 24.9176 vs 25.2465 Pa (limit 25 Pa; the ground-truth design itself slightly exceeds its own stress limit while the online-learning design does not) [derived]; case (b) vf 0.1464 vs 0.1465 (-0.07%), sigma_max 24.9528 vs 24.9757 Pa (both within limit) [derived]"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. 5.1, Table 1: both methods target the same 210-iteration/1e-3-change stopping rule, and the online-learning run substitutes FNO-predicted sensitivities for only some of the update steps (150 of 210 remain true IGA evaluations) rather than stopping early or using a smaller budget. The resulting designs match closely: volume fraction within 0.7% and max stress within about 1.3% of ground truth in both reported cases (quality_gap above), with the online-learning design in case (a) actually satisfying the stress limit that the ground-truth design itself slightly exceeds."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-unsure-pass",
+      "evidence": "Both the classical (MATLAB ITO/MMA) and ML (Python/PyTorch FNO) computations run on the same single machine (Sec. 5: Intel i7-11700 CPU, RTX 3060 GPU), so there is no cross-machine or deliberately mismatched hardware choice. Problem sizes (up to 207x102 control points, on the order of 4x10^4 DOF [inferred]) stay well below the 10^5-DOF threshold in R2(c), so a GPU/CPU asymmetry argument does not apply. The IGA linear-solver class (direct vs iterative) is not stated, so (b)/(d)/(e) cannot be confirmed either way from the text; per the protocol, unsure defaults to pass."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 4 and 5.1: the FNO surrogate is trained online, per problem instance, using data collected from that same optimization run's own initial IGA iterations (n0=20, n1=10); there is no separate, reusable offline-trained model or external dataset. Its training cost (150 epochs) is already folded into the single reported wall-clock time for the run (Tables 1/2/5), so the cost sits inside R1/R2 rather than needing separate accounting."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Tables 1, 2 and 5: the volume fraction and maximum von Mises stress of the final returned topology are reported for every case of both methods, computed via the same isogeometric analysis (not a surrogate-predicted or image-similarity metric). Constraint status is reported plainly, including the one case where the ground-truth design itself marginally exceeds its own stress limit (case a, 25.2465 vs 25 Pa) - a transparent disclosure rather than a selectively favorable comparison. No disconnected/infeasible designs are reported in this small example set, and none are hidden (only two primary cases plus parameter-study variants, all reported)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 primary stress-constrained benchmarks (L-bracket at two load positions, Fig. 7; quarter annulus, Fig. 8), plus a p-norm sensitivity study (values 4/6/8/10), a Fourier-mode study (4/8/12 modes), an n1/overlap study (3 settings, with and without overlap) and 2 additional L-bracket resolutions for a scaling study (Sec. 5.1-5.2)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "As a blind second-pass coder I have no access to the original title/abstract screening file; the 'I-SPEED' reason reflects only my own full-text determination. Primary-outcome search: Abstract only claims acceleration qualitatively ('growing integration of machine learning to accelerate computation'); the Conclusion likewise only says 'substantial computational savings' with no numbers; the Introduction's one numeric time-reduction figure ('a 40%-60% reduction in computational time', p.1667) is explicitly Villalba et al.'s result for a different method, not this article's own classical comparison. The first quantitative classical comparison in the main text is Table 1 (Sec. 5.1), taken as the primary outcome per protocol Sec. 5.1 step 2. Duplicate check: pool.csv also holds P01505, 'A multi-grid, single-mesh online learning framework for efficient large-scale topology optimization' (Engineering With Computers, 2026), by the same authors (Kangjie Li, Wenjing Ye). This is a different article, not a duplicate of P01517: it is the compliance-based predecessor framework that the present, stress-constrained paper explicitly cites and extends ('our group recently developed a multigrid, single-mesh online learning TO method [29]... we further extend this advanced framework to stress-constrained design problems', p.1668-1669). FT-DUPLICATE does not apply. method_family is coded 'other' because the surrogate is a Fourier Neural Operator (FNO, a spectral neural-operator architecture), which does not fit the listed cnn/gan/vae/diffusion_flow/transformer/gnn/llm_agent/rl/neural_reparam/surrogate_mlp_gp categories; it is closest in spirit to surrogate_mlp_gp (an online-updated surrogate replacing an expensive per-iteration calculation) but is architecturally distinct. No code-availability statement of any kind was found (searched the full text); only data is offered 'on request from the authors' (Availability of Data and Materials, p.1686), so retest_candidate is false. No author of this article is named Jun Wang (authors: Kangjie Li, Wenjing Ye). No personal data, email address, mailto parameter, API key or login was used; all requests used a generic non-identifying User-Agent, and the article was reached entirely through the publisher's own open-access page and file host."
+}

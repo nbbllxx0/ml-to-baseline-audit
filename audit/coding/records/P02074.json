@@ -1,0 +1,107 @@
+{
+  "pid": "P02074",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "UDHF-SMERO: a unified deep hybrid framework for co-evolutionary smart material design and energy-adaptive structural optimizations",
+    "authors": "Rajesh M. Bhagat, Mangesh P. Bhorkar, Rajesh M. Dhoble, Buddharatna J. Godboley, Amar Jain, Hemant V. Hajare, Prashant B. Pande",
+    "year": 2026,
+    "venue": "Journal of Building Pathology and Rehabilitation 11:165 (Springer; received 14 Nov 2025, published online 23 May 2026; CC BY-NC-ND 4.0)",
+    "doi": "10.1007/s41024-026-00833-7",
+    "arxiv_id": "none found",
+    "version_coded": "Version of record: publisher PDF (21 pp.) from link.springer.com, read in full as text. The adjudicator re-read the same open-access PDF (21 pp.) on 2026-09-24."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the first quantitative comparison including a classical method is prediction accuracy, Table 2)",
+    "stratum": "quality",
+    "method_family": "transformer",
+    "physics": "multiphysics",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The framework's topology-to-performance mapping reaches an average R² of 0.96 over three load scenarios, versus 0.82, 0.84 and 0.86 for Method [3] (a cited BESO bridge study), Method [8] and Method [25] (Table 2).",
+    "key_phrase": "the framework was demonstrated to be superior based on multiple evaluation metrics",
+    "location": "Sec. 5 Conclusion (first quantitative comparison: superiority with average R² 0.96, citing Table 2); Table 2, p. 11. The abstract reports only the method's own metrics; the introduction has no comparison of this method",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up is claimed. Sec. 4.4 states that the whole pipeline takes about 0.82 s per sample on an RTX-class GPU versus 0.34 s for unnamed traditional TO models, i.e. 2.4× slower (stated); no method, size or hardware is given for the 0.34 s.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 4: inverse-design accuracy 93.1% vs 78.2/82.7/88.4% and compliance error 4.3% vs 12.5/10.1/6.9% (Methods [3]/[8]/[25]). (2) Sec. 4.4: 0.82 s vs 0.34 s per sample (ML 2.4× slower; speed stratum, underperform, if chosen); GPU memory 9.6 GB vs 3.5-5 GB. (3) Sec. 4.6: peak stress concentrations about 18-22% lower than unspecified earlier methods. (4) Table 10: composite score 0.93 vs 0.72/0.75/0.81. (5) Sec. 4.3 ablations (ML-only)."
+  },
+  "baseline": {
+    "classical_method": "Method [3] = Lai et al. 2024, BESO design of a pedestrian bridge: the only named classical TO comparator. Methods [8] (Wang 2023, evolutionary optimization for smart-grid nanoparticle analysis) and [25] (Ghali et al. 2024, conformal antenna design optimization) complete the comparator set; the article says the three align with conventional TO, inverse design and structural simulation (Sec. 4, p. 11). How any of them was applied to this dataset is not described",
+    "implementation": "not stated",
+    "solver": "not stated (FEM is used as ground truth; solver unspecified)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "NVIDIA RTX-class GPUs with mixed precision; model not stated (Sec. 4, p. 11; Sec. 4.4)",
+    "problem_size": "64×64×16 voxel design tensor with six material features (Sec. 4, 4.6, 4.7) [≈2.2×10⁵ nodal DOFs for 3D elasticity, derived]; extended dataset of more than 50,000 samples, split 70/15/15 (Sec. 4)",
+    "classical_iterations": "not stated",
+    "classical_time": "0.34 s per sample for unnamed traditional TO models (Sec. 4.4); nothing else",
+    "ml_time": "about 0.82 s per sample for the whole pipeline (Sec. 4.4)",
+    "training_time": "not stated; Co-PIGT 200 epochs, GAN 150 epochs, QEPM-LA 200 epochs, RL under 100 episodes; mixed precision said to cut training time by about 35% (Sec. 4, 4.4)",
+    "data_generation_cost": "not stated; the TopOpt benchmark set is extended with FEM thermomechanical fields, material tensors and dissipation metrics to more than 50,000 samples (Sec. 4)",
+    "quality_metric": "R² of topology-to-performance prediction (Table 2); energy-dissipation error (Table 3); inverse-design accuracy and compliance error (Table 4); displacement R² (Table 5); natural-frequency error vs FEM (Table 6); failure-localization precision (Table 7); RL convergence episodes (Table 8); noise robustness (Table 9); composite score (Table 10)",
+    "quality_gap": "Table 2 average R²: 0.96 vs 0.82 (Method [3]), 0.84 ([8]), 0.86 ([25]); per scenario 0.97/0.96/0.94 vs at most 0.91/0.86/0.82"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4, p. 11 and Table 2: the comparison is said to use the same conditions and data split (70/15/15). No implementation, budget, stopping rule or hardware is given for Methods [3], [8] or [25], which the reference list gives as a BESO pedestrian-bridge study, an evolutionary-optimization smart-grid study and a conformal-antenna study (refs. 3, 8, 25, pp. 19-20). A BESO run [3] has no performance-prediction R² [inferred], and the article does not say how any comparator was applied to its dataset, so the matching cannot be checked. This is the §5.3 partial case (quality reported, matching loose); no R1 fail criterion concerns a quality-only claim."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) reports only the framework's own metrics and names no baseline, so (b) cannot apply. For the record: the comparators are cited, not described (no implementation, solver or hardware, Sec. 4, p. 11), and Sec. 4.4 (p. 16) gives 0.34 s per sample for unnamed traditional TO models with no method, size or hardware."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "The primary outcome is prediction accuracy, and Sec. 4.4 concedes a slower pipeline (0.82 s vs 0.34 s per sample). For C3: no training time or data-generation cost is reported; only epoch counts and a 35% training-time reduction from mixed precision (Sec. 4, 4.4)."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-similarity-metric",
+      "evidence": "Table 2 and Sec. 5: quality rests on agreement scores, i.e. R² between predicted and FEM performance and reconstruction accuracy (%) in Tables 2 and 4. No FE-computed objective, volume or constraint satisfaction of returned designs is reported, and no failed designs are counted. The case study (Sec. 4.7) gives only agreement percentages."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "15% test split of the more than 50,000-sample extended dataset [≈7,500 inferred] (Sec. 4); 3 load scenarios (Table 2); structures A-C (Table 6); one fuselage-panel case study (Sec. 4.7)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Comparator traceability, for the verifier (factual, no judgment of intent). The three comparators are an evolutionary TO study of a bridge [3], a smart-grid nanoparticle study [8] and an antenna design study [25]. The article does not describe how they were applied to this dataset, or how metrics such as prediction R² (Table 2), RL convergence episodes (Table 8) or sensor-noise robustness (Table 9) were computed for them. The table values cannot be traced to a described experiment [observed across Sec. 4]. The 0.34 s for traditional TO models (Sec. 4.4) names no method, size or hardware. Options: FT-OTHER if the comparisons are judged uninterpretable, or FT-SCOPE if the graph-based topology module is judged not to be TO. The article claims TO (keywords; Co-PIGT outputs an optimized topology graph) and microstructure inverse design (IDG-PRA), so it was kept as an include. Primary-outcome judgment: the abstract lists absolute metrics only; the conclusion's first comparative number is the Table 2 R². Stratum Q because R² is an accuracy measure, not speed or cost. C4: Sec. 4.4 reports the pipeline slower than traditional TO (2.4×), a negative-direction speed statement. method_family: hybrid of a physics-informed graph transformer, GAN, transformer surrogate, quantum-inspired latent model (the article's label) and policy-gradient RL; transformer is chosen for the Co-PIGT module behind the primary outcome. Dim 'both': a 3D 64×64×16 design tensor, 2D inverse-design targets and 2D strain fields (Sec. 4, 5.2). OOD unclear: validation on unseen complex structures is claimed (Sec. 4, Table 10), but the limitations question out-of-sample validity (Sec. 5.2). Data on reasonable request; no code statement. No author named Jun Wang (cited comparator [8] is 'Wang J', first name not given, and is not an author). Screening code was I-UNCLEAR. Adjudication note: the second pass stated that no time of any method appears in the article; the PDF's Sec. 4.4 (p. 16) does give 0.82 s vs 0.34 s per sample, so the first pass's timing fields are kept. Decision-order position 64 (audit/screening/pilot_final_order.csv).",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "partial",
+        "second": "fail",
+        "decision": "partial",
+        "reason": "Table 2 (p. 11) reports R² for all methods under a stated common split, but nothing describes how the cited BESO-bridge, smart-grid and antenna studies (refs. 3, 8, 25) were run on this dataset, so matching is loose: the §5.3 R1 partial case. None of the R1 fail criteria, which concern speed claims, applies to this quality-only outcome; the traceability concern stays in notes."
+      },
+      "R2": {
+        "first": "pass",
+        "second": "na",
+        "decision": "na",
+        "reason": "Both coders code stratum Q. Under the §11 stratum-Q rule R2 applies only through (b), and the abstract (p. 1) reports only the framework's own metrics with no baseline, so (b) cannot apply and R2 is na rather than pass."
+      }
+    }
+  }
+}

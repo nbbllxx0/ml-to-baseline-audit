@@ -1,0 +1,88 @@
+{
+  "pid": "P00182",
+  "citation": {
+    "title": "A novel topology design approach using an integrated deep learning network architecture",
+    "authors": "Sharad Rawat, M.-H. Herman Shen",
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.1808.02334",
+    "arxiv_id": "1808.02334",
+    "version_coded": "arXiv v2 (9 Jan 2019; latest), PDF"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; full text holds only a qualitative, quality-only comparison with SIMP and no timing)",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The authors conclude that GAN-generated cantilever structures, mapped to settings by a CNN, agree well with SIMP structures computed at those settings, so the GAN can produce sub-optimal topologies after training on 3024 samples.",
+    "key_phrase": "With the good agreement of the GAN results against the conventional algorithm",
+    "location": "conclusion (Section 5, p. 13); supporting comparison in Section 4, p. 11 and Table 1, p. 12. No quantitative comparison exists anywhere, so rule 5.1(3) applies",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No timing is reported for either method anywhere in the article (full text checked).",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Abstract: motivation only; SIMP is said to need thousands of iterations and to be impractical, and a rapid approach is needed, but no speed result is stated. (2) Section 4, p. 11: GAN structures described as very close to their SIMP counterparts (qualitative). (3) Conclusion: designers could iterate quickly with the model (no comparison made)."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization, cantilever loaded at the mid-point of the free end (Sections 2–3)",
+    "implementation": "not stated (a conventional SIMP code; Section 2 cites the 99-line and 88-line MATLAB papers, refs 14, 15)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated (Keras with TensorFlow backend, Python 3.5; Section 3)",
+    "problem_size": "120×120 (Section 3, Dataset, p. 9)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated; 3024 SIMP samples over volume fraction 0.3–0.8, penalty 2–4, filter radius 1.5–3, augmented with noise to 6048 for the CNN (Section 3, pp. 5, 9)",
+    "quality_metric": "visual comparison of post-processed GAN structures with SIMP structures at CNN-predicted settings (Section 4, Table 1)",
+    "quality_gap": "not quantified; the authors describe the GAN structures as very close to the SIMP structures (Section 4, p. 11)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "na",
+      "marker": "R1-na-quality-stratum",
+      "evidence": "The primary outcome is a qualitative, quality-only comparison (Conclusion p. 13; Section 4 p. 11). No run time of either method appears anywhere in the article, so there is no speed comparison to match."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-stratum",
+      "evidence": "No speed comparison. For the record: SIMP implementation, solver, iteration count and hardware are not stated (Sections 2–3)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No quantified speed claim. For the record: the 3024-sample SIMP dataset (augmented to 6048 for the CNN) has no stated generation or training cost (Section 3, pp. 5, 9)."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-selected-examples",
+      "evidence": "Section 4 p. 11 and Table 1 p. 12: four post-processed GAN structures (0.5 threshold plus Gaussian filter) are compared by eye with SIMP structures run at the CNN-predicted settings; the selection rule is not stated. No FE analysis, compliance or measured volume fraction of any GAN output is reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 GAN–SIMP pairs (Table 1, p. 12); 16 GAN samples shown without comparison (Fig. 6)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Earlier companion of P00178 (same authors). No timing exists anywhere, so the primary outcome falls to the first qualitative comparison, in the conclusion. The abstract motivates speed (SIMP impractical, a rapid approach needed) but states no speed result. A verifier who reads that motivation as a speed claim would move the article to the speed stratum, where R3 (no costs) and R4 would fail and R1 would be fail or partial (no measured speed; visual quality only). Section 4 also notes that some GAN samples are poorly defined, with no rate given."
+}

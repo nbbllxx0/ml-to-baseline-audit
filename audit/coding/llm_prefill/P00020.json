@@ -1,0 +1,88 @@
+{
+  "pid": "P00020",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Learning Gradient Flow: Using Equation Discovery to Accelerate Engineering Optimization",
+    "authors": "Grant Norman, Conor Rowan, Kurt Maute, Alireza Doostan",
+    "year": 2026,
+    "venue": "arXiv preprint (math.OC; also cs.CE, cs.LG, math.DS, math.NA); the v2 comment says it was submitted to CMAME. The abs page lists the related DOI 10.1016/j.cma.2026.119099 (Computer Methods in Applied Mechanics and Engineering), and the Elsevier linking hub gives the same title (PII S0045782526003725). ScienceDirect answered scripted requests with a captcha page (HTTP 403), so the journal version's open-access status and content were not checked",
+    "doi": "10.48550/arXiv.2602.13513",
+    "arxiv_id": "2602.13513",
+    "version_coded": "arXiv v2 (17 Feb 2026; v1 13 Feb 2026), full text read from https://arxiv.org/html/2602.13513 (v2); Figs. 4-5 (TO results) viewed as images. The v2 comment says the TO example was changed to 250% acceleration, so v1 and possibly the journal version differ"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "In the 3D compliance TO example, the learned gradient-flow surrogate replaces 50 of every 70 gradient-descent steps (250% acceleration, 3.5× fewer objective/gradient evaluations) over 900 epochs, and the design is shown to agree with plain gradient descent.",
+    "key_phrase": "reduced the number of gradient evaluations by factors ranging from 33% up to 250%",
+    "location": "Conclusion (Sec. 5 para 1) and Table 6 (first quantitative comparison; the abstract is qualitative); TO details in Sec. 4.2, Table 2 and Figs. 4-5",
+    "quantitative": true,
+    "claimed_speedup": 3.5,
+    "claimed_speedup_basis": "Evaluation-count ratio, not time. Acceleration is defined as 100×(M/K−1) (Sec. 4.1, Table 6); for TO, K = 20 and M = 70 give 250%, i.e. 70/20 = 3.5× fewer objective/gradient evaluations than gradient descent over the same 900 epochs [derived] (Sec. 4.2). No wall-clock time or hardware is reported; the cost of the rank-2 truncated SVD, the least-squares fit and the dopri5 integration is argued to be minor but not measured (Sec. 4.2).",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 4.2, Table 2, Fig. 4: 100% acceleration (K = 20, M = 40; 2× fewer evaluations) over 500 epochs, with a relative squared-L2 density difference of 2.0×10^-4 against gradient descent. (2) Abstract: qualitative claim that learned gradient flows significantly speed up convergence. (3) Non-TO examples (Table 6): dynamic inverse problem 200% (gradient descent), nonlinear heat conduction 33% (Newton), full wave inversion 50% (ADAM), Deep Ritz 43% (ADAM); more aggressive settings fail for the Newton, FWI and Deep Ritz examples (Figs. 7, 10, 12)."
+  },
+  "baseline": {
+    "classical_method": "Plain gradient descent with a fixed learning rate of 1 on an unconstrained SIMP compliance formulation: tanh density parametrization, quadratic volume penalty (V0 = 0.3), penalty exponent p = 4, no density filter mentioned (Sec. 4.2, Eqs. 22-29, Table 2); the same optimizer with and without the learned surrogate",
+    "implementation": "PyTorch-based LGF optimizer (Sec. 1 contributions); the FE code is not described beyond solving the sparse equilibrium system and assembling element sensitivities (Sec. 4.2)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "3D: quarter of a unit cube by symmetry, 13,824 8-node hexahedra (24 per side of the computational domain), 46,875 DOFs before boundary conditions (Sec. 4.2)",
+    "classical_iterations": "fixed epoch counts, no convergence criterion: 500 epochs for the 100% case (Table 2) and 900 epochs for the 250% case (Sec. 4.2); both optimizers run the same number of epochs",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "no offline training; the surrogate is refitted online every M = 70 epochs from the last K = 20 iterates (rank-2 truncated SVD, cost O(nrK) per refit, plus least squares), not timed (Sec. 3.4, 4.2)",
+    "data_generation_cost": "the K = 20 true gradient-descent iterations per 70-epoch cycle, counted inside the evaluation budget (Sec. 3.4, 4.2)",
+    "quality_metric": "Relative squared-L2 difference of the density fields against gradient descent; objective curves and density slices (Figs. 4-5)",
+    "quality_gap": "100% case: 2.0×10^-4 relative density difference after 500 iterations (Sec. 4.2). 250% case (primary): agreement shown only graphically, with overlapping objective curves and matching density slices (Fig. 5). Compliance values and final volume are not reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. 4.2, Figs. 4-5: surrogate-accelerated and plain gradient descent run the same number of epochs from the same start; the objective curves overlap and the densities agree (2.0×10^-4 relative difference at 500 epochs for the 100% case; graphical agreement for the 250% case), so the evaluation saving is claimed at matched design. [judgment] partial is defensible because the 250% case has no numeric quality check, volume is not reported, and the surrogate overhead is outside the evaluation-count proxy."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-baseline-optimizer [judgment]",
+      "evidence": "Sec. 4.2, Table 2, Fig. 5: the classical comparator is fixed-step plain gradient descent on a tanh-parametrized, penalty-constrained formulation, not a standard TO optimizer such as OC or MMA. The authors note that this parametrization strongly delays convergence to 0/1 densities, and Fig. 5 still shows intermediate densities after 900 epochs. Solver and hardware are not stated. Markers (a)-(e) are not established; whether a 3.5× evaluation saving would hold against OC or MMA is untested [inferred risk]."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem-learning",
+      "evidence": "The surrogate is fitted online from the current run's own iterates, with no offline training or dataset (Sec. 3.1, 3.4); per protocol its cost sits inside R1/R2. The refit cost (truncated SVD and least squares every 70 epochs) is described but not timed (Sec. 4.2)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Figs. 4-5: the objective of the accelerated run is plotted over all epochs and overlaps gradient descent, presumably from FE evaluation of the returned densities [inferred]; the density difference itself is a field-similarity metric. The volume (enforced only through a penalty) and the compliance of the final design are not reported. One run per setting; no failure cases for TO."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "TO: one 3D problem run at two settings (100% acceleration over 500 epochs; 250% over 900 epochs; Sec. 4.2, Figs. 4-5); the article has five problems in total (Table 6)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED, confirmed; dim set to 3d from the TO example. Inclusion judgment: the learned model is an online SINDy-type least-squares fit of the optimizer dynamics in a rank-2 SVD subspace, refitted every 70 epochs. It is treated as a learned model under §3.1 (data-driven equation discovery), but a verifier who reads §3.1 as requiring a trained network or GP could argue FT-NOML. TO is one of five examples (Sec. 4.2); the other four (inverse heat problem, nonlinear heat conduction, full wave inversion, Deep Ritz) are outside the audit's scope. Primary-outcome judgment: the abstract is qualitative; the conclusion's first quantitative comparison is the 33%-250% range over all examples (Table 6), of which the TO entry (250%) is coded. The speed measure is a proxy (objective/gradient evaluations); no wall-clock time or hardware appears anywhere. Main uncertainty: R2, because the comparator is plain gradient descent rather than OC or MMA. Minor inconsistencies: the Fig. 5 panels are labelled SGD although the text describes full-batch gradient descent; in the Newton example K = 15 and M = 20 give 33% by the article's own definition (Table 6), while the Fig. 6 caption says 25%. Version: arXiv v2 coded; v1 had a different TO acceleration setting per the v2 comment; the CMAME version (doi 10.1016/j.cma.2026.119099) could not be read. arXiv v2 licence: CC BY 4.0. No code or data statement (the only repository link is to torchdiffeq). retest_candidate false: no code and no time claim. COI check: no author named Jun Wang."
+}

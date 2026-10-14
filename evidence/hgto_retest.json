@@ -1,0 +1,687 @@
+{
+  "configs": {
+    "cantilever_120x40": {
+      "published": {
+        "hgto_s": 8.265534354839474,
+        "oc_s": 9.015048391185701,
+        "hgto_C": 176.49327133655947,
+        "oc_C": 175.08232935138287,
+        "oc_over_hgto": 1.0906794411794303
+      },
+      "measured": {
+        "hgto_gpu": {
+          "repeats": 3,
+          "wall_s_median": 10.023782400006894,
+          "wall_s_min": 9.861729600001127,
+          "wall_s_max": 10.898005300026853,
+          "compliance": 176.4932713359098,
+          "compliance_spread": 2.291358214279171e-10,
+          "volume": 0.5,
+          "updates": [
+            283,
+            283,
+            283
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/hgto_gpu/cantilever_120x40/r1",
+            "retest/runs/hgto/hgto_gpu/cantilever_120x40/r2",
+            "retest/runs/hgto/hgto_gpu/cantilever_120x40/r3"
+          ]
+        },
+        "oc2": {
+          "repeats": 3,
+          "wall_s_median": 9.952608999970835,
+          "wall_s_min": 9.948200500046369,
+          "wall_s_max": 10.002349300018977,
+          "compliance": 175.0823293506971,
+          "compliance_spread": 0.0,
+          "volume": 0.49999999989338517,
+          "updates": [
+            298,
+            298,
+            298
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc2/cantilever_120x40/r1",
+            "retest/runs/hgto/oc2/cantilever_120x40/r2",
+            "retest/runs/hgto/oc2/cantilever_120x40/r3"
+          ]
+        },
+        "oc6": {
+          "repeats": 3,
+          "wall_s_median": 9.281515099981334,
+          "wall_s_min": 9.023986999993213,
+          "wall_s_max": 9.29873320000479,
+          "compliance": 175.08232935077825,
+          "compliance_spread": 0.0,
+          "volume": 0.49999999989337934,
+          "updates": [
+            298,
+            298,
+            298
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc6/cantilever_120x40/r1",
+            "retest/runs/hgto/oc6/cantilever_120x40/r2",
+            "retest/runs/hgto/oc6/cantilever_120x40/r3"
+          ]
+        },
+        "ours": {
+          "repeats": 3,
+          "wall_s_median": 7.221509100054391,
+          "wall_s_min": 7.184846000047401,
+          "wall_s_max": 7.340643700037617,
+          "compliance": 175.08232934241067,
+          "compliance_spread": 2.8961721909581684e-11,
+          "volume": 0.4999999999226494,
+          "updates": [
+            298,
+            298,
+            298
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/ours/cantilever_120x40/r1",
+            "retest/runs/hgto/ours/cantilever_120x40/r2",
+            "retest/runs/hgto/ours/cantilever_120x40/r3"
+          ]
+        }
+      },
+      "ratios_vs_hgto_gpu": {
+        "oc2": 0.9928995465787436,
+        "oc6": 0.9259493801436622,
+        "ours": 0.7204375366378089
+      },
+      "compliance_hgto_over_ours": 1.0080587344182503,
+      "matched_quality_ours": {
+        "target_compliance": 176.4932713359098,
+        "time_s_median": 4.189232800039463,
+        "update": [
+          150,
+          150,
+          150
+        ],
+        "ratio_vs_hgto_gpu": 0.4179293437212465
+      }
+    },
+    "half_mbb": {
+      "published": {
+        "hgto_s": 7.425073879770935,
+        "oc_s": 8.98916330607608,
+        "hgto_C": 195.47058191133115,
+        "oc_C": 191.4931589873396,
+        "oc_over_hgto": 1.2106496785932852
+      },
+      "measured": {
+        "hgto_gpu": {
+          "repeats": 3,
+          "wall_s_median": 9.139137300022412,
+          "wall_s_min": 9.08994510001503,
+          "wall_s_max": 9.241066500020679,
+          "compliance": 195.47058190971464,
+          "compliance_spread": 5.877041076018941e-10,
+          "volume": 0.5000000000000001,
+          "updates": [
+            281,
+            281,
+            281
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/hgto_gpu/half_mbb/r1",
+            "retest/runs/hgto/hgto_gpu/half_mbb/r2",
+            "retest/runs/hgto/hgto_gpu/half_mbb/r3"
+          ]
+        },
+        "oc2": {
+          "repeats": 3,
+          "wall_s_median": 9.945354499970563,
+          "wall_s_min": 9.9298434999655,
+          "wall_s_max": 9.984944899973925,
+          "compliance": 191.4931589861411,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000533423,
+          "updates": [
+            292,
+            292,
+            292
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc2/half_mbb/r1",
+            "retest/runs/hgto/oc2/half_mbb/r2",
+            "retest/runs/hgto/oc2/half_mbb/r3"
+          ]
+        },
+        "oc6": {
+          "repeats": 3,
+          "wall_s_median": 9.11871589999646,
+          "wall_s_min": 9.053811000019778,
+          "wall_s_max": 9.18259839998791,
+          "compliance": 191.49315898582165,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000533523,
+          "updates": [
+            292,
+            292,
+            292
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc6/half_mbb/r1",
+            "retest/runs/hgto/oc6/half_mbb/r2",
+            "retest/runs/hgto/oc6/half_mbb/r3"
+          ]
+        },
+        "ours": {
+          "repeats": 3,
+          "wall_s_median": 8.34032489999663,
+          "wall_s_min": 8.31299870001385,
+          "wall_s_max": 8.356670899956953,
+          "compliance": 191.4931589988758,
+          "compliance_spread": 6.310472144832602e-10,
+          "volume": 0.5000000000044976,
+          "updates": [
+            292,
+            292,
+            292
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/ours/half_mbb/r1",
+            "retest/runs/hgto/ours/half_mbb/r2",
+            "retest/runs/hgto/ours/half_mbb/r3"
+          ]
+        }
+      },
+      "ratios_vs_hgto_gpu": {
+        "oc2": 1.0882158975712264,
+        "oc6": 0.997765500248486,
+        "ours": 0.9125943320685398
+      },
+      "compliance_hgto_over_ours": 1.0207705744248659,
+      "matched_quality_ours": {
+        "target_compliance": 195.47058190971464,
+        "time_s_median": 4.605747199966572,
+        "update": [
+          150,
+          150,
+          150
+        ],
+        "ratio_vs_hgto_gpu": 0.5039586395047678
+      }
+    },
+    "inclined_cantilever": {
+      "published": {
+        "hgto_s": 8.490220696665347,
+        "oc_s": 26.900979519821703,
+        "hgto_C": 133.4785325063625,
+        "oc_C": 132.72165823640532,
+        "oc_over_hgto": 3.1684664605229216
+      },
+      "measured": {
+        "hgto_gpu": {
+          "repeats": 3,
+          "wall_s_median": 10.544797400012612,
+          "wall_s_min": 10.520249699999113,
+          "wall_s_max": 11.021638799982611,
+          "compliance": 133.47853250593664,
+          "compliance_spread": 1.6973444871837273e-10,
+          "volume": 0.5,
+          "updates": [
+            294,
+            294,
+            294
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/hgto_gpu/inclined_cantilever/r1",
+            "retest/runs/hgto/hgto_gpu/inclined_cantilever/r2",
+            "retest/runs/hgto/hgto_gpu/inclined_cantilever/r3"
+          ]
+        },
+        "oc2": {
+          "repeats": 3,
+          "wall_s_median": 29.355764199979603,
+          "wall_s_min": 28.34820619999664,
+          "wall_s_max": 30.14141009998275,
+          "compliance": 132.7216582362946,
+          "compliance_spread": 0.0,
+          "volume": 0.500000000041827,
+          "updates": [
+            1000,
+            1000,
+            1000
+          ],
+          "termination": [
+            "max_stage_steps"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc2/inclined_cantilever/r1",
+            "retest/runs/hgto/oc2/inclined_cantilever/r2",
+            "retest/runs/hgto/oc2/inclined_cantilever/r3"
+          ]
+        },
+        "oc6": {
+          "repeats": 3,
+          "wall_s_median": 26.857095699990168,
+          "wall_s_min": 26.656817500013858,
+          "wall_s_max": 26.917334700003266,
+          "compliance": 132.7216582364749,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000417671,
+          "updates": [
+            1000,
+            1000,
+            1000
+          ],
+          "termination": [
+            "max_stage_steps"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc6/inclined_cantilever/r1",
+            "retest/runs/hgto/oc6/inclined_cantilever/r2",
+            "retest/runs/hgto/oc6/inclined_cantilever/r3"
+          ]
+        },
+        "ours": {
+          "repeats": 3,
+          "wall_s_median": 29.08109189994866,
+          "wall_s_min": 29.005263300030492,
+          "wall_s_max": 29.089483899995685,
+          "compliance": 132.72165822920553,
+          "compliance_spread": 3.4094682632712647e-10,
+          "volume": 0.5000000000712364,
+          "updates": [
+            1000,
+            1000,
+            1000
+          ],
+          "termination": [
+            "max_stage_steps"
+          ],
+          "runs": [
+            "retest/runs/hgto/ours/inclined_cantilever/r1",
+            "retest/runs/hgto/ours/inclined_cantilever/r2",
+            "retest/runs/hgto/ours/inclined_cantilever/r3"
+          ]
+        }
+      },
+      "ratios_vs_hgto_gpu": {
+        "oc2": 2.7839097411150346,
+        "oc6": 2.546952272402886,
+        "ours": 2.757861606702266
+      },
+      "compliance_hgto_over_ours": 1.0057027186582013,
+      "matched_quality_ours": {
+        "target_compliance": 133.47853250593664,
+        "time_s_median": 4.652070999960415,
+        "update": [
+          152,
+          152,
+          152
+        ],
+        "ratio_vs_hgto_gpu": 0.4411721556598945
+      }
+    },
+    "cantilever_240x80": {
+      "published": {
+        "hgto_s": 11.72101592598483,
+        "oc_s": 30.872174197807908,
+        "hgto_C": 176.85237601771126,
+        "oc_C": 175.7650980017056,
+        "oc_over_hgto": 2.6339162400902505
+      },
+      "measured": {
+        "hgto_gpu": {
+          "repeats": 3,
+          "wall_s_median": 15.279507500003092,
+          "wall_s_min": 15.276439299981575,
+          "wall_s_max": 15.336339799978305,
+          "compliance": 176.85237601761182,
+          "compliance_spread": 1.7118395589932334e-10,
+          "volume": 0.5000000000000003,
+          "updates": [
+            258,
+            258,
+            258
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/hgto_gpu/cantilever_240x80/r1",
+            "retest/runs/hgto/hgto_gpu/cantilever_240x80/r2",
+            "retest/runs/hgto/hgto_gpu/cantilever_240x80/r3"
+          ]
+        },
+        "oc2": {
+          "repeats": 3,
+          "wall_s_median": 39.30675389996031,
+          "wall_s_min": 38.91554690001067,
+          "wall_s_max": 39.470853200007696,
+          "compliance": 175.7650980005743,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000202095,
+          "updates": [
+            208,
+            208,
+            208
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc2/cantilever_240x80/r1",
+            "retest/runs/hgto/oc2/cantilever_240x80/r2",
+            "retest/runs/hgto/oc2/cantilever_240x80/r3"
+          ]
+        },
+        "oc6": {
+          "repeats": 3,
+          "wall_s_median": 37.072252300044056,
+          "wall_s_min": 36.88587150000967,
+          "wall_s_max": 37.145088299992494,
+          "compliance": 175.76509800142537,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000202859,
+          "updates": [
+            208,
+            208,
+            208
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc6/cantilever_240x80/r1",
+            "retest/runs/hgto/oc6/cantilever_240x80/r2",
+            "retest/runs/hgto/oc6/cantilever_240x80/r3"
+          ]
+        },
+        "ours": {
+          "repeats": 3,
+          "wall_s_median": 7.153713899955619,
+          "wall_s_min": 7.1405937999952585,
+          "wall_s_max": 7.226050499943085,
+          "compliance": 175.76509799932825,
+          "compliance_spread": 1.4364331946126185e-10,
+          "volume": 0.5000000000267673,
+          "updates": [
+            208,
+            208,
+            208
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/ours/cantilever_240x80/r1",
+            "retest/runs/hgto/ours/cantilever_240x80/r2",
+            "retest/runs/hgto/ours/cantilever_240x80/r3"
+          ]
+        }
+      },
+      "ratios_vs_hgto_gpu": {
+        "oc2": 2.5725144544058347,
+        "oc6": 2.4262727250885905,
+        "ours": 0.4681900840033078
+      },
+      "compliance_hgto_over_ours": 1.0061859722473896,
+      "matched_quality_ours": {
+        "target_compliance": 176.85237601761182,
+        "time_s_median": 5.525357100006659,
+        "update": [
+          150,
+          150,
+          150
+        ],
+        "ratio_vs_hgto_gpu": 0.3616187956323553
+      }
+    },
+    "cantilever_480x160": {
+      "published": {
+        "hgto_s": 47.35303098708391,
+        "oc_s": 197.51615063101053,
+        "hgto_C": 172.44152218579202,
+        "oc_C": 171.58414908870782,
+        "oc_over_hgto": 4.171140611566878
+      },
+      "measured": {
+        "hgto_gpu": {
+          "repeats": 3,
+          "wall_s_median": 49.161106600018684,
+          "wall_s_min": 49.133491999993566,
+          "wall_s_max": 49.23777429998154,
+          "compliance": 172.4415221837169,
+          "compliance_spread": 6.447464784287149e-10,
+          "volume": 0.5000000000000003,
+          "updates": [
+            312,
+            312,
+            312
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/hgto_gpu/cantilever_480x160/r1",
+            "retest/runs/hgto/hgto_gpu/cantilever_480x160/r2",
+            "retest/runs/hgto/hgto_gpu/cantilever_480x160/r3"
+          ]
+        },
+        "oc2": {
+          "repeats": 3,
+          "wall_s_median": 242.9604298999766,
+          "wall_s_min": 241.19898430001922,
+          "wall_s_max": 242.9788652000134,
+          "compliance": 171.5841490807388,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000227773,
+          "updates": [
+            291,
+            291,
+            291
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc2/cantilever_480x160/r1",
+            "retest/runs/hgto/oc2/cantilever_480x160/r2",
+            "retest/runs/hgto/oc2/cantilever_480x160/r3"
+          ]
+        },
+        "oc6": {
+          "repeats": 3,
+          "wall_s_median": 218.75873519998277,
+          "wall_s_min": 217.85597049997887,
+          "wall_s_max": 225.1849763999926,
+          "compliance": 171.58414908085177,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000228676,
+          "updates": [
+            291,
+            291,
+            291
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc6/cantilever_480x160/r1",
+            "retest/runs/hgto/oc6/cantilever_480x160/r2",
+            "retest/runs/hgto/oc6/cantilever_480x160/r3"
+          ]
+        },
+        "ours": {
+          "repeats": 3,
+          "wall_s_median": 19.156251800013706,
+          "wall_s_min": 19.15582850005012,
+          "wall_s_max": 19.16136029997142,
+          "compliance": 171.58414907764472,
+          "compliance_spread": 1.1508888064781786e-08,
+          "volume": 0.500000000044023,
+          "updates": [
+            291,
+            291,
+            291
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/ours/cantilever_480x160/r1",
+            "retest/runs/hgto/ours/cantilever_480x160/r2",
+            "retest/runs/hgto/ours/cantilever_480x160/r3"
+          ]
+        }
+      },
+      "ratios_vs_hgto_gpu": {
+        "oc2": 4.942126951631399,
+        "oc6": 4.449833421770445,
+        "ours": 0.3896627461190311
+      },
+      "compliance_hgto_over_ours": 1.0049968083338758,
+      "matched_quality_ours": {
+        "target_compliance": 172.4415221837169,
+        "time_s_median": 10.424201000016183,
+        "update": [
+          150,
+          150,
+          150
+        ],
+        "ratio_vs_hgto_gpu": 0.21204162641880442
+      }
+    },
+    "cantilever_960x320": {
+      "published": {
+        "hgto_s": 195.74640465015545,
+        "oc_s": 1880.1009490177967,
+        "hgto_C": 170.99631434368678,
+        "oc_C": 168.55524524901668,
+        "oc_over_hgto": 9.604778960706717
+      },
+      "measured": {
+        "hgto_gpu": {
+          "repeats": 3,
+          "wall_s_median": 197.36602190003032,
+          "wall_s_min": 197.2434339999454,
+          "wall_s_max": 197.86389289994258,
+          "compliance": 170.99631433497146,
+          "compliance_spread": 1.0884946277656127e-09,
+          "volume": 0.49999999999999917,
+          "updates": [
+            345,
+            345,
+            345
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/hgto_gpu/cantilever_960x320/r1",
+            "retest/runs/hgto/hgto_gpu/cantilever_960x320/r2",
+            "retest/runs/hgto/hgto_gpu/cantilever_960x320/r3"
+          ]
+        },
+        "oc2": {
+          "repeats": 1,
+          "wall_s_median": 2140.6916870000423,
+          "wall_s_min": 2140.6916870000423,
+          "wall_s_max": 2140.6916870000423,
+          "compliance": 168.555245235724,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000165111,
+          "updates": [
+            571
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc2/cantilever_960x320/r0"
+          ]
+        },
+        "oc6": {
+          "repeats": 1,
+          "wall_s_median": 1875.8038929000031,
+          "wall_s_min": 1875.8038929000031,
+          "wall_s_max": 1875.8038929000031,
+          "compliance": 168.55524523744714,
+          "compliance_spread": 0.0,
+          "volume": 0.5000000000074191,
+          "updates": [
+            571
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/oc6/cantilever_960x320/r0"
+          ]
+        },
+        "ours": {
+          "repeats": 3,
+          "wall_s_median": 106.42951970000286,
+          "wall_s_min": 106.35025919997133,
+          "wall_s_max": 106.5212051999988,
+          "compliance": 168.5552452443009,
+          "compliance_spread": 1.525734205642948e-09,
+          "volume": 0.5000000000039017,
+          "updates": [
+            571,
+            571,
+            571
+          ],
+          "termination": [
+            "converged"
+          ],
+          "runs": [
+            "retest/runs/hgto/ours/cantilever_960x320/r1",
+            "retest/runs/hgto/ours/cantilever_960x320/r2",
+            "retest/runs/hgto/ours/cantilever_960x320/r3"
+          ]
+        }
+      },
+      "ratios_vs_hgto_gpu": {
+        "oc2": 10.84630305861028,
+        "oc6": 9.50418858748713,
+        "ours": 0.5392494547714574
+      },
+      "compliance_hgto_over_ours": 1.0144823086764967,
+      "matched_quality_ours": {
+        "target_compliance": 170.99631433497146,
+        "time_s_median": 30.32999999995809,
+        "update": [
+          150,
+          150,
+          150
+        ],
+        "ratio_vs_hgto_gpu": 0.15367386801422597
+      }
+    }
+  },
+  "note": "same machine: RTX 5090, i5-14600KF (6 P-cores), pinned; article: RTX 6000 Ada, Threadripper PRO 5995WX with two threads; published and measured values are never mixed in one ratio"
+}

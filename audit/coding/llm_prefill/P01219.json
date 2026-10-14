@@ -1,0 +1,88 @@
+{
+  "pid": "P01219",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Real-time multi-objective topology optimization method via deep learning",
+    "authors": "Cheng Xiang (as printed on the chapter; OpenAlex lists Xiang Cheng), Airong Chen, Dalei Wang, Rujin Ma",
+    "year": 2024,
+    "venue": "In: Bridge Maintenance, Safety, Management, Digitalization and Sustainability (Jensen, Frangopol & Schmidt, eds.), 2024, ISBN 978-1-032-77040-6, pp. 2090-2097 (chapter header and Crossref). Open access via taylorfrancis.com, CC BY-NC-ND 4.0",
+    "doi": "10.1201/9781003483755-246",
+    "arxiv_id": "",
+    "version_coded": "Version of record: publisher chapter PDF (8 pages, pp. 2090-2097) from the Taylor & Francis open-access download link that OpenAlex lists (api.taylorfrancis.com), read in full as text; the results paragraph (p. 2095) and Table 1 and Fig. 4 (p. 2096) also checked on the rendered pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; the conclusion's only quantitative classical comparison is the share of predictions that beat MMA, a quality result, §5.1 rule 2; the timing appears only in the main text)",
+    "stratum": "quality",
+    "method_family": "transformer",
+    "physics": "stress",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On the 40x80 cantilever test set, nearly half (49.75%) of the network's predicted designs beat the MMA reference designs, meaning compliance and p-norm stress over 1% lower with volume within 1%.",
+    "key_phrase": "nearly half of the predicted optimized structures performs better than tradition method",
+    "location": "Conclusion (Sec. 5, p. 2097), the first quantitative comparison with a classical method there; the share is Table 1 'OR' (p. 2096), defined in Sec. 4 (p. 2095). The abstract compares with the conventional method only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable to the quality-stratum primary outcome. Alternative (Sec. 4, p. 2095): average MMA time 15.76 s vs 0.0076 s for the network, 15.76 / 0.0076 = 2,074 [derived]; the article states 0.026% of the MMA time and 99.97% saved. These figures disagree: 0.0076 / 15.76 = 0.048% [derived], and the stated parts (9.4 x 10^-4 s preprocessing plus 4.42 x 10^-3 s prediction) sum to 0.0054 s, not 0.0076 s [derived]. Dataset generation and training are excluded, as the article states.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 4 and Table 1 (speed; emphasised by the title and abstract): average 0.0076 s vs 15.76 s for MMA, 99.97% time saved, with mean compliance error -7.50%, p-norm stress error -5.08%, volume error 0.84%, pixel error 5.18% and 5.9% large-error samples. (2) Abstract, qualitative: a large cut in computing cost with little loss of design performance. (3) Conclusion, qualitative: significantly improved computing efficiency."
+  },
+  "baseline": {
+    "classical_method": "Compliance minimization with a volume constraint and a p-norm (p = 6) von Mises stress constraint, SIMP interpolation, density filter radius 1.5, solved by MMA (Svanberg 1987) (Sec. 2, Sec. 3.1)",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "40 x 80 element cantilever (Sec. 3.1); about 6,640 DOFs [derived: 2 x 41 x 81 = 6,642]; network input 2 x 41 x 81",
+    "classical_iterations": "not stated; the text says only that hundreds of FE and sensitivity iterations are needed (Sec. 4)",
+    "classical_time": "15.76 s average (Sec. 4, p. 2095)",
+    "ml_time": "0.0076 s average, stated as 9.4 x 10^-4 s preprocessing plus 4.42 x 10^-3 s prediction (Sec. 4, p. 2095); the parts sum to 0.0054 s [derived]",
+    "training_time": "not stated; training stopped after 136 epochs (Sec. 3.3); training time is excluded from the reported time (Sec. 4)",
+    "data_generation_cost": "20,000 MMA samples split 8:1:1 (Sec. 3.1); time not stated and excluded from the reported time (Sec. 4) [about 87.6 h at 15.76 s per sample, derived]",
+    "quality_metric": "Relative errors of the predicted designs against the MMA designs for compliance (Ec), p-norm stress, volume fraction and pixel accuracy; share of outperforming samples (OR: volume error within 1%, compliance and p-norm stress errors below -1%); large-error rate (LER: compliance or p-norm stress error above 20%) (Sec. 4, Table 1). The FE evaluation of the predicted designs and any thresholding are not described; the compliance and stress values of predicted designs in Fig. 4 imply an FE analysis [inferred]",
+    "quality_gap": "Averages (Table 1): Ec -7.50%, p-norm stress error -5.08%, volume error 0.84%, pixel error 5.18%, OR 49.75%, LER 5.90%. Fig. 4(a) examples, network vs MMA: C 105.741 vs 115.910, 101.975 vs 105.860, 121.126 vs 134.774. Fig. 4(b) large-error example: C 166.96 vs 187.95 with p-norm stress 1.342 vs 0.886"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4, Table 1: predictions and MMA designs are compared on the same test inputs through compliance, p-norm stress and volume errors. Matching is loose: 'outperform' admits a volume difference of up to 1% (mean volume error 0.84%), the MMA stopping rule and iteration count are not stated, and the MMA references are beaten on average (Ec -7.50%, p-norm stress -5.08%), which suggests under-converged or locally optimal references [inferred]. 5.9% of predictions have errors above 20%."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "The primary outcome compares design quality only, so the efficiency markers (a)-(e) do not bear on it. For the alternative speed outcome: MMA implementation, solver and hardware are not stated; about 6,640 DOFs [derived], so (c) does not apply; (b), (d) and (e) are not established; unsure, so pass."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "The primary outcome is quality only. For C3 and the alternative speed outcome: Sec. 4 states that dataset generation (20,000 MMA runs, Sec. 3.1) and training (136 epochs, Sec. 3.3) are excluded from the reported time, and neither cost is given; no break-even. [derived] At 15.76 s per MMA run the data alone cost about 87.6 h and are recovered after about 20,000 uses. If the speed outcome is taken as primary, R3 = fail (R3-no-cost)."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified [inferred]",
+      "evidence": "Sec. 4, Table 1, Fig. 4: compliance and p-norm stress of the returned predictions are reported against MMA, which implies FE analysis of the predicted designs [inferred; the procedure is not described]. Volume error is reported (mean 0.84%) and large-error samples are counted (5.9%), with disconnected designs named as one cause. The Fig. 4 examples have no stated selection rule but supplement aggregate metrics."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "about 2,000 test samples [derived: 20,000 x 1/10; Sec. 3.1]; Table 1 gives averages only",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; the full text gives stratum Q by §5.1 rule 2. Stratum check for the verifier: 'nearly half' in the conclusion is read as a quantitative comparison because it restates Table 1's OR = 49.75%. If it is read as qualitative, the first main-text comparison is Sec. 4 / Table 1, and rule 4 (title 'Real-time'; the abstract stresses computing cost) selects the speed result: stratum speed, claimed speed-up 2,074 [derived], with would-be verdicts R1 partial (quality reported, MMA stopping rule unstated), R2 pass (no marker established), R3 fail (R3-no-cost: data generation and training excluded and not reported) and R4 as coded. This batch applies the same rule-2-then-rule-4 reading to P00161 and P00080. Internal inconsistencies (Sec. 4): the time parts sum to 0.0054 s, not 0.0076 s; the stated 0.026% does not equal 0.0076 / 15.76 = 0.048% [derived]. Duplicate check: P00645 (Thin-Walled Structures 2022, stress-based, closed access) and P01163 (2022 proceedings chapter, stress-based U-Net) are earlier single-objective studies by the same group; P00919 (Scientific Reports 2025, two-stage SwinUnet MOTO with physics-informed refinement and 1,650 samples per condition) extends this method. All three are different studies [inferred from titles, abstracts and this chapter's reference list], so FT-DUPLICATE does not apply. Type: an 8-page paper in an edited proceedings volume, admitted as a conference paper under §3.3 [inferred from format]. The chapter has no hardware, software, code or data statements. Authors checked: no author named Jun Wang."
+}

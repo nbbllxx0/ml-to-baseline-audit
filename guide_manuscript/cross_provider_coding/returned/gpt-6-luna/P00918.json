@@ -1,0 +1,88 @@
+{
+    "pid": "P00918",
+    "citation": {
+        "title": "Accelerating cell topology optimisation by leveraging similarity in the parametric input space",
+        "authors": "A. Martínez-Martínez, D. Muñoz, J.M. Navarro-Jiménez, O. Allix, F. Chinesta, J.J. Ródenas, E. Nadal",
+        "year": 2025,
+        "venue": "Computer Methods in Applied Mechanics and Engineering",
+        "doi": "10.1016/j.cma.2025.118044",
+        "arxiv_id": "none",
+        "version_coded": "version-of-record abstract only; full text inaccessible"
+    },
+    "access": "abstract_only",
+    "coder": {
+        "llm_model": "gpt-6-luna",
+        "llm_date": "2026-09-26",
+        "human_initials": null,
+        "human_date": null
+    },
+    "included": {
+        "decision": "include",
+        "reason": "I-SPEED (no accessible full text)",
+        "stratum": "none",
+        "method_family": "other",
+        "physics": "compliance",
+        "dim": "unclear"
+    },
+    "claim": {
+        "primary_outcome_paraphrase": "A data-driven instance-based initializer places SIMP nearer to a local minimum and reduces the computation time for cell-level topology optimization.",
+        "key_phrase": "reducing computation time",
+        "location": "abstract",
+        "quantitative": false,
+        "claimed_speedup": null,
+        "claimed_speedup_basis": "No numerical speed-up reported in accessible abstract.",
+        "direction": "outperform",
+        "alternatives": "Abstract also says the energy-based similarity metric is expected to work better for 3D cases; no quantitative classical comparison in the abstract."
+    },
+    "baseline": {
+        "classical_method": "SIMP-based optimizer",
+        "implementation": "not stated",
+        "solver": "not stated",
+        "hardware_classical": "not stated",
+        "hardware_ml": "not stated",
+        "problem_size": "Cell-level topology optimization in a two-level framework; resolution not stated in abstract",
+        "classical_iterations": "not stated",
+        "classical_time": "not stated",
+        "ml_time": "not stated",
+        "training_time": "not stated",
+        "data_generation_cost": "not stated",
+        "quality_metric": "not stated",
+        "quality_gap": "not stated"
+    },
+    "rules": {
+        "R1": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R2": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R3": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        },
+        "R4": {
+            "verdict": "na",
+            "marker": "na",
+            "evidence": "no full text"
+        }
+    },
+    "reporting": {
+        "n_test_cases": "not stated in accessible abstract",
+        "ood_test": "unclear",
+        "seeds_or_variance": "unclear",
+        "failure_rate_reported": "unclear",
+        "timing_protocol_stated": "no",
+        "runtimes_all_cases": "na",
+        "code_available": "no",
+        "data_available": "no",
+        "hardware_per_method_stated": "no"
+    },
+    "retest_candidate": false,
+    "notes": "Full-text URL reached an Anubis bot-verification page; access rules prohibit bypass. Publisher abstract was readable at https://www.sciencedirect.com/science/article/pii/S0045782525003160.",
+    "stage": "cross_provider_pass"
+}

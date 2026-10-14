@@ -1,0 +1,88 @@
+{
+  "pid": "P00059",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "A dual physics-informed neural network for topology optimization",
+    "authors": "Ajendra Singh, Souvik Chakraborty, Rajib Chowdhury",
+    "year": 2024,
+    "venue": "arXiv preprint (physics.comp-ph). Version of record: Journal of Computational Physics 551 (2026) 114666, doi 10.1016/j.jcp.2026.114666 (Crossref, same title and authors, April 2026). Not open access per Crossref licence metadata; ScienceDirect returned HTTP 403; not accessed",
+    "doi": "10.48550/arXiv.2410.14342",
+    "arxiv_id": "2410.14342",
+    "version_coded": "arXiv v1 (18 Oct 2024; only version), full HTML text read from https://arxiv.org/html/2410.14342; figures with printed values (validation, computation-time, convergence, multi-constraint, 3D) viewed as images"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On four 200×100 benchmarks, DPNN-TO took 126-164 s versus 167-251 s for 88-line SIMP with Heaviside projection (1.02-1.81× faster [derived]) and had lower compliance in 3 of 4 cases, but was slower than standard SIMP (68-113 s).",
+    "key_phrase": "better computational efficiency compared to the SIMP with the Heaviside projection filter method",
+    "location": "Sec. 4.1.1, Table 1 and Fig. 7 (compliance and iterations also in Fig. 4); the first quantitative comparison with a classical method. The abstract, introduction and conclusion compare only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": 1.4,
+    "claimed_speedup_basis": "Not stated as a factor. Derived from the Fig. 7 data labels (total time, s): SIMP+Heaviside ÷ DPNN-TO = 188/126 = 1.49, 167/164 = 1.02, 251/139 = 1.81, 183/139 = 1.32; median 1.40. Against standard 88-line SIMP: 79/126 = 0.63, 80/164 = 0.49, 113/139 = 0.81, 68/139 = 0.49; median 0.56, i.e. DPNN-TO is slower in all four cases. Iteration proxy (Table 1): DPNN-TO needs 38-48 density epochs vs 222-340 (SIMP) and 498-660 (SIMP+Heaviside) iterations, but each density epoch also retrains the displacement network (120 epochs after 500 initial ones per Sec. 4.1; Sec. 3.3 describes progressively fewer), so the proxy overstates the saving.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract, qualitative: the abstract claims superiority over conventional methods in flexibility and computational cost. (2) Table 1, compliance only: DPNN-TO 56.6626, 84.7226, 61.4941, 15.7089 vs SIMP+Heaviside 56.9572, 73.2392, 61.7721, 18.7233 and SIMP 58.6229, 74.8632, 64.7315, 20.2265. (3) Table 1 iteration counts as a cost proxy (see claimed_speedup_basis). (4) Sec. 4.3: L-bracket maximum von Mises stress reduced from 2.04 to 1.67 MPa against a 1.5 MPa constraint; no classical run for comparison."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with the 88-line MATLAB code (ref. [56]), standard and with Heaviside projection, penalization p = 3 (Sec. 4.1, Table 1)",
+    "implementation": "MATLAB 88-line educational code (Sec. 4.1); DPNN-TO in PyTorch (Sec. 4)",
+    "solver": "SIMP: not stated (the published 88-line code uses a sparse direct solve [recalled, not verified in-session]). DPNN-TO has no FE solver: a displacement network minimizes the potential energy with Adam (Sec. 3.2.1, 3.3)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "one Nvidia Quadro P2200 GPU (5 GB VRAM), stated for all numerical simulations (Sec. 4)",
+    "problem_size": "2 m × 1 m domain, 200×100 collocation points (Sec. 4.1); the SIMP mesh is not stated [assumed 200×100 elements, ≈4.1×10^4 DOFs, derived]. Other examples: L-bracket 200×80 points, multi-load 100×100, 3D 200×100×50",
+    "classical_iterations": "SIMP 264, 241, 340, 222 and SIMP+Heaviside 525, 502, 660, 498 iterations for problems (1)-(4) (Table 1); stopping rule not stated [88-line default inferred]. DPNN-TO: 48, 47, 39, 38 density epochs, each followed by displacement-network retraining (500 initial epochs, then 120 per Sec. 4.1), stopping at no more than 5% gray elements (Eq. 34) or 100 density epochs (Sec. 4.1)",
+    "classical_time": "SIMP 79, 80, 113, 68 s; SIMP+Heaviside 188, 167, 251, 183 s (Fig. 7 data labels); per-iteration about 0.30-0.38 s [derived], hardware not stated",
+    "ml_time": "126, 164, 139, 139 s (Fig. 7 data labels; the figure legend names the method INNATO)",
+    "training_time": "not applicable: per-problem training is the optimization, so its cost is inside the reported times",
+    "data_generation_cost": "none (no training data)",
+    "quality_metric": "final compliance (Table 1, Fig. 4). How the DPNN-TO compliance in Table 1 was evaluated is not stated; Sec. 4.3 says the L-bracket compliance was computed with the 88-line code",
+    "quality_gap": "DPNN-TO vs SIMP+Heaviside: 56.6626 vs 56.9572; 84.7226 vs 73.2392 (+15.7% [derived]); 61.4941 vs 61.7721; 15.7089 vs 18.7233 (-16.1% [derived]) (Table 1). DPNN-TO volume fractions are not reported (penalty constraint, λ = 50)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table 1, Figs. 4 and 7: each method runs to its own stopping rule, and compliance is reported beside time for all four cases, but nothing is matched. DPNN-TO has lower compliance in 3 of 4 cases, yet in case (2) it is 15.7% worse than SIMP+Heaviside [derived] while only 1.02× faster (164 vs 167 s). DPNN-TO volume fractions are not reported and its compliance-evaluation method for Table 1 is not stated, so equal volume cannot be confirmed."
+    },
+    "R2": {
+      "verdict": "fail",
+      "marker": "R2(b)",
+      "evidence": "Abstract vs Sec. 4.1.1 and Fig. 7: the abstract says DPNN-TO beats conventional methods in computational efficiency, but the results show standard 88-line SIMP is faster than DPNN-TO in all four cases (68-113 s vs 126-164 s); the efficiency advantage holds only against SIMP with Heaviside projection, the slower of the two classical baselines (2.1-2.7× slower than standard SIMP [derived]). The abstract's claim thus rests on the weaker baseline in the results. Other markers: (c) does not apply (about 4.1×10^4 DOFs [derived]); (d) not established; (e) pointer: 0.30-0.38 s per SIMP iteration at 200×100 [derived] needs a same-size re-test. Alternative: pass (R2-none-established) if the verifier reads (b) as requiring a named or quantified baseline in the abstract."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 3.3 and Algorithm 1: both networks are trained per problem from scratch with no dataset or offline training; their cost sits inside the reported run times (Fig. 7)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Table 1 and Fig. 4: compliance of the returned designs is reported, apparently from an FE re-analysis with the 88-line code [inferred from Sec. 4.3; the Table 1 procedure is not stated]. Attained volume fractions of the 2D DPNN-TO designs are not reported although the volume constraint is only a penalty, and no failed runs are counted. The L-bracket design ends at 1.67 MPa against a 1.5 MPa stress constraint, a violation the text does not flag [derived, Sec. 4.3]. If the Table 1 values come from the displacement network's energy rather than FE, the verdict becomes fail (R4-surrogate-predicted)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 2D benchmarks compared with SIMP (Fig. 4, Table 1, Fig. 7); DPNN-TO only: passive-element cantilever (Fig. 10), stress-constrained L-bracket (Fig. 11), two-load cantilever (Fig. 12), 3D cantilever (Fig. 13), parametric studies (Figs. 8-9)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED. Primary-outcome judgment: the first quantitative classical comparison is Sec. 4.1 (Fig. 4, Table 1, Fig. 7); the text frames Table 1 as DPNN-TO vs SIMP with Heaviside projection and bases its efficiency statement on Fig. 7 times, so claimed_speedup uses that comparator; direction is outperform against it, but the article states that DPNN-TO is costlier than standard SIMP. Internal inconsistencies: Sec. 4.1.1 says DPNN-TO consistently gives lower compliance, but case (2) is higher than both SIMP variants (Table 1); the Fig. 7 legend labels the method INNATO; Sec. 4.3 says optimization stops only when the stress constraint is met, yet the reported maximum stress (1.67 MPa) exceeds the 1.5 MPa limit; the conclusion concedes difficulty with stress-constrained problems. The 3D example reports only DPNN-TO values (J = 0.9635, V_f = 0.35, Fig. 13). Reporting locators: hardware Sec. 4 (GPU only; SIMP hardware not stated; no warm-up or repeats); iterations Table 1; times Fig. 7 (bar labels only); no code or data statement. data_available = no because the method uses no training data (the schema has no n/a option). retest_candidate false: no public code; the classical side (88-line code, 200×100) could be re-timed alone. Version: arXiv v1 coded; the JCP version of record (April 2026) appeared about 18 months later and may report revised results; the verifier should check it if access is available."
+}

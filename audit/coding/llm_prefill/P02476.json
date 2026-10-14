@@ -1,0 +1,88 @@
+{
+  "pid": "P02476",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Deep generative modeling for mechanistic-based learning and design of metamaterial systems",
+    "authors": "Liwei Wang, Yu-Chin Chan, Faez Ahmed, Zhao Liu, Ping Zhu, Wei Chen",
+    "year": 2020,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 372 (2020) 113377 (journal reference on the arXiv record; bronze open access per OpenAlex). Preprint: arXiv 2006.15274 (primary cs.CE; also cs.LG, stat.ML; v1 27 Jun 2020, v2 16 Sep 2020)",
+    "doi": "10.1016/j.cma.2020.113377",
+    "arxiv_id": "2006.15274",
+    "version_coded": "arXiv v2 (16 Sep 2020; carries the CMAME journal reference), PDF (41 pp.) read in full as text; no arXiv HTML (HTTP 404). The version of record on ScienceDirect was not read (the site answers scripts with a captcha page)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the only classical run mentioned is a one-sentence qualitative remark that single-scale SIMP gives unrealistic designs; no time of any classical method is reported)",
+    "stratum": "quality",
+    "method_family": "vae",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the smiley-face target-displacement problem, the authors report that single-scale SIMP tends to give unrealistic designs with many intermediate densities, whereas the VAE-based two-stage framework yields a connected aperiodic structure matching the target (RRMSE 0.1623).",
+    "key_phrase": "a single-scale SIMP method will tend to render unrealistic designs",
+    "location": "Sec. 5.2, p. 34 (the only classical run mentioned; described in words, no SIMP result shown). The abstract makes no classical comparison; the efficiency statements on p. 34 and in the conclusion (p. 36) rest on no classical run, time or cited cost",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no classical time is reported. The framework's own times: 20 min on two Intel i7-9750H CPUs for the 4×30 bridge case (300,000 fine-scale elements) and 11 h 12 min on six processors for the 50×50 smiley case (6.25 million elements) (pp. 33-34); VAE training 44,496 s (p. 14).",
+    "direction": "outperform",
+    "alternatives": "(1) Conclusion (p. 36), qualitative speed: replacing nested optimization with a precomputed database gives greater computational efficiency; no nested or concurrent TO is run, timed or costed. (2) p. 34, qualitative: conventional single-scale TO or other aperiodic multiscale methods would be more demanding (stated as an expectation). (3) Sec. 4.2, Fig. 11: candidate sets with vs without latent-space clustering (ML-internal)."
+  },
+  "baseline": {
+    "classical_method": "Single-scale SIMP on the smiley-face target-displacement problem (p. 34); its settings are not described. Nested (concurrent) multiscale TO is named as the costly alternative but not run (Sec. 1; p. 34; Sec. 6)",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "VAE training on a workstation with a GeForce GTX Titan XP GPU, 12 GB (p. 14); design runs on Intel i7-9750H 2.6 GHz CPUs, two or six processors (pp. 33-34)",
+    "problem_size": "Smiley case: 50×50 macro mesh, each cell a 50×50-pixel microstructure, 6.25 million fine-scale elements and nearly 4,900 shared boundaries (p. 34); bridge case 4×30 cells, 300,000 elements, 206 shared boundaries (p. 32); graded case 15×40 cells (p. 31)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "Two-stage design: 20 min on two CPUs (bridge case) and 11 h 12 min on six processors (smiley case) (pp. 33-34); the macro stage stops at a maximal variable change below 0.001 or 500 iterations, and DD-MRF at a closed duality gap or 5,000 iterations (pp. 31-32)",
+    "training_time": "44,496 s, 500 epochs, RMSprop, batch 32, GTX Titan XP (p. 14)",
+    "data_generation_cost": "not stated; about 250,000 homogenized microstructures from 1,400 SIMP-designed seeds plus 200 iterations of stochastic shape perturbation run in parallel (pp. 13-14); 228,396 training and 20,000 validation samples",
+    "quality_metric": "Relative root-mean-square error (RRMSE) between the achieved and target displacement profiles of the assembled full structure (Figs. 15-17); geometric and mechanical incompatibility on shared boundaries (Eq. 17, Fig. 14)",
+    "quality_gap": "No SIMP result is reported; the text says only that SIMP gives many intermediate densities for the smiley problem (p. 34). Framework: RRMSE 0.1900 (graded), 0.0600 (bridge), 0.1623 (smiley) (pp. 31-34)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "p. 34: the SIMP run is described in one sentence; its formulation, volume, objective value and design are not reported, so the comparison cannot be matched or checked. No speed comparison is made."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "No classical time, implementation or hardware is reported; the primary outcome is a qualitative quality comparison, so criteria (a)-(e) do not apply."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "The efficiency statements (p. 34; Sec. 6) are not measured against a classical method. For C3: VAE training took 44,496 s (p. 14); the cost of generating and homogenizing about 250,000 microstructures is not reported (pp. 13-14)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Figs. 15-17: the assembled full structures (300,000 and 6.25 million fine-scale elements) are loaded and their displacement profiles compared with the targets by RRMSE [FE analysis of the returned structure inferred from the element counts]; boundary compatibility is shown visually. Decoder outputs are thresholded at 0.9 and cleaned of isolated pixels (p. 16). No failure or incompatibility counts are reported, and the SIMP design is neither shown nor evaluated."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 multiscale design cases (graded 15×40, bridge 4×30, smiley 50×50); the SIMP remark concerns the smiley case only (pp. 31-34)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Inclusion and primary-outcome judgment for the verifier: the abstract makes no classical comparison. The only classical run mentioned is one sentence in Sec. 5.2 (p. 34): single-scale SIMP tends to give unrealistic designs with many intermediate densities for the smiley problem; no SIMP design or value is shown. The efficiency statements (p. 34; conclusion, p. 36) rest on no classical run, time or cited cost, so under the §11 FT-NOBASELINE clarification they are not comparisons. The record is therefore kept as a quality-stratum include with a qualitative primary outcome; §5.1 rule 3 lists abstract, conclusion and introduction only, and the main-text SIMP remark is used because it is the only comparison that passes the §11 test [judgment]. Alternatives: FT-NOBASELINE, if a one-sentence, unreported SIMP observation does not count as a classical result; or a speed-stratum reading of the conclusion's efficiency claim (then R1 fail, speed claim with no measured comparison), which conflicts with the §11 clarification. Scope: VAE-plus-regressor inverse design of 2D orthotropic microstructures and a two-stage multiscale design (MMA on homogenized properties, then MRF assembly) for prescribed displacements, i.e. linear elasticity (§3.1). failure_rate_reported = unclear: about one in ten randomly sampled decoder outputs is blurry (p. 16), but no failure count is given for the design outputs. Data: the database is said to be on the group's software page (footnote, p. 14); that URL returned HTTP 404 on 2026-09-24. No code statement. Inconsistencies: the PCA clusters are cited as Fig. 6(b) on p. 17 but appear in Fig. 7(b); Sec. 3.1 says the decoder predicts μ and σ (p. 11), which the encoder does. Version: arXiv v2 coded; the CMAME version of record may differ. The pool record comes from the backward-citation search and has no abstract. Duplicate check: no other pool record or prefill of this study (P00138 is a different study). No author named Jun Wang (Liwei Wang is the first author). Screening code was I-UNCLEAR."
+}

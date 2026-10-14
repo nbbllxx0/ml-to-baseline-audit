@@ -1,0 +1,88 @@
+{
+  "pid": "P00130",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Enhancing Data-driven Multiscale Topology Optimization with Generalized De-homogenization",
+    "authors": "Liwei Wang, Zhao Liu, Daicong Da, Yu-Chin Chan, Wei Chen, Ping Zhu",
+    "year": 2021,
+    "venue": "arXiv preprint (arXiv comment: under review). Version of record, retitled 'Generalized de-homogenization via sawtooth-function-based mapping and its demonstration on data-driven frequency response optimization', Computer Methods in Applied Mechanics and Engineering 395 (2022) 114967, doi 10.1016/j.cma.2022.114967 (Crossref; same six authors). Not open access per Crossref licence metadata (only an accepted-manuscript licence from 2023-05-10); ScienceDirect returned HTTP 403; not accessed",
+    "doi": "10.48550/arXiv.2112.02506",
+    "arxiv_id": "2112.02506",
+    "version_coded": "arXiv v2 (18 Dec 2021; v1 5 Dec 2021; no arXiv HTML exists), PDF (38 pp.) read in full as text; pp. 21-31 also checked on the rendered pages for units and figure-caption values"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Pinned beam: the NN-surrogate multiscale pipeline (664.50 s [derived]) is claimed more than 5700× faster than SIMP on the same 1800×400 mesh (one iteration timed, ~1000 assumed), and scores 0.0637 vs 0.0705 m·Hz against coarse macroscale SIMP.",
+    "key_phrase": "over 5700 times faster than TO on the fine mesh",
+    "location": "Sec. 5 case studies, subsection printed as '4.1 Pinned beam', pp. 21-24 (first quantitative comparison with a classical method; the abstract, introduction and conclusion compare only qualitatively). Chosen under §5.1 rule 4: the section's closing efficiency statement is the only stated speed-up and matches the abstract's high-efficiency claim against macroscale-only optimization",
+    "quantitative": true,
+    "claimed_speedup": 5700,
+    "claimed_speedup_basis": "Stated on p. 24 as a factor above 5700 relative to fine-mesh TO. Not reproducible from the printed numbers: fine-mesh SIMP 3712.12 s for one iteration × ~1000 assumed iterations = 3,712,120 s; proposed method 314.54 s (300 iterations) + 349.96 s de-homogenization = 664.50 s; ratio 5,586 [derived]. With the article's own 300-iteration cap the ratio would be 1,676 [derived]. Against the coarse 90×20 macroscale SIMP (332.51 s) the proposed method is slower: 332.51 ÷ 664.50 = 0.50 [derived]. Database generation and NN training are excluded from all times.",
+    "direction": "outperform",
+    "alternatives": "(1) p. 22, quality only: de-homogenized objective 0.0637 m·Hz vs 0.0705 m·Hz for the macroscale SIMP design projected to the same fine mesh; fundamental frequency 290.46 vs 287.24 Hz. This is the first number in the section; stratum quality if chosen. (2) p. 23: total 664.50 s [derived] vs 332.51 s for coarse macroscale SIMP, i.e. about 2× slower; the introduction and conclusion call this comparable efficiency. Under this reading R1 = pass (ML slower but better). (3) Abstract and conclusion, qualitative: fast generation with a clearly better dynamic response than macroscale-only design. (4) Fig. 11: de-homogenized designs with P = 0.5-2.0 score 0.0637-0.0672 m·Hz, all below 0.0705."
+  },
+  "baseline": {
+    "classical_method": "Single-scale (macroscale) SIMP frequency-response minimization under the same loads and volume: (i) run on the coarse 90×20 mesh and projected to the 1800×400 fine mesh for evaluation; (ii) on the 1800×400 fine mesh only one iteration was timed and the total extrapolated (pp. 22-24). The proposed pipeline itself uses MMA with a sensitivity filter and a PDE filter (Sec. 3.3)",
+    "implementation": "not stated for SIMP. The de-homogenization uses MATLAB morphological operators (Sec. 4.3); the NN is trained with scaled conjugate gradient (Sec. 2) [MATLAB inferred]",
+    "solver": "not stated",
+    "hardware_classical": "stated to be the platform used for the proposed method, a single CPU; model not stated (p. 23)",
+    "hardware_ml": "a single CPU; model not stated (p. 23)",
+    "problem_size": "Coarse 90×20 = 1,800 elements; fine 1800×400 = 720,000 elements [≈1.44×10^6 nodal DOFs, derived]; 21 frequency integration points per objective evaluation over [0, 200] Hz (p. 21)",
+    "classical_iterations": "Coarse macroscale SIMP: not stated. The article's stopping rule for all examples is a normalized design change below 0.01 or 300 iterations (Sec. 5 intro, pp. 20-21); whether it applied to the SIMP run is not stated. Fine-mesh SIMP: 1 iteration timed; about 1000 iterations assumed, citing ref. [28] (p. 24)",
+    "classical_time": "Coarse macroscale SIMP 332.51 s (p. 23). Fine-mesh SIMP 3712.12 s for a single iteration; total estimated at more than 1000 h (pp. 23-24)",
+    "ml_time": "314.54 s for homogenization-based optimization (300 iterations) plus 349.96 s for de-homogenization, single CPU (p. 23) = 664.50 s [derived]",
+    "training_time": "not stated. MLP 4-8-16-32-7 with tanh, scaled conjugate gradient, 80/20 train/test split, R² above 0.9999 on both sets (Sec. 2, App. A)",
+    "data_generation_cost": "not stated. 14^4 = 38,416 six-bar microstructures on 100×100 pixels, each homogenized by energy-based homogenization (Sec. 2, p. 8)",
+    "quality_metric": "Frequency-response objective Ĵ in m·Hz (trapezoidal integral over the excitation range of the displacement response at the loaded regions, 21 points) for the de-homogenized fine-mesh structure [FE analysis inferred]; fundamental frequency; frequency-response curves (Figs. 10, 12)",
+    "quality_gap": "Pinned beam: de-homogenized 0.0637 m·Hz at P = 1.5 (0.0637-0.0672 for P = 0.5-2.0, Fig. 11) vs macroscale SIMP 0.0705 m·Hz [9.6% lower, derived]; homogenization-based design 0.0596; initial design 0.5193 (pp. 21-22). De-homogenized volume 50.25% vs 50% target; SIMP volume not reported. No fine-mesh SIMP design exists, so the 5700× comparator has no quality result."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-no-quality",
+      "evidence": "pp. 23-24: the 5700× figure sets the pipeline time against an extrapolated SIMP run on the 1800×400 mesh (one timed iteration × ~1000 assumed). No fine-mesh SIMP design or objective is produced, so the speed claim has no quality comparison with its comparator. The only quality comparison (0.0637 vs 0.0705 m·Hz, p. 22) is against coarse 90×20 SIMP, where the pipeline is about 2× slower. Alternative: if the verifier takes the coarse comparison as primary, R1 = pass."
+    },
+    "R2": {
+      "verdict": "fail",
+      "marker": "R2(d)",
+      "evidence": "pp. 20-24: the fine-mesh SIMP cost assumes about 1000 iterations (citing ref. [28]), while the article's own stopping rule for all its examples stops at 300 iterations at most (Sec. 5 intro), and the proposed method's 314.54 s covers 300 iterations. 1000 ≥ 2 × 300, so the classical estimate uses at least 3.3× the iteration budget of the article's own criterion [derived]; at 300 iterations the claimed ratio falls to about 1,676 [derived]. Both methods ran on a single CPU of the same platform, so (c) does not apply; (b) is not observed (no abstract figure). Pointer for (e): 3712.12 s per fine-mesh iteration with 21 frequency points (≈177 s per frequency point [derived]) needs a frequency-response strong baseline to judge. Alternative: partial (R2-inefficient-impl [inferred]) if (d) is read as applying only to executed runs."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Sec. 2 and p. 23: the speed statements count only online optimization and de-homogenization (664.50 s [derived]). The offline cost of homogenizing 38,416 microstructures on 100×100 pixels and training the MLP is not reported, and no break-even is given. One surrogate serves all three case studies [inferred], so amortization is plausible but not quantified."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "pp. 21-24, Figs. 10-12: the objective and frequency response of the returned de-homogenized fine-mesh structure are reported (FE analysis inferred from the dynamic simulations on the 4-node mesh mentioned in Sec. '4.3'), and its volume is reported (50.25% vs 50% target). The SIMP design's volume is not reported. Defects from de-homogenization are repaired with morphological operators (Sec. 4.3) without counts, and no failed runs are reported; orientation singularities are outside the study's scope (Sec. 6)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 design cases: pinned beam (main design, 4 periodicity values, 2 fixed-orientation variants), clamped beam (3 frequency ranges plus 1 asymmetric case), cantilever (3 volume fractions). The classical comparison covers the pinned beam only (1 case) (Sec. 5)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED. Primary-outcome judgment: the abstract, introduction and conclusion are qualitative (fast generation with a better dynamic response than macroscale-only design; run time on a par with single-scale design). The first quantitative classical comparison is the pinned-beam subsection, which gives quality (p. 22) and then time (pp. 23-24); the 5700× statement is the only stated speed-up and is taken as primary (§5.1 rule 4). Alternatives and their effect on R1 are listed in claim.alternatives. Attribution caveat [inferred]: most of the claimed speed-up comes from the homogenization/de-homogenization paradigm (coarse 90×20 optimization plus mapping), not from the NN itself; the article never compares with the same pipeline using direct or tabulated homogenization, so the NN's own contribution is not isolated. Internal inconsistencies: sections under '5. Design Case Study' are numbered 4.1-4.3; the stated 5700× cannot be reproduced from the printed times (5,586 [derived]); the Fig. 15 caption gives [300, 400] Hz for panel (e) while the text and panel labels give [200, 400] Hz; the shaded ranges of interest in Fig. 17(c) (0-400 Hz) and Fig. 20 (0-100 Hz) differ from the stated [0, 200] Hz [observed on rendered pages]. Physics note: the objective is harmonic frequency response (linear elastodynamics) of a graded multiscale structure; the physics code follows the screening entry. Reporting locators: hardware and times p. 23 (single CPU, model not stated; no warm-up or repeats); stopping rule pp. 20-21; no code or data statement anywhere. retest_candidate false: no public code. Version: arXiv v2 coded; the retitled CMAME version of record was not accessed and may differ."
+}

@@ -1,0 +1,36 @@
+# Codex settings for the blind coding runs only. The runner sets CODEX_HOME to the folder that holds this file, so
+# these sessions load no memories, no session history, no global AGENTS.md, no plugins and no skills from your usual
+# Codex home. This file holds no credentials: log in once with `run_codex.ps1 -Action Login`.
+# Keys and values checked against the Codex configuration reference and `codex features list` (CLI 0.147.0).
+
+model_reasoning_effort = "high"
+approval_policy = "never"
+sandbox_mode = "workspace-write"
+web_search = "live"
+
+[sandbox_workspace_write]
+network_access = true
+
+[windows]
+sandbox = "unelevated"
+
+[shell_environment_policy]
+inherit = "all"
+ignore_default_excludes = false
+
+[features]
+memories = false
+apps = false
+plugins = false
+remote_plugin = false
+browser_use = false
+browser_use_external = false
+browser_use_full_cdp_access = false
+computer_use = false
+in_app_browser = false
+multi_agent = false
+hooks = false
+skill_search = false
+image_generation = false
+goals = false
+tool_suggest = false

@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00647",
+    "citation":  {
+                     "title":  "Designing a TPMS metamaterial via deep learning and topology optimization",
+                     "authors":  "Asha Viswanath, Diab W. Abueidda, Mohamad Modrek, Rashid K. Abu Al-Rub, Seid Koric, Kamran A. Khan",
+                     "year":  2024,
+                     "venue":  "Frontiers in Mechanical Engineering",
+                     "doi":  "10.3389/fmech.2024.1417606",
+                     "arxiv_id":  "none",
+                     "version_coded":  "version of record"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "cnn",
+                     "physics":  "metamaterial_homogenization",
+                     "dim":  "3d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The authors present a CNN that predicts optimized gyroid unit-cell geometries nearly instantly as a lower-cost alternative to repeated 3D topology optimization.",
+                  "key_phrase":  "almost instantly",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No ML-versus-classical end-to-end speed-up factor is reported. Introduction reports about 67 s for one 32×32×32 SIMP iteration and 200–800 iterations to converge, while Table 2 gives ML prediction as 0.001 CPU hours; these are not a matched total-runtime comparison.",
+                  "direction":  "outperform",
+                  "alternatives":  "Introduction: one 32×32×32 classical optimization iteration takes approximately 67 s and convergence may require approximately 200–800 iterations; conclusion describes an accelerated design workflow."
+              },
+    "baseline":  {
+                     "classical_method":  "3D homogenization-based density SIMP topology optimization; maximize bulk or shear modulus",
+                     "implementation":  "Modified MATLAB homogenization TO code (based on Gao et al.); CNN in Python/Keras with TensorFlow",
+                     "solver":  "not stated",
+                     "hardware_classical":  "IBM HPC: two 12-core Intel Xeon E5-2695 v2 CPUs, two NVIDIA K20M GPUs, 264 GB memory; iForge HPC: Intel/Skylake nodes, 40 cores and 192 GB RAM, some with NVIDIA V100 GPUs (Section 3.2)",
+                     "hardware_ml":  "CNN hardware not tied to prediction; training on HPC (Section 3.2)",
+                     "problem_size":  "32×32×32 voxels/elements (Sections 2.1, 4.2)",
+                     "classical_iterations":  "Convergence generally approximately 200–800 iterations (Introduction); some parameter cases discarded after 1,000 iterations (Section 5)",
+                     "classical_time":  "Approximately 67 s per iteration on a workstation for a 32×32×32 mesh (Introduction); data generation 24 CPU hours total over HPC allocations (Table 2)",
+                     "ml_time":  "Prediction: 0.001 CPU hours (Table 2); described as nearly instantaneous in Section 3.2",
+                     "training_time":  "5.5 GPU hours (Table 2)",
+                     "data_generation_cost":  "24 CPU hours on HPC for 2,751 data points; estimated 2.4 h for each data point on one core (Section 3.2 and Table 2)",
+                     "quality_metric":  "MSE, Dice similarity coefficient (DSC), and predicted volume deviation (Sections 3.3, 5)",
+                     "quality_gap":  "Test-set MSE 0.0079; mean predicted-volume deviation 0.24%; mean DSC about 95% (Section 5)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "partial",
+                             "marker":  "R1-unmatched",
+                             "evidence":  "Sections 3.3 and 5 compare predicted topology images with ground-truth SIMP images and report MSE/DSC and volume deviation, but no matched-time or objective/compliance comparison is made; classical convergence is not matched to CNN output quality."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Sections 2–3 identify the MATLAB SIMP comparator and report HPC hardware, but no evidence establishes an inefficient solver, excessive iteration count, abstract understatement, or an unmatched CPU/GPU comparison."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-amortization",
+                             "evidence":  "Section 3.2 and Table 2 report 24 CPU hours for data generation, 5.5 GPU hours for training, and 0.001 CPU hours for prediction; no break-even use count or explicit per-query-only qualification is given."
+                         },
+                  "R4":  {
+                             "verdict":  "fail",
+                             "marker":  "R4-image-metric",
+                             "evidence":  "Sections 3.3 and 5 validate predicted output primarily by image similarity (MSE/DSC); the returned CNN designs are not reported as FE-verified, and failures are excluded from the dataset rather than counted as model failure rates."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "2,751 generated cases; 2,597 bulk-modulus and 2,741 shear-modulus data cases retained; 90%/5%/5% train/validation/test split (Section 5)",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "no",
+                      "code_available":  "yes",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The authors state that non-converged parameter combinations and hollow or undesirable designs were discarded (Section 5); the number of failed cases is not tabulated. Public MATLAB/Python code is linked, but no code license permitting a retest is stated in the article.",
+    "stage":  "cross_provider_pass"
+}

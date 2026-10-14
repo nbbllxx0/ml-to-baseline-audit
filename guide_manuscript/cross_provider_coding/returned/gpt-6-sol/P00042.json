@@ -1,0 +1,23 @@
+{
+  "pid": "P00042",
+  "citation": {
+    "title": "Variational Quantum Latent Encoding for Topology Optimization",
+    "authors": "Alireza Tabarraei", "year": 2025,
+    "venue": "Engineering with Computers", "doi": "10.1007/s00366-025-02208-x",
+    "arxiv_id": "2506.17487", "version_coded": "arXiv v1 (publisher version requires subscription)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-MLONLY", "stratum": "none", "method_family": "neural_reparam", "physics": "compliance", "dim": "2d"},
+  "claim": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-excluded", "evidence": "§5–6: no comparison with a non-learned optimization run."},
+    "R2": {"verdict": "na", "marker": "R2-excluded", "evidence": "§5–6: no comparison with a non-learned optimization run."},
+    "R3": {"verdict": "na", "marker": "R3-excluded", "evidence": "§5–6: no comparison with a non-learned optimization run."},
+    "R4": {"verdict": "na", "marker": "R4-excluded", "evidence": "§5–6: no comparison with a non-learned optimization run."}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "The 'classical' comparator in §3.2 and §5 is a Gaussian-initialized trainable latent vector feeding the same neural decoder, so it remains a learned TO method. SIMP appears only as background or as material interpolation inside the method, with no independent SIMP optimization result or cost comparison."
+}

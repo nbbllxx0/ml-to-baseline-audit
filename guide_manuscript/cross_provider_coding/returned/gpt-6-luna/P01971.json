@@ -1,0 +1,59 @@
+﻿{
+  "pid": "P01971",
+  "citation": {
+    "title": "Reinforcement Learning Guided Engineering Design: from Topology Optimization to Advanced Modelling",
+    "authors": "Giorgi Tskhondia",
+    "year": 2025,
+    "venue": "Journal of Next-Generation Research 5.0, 1(3)",
+    "doi": "10.70792/jngr5.0.v1i3.95",
+    "version_coded": "Version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "rl", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The abstract says GA alone does not achieve the hybrid GA plus RL topology quality within comparable wall-clock time.",
+    "key_phrase": "comparable wall-clock times",
+    "location": "abstract",
+    "quantitative": false,
+    "claimed_speedup": 0.000926,
+    "claimed_speedup_basis": "Appendix, 5-by-5 benchmark: classical Python topology optimization took approximately 1 s and PPO took approximately 18 min; 1 s / 1080 s ≈ 0.000926. This is an additional comparison, not the abstract's primary outcome.",
+    "direction": "outperform",
+    "alternatives": "Appendix compares SIMP-style classical optimization (compliance 89.63, about 1 s) with PPO (compliance 33.6, about 18 min); lower compliance is better, so PPO reports better quality but much longer time."
+  },
+  "baseline": {
+    "classical_method": "Genetic algorithm; Appendix also uses the Python implementation of the 88-line density-based topology optimization code [11].",
+    "implementation": "DEAP for GA; Appendix says Python version of topopt_cholmod.py from the 88-line code.",
+    "solver": "not stated",
+    "hardware_classical": "not stated for Appendix classical timing",
+    "hardware_ml": "2.9 GHz dual-core Intel Core i5 for PPO training; Apple M1 Pro for HRL and GA+RL experiments (Sections 3 and 4).",
+    "problem_size": "5-by-5 grid (Appendix); experiments also use 4-by-4, 5-by-5, 6-by-6, and 10-by-10 grids (Section 3).",
+    "classical_iterations": "not stated",
+    "classical_time": "about 1 s (Appendix, 5-by-5 benchmark)",
+    "ml_time": "about 18 min for PPO (Appendix, 5-by-5 benchmark)",
+    "training_time": "about 80 min for 1M PPO steps (Section 3); HRL training steps reported without duration",
+    "data_generation_cost": "not stated",
+    "quality_metric": "Compliance (Appendix; Section 4).",
+    "quality_gap": "Appendix: PPO compliance 33.6 versus classical 89.63; lower is better."
+  },
+  "rules": {
+    "R1": {"verdict": "pass", "marker": "R1-matched-time", "evidence": "Abstract: the GA comparison is framed at comparable wall-clock times; Section 4 also reports GA pretraining plus RL refinement improving compliance at the same wall-clock run times."},
+    "R2": {"verdict": "partial", "marker": "R2-hardware-unjustified", "evidence": "Sections 3–4 name Intel Core i5 and Apple M1 Pro hardware for learned experiments, but do not identify comparable hardware for the classical timing or justify the hardware choices."},
+    "R3": {"verdict": "partial", "marker": "R3-no-data-cost", "evidence": "Section 3 reports about 80 min PPO training, but no data-generation cost or amortized break-even is given."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 4 and Appendix report FE-based compliance for returned topologies, but do not report constraint-violation or failed-design rates."}
+  },
+  "reporting": {
+    "n_test_cases": "Four grid sizes (Section 3); number of loading/boundary cases not summarized.",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Section 3 says PPO was tested with force locations randomized across episodes and different between training and inference. Code is linked, but the article's benchmark lacks enough hardware and setup detail to establish a runnable matched retest."
+}

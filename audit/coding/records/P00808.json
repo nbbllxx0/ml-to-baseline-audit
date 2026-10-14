@@ -1,0 +1,137 @@
+{
+  "pid": "P00808",
+  "citation": {
+    "title": "A Geometric-Enhanced Neural Network Method for Scalable and High-Resolution Topology Optimization",
+    "authors": "Lei Zhang, Shiqiang Li, Zhichu Lei, Guangzhe Du, Xiao Zhang, Guanbin Chen, Wenliang Qian",
+    "year": 2026,
+    "venue": "Symmetry (MDPI), vol. 18 (issue 3 per Crossref), art. 537; published 2026-03-21; open access, CC BY",
+    "doi": "10.3390/sym18030537",
+    "arxiv_id": "",
+    "version_coded": "Version of record (open access, CC BY), downloaded 2026-09-24 from mdpi-res.com (the publisher's own PDF file host; www.mdpi.com itself returned an Akamai 403 'Access Denied' bot block to a plain scripted GET with a generic User-Agent). 26 pages, read in full including all tables, figures' captions and the reference list. The adjudicator re-read the same file (mdpi-res.com/d_attachment/symmetry/symmetry-18-00537/article_deploy/symmetry-18-00537.pdf, HTTP 200, no challenge) in full as text on 2026-09-24"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_adjudicated",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; Section 4.3 reports a direct SIMP-vs-GeNN wall-clock comparison)",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a 2D simply supported beam (160×80 mesh), GeNN reaches a lower compliance than SIMP with a density filter (112,737.99 vs 115,819.95) in 32.55 s instead of 61.36 s, with 236 instead of 400 iterations.",
+    "key_phrase": "achieves superior optimization results in significantly less time",
+    "location": "Section 4.3 'Comparison with the Traditional Method', text and Table 1 (p. 13), the first comparison in the section the article dedicates to the classical baseline; the abstract and conclusion (Sec. 7, point 2) state the same comparison only qualitatively. Chosen under §5.1 rules 2 and 4 over the earlier checkerboard-index numbers of Sec. 4.1 (alternative 2)",
+    "quantitative": true,
+    "claimed_speedup": 1.885,
+    "claimed_speedup_basis": "Derived, not explicitly stated as a ratio: Table 1 (2D SS beam), SIMP time / GeNN time = 61.36 s / 32.55 s = 1.885. The article only states 'the computation time is reduced from 61.36 s to 32.55 s' (Section 4.3). The 3D case (Table 2) gives a larger derived ratio, 727.91 s / 91.42 s = 7.96, recorded under alternatives.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 2 (3D cantilever, Section 4.3): SIMP 727.91 s / GeNN 91.42 s = 7.96x [derived], objective 141.588 vs 136.786 (GeNN ~3.4% lower [derived]). (2) Section 4.1/Fig. 7: checkerboard index I_cb vs an unfiltered SIMP baseline (not the filtered SIMP of Sec. 4.3) -- cantilever 0.1251 to 0.0434 (-65.3%), Michell 0.0724 to 0.0524 (-27.6%); a design-quality/numerical-instability comparison, not timed. (3) Section 4.4: GeNN vs three other neural-network-based TO methods (TDF-NN, RBFNN, TOuNN; all ML, not classical) -- GeNN converges in 6.59 s and 5.46 s on the cantilever/Michell benchmarks versus 12.54-43.34 s for the others (45-87% reductions), and has the lowest normalized time per DOF. (4) Section 5.1: heat-conduction square plate vs SIMP, a 19.7% lower objective for GeNN with no timing reported (quality-only, different physics). (5) Abstract/Section 5.3: a 256 m-long (multiplied to 384 m total) bridge with >1e6 DOF optimized in about 10 minutes on a standard PC -- a scalability demonstration with no classical SIMP run on the same problem for comparison, so not itself a classical-method comparison. (6) Sec. 3.3 (p. 8): 12,800 design variables for traditional TO vs 2036 for GeNN on the Fig. 2 Michell beam, a count of variables rather than a cost or quality result."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material with Penalization) with a standard density filter (radius 1.3 elements for 2D, 1.5 for 3D) to suppress checkerboarding/mesh dependency (Section 4 preamble, item 6). The specific density-update rule (OC, MMA or GCMMA) for the Section 4.3 baseline itself is not stated; Section 3 names OC/MMA/GCMMA only as general examples of 'traditional sensitivity-based optimization algorithms' contrasted with GeNN's own NN-parameter update, not as the identified update rule of the compared baseline.",
+    "implementation": "Not stated beyond 'the traditional SIMP method'. The 99-line code [45] is cited for the adjoint compliance sensitivity inside GeNN's loss (Sec. 3.3, p. 9), not for the baseline; an in-house academic implementation is plausible [inferred]. GeNN runs in Python 3.10.16 and PyTorch 2.5.1 (Sec. 4 preamble)",
+    "solver": "3D: the FEA implemented for the 3D extension uses a sparse direct solver, PARDISO (Section 4.3, p. 14); whether the SIMP-3D baseline uses the same solver is not stated [inferred likely]. 2D solver not stated.",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated for the Section 4.3 comparison. Software: Python 3.10.16, PyTorch 2.5.1 (Section 4 preamble, applies to GeNN). For the separate Section 5.3 large-bridge scale-up (not a classical comparison), peak GPU memory of ~21.3 GB is reported via PyTorch CUDA stats, GPU make/model not stated.",
+    "problem_size": "2D SS beam: 160x80 Q4 mesh, 12,800 elements/design variables for SIMP vs 1231 for GeNN (Table 1) [about 2.6×10⁴ DOFs, derived]. 3D cantilever: 80x40x4 hexahedral mesh, 12,800 design variables for SIMP vs 6431 for GeNN (Table 2) [about 5.0×10⁴ DOFs, derived].",
+    "classical_iterations": "Fixed counts reported after the fact: 400 (2D SS beam) and 500 (3D cantilever) (Tables 1-2). The classical method's own stopping rule/convergence criterion is not stated; only GeNN's convergence criterion (Eq. 13, based on the standard deviation of the loss over 10 consecutive iterations) is given.",
+    "classical_time": "61.36 s (2D SS beam, Table 1); 727.91 s (3D cantilever, Table 2)",
+    "ml_time": "32.55 s (2D SS beam, Table 1); 91.42 s (3D cantilever, Table 2)",
+    "training_time": "Not a separate offline stage: GeNN is optimized per-problem from a random ARBF/MLP initialization (Section 3.1), so the reported 'Time (s)' in Tables 1-2 already covers full optimization to convergence for that specific problem. Section 4.2 confirms that only re-sampling the SAME already-optimized field at 4x higher resolution is an additional, separate step (<0.02 s forward pass; ~30 s total including the original training) -- not training for a new, unseen problem.",
+    "data_generation_cost": "None: no labeled training dataset is used; GeNN parameters are initialized randomly and optimized directly against the compliance objective and volume constraint for each new problem (Section 3.1, Section 3.3).",
+    "quality_metric": "Compliance objective function value (Eq. 4 / Eq. 8), computed via the same FEA pipeline that both SIMP and GeNN feed into (Section 3.2: 'GeNN calculates the density value at the center of each element and provides this value to the FEA solver').",
+    "quality_gap": "Table 1 (2D): SIMP 115,819.95 vs GeNN 112,737.99 (GeNN ~2.66% lower/better [derived]). Table 2 (3D): SIMP 141.588 vs GeNN 136.786 (GeNN ~3.4% lower/better [derived]). In both cases GeNN's compliance is better, not merely comparable. Achieved volume fractions are not reported for either method in Tables 1-2."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Table 1 and Sec. 4.3 (p. 13): GeNN is both faster (32.55 vs 61.36 s) and lower in compliance than SIMP, so the ML side does not buy speed with worse quality, and no fail marker holds. Matching is loose: SIMP's 400 iterations (500 in Table 2) are reported without any stopping rule, the protocol's own partial example (only GeNN's rule, Eq. 13, is given); the achieved volume fractions are not reported, and GeNN enforces volume only through a quadratic penalty (Eq. 9, p. 8), so equal volume on the physical field is not shown."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 4.3 and Table 1: the 2D baseline is SIMP with a density filter; its solver and the hardware of both methods are not stated (the PARDISO solver is named only for the 3D FEA, p. 14). The abstract gives no baseline number (b). About 2.6×10⁴ DOFs [derived] is below 10⁵, so (c) cannot apply. The 400 iterations are a round number with no stated stopping rule, but no SIMP convergence criterion or plot exists, so (d) is not established. Per-iteration times [derived]: 0.153 s (SIMP) vs 0.138 s (GeNN) at 160×80; (a)/(e) need the re-test. Unstated hardware is a reporting gap, not an established R2 case; unsure means pass. Pointer: in the 3D alternative (Table 2) SIMP needs 1.456 s per iteration against GeNN's 0.662 s [derived], although GeNN also solves the FE system each iteration."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Section 3.1 and 3.3: GeNN parameters (ARBF centers/shapes and MLP weights) are randomly initialized and optimized from scratch for each new design problem via Adam, with no labeled dataset and no offline pretraining stage; Section 4.2 shows the only 'reuse' of a trained network is resampling the same already-solved field at higher resolution, not generalizing to a new problem. Learning cost is therefore per-problem and already inside the R1/R2 timing comparison, consistent with the protocol's neural-reparameterization na case."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Compliance is computed via a shared FEA pipeline for both methods (Section 3.2, Eq. 8), i.e., FE-verified rather than an image-similarity proxy. Volume-fraction accuracy is explicitly checked elsewhere in the article (Section 5.2: achieved 0.1998/0.2301/0.1998 against targets 0.20/0.23/0.20), but Tables 1-2 (the primary-outcome comparison) do not restate the achieved volume fraction for either method, and no infeasibility, disconnection or failure-rate check is reported for any of the compared cases."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "About 10 distinct configurations: 2D cantilever and Michell beams (checkerboard comparison, Sec. 4.1), 2D L-bracket (Sec. 4.1), 2D SS beam vs SIMP (Table 1), 3D cantilever vs SIMP (Table 2), cantilever/Michell vs 3 other NN-based methods (Sec. 4.4), 2D heat-conduction plate vs SIMP (Sec. 5.1), 2D bridge with single/multi volume constraints (Sec. 5.2), 3D long-span bridge scale-up (Sec. 5.3), plus ARBF-count, network-architecture, penalty-parameter and random-seed sensitivity studies (Sec. 6.1-6.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Lei Zhang, Shiqiang Li, Zhichu Lei, Guangzhe Du, Xiao Zhang, Guanbin Chen, Wenliang Qian). Duplicate check: pool.csv searched by title on 2026-09-24; only one matching record (P00808 itself) -- no duplicate found. Access: DOI resolved to www.mdpi.com, which returned an HTTP 403 Akamai 'Access Denied' response to a plain scripted GET with a generic browser User-Agent (a bot block; not bypassed). The article's own PDF was instead retrieved directly from mdpi-res.com, the publisher's own file-hosting domain named as an explicitly allowed route in the access rules, with no bot check, CAPTCHA, login or paywall on that host (HTTP 200). Primary-outcome choice: the Abstract's only concrete number (10-minute, >1e6-DOF bridge) has no paired classical-method time, so per protocol §5.1 it is not a 'comparison' and the search proceeds to the Conclusion (qualitative only) and then the main text, where Section 4.3's explicitly titled 'Comparison with the Traditional Method' (Tables 1-2) is the clearest and most complete classical-vs-ML comparison (time, iterations, design-variable count and objective value together for the same problem), and is therefore taken as primary over the earlier (Sec. 4.1) checkerboard-index numbers, which compare a numerical-instability metric rather than the compliance/time performance the rest of the paper (Sec. 4.4, 5.1, 5.3, Conclusion point 2) centers on; the checkerboard comparison is recorded under alternatives. Physics is coded 'compliance' because Sections 4.1-4.4 (the bulk of the results, including the primary outcome) are all compliance minimization; Section 5.1 additionally applies the same method to heat conduction (thermal), noted here since the schema allows only one value. dim is 'both' because both 2D (cantilever, Michell, L-bracket, SS beam, bridge deck cross-sections) and 3D (cantilever, long-span bridge) cases are reported. Funding: 'This research received no external funding.' Conflicts of interest: three authors are employed by a company (Zhejiang Zhoushan Ocean Power Transmission Research Institute Co., Ltd.); the article states this and finds no other conflicts. Screening code was I-SPEED. Adjudication (2026-09-24): the first coder met the www.mdpi.com bot block and coded abstract-only; the adjudicator read the mdpi-res.com copy in full and based the record on the second coding, with R2 changed from partial to pass (hardware is unstated for both methods, which earlier adjudications treated as a reporting gap, e.g. P00150 and P00176), the primary-outcome fields narrowed to Table 1, and the baseline implementation and solver fields corrected (the 99-line reference and PARDISO describe GeNN's own pipeline).",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "second",
+    "items": {
+      "access": {
+        "first": "not_full_text",
+        "second": "full_text",
+        "decision": "full_text",
+        "reason": "The second coder's route works: mdpi-res.com, MDPI's own file host (allowed by PROTOCOL §11), serves the 26-page CC BY version of record with HTTP 200 and no challenge; the adjudicator read it in full. The first coder tried only www.mdpi.com, which serves an Akamai block."
+      },
+      "stratum": {
+        "first": null,
+        "second": "speed",
+        "decision": "speed",
+        "reason": "The abstract (p. 1) and conclusion (Sec. 7, p. 23) compare with traditional methods only qualitatively, and the 10-minute bridge has no classical time. Among the main-text candidates, the article emphasizes the efficiency comparison with SIMP in its dedicated Sec. 4.3 (Table 1, p. 13: 32.55 s vs 61.36 s), which the abstract and conclusion point 2 echo, so §5.1 rules 2 and 4 give a speed outcome."
+      },
+      "claimed_speedup": {
+        "first": null,
+        "second": 1.885,
+        "decision": 1.885,
+        "reason": "Sec. 4.3 (p. 13) states the time falls 'from 61.36 s to 32.55 s' for the SS beam (Table 1), so 61.36 / 32.55 = 1.885 [derived]; the 3D ratio of Table 2 (7.96 [derived]) is an alternative, not the first comparison."
+      },
+      "R1": {
+        "first": null,
+        "second": "partial",
+        "decision": "partial",
+        "reason": "GeNN is faster and has lower compliance (Table 1, p. 13), so no fail marker holds, but SIMP's 400 iterations come with no stated stopping rule, the §5.3 R1 partial example, and neither method's achieved volume fraction is reported while GeNN enforces volume only by a penalty (Eq. 9, p. 8)."
+      },
+      "R2": {
+        "first": null,
+        "second": "partial",
+        "decision": "pass",
+        "reason": "None of (a)-(e) is established: the abstract has no baseline number, the SS beam has about 2.6×10⁴ DOFs [derived], and no SIMP convergence criterion or plot exists to test (d) (Sec. 4.3, Table 1, p. 13). The second coder's ground, hardware unstated for both methods, is a reporting gap rather than an established unjustified choice, as decided for P00150 and P00176; unsure means pass."
+      },
+      "R3": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "GeNN is optimized from a random initialization for each problem with no dataset or offline training (Sec. 3.1 and 3.3, pp. 6-9), the §5.3 R3 n/a case for per-problem learning."
+      },
+      "R4": {
+        "first": null,
+        "second": "partial",
+        "decision": "partial",
+        "reason": "Compliance of the returned density field is computed by FE for both methods (Sec. 3.2, Eq. 8, p. 8), but Tables 1-2 report no achieved volume fraction and no failure or infeasibility count (only the Sec. 5.2 bridge reports volumes, p. 17): the §5.3 R4 partial case."
+      }
+    }
+  }
+}

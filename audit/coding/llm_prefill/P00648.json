@@ -1,0 +1,44 @@
+{
+  "pid": "P00648",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Deep reinforcement learning for engineering design through topology optimization of elementally discretized design domains",
+    "authors": "Nathan K. Brown, Anthony P. Garland, Georges M. Fadel, Gang Li",
+    "year": 2022,
+    "venue": "Materials & Design 218 (2022) 110672 (Elsevier; issue dated June 2022; gold open access, CC BY 4.0 from 2022-04-16 per Crossref). The pool title carries typographic quotation marks from the publisher metadata",
+    "doi": "10.1016/j.matdes.2022.110672",
+    "arxiv_id": "none found",
+    "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); the journal full text was not reachable by this agent"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "rl",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (abstract only). The abstract says a deep RL agent that removes elements one at a time produced designs with similar or better compliance than traditional gradient-based TO across several load cases; no numbers and no speed claim.",
+    "location": "Abstract (pool record, from OpenAlex)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent 'Mozilla/5.0 (research-audit)'. (1) The open copy OpenAlex lists (ScienceDirect PDF, PII S0264127522002933) answered HTTP 403 with a captcha/robot page to curl; WebFetch of the article page also got HTTP 403. No bypass was attempted. (2) OSTI records 1867970 and 1872010 (listed by OpenAlex; 1872010 redirects to 1867970; SAND2022-6621J; also shown on DOE PAGES) link only to the publisher DOI; OSTI's full-text endpoint returned HTTP 404 for both. (3) The SSRN preprint (doi 10.2139/ssrn.4010395) and the Clemson dissertation whose landing-page abstract describes the same compliance-minimization study (N. Brown, 'Deep Reinforcement Learning for the Design of Structural Topologies', 2023, open.clemson.edu/all_dissertations/3485; the landing page loaded, the PDF did not) both sit behind Cloudflare challenges (HTTP 403); not bypassed. (4) CORE search: Cloudflare challenge (HTTP 403). (5) Semantic Scholar has no record for the DOI; Europe PMC has none; the arXiv API found no version (title and author queries). Free to read in a browser: very likely yes, because the version of record is gold open access under CC BY 4.0 (Crossref, OpenAlex) [inferred; not opened in a browser by this agent]. A human can fetch it from https://doi.org/10.1016/j.matdes.2022.110672. Readable related item, not coded: an earlier, shorter conference paper with nearly the same title (OSTI 1898470, SAND2021-14482C, 9 pp., AAAI 2022 copyright line; not in the pool). It is a different publication, so it was not used as the full text of this record. For the verifier only: in that version, a double-Q-learning agent with a convolutional value network, trained on 6x6 grids, designs 24x24 topologies by progressive refinement. Its designs are compared with those of the 99-line SIMP code (Sigmund 2001) on final strain energy and volume fraction for each test case (Appendix C, Table C1), and no classical run time is reported; training took about 1.5 h for 5000 episodes on an Intel i7-10510U laptop CPU. The journal abstract likewise claims only similar or better compliance than gradient-based TO, so stratum Q is the likely full-text outcome unless the journal version adds timing. Duplicate check: no prefill matches the title or the authors; P01166 (same four authors, EAAI 2023, RL for metamaterials) is a different study [inferred from its title]. No author named Jun Wang. Screening code was I-QUALITY."
+}

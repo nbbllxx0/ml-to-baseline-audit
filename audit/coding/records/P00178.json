@@ -1,0 +1,92 @@
+{
+ "pid": "P00178",
+ "citation": {
+  "title": "A Novel Topology Optimization Approach using Conditional Deep Learning",
+  "authors": "Sharad Rawat, M.-H. Herman Shen",
+  "year": 2019,
+  "venue": "arXiv preprint",
+  "doi": "10.48550/arXiv.1901.04859",
+  "arxiv_id": "1901.04859",
+  "version_coded": "arXiv v1 (14 Jan 2019; only version), PDF"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "stage": "ai_agreed",
+ "included": {
+  "decision": "include",
+  "reason": "I-SPEED (screening code confirmed at full text)",
+  "stratum": "speed",
+  "method_family": "gan",
+  "physics": "compliance",
+  "dim": "2d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "After training, the CWGAN produces a 120\u00d7120 cantilever design in about 0.34\u20130.35 s versus about 71\u2013115 s for MATLAB SIMP (e.g. 0.350 s vs 83.914 s), roughly two orders of magnitude faster, claimed without loss of optimality.",
+  "key_phrase": "remarkable reductions in the computational time of an order of 10\u00b2",
+  "location": "Results and Discussions, Table 1 and the paragraph after it, p. 6 (abstract, conclusion and introduction hold only qualitative claims)",
+  "quantitative": true,
+  "claimed_speedup": 239.75,
+  "claimed_speedup_basis": "Derived from printed times for the example the text cites: 83.914 s (SIMP, target volume fraction 0.3) \u00f7 0.350 s (CWGAN) = 239.75 (Table 1, p. 6). Other targets: 212.3\u00d7 (0.4), 210.8\u00d7 (0.5), 324.8\u00d7 (0.6), 241.0\u00d7 (0.7) [derived]. The text states about two orders of magnitude.",
+  "direction": "outperform",
+  "alternatives": "(1) Abstract: the CWGAN replicates conventional TO at very low computational cost (qualitative). (2) Introduction: potential for significant time and cost reduction (qualitative). (3) Conclusion: quasi-optimal designs compared with SIMP, good only for volume fraction 0.4, mode collapse otherwise (qualitative quality)."
+ },
+ "baseline": {
+  "classical_method": "SIMP compliance minimization, cantilever loaded at the mid-point of the free end (Problem Statement; Dataset, p. 5)",
+  "implementation": "MATLAB SIMP code (Dataset, p. 5); the article cites the 99-line and 88-line educational codes (refs 27, 28); exact code not stated",
+  "solver": "not stated",
+  "hardware_classical": "not stated",
+  "hardware_ml": "not stated (Keras with TensorFlow backend, Python 3.5, p. 4; Ohio Supercomputer Center acknowledged, p. 8)",
+  "problem_size": "120\u00d7120 (Dataset, p. 5) [inferred \u22482.9\u00d710\u2074 DOFs]",
+  "classical_iterations": "not stated",
+  "classical_time": "83.914 s (target 0.3), 72.318 s (0.4), 71.461 s (0.5), 114.635 s (0.6), 83.613 s (0.7) (Table 1, p. 6)",
+  "ml_time": "0.350 s, 0.34070 s, 0.339 s, 0.353 s, 0.347 s for the same targets (Table 1, p. 6); whether post-processing time is included is not stated",
+  "training_time": "not stated",
+  "data_generation_cost": "not stated; 3024 SIMP samples over volume fraction 0.3\u20130.7, penalty 2\u20134, filter radius 1.5\u20133 (Dataset, p. 5) [inferred \u224860\u201396 h at the Table 1 SIMP times]",
+  "quality_metric": "visual comparison of images (Table 1; Figs. 5\u20136); volume fraction discussed qualitatively; no compliance of generated designs",
+  "quality_gap": "not quantified; the authors report that generated designs sit near volume fraction 0.4 whatever the target (mode collapse) and give poor results away from 0.4 (pp. 5\u20136)"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "fail",
+   "marker": "R1-unmatched",
+   "evidence": "Results p. 6, Table 1: the speed claim (0.350 s vs 83.914 s at target volume fraction 0.3) compares CWGAN inference with completed SIMP runs, while the authors report that generated designs stay near volume fraction 0.4 whatever the target, so the cited 0.3 output misses its constraint. No compliance of any CWGAN design is computed and no matching is attempted. Whether the post-processing (0.5 threshold plus Gaussian filter, p. 5) is inside the 0.350 s is not stated."
+  },
+  "R2": {
+   "verdict": "partial",
+   "marker": "R2-hardware-unjustified; R2-inefficient-impl [inferred]",
+   "evidence": "Dataset p. 5: SIMP runs in MATLAB, and the article cites the 99-line and 88-line educational codes (refs 27, 28) [inferred as the code base]. Hardware, linear solver and iteration counts are not stated for either method. The problem is 120\u00d7120 (below 10\u2075 DOFs), so (c) does not apply; (b) and (d) are not established by the text."
+  },
+  "R3": {
+   "verdict": "fail",
+   "marker": "R3-no-cost",
+   "evidence": "The speed claim (p. 6) reports neither training time nor data-generation cost. Only the dataset size is given (3024 SIMP samples, Dataset p. 5); at the Table 1 SIMP times this is about 60\u201396 h of generation [inferred: 3024 \u00d7 71.461\u2013114.635 s]. No break-even and no per-query limitation."
+  },
+  "R4": {
+   "verdict": "fail",
+   "marker": "R4-selected-examples",
+   "evidence": "Table 1 and Figs. 5\u20136: quality is judged visually on one generated design per target, chosen without a stated rule. No FE analysis of any generated design, no compliance and no measured volume fraction. The conclusion (p. 7) notes that GANs lack a proper evaluation metric."
+  }
+ },
+ "reporting": {
+  "n_test_cases": "5 target volume fractions (0.3\u20130.7), one generated design each (Table 1); 10 unprocessed samples at 0.4 (Fig. 6)",
+  "ood_test": "no",
+  "seeds_or_variance": "no",
+  "failure_rate_reported": "yes",
+  "timing_protocol_stated": "no",
+  "runtimes_all_cases": "yes",
+  "code_available": "no",
+  "data_available": "no",
+  "hardware_per_method_stated": "no"
+ },
+ "retest_candidate": false,
+ "notes": "Extension of P00182 (arXiv 1808.02334) by the same authors; arXiv flags text overlap, but the method (conditional WGAN) and results differ, so it is not a duplicate. failure_rate_reported = yes because the authors disclose mode collapse for all targets other than 0.4 (pp. 5\u20136); no numeric rate is given. The example cited for the speed claim (target 0.3) is itself a mode-collapsed case. No code or data statement.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00178.json",
+  "result": "full agreement"
+ }
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00080",
+  "citation": {
+    "title": "VoroTO: Multiscale Topology Optimization of Voronoi Structures using Surrogate Neural Networks",
+    "authors": "Rahul Kumar Padhy; Krishnan Suresh; Aaditya Chandrasekhar",
+    "year": 2024,
+    "venue": "arXiv preprint (cs.CE; also math.NA); preprint of an article intended for Engineering with Computers",
+    "doi": "10.1007/s00366-024-02077-w",
+    "arxiv_id": "2404.18300",
+    "version_coded": "arXiv v1 (28 Apr 2024; only version on the abs page). Full text (15 pp. incl. references) downloaded from https://arxiv.org/pdf/2404.18300 and read in full via PyMuPDF extraction. The journal version of record (Engineering with Computers, same DOI) is closed access (OpenAlex W4403875691: is_oa=false, oa_status='closed', no OA location listed there), so the arXiv preprint, this pool record's own listed arxiv_id, is the version coded, per the protocol's tie-break rule; this is a single pool record, not a duplicate pair."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the mid-cantilever benchmark, the NN-surrogate multiscale method needs 28.4 min one-time offline cost plus 0.24 min per design, versus an estimated 4986 min for brute-force fine-scale TO and 528 min for online (non-surrogate) concurrent-homogenization multiscale TO.",
+    "key_phrase": "the proposed offline NN-based multiscale optimization is computationally far superior",
+    "location": "Section 3.3 'Is Offline Computation Justified?' (main text; first quantitative comparison with a classical method anywhere in the article -- the Abstract and Conclusion state the computational advantage only qualitatively, e.g. 'significant computational advantages over concurrent homogenization', and the Introduction gives no numbers)",
+    "quantitative": true,
+    "claimed_speedup": 174.1,
+    "claimed_speedup_basis": "Derived, single-design (conservative, includes the full one-time offline cost): brute-force fine-scale time / proposed method's total time for one design = 4986 min / (28.4 + 0.24) min = 4986 / 28.64 ≈ 174.1x [derived]. The article itself gives the two totals (4986 min brute-force; 28.4 min offline + 0.24 min online for the proposed method) but does not state a ratio. Two alternative readings, both defensible: (a) marginal/steady-state (offline cost amortized over many designs, the surrogate's intended use case): 4986/0.24 ≈ 20,775x [derived] vs. brute-force, or 528/0.24 = 2,200x [derived] vs. the more directly comparable 'concurrent homogenization-based multiscale' ablation (Sec. 3.3), which does not rely on a trained surrogate but is otherwise the same multiscale pipeline; (b) single-design, full-cost, vs. concurrent homogenization: 528/28.64 ≈ 18.4x [derived]. The brute-force and concurrent-homogenization totals are themselves extrapolated from a single measured iteration/homogenization time multiplied by the iteration/element count, not measured end-to-end (Sec. 3.3). The 0.24 min (14.4 s) online figure is close to, but not identical to, the 13.7 s reported for the same mid-cantilever case in Sec. 3.2.2 (~5% discrepancy, not resolved by the article).",
+    "direction": "outperform",
+    "alternatives": "(1) The 'concurrent homogenization-based multiscale optimization' ablation (528 min, no offline training, same multiscale pipeline) is arguably the fairer, more apples-to-apples comparator than brute-force fine-scale TO (4986 min), since it isolates the value of the offline surrogate specifically rather than the value of going multiscale at all; see claimed_speedup_basis for both. (2) Sec. 3.2.2's directly measured (not extrapolated) mid-cantilever comparison: single-scale SIMP compliance 61.05 (using the 88-line code, ref. [95]); a local-volume-constrained porous SIMP design from ref. [96], compliance 76.86; the proposed multiscale design, compliance 68.3 (NN-predicted) / 74.6 (FE-verified), volume fraction 0.65 vs. target 0.6, took 13.7 s. This is a quality, not a speed, comparison and does not itself establish a speed-up over ref. [96] or [95] (no timing given for either)."
+  },
+  "baseline": {
+    "classical_method": "(a) Brute-force fine-scale (single-scale, high-resolution) SIMP-type compliance minimization; (b) 'concurrent homogenization-based multiscale optimization', i.e. the same multiscale macro/micro framework but computing homogenized properties by direct numerical homogenization at every iteration instead of via the trained NN surrogate (Sec. 3.3); (c) for the directly measured example (Sec. 3.2.2), single-scale SIMP using the 88-line MATLAB code (Andreassen et al. 2011, ref. [95]) and a local-volume-constrained porous design from Wu et al. (ref. [96])",
+    "implementation": "(a)/(b) hypothetical/extrapolated scenarios computed by the authors, not independently coded classical software; (c) the well-known 88-line MATLAB SIMP code (ref. [95]) for the single-scale baseline",
+    "solver": "Not stated for the brute-force/concurrent-homogenization estimates; the 88-line MATLAB reference code (ref. [95]) uses a direct sparse solve by default (not restated in this article)",
+    "hardware_classical": "Same as the proposed method: 'All experiments were conducted on a MacBook M2 Air with 16 GB RAM' (Sec. 3) -- no GPU/CPU asymmetry between classical and ML computations",
+    "hardware_ml": "MacBook M2 Air, 16 GB RAM (Sec. 3)",
+    "problem_size": "Macro grid 40x20 elements (mid-cantilever, heel bone Pareto study); brute-force equivalent-resolution grid 1600x800 elements (40x40 micro elements per macro element, Sec. 3.3); microstructure homogenization mesh 120x120 (Sec. 2.4.2); S=4 Voronoi sites per macro element",
+    "classical_iterations": "300 iterations (or a loss tolerance of 1e-3), the same termination criterion used for the proposed method and for both hypothetical classical scenarios (Sec. 3, 3.3)",
+    "classical_time": "Brute-force fine-scale: 16.62 min per iteration x 300 = 4986 min (extrapolated from one measured iteration, Sec. 3.3). Concurrent homogenization-based multiscale: 0.132 s per homogenization (=26.4 min / 12,000 microstructures) x 800 elements x 300 iterations / 60 = 528 min (extrapolated, Sec. 3.3). Directly measured single-scale SIMP (Sec. 3.2.2, mid-cantilever): time not stated, only compliance 61.05",
+    "ml_time": "0.24 min (14.4 s) per new design once the surrogate is trained (Sec. 3.3), consistent with the 13.7 s reported for the same mid-cantilever case in Sec. 3.2.2",
+    "training_time": "2 minutes to train the surrogate NN (Sec. 3.3), on 10,000 training / 1,000 validation / 1,000 test microstructure samples, batch size 64, learning rate 5e-5, up to 300 epochs with early stopping on validation loss (Sec. 3.1.2)",
+    "data_generation_cost": "26.4 minutes to generate and homogenize 12,000 Voronoi microstructures (120x120 micro-mesh each) (Sec. 3.3); total one-time offline cost (data generation + training) = 28.4 minutes",
+    "quality_metric": "Structural compliance and volume fraction, cross-checked by reconstructing the optimized Voronoi microstructures and running an independent FE-based numerical homogenization plus global FE analysis (not just the NN's own predicted values) (Sec. 3.2.2, 3.2.4)",
+    "quality_gap": "Mid-cantilever (Sec. 3.2.2, v=0.6 target): single-scale SIMP compliance 61.05; porous SIMP (ref. [96]) 76.86; proposed multiscale, NN-predicted compliance 68.3, FE-verified compliance 74.6 (8.4% error vs. NN prediction) and FE-verified volume fraction 0.65 (6.1% error vs. 0.6 target, i.e. a real constraint overshoot). Heel-bone Pareto study (Sec. 3.2.4): FE-verified compliance and volume-fraction error 'less than 10% in all cases' across v=0.25/0.5/0.75"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "The speed comparison (Sec. 3.3) and the quality comparison (Sec. 3.2.2) use the same mid-cantilever problem and the same nominal volume target (v=0.6), and quality is independently FE-verified rather than only NN-predicted (74.6 compliance, 0.65 volume fraction vs. 0.6 target). However, matching is loose in two ways the protocol's '!' example anticipates: the achieved volume fraction overshoots its target by 6.1% (a real, disclosed constraint violation) rather than matching exactly, and the two classical comparator times (4986 min brute-force; 528 min concurrent homogenization) are extrapolated from a single measured iteration/homogenization rather than measured end-to-end, so the classical stopping/measurement protocol for those two numbers is closer to an estimate than a full run."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-matched-hardware",
+      "evidence": "All experiments, proposed and classical alike, run on the same MacBook M2 Air, 16 GB RAM (Sec. 3) -- no GPU-vs-CPU asymmetry of the kind R2(c) targets, and the problem sizes here (largest 1600x800 elements) are a scenario the authors explicitly reject as impractical rather than one they under-resource. The single-scale reference baseline elsewhere in the paper (Sec. 3.2.2) is the standard, efficient 88-line MATLAB SIMP code (ref. [95]), not a naive implementation. No evidence establishes R2(b)/(d); R2(a)/(e) would need a re-test, not available here, though the extrapolation basis for the two hypothetical classical scenarios (noted under R1) is a related caveat."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-full-accounting",
+      "evidence": "Section 3.3, titled 'Is Offline Computation Justified?', explicitly reports data-generation cost (26.4 min for 12,000 microstructures), training cost (2 min), their sum (28.4 min one-time), and the per-design online cost (0.24 min), then directly compares the amortized total against two classical alternatives (4986 min and 528 min per design) -- a complete, explicit cost accounting that answers the break-even question directly rather than reporting only inference time. This is one of the more thorough R3 accountings in this review batch."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "For both worked examples with a quantitative accuracy check (mid-cantilever, Sec. 3.2.2; heel-bone Pareto study, Sec. 3.2.4), the optimized Voronoi microstructures are reconstructed and re-evaluated by an independent macroscale FEA/homogenization pass, not merely the NN's own predicted compliance/volume fraction; the resulting error (8.4% compliance / 6.1% volume fraction for the single detailed case, under 10% in all Pareto cases) is disclosed rather than omitted, including the volume-fraction overshoot. No explicit disconnection/infeasibility rate is reported, but the method's Voronoi-cell construction with an explicit connectivity-promoting filter (Sec. 2.5) is not associated with any described failure mode in the article."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "About 13 distinct TO-level design examples (tensile bar validation; mid-cantilever main comparison plus a convergence plot and 8 parameter-variation runs across thickness/anisotropy/orientation; heel-bone Pareto study at 3 volume fractions), plus a held-out surrogate test set of 1,000 microstructure samples (separate from the TO-level examples) (Secs. 3.1-3.2)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "yes",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Full text (15 pp.) read via PyMuPDF from the arXiv PDF. Code availability confirmed and verified beyond the article's own statement: the article states 'The Python code is available at github.com/UW-ERSL/VoroTO'; checked via the GitHub API (2026-09-24) that the repository exists, is public, MIT-licensed, not archived and not a fork -- satisfying retest_candidate. data_available='no' because only code, not the 12,000-microstructure training dataset itself, is stated as released. Duplicate check (audit/pool/pool.csv): this single pool record already carries both the Springer DOI and the arXiv id, so there is no separate duplicate pool entry to reconcile; the journal version of record is closed access (checked via OpenAlex, noted in citation.version_coded), so this arXiv preprint is coded as primary. No author named Jun Wang (authors: Rahul Kumar Padhy, Krishnan Suresh, Aaditya Chandrasekhar); a cited reference's author is 'Jun Wu' (refs. [30], [33], [34], [96]), a different surname, not Jun Wang."
+}

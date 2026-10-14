@@ -1,0 +1,401 @@
+{
+ "log": "retest/logs/oat_final_retest_2026-09-24.log",
+ "stages": {
+  "OAT SIMP 256 MultiGrid(5)+OC": {
+   "run": "retest/runs/20260924T154129Z_oat_simp_n256",
+   "size": 256,
+   "n_problems": 5,
+   "n_ok": 0,
+   "time_s_median": null,
+   "time_s_min": null,
+   "time_s_max": null,
+   "per_problem": {
+    "1015": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    },
+    "1676": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    },
+    "1839": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    },
+    "1935": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    },
+    "1961": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    }
+   }
+  },
+  "OAT SIMP 256 CG+OC": {
+   "run": "retest/runs/20260924T154230Z_oat_simp_n256",
+   "size": 256,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 47.14494490000652,
+   "time_s_min": 26.276800199993886,
+   "time_s_max": 93.13154180004494,
+   "per_problem": {
+    "1015": {
+     "time_s": 93.13154180004494,
+     "c_last": 9.858721832873249,
+     "status": "ok"
+    },
+    "1676": {
+     "time_s": 75.01831719995243,
+     "c_last": 5.298398217551856,
+     "status": "ok"
+    },
+    "1839": {
+     "time_s": 47.118191899964586,
+     "c_last": 35.87793375669292,
+     "status": "ok"
+    },
+    "1935": {
+     "time_s": 26.276800199993886,
+     "c_last": 5.6943398480313085,
+     "status": "ok"
+    },
+    "1961": {
+     "time_s": 47.14494490000652,
+     "c_last": 34.30088891616571,
+     "status": "ok"
+    }
+   }
+  },
+  "OAT SIMP 64 MultiGrid(3)+OC": {
+   "run": "retest/runs/20260924T154736Z_oat_simp_n64",
+   "size": 64,
+   "n_problems": 5,
+   "n_ok": 0,
+   "time_s_median": null,
+   "time_s_min": null,
+   "time_s_max": null,
+   "per_problem": {
+    "15": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    },
+    "676": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    },
+    "839": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    },
+    "935": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    },
+    "961": {
+     "time_s": null,
+     "c_last": null,
+     "status": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered"
+    }
+   }
+  },
+  "OAT SIMP 64 CG+OC": {
+   "run": "retest/runs/20260924T154743Z_oat_simp_n64",
+   "size": 64,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 18.116607900010422,
+   "time_s_min": 12.339405800041277,
+   "time_s_max": 45.11421030003112,
+   "per_problem": {
+    "15": {
+     "time_s": 33.07196470000781,
+     "c_last": 5.6310292170230865,
+     "status": "ok"
+    },
+    "676": {
+     "time_s": 12.339405800041277,
+     "c_last": 3.682007201750192,
+     "status": "ok"
+    },
+    "839": {
+     "time_s": 17.72814180003479,
+     "c_last": 3.8329791938580007,
+     "status": "ok"
+    },
+    "935": {
+     "time_s": 18.116607900010422,
+     "c_last": 9.657750630766204,
+     "status": "ok"
+    },
+    "961": {
+     "time_s": 45.11421030003112,
+     "c_last": 25.483121114947973,
+     "status": "ok"
+    }
+   }
+  },
+  "OAT SIMP 64 SPSOLVE+OC": {
+   "run": "retest/runs/20260924T155001Z_oat_simp_n64",
+   "size": 64,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 47.96469160000561,
+   "time_s_min": 47.4915914000012,
+   "time_s_max": 48.86751469998853,
+   "per_problem": {
+    "15": {
+     "time_s": 48.00304129999131,
+     "c_last": 5.631370513900565,
+     "status": "ok"
+    },
+    "676": {
+     "time_s": 47.4915914000012,
+     "c_last": 3.681997954054405,
+     "status": "ok"
+    },
+    "839": {
+     "time_s": 48.86751469998853,
+     "c_last": 3.8328004675597707,
+     "status": "ok"
+    },
+    "935": {
+     "time_s": 47.60872920003021,
+     "c_last": 9.65419935411497,
+     "status": "ok"
+    },
+    "961": {
+     "time_s": 47.96469160000561,
+     "c_last": 25.465110985489773,
+     "status": "ok"
+    }
+   }
+  },
+  "ours GPU 256": {
+   "run": "retest/runs/20260924T155416Z_ours_gpu_nito_n256",
+   "size": 256,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 9.69846879929537,
+   "time_s_min": 3.1334895998588763,
+   "time_s_max": 14.650294200284407,
+   "per_problem": {
+    "1015": {
+     "time_s": 3.6925522995879874,
+     "c_last": 8.13877994729464,
+     "status": "ok"
+    },
+    "1676": {
+     "time_s": 11.37527670012787,
+     "c_last": 5.202169107527083,
+     "status": "ok"
+    },
+    "1839": {
+     "time_s": 14.650294200284407,
+     "c_last": 34.84553596319903,
+     "status": "ok"
+    },
+    "1935": {
+     "time_s": 3.1334895998588763,
+     "c_last": 5.684062011375233,
+     "status": "ok"
+    },
+    "1961": {
+     "time_s": 9.69846879929537,
+     "c_last": 34.052304058090954,
+     "status": "ok"
+    }
+   }
+  },
+  "ours GPU 64": {
+   "run": "retest/runs/20260924T155632Z_ours_gpu_nito_n64",
+   "size": 64,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 1.7746397995506413,
+   "time_s_min": 1.409071899834089,
+   "time_s_max": 3.284467199933715,
+   "per_problem": {
+    "15": {
+     "time_s": 1.9969240999780595,
+     "c_last": 5.622893692398762,
+     "status": "ok"
+    },
+    "676": {
+     "time_s": 1.409071899834089,
+     "c_last": 3.6724664979843897,
+     "status": "ok"
+    },
+    "839": {
+     "time_s": 1.7746397995506413,
+     "c_last": 3.8323378115815574,
+     "status": "ok"
+    },
+    "935": {
+     "time_s": 1.457391700008884,
+     "c_last": 9.656141921024188,
+     "status": "ok"
+    },
+    "961": {
+     "time_s": 3.284467199933715,
+     "c_last": 25.793756476657165,
+     "status": "ok"
+    }
+   }
+  },
+  "ours PARDISO 64": {
+   "run": "retest/runs/20260924T155707Z_ours_pardiso_nito_n64",
+   "size": 64,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 0.77697989938315,
+   "time_s_min": 0.7406471003778279,
+   "time_s_max": 0.7931233996641822,
+   "per_problem": {
+    "15": {
+     "time_s": 0.7406471003778279,
+     "c_last": 5.622893698132311,
+     "status": "ok"
+    },
+    "676": {
+     "time_s": 0.7435696996981278,
+     "c_last": 3.672466497987133,
+     "status": "ok"
+    },
+    "839": {
+     "time_s": 0.7791289002634585,
+     "c_last": 3.8323378088967517,
+     "status": "ok"
+    },
+    "935": {
+     "time_s": 0.77697989938315,
+     "c_last": 9.656141925515238,
+     "status": "ok"
+    },
+    "961": {
+     "time_s": 0.7931233996641822,
+     "c_last": 25.793756491240494,
+     "status": "ok"
+    }
+   }
+  },
+  "ours PARDISO 256": {
+   "run": "retest/runs/20260924T155739Z_ours_pardiso_nito_n256",
+   "size": 256,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 19.61439739947673,
+   "time_s_min": 18.914484299719334,
+   "time_s_max": 21.42188839992741,
+   "per_problem": {
+    "1015": {
+     "time_s": 19.568196200067177,
+     "c_last": 8.138779948367699,
+     "status": "ok"
+    },
+    "1676": {
+     "time_s": 21.42188839992741,
+     "c_last": 5.202169106632732,
+     "status": "ok"
+    },
+    "1839": {
+     "time_s": 20.200939600006677,
+     "c_last": 34.84553598333845,
+     "status": "ok"
+    },
+    "1935": {
+     "time_s": 18.914484299719334,
+     "c_last": 5.684062011980886,
+     "status": "ok"
+    },
+    "1961": {
+     "time_s": 19.61439739947673,
+     "c_last": 34.052303909818825,
+     "status": "ok"
+    }
+   }
+  },
+  "OAT inference 256": {
+   "run": "retest/runs/20260924T160355Z_oat_infer_n256",
+   "size": 256,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 0.533164399996167,
+   "time_s_min": 0.5061737499781884,
+   "time_s_max": 0.5852141499926802,
+   "per_problem": {
+    "1015": {
+     "time_s": 0.54878519999329,
+     "c_last": null,
+     "status": "ok"
+    },
+    "1676": {
+     "time_s": 0.5852141499926802,
+     "c_last": null,
+     "status": "ok"
+    },
+    "1839": {
+     "time_s": 0.533164399996167,
+     "c_last": null,
+     "status": "ok"
+    },
+    "1935": {
+     "time_s": 0.5061737499781884,
+     "c_last": null,
+     "status": "ok"
+    },
+    "1961": {
+     "time_s": 0.5220431999769062,
+     "c_last": null,
+     "status": "ok"
+    }
+   }
+  },
+  "OAT inference 64": {
+   "run": "retest/runs/20260924T160438Z_oat_infer_n64",
+   "size": 64,
+   "n_problems": 5,
+   "n_ok": 5,
+   "time_s_median": 0.5205807499878574,
+   "time_s_min": 0.5135100500192493,
+   "time_s_max": 0.5248829000047408,
+   "per_problem": {
+    "15": {
+     "time_s": 0.5135100500192493,
+     "c_last": null,
+     "status": "ok"
+    },
+    "676": {
+     "time_s": 0.5248829000047408,
+     "c_last": null,
+     "status": "ok"
+    },
+    "839": {
+     "time_s": 0.5205807499878574,
+     "c_last": null,
+     "status": "ok"
+    },
+    "935": {
+     "time_s": 0.515845999965677,
+     "c_last": null,
+     "status": "ok"
+    },
+    "961": {
+     "time_s": 0.5214185000222642,
+     "c_last": null,
+     "status": "ok"
+    }
+   }
+  }
+ }
+}

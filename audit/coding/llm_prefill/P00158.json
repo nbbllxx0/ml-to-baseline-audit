@@ -1,0 +1,88 @@
+{
+  "pid": "P00158",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Generative Design by Reinforcement Learning: Enhancing the Diversity of Topology Optimization Designs",
+    "authors": "Seowoo Jang, Soyoung Yoo, Namwoo Kang",
+    "year": 2020,
+    "venue": "arXiv preprint (cs.CV). Version of record: Computer-Aided Design 146, 103225 (May 2022), doi 10.1016/j.cad.2022.103225 (arXiv related DOI; Crossref); not open access (Crossref licence metadata lists only Elsevier TDM licences, copyright Elsevier Ltd., Elsevier API openaccess flag 0), so not read",
+    "doi": "10.48550/arXiv.2008.07119",
+    "arxiv_id": "2008.07119",
+    "version_coded": "arXiv v2 (16 Feb 2021; v1 17 Aug 2020), PDF (30 pages; arXiv has no HTML version); Table 1 (p. 13), Table 3 (p. 20) and the conclusion (p. 22) checked on rendered pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "TopOpNet, a CNN that stands in for the wheel TO algorithm, returns a design within milliseconds of GPU inference, whereas the CPU-based TO algorithm is said to need on the order of ten minutes per run.",
+    "key_phrase": "the algorithm requires an order of 10 min in general",
+    "location": "Sec. 5 Conclusion, second paragraph, p. 22 (first quantitative classical comparison in the conclusion; the abstract compares with the earlier CPU-based approach only qualitatively). The same comparison opens Sec. 3 (p. 8: about 10 min vs under 10 ms)",
+    "quantitative": true,
+    "claimed_speedup": 60000,
+    "claimed_speedup_basis": "Derived, order of magnitude only; no factor is stated. Sec. 3 opening (p. 8): TO on the order of 10 min vs TopOpNet under 10 ms, so 600 s / 0.01 s = 6x10^4, a lower bound on the ML side. The conclusion (p. 22) pairs about 10 min with milliseconds (6x10^5 if 1 ms). Sec. 3.5 (p. 13) instead gives seconds for simple inputs vs under 1 ms on a GTX 1080 Ti, about 10^3 [derived]. No averaged timing, iteration count or CPU model is given for the TO runs, and dataset generation and training are not counted.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract, qualitative: RL-based generative design yields many diverse designs in short GPU inference time, unlike the earlier CPU-based approach, which needs much more time and human intervention. (2) Sec. 3.5, p. 13: TO takes seconds for simple inputs vs under 1 ms for TopOpNet on the GPU. (3) Table 3, p. 20 (ML vs non-learned search over TopOpNet outputs, not a TO comparison): GDNet reaches 95.38% of the exhaustive-search diversity and 140.61% of the equal-distance strategy; greedy 87.17% and 113.15%; exhaustive search over about 213k candidates takes about 4 h on the GPU. (4) Table 4, p. 22: diversity reward 1281.45 +/- 304.68 (GDNet) vs 1168.48 +/- 277.43 (greedy); final designs 9.34 vs 8.83."
+  },
+  "baseline": {
+    "classical_method": "Wheel TO algorithm of Oh et al. (2019): compliance minimization plus an L1 similarity term to a reference design, with a volume equality constraint (Eq. 1, Sec. 3.1); run on an 11 x 11 grid of similarity weight (0.0005-5.0, log scale) and force ratio (0.0-0.4) per reference image (Sec. 3.2)",
+    "implementation": "not described in this article (taken from Oh et al. 2019); Sec. 3.5 (p. 13) says the algorithm performs many matrix manipulations, including inverse matrices and determinants, with exception handling when these fail",
+    "solver": "not stated",
+    "hardware_classical": "CPU (Sec. 3.5, abstract, conclusion); model not stated. A PC with an Intel i7 CPU and a GTX 1080 Ti GPU is named only for the exhaustive search (p. 20)",
+    "hardware_ml": "NVIDIA GeForce GTX 1080 Ti GPU (Sec. 3.5, p. 13)",
+    "problem_size": "128 x 128 single-channel images for TopOpNet (Sec. 3.3); FE mesh of the TO algorithm not stated [about 3.3x10^4 DOFs if 128 x 128 bilinear elements, inferred]",
+    "classical_iterations": "not stated",
+    "classical_time": "on the order of 10 min per run (Sec. 3 opening, p. 8; conclusion, p. 22); on the order of seconds for simple inputs (Sec. 3.5, p. 13)",
+    "ml_time": "under 10 ms per inference (p. 8); under 1 ms on the GTX 1080 Ti (p. 13); order of milliseconds (p. 22); batch size not stated",
+    "training_time": "not stated; Adam, learning rate 1e-4, batch 16 (Sec. 3.4); training steps shown only in Fig. 7",
+    "data_generation_cost": "not stated; 639 reference images x 121 parameter combinations = 77,319 TO runs [derived from Sec. 3.2]; at about 10 min each, on the order of 1.3x10^4 CPU-hours [inferred]",
+    "quality_metric": "Cross-entropy, pixel difference, IoU and compliance MAPE of TopOpNet outputs against the TO outputs on 139 held-out references; the compliance statistic is the median over test data, reported as mean and std over 10 random splits (Table 1, p. 13); how compliance was computed is not stated",
+    "quality_gap": "TopOpNet: cross-entropy 0.0341 +/- 0.0101, pixel difference 0.0144 +/- 0.0050, IoU 0.9718 +/- 0.0090, compliance MAPE 0.8851 +/- 0.2341 (units not stated, percent inferred) (Table 1, p. 13). The text says outliers occasionally give very large compliance errors, which is why the median is used; no volume-fraction error or failure count is given"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Conclusion p. 22 and Sec. 3 p. 8: TopOpNet inference (milliseconds) is set against full TO runs (about 10 min). Quality is reported (Table 1: compliance MAPE 0.8851 +/- 0.2341, median-based), but matching is loose: the median hides the large-error outliers the authors mention (p. 13), no volume error is given, the TO stopping rule and iteration count are not stated, and the times are orders of magnitude that differ between sections (10 min vs seconds; 10 ms vs 1 ms). MAPE is an absolute error, so the text does not establish that TopOpNet designs are worse; R1-unmatched is therefore not established. A verifier who treats any reported compliance deviation as measurably worse would code fail."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl; R2-hardware-unjustified",
+      "evidence": "Sec. 3.5 (p. 13), abstract and conclusion: the TO algorithm runs on an unnamed CPU and is described as computing inverse matrices and determinants with exception handling, which suggests an inefficient implementation [inferred]; TopOpNet runs on a GTX 1080 Ti GPU, and the CPU-to-GPU shift is presented as a benefit without justification. (c) is not established because the FE size is not stated [about 3.3x10^4 DOFs if 128 x 128, inferred, below 10^5]. (b) does not apply: the abstract gives no numbers. (d) and (e) cannot be derived: no iteration count or per-iteration time."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Sec. 3.2-3.4: neither the 77,319 TO runs [derived] that produce the training data nor the TopOpNet training time is quantified, and no break-even is given; the data-generation burden is acknowledged only qualitatively (Sec. 1). For C3 [derived, order of magnitude]: at about 10 min per TO run the data alone need about 77,320 uses to break even, before training cost."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Table 1, p. 13: compliance of TopOpNet outputs is compared with the TO outputs for the full validation set (FE analysis inferred; the method is not described), alongside image metrics (IoU, pixel difference, cross-entropy). The compliance statistic is a median because outliers give very large errors; the number of such outliers, failed designs and volume-constraint satisfaction are not reported. Figs. 8-9 show examples chosen without a stated rule, but Table 1 covers all validation cases."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "139 held-out reference images (random 500/139 split of 639 crawled wheel images), each with 121 parameter combinations [16,819 image pairs, derived]; 10 random splits for Table 1 (Sec. 3.4-3.5); GDNet evaluated on the same 139 references (Sec. 4.3)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code I-SPEED confirmed at full text. Primary outcome: the abstract holds only a qualitative speed comparison, so PROTOCOL 5.1 rule 2 takes the first quantitative comparison in the conclusion (p. 22); it repeats the Sec. 3 opening statement (p. 8). The three timing statements in the article disagree by up to two orders of magnitude (10 min vs seconds for TO; 10 ms vs 1 ms for TopOpNet), and none is an averaged measurement. method_family set to cnn (screening said rl): the speed claim concerns TopOpNet, a CNN surrogate of the TO algorithm; GDNet, the PPO agent, is compared only with non-learned search strategies over TopOpNet outputs (alternatives 3-4). Reporting locators: variance = Table 1 (10 splits) and Table 4; hardware = p. 13 (GPU) and p. 20 (PC used for exhaustive search); no code, data or availability statement found; the training images were crawled from a wheel retail website (Sec. 3.2). retest_candidate false: no public code for TopOpNet or the wheel TO algorithm (GitHub search 2026-09-24 found none), and no licence information. Version: arXiv v2 coded; the Computer-Aided Design version of record is paywalled and may differ. No author overlap with Jun Wang (authors at Seoul National University and Sookmyung Women's University). Related pool record P00174 (Oh et al. 2019, the source of the wheel TO algorithm) is a different paper, not a duplicate."
+}

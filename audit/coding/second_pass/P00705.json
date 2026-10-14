@@ -1,0 +1,87 @@
+{
+  "pid": "P00705",
+  "citation": {
+    "title": "A Machine Learning Approach for Mechanical Component Design Based on Topology Optimization Considering the Restrictions of Additive Manufacturing",
+    "authors": "Abid Ullah, Karim Asami, Lukas Holtz, Tim Roever, Kashif Azher, Katharina Bartsch, Claus Emmelmann",
+    "year": 2024,
+    "venue": "Journal of Manufacturing and Materials Processing (MDPI), Vol. 8, Issue 5, article 220",
+    "doi": "10.3390/jmmp8050220",
+    "version_coded": "Version of record (J. Manuf. Mater. Process. 2024, 8, 220; published 1 October 2024), full text read in full from the publisher's file host https://mdpi-res.com/d_attachment/jmmp/jmmp-08-00220/article_deploy/jmmp-08-00220.pdf (used directly, as www.mdpi.com is known from this session's other MDPI records to return an Akamai bot-check to scripted access; mdpi-res.com is the acceptable open-access file host per PROTOCOL's 2026-09-24 access-routes deviation)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A conditional GAN (Pix2Pix) is trained on pairs of parameter images and SIMP-optimized (ToPy) cantilever topologies. Running SIMP via ToPy takes an average of 90 s per instance (250 h to generate 10,000 training pairs serially, 62.5 h with 4-way parallelism); once trained, the cGAN generates a design in 'milliseconds'. No classical, non-learned optimizer is ever re-run for a head-to-head timing at inference; the comparison is between ToPy's per-instance cost and the trained model's inference cost.",
+    "key_phrase": "the ML model can create optimum designs in milliseconds",
+    "location": "Sec. 2.2 (Methodology, main text) -- the first quantitative/semi-quantitative comparison with the classical method (ToPy/SIMP). The Abstract and Conclusion give only qualitative efficiency claims plus a standalone 91% artefact-free reliability figure that is not itself a comparison with SIMP.",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not precisely derivable: the classical side is exact (90 s average per ToPy run, Sec. 2.2) but the ML side is given only as 'milliseconds' with no exact figure, hardware, or repetition protocol. Taking the phrase at face value (1-999 ms) brackets the implied factor between roughly 90x and 90,000x; no single number is entered given this order-of-magnitude uncertainty.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 1/3.4/4: repeated qualitative framing that the ML approach 'shortens the development cycle', 'decreases overall development costs', and is 'extremely efficient for repetitive or large-scale design jobs, as opposed to classical topology optimization, which incurs ongoing computing costs' -- an explicit (if non-numeric) amortisation argument. (2) Abstract/Conclusion: 'up to 91%' of artefact-free structures, a standalone reliability figure not compared against a classical baseline number."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material with Penalization), implemented via the open-source ToPy Python library; used both to generate all training-data pairs and as the ground-truth comparator for the ML-generated designs (Sec. 2.1-2.2)",
+    "implementation": "ToPy (Python 3.11, Anaconda distribution); parameters taken from ToPy's recommended/well-established default settings (Sec. 2.1-2.2)",
+    "solver": "not stated beyond 'equilibrium equations and sensitivity analysis' (Sec. 2.2); no direct/iterative solver name given",
+    "hardware_classical": "A 12-core processor (model/clock speed not stated); each individual TO run used only about 25% CPU utilization (single-threaded, CPU-bound), so 4 TO instances were run concurrently to speed up bulk training-data generation (Sec. 2.2) [this single-threaded, non-parallelised per-instance implementation is itself evidence for R2]",
+    "hardware_ml": "not explicitly stated; same machine implied, but no CPU/GPU distinction is given for cGAN training or inference",
+    "problem_size": "2D cantilever, 100x100-element build space (Sec. 2.1); 7 parameterisation 'steps' with 101 to about 3x10^8 possible variations and 30 to 10,000 training pairs sampled per step (Table 1)",
+    "classical_iterations": "70 TO iterations per instance, with a convergence criterion of average objective-function change under 0.02 by the 70th iteration (Sec. 2.1)",
+    "classical_time": "Average 90 s per topology-optimization instance (Sec. 2.2); 250 h serial (62.5 h with 4-way concurrency) to generate the 10,000-pair training set",
+    "ml_time": "'milliseconds' per generated design at inference (Sec. 1, Sec. 3.4); no exact figure, hardware, or repeat/warm-up protocol given",
+    "training_time": "not stated as a wall-clock figure; training is described only in epoch counts (10 to 500 depending on step/model, Figs. 4-13), with no stated time-per-epoch or total training duration",
+    "data_generation_cost": "250 h serial (62.5 h with 4-way parallelism) to generate the 10,000 SIMP-derived training pairs via ToPy, explicitly described by the article as a 'one-time cost' amortised over subsequent millisecond-scale inferences (Sec. 2.2)",
+    "quality_metric": "Pixel-wise percent deviation between the generated image and the corresponding ToPy topology-optimization image (mean/min/max/standard deviation across test sets); explicitly not compliance, safety factor, or any FEM-based mechanical metric -- the article states outright that FEM-based mechanical validation 'was not performed' due to time constraints (Sec. 3.2)",
+    "quality_gap": "Mean pixel deviation ranged from about 4.62% (best case: Step 5, 5000 training pairs, epoch 100) to over 13% (Step 7, 70 training pairs, epoch 50) across the 7 steps/models (Sec. 3.1, Figs. 4-13); headline summary: 'up to 91%' of generated structures are artefact-free (Sec. 6)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-no-quality-check",
+      "evidence": "Sec. 3.2 (Validation), stated explicitly and self-critically: 'While a qualitative assessment could involve comparing minimal compliance, implementing such an approach would necessitate... a 2D finite element method (FEM) analysis tool... due to scheduling constraints, creating such a tool was not feasible... Due to time constraints, mechanical validation, such as FEM analysis, was not performed.' The 90s-to-milliseconds speed claim (Sec. 2.2) is therefore made with no compliance-, stiffness-, or any engineering-quality comparison at all -- only an image pixel-deviation score -- which is exactly the rule's 'speed claim made with no quality comparison' failure condition."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-implementation",
+      "evidence": "Sec. 2.2: the classical comparator (ToPy, Python) is a legitimate, published open-source SIMP implementation run with its own recommended settings, so it is not an obviously contrived weak baseline. But the article itself states the per-instance classical run used only about 25% utilization of a 12-core processor (i.e. effectively single-threaded/CPU-bound) and was only sped up in aggregate by running 4 independent instances concurrently for bulk data generation, not by making each individual optimization more efficient. No re-test or per-iteration time is available to invoke R2(a)/(e) directly, and the ~90s figure for a 100x100-element (10^4-element) 2D problem is plausible for an interpreted-language implementation rather than clearly anomalous, so this is scored partial (inefficient-looking implementation, direct comparison not possible) rather than a clean fail."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-training-cost-unclear",
+      "evidence": "Sec. 2.2: data-generation cost is reported in unusual detail and transparency (250 h serial / 62.5 h parallelised for 10,000 training pairs, explicitly called a 'one-time cost'), and the article explicitly frames the speed benefit as tied to repeated/large-scale use ('extremely efficient for repetitive or large-scale design jobs... as opposed to classical topology optimization, which incurs ongoing computing costs'), which is close to (but short of) the rule's 'explicitly limits the claim to per-query inference' condition. However, the cGAN's own training cost (as opposed to the SIMP/ToPy data-generation cost) is never given a wall-clock figure -- only epoch counts -- and no explicit break-even number of uses is computed, so R3 is scored partial rather than pass."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Sec. 3.2, stated directly by the authors: 'the validation conducted in this study is limited to image-based comparisons between the ML-generated designs and traditional topology-optimized structures. Due to time constraints, mechanical validation, such as FEM analysis, was not performed.' This is the rule's explicit failure condition ('quality rests only on image-similarity metrics'). Artefact/failure counts are reported at the image level (e.g. 9/100 and 32/200 test samples showing disconnected or incomplete structures, Sec. 3.1), but these are pixel-connectivity artefacts, not FE-verified structural failures or constraint violations."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "7 parameterisation 'steps' (Table 1), each with its own train/test split (e.g. Step 1: 30 training pairs; Step 5: up to 5000 training pairs, 200 test samples; Step 7: 70-4800 training pairs), covering single/double point loads, varying location/amplitude/orientation, and a passive-element manufacturing constraint",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Abid Ullah, Karim Asami, Lukas Holtz, Tim Roever, Kashif Azher, Katharina Bartsch, Claus Emmelmann). References cite unrelated 'Wang' authors (e.g. ref. [1] Wang, C.; ref. [21] Wang, C.C.L.), not authors of this paper. Duplicate check: audit/pool/pool.csv has exactly one row for this DOI/title (P00705); no arXiv or repeated copy exists in the pool. This article is unusually candid about two of its own limitations, both directly relevant to the audit's C4 indicator: (1) it explicitly states mechanical/FEM validation 'was not performed' due to time constraints, so all reported accuracy is pixel-based image comparison rather than engineering quality (drives R1 and R4 to fail); (2) it explicitly reports the one-time data-generation cost (250h/62.5h) behind the millisecond inference claim, rather than only touting the inference-time number, which is better cost-accounting transparency than most papers in this queue even though it stops short of a formal break-even calculation (R3 partial). Data availability: 'Dataset available on request from the authors'; no code repository is mentioned anywhere in the article. Conflicts of interest: co-author Lukas Holtz is employed by Teccon Consulting & Engineering GmbH, disclosed by the authors; no conflict is claimed to affect the study. Key uncertainty for the verifier: the claimed_speedup could not be pinned to a number because the ML inference time is only given as 'milliseconds' with no exact value; a verifier who judges 'milliseconds' as effectively ~10-100ms would derive a roughly 900-9,000x figure, which is offered here only as context, not as the entered value."
+}

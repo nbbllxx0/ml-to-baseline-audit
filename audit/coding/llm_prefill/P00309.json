@@ -1,0 +1,88 @@
+{
+  "pid": "P00309",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Evolutionary de-homogenization using a generative model for optimizing solid-porous infill structures considering the stress concentration issue",
+    "authors": "Shuzhi Xu, Hiroki Kawabe, Kentaro Yaji",
+    "year": 2024,
+    "venue": "arXiv preprint (math.OC); version of record 2025 at doi 10.1016/j.matdes.2025.114380 (Materials & Design [inferred from the DOI prefix]; not accessible, HTTP 403)",
+    "doi": "10.1016/j.matdes.2025.114380",
+    "arxiv_id": "2412.19154",
+    "version_coded": "arXiv v1 (26 Dec 2024; only version on the abs page), full text read from https://arxiv.org/html/2412.19154; version of record not read"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "vae",
+    "physics": "stress",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On the symmetric tension beam, the VAE-driven evolutionary stage (MFTD) cut maximum von Mises stress by 13%, 15.6% and 18.2% versus classical low-fidelity stress-TO designs at similar mass ratios; hypervolume rose 35.5% over 200 iterations.",
+    "key_phrase": "achieving a 13% reduction in maximum stress with a smaller volume fraction",
+    "location": "Section 4.2.3, Figs. 20-21 (no quantitative classical comparison in abstract, conclusion or introduction)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtimes or computational costs are reported for any method; not derivable.",
+    "direction": "outperform",
+    "alternatives": "(1) L-bracket: hypervolume reaches about 1.18 at iteration 90 relative to the initial low-fidelity designs (Sec. 4.1.3, Fig. 12); no initial value is stated in the text. (2) MFTD Rank-1 hypervolume larger than both Stress-TO and low-fidelity optimization (Fig. 21a; qualitative in the text). (3) Conclusion item 5 (qualitative): the low-fidelity stage beats traditional single-material stress TO and MFTD amplifies this advantage. (4) Classical-vs-classical, not an ML comparison: low-fidelity TO vs Stress-TO, maximum stress lower by 13% and 9.7% (Sec. 4.2.2)."
+  },
+  "baseline": {
+    "classical_method": "Low-fidelity optimization: gradient-based two-field multi-material maximum-stress (P-norm) TO updated with MMA, mapped to a full-scale geometry by de-homogenization (Sec. 2.1.4, 2.2). Also traditional single-material stress-based TO (Stress-TO) (Sec. 4.2.2)",
+    "implementation": "MATLAB 2022b for the low-fidelity optimization and most of MFTD; COMSOL Multiphysics 6.2 for CAD realization and FEA; VAE in TensorFlow (version printed as 3.6) (Sec. 4)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "L-bracket: 60×60 elements of 1 mm × 1 mm, m = 100 designs (Sec. 4.1.1, Table 1). Tension beam: 52×80 elements, m = 160 (Sec. 4.2.1, Table 5; Table 5 lists 3200 elements per low-fidelity datum). High-fidelity adaptive meshes of 18,669-154,325 elements in the mesh study (Table 4)",
+    "classical_iterations": "not stated for the low-fidelity TO or Stress-TO runs. MFTD stops when hypervolume changes by less than 0.1% over 5 iterations or at 250 iterations (Sec. 3.2.5); tension beam MFTD stopped at iteration 200 (Sec. 4.2.3)",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated (VAE retrained at every iteration, Sec. 3.2.4)",
+    "data_generation_cost": "not stated (initial data = m low-fidelity TO runs, each followed by high-fidelity FEA, Sec. 3.2.1-3.2.2)",
+    "quality_metric": "Maximum von Mises stress from adaptive-mesh linear elastic FEA of the de-homogenized CAD geometry; mass ratio G_vf; hypervolume of the Rank-1 set (Sec. 2.2.3, 3.2.5)",
+    "quality_gap": "Tension beam, MFTD vs low-fidelity TO (Sec. 4.2.3): 3.14 vs 3.61 MPa at G_vf 10.27% vs 10.33% (13%); 2.49 vs 2.95 MPa at 12.41% vs 12.3% (15.6%); 1.82 vs 2.22 MPa at 17.1% vs 16.7% (18.2% printed); hypervolume +35.5% over 200 iterations"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.2.3, Fig. 21: stress comparisons at approximately matched mass ratio (10.27 vs 10.33%, 12.41 vs 12.3%, 17.1 vs 16.7%); by the printed values MFTD uses more material in two of the three pairs, although the text reports weight reductions [inferred]. No computational budget is reported: MFTD ran 200 iterations with high-fidelity FEA of candidates, and the stopping rule of the classical low-fidelity runs is not stated."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome compares design quality only; no runtimes are reported for any method, so the efficiency criteria (a)-(e) do not apply."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem-learning",
+      "evidence": "No speed or cost claim. The VAE is retrained at every iteration inside one design run, with no offline training (Sec. 3.2.4), so its cost sits inside R1/R2."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Quality = maximum von Mises stress from COMSOL adaptive-mesh FEA of the de-homogenized geometry, with a mesh-independence study (Sec. 2.2.3, 4.1.2); mass ratio reported for each design. Anomalous candidates are discarded without a reported count (Sec. 3.2.2), and the three per-design pairs use chosen mass ratios without a stated selection rule; the hypervolume comparison covers all Rank-1 designs."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 benchmark cases (L-bracket; symmetric tension beam); the L-bracket was also run with populations of 100, 150 and 200 (Sec. 4.1-4.2)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; full text gives stratum Q (I-QUALITY). Coded arXiv v1; the version of record (doi 10.1016/j.matdes.2025.114380) returned HTTP 403 and was not compared with v1. Printed-number inconsistencies [inferred from the printed values, Sec. 4.2.3]: the 17% pair stress drop computes to 18.0% (printed 18.2%); in the 12.3% and 17% pairs MFTD's mass ratio is higher than the classical design's, while the text states weight reductions of 0.9% and 2.3%. The Fig. 21 caption names the third method Stiff-TO while the text calls it Stress-TO. Sec. 4.2.1 states a 52×80 mesh (4160 elements) while Table 5 lists 3200. Method family set to vae (screening said other): a VAE is the crossover operator inside an NSGA-II-based multifidelity evolutionary loop. No code, data, hardware or timing statements found in v1. Reporting locators: cases = Sec. 4.1-4.2; population study = Sec. 4.1.4."
+}

@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P01214",
+    "citation":  {
+                     "title":  "Deep learning-based topology optimization design method for bridge structures guided by aesthetics",
+                     "authors":  "C. Xiang, A.R. Chen, Y. Ning, D.L. Wang",
+                     "year":  2025,
+                     "venue":  "Structures and Architecture: REstructure REmaterialize REthink REuse",
+                     "doi":  "10.1201/9781003658641-176",
+                     "arxiv_id":  "",
+                     "version_coded":  "publisher abstract only"
+                 },
+    "access":  "abstract_only",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED (no accessible full text)",
+                     "stratum":  "none",
+                     "method_family":  "other",
+                     "physics":  "compliance",
+                     "dim":  "unclear"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The abstract presents the deep-learning topology-optimization agent as a way to improve the efficiency of bridge-pylon design while incorporating aesthetic quality.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "No speed-up factor stated in the accessible abstract.",
+                  "direction":  "outperform",
+                  "alternatives":  "The abstract also emphasizes combining mechanical and aesthetic properties."
+              },
+    "baseline":  {
+                     "classical_method":  "not stated in accessible abstract",
+                     "implementation":  "not stated",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "bridge pylons; dimensions not stated",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "not stated",
+                     "quality_metric":  "mechanical and aesthetic properties",
+                     "quality_gap":  "not stated"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "no full text"
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "no full text"
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "no full text"
+                         },
+                  "R4":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "no full text"
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "not stated in accessible abstract",
+                      "ood_test":  "unclear",
+                      "seeds_or_variance":  "unclear",
+                      "failure_rate_reported":  "unclear",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The Taylor \u0026 Francis OA download endpoint returned 403; the publisher abstract was readable. Search-result text showed no further accessible article text.",
+    "stage":  "cross_provider_pass"
+}

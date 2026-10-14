@@ -1,0 +1,56 @@
+{
+  "pid": "P02084",
+  "citation": {
+    "title": "Hierarchical thermal design for battery packs using phase change materials",
+    "authors": "Matei C. Ignuta-Ciuncanu, Monica Marinescu, Ricardo Martinez-Botas",
+    "year": 2026,
+    "venue": "International Journal of Heat and Mass Transfer, vol. 269, article 129081 (Elsevier)",
+    "doi": "10.1016/j.ijheatmasstransfer.2026.129081",
+    "version_coded": "Abstract only. The version of record is marked 'hybrid' open access by OpenAlex, but no full text was reachable: doi.org redirects to Elsevier's linkinghub, which in turn points to www.sciencedirect.com/science/article/pii/S001793102600757X, which returned HTTP 403 on every attempt. Abstract read from OpenAlex (cross-checked identical against audit/pool/pool.csv, pid P02084)."
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "multiphysics",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Cell-scale annular fin structures around cylindrical cells, designed via a generative latent-space approach, use over 95% fewer design variables than conventional pixel-wise topology optimization while also producing more geometrically diverse structures.",
+    "key_phrase": "reduces the number of design variables by over 95%",
+    "location": "abstract (only text available)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The abstract states a >95% reduction in design-variable count relative to 'conventional pixel-wise topology optimization' - a dimensionality/computational-cost proxy per Sec. 3.2 of the protocol - not a wall-clock time or iteration-count ratio, so no classical-time/ML-time speed-up factor can be derived from it.",
+    "direction": "outperform",
+    "alternatives": "(1) Module level: 'Functionally graded fin distributions adapt locally to thermal loads, reducing hotspot temperatures by up to 28.5% without increasing the total weight' - this reads as a comparison between the proposed graded design and a uniform/non-graded version of the same framework, not clearly against an independent classical TO method. (2) Pack level: 'graded permeability fields can reduce hotspot temperatures by 60% compared to the lowest pumping power design, while only using 20% of the pumping power required by a uniform pack layout' - again framed against a uniform/baseline pack layout rather than a named classical optimizer. Neither alternative names a classical, non-learned comparator as explicitly as the pixel-wise-TO comparison used as the primary outcome."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated (abstract only)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access exhausted through every legal route tried. doi.org resolves (HTTP 200) to Elsevier's linkinghub.elsevier.com, which points to https://www.sciencedirect.com/science/article/pii/S001793102600757X; this ScienceDirect URL returned HTTP 403 on every attempt (plain curl, curl with full browser-style Accept/Accept-Language headers, and WebFetch), each showing a normal Elsevier ScienceDirect page template rather than an interactive CAPTCHA, but not admitting the article text despite OpenAlex marking it OA ('hybrid', oa_url = the same DOI - i.e., the intended open route IS the ScienceDirect page itself, which is what is blocked). This was not bypassed. Alternative legal routes checked and exhausted: the corresponding author's Imperial College London profile and publications list (profiles.imperial.ac.uk/matei-cristian.ignuta-ciuncanu18/publications) lists this exact article but with no PDF or repository link; the author's Google Scholar profile lists it with 'No PDF link displayed'; Imperial's Spiral institutional repository was searched by title and author and returned no deposited copy; the CORE.ac.uk aggregator API returned no result for the DOI or title (its search endpoint appears to require an API key, which was not obtained or used, per the no-API-key rule); a web search surfaced only a blog post (constructallaw.com) discussing the paper's findings with no PDF link. No email address, mailto parameter, login, Unpaywall query, or CAPTCHA solve was used anywhere; a generic browser User-Agent was used throughout. Coded from the abstract only (via OpenAlex, cross-checked identical against audit/pool/pool.csv pid P02084): kept as an include (I-UNCLEAR) rather than excluded, stratum set to 'none', R1-R4 set to 'na', per the abstract-only rule. Flag for the adjudicator/full-text re-check: the abstract's own primary numeric claim (>95% fewer design variables than 'conventional pixel-wise topology optimization') reads as a genuine classical-method comparison on a computational-cost proxy (design-variable count), which would likely place this article in the 'speed' stratum rather than 'none' once full text is available - this record deliberately does not make that call itself, per the abstract-only procedure, but the full-text coder should revisit stratum assignment as a priority. method_family: the abstract's 'generative latent space approach' is not further specified; the same corresponding author's closely related papers (e.g., 'Evolutionary design of conductive pathways using a generative autoencoder', 'Generative Constructal Design of a Multiphysics Heat Sink for Managing Transient Thermal Loads' - found via the author's Imperial profile publication list, not read) repeatedly use a generative autoencoder, which would map to 'vae' or a plain autoencoder, but this is not confirmed for this specific article's own text, so 'other' is used instead of guessing [inferred from sibling work only]. physics: coded 'multiphysics' because the abstract explicitly integrates 'multi-scale conjugate heat transfer simulations' with pack-level porous-media flow/pumping-power tradeoffs, going beyond pure heat conduction; 'thermal' would also be defensible for the cell-scale portion alone. dim: 'unclear' - cylindrical cells with annular fins strongly suggest a 3D or axisymmetric geometry, but the abstract does not state this explicitly [inferred, not coded as a fact]. Duplicate check: audit/pool/pool.csv searched for 'Hierarchical thermal design for battery packs' (case-insensitive) returned exactly one match (this record, pid P02084); no FT-DUPLICATE applies. No author named Jun Wang on this article (authors: Matei C. Ignuta-Ciuncanu, Monica Marinescu, Ricardo Martinez-Botas). Incidental finding while checking the corresponding author's publication list: a different, unrelated paper by an overlapping research group, 'Prediction of Steady-State Flow through Porous Media Using Machine Learning Models' (J Wang, MC Ignuta-Ciuncanu, RF Martinez-Botas, T Cao, 2026), does list a 'J Wang' as first author - noted here for completeness only because it surfaced during the access search, but it is a different article, not in this queue, and not a duplicate of P02084."
+}

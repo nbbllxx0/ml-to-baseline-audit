@@ -1,0 +1,22 @@
+{
+  "solver": "pardiso",
+  "problem": "P1_cantilever",
+  "n": 256,
+  "iters": 150,
+  "total_s_median": 50.32922820060048,
+  "total_s_min": 49.93809160013916,
+  "total_s_max": 51.14284709992353,
+  "total_s_all": [
+    50.32922820060048,
+    49.93809160013916,
+    51.14284709992353
+  ],
+  "setup_s": 3.0328582000220194,
+  "warmup_s": 5.034237599989865,
+  "per_iter_s_median": 0.33603999999468215,
+  "solve_s_median": 0.22977750000427477,
+  "c_last": 19.80282285271203,
+  "vol_last": 0.4000001329951238,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 6.775579113657244e-13
+}

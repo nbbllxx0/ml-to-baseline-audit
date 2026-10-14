@@ -1,0 +1,14 @@
+﻿{
+  "pid": "P00822",
+  "citation": {"title": "Wasserstein generative adversarial networks for topology optimization", "authors": "Lucas Pereira and Larissa Driemeier", "year": 2024, "venue": "Structures", "doi": "10.1016/j.istruc.2024.106924", "arxiv_id": "", "version_coded": "abstract only; version of record full text inaccessible"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED (no accessible full text)", "stratum": "none", "method_family": "gan", "physics": "stress", "dim": "unclear"},
+  "claim": {"primary_outcome_paraphrase": "The abstract describes neural-network methods as substantially speeding topology optimization by replacing its iterative algorithm, and presents WGAN prediction of final structures.", "key_phrase": "", "location": "abstract", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "No factor is given in the accessible abstract.", "direction": "outperform", "alternatives": "Abstract says final ML designs are quantitatively evaluated; no numerical comparison is provided in the accessible abstract."},
+  "baseline": {"classical_method": "Topology optimization iterative algorithm (abstract-level context)", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "no full text", "evidence": "no full text"}, "R2": {"verdict": "na", "marker": "no full text", "evidence": "no full text"}, "R3": {"verdict": "na", "marker": "no full text", "evidence": "no full text"}, "R4": {"verdict": "na", "marker": "no full text", "evidence": "no full text"}},
+  "reporting": {"n_test_cases": "not stated in abstract", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Full text was not reachable from the publisher page; the accessible ScienceDirect abstract reports purchase access. No legitimate open full-text copy was found in title/DOI search."
+}

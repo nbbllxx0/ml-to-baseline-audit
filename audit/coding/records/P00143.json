@@ -1,0 +1,94 @@
+{
+  "pid": "P00143",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Improving Solar Cell Metallization Designs using Convolutional Neural Networks",
+    "authors": "Sumit Bhattacharya, Devanshu Arya, Debjani Bhowmick, Rajat Mani Thomas, Deepak Kumar Gupta",
+    "year": 2021,
+    "venue": "ICLR 2021 SimDL workshop paper; arXiv preprint (cs.CE)",
+    "doi": "10.48550/arXiv.2104.04017",
+    "arxiv_id": "2104.04017",
+    "version_coded": "arXiv v1 (8 Apr 2021; only version), full HTML text read from https://arxiv.org/html/2104.04017"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DOMAIN",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "other",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded: physics out of scope). Would-be primary outcome: on square cells with four busbar layouts, SolarNet designs reached higher efficiency than density-based TO, by up to 0.42 percentage points (3.5% relative); triangular cell 12.67% vs 12.31%.",
+    "location": "Section 4 Results, Figs. 2-3 (abstract, introduction and conclusion hold only qualitative comparisons)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text); no runtime of either method is reported anywhere in the article.",
+    "direction": "outperform"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "excluded at full text (FT-DOMAIN)"},
+    "R2": {"verdict": "na", "evidence": "excluded at full text (FT-DOMAIN)"},
+    "R3": {"verdict": "na", "evidence": "excluded at full text (FT-DOMAIN)"},
+    "R4": {"verdict": "na", "evidence": "excluded at full text (FT-DOMAIN)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "FT-DOMAIN (electrical conduction in solar-cell metallization; outside the §3.1 physics list). Excluded under PROTOCOL §3.1: the physics is electrical conduction in the front layer of a solar cell (Ohm's law with a nonlinear diode current source, Section 2; the objective is the cell's output power, Section 3). It is not elasticity, heat conduction or a compliant mechanism, and it is closest to the excluded electromagnetic class (§4). Judgment call for the verifier: if a scalar-conduction analogue of heat conduction is accepted, the record enters stratum Q (screening code was I-QUALITY) with the primary outcome above. Fig. 2 values: density-based TO 12.20, 12.05, 11.98, 12.55% vs SolarNet 12.34, 12.47, 12.25, 12.64% [pairing inferred from the stated maximum gain of 0.42 points, 3.5% relative]; Fig. 3 (triangle): 12.31% vs 12.67%. Would-be verdicts: R1 partial (R1-loose: same physics model and cell parameters (Table 1), TO density filter radius 1.5 elements, CNN output 200×200; TO optimizer, TO resolution, iteration counts and stopping rules not stated for either method; no budget comparison); R2 pass (unsure: TO settings largely unstated, nothing suggests a weak run); R3 na (per-problem CNN reparameterization with no offline training, no speed claim); R4 pass (unsure: efficiency of each returned design comes from the same FE model, and all five tested cases are shown; binarization of the CNN output is not stated). Informational reporting: 5 cases (4 busbar layouts on a 1.5 cm square cell, 1 triangular cell), one design shown per method and case, number of runs not stated; no seeds, timing or hardware; code link github.com/transmuteAI/SolarNet (footnote 1; repository not checked); no data statement. Adjudicator check (2026-09-24): read the arXiv v1 PDF (6 pp.; the abs page lists v1 only and the comment 'Published as a workshop paper at ICLR 2021 SimDL Workshop'). The model is steady electrical current flow: Ohm's law j = σE and Kirchhoff's law discretized as GV = I, with a diode-law local current source; the objective is electrical output power and efficiency (Sec. 2, Eqs. 1-7, pp. 2-3). Electrical conduction is electromagnetics, the domain that §4 and FT-DOMAIN exclude, and §3.1 has no provision for conduction analogues of heat conduction; the second coder's in-scope reading is recorded in the adjudication object. Codes checked in order: FT-DUPLICATE (no other pool record of this study; pool title search), FT-SCOPE (it is density-based TO with a density filter, Sec. 4, p. 4) and FT-TYPE (method paper) do not apply, so FT-DOMAIN is the first applicable code. The Fig. 2 pairing above is confirmed by the page order of the printed values (top row TO, bottom row SolarNet): the gains are 0.14, 0.42, 0.27 and 0.09 points. If the verifier reads the physics as in scope, the stratum-Q clarification of PROTOCOL §11 (2026-09-24) makes the would-be R2 na, because the abstract gives no baseline figures.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "decision": {
+        "first": "exclude",
+        "second": "include",
+        "decision": "exclude",
+        "reason": "The physics is steady electrical conduction in the cell's front layer: Ohm's law and Kirchhoff's law discretized as GV = I, with a diode-law current source, and the objective is electrical output power (Sec. 2, Eqs. 1-7, pp. 2-3). That is not elasticity, heat conduction or a compliant mechanism, and §3.1 has no provision for conduction analogues, so the article fails §3.1."
+      },
+      "ft_code": {
+        "first": "FT-DOMAIN",
+        "second": null,
+        "decision": "FT-DOMAIN",
+        "reason": "It is density-based TO (filter radius 1.5 elements, Sec. 4, p. 4) in a method paper, so FT-SCOPE and FT-TYPE do not apply. Electric current conduction belongs to electromagnetics (the article cites an electrodynamics text for Ohm's law, Sec. 2, p. 2), which §4 and FT-DOMAIN exclude, so FT-DOMAIN is the first applicable code."
+      },
+      "stratum": {
+        "first": null,
+        "second": "quality",
+        "decision": "none",
+        "reason": "A full-text exclusion carries stratum none (adjudication instructions, step 3). The would-be stratum-Q outcome (Sec. 4, Fig. 2, p. 4: efficiency up to 0.42 points above density-based TO) is kept in notes."
+      },
+      "R1": {
+        "first": null,
+        "second": "partial",
+        "decision": "na",
+        "reason": "Excluded as FT-DOMAIN (Sec. 2, pp. 2-3), so all rule verdicts are na (adjudication instructions, step 3). The would-be verdicts stay in notes."
+      },
+      "R2": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "Excluded as FT-DOMAIN (Sec. 2, pp. 2-3), so all rule verdicts are na (adjudication instructions, step 3)."
+      },
+      "R3": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "Excluded as FT-DOMAIN (Sec. 2, pp. 2-3), so all rule verdicts are na (adjudication instructions, step 3)."
+      },
+      "R4": {
+        "first": null,
+        "second": "partial",
+        "decision": "na",
+        "reason": "Excluded as FT-DOMAIN (Sec. 2, pp. 2-3), so all rule verdicts are na (adjudication instructions, step 3). The would-be verdicts stay in notes."
+      }
+    }
+  }
+}

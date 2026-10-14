@@ -1,0 +1,72 @@
+{
+  "pid": "P00822",
+  "citation": {
+    "title": "Wasserstein generative adversarial networks for topology optimization",
+    "authors": "Lucas Pereira, Larissa Driemeier",
+    "year": 2024,
+    "venue": "Structures, Vol. 68, Article 106924 (Elsevier)",
+    "doi": "10.1016/j.istruc.2024.106924",
+    "arxiv_id": "",
+    "version_coded": "Abstract only. doi.org resolved to linkinghub.elsevier.com's JavaScript meta-refresh page (not followed automatically); the ScienceDirect article and /pdfft PDF routes both returned an HTTP 403 Elsevier bot-detection page ('IP blocked'), the same block seen on other ScienceDirect articles in this queue - not a paywall, and not bypassed. OpenAlex's public API (api.openalex.org, no email/mailto parameter used) confirms this is Hybrid open access (CC BY-NC-ND) with no repository copy available (any_repository_has_fulltext=false, pdf_url=null), and supplies the publisher's own abstract text used below. Crossref's TDM links point to Elsevier's api.elsevier.com, which requires an API key and was therefore not used, per the access rules (no API keys)"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Abstract: a Wasserstein GAN, trained on FEA-generated data, maps physical fields such as von Mises stress directly to the optimized topology; final designs are said to be 'quantitatively analyzed according to the metrics', with no numbers given in the abstract.",
+    "key_phrase": "The final designs obtained via ML are quantitatively analyzed according to the metrics",
+    "location": "abstract (the only text accessible; full text could not be checked)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not stated numerically. The abstract asserts ANNs 'have been proposed to significantly speed-up the process by eliminating the iterative algorithm... intrinsic to TO', a qualitative claim with no time, iteration-count, or cost figure for either the WGAN or a classical TO comparator.",
+    "direction": "outperform",
+    "alternatives": "No alternative numeric candidates are available; the abstract's only other substantive statement is methodological (a WGAN trained on FEA inputs, volume fraction, post-processing, and final topologies from a generated dataset, mapping physical fields such as von Mises stress to the final structure). Without full text it cannot be determined what classical method, if any, is directly compared, or what the 'metrics' used to quantitatively analyze the final designs actually are."
+  },
+  "baseline": {
+    "classical_method": "not stated beyond generic references to 'topology optimization (TO)' solved iteratively via the finite element method (FEM); no specific algorithm (SIMP/BESO/level-set) is named in the abstract",
+    "implementation": "not stated",
+    "solver": "not stated; abstract only says FEA is used per TO iteration and to build the training dataset",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated; the abstract says a dataset of 'FEA inputs, volume fraction, post-processing, and final topologies' was generated, with no size or cost given",
+    "quality_metric": "not stated; the abstract mentions only that final designs are 'quantitatively analyzed according to the metrics' without naming them",
+    "quality_gap": "not quantified in the abstract"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not stated in the abstract",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Coded from the abstract only, per the protocol's abstract-only fallback. Full text was not reachable through any legal route: ScienceDirect blocked both the article page and the PDF with an Elsevier bot-detection 403 ('IP blocked'), not a paywall - OpenAlex confirms Hybrid CC-BY-NC-ND open access with no repository mirror available, so the article is legitimately open but currently unreachable to scripted access; this bot check was not bypassed, and Elsevier's TDM API (which needs a registered API key) was correctly not used per the access rules. Per instructions, the article is kept as include with reason 'I-UNCLEAR (no accessible full text)', stratum set to 'none', and all four rules set to na with evidence 'no full text'. method_family is coded 'gan' (Wasserstein GAN is explicitly named); physics is inferred as 'compliance' because the description (mapping a von Mises stress field to a final optimized topology via a GAN trained on FEA data) matches the common TopologyGAN-style compliance-minimization setup, but this is an inference, not confirmed by the abstract, which never states the objective function; dim is left 'unclear' since neither 2D nor 3D is mentioned. No author named Jun Wang (authors: Lucas Pereira, Larissa Driemeier). No duplicate pool record found for this exact title or DOI; pool.csv has two topically related but distinct Wasserstein-for-TO articles under different pids and DOIs (P00273, P01865), neither a duplicate of P00822."
+}

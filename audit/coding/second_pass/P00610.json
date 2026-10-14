@@ -1,0 +1,88 @@
+{
+  "pid": "P00610",
+  "citation": {
+    "title": "Effective thermal conductivity estimation using a convolutional neural network and its application in topology optimization",
+    "authors": "Andre Adam, Huazhen Fang, Xianglin Li",
+    "year": 2023,
+    "venue": "Energy and AI, vol. 15, article 100310 (the article's own running header prints 'Energy and AI 15 (2024) 100310'; first page states 'Available online 19 October 2023', received 25 Jul 2023, accepted 14 Oct 2023; open access under CC BY-NC-ND)",
+    "doi": "10.1016/j.egyai.2023.100310",
+    "arxiv_id": "",
+    "version_coded": "Version of record (open access, CC BY-NC-ND license, stated on p.1), 12-page PDF including references and 3 appendices, obtained via NSF PAR (funder repository, https://par.nsf.gov/biblio/10521324, servlet https://par.nsf.gov/servlets/purl/10521324) and read in full. ScienceDirect (ttps://www.sciencedirect.com/science/article/pii/S2666546823000824) returned a bot-check/CAPTCHA page (HTTP 403, page text contained 'Captcha'/'Blocked') to a direct fetch with a standard browser User-Agent, so it was not read there."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (Abstract's first quantitative comparison with a classical method: CNN prediction time vs. finite-volume simulation, '3 to 5 orders of magnitude faster')",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "thermal",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The trained VGG-style CNN predicts the effective thermal conductivity of a 128x128 two-phase microstructure image in about 15 ms on a commercial GPU (20 ms on a CPU core), which the authors state is 3 to 5 orders of magnitude faster than running the classical finite-volume (NHT) heat-conduction simulation on the same image; used as the per-iteration evaluator inside an otherwise identical voxel-swap topology-optimization loop, this becomes an explicit 2,280x-24,746x per-iteration speed-up across the four case studies.",
+    "key_phrase": "which is 3 to 5 orders of magnitude faster than a finite volume simulation",
+    "location": "Abstract (first quantitative comparison with a classical method); the same comparison is elaborated with exact numbers in Sec. 4.2 (CPU-vs-CPU, Table 1) and Sec. 5.1-5.4 (GPU-based per-iteration speed-ups inside the topology-optimization case studies)",
+    "quantitative": true,
+    "claimed_speedup": 5473,
+    "claimed_speedup_basis": "Derived from Table 1 (average NHT time per image per CPU core: 34.2 s at k_s=10, 81.6 s at k_s=50, 137.3 s at k_s=100, 371.2 s at k_s=341.7) divided by the CNN's stated single-CPU-core prediction time of 20 ms (Sec. 4.2): ratios of 1710x, 4080x, 6865x and 18560x; the median, 5473 (rounded), is entered as the point estimate underlying the Abstract's own qualitative '3 to 5 orders of magnitude' (10^3-10^5x) framing. The article separately states exact GPU-based per-iteration speed-ups actually used inside the topology-optimization case studies, which are larger because the GPU prediction time (15 ms) is used instead of the CPU figure: 2,280x (Sec. 5.1, k_s=10), 24,746x (Sec. 5.2, k_s=341.7, aluminum-water), 4,560x (Sec. 5.3, biaxial case, NHT must run twice per iteration). No single overall factor is stated in the Abstract itself; it gives only the order-of-magnitude range.",
+    "direction": "outperform",
+    "alternatives": "(1) The specific per-case GPU-based speed-ups used in the topology-optimization application itself (Sec. 5): 2,280x (Case A), 24,746x (Case B), 4,560x (Case C), 'the same as Section 5.1' (Case D, ~2,280x) -- these are the paper's most emphasized figures for the stated topology-optimization use case and are fully consistent with the Abstract's general claim. (2) The Abstract's quality-only statement for the same topology-optimization application: 'the CNN retains a MAPE between 0.67% and 11.8% for different cases... improves the structure to close proximity of a theoretical maximum in all cases' -- not selected as primary because the Abstract's speed sentence appears first."
+  },
+  "baseline": {
+    "classical_method": "Not a named classical TO algorithm choice; the classical comparator is the per-iteration physical-property evaluator inside an identical voxel-swapping + simulated-annealing (SAA) discrete optimizer (Sec. 5): a custom finite-volume numerical heat transfer (NHT) simulation solving the 2D steady-state heat-conduction equation (Eq. 1/5) by central differencing, used both to label all training images and as the classical alternative to the CNN inside the optimization loop",
+    "implementation": "NHT: authors' own C code with OpenMP load balancing across cores (one image per core), using the tridiagonal matrix algorithm (TDMA) applied iteratively (stated 40% faster than Jacobi iteration in their tests, Sec. 2.3); CNN: VGG-inspired 16-convolutional-layer network (Fig. 4) implemented with the Keras API (MAPE loss, Adam optimizer), per Sec. 3",
+    "solver": "iterative (TDMA/line-sweep applied repeatedly until the left/right boundary heat-flux imbalance converges, Eq. 7-9); not a sparse direct solve of the full 2D system nor a multigrid-preconditioned Krylov method. Table 1 reports 32,903 to 154,307 iterations to converge a single 128x128 (16,384-cell) image depending on the conductivity ratio",
+    "hardware_classical": "Dataset-generation NHT runs: Bridges2 supercomputer, Pittsburgh Supercomputing Center (Sec. 1). The per-image NHT times in Table 1 (used for the speed comparison) are reported as 'per computer core' with no specific CPU model named; Sec. 4.2 re-uses these same Table 1 times for the CPU-vs-CPU comparison ('using one CPU core, the CNN is 3 to 5 orders of magnitude faster') without confirming the NHT figures came from the same CPU model (Ryzen 7 3700X) used for the CNN's own CPU timing -- a plausible hardware mismatch that the article does not address",
+    "hardware_ml": "Training: HPC node with 4 NVIDIA V100 GPUs (Expanse supercomputer, San Diego Supercomputer Center); large dataset (130,000 images) could not be trained on a regular office computer due to RAM constraints (Sec. 4.2). Inference: 4 ms per batch on 4xV100 GPUs; 15 ms on a commercial NVIDIA GeForce RTX 3070 (used for all Sec. 5 topology-optimization case studies); 20 ms on a single CPU core (3.6 GHz AMD Ryzen 7 3700X)",
+    "problem_size": "128x128-pixel binary images (16,384 finite-volume cells), 2D only; topology-optimization case studies act on a 32x32 grid of 4x4-pixel super-voxels within the same 128x128 domain (Sec. 5)",
+    "classical_iterations": "NHT: not fixed; convergence-based TDMA iteration, averaging 32,903 (k_s=10) to 154,307 (k_s=341.7) iterations per image (Table 1). Topology optimization (both CNN- and NHT-driven variants, compared as if run to the same budget): 1,000,000 voxel-swap attempts (Sec. 5); the NHT-driven full run was not actually executed, only extrapolated from its measured per-iteration time (Sec. 5, 'that would require around 102,778 h')",
+    "classical_time": "Table 1: 34.2 s (k_s=10), 81.6 s (k_s=50), 137.3 s (k_s=100), 371.2 s (k_s=341.7), average per image per CPU core. In Sec. 5.3 (biaxial case) this doubles to ~68.4 s/iteration because x- and y-direction conduction must be simulated separately by NHT",
+    "ml_time": "15 ms per iteration on a commercial NVIDIA RTX 3070 GPU (used in all 4 topology-optimization case studies, Sec. 5.1-5.4); also 20 ms on a single CPU core and 4 ms per batch on 4xV100 GPUs (Sec. 4.2)",
+    "training_time": "About 1 hour to load data and run 600 epochs on one HPC node with 4 NVIDIA V100 GPUs, per conductivity-ratio model (Sec. 4.2); explicitly called 'minuscule in terms of computational time compared to creating a large dataset' (Sec. 6, Conclusion)",
+    "data_generation_cost": "520,000 NHT simulations total (130,000 images x 4 conductivity ratios) run on the Bridges2 supercomputer (Sec. 1, 2.3); using Table 1's average per-image times this implies roughly 1,235-13,406 core-hours per ratio dataset [derived: 130,000 x 34.2s/3600 to 130,000 x 371.2s/3600], not stated as a single number in the article itself",
+    "quality_metric": "Mean absolute percentage error (MAPE, Eq. 13) of CNN-predicted k_eff versus the NHT simulation of the same structure; in the topology-optimization case studies, the CNN-optimized final structure is independently re-evaluated by the NHT model and compared against the closed-form theoretical maximum/minimum (Eqs. 11-12) as well as against the CNN's own prediction",
+    "quality_gap": "Case A (k_s=10): final k_eff = 5.36 (NHT) vs 5.358 (CNN), 0.075% apart; NHT value is 2.58% below the theoretical maximum of 5.5; MAPE over all successful swaps = 1.1%. Case B (k_s=341.7, Al-water): 156.43 (NHT) vs 164.81 (CNN), 5.36% apart; NHT value is 9.12% below the theoretical maximum of 171.35; MAPE = 11.84%. Case C (biaxial, k_s=10): cost function 8.02 (NHT) vs 8.08 (CNN); domain-wide MAPE = 0.67%. Case D (k_s=10 + surface area): k_eff = 4.95 (NHT) vs 4.93 (CNN), 0.4% apart; NHT value is 10% below the theoretical maximum of 5.5; MAPE = 0.88% (Sec. 5.1-5.4)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched-equal-budget",
+      "evidence": "The CNN- and NHT-driven variants use the identical voxel-swap + simulated-annealing optimizer for the identical budget of 1,000,000 evaluation attempts (Sec. 5); only the per-iteration property evaluator (CNN vs. NHT) differs, so the speed comparison is at an equal evaluation budget. Design quality of the CNN-obtained final structure is explicitly checked against the classical method: an independent NHT re-evaluation is reported for every one of the 4 cases (e.g. Case A: 5.36 NHT vs 5.358 CNN, 0.075% apart; Case B: 156.43 NHT vs 164.81 CNN, 5.36% apart) and against the closed-form theoretical optimum (Eqs. 11-12), with the NHT-verified result landing within 2.58%-10% of that theoretical maximum in all 4 cases. The NHT-driven full run at the same 1,000,000-iteration budget was not actually executed (only extrapolated to 102,778 h from its per-iteration time), so the 'matching' is against an independent theoretical/NHT check of the CNN result rather than an actually-completed classical run at the same budget, but this is disclosed rather than hidden, and quality is not left unmeasured."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-implementation",
+      "evidence": "The state equation (2D steady-state heat conduction) is elliptic, matching R2's scope. The classical NHT solver uses TDMA line-sweeps applied iteratively (not a sparse direct solve of the full system nor a multigrid-preconditioned Krylov method), and Table 1 reports 32,903-154,307 iterations to converge a single 16,384-cell (128x128) image -- a very large iteration count for a linear 2D Poisson-type problem of this size, consistent with the partial condition 'the implementation looks inefficient... but no direct comparison is possible' (no re-test is performed in this coding pass, so R2(a)/(e) cannot be checked directly). Problem size (16,384 DOFs) is below the 10^5-DOF threshold named in R2(c), so the GPU (CNN, RTX 3070) vs. CPU (NHT, Bridges2/Expanse cores) asymmetry does not trigger an automatic fail, but it is also not justified in the article, and the CPU-vs-CPU claim in Sec. 4.2 ('using one CPU core, the CNN is 3 to 5 orders of magnitude faster') reuses Table 1's NHT times (from the Bridges2/Expanse HPC) without confirming they came from the same CPU model (Ryzen 7 3700X) used for the CNN's own CPU benchmark -- an unreconciled hardware detail supporting a partial rather than a full pass."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-full-accounting",
+      "evidence": "Data-generation cost is reported concretely: 520,000 NHT simulations on a named supercomputer resource (Bridges2; Sec. 1, 2.3), with per-image times in Table 1 from which a total core-time is directly derivable. Training cost is reported concretely: about 1 hour per model on one HPC node with 4 NVIDIA V100 GPUs for 600 epochs (Sec. 4.2). The Conclusion (Sec. 6) explicitly states the cost relationship between them ('training of the CNN itself is minuscule... compared to creating a large dataset'), and every headline speed figure in Sec. 4.2 and Sec. 5 is explicitly scoped to per-image / per-iteration / per-batch inference, i.e. the claim is explicitly limited to per-query cost with both upstream costs disclosed rather than hidden."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Quality of the CNN-obtained returned design is FE-equivalent (NHT finite-volume) verified in all 4 topology-optimization cases (Sec. 5.1-5.4), and the global solid volume fraction (0.5) is trivially conserved by construction because every optimization step swaps one solid voxel for one fluid voxel (Sec. 5), so no separate volume-violation check is needed. However, the article never checks or reports structural feasibility of the returned design beyond volume/porosity, e.g. no disconnected-material or floating-material check is performed or reported, and no failure/infeasibility rate is given for the voxel-swap process itself (only counts of 'successful swaps' and 'mutations' out of 1,000,000 attempts, e.g. Case A: 1,490 successful, 911 mutations, which measures optimizer progress, not design feasibility)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 topology-optimization case studies (A-D), each a single 1,000,000-iteration run; standalone CNN accuracy separately evaluated on a 26,000-image held-out test set per conductivity ratio (Sec. 4.1, Table 5) plus analytical parallel/series validation cases (Sec. 4.3, Appendix C)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Andre Adam, Huazhen Fang, Xianglin Li). No duplicate pool entry found: audit/pool/pool.csv has exactly one row for this title (P00610), with no arXiv id. Access: version of record is gold open access (CC BY-NC-ND, stated on p.1); ScienceDirect blocked a direct fetch with a bot-check/CAPTCHA page (HTTP 403, page contained the words 'Captcha' and 'Blocked'), so per the access rules that route was abandoned without any bypass attempt, and the article was instead obtained legally from NSF PAR (an NSF funder repository, https://par.nsf.gov/biblio/10521324), which the acknowledgments confirm is the applicable funder (NSF Award 1941083; also NASA EPSCoR 80NSSC22M0221). No CAPTCHA, login or paywall was bypassed anywhere. Code: two repositories are named -- github.com/adama-wzr/CNN-Keff (trained CNN models + prediction script; confirmed public via the GitHub API on 2026-09-24, but with no declared license) and github.com/adama-wzr/Keff-CFD (the classical NHT simulation code; confirmed public with an MIT license). retest_candidate is false because reproducing the paper's own CNN-vs-NHT comparison needs the unlicensed CNN-Keff side, which nothing affirmatively permits running, even though the classical side alone is MIT-licensed. Training dataset: Mendeley Data, cited in the paper's own reference list as doi 10.17632/454DSRMDYF.1 but as V2 (doi 10.17632/454dsrmdyf.2) in the GitHub README; not re-verified further since no data were downloaded."
+}

@@ -1,0 +1,303 @@
+=== ED3 gpu P1 128 ===
+rep 0: total 2.969 s  c_last 19.325147
+rep 1: total 2.963 s  c_last 19.325147
+rep 2: total 2.965 s  c_last 19.325147
+{
+  "solver": "gpu",
+  "problem": "P1_cantilever",
+  "n": 128,
+  "iters": 150,
+  "total_s_median": 2.965378899767529,
+  "total_s_min": 2.96301619958831,
+  "total_s_max": 2.96892009943258,
+  "total_s_all": [
+    2.96892009943258,
+    2.96301619958831,
+    2.965378899767529
+  ],
+  "setup_s": 0.09555229998659343,
+  "warmup_s": 0.8418293999857269,
+  "per_iter_s_median": 0.02002604998415336,
+  "solve_s_median": 0.014442099985899404,
+  "c_last": 19.32514699518429,
+  "vol_last": 0.4000009593654386,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.963279924654404e-09,
+  "pcg_its_median": 17.0,
+  "pcg_its_max": 19,
+  "fallbacks": 0,
+  "idle_power_w": 79.13760869565218,
+  "energy_j_median": 390.4369153530683,
+  "energy_above_idle_j_median": 140.0213489736144
+}
+run dir: retest/runs/20260924T200237Z_gpu_P1_n128_pinned
+=== ED3 gpu P2 128 ===
+rep 0: total 2.943 s  c_last 30.110137
+rep 1: total 2.937 s  c_last 30.110137
+rep 2: total 2.928 s  c_last 30.110137
+{
+  "solver": "gpu",
+  "problem": "P2_mbb",
+  "n": 128,
+  "iters": 150,
+  "total_s_median": 2.9367586997686885,
+  "total_s_min": 2.928381899895612,
+  "total_s_max": 2.943396099784877,
+  "total_s_all": [
+    2.943396099784877,
+    2.9367586997686885,
+    2.928381899895612
+  ],
+  "setup_s": 0.09887029998935759,
+  "warmup_s": 0.7636223000008613,
+  "per_iter_s_median": 0.01957725000102073,
+  "solve_s_median": 0.014002400013851002,
+  "c_last": 30.11013706981305,
+  "vol_last": 0.5000008531419479,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.98268892519471e-09,
+  "pcg_its_median": 17.0,
+  "pcg_its_max": 19,
+  "fallbacks": 0,
+  "idle_power_w": 80.90934782608696,
+  "energy_j_median": 384.5017634367604,
+  "energy_above_idle_j_median": 133.23888469837777
+}
+run dir: retest/runs/20260924T200258Z_gpu_P2_n128_pinned
+=== ED3 gpu P1 512 ===
+rep 0: total 24.988 s  c_last 20.248185
+rep 1: total 22.404 s  c_last 20.248185
+rep 2: total 21.887 s  c_last 20.248185
+{
+  "solver": "gpu",
+  "problem": "P1_cantilever",
+  "n": 512,
+  "iters": 150,
+  "total_s_median": 22.4042204003199,
+  "total_s_min": 21.886777499923483,
+  "total_s_max": 24.987957500328775,
+  "total_s_all": [
+    24.987957500328775,
+    22.4042204003199,
+    21.886777499923483
+  ],
+  "setup_s": 0.40775509999366477,
+  "warmup_s": 2.4546205999795347,
+  "per_iter_s_median": 0.14686619999702089,
+  "solve_s_median": 0.05378409998957068,
+  "c_last": 20.248185039320113,
+  "vol_last": 0.40000047712397113,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.950004488116799e-09,
+  "pcg_its_median": 16.5,
+  "pcg_its_max": 18,
+  "fallbacks": 0,
+  "idle_power_w": 76.40391304347825,
+  "energy_j_median": 4678.036654270699,
+  "energy_above_idle_j_median": 2939.434917443784
+}
+run dir: retest/runs/20260924T200319Z_gpu_P1_n512_pinned
+=== ED3 gpu P2 512 ===
+rep 0: total 23.864 s  c_last 34.849737
+rep 1: total 25.299 s  c_last 34.849737
+rep 2: total 25.228 s  c_last 34.849737
+{
+  "solver": "gpu",
+  "problem": "P2_mbb",
+  "n": 512,
+  "iters": 150,
+  "total_s_median": 25.22845629969379,
+  "total_s_min": 23.86385539994808,
+  "total_s_max": 25.299224700196646,
+  "total_s_all": [
+    23.86385539994808,
+    25.299224700196646,
+    25.22845629969379
+  ],
+  "setup_s": 0.45683380000991747,
+  "warmup_s": 2.2185578999924473,
+  "per_iter_s_median": 0.1687331499706488,
+  "solve_s_median": 0.06301485002040863,
+  "c_last": 34.84973723567425,
+  "vol_last": 0.5000008790635319,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.991574317983836e-09,
+  "pcg_its_median": 17.0,
+  "pcg_its_max": 19,
+  "fallbacks": 0,
+  "idle_power_w": 81.19869565217391,
+  "energy_j_median": 5158.788358060121,
+  "energy_above_idle_j_median": 3067.0438856198994
+}
+run dir: retest/runs/20260924T200442Z_gpu_P2_n512_pinned
+=== ED3 gpu P1 1024 ===
+rep 0: total 43.371 s  c_last 20.690785
+rep 1: total 43.333 s  c_last 20.690785
+rep 2: total 43.197 s  c_last 20.690785
+{
+  "solver": "gpu",
+  "problem": "P1_cantilever",
+  "n": 1024,
+  "iters": 150,
+  "total_s_median": 43.33299159957096,
+  "total_s_min": 43.19698400021298,
+  "total_s_max": 43.370663300331216,
+  "total_s_all": [
+    43.370663300331216,
+    43.33299159957096,
+    43.19698400021298
+  ],
+  "setup_s": 0.5600644999649376,
+  "warmup_s": 3.3648142000311054,
+  "per_iter_s_median": 0.2868863499897998,
+  "solve_s_median": 0.21539584998390637,
+  "c_last": 20.69078469887576,
+  "vol_last": 0.4000010990443797,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.851034038806706e-09,
+  "pcg_its_median": 16.0,
+  "pcg_its_max": 18,
+  "fallbacks": 0,
+  "idle_power_w": 79.3913043478261,
+  "energy_j_median": 11574.835317635372,
+  "energy_above_idle_j_median": 8076.267097717475
+}
+run dir: retest/runs/20260924T200611Z_gpu_P1_n1024_pinned
+=== ED3 gpu P2 1024 ===
+rep 0: total 44.357 s  c_last 37.218185
+rep 1: total 44.293 s  c_last 37.218185
+rep 2: total 44.229 s  c_last 37.218185
+{
+  "solver": "gpu",
+  "problem": "P2_mbb",
+  "n": 1024,
+  "iters": 150,
+  "total_s_median": 44.29301809996832,
+  "total_s_min": 44.22879969980568,
+  "total_s_max": 44.35700349987019,
+  "total_s_all": [
+    44.35700349987019,
+    44.29301809996832,
+    44.22879969980568
+  ],
+  "setup_s": 0.5402272999635898,
+  "warmup_s": 3.720063599990681,
+  "per_iter_s_median": 0.2876867000304628,
+  "solve_s_median": 0.21569560002535582,
+  "c_last": 37.21818511766256,
+  "vol_last": 0.5000001099410669,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.996597592374387e-09,
+  "pcg_its_median": 16.0,
+  "pcg_its_max": 20,
+  "fallbacks": 0,
+  "idle_power_w": 77.68108695652174,
+  "energy_j_median": 11764.14862960196,
+  "energy_above_idle_j_median": 8275.533864418816
+}
+run dir: retest/runs/20260924T200836Z_gpu_P2_n1024_pinned
+=== ttq run 64 pardiso ===
+problem 15 K=  5: loop 0.022 s (with setup 0.837 s)
+problem 15 K= 10: loop 0.045 s (with setup 0.865 s)
+problem 15 K= 15: loop 0.069 s (with setup 0.887 s)
+problem 15 K= 20: loop 0.087 s (with setup 0.898 s)
+problem 15 K= 30: loop 0.130 s (with setup 0.959 s)
+problem 15 K= 40: loop 0.176 s (with setup 0.995 s)
+problem 15 K= 50: loop 0.215 s (with setup 1.020 s)
+problem 15 K= 75: loop 0.335 s (with setup 1.171 s)
+problem 15 K=100: loop 0.436 s (with setup 1.258 s)
+problem 15 K=150: loop 0.642 s (with setup 1.487 s)
+problem 676 K=  5: loop 0.026 s (with setup 0.838 s)
+problem 676 K= 10: loop 0.046 s (with setup 0.851 s)
+problem 676 K= 15: loop 0.067 s (with setup 0.881 s)
+problem 676 K= 20: loop 0.090 s (with setup 0.911 s)
+problem 676 K= 30: loop 0.130 s (with setup 0.972 s)
+problem 676 K= 40: loop 0.182 s (with setup 0.979 s)
+problem 676 K= 50: loop 0.222 s (with setup 1.029 s)
+problem 676 K= 75: loop 0.320 s (with setup 1.132 s)
+problem 676 K=100: loop 0.432 s (with setup 1.247 s)
+problem 676 K=150: loop 0.652 s (with setup 1.514 s)
+problem 839 K=  5: loop 0.023 s (with setup 0.824 s)
+problem 839 K= 10: loop 0.049 s (with setup 0.860 s)
+problem 839 K= 15: loop 0.077 s (with setup 0.908 s)
+problem 839 K= 20: loop 0.091 s (with setup 0.909 s)
+problem 839 K= 30: loop 0.140 s (with setup 0.972 s)
+problem 839 K= 40: loop 0.190 s (with setup 0.996 s)
+problem 839 K= 50: loop 0.235 s (with setup 1.040 s)
+problem 839 K= 75: loop 0.356 s (with setup 1.169 s)
+problem 839 K=100: loop 0.465 s (with setup 1.350 s)
+problem 839 K=150: loop 0.699 s (with setup 1.550 s)
+problem 935 K=  5: loop 0.023 s (with setup 0.831 s)
+problem 935 K= 10: loop 0.047 s (with setup 0.860 s)
+problem 935 K= 15: loop 0.071 s (with setup 0.874 s)
+problem 935 K= 20: loop 0.093 s (with setup 0.903 s)
+problem 935 K= 30: loop 0.140 s (with setup 0.941 s)
+problem 935 K= 40: loop 0.188 s (with setup 0.999 s)
+problem 935 K= 50: loop 0.228 s (with setup 1.032 s)
+problem 935 K= 75: loop 0.346 s (with setup 1.179 s)
+problem 935 K=100: loop 0.451 s (with setup 1.319 s)
+problem 935 K=150: loop 0.694 s (with setup 1.539 s)
+problem 961 K=  5: loop 0.024 s (with setup 0.813 s)
+problem 961 K= 10: loop 0.047 s (with setup 0.861 s)
+problem 961 K= 15: loop 0.070 s (with setup 0.877 s)
+problem 961 K= 20: loop 0.096 s (with setup 0.924 s)
+problem 961 K= 30: loop 0.144 s (with setup 1.026 s)
+problem 961 K= 40: loop 0.194 s (with setup 1.114 s)
+problem 961 K= 50: loop 0.234 s (with setup 1.115 s)
+problem 961 K= 75: loop 0.342 s (with setup 1.204 s)
+problem 961 K=100: loop 0.449 s (with setup 1.278 s)
+problem 961 K=150: loop 0.675 s (with setup 1.522 s)
+run dir: retest/runs/20260924T201107Z_ttq_pardiso_n64
+=== ttq rescore 64 pardiso ===
+problem 15 K=  5: CE   41.86%  (reused, flips 0)
+problem 15 K= 10: CE   28.55%  (reused, flips 0)
+problem 15 K= 15: CE    4.63%  (reused, flips 0)
+problem 15 K= 20: CE    4.37%  (reused, flips 0)
+problem 15 K= 30: CE    4.01%  (reused, flips 0)
+problem 15 K= 40: CE    3.53%  (reused, flips 0)
+problem 15 K= 50: CE    3.45%  (reused, flips 0)
+problem 15 K= 75: CE    3.24%  (reused, flips 0)
+problem 15 K=100: CE    3.21%  (reused, flips 0)
+problem 15 K=150: CE    3.05%  (reused, flips 0)
+problem 676 K=  5: CE    0.23%  (reused, flips 0)
+problem 676 K= 10: CE    0.03%  (reused, flips 0)
+problem 676 K= 15: CE    0.01%  (reused, flips 0)
+problem 676 K= 20: CE    0.00%  (reused, flips 0)
+problem 676 K= 30: CE    0.01%  (reused, flips 0)
+problem 676 K= 40: CE    0.00%  (reused, flips 0)
+problem 676 K= 50: CE   -0.00%  (reused, flips 0)
+problem 676 K= 75: CE   -0.00%  (reused, flips 0)
+problem 676 K=100: CE   -0.00%  (reused, flips 0)
+problem 676 K=150: CE   -0.00%  (reused, flips 0)
+problem 839 K=  5: CE    0.12%  (reused, flips 0)
+problem 839 K= 10: CE    0.06%  (reused, flips 0)
+problem 839 K= 15: CE    0.03%  (reused, flips 0)
+problem 839 K= 20: CE    0.01%  (reused, flips 0)
+problem 839 K= 30: CE    0.00%  (reused, flips 0)
+problem 839 K= 40: CE    0.01%  (reused, flips 0)
+problem 839 K= 50: CE   -0.00%  (reused, flips 0)
+problem 839 K= 75: CE   -0.01%  (reused, flips 0)
+problem 839 K=100: CE   -0.01%  (reused, flips 0)
+problem 839 K=150: CE   -0.01%  (reused, flips 0)
+problem 935 K=  5: CE    0.71%  (reused, flips 0)
+problem 935 K= 10: CE    0.25%  (reused, flips 0)
+problem 935 K= 15: CE    0.15%  (reused, flips 0)
+problem 935 K= 20: CE    0.14%  (reused, flips 0)
+problem 935 K= 30: CE    0.07%  (reused, flips 0)
+problem 935 K= 40: CE    0.05%  (reused, flips 0)
+problem 935 K= 50: CE    0.01%  (reused, flips 0)
+problem 935 K= 75: CE    0.06%  (reused, flips 0)
+problem 935 K=100: CE    0.07%  (reused, flips 0)
+problem 935 K=150: CE    0.04%  (reused, flips 0)
+problem 961 K=  5: CE 208822.63%  (reused, flips 0)
+problem 961 K= 10: CE   21.80%  (reused, flips 0)
+problem 961 K= 15: CE    8.41%  (reused, flips 0)
+problem 961 K= 20: CE    5.16%  (reused, flips 0)
+problem 961 K= 30: CE    3.83%  (reused, flips 0)
+problem 961 K= 40: CE    3.67%  (reused, flips 0)
+problem 961 K= 50: CE    3.47%  (reused, flips 0)
+problem 961 K= 75: CE    3.24%  (reused, flips 0)
+problem 961 K=100: CE    2.63%  (reused, flips 0)
+problem 961 K=150: CE    2.70%  (reused, flips 0)
+reused 50, scored 0; wrote retest/runs/20260924T201107Z_ttq_pardiso_n64/ttq.json
+EXTRA RUNS DONE

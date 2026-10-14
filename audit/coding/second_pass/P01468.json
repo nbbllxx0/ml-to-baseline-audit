@@ -1,0 +1,88 @@
+{
+  "pid": "P01468",
+  "citation": {
+    "title": "GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning",
+    "authors": "Mohammad Mahdi Behzadi; Horea T. Ilieş",
+    "year": 2021,
+    "venue": "arXiv preprint (cs.LG)",
+    "doi": "10.48550/arxiv.2105.03045",
+    "arxiv_id": "2105.03045",
+    "version_coded": "arXiv v1 (7 May 2021; only version on the abs page). Full text read from the downloaded PDF (https://arxiv.org/pdf/2105.03045), extracted in full with PyMuPDF (16 pages incl. references). Every page carries an ASME copyright footer, consistent with this being the manuscript later published as J. Mech. Des. 144(2) (doi 10.1115/1.4052757, pool P00141)."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For seen boundary conditions with one external force (six resolutions, 40x80 to 200x400), GANTL's predicted structures have average MSE 2.12%, binary accuracy 96.72%, and compliance error 1.00% (std. 2.5%) relative to SIMP ground truth (Table 2).",
+    "key_phrase": "achieves a better prediction performance compared to the state-of-the-art deep learning-based methods",
+    "location": "Section 4.2 (Discussion) and Table 2 / Fig. 6 (main text; first quantitative comparison with the classical method, SIMP, anywhere in the article — the Abstract and Conclusion give no numbers, and the Introduction's only classical-method number, SIMP at 1.85 s/iteration, is a background citation of ref. [4], not a comparison run by these authors)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime, iteration count, or speed-up factor for GANTL or for the authors' own SIMP data-generation runs is reported anywhere in the article. The only classical-method timing figures are background citations of other papers (ref. [4]: SIMP needs 1.85 s/iteration for an unrelated 300x100 MBB beam; ref. [19] TOuNN: 'require twice as much time per iteration compared to SIMP'), used to motivate the field, not measured by these authors for GANTL vs. SIMP. Not derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Table 3 (Fig. 7): unseen BCs, one force — MSE 8.94%, binary accuracy 89.10%, compliance error 7.74% (std 11.74%); this is arguably the paper's most-emphasised result, since generalisation to unseen boundary conditions is listed first among the paper's three stated contributions (Sec. 2.1) and is the headline claim in the Abstract ('predict optimal topologies for unseen boundary conditions'). (2) Table 4 (seen BCs, 2 forces): MSE 7.77%, BA 90.29%, compliance error 10.48%. (3) Table 5 (unseen BCs, 2 forces): MSE 10.86%, BA 87.05%, compliance error 11.53%. (4) Fig. 10 (seen BCs, 5 and 10 forces, 200x400, no table): binary accuracy ~84% and ~82%. (5) The paper's title brands the method 'Real-Time'; 'real-time' is one of the protocol's own I-SPEED example phrases, but the word appears only in the title, never in the Abstract, Conclusion, Introduction or main text as a claim about GANTL's own measured speed (the one 'real-time' sentence in the Introduction describes the authors' earlier, different paper [5]) — no runtime number backs it anywhere, so it was not treated as the primary outcome. A verifier could reasonably read the title as an implicit qualitative speed claim, which would make stratum 'speed' with R1/R2 likely 'fail' for lack of any supporting timing data; this is flagged rather than adopted because the protocol's location list for hunting the primary outcome is abstract/conclusion/introduction/main text, not the title. (6) Sec. 4.2 opening sentence claims better performance vs. 'state-of-the-art deep learning-based methods' (ML-only comparison, no citation or number given)."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material with Penalization), minimum-compliance formulation (Sec. 3.1, Eq. 1-5); used both to generate all training/ground-truth data and as the quality reference for every test case",
+    "implementation": "Authors' own automated wrapper around the 88-line MATLAB SIMP code of Andreassen et al. 2011 [ref. 4], modified to batch-generate cases over randomised domains/BCs/loads (Sec. 3.4)",
+    "solver": "not stated in this article (the cited 88-line code [4] uses a direct sparse factorisation by default, but this article does not restate the solver)",
+    "hardware_classical": "not distinguished from ML hardware; 'All experiments were performed on the UConn HPC facility running Red Hat RHEL7 operating system' (Sec. 3.5), with no GPU/CPU model or core count given",
+    "hardware_ml": "same UConn HPC statement as classical (Sec. 3.5); no separate hardware stated",
+    "problem_size": "2D domains at six resolutions: 40x80 (source GAN), 80x160, 120x160, 120x240, 160x320, 200x400 (target GANs); volume fraction 0.5, filter radius 1.5 (Sec. 3.4)",
+    "classical_iterations": "not stated (no iteration count or convergence criterion given for the SIMP data-generation runs in this article)",
+    "classical_time": "not stated for the authors' own SIMP runs; only a background citation of ref. [4]'s general figure (1.85 s/iteration for an unrelated 300x100 MBB beam) appears, used to motivate the field",
+    "ml_time": "not stated (no inference or training wall-clock time reported anywhere)",
+    "training_time": "not stated; only a qualitative note that adding the topology-aware persistent-homology loss 'significantly increased the training time of our GAN model' (Sec. 4.3), with no number",
+    "data_generation_cost": "not stated; dataset sizes are given (11,000 low-resolution + 1,500 high-resolution cases, Sec. 3.4) but no compute cost or time, and the Conclusion explicitly defers that discussion to the authors' earlier paper [5] ('We presented a discussion of the associated computational costs of generating the training cases in [5] so we do not repeat it here')",
+    "quality_metric": "Compliance Error, MSE and Binary Accuracy, each defined in Sec. 3.5 as the (predicted vs. SIMP-true) difference/agreement over the test set; computation method for the predicted structure's compliance is not explicitly stated (SolidsPy [ref. 48] is named only for computing the stress/strain input channels of the initial domain, Sec. 3.4, not explicitly for evaluating predicted output structures) [inferred: compliance error most likely requires an FE re-analysis of the predicted, presumably rounded structure, but the article never states this]",
+    "quality_gap": "Table 2 (seen, 1 force): avg. compliance error 1.00% (std 2.5%), MSE 2.12%, BA 96.72%. Table 3 (unseen, 1 force): avg. compliance error 7.74% (std 11.74%), MSE 8.94%, BA 89.10%. Tables 4-5 (2 forces, seen/unseen): compliance error 10.48% / 11.53%"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "na",
+      "marker": "R1-na-no-speed-claim",
+      "evidence": "No speed or wall-clock comparison of any kind is made against SIMP anywhere in the article (see claim.claimed_speedup_basis); the entire evaluation (Tables 2-5) compares design quality (MSE, binary accuracy, compliance error) of GANTL's one-shot prediction against the SIMP ground truth for the same test case, with no stated evaluation-budget or iteration-count asymmetry to assess. R1's pass/fail/partial clauses all presuppose an underlying speed comparison, which is absent."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "No classical runtime, hardware-efficiency or speed claim is made anywhere (see R1 evidence), so R2(a)-(e) do not bear on this article. For the record: the classical baseline is the standard 88-line MATLAB SIMP code [4] (Sec. 3.4), generally regarded as an efficient reference implementation, but its solver and per-iteration cost are not restated in this article, and hardware is not broken out by method (Sec. 3.5)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed claim exists for R3 to assess. For completeness: GANTL is offline-trained (source GAN on 11,000 cases, target GAN fine-tuned on 1,500 cases, Sec. 3.4), so a per-problem-learning R3 exemption would not apply if a speed claim existed; data-generation and training costs are not reported in this article, which explicitly defers that accounting to the authors' earlier paper [5] (Conclusion)."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Two of the three headline quality metrics, MSE and Binary Accuracy (Sec. 3.5), are pixel-wise image-similarity metrics of exactly the kind the protocol's R4 fail clause names ('MSE, pixel accuracy'). The third metric, Compliance Error, is never explicitly stated to be computed by an FE re-analysis of the predicted structure (see baseline.quality_metric); no volume or constraint-satisfaction check is reported for the predicted structures, and no failure/infeasibility rate is given — the disconnected-member problem that the topology-aware loss targets is shown only visually (Fig. 11), with no count or percentage of affected test cases at any stage."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Scenario 1 (seen, 1 force): 7,473+350+463+388+350+350 = 9,374 (Table 2). Scenario 2 (unseen, 1 force): 1,000+500+500+500+500+250 = 3,250 (Table 3). Scenario 3 (seen, 2 forces) and Scenario 4 (unseen, 2 forces): same case counts as Scenario 2, 3,250 each (Tables 4-5). Scenario 5 (seen, 5 and 10 forces, 200x400 only): 250 cases per force count shown in Fig. 10, no table",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Full text (16 pp., incl. references) read from the downloaded arXiv PDF via PyMuPDF; nothing beyond the abs/pdf pages was fetched from arxiv.org. Duplicate check (audit/pool/pool.csv): two other pool rows describe the same article — P00141 (Journal of Mechanical Design, doi 10.1115/1.4052757, pool arxiv_id also 2105.03045) and P02546 (a bare reference-list stub from OAT's bibliography, no DOI, citing 'Journal of Mechanical Design, 144(2), 2021'). Per the protocol, the primary version is the version of record if open access, else the latest arXiv version. Checked OpenAlex for the ASME record (W3162265811, 2026-09-24): overall is_oa=true/oa_status='green', but the Journal of Mechanical Design location itself has is_oa=false and no PDF; the only OA location is this arXiv copy. The version of record is therefore not open access, so this arXiv preprint (P01468, its only version) is the primary version and is coded in full here, not marked FT-DUPLICATE; P00141 and P02546 are outside this queue. Primary-outcome selection was a judgement call between Table 2 (first-appearing, seen BCs) and Table 3 (unseen BCs, the paper's most-touted generalisation contribution); both are reported with reasoning above and Table 3 is carried as the leading alternative. included.physics='compliance' follows directly from Eq. 1 (Sec. 3.1); dim='2d' because every experiment in the article is 2D (Sec. 3.4-4.2). No author named Jun Wang (authors: Mohammad Mahdi Behzadi, Horea T. Ilieş)."
+}

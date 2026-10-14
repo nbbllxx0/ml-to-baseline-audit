@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00875",
+    "citation":  {
+                     "title":  "Learning topology optimization process via convolutional long-short-term memory autoencoder-decoder",
+                     "authors":  "Qiaochu Ma; Edward C. DeMeter; Saurabh Basu",
+                     "year":  2023,
+                     "venue":  "International Journal for Numerical Methods in Engineering, 124(11), 2571–2588",
+                     "doi":  "10.1002/nme.7221",
+                     "arxiv_id":  "",
+                     "version_coded":  "version of record (Wiley full-text HTML)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "other",
+                     "physics":  "compliance",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "On the test set, the ConvLSTM model reduced average computation time from 3.711 s for SIMP to 0.001 s while reporting a 5.13% average compliance error for connected predictions.",
+                  "key_phrase":  "significant reduction in computation cost",
+                  "location":  "Section 4.1, Table 1",
+                  "quantitative":  true,
+                  "claimed_speedup":  3711,
+                  "claimed_speedup_basis":  "Section 4.1 gives 3.711 s average for the conventional method and 0.001 s for the proposed method; 3.711 / 0.001 = 3711.",
+                  "direction":  "outperform",
+                  "alternatives":  "Abstract claims reduced cost for unseen boundary/load conditions; Table 2 reports up to 99.99% saved at 80 × 80."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP",
+                     "implementation":  "Topy open-source 2D/3D SIMP solver for training data; paper\u0027s test implementation in Python",
+                     "solver":  "not stated",
+                     "hardware_classical":  "NVIDIA GeForce GTX 3090 GPU used for experiments; separate classical hardware not specified",
+                     "hardware_ml":  "NVIDIA GeForce GTX 3090 GPU",
+                     "problem_size":  "40 × 40 default; 80 × 40 and 80 × 80 also tested",
+                     "classical_iterations":  "100 iterations",
+                     "classical_time":  "3.711 s average; Section 4.1",
+                     "ml_time":  "0.001 s average; Section 4.1",
+                     "training_time":  "Reported graphically for mesh-size/hidden-dimension combinations in Figure 11; no single numeric value in text",
+                     "data_generation_cost":  "5,000 train + 100 validation + 100 test samples at default configuration; generation time not stated (Section 4)",
+                     "quality_metric":  "pixel error and compliance error against SIMP; Table 1",
+                     "quality_gap":  "5.13% average compliance error, with two disconnected cases excluded from the average (Section 4.1, Table 1)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "pass",
+                             "marker":  "R1-quality-reported",
+                             "evidence":  "Section 4.1, Table 1 compares SIMP and predictions on the same test conditions and reports 5.13% mean compliance error; unsure whether this exactly meets the protocol\u0027s volume condition, so pass by convention."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Sections 4.1–4.3 report SIMP timing and a shared GTX 3090 experiment platform, but do not establish any R2 inefficiency criterion."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-data-cost",
+                             "evidence":  "Section 4 and Figure 11 report training sample counts and training time, while training-data generation time and amortized break-even are absent."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-FE-no-constraint",
+                             "evidence":  "Section 4.1 reports compliance errors and identifies two disconnected predictions among 100 tests, but excludes them from the mean and does not report constraint-violation rates."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "100 in the default test set; Section 4",
+                      "ood_test":  "yes",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "yes",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "no",
+                      "code_available":  "no",
+                      "data_available":  "on_request",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Two disconnected cases with large compliance errors are excluded from the average reported in Table 1.",
+    "stage":  "cross_provider_pass"
+}

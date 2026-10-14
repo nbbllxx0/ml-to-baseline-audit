@@ -1,0 +1,44 @@
+{
+  "pid": "P00254",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Rank Reduction AutoEncoders for Mechanical Design: Advancing Novel and Efficient Data-Driven Topology Optimization",
+    "authors": "Ismael Ben-Yelun, Mohammed El Fallaki Idrissi, Jad Mounayer, Sebastian Rodriguez, Francisco Chinesta",
+    "year": 2026,
+    "venue": "arXiv preprint (math.NA)",
+    "doi": "10.48550/arXiv.2601.23269",
+    "arxiv_id": "2601.23269",
+    "version_coded": "arXiv v1 (30 Jan 2026; only version on the abs page), full text read from https://arxiv.org/html/2601.23269"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOCOMPARISON",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: RRAE-plus-MLP surrogates give accurate, efficient forward stress prediction and inverse geometry recovery on a SIMP half-MBB dataset; accuracy is measured only against SIMP/FE ground truth, with no runtime comparison.",
+    "location": "Abstract; Sections 5.1-5.3; Section 6",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text); no runtimes are reported anywhere in the article."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "excluded at full text"},
+    "R2": {"verdict": "na", "evidence": "excluded at full text"},
+    "R3": {"verdict": "na", "evidence": "excluded at full text"},
+    "R4": {"verdict": "na", "evidence": "excluded at full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (no comparison with a classical method). The article reports no speed, cost or design-quality comparison with any classical optimizer. Its efficiency statements (abstract; Sec. 5.1.1; Sec. 6) are qualitative, have no timing, hardware or training-cost data, and concern replacing forward FE analysis. Inverse outputs are compared only with the SIMP ground truth: L2 reconstruction loss 20.59%/20.22% (scalar QoI), 6.38%/7.63% (1D field) and 5.74%/7.80% (2D field), train/test (Sec. 5.1.2, 5.2.2, 5.3.2), plus one FE re-analysis example (Fig. 10). Dataset: 100 SIMP designs of an 80×80 half-MBB beam from the top88.m OC code with volume fraction swept from 0.1 to 0.9, plus 20 test designs (Sec. 5). Judgment call for the verifier: if the abstract's qualitative speed wording is read as a speed claim against TO, the record would enter the speed stratum with a qualitative primary outcome; R3 would then fail (no training or data cost) and R4 would likely fail (image-type reconstruction metric, apart from one FE check). No code or data availability statement found. Screening code was I-UNCLEAR."
+}

@@ -1,0 +1,44 @@
+{
+  "pid": "P01214",
+  "citation": {
+    "title": "Deep learning-based topology optimization design method for bridge structures guided by aesthetics",
+    "authors": "C. Xiang, A.R. Chen, Y. Ning, D.L. Wang",
+    "year": 2025,
+    "venue": "Book chapter in Structures and Architecture: REstructure REmaterialize REthink REuse (Rinke & Frier Hvejsel, Eds.), CRC Press/Taylor & Francis; open access, CC BY-NC-ND 4.0",
+    "doi": "10.1201/9781003658641-176",
+    "arxiv_id": "",
+    "version_coded": "Version of record (open-access book-chapter PDF), downloaded 2026-09-24 from the publisher's own oa-edit chapter-PDF endpoint (api.taylorfrancis.com); 8 pages (pp. 1483-1490), read in full."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-MLONLY",
+    "stratum": "none",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: the chapter builds a ShuffleNet-V2 aesthetic classifier (BpaqNet, 92.59% validation accuracy on a 550-sample bridge-pylon dataset) and couples it with a two-stage CNN + physics-informed-refinement network (PbpdNet/PtbpdNet, trained on 102 and 306 SIMP-generated samples respectively) to generate and aesthetically rank bridge-pylon topology designs. Its only efficiency/comparative statement is that it needs far fewer training samples than two other deep-learning TO methods (Xiang et al. 2022; Yan et al. 2023); no classical, non-learned optimization method's cost, time or quality result is run, timed or cited anywhere in the chapter.",
+    "location": "Section 3 (main text) — the chapter's only comparative-efficiency statement, set against other deep-learning TO methods, not a classical method",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no classical-method runtime, iteration count or cost figure appears anywhere in the chapter. The only comparison is a qualitative-cum-sample-count statement against two other ML/DL TO papers (Xiang et al. 2022; Yan et al. 2023), which \"require thousands or even tens of thousands of samples\" versus this study's 102/306."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-MLONLY)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 / screening_codes.md full-text list: the chapter never runs, times or cites the cost or quality result of a classical (non-learned) optimizer. Topology optimization (Andreassen et al. 2011, the 88-line MATLAB SIMP code) is cited only as the tool used to generate the 102+306 training samples for PbpdNet/PtbpdNet — a data-generation role, not a timed or scored comparator. The Introduction's statements that TO 'requires hundreds of iterative processes' and has 'high computational costs' are a qualitative motivation with no run, timing or cited cost figure, which the 2026-09-24 FT-NOBASELINE clarification explicitly treats as no comparison. The chapter's one explicit comparative-efficiency claim (Section 3: fewer training samples than Xiang et al. 2022 and Yan et al. 2023, and a favourable 'balance between efficiency, accuracy, and generalization' versus Xiang et al. 2022, Yan et al. 2023, Jeong et al. 2023, and Mazé & Ahmed 2023) is against four other deep-learning TO methods only — no classical comparator. Per the closed exclusion-code list, FT-MLONLY (order 7: 'compares only with other ML methods; no classical comparator is run, timed or cited') is reached before FT-NOBASELINE (order 8) and is the more precise fit, since the article does make comparative claims, just ML-vs-ML ones. The chapter explicitly defers method detail to a companion journal paper, 'Wang et al. 2024, A two-stage network framework for topology optimization incorporating deep learning and physical information, Engineering Applications of Artificial Intelligence 133:108185' (Section 3, and Reference list) — that is a distinct publication (different title/venue) from the present chapter, not another version of it, and is outside this queue; the classical-method comparison this audit is looking for may exist there but not in this record's text. No comparison of design quality (e.g. compliance) against a classical TO result is reported either; Figure 5's designs are only assessed qualitatively and by the learned aesthetic classifier. Code and the SBPAQ dataset are stated as available at https://github.com/nnwyy/bridge_pylon_form_dataset (not fetched; a third-party repository, and the article is excluded regardless). No author named Jun Wang (authors: C. Xiang, A.R. Chen, Y. Ning, D.L. Wang). Duplicate check: pool.csv searched by title on 2026-09-24; only one matching record (P01214 itself) — no duplicate found. Access: the publisher-hosted OA PDF (api.taylorfrancis.com oa-edit endpoint, the route already identified in the queue) downloaded without any bot-check, CAPTCHA, login or paywall encountered (HTTP 200, direct S3-hosted PDF via a signed redirect); the article itself states 'Open Access ... CC BY-NC-ND 4.0 license' on its first page."
+}

@@ -1,0 +1,57 @@
+{
+  "pid": "P01164",
+  "citation": {
+    "title": "Machine Learning Method in Elastic Plate Topology Optimization Problems",
+    "authors": "D. V. Avdonyushkin, Alexandra Matveeva, A. Novokshenov",
+    "year": 2023,
+    "venue": "PNRPU Mechanics Bulletin",
+    "doi": "10.15593/perm.mech/2023.3.01",
+    "arxiv_id": "",
+    "version_coded": "Abstract only (pool.csv abstract field). No full text was legally reachable: the DOI resolves to https://ered.pstu.ru/index.php/mechanics/article/view/3791, and the direct PDF link given in the queue (https://ered.pstu.ru/index.php/mechanics/article/download/3791/3046) -- both on the publisher's own journal host (ered.pstu.ru, IP 82.179.113.10). Every attempt (direct curl download, WebFetch on the PDF URL, WebFetch on the article landing page, and an HTTP variant) returned a connection-level failure (TCP connect refused/timed out on port 443), not a bot-check or paywall page; the host appears to be unreachable from this network. A targeted web search found no mirror or secondary host for this article"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (abstract states the ML approach 'significantly reduces the time spent on obtaining the optimal solution and allows to avoid the use of time-consuming finite element calculations', with the classical comparator explicitly named as MMA-based topology optimization used to build the training set)",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Per the abstract only (full text not accessible): a square elastic plate (fixed on one side, loaded on the other) has a series of compliance-minimization topology optimization problems solved by the Method of Moving Asymptotes (MMA), varying the force application point, to build a training dataset. Two neural network architectures (one with a single custom nonlinear layer informed by the optimal-topology structure, one a standard 3-layer PyTorch network) are trained by backpropagation to predict the optimal topology directly from the force application point, minimizing the quadratic-norm deviation from the MMA-obtained design variables. The abstract claims this 'significantly reduces the time spent on obtaining the optimal solution' by moving all time-consuming finite-element-based calculation into the (one-time) training stage.",
+    "key_phrase": "significantly reduces the time spent on obtaining the optimal solution",
+    "location": "Abstract (only section accessible)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable from the abstract. No runtime, iteration count, hardware, or numeric speed-up factor is given; the abstract's claim ('significantly reduces the time', 'avoid... time-consuming finite element calculations... at the stage of obtaining the optimal solution') is qualitative only, and training cost is acknowledged only in kind ('all of time-consuming calculations are performed at the network training stage'), not quantified.",
+    "direction": "similar_or_mixed",
+    "alternatives": "None identifiable from the abstract beyond the single speed/quality framing above; the abstract also flags that 'the results and unsolved problems of the method are also discussed', suggesting the full text may qualify the headline claim, which cannot be verified without full-text access."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not determinable from the abstract (a single square-plate example with a varying force-application-point is described; the number of distinct MMA-solved training/test instances is not stated)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "stratum is set to 'none' per validate_records (an included-but-unread/abstract_only record cannot be confidently assigned to the speed/quality stratum used for headline pooling); based on the abstract text alone, the primary outcome reads as a speed-type comparison (see claim fields) if full text were available. Access exhausted the routes available for this publisher: the DOI landing page and the queue's direct-PDF link both resolve to ered.pstu.ru (Perm National Research Polytechnic University's own journal host), which refused/timed out the TCP connection on every attempt (plain curl with a generic User-Agent, WebFetch on the PDF URL, WebFetch on the article page, and an HTTP-instead-of-HTTPS retry) -- a connectivity failure, not a CAPTCHA/Cloudflare/login wall, so there was nothing to legally bypass, only an unreachable host. A web search for the exact title and author names found no secondary host, repository mirror, or author page copy. Given no legal full text was reachable, this record was coded from the abstract text alone (retrieved from audit/pool/pool.csv), per the abstract-only fallback rule; all rule (R1-R4) verdicts are 'na' with evidence 'no full text'. Method/physics/dim/stratum are my own best-effort reading of the abstract: a supervised neural-network surrogate (one custom-layer network and one standard 3-layer PyTorch network) trained on MMA-generated compliance-minimization solutions to directly predict optimal topology from a load-location input -- this is a plausible I-SPEED case given the explicit 'significantly reduces the time' and 'avoid... time-consuming finite element calculations' language, with MMA-based TO named as the classical comparator used to build the training set, but none of R1-R4 nor a numeric speed-up can be confirmed without the full text. Reporting-indicator fields are marked 'unclear'/'no' only because they cannot be verified from the abstract, not because they are confirmed absent; a human/adjudicator with access to ered.pstu.ru (or a Russian institutional network) should re-check this record. Privacy/bot-check compliance: only a generic User-Agent was used for all attempts; no email address, mailto parameter, Unpaywall, API key or login was used; no CAPTCHA or bot check was encountered (the failures were connection-level, not access-control pages) and nothing was bypassed. Duplicate check: audit/pool/pool.csv has exactly one record for this title/DOI (P01164); no FT-DUPLICATE applies. No author of this article is named Jun Wang (authors: D. V. Avdonyushkin, Alexandra Matveeva, A. Novokshenov)."
+}

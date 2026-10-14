@@ -1,0 +1,137 @@
+{
+  "pid": "P00786",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Multi-scale topology optimization of multi-material heterogeneous microstructures based on deep learning",
+    "authors": "Jiaxiang Luo, Yu Li, Weien Zhou, Zeyu Zhang, Wen Yao",
+    "year": 2025,
+    "venue": "Journal of Computational Design and Engineering 12(8) 127-153 (advance access 16 July 2025; CC BY-NC 4.0)",
+    "doi": "10.1093/jcde/qwaf064",
+    "arxiv_id": "none found (arXiv title search returned no match)",
+    "version_coded": "Version of record: publisher PDF (27 pp.), read in full as text. curl received a bot challenge on academic.oup.com (not bypassed); WebFetch read the article page, whose PDF link redirected to the publisher's own PDF server (silverchair), from which the PDF was downloaded. The adjudicator repeated this route on 2026-09-24: WebFetch served the open-access article page (academic.oup.com/jcde/article/12/8/127/8203285, CC BY-NC licence shown) without a challenge, its PDF link redirected to watermark02.silverchair.com, and the 27-page PDF was read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code kept at full text; the only measured classical comparison is per property evaluation, a cost proxy as in P00149)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The MLP surrogate returns a microstructure's homogenized elasticity tensor and volume fraction about 500× faster than numerical homogenization (≈6×10⁻⁴ s vs ≈0.32-0.34 s on five example microstructures), with MAE below 0.01.",
+    "key_phrase": "approximately 500 times faster than the homogenization theory",
+    "location": "Sec. 2.3, p. 134, and Table 2, p. 135 (first quantitative comparison with a classical method, in the main text; the abstract, introduction and conclusions state the cost saving only qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": 500,
+    "claimed_speedup_basis": "Stated in Sec. 2.3 as approximately 500×, per microstructure evaluation. Per-example ratios stated as 510, 557, 549, 570 and 486× for microstructures (6)-(10); they match Table 2 (e.g. 0.3190 s ÷ 6.251×10⁻⁴ s = 510 [derived]); mean of the five ratios 534 [derived]. Not an optimization-level speed-up: no classical multiscale TO is run or timed. Data generation and training are excluded.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract, qualitative: the surrogate substantially cuts the computational need for microstructure analysis. (2) Introduction, key features: offline mapping removes repeated calculations and substantially reduces computational time (qualitative). (3) Conclusions, qualitative: the single-training surrogate mitigates the burden of repeated real-time homogenization. No comparison of optimized designs or optimization run time with any classical TO exists; Table 3 per-iteration times (0.3 s at 16×8 to 3.79 s at 56×28) are for MMTO-DL only."
+  },
+  "baseline": {
+    "classical_method": "Numerical homogenization (HC) of each 100×100-pixel microstructure, i.e. the online homogenization step that classical multiscale TO would repeat per cell and iteration (Sec. 2.3, Table 2; refs Guedes & Kikuchi 1990, Andreassen & Andreasen 2014, Dong et al. 2019). No classical optimizer is run",
+    "implementation": "not stated for HC; the surrogate is built in Python/PyTorch (Sec. 2.3, 3.5)",
+    "solver": "not stated",
+    "hardware_classical": "not stated for the Table 2 timing [inferred: the same i9-13900K workstation used for training, Sec. 2.3]",
+    "hardware_ml": "13th Gen Intel Core i9-13900K 3.00 GHz workstation, 64 GB memory, for surrogate training (Sec. 2.3) and all numerical examples (Sec. 4); no GPU mentioned",
+    "problem_size": "Microstructure 100×100 pixels (Sec. 2.3) [≈2×10⁴ DOFs, derived]; macroscale meshes 16×8 to 56×28 (Table 3), mostly 32×16 (Sec. 4.1), 40×4 and 36×12 for shape matching (Sec. 4.2)",
+    "classical_iterations": "not applicable: one homogenization per microstructure is timed; no classical optimization run",
+    "classical_time": "HC 0.3190, 0.3350, 0.3300, 0.3360 and 0.3150 s for microstructures (6)-(10) (Table 2)",
+    "ml_time": "Surrogate 6.251×10⁻⁴, 6.016×10⁻⁴, 6.013×10⁻⁴, 5.898×10⁻⁴ and 6.478×10⁻⁴ s (Table 2); MMTO-DL per-iteration time 0.3 s (16×8) to 3.79 s (56×28) (Sec. 4.1.3, Table 3)",
+    "training_time": "131 min for the selected model (batch 512, learning rate 1×10⁻², loss 2.2×10⁻³) (Sec. 2.3); the search over 25 hyperparameter combinations, 120 epochs each, is not timed",
+    "data_generation_cost": "not stated; 156,000 microstructures (6 heights sampled at 0.1 steps), each homogenized numerically at 100×100 pixels, split 132,600/23,400 (Sec. 2.3) [inferred ≈14 h at the Table 2 mean HC time of 0.327 s: 156,000 × 0.327 s ≈ 51,000 s]",
+    "quality_metric": "MAE over the seven surrogate outputs (C11, C12, C13, C22, C23, C33, ve) against HC for five microstructures (Table 2); design level: compliance J and shape-matching displacement MSE computed with surrogate-predicted properties in the macroscale FE",
+    "quality_gap": "MAE 0.0041, 0.0011, 0.0059, 0.0024 and 0.0066 for microstructures (6)-(10), all below 0.01 (Table 2). No design-level gap to a classical method exists"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched-per-evaluation",
+      "evidence": "Sec. 2.3 (p. 134) and Table 2 (p. 135): the primary outcome is per property evaluation, and time and accuracy are reported for the same five microstructures (6)-(10); the surrogate outputs lie within their reported error of the HC result (MAE 0.0011-0.0066, all < 0.01). That is the §5.3 R1 pass condition at the level of the claim, as in P00149. No fail marker holds: a quality comparison exists and no post-processing is omitted from the timed step. Caveats that do not concern matching: no classical multiscale TO is run or timed (claim scope), and the five examples are illustrative picks from Fig. 3B that may lie on the database grid [inferred] (see R4)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 2.3, Table 2: HC implementation, solver and timing hardware are not stated; both methods ran on a CPU workstation [inferred], so (c) does not apply, and the problem has ≈2×10⁴ DOFs [derived], below 10⁵. The abstract gives no baseline figure (b); no iteration count applies (d); no per-iteration classical time exists (e). 0.32-0.34 s for one 100×100 homogenization shows no evident inefficiency. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "Sec. 2.3: training time is reported (131 min, final model; hyperparameter search not timed), but the cost of homogenizing the 156,000 training microstructures is not [inferred ≈14 h at 0.327 s each]. No break-even is given; the introduction argues only qualitatively that the one-off data and training cost is repaid by reuse. C3 [derived]: (51,000 s + 7,860 s) ÷ (0.327 − 0.0006) s ≈ 1.8×10⁵ property evaluations, i.e. ≈350 iterations at 32×16 cells or ≈8 runs of the 40×4, 135-iteration shape-matching example."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Table 2: surrogate outputs are checked against FE homogenization, but only for five illustrative microstructures; no held-out error is reported beyond the 2.2×10⁻³ loss value (Sec. 2.3). Design objectives (e.g. J = 16.676, Sec. 4.1.2; 19.455, 21.687, 17.580, Sec. 4.1.4) come from the macroscale FE with surrogate-predicted properties; the reconstructed structures are not re-analysed [inferred]. Volume is a soft penalty and final fractions are only plotted (Fig. 12A). One unreasonable design is noted qualitatively (Fig. 14(6)) and isolated single-line boundary microstructures are described (Sec. 4.1.4); no failure counts. A stricter reading (surrogate-predicted, selected examples) gives fail."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5 microstructures for the timing and accuracy comparison (Table 2). Optimization examples: mid-cantilever (1 run, Fig. 12; 9 volume-fraction cases, Fig. 13; 6 initial conditions, Fig. 14), Michell beam (6 material settings, Fig. 15; 6 mesh sizes, Table 3), 3 symmetry cases (Fig. 16), 3 non-design-domain cases (Fig. 17), shape matching (1 + 8 ratios, Figs. 18-19; 9 cases, Table 4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Stratum is a judgment call, coded as in P00149 (surrogate vs FE homogenization, per evaluation, accepted as a cost proxy). The article never runs, times or quotes a classical multiscale TO; the only measured classical comparison is surrogate vs numerical homogenization (Table 2). If the verifier rejects the per-evaluation proxy, no other classical comparison remains, and the next applicable code is FT-NOBASELINE (FT-FORWARD does not fit, because the networks also act as the optimizer via neural reparameterization). Qualitative mentions of other work (Sec. 3.5: non-linear fitting models called infeasible for 6+p parameters; Sec. 4.2: prior single-material shape matching) carry no numbers. Method: a per-problem reparameterization MLP (4 layers × 200 neurons, coordinates to 6 cutting heights and p material fractions, softmax with penalty factor) plus an offline MLP surrogate (6-24-128-24-7, ReLU, MAE loss, Adam) (Sec. 2.3-2.4, 4). Screening coded method_family neural_reparam; surrogate_mlp_gp is used here because the primary outcome concerns the surrogate. Baseline-strength note [inferred]: a classical parametrized multiscale TO could also precompute the database once and interpolate, which the article argues against qualitatively but does not time. The surrogate's analytic gradients replace sensitivities of the homogenized tensor; that saving is not quantified. Reporting: runtimes_all_cases = yes because all five Table 2 examples are timed; optimization runtimes appear only as per-iteration times in the mesh study (Table 3); timing protocol: hardware for training and examples stated (Sec. 2.3, 4), no repeats or warm-up. No code or data availability statement; a conflict-of-interest statement is present. OOD: none; the one example whose heights are printed, (6) = 0.4, 0.4, 0.5, 1, 1, 1 (Sec. 2.3), lies on the 0.1 sampling grid of the database, so it may be in the training data [inferred]. No author named Jun Wang (a J. Wang appears only in cited references). retest_candidate false: no public code. Screening code was I-SPEED. Adjudication (2026-09-24): the second coder met the Cloudflare challenge on academic.oup.com and coded abstract-only; the adjudicator reached the full text through the first coder's legal route (open-access article page, then the publisher's own PDF server) and confirmed Sec. 2.3, Table 2 and Secs. 4-5 against the first coding. The only change is R1 (partial to pass), for consistency with the matching logic applied in P00149.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "access": {
+        "first": "full_text",
+        "second": "not_full_text",
+        "decision": "full_text",
+        "reason": "The open-access article page (academic.oup.com/jcde/article/12/8/127/8203285, CC BY-NC) was served without a challenge, and its PDF link redirects to the publisher's own PDF server (silverchair), which PROTOCOL §11 counts as accessible; the adjudicator read the 27-page PDF in full. The second coder's plain curl request met a Cloudflare challenge and correctly stopped there."
+      },
+      "stratum": {
+        "first": "speed",
+        "second": null,
+        "decision": "speed",
+        "reason": "The abstract (p. 127), introduction (pp. 127-129) and conclusions (p. 150) compare with classical methods only qualitatively, so §5.1 rule 2 takes the first quantitative comparison in the main text: the surrogate is about 500× faster than numerical homogenization (Sec. 2.3, p. 134; Table 2, p. 135). That is a cost comparison, accepted as a proxy as in P00149, so the stratum is speed."
+      },
+      "claimed_speedup": {
+        "first": 500,
+        "second": null,
+        "decision": 500,
+        "reason": "Sec. 2.3 (p. 134) states 'approximately 500 times faster'; the per-example ratios 510-570× match Table 2 (e.g. 0.3190 s / 6.251×10⁻⁴ s = 510 [derived]), and their mean, 534 [derived], is within 10 % of 500."
+      },
+      "R1": {
+        "first": "partial",
+        "second": null,
+        "decision": "pass",
+        "reason": "Time and accuracy are measured on the same five microstructures, and the surrogate lies within its reported error of the HC result (MAE 0.0011-0.0066, Table 2, p. 135), the §5.3 pass condition at the level of the per-evaluation claim, as decided for P00149. The first coder's reasons (no classical multiscale TO run; illustrative examples, possibly on the database grid) concern the claim's scope and the representativeness of the check, which R4 covers; unsure means pass."
+      },
+      "R2": {
+        "first": "pass",
+        "second": null,
+        "decision": "pass",
+        "reason": "HC implementation, solver and hardware are not stated (Sec. 2.3; Table 2); no GPU is used, the microstructure has about 2×10⁴ DOFs [derived], the abstract has no baseline number, and no iteration count applies, so markers (b)-(d) cannot be established and (a)/(e) need a re-test; unsure means pass."
+      },
+      "R3": {
+        "first": "partial",
+        "second": null,
+        "decision": "partial",
+        "reason": "Training time is reported (131 min, Sec. 2.3, p. 134), but the cost of homogenizing the 156,000 database microstructures (Sec. 2.3, p. 133) is not, and no break-even is given: the §5.3 R3 partial case (data-generation cost missing)."
+      },
+      "R4": {
+        "first": "partial",
+        "second": null,
+        "decision": "partial",
+        "reason": "The surrogate is checked against FE homogenization only on five illustrative microstructures (Table 2, p. 135); design compliances come from the macroscale FE with surrogate-predicted properties, volume is a soft penalty shown only in plots (Fig. 12A), and the unreasonable design of Fig. 14(6) and the isolated boundary members (Sec. 4.1.4, p. 146) are not counted. FE-based checks without failure or constraint counts are the §5.3 R4 partial case."
+      }
+    }
+  }
+}

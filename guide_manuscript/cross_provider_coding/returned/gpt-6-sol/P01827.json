@@ -1,0 +1,26 @@
+{
+  "pid": "P01827",
+  "citation": {
+    "title": "TPMS-Optimized Cement Geometries for Carbon-Efficient Structural Performance",
+    "authors": "Juliette Carson, Julian Heredia Hirschfeld",
+    "year": 2026,
+    "venue": "Journal of High School Research 3(1)",
+    "doi": "10.70671/dq9am588",
+    "version_coded": "abstract of journal version of record; full text inaccessible"
+  },
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY (no accessible full text)", "stratum": "none", "method_family": "other", "physics": "stress", "dim": "3d"},
+  "claim": {},
+  "baseline": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "R2-no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "R3-no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "R4-no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "The publisher landing page gives an abstract comparing generated hybrid topologies with classical compressive performance, but contains no full-text galley or PDF link. No legitimate complete copy was found by DOI, title, or author search."
+}

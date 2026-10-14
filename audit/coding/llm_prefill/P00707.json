@@ -1,0 +1,45 @@
+{
+  "pid": "P00707",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "A stochastic gradient online learning and prediction method for accelerating structural topology optimization using recurrent neural network",
+    "authors": "Yi Xing, Liyong Tong",
+    "year": 2025,
+    "venue": "Engineering Structures 338 (September 2025) 120507 (Crossref). Hybrid open access: Crossref lists a CC BY 4.0 licence for the version of record; OpenAlex and Semantic Scholar list the ScienceDirect page as the only open copy",
+    "doi": "10.1016/j.engstruct.2025.120507",
+    "arxiv_id": "",
+    "version_coded": "none; only the abstract was read (pool record, from OpenAlex)"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no full text). The abstract claims that SGoLap, a one-hidden-layer recurrent network that learns first- and approximated second-order derivative information online and skips FE and sensitivity steps, saves up to 99.3% (2D) and 90.9% (3D) of total computing time.",
+    "location": "abstract only",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (no full text). The abstract's savings of up to 99.3% (2D) and 90.9% (3D) of total time correspond to about 143x and 11x [derived as 1 / (1 - saving); not checked against the article]. The abstract does not name the reference run; the same topology optimization without SGoLap is likely [inferred].",
+    "alternatives": "not assessed (no full text)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED. Access attempts on 2026-09-24, anonymous, generic browser User-Agent, no login, no API key: (1) doi.org redirects via linkinghub.elsevier.com to ScienceDirect (PII S0141029625008983). WebFetch received HTTP 403; curl received HTTP 403 with an 'Are you a robot' CAPTCHA page. No bypass was attempted. (2) OpenAlex (W4410494872) lists only the publisher location (CC BY, published version); any_repository_has_fulltext = false. (3) Semantic Scholar lists only the DOI link as its open PDF. (4) Web searches for the title, 'SGoLap' and the authors found no repository, author or preprint copy; ResearchGate was not used (third-party upload site). The CC BY licence would allow a legal mirror, but none was found. Related records by the same authors are different studies [inferred from titles and abstracts]: P00690, P00728, P00743, P00934, P00951 (level-set GoLap and SGoLap, SMO 2025) and P00983; P01237 is Yi Xing's 2023 dissertation, which predates this 2025 article. FT-DUPLICATE checked: no other version of this article in the pool (title and 'online learning and prediction' searched). method_family, physics and dim are the screening values. Per-problem online learning without an offline dataset is likely, so R3 would probably be na [inferred from the abstract]. A coder with ScienceDirect access should code this record. Authors checked: no author named Jun Wang."
+}

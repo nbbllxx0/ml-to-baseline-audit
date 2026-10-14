@@ -1,0 +1,44 @@
+{
+  "pid": "P00837",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Topology optimization for heat transfer problems: towards a finite element based neural network approach",
+    "authors": "Elisabetta Chimisso",
+    "year": 2020,
+    "venue": "Master's thesis (Tesi di laurea Magistrale), M.Sc. in Computational Science and Engineering, Politecnico di Milano, academic year 2019-2020; supervisors Nicola Parolini and Marco Verani; POLITesi handle 10589/165067 (issued 2020-06-06). The pool record is OpenAlex W3191342012, a MAG record with no DOI whose only location is the POLITesi page",
+    "doi": "",
+    "arxiv_id": "",
+    "version_coded": "Thesis PDF (100 pages) from POLITesi, the Politecnico di Milano thesis repository; title page and repository metadata (type field, English abstract) read for the type check. The body was not coded"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-TYPE",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "thermal",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as FT-TYPE: master's thesis). Per the thesis abstract, a neural network parameterizes the material distribution in heat-conduction TO while FEM solves the state equation, so the optimization runs over the network parameters.",
+    "location": "Thesis abstract (POLITesi record) and title page",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text as a thesis)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE: master's thesis)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE: master's thesis)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE: master's thesis)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-TYPE: master's thesis)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §3.3 and §4 (theses and dissertations are excluded) with the closed-list code FT-TYPE, the first applicable code. FT-DUPLICATE does not apply: no other version in the pool or in llm_prefill (title and surname searched), and no journal or arXiv version was found in the pool. FT-SCOPE does not apply (heat-conduction TO). Evidence of type: the POLITesi metadata give the type as Tesi di laurea Magistrale, with a second reader, school ING (Scuola di Ingegneria Industriale e dell'Informazione), academic year 2019/2020; the PDF title page reads Master Thesis, M.Sc. in Computational Science and Engineering, Politecnico di Milano, with supervisors Parolini and Verani (checked 2026-09-24). Method (from the English abstract only): hybrid TO for cooling-system design in which an artificial neural network describes the material distribution and FEM solves the PDE constraint; the network weights are the design variables. method_family = neural_reparam and physics = thermal follow that abstract; whether the thesis compares with classical density-based TO was not checked, because the type criterion is decisive. No DOI; the pool date (2020-06-06) is the repository issue date. Free to read in a browser: yes (POLITesi PDF). No author named Jun Wang."
+}

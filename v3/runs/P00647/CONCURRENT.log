@@ -1,0 +1,75 @@
+10:48:01 docker build start
+10:49:32 P00140 dehom start
+10:49:38 P00140 dehom end
+10:49:55 P00140 dehom start
+10:50:35 docker build end
+10:52:11 P00140 dehom end
+10:52:44 P00140 classical gpu start
+10:53:12 docker build 2 start
+10:53:33 P00140 classical gpu stopped (overlapped docker build 2; to be rerun)
+10:55:31 docker build 2 end
+10:55:49 P00140 dehom.py start
+10:57:59 P00140 dehom.py end
+10:57:59 P00140 classical.py gpu start
+11:24:47 P00663 warmup_classic start
+11:24:54 P00663 warmup_classic end (exit 0)
+11:24:54 P00663 warmup_cnn start
+11:24:57 P00663 warmup_cnn end (exit 0)
+11:24:57 P00663 classic_1 start
+11:24:59 P00663 classic_1 end (exit 0)
+11:24:59 P00663 cnn_1 start
+11:25:01 P00663 cnn_1 end (exit 0)
+11:25:01 P00663 classic_2 start
+11:25:03 P00663 classic_2 end (exit 0)
+11:25:03 P00663 cnn_2 start
+11:25:05 P00663 cnn_2 end (exit 0)
+11:25:06 P00663 classic_3 start
+11:25:07 P00663 classic_3 end (exit 0)
+11:25:07 P00663 cnn_3 start
+11:25:09 P00663 cnn_3 end (exit 0)
+11:25:13 docker build 3 start
+11:30:00 docker build 3 end
+11:30:24 P00663 warmup_classic start
+11:31:35 P00663 warmup_classic end (exit 0)
+11:31:35 P00663 warmup_cnn start
+11:32:21 P00663 warmup_cnn end (exit 0)
+11:32:21 P00663 classic_1 start
+11:33:12 P00663 classic_1 end (exit 0)
+11:33:12 P00663 cnn_1 start
+11:33:57 P00663 cnn_1 end (exit 0)
+11:33:57 P00663 classic_2 start
+11:34:48 P00663 classic_2 end (exit 0)
+11:34:49 P00663 cnn_2 start
+11:35:33 P00663 cnn_2 end (exit 0)
+11:35:33 P00663 classic_3 start
+11:36:24 P00663 classic_3 end (exit 0)
+11:36:24 P00663 cnn_3 start
+11:37:09 P00663 cnn_3 end (exit 0)
+11:37:46 P00663 attempt 2 discarded (classical runs stopped at tac() without tic()); rerun all
+11:37:46 P00663 warmup_classic start
+11:38:37 P00663 warmup_classic end (exit 0)
+11:38:37 P00663 warmup_cnn start
+11:39:22 P00663 warmup_cnn end (exit 0)
+11:39:22 P00663 classic_1 start
+11:40:12 P00663 classic_1 end (exit 0)
+11:40:12 P00663 cnn_1 start
+11:40:57 P00663 cnn_1 end (exit 0)
+11:40:57 P00663 classic_2 start
+11:41:48 P00663 classic_2 end (exit 0)
+11:41:48 P00663 cnn_2 start
+11:42:34 P00663 cnn_2 end (exit 0)
+11:42:34 P00663 classic_3 start
+11:43:25 P00663 classic_3 end (exit 0)
+11:43:25 P00663 cnn_3 start
+11:44:09 P00663 cnn_3 end (exit 0)
+17:40:29 P00140 GPU 2400x1200 stopped: GPU memory full (32,073 of 32,607 MiB), run invalid; unit-cost rerun planned
+FAILED classical.py gpu
+17:40:29 P00140 classical.py gpu end
+17:40:29 P00140 classical.py cpu_iter start
+FAILED classical.py cpu_iter
+17:46:29 P00140 classical.py cpu_iter end
+17:47:20 P00140 gpu_unit start
+18:17:20 P00140 gpu_unit end
+19:16:43 P00647 L1 stopped by user decision; It.:  253 Obj.:    -0.4278 Micro_Vol.:  0.280 Micro_ch.:  0.026
+19:17:18 P00647 unit runs start (nothing else running)
+19:51:03 P00647 unit_default relaunched alone (second session of launch_unit.bat did not start)

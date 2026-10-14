@@ -1,0 +1,181 @@
+{
+ "per_ratio": {
+  "10.0": {
+   "published_factor_cpu_nht_vs_gpu_cnn": 2280.0000000000005,
+   "published_factor_cpu_nht_vs_cpu_cnn": 1710.0,
+   "ours_s": {
+    "tdma_article_method": 2.8083975,
+    "gs_released": 1.8538765000000001,
+    "direct_superlu": 0.03208359994459897,
+    "cnn_cpu_1thread": 0.00878208800102584
+   },
+   "tdma_median_iterations": 14000.0,
+   "L1_factor_tdma_over_cnn": 319.786991393385,
+   "L1_factor_gs_over_cnn": 211.0974633576261,
+   "L2_factor_direct_over_cnn": 3.653299755234891,
+   "quality_abs_rel_error_vs_published": {
+    "cnn": {
+     "n": 100,
+     "median": 0.0014409437120720876,
+     "p95": 0.005392423295971911,
+     "max": 0.008275146798443841
+    },
+    "direct": {
+     "n": 100,
+     "median": 1.2581053468635735e-07,
+     "p95": 4.4986792884222163e-07,
+     "max": 8.306032130596357e-07
+    },
+    "tdma_released_tolerance": {
+     "n": 100,
+     "median": 0.00023481223918625957,
+     "p95": 0.0037098762561145137,
+     "max": 0.011938788939702658
+    }
+   }
+  },
+  "50.0": {
+   "published_factor_cpu_nht_vs_gpu_cnn": 5440.0,
+   "published_factor_cpu_nht_vs_cpu_cnn": 4079.9999999999995,
+   "ours_s": {
+    "tdma_article_method": 4.23211,
+    "gs_released": 2.9590294999999998,
+    "direct_superlu": 0.0319607499986887,
+    "cnn_cpu_1thread": 0.008871143000433221
+   },
+   "tdma_median_iterations": 21200.0,
+   "L1_factor_tdma_over_cnn": 477.0647930929898,
+   "L1_factor_gs_over_cnn": 333.55673557009465,
+   "L2_factor_direct_over_cnn": 3.6027770037218314,
+   "quality_abs_rel_error_vs_published": {
+    "cnn": {
+     "n": 100,
+     "median": 0.003535501434703547,
+     "p95": 0.01858671409872215,
+     "max": 0.03239007133683187
+    },
+    "direct": {
+     "n": 100,
+     "median": 3.706976980302339e-07,
+     "p95": 2.27775169899253e-06,
+     "max": 4.28357697810205e-06
+    },
+    "tdma_released_tolerance": {
+     "n": 100,
+     "median": 0.000618563837295841,
+     "p95": 0.026109943284953755,
+     "max": 0.11651597563935151
+    }
+   }
+  },
+  "100.0": {
+   "published_factor_cpu_nht_vs_gpu_cnn": 9153.333333333334,
+   "published_factor_cpu_nht_vs_cpu_cnn": 6865.0,
+   "ours_s": {
+    "tdma_article_method": 5.4685145,
+    "gs_released": 3.7833815,
+    "direct_superlu": 0.03175840002950281,
+    "cnn_cpu_1thread": 0.00878763800021261
+   },
+   "tdma_median_iterations": 27350.0,
+   "L1_factor_tdma_over_cnn": 622.2962871101079,
+   "L1_factor_gs_over_cnn": 430.5345190491989,
+   "L2_factor_direct_over_cnn": 3.6139859230357962,
+   "quality_abs_rel_error_vs_published": {
+    "cnn": {
+     "n": 100,
+     "median": 0.00905681495399364,
+     "p95": 0.02345249013900694,
+     "max": 0.04748152082700613
+    },
+    "direct": {
+     "n": 100,
+     "median": 5.480179083028061e-07,
+     "p95": 5.775284059714906e-06,
+     "max": 5.1998873926449524e-05
+    },
+    "tdma_released_tolerance": {
+     "n": 100,
+     "median": 0.0012541998720665356,
+     "p95": 0.046337244947893125,
+     "max": 0.2002308394023266
+    }
+   }
+  },
+  "341.7": {
+   "published_factor_cpu_nht_vs_gpu_cnn": 24746.666666666668,
+   "published_factor_cpu_nht_vs_cpu_cnn": 18560.0,
+   "ours_s": {
+    "tdma_article_method": 9.82187,
+    "gs_released": 7.0391295,
+    "direct_superlu": 0.03175475000170991,
+    "cnn_cpu_1thread": 0.008833902999758721
+   },
+   "tdma_median_iterations": 49000.0,
+   "L1_factor_tdma_over_cnn": 1111.8381082821786,
+   "L1_factor_gs_over_cnn": 796.8311968325052,
+   "L2_factor_direct_over_cnn": 3.5946455380568723,
+   "quality_abs_rel_error_vs_published": {
+    "cnn": {
+     "n": 100,
+     "median": 0.006764852977911798,
+     "p95": 0.022309693280045482,
+     "max": 0.03874480539728822
+    },
+    "direct": {
+     "n": 100,
+     "median": 4.275647746902561e-06,
+     "p95": 0.003099240388713242,
+     "max": 0.020322652171633683
+    },
+    "tdma_released_tolerance": {
+     "n": 100,
+     "median": 0.0032625556937381623,
+     "p95": 0.050048925843305045,
+     "max": 0.18364144098202564
+    }
+   }
+  }
+ },
+ "meta": {
+  "classical": {
+   "mode": "classical",
+   "python": "3.12.13",
+   "pinning": {
+    "pinned": true,
+    "affinity_mask": "0xfff",
+    "priority": "HIGH_PRIORITY_CLASS"
+   },
+   "numpy": "2.4.3",
+   "started_utc": "2026-09-25T14:28:52Z",
+   "finished_utc": "2026-09-25T15:08:11Z"
+  },
+  "direct": {
+   "mode": "direct",
+   "python": "3.12.13",
+   "pinning": {
+    "pinned": true,
+    "affinity_mask": "0xfff",
+    "priority": "HIGH_PRIORITY_CLASS"
+   },
+   "numpy": "2.4.3",
+   "started_utc": "2026-09-25T14:26:57Z",
+   "scipy": "1.17.1",
+   "finished_utc": "2026-09-25T14:27:16Z"
+  },
+  "cnn": {
+   "mode": "cnn",
+   "python": "3.11.16",
+   "pinning": {
+    "pinned": true,
+    "affinity_mask": "0xfff",
+    "priority": "HIGH_PRIORITY_CLASS"
+   },
+   "numpy": "2.4.6",
+   "started_utc": "2026-09-25T14:27:16Z",
+   "tensorflow": "2.21.0",
+   "tf_keras": "2.21.0",
+   "finished_utc": "2026-09-25T14:28:52Z"
+  }
+ }
+}

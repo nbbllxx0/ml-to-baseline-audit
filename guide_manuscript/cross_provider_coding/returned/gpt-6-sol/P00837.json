@@ -1,0 +1,19 @@
+{
+  "pid": "P00837",
+  "citation": {"title": "Topology optimization for heat transfer problems: towards a finite element based neural network approach", "authors": "Elisabetta Chimisso", "year": 2020, "venue": "Politecnico di Milano master's thesis", "doi": "", "arxiv_id": "", "version_coded": "institutional repository thesis PDF"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-TYPE", "stratum": "none", "method_family": "neural_reparam", "physics": "thermal", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "FT-TYPE", "evidence": "Not assessed after full-text type exclusion."},
+    "R2": {"verdict": "na", "marker": "FT-TYPE", "evidence": "Not assessed after full-text type exclusion."},
+    "R3": {"verdict": "na", "marker": "FT-TYPE", "evidence": "Not assessed after full-text type exclusion."},
+    "R4": {"verdict": "na", "marker": "FT-TYPE", "evidence": "Not assessed after full-text type exclusion."}
+  },
+  "reporting": {"n_test_cases": "not assessed", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Title page identifies the document as a Master Thesis for the M.Sc. in Computational Science and Engineering, academic year 2019–2020. Protocol Section 4 excludes theses before evaluating method or comparator."
+}

@@ -1,0 +1,60 @@
+{
+  "pid": "P00313",
+  "stage": "cross_provider_pass",
+  "citation": {
+    "title": "Populating cellular metamaterials on the extrema of attainable elasticity through neuroevolution",
+    "authors": "Maohua Yan; Ruicheng Wang; Ke Liu",
+    "year": 2025,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 440, 117950",
+    "doi": "10.1016/j.cma.2025.117950",
+    "arxiv_id": "2412.11112",
+    "version_coded": "latest accessible arXiv version; version of record is not open"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "other", "physics": "metamaterial_homogenization", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "For orthotropic metamaterials, neuroevolution produces a dense, uniformly populated Pareto front, whereas the cited topology-optimization-driven results provide sparse points.",
+    "key_phrase": "uniformly and densely located on the Pareto front",
+    "location": "Section 3.3",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No comparative runtime or speed-up is reported for the proposed method.",
+    "direction": "outperform",
+    "alternatives": "Section 3.3 reports that after 800 iterations the three property-pair outcomes are consistent with Ref. [5]; the abstract describes efficient exploration but gives no classical timing comparison."
+  },
+  "baseline": {
+    "classical_method": "Topology-optimization-driven metamaterial design cited in Section 3.3, Ref. [5]",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "Alibaba Cloud machine: AMD EPYC 7H12, 256 CPU processors at 2.60 GHz, 503 GiB DDR4 RAM; GPU not used (Section 3.3)",
+    "problem_size": "2D periodic metamaterial unit cells; high-resolution point clouds (exact resolution not stated in the cited comparison)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; authors state method uses no prior data",
+    "data_generation_cost": "not stated",
+    "quality_metric": "homogenized elastic properties and Pareto-front coverage",
+    "quality_gap": "Cited topology-optimization-driven work is described as yielding sparse Pareto-front points while the proposed method populates the front densely (Section 3.3); no numeric gap stated."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-only", "evidence": "The stated comparison concerns Pareto-front coverage and elastic properties, not speed."},
+    "R2": {"verdict": "na", "marker": "R2-quality-only", "evidence": "Section 3.3 gives no compared runtime; no classical hardware or solver details are provided."},
+    "R3": {"verdict": "na", "marker": "R3-quality-only", "evidence": "The primary comparison is design quality; no speed claim for the proposed method is quantified."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 2–3 evaluate generated designs using FEM-based computational homogenization and report elastic properties, but do not report failed or infeasible design rates."}
+  },
+  "reporting": {
+    "n_test_cases": "Four material symmetry cases: isotropic, tetragonal, orthotropic, and fully anisotropic (Sections 3.1–3.4)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "The version of record is paywalled; coded the accessible arXiv text."
+}

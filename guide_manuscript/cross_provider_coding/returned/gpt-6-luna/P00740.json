@@ -1,0 +1,60 @@
+{
+  "pid": "P00740",
+  "stage": "cross_provider_pass",
+  "citation": {
+    "title": "Image-Based Multiresolution Topology Optimization Using Deep Disjunctive Normal Shape Model",
+    "authors": "Vahid Keshavarzzadeh; Mitra Alirezaei; Tolga Tasdizen; Robert M. Kirby",
+    "year": 2021,
+    "venue": "Computer-Aided Design 130, 102947",
+    "doi": "10.1016/j.cad.2020.102947",
+    "arxiv_id": "",
+    "version_coded": "version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "surrogate_mlp_gp", "physics": "multiphysics", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "In the 3D example, DDNSM initial guesses reduce total computational time to about half that of standard topology optimization.",
+    "key_phrase": "reduces the computational time to almost half",
+    "location": "Conclusion; Section 4, Analysis of Computational Cost (3D design)",
+    "quantitative": true,
+    "claimed_speedup": 2,
+    "claimed_speedup_basis": "The conclusion says computational time is reduced to almost half versus standard TO, corresponding to approximately 2× classical/ML time; Section 4 also compares full cost components.",
+    "direction": "outperform",
+    "alternatives": "For 10,000 2D L-bracket designs, Table 6 reports 5.61 h for SIMP versus 3.18 h including DDNSM training (about 1.76×); inference alone is 0.002 s per design versus 2 s direct optimization, but the paper then continues optimization from predicted initial guesses (Section 4)."
+  },
+  "baseline": {
+    "classical_method": "SIMP density-based topology optimization with optimality-criteria updates",
+    "implementation": "standard topology optimization; implementation details not stated",
+    "solver": "not stated",
+    "hardware_classical": "Intel 12-core i7-5930K at 3.5 GHz, 32 GB RAM; sequential CPU processing (Section 4, computational-cost analysis)",
+    "hardware_ml": "2× Intel 8-core E5-2660 at 2.20 GHz, 64 GB RAM, 2× Nvidia K20 GPUs (Section 4, computational-cost analysis)",
+    "problem_size": "L-bracket 2D high-resolution mesh 200 × 200; 3D test size specified in Section 4 (Tables 12–15)",
+    "classical_iterations": "Convergence optimizer; direct high-resolution 3D average 152.08 iterations, with DDNSM initial guesses Case 6 average 76.28 (Section 4, 3D cost analysis)",
+    "classical_time": "312 s per direct 3D design (Section 4, 3D cost analysis); 5.61 h for 10,000 2D designs (Table 6)",
+    "ml_time": "0.003 s network evaluation per design, followed by optimizer from DDNSM initial guess; 3D Case 6 continuation 115,071.39 s per reported batch (Section 4); 3.18 h for 10,000 2D designs including training (Table 6)",
+    "training_time": "5,628.81 s for the 3D example; 1,639.25 s for 2D Case 2 (Section 4)",
+    "data_generation_cost": "80,781.63 s for 3D Case 6 dataset; 260.31 s for 2D Case 2 dataset (Section 4)",
+    "quality_metric": "compliance and optimizer iteration count",
+    "quality_gap": "Predicted designs are reported as close to actual optimized designs; 3D initial compliance error eCini ≤ 0.1 in the reported cases (Section 4, 3D results)."
+  },
+  "rules": {
+    "R1": {"verdict": "pass", "marker": "R1-matched-quality", "evidence": "Section 4 compares optimizer convergence and compliance for DDNSM-initialized versus direct runs; predicted starting designs are checked by subsequent FE optimization and compliance, including 3D eCini ≤ 0.1."},
+    "R2": {"verdict": "partial", "marker": "R2-hardware-justification", "evidence": "Section 4 states SIMP/data generation use sequential CPU and learning uses GPUs, while the two systems are described as similar in computational power; it does not establish solver efficiency or provide a matched hardware re-test."},
+    "R3": {"verdict": "pass", "marker": "R3-costs-and-amortization", "evidence": "Section 4 reports dataset generation, network training, evaluation and subsequent optimization costs; Table 5 and Table 6 estimate cost break-even/use counts and total cost for 10,000 designs."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 4 and Tables 1–15 assess returned/continued designs using FE compliance and report iteration/compliance prediction success, but do not count constraint violations or structural failure rates."}
+  },
+  "reporting": {
+    "n_test_cases": "Three examples (L-bracket, heat sink, 3D linear elastic structure), with multiple parameter samples; 200 test samples in one experiment (Sections 4.1–4.3)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "yes",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "The method predicts topologies and uses them as initial guesses for conventional optimization; the reported speed outcome includes this subsequent optimization, rather than prediction alone."
+}

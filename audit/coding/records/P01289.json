@@ -1,0 +1,60 @@
+{
+ "pid": "P01289",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Process-aware topology optimization leveraging deep learning surrogate model-based functions for laser powder bed fusion",
+  "authors": "Praveen S. Vulimiri, Shane Garner, Albert C. To",
+  "year": 2026,
+  "venue": "Additive Manufacturing 118 (issue dated February 2026) 105094 (Crossref; published 2026-01-23 per the pool record). Hybrid open access, CC BY-NC, per OpenAlex and Semantic Scholar; Crossref licence metadata includes CC BY-NC 4.0",
+  "doi": "10.1016/j.addma.2026.105094",
+  "arxiv_id": "",
+  "version_coded": "none: only the abstract and highlights were read (pool record from OpenAlex). The version of record (ScienceDirect PII S2214860426000205) could not be retrieved by script"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "other",
+  "dim": "3d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no accessible full text). Abstract only: a surrogate trained on elastoplastic layerwise inherent-strain FEA drives distortion-aware LPBF topology optimization; the largest case, over 400 iterations, finished in 2.5 days versus 4 days for one verification FEA process simulation.",
+  "location": "Abstract and highlights (the only text read)",
+  "quantitative": true,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "Not coded (no full text). Would-be values from the abstract and highlights: 4 days \u00f7 2.5 days = 1.6 [derived] for the whole surrogate-based optimization against a single FEA process simulation; the surrogate is said to evaluate over 100 times faster than one FEA-based process simulation (highlights)."
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent and no personal data: (1) the ScienceDirect article page (PII S2214860426000205) answered curl with HTTP 403 and a captcha page ('Are you a robot?'), and WebFetch with HTTP 403. No challenge was attempted. (2) OpenAlex (hybrid OA, CC BY-NC, publisher version only, any_repository_has_fulltext false) and Semantic Scholar (open PDF = the DOI, HYBRID, CCBYNC) list no other copy; Crossref lists only the publisher and Elsevier text-mining routes. (3) arXiv API: no preprint for 'process-aware' with topology, the author Vulimiri, or Albert To with inherent strain. (4) A web search for the exact title found only the ScienceDirect page (and an unrelated conference-abstract listing with a different title). Free to read in a browser: yes, per OpenAlex, Crossref licence metadata and Semantic Scholar (CC BY-NC hybrid open access), so a human verifier can open it on ScienceDirect. Pointers from the abstract for the verifier: \u00a75.1 rule 1 would select the abstract's quantitative comparison (the 400-plus-iteration optimization finished in 2.5 days, faster than the 4 days of one verification FEA process simulation), with the highlight's over-100\u00d7 per-evaluation speed-up of the surrogate against one FEA process simulation as the alternative; both compare against a classical analysis rather than a classical optimizer, so speed stratum only as a cost proxy, as in P00149. The abstract also reports designs with similar mechanical performance, less distortion and zero build failures, verified by simulation and experiment. Physics: elastoplastic residual distortion from the LPBF process coupled with an end-use elastic objective (physics coded 'other', following screening). Duplicate check: no other pool record or prefill of this study (P00716 by two of the same authors is a different study). No author named Jun Wang. Screening code was I-SPEED.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P01289.json",
+  "result": "full agreement"
+ }
+}

@@ -1,0 +1,43 @@
+{
+  "pid": "P01670",
+  "citation": {
+    "title": "Composite 3D-printed Plate-based Mechanical Metamaterials",
+    "authors": "Aya Hosoi, Jier Wang, Yuki Fujita, Tatsuo Tanaka, Junichi Takahashi, Ajit Panesar",
+    "year": 2025,
+    "venue": "24th International Conference on Composite Materials (ICCM-24), Baltimore, USA, 4-8 August 2025 (conference paper, deposited on Zenodo)",
+    "doi": "10.5281/zenodo.18597653",
+    "version_coded": "Full text (9 pages, file ICCM24_Final_Paper_054.pdf), CC BY-SA 4.0, downloaded from the Zenodo record. doi.org and zenodo.org/doi/... returned a 403 'unusual traffic' rate-limit page to a generic-UA curl request (a bot/rate-limit check, not bypassed); WebFetch reached the record page and, on a second call to the exact file URL shown on that page, retrieved the actual PDF binary, which was extracted with PyMuPDF."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOBASELINE",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: a two-step pipeline -- (1) classical density-based low-resolution topology optimisation of a macro-scale MBB-beam problem, giving a per-element target elastic tensor and volume fraction, then (2) a pretrained multi-layer-perceptron inverse generator mapping that target tensor to 2D or 3D (truss- or plate-based BCC) lattice unit-cell parameters -- produces 'optimal' lattice structures for orthotropic (fibre-reinforced Onyx) and isotropic (Nylon) materials. FEA of a three-point-bending test (Tables 3-5) shows these optimal structures have lower compliance / higher specific stiffness than non-optimised 'uniform' counterpart lattices of the same cell count, and that 3D plate-based BCC outperforms truss-based BCC (specific stiffness 671.4 vs 143.9).",
+    "location": "Abstract; Sec. 3 (Results and Discussions), Tables 3-5; Sec. 4 (Conclusions)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text). No runtime, iteration count, or computational-cost figure is reported for any method (classical or ML) anywhere in the article; efficiency is asserted only as a generic, uncited motivation in the Introduction ('optimisation leveraging machine learning... has gained interest as a computationally efficient approach [8]', citing an external review, not this article's own measurement)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-NOBASELINE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 and the 2026-09-24 FT-NOBASELINE clarification: every quantitative comparison in the article (Tables 3, 4, 5) is between the proposed method's own output ('Optimal', produced by the classical-TO-plus-MLP pipeline) and a non-optimised 'Uniform (benchmark)' lattice of the same cell count and material -- i.e. optimisation vs. no optimisation, not the proposed (TO+ML) method vs. an alternative classical, non-learned optimisation method (e.g. dehomogenization or inverse homogenisation run without the ML step, which the Introduction cites [5], [6], [7] only as background). The article never runs, times, or reports a result for any such classical comparator, so it does not meet PROTOCOL §3.2/§4's comparison requirement even though it clearly is TO/architected-material inverse design in scope (§3.1) and clearly uses a learned model (an MLP inverse generator, trained on 5000 randomly generated unit-cell samples, Sec. 2.1.2) for what is genuinely an optimisation-level task (inverse design of unit-cell geometry from a target elastic tensor), not mere forward prediction -- so FT-SCOPE, FT-DOMAIN, FT-NOML and FT-FORWARD (the higher-priority codes) do not apply, and FT-MLONLY does not fit either since the comparator is a non-method baseline, not another ML method. This judgment rests on a full reading of the 9-page conference paper, not an inference from the abstract alone. No author named Jun Wang: co-author 'Jier Wang' is a different given name (not 'Jun'), and 'Junichi Takahashi' has 'Jun' only as part of a different personal name with a different surname; neither is a match. Duplicate check: audit/pool/pool.csv has exactly one row for this DOI/title (P01670); no arXiv or repeated copy exists in the pool. The paper explicitly extends the authors' own earlier work, J. Wang and A. Panesar, 'Machine learning based lattice generation method derived from topology optimisation', Additive Manufacturing 60:103238 (2022) [ref. 9 in this paper] -- a different, earlier, separately titled/DOI'd publication, not a duplicate of this record, and not in this queue. Access note: the Zenodo DOI/landing-page endpoints returned a Cloudflare-style 403 'Access to this resource has been restricted due to unusual traffic from your network' page to scripted requests (a rate-limit/bot check, not circumvented); the article itself, once reached via WebFetch, is openly licensed CC BY-SA 4.0 with no paywall of any kind."
+}

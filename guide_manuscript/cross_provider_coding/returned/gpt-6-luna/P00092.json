@@ -1,0 +1,60 @@
+{
+  "pid": "P00092",
+  "citation": {
+    "title": "Topology Optimization with Text-Guided Stylization",
+    "authors": "Shengze Zhong, Parinya Punpongsanon, Daisuke Iwai, and Kosuke Sato",
+    "year": 2023,
+    "venue": "Structural and Multidisciplinary Optimization 66(12), 256",
+    "doi": "10.1007/s00158-023-03686-7",
+    "arxiv_id": "2310.15506",
+    "version_coded": "Version of record (institutional repository copy)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR", "stratum": "quality", "method_family": "neural_reparam", "physics": "compliance", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "In three 2D benchmarks, the neural method's compliance was close to SIMP: bridge 181.08 versus 181.06, MBB 40.80 versus 39.48, and L-bracket 177.23 versus 169.80.",
+    "key_phrase": "similar topology optimization performance to SIMP",
+    "location": "Section 4.1, Figure 6 and accompanying text",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No classical-method speed-up factor is stated or derivable from the reported comparison.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Section 4.4 reports 58.66 seconds for 100 iterations at 256×256; Section 5 says convergence speed and quality are worse than traditional explicit methods, without a measured head-to-head speed comparison."
+  },
+  "baseline": {
+    "classical_method": "SIMP",
+    "implementation": "165-line Python SIMP code attributed to Niels Aage and Villads Egede Johansen (Section 4.1)",
+    "solver": "Finite element analysis; solver type not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Three 2D compliance benchmarks; FEM resolution 64×64 (Section 4.1)",
+    "classical_iterations": "100 iterations for comparison (Section 4.1)",
+    "classical_time": "not stated",
+    "ml_time": "not stated for Section 4.1 comparison; Section 4.4 reports 58.66 s for 100 iterations at 256×256",
+    "training_time": "not stated; per-problem optimization (Sections 3–4)",
+    "data_generation_cost": "not stated; no offline training dataset for the method is described",
+    "quality_metric": "Compliance and volume (Section 4.1)",
+    "quality_gap": "Compliance pairs for SIMP and neural method: bridge 181.06/181.08, MBB 39.48/40.80, L-bracket 169.80/177.23; volumes are also compared (Section 4.1)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-only", "evidence": "Section 4.1 compares design quality; no speed comparison is the primary outcome."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 4.1 identifies a Python SIMP implementation but does not establish an R2 efficiency criterion."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "Sections 3–4 optimize the neural representation for each problem; no offline model training cost is claimed."},
+    "R4": {"verdict": "partial", "marker": "R4-unreported-failures", "evidence": "Section 4.1 evaluates compliance and volume for compared designs, but no rate of infeasible or failed outputs is reported."}
+  },
+  "reporting": {
+    "n_test_cases": "Three compliance comparison tasks (bridge, MBB, L-bracket), with additional stylized 2D and 3D examples (Sections 4.1–4.4).",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Section 4.4 reports an average iteration time for a single 256×256 bridge example; this is not a timing comparison against SIMP. The article notes that its penalty method may miss target volume constraints and that pure topology optimization quality and convergence can lag explicit methods (Section 5)."
+}

@@ -1,0 +1,14 @@
+{
+  "pid": "P01176",
+  "citation": {"title": "A Deep Reinforcement Learning Model-Based Optimization Method for Graphic Design", "authors": "Qi Guo, Zhen Wang", "year": 2024, "venue": "Informatica, 48(5), 121–134", "doi": "10.31449/inf.v48i5.5295", "arxiv_id": "", "version_coded": "Version of record, open publisher PDF"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-SCOPE", "stratum": "none", "method_family": "rl", "physics": "other", "dim": "both"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "FT-SCOPE", "evidence": "Not applicable after full-text exclusion."}, "R2": {"verdict": "na", "marker": "FT-SCOPE", "evidence": "Not applicable after full-text exclusion."}, "R3": {"verdict": "na", "marker": "FT-SCOPE", "evidence": "Not applicable after full-text exclusion."}, "R4": {"verdict": "na", "marker": "FT-SCOPE", "evidence": "Not applicable after full-text exclusion."}},
+  "reporting": {"n_test_cases": "unclear", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "no", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The full text describes graphic and interior-space design for buildings, with accuracy comparisons against VR, MDP, and AI approaches (Sections 3–5, pp. 125–132). It does not address the protocol's structural, thermal, compliant-mechanism, or architected-material topology-optimization domain."
+}

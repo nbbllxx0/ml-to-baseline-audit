@@ -1,0 +1,88 @@
+{
+  "pid": "P02476",
+  "citation": {
+    "title": "Deep Generative Modeling for Mechanistic-based Learning and Design of Metamaterial Systems",
+    "authors": "Liwei Wang, Yu-Chin Chan, Faez Ahmed, Zhao Liu, Ping Zhu, Wei Chen",
+    "year": 2020,
+    "venue": "Computer Methods in Applied Mechanics and Engineering (CMAME); arXiv preprint (cs.CE, cs.LG, stat.ML)",
+    "doi": "10.1016/j.cma.2020.113377",
+    "arxiv_id": "2006.15274",
+    "version_coded": "arXiv v2 (revised 2020-09-16, latest version on the abs page; matches the CMAME journal reference given on the abs page), full text read from the downloaded PDF (https://arxiv.org/pdf/2006.15274v2); version of record not independently fetched (arXiv preprint accepted as an explicitly sanctioned access route)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR-at-screening-likely (inverse design of architected metamaterial systems, homogenization/TO-based classical comparator per PROTOCOL §3.1's architected-material clause; the only comparison with a classical method anywhere in the article is qualitative -- Conclusion: 'greater computational efficiency is obtained by replacing the nested optimization with a precomputed database'; Sec. 5.2: single-scale SIMP 'will paralyze' and produce 'infeasible design' for this problem class)",
+    "stratum": "speed",
+    "method_family": "vae",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A variational autoencoder plus property regressor is trained on a ~250,000-microstructure orthotropic-stiffness database (seeded by 1,400 SIMP-TO designs, then expanded by iterative stochastic shape perturbation) to build a continuous latent space for metamaterial microstructures. For multiscale system design (target displacement-profile matching), a macro-property optimization (MMA) plus graph-based microstructure assembly (DD-MRF) replaces the classical 'nested optimization' of concurrent multiscale TO with a precomputed database and trained decoder, which the authors state gives 'greater computational efficiency'; for a displacement-boundary-condition design class, they further state that classical single-scale SIMP 'will paralyze' and yield an 'infeasible design', where their method succeeds (RRMSE 0.06-0.19 across three case studies).",
+    "key_phrase": "Greater computational efficiency is obtained by replacing the nested optimization with a precomputed database",
+    "location": "Conclusion Sec. 6 (qualitative efficiency claim, the only classical-method comparison in abstract/conclusion/introduction); substantiated by a qualitative capability claim in the main text, Sec. 5.2 ('a single-scale SIMP method will tend to render unrealistic designs... This will paralyze the SIMP scheme and result in the infeasible design')",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable. No classical 'nested optimization' or single-scale SIMP baseline is actually run or timed anywhere in the article for these design problems; the comparison is entirely qualitative (SIMP is asserted to fail/produce infeasible designs, and the proposed method is asserted to be 'more computationally efficient' than nested optimization, with no paired numbers for the classical side). The article does report its own method's absolute times (Sec. 5.2): database generation (1,400 SIMP seeds + 200 perturbation iterations, no time given) and VAE training (44,496 s = ~12.4 h on a GeForce GTX Titan Xp GPU, Sec. 4.1), separate from per-design-instance times of 20 minutes (2 CPUs, Intel i7-9750H) for a 300,000-element case and 11 h 12 min (6 processors) for a 6.25-million-element case -- but none of these is paired with a classical-method number for the same problem.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.2's capability claim: classical single-scale SIMP TO is asserted (not demonstrated by an actual run) to fail/produce infeasible designs for displacement-profile design problems with prescribed-displacement boundary conditions, while the proposed method succeeds (RRMSE 0.0600-0.1900 across three case studies). (2) Introduction/background: 'high computational cost' of metamaterial inverse design is cited as a generic field-level motivation (no specific number, no direct pairing with the proposed method's own cost)."
+  },
+  "baseline": {
+    "classical_method": "(1) SIMP-based topology optimization, used once to seed 1,400 initial microstructures for the training database (not as a benchmarked comparator); (2) 'nested optimization' / concurrent multiscale topology optimization (the classical alternative to the proposed two-stage, database-driven design, named only qualitatively in the Conclusion, never run or timed in this article); (3) single-scale SIMP TO as a qualitative capability comparator for the displacement-profile design case (Sec. 5.2, not run)",
+    "implementation": "Not applicable / not run for (2) and (3); SIMP-based TO for the database seed follows ref. [48] (Xia & Breitkopf, 'Design of materials using topology optimization and energy-based homogenization approach')",
+    "solver": "Not stated for any classical comparator (none is actually executed for the design case studies)",
+    "hardware_classical": "Not applicable (no classical comparator is run for the design case studies)",
+    "hardware_ml": "VAE training: workstation with a GeForce GTX Titan Xp GPU, 12 GB memory (Sec. 4.1). Multiscale design/assembly runs: Intel i7-9750H 2.6GHz CPUs -- 2 CPUs for the 300,000-element bridge-like case (20 min), 6 processors for the 6.25-million-element smiley-face case (11 h 12 min) (Sec. 5.2)",
+    "problem_size": "Microstructure/property database: 50x50-pixel unit cells, ~250,000 microstructures (228,396 training / 20,000 validation), 4 independent orthotropic stiffness components. Design case studies: graded structure 15x40 design mesh; spatially-varying beam 4x30 design mesh (300,000 finite elements, 206 shared boundaries); smiley-face structure 50x50 design mesh (6.25 million finite elements, ~4,900 shared boundaries)",
+    "classical_iterations": "Not applicable for the (unrun) classical comparators. The proposed method's own macro-property optimization runs to a 0.001 relative-change tolerance or 500 iterations; the DD-MRF graph assembly runs to primal-dual convergence or 5,000 iterations (Sec. 5.2)",
+    "classical_time": "Not reported (no classical nested-optimization or single-scale SIMP run is timed for any design case study)",
+    "ml_time": "20 minutes (2 CPUs) for the 300,000-element case; 11 hours 12 minutes (6 processors) for the 6.25-million-element case (Sec. 5.2); no explicit time given for the first (graded-structure) case study",
+    "training_time": "44,496 seconds (~12.4 hours), 500 epochs, RMSprop optimizer, on a GeForce GTX Titan Xp GPU (Sec. 4.1)",
+    "data_generation_cost": "Not quantified in time: 1,400 SIMP-TO seed designs (one-time), then 200 iterations of an iterative stochastic shape-perturbation algorithm using parallel computing, to reach ~250,000 microstructures (Sec. 4.1) -- described procedurally but with no wall-clock or compute figure",
+    "quality_metric": "Relative root-mean-square error (RRMSE) between the target displacement profile and the actual displacement profile obtained by (implicitly) simulating the assembled, realized multiscale structure under the same loading [inferred: the article does not spell out 'we ran an independent FE analysis of the assembled structure', but RRMSE is computed against a physically loaded displacement field, consistent with a genuine simulation rather than an image metric]",
+    "quality_gap": "RRMSE = 0.1900 (graded structure, case 1), 0.0600 (spatially-varying bridge-like beam, case 2), 0.1623 (smiley-face structure, case 3) -- no classical-method RRMSE is available for comparison since no classical baseline is run for these problems"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-unquantified-comparison",
+      "evidence": "No classical comparator (nested/concurrent multiscale TO, or single-scale SIMP) is actually run, timed, or scored on these design problems, so there is no way to confirm whether the 'greater computational efficiency' claim is being made at matched design quality or matched budget -- likely not satisfiable without more evidence, per the R1 '!' condition ('likely not satisfied without enough evidence to be sure'). No evidence of a deliberately misleading comparison either (the article does not overstate a specific ratio it cannot support); the claim is qualitative throughout."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-no-baseline-run",
+      "evidence": "No classical baseline is executed for these design case studies, so R2(a)/(d)/(e) cannot be assessed (no re-test or per-iteration classical time exists in the article). No GPU-vs-CPU mismatch is evident for the design/optimization runs themselves (2-6 CPUs only, Intel i7-9750H); the GPU is used solely for the separate, one-time VAE training. Given the complete absence of a run classical comparator, R2 cannot be confirmed either way, matching the spirit of R2's '!' condition for insufficient basis to judge efficiency."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-training-cost-only",
+      "evidence": "Training cost is explicitly reported (44,496 s = ~12.4 h on a GeForce GTX Titan Xp GPU, Sec. 4.1) and the framing separates this one-time cost from reusable per-design-instance costs (20 min to 11 h 12 min depending on problem size, Sec. 5.2), explicitly noting the same trained database/model can be 'directly applied to efficiently design multiscale systems with different loading conditions or objective functions' (Sec. 6) -- a per-query/reuse framing. However, data-generation cost (1,400 SIMP-TO seeds plus 200 perturbation iterations to reach ~250,000 microstructures) is described only procedurally, with no time or compute figure given, matching R3's '!' condition ('training cost is reported but data-generation cost is missing')."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-partial-no-failure-count",
+      "evidence": "Quality (RRMSE) is computed from the displacement field of the actual assembled, realized multiscale structure under load [inferred from context; not spelled out as an explicit independent FE re-analysis step], not from an image-similarity metric on the density field alone, and geometric/mechanical incompatibility at microstructure boundaries is explicitly measured and minimized during assembly (Eqs. 16-17). However, no volume-constraint or feasibility/failure rate is reported for the three design case studies themselves (defect detection -- isolated pixels, checkerboards -- is described only for the database-curation stage, Sec. 4.1, not as an outcome rate for the final assembled designs)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 multiscale system design case studies (graded structure, 15x40 mesh; spatially-varying bridge-like beam, 4x30 mesh / 300,000 elements; smiley-face structure, 50x50 mesh / 6.25M elements), plus qualitative microstructure- and family-level demonstrations (Secs. 4.2-4.3)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "yes",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Scope: this is inverse/multiscale design of architected metamaterial systems with a homogenization/TO-based classical comparator, matching PROTOCOL §3.1's architected-material clause; included on that basis. Screening code is unknown to me (not visible from my queue file), so 'I-UNCLEAR-at-screening-likely' in the reason field is my own inference, not a verified fact. Primary-outcome search: abstract only motivates 'high computational cost' generically (no comparison, matching the protocol's 'TO is slow is not a comparison' example); the first genuine comparison with a classical method anywhere is the Conclusion's qualitative efficiency claim ('replacing the nested optimization with a precomputed database'), taken as primary per PROTOCOL §5.1 step 3 (no quantitative comparison exists anywhere in the article, so the first qualitative one, checked abstract then conclusion, is used); the SIMP-paralysis/infeasibility claim in Sec. 5.2 substantiates the same overall point in the main text and is recorded as an alternative. Because the article's inclusion rests entirely on a qualitative capability/efficiency claim, with no classical method ever run or timed, all four rules land on 'partial' -- this record should be read as a case where speed/fairness cannot be verified one way or the other from the text, not as a confirmed pass or fail. retest_candidate = false: only the training database is released (https://ideal.mech.northwestern.edu/research/software/, Sec. 4.1 footnote), not source code, and no classical 'nested optimization' baseline exists in the article to re-run against. Duplicate check: audit/pool/pool.csv has exactly one record for this title/DOI (P02476; arxiv_id column blank there despite an arXiv preprint existing, consistent with incomplete pool metadata rather than a real duplicate); no FT-DUPLICATE applies. No author of this article is named Jun Wang (authors: Liwei Wang, Yu-Chin Chan, Faez Ahmed, Zhao Liu, Ping Zhu, Wei Chen). Funding: NSF CSSI program (Grant No. OAC 1835782), NSF Graduate Research Fellowship (DGE-1842165); no conflicts of interest stated."
+}

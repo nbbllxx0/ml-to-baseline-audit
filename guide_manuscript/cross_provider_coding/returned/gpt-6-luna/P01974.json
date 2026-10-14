@@ -1,0 +1,60 @@
+{
+  "pid": "P01974",
+  "stage": "cross_provider_pass",
+  "citation": {
+    "title": "Toward Large Language Model-Driven Symbolic Topology Optimisation for Rapid Structural Concept Generation in Manufacturable Design",
+    "authors": "Musaddiq Al Ali",
+    "year": 2026,
+    "venue": "Journal of Manufacturing and Materials Processing 10(4), 117",
+    "doi": "10.3390/jmmp10040117",
+    "arxiv_id": "",
+    "version_coded": "version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "llm_agent", "physics": "multiphysics", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "The LLM-generated cantilever design reaches about 87.5% of the stiffness of the classical SIMP result; the heat-sink design reaches about 94.3% of reference thermal performance.",
+    "key_phrase": "87.5% of the stiffness",
+    "location": "Abstract",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "The abstract asserts reduced computational cost without a quantitative speed-up factor or matched runtime.",
+    "direction": "underperform",
+    "alternatives": "The abstract also claims less repeated finite-element simulation and reduced computational cost, but does not quantify the comparison."
+  },
+  "baseline": {
+    "classical_method": "SIMP topology optimization (cantilever); reference thermal solution for heat sink",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Cantilever structural benchmark; heat-sink optimization; paper also presents thermofluid, compliant mechanism, and 3D examples (Sections 4.1–4.5)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated for the classical comparison",
+    "ml_time": "Thermofluid example: about 3–8 s per generation iteration, overall convergence within a few minutes (Section 4.4); no matched SIMP timing",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "stiffness for cantilever; thermal performance for heat sink",
+    "quality_gap": "Cantilever result is approximately 12.5% below classical SIMP stiffness; heat-sink result reaches about 94.3% of reference thermal performance (Abstract)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-only", "evidence": "The primary comparison in the abstract is design quality (stiffness and thermal performance), with no speed comparison at matched quality or time."},
+    "R2": {"verdict": "na", "marker": "R2-quality-only", "evidence": "The abstract compares performance values but gives no classical runtime or solver comparison."},
+    "R3": {"verdict": "na", "marker": "R3-quality-only", "evidence": "The primary outcome is quality-only; no quantitative speed comparison is made."},
+    "R4": {"verdict": "fail", "marker": "R4-surrogate-or-heuristic", "evidence": "Sections 3.2 and 4 describe symbolic layouts evaluated with heuristic or surrogate indicators; the 3D structural response is explicitly approximated through geometric/connectivity indicators, not FE analysis of returned designs."}
+  },
+  "reporting": {
+    "n_test_cases": "Five example groups: cantilever, heat sink, thermofluid channel, compliant mechanism, and 3D topology (Sections 4.1–4.5)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "The paper includes thermofluid examples, but the coded primary comparison is the in-scope structural cantilever benchmark."
+}

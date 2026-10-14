@@ -1,0 +1,88 @@
+{
+    "pid":  "P01870",
+    "citation":  {
+                     "title":  "Exploring VAE-driven implicit parametric unit cells for multiscale topology optimization",
+                     "authors":  "Chenchen Chu, Alexander Leichner, Franziska Wenz, Heiko Andrä",
+                     "year":  2024,
+                     "venue":  "Materials \u0026 Design, 244, 113087",
+                     "doi":  "10.1016/j.matdes.2024.113087",
+                     "arxiv_id":  "",
+                     "version_coded":  "Version of record; author-uploaded full text"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "exclude",
+                     "reason":  "FT-NOBASELINE",
+                     "stratum":  "none",
+                     "method_family":  "vae",
+                     "physics":  "metamaterial_homogenization",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "",
+                  "key_phrase":  "",
+                  "location":  "",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "",
+                  "direction":  "similar_or_mixed",
+                  "alternatives":  ""
+              },
+    "baseline":  {
+                     "classical_method":  "not stated",
+                     "implementation":  "not stated",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "not stated",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "not stated",
+                     "quality_metric":  "not stated",
+                     "quality_gap":  "not stated"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "na",
+                             "evidence":  "full-text exclusion"
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "na",
+                             "evidence":  "full-text exclusion"
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "na",
+                             "evidence":  "full-text exclusion"
+                         },
+                  "R4":  {
+                             "verdict":  "na",
+                             "marker":  "na",
+                             "evidence":  "full-text exclusion"
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "unclear",
+                      "ood_test":  "unclear",
+                      "seeds_or_variance":  "unclear",
+                      "failure_rate_reported":  "unclear",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "no",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Sections 2–4 describe AAPO-generated unit cells, a VAE, and multiscale designs, but report no comparison of the learned method\u0027s cost or results against a classical optimization method. Classical TO appears as context and to produce training designs; the paper does not compare its outcomes or cost with that baseline.",
+    "stage":  "cross_provider_pass"
+}

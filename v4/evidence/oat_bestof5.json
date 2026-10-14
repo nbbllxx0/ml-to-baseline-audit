@@ -1,0 +1,843 @@
+{
+ "note": "Oracle-selected, inference-only sensitivity: the best of five OAT samples (lowest CE) is chosen with the finite-element evaluation of every sample, whose time is not counted. OAT time is one sampling call (batching free) or five sequential calls. null ratio = unmatched within 150 iterations (right-censored, counted as slower for our baseline).",
+ "256": {
+  "post hoc rule": {
+   "median_ratio_batching_free": null,
+   "median_ratio_five_calls": null,
+   "matched": 12,
+   "problems": 25,
+   "median_ce_gain_pp": 0.5908144436422489,
+   "per_problem": [
+    {
+     "problem_id": 1015,
+     "best_seed": "20261924",
+     "best_CE_pct": -6.153010463950522,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1676,
+     "best_seed": "20263924",
+     "best_CE_pct": 0.05864632771270162,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1839,
+     "best_seed": "20261924",
+     "best_CE_pct": 1.2879743755670585,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1935,
+     "best_seed": "20265924",
+     "best_CE_pct": -0.9811562744555299,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1961,
+     "best_seed": "20265924",
+     "best_CE_pct": 2.0427691325726745,
+     "matched_iters": 20,
+     "ratio_batching_free": 2.2267248143139677,
+     "ratio_five_calls": 0.43683762537868265
+    },
+    {
+     "problem_id": 1086,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.23472135163069727,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.9952798836942721,
+     "ratio_five_calls": 0.20029583904177264
+    },
+    {
+     "problem_id": 1121,
+     "best_seed": "20262924",
+     "best_CE_pct": 2.5512125619979957,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1134,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.09747596169043614,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.7474670436895419,
+     "ratio_five_calls": 0.15045417372137676
+    },
+    {
+     "problem_id": 1241,
+     "best_seed": "20265924",
+     "best_CE_pct": 0.3998242987248415,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1338,
+     "best_seed": "20263924",
+     "best_CE_pct": -0.266295744812149,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1403,
+     "best_seed": "20265924",
+     "best_CE_pct": -0.3069354296584106,
+     "matched_iters": 10,
+     "ratio_batching_free": 1.0644299446018797,
+     "ratio_five_calls": 0.20759292406919505
+    },
+    {
+     "problem_id": 1443,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.07965306444489079,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.6455923517749765,
+     "ratio_five_calls": 0.13030543345684126
+    },
+    {
+     "problem_id": 1499,
+     "best_seed": "20262924",
+     "best_CE_pct": 0.0997423317636027,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1523,
+     "best_seed": "20261924",
+     "best_CE_pct": 0.11552192121777557,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1530,
+     "best_seed": "20261924",
+     "best_CE_pct": 0.3569111975083462,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1580,
+     "best_seed": "20265924",
+     "best_CE_pct": 1.1987915982697543,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1581,
+     "best_seed": "20262924",
+     "best_CE_pct": 0.23046424417994238,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.6844350059673184,
+     "ratio_five_calls": 0.13842325465254932
+    },
+    {
+     "problem_id": 1629,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.031161903752146697,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1681,
+     "best_seed": "20263924",
+     "best_CE_pct": 1.9162766758414396,
+     "matched_iters": 15,
+     "ratio_batching_free": 1.346608694365691,
+     "ratio_five_calls": 0.2697057431860244
+    },
+    {
+     "problem_id": 1760,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.033835239487485354,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1788,
+     "best_seed": "20265924",
+     "best_CE_pct": 2.424781957540679,
+     "matched_iters": 15,
+     "ratio_batching_free": 1.8507996977243064,
+     "ratio_five_calls": 0.3676141671571263
+    },
+    {
+     "problem_id": 1817,
+     "best_seed": "20261924",
+     "best_CE_pct": 0.3853330905496717,
+     "matched_iters": 75,
+     "ratio_batching_free": 6.467111385814568,
+     "ratio_five_calls": 1.306697196030833
+    },
+    {
+     "problem_id": 1972,
+     "best_seed": "20263924",
+     "best_CE_pct": 0.10372882572574822,
+     "matched_iters": 100,
+     "ratio_batching_free": 7.6501346430903165,
+     "ratio_five_calls": 1.5430318403198877
+    },
+    {
+     "problem_id": 1974,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.7203136462618767,
+     "matched_iters": 40,
+     "ratio_batching_free": 4.6222121753131225,
+     "ratio_five_calls": 0.9344280514183806
+    },
+    {
+     "problem_id": 1985,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.36397471633704154,
+     "matched_iters": 15,
+     "ratio_batching_free": 1.1179401093053682,
+     "ratio_five_calls": 0.22464423655500732
+    }
+   ]
+  },
+  "pre-registered rule": {
+   "median_ratio_batching_free": 7.6501346430903165,
+   "median_ratio_five_calls": 1.5430318403198877,
+   "matched": 13,
+   "problems": 25,
+   "median_ce_gain_pp": 0.5908144436422489,
+   "per_problem": [
+    {
+     "problem_id": 1015,
+     "best_seed": "20261924",
+     "best_CE_pct": -6.153010463950522,
+     "matched_iters": 5,
+     "ratio_batching_free": 0.4465000728495244,
+     "ratio_five_calls": 0.09051090939860024
+    },
+    {
+     "problem_id": 1676,
+     "best_seed": "20263924",
+     "best_CE_pct": 0.05864632771270162,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1839,
+     "best_seed": "20261924",
+     "best_CE_pct": 1.2879743755670585,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1935,
+     "best_seed": "20265924",
+     "best_CE_pct": -0.9811562744555299,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1961,
+     "best_seed": "20265924",
+     "best_CE_pct": 2.0427691325726745,
+     "matched_iters": 20,
+     "ratio_batching_free": 2.2267248143139677,
+     "ratio_five_calls": 0.43683762537868265
+    },
+    {
+     "problem_id": 1086,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.23472135163069727,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.9952798836942721,
+     "ratio_five_calls": 0.20029583904177264
+    },
+    {
+     "problem_id": 1121,
+     "best_seed": "20262924",
+     "best_CE_pct": 2.5512125619979957,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1134,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.09747596169043614,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.7474670436895419,
+     "ratio_five_calls": 0.15045417372137676
+    },
+    {
+     "problem_id": 1241,
+     "best_seed": "20265924",
+     "best_CE_pct": 0.3998242987248415,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1338,
+     "best_seed": "20263924",
+     "best_CE_pct": -0.266295744812149,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1403,
+     "best_seed": "20265924",
+     "best_CE_pct": -0.3069354296584106,
+     "matched_iters": 10,
+     "ratio_batching_free": 1.0644299446018797,
+     "ratio_five_calls": 0.20759292406919505
+    },
+    {
+     "problem_id": 1443,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.07965306444489079,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.6455923517749765,
+     "ratio_five_calls": 0.13030543345684126
+    },
+    {
+     "problem_id": 1499,
+     "best_seed": "20262924",
+     "best_CE_pct": 0.0997423317636027,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1523,
+     "best_seed": "20261924",
+     "best_CE_pct": 0.11552192121777557,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1530,
+     "best_seed": "20261924",
+     "best_CE_pct": 0.3569111975083462,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1580,
+     "best_seed": "20265924",
+     "best_CE_pct": 1.1987915982697543,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1581,
+     "best_seed": "20262924",
+     "best_CE_pct": 0.23046424417994238,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.6844350059673184,
+     "ratio_five_calls": 0.13842325465254932
+    },
+    {
+     "problem_id": 1629,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.031161903752146697,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1681,
+     "best_seed": "20263924",
+     "best_CE_pct": 1.9162766758414396,
+     "matched_iters": 15,
+     "ratio_batching_free": 1.346608694365691,
+     "ratio_five_calls": 0.2697057431860244
+    },
+    {
+     "problem_id": 1760,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.033835239487485354,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 1788,
+     "best_seed": "20265924",
+     "best_CE_pct": 2.424781957540679,
+     "matched_iters": 15,
+     "ratio_batching_free": 1.8507996977243064,
+     "ratio_five_calls": 0.3676141671571263
+    },
+    {
+     "problem_id": 1817,
+     "best_seed": "20261924",
+     "best_CE_pct": 0.3853330905496717,
+     "matched_iters": 75,
+     "ratio_batching_free": 6.467111385814568,
+     "ratio_five_calls": 1.306697196030833
+    },
+    {
+     "problem_id": 1972,
+     "best_seed": "20263924",
+     "best_CE_pct": 0.10372882572574822,
+     "matched_iters": 100,
+     "ratio_batching_free": 7.6501346430903165,
+     "ratio_five_calls": 1.5430318403198877
+    },
+    {
+     "problem_id": 1974,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.7203136462618767,
+     "matched_iters": 40,
+     "ratio_batching_free": 4.6222121753131225,
+     "ratio_five_calls": 0.9344280514183806
+    },
+    {
+     "problem_id": 1985,
+     "best_seed": "20264924",
+     "best_CE_pct": 0.36397471633704154,
+     "matched_iters": 15,
+     "ratio_batching_free": 1.1179401093053682,
+     "ratio_five_calls": 0.22464423655500732
+    }
+   ]
+  }
+ },
+ "64": {
+  "post hoc rule": {
+   "median_ratio_batching_free": null,
+   "median_ratio_five_calls": null,
+   "matched": 9,
+   "problems": 25,
+   "median_ce_gain_pp": 0.4198852625042403,
+   "per_problem": [
+    {
+     "problem_id": 15,
+     "best_seed": "20265924",
+     "best_CE_pct": 1.961019892754367,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 676,
+     "best_seed": "20262924",
+     "best_CE_pct": -0.12336517063523686,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 839,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.02588286499307732,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 935,
+     "best_seed": "20265924",
+     "best_CE_pct": -0.1786237736231423,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 961,
+     "best_seed": "20261924",
+     "best_CE_pct": 2.036507814705221,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 86,
+     "best_seed": "20262924",
+     "best_CE_pct": 0.3522119075640372,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.421227551101428,
+     "ratio_five_calls": 0.08388859380744935
+    },
+    {
+     "problem_id": 121,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.46719822639332026,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 134,
+     "best_seed": "20264924",
+     "best_CE_pct": 1.0610136466093893,
+     "matched_iters": 30,
+     "ratio_batching_free": 2.0236700203306888,
+     "ratio_five_calls": 0.3854009889793239
+    },
+    {
+     "problem_id": 241,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.4561960034211785,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 338,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.021523917713152194,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 403,
+     "best_seed": "20263924",
+     "best_CE_pct": -1.0843443498154293,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 443,
+     "best_seed": "20265924",
+     "best_CE_pct": 0.1664257579875472,
+     "matched_iters": 15,
+     "ratio_batching_free": 0.6790404209179869,
+     "ratio_five_calls": 0.13422814976776257
+    },
+    {
+     "problem_id": 499,
+     "best_seed": "20261924",
+     "best_CE_pct": 0.04976094647941362,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.4147517805819848,
+     "ratio_five_calls": 0.08274676293729652
+    },
+    {
+     "problem_id": 523,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.12024548047257357,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 530,
+     "best_seed": "20262924",
+     "best_CE_pct": 4.480775400106252,
+     "matched_iters": 100,
+     "ratio_batching_free": 5.0619581184216464,
+     "ratio_five_calls": 0.9706037756029854
+    },
+    {
+     "problem_id": 580,
+     "best_seed": "20262924",
+     "best_CE_pct": 1.5666174175714027,
+     "matched_iters": 20,
+     "ratio_batching_free": 0.9585671176238084,
+     "ratio_five_calls": 0.18302559307508312
+    },
+    {
+     "problem_id": 581,
+     "best_seed": "20265924",
+     "best_CE_pct": -0.3565562133153073,
+     "matched_iters": 15,
+     "ratio_batching_free": 0.5894147504039514,
+     "ratio_five_calls": 0.11182860739892816
+    },
+    {
+     "problem_id": 629,
+     "best_seed": "20261924",
+     "best_CE_pct": 1.248127897149067,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 681,
+     "best_seed": "20263924",
+     "best_CE_pct": -0.042054655406963994,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 760,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.011430906654567008,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 788,
+     "best_seed": "20263924",
+     "best_CE_pct": 0.038785031157524436,
+     "matched_iters": 100,
+     "ratio_batching_free": 2.1568347215933703,
+     "ratio_five_calls": 0.4305625868017767
+    },
+    {
+     "problem_id": 817,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.2376519401688897,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 972,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.009147055261765989,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 974,
+     "best_seed": "20262924",
+     "best_CE_pct": 0.027971700992235116,
+     "matched_iters": 20,
+     "ratio_batching_free": 0.5881181133240079,
+     "ratio_five_calls": 0.11726318984981433
+    },
+    {
+     "problem_id": 985,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.018477046268333738,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    }
+   ]
+  },
+  "pre-registered rule": {
+   "median_ratio_batching_free": null,
+   "median_ratio_five_calls": null,
+   "matched": 10,
+   "problems": 25,
+   "median_ce_gain_pp": 0.4198852625042403,
+   "per_problem": [
+    {
+     "problem_id": 15,
+     "best_seed": "20265924",
+     "best_CE_pct": 1.961019892754367,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 676,
+     "best_seed": "20262924",
+     "best_CE_pct": -0.12336517063523686,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 839,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.02588286499307732,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 935,
+     "best_seed": "20265924",
+     "best_CE_pct": -0.1786237736231423,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 961,
+     "best_seed": "20261924",
+     "best_CE_pct": 2.036507814705221,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 86,
+     "best_seed": "20262924",
+     "best_CE_pct": 0.3522119075640372,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.421227551101428,
+     "ratio_five_calls": 0.08388859380744935
+    },
+    {
+     "problem_id": 121,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.46719822639332026,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 134,
+     "best_seed": "20264924",
+     "best_CE_pct": 1.0610136466093893,
+     "matched_iters": 30,
+     "ratio_batching_free": 2.0236700203306888,
+     "ratio_five_calls": 0.3854009889793239
+    },
+    {
+     "problem_id": 241,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.4561960034211785,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 338,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.021523917713152194,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 403,
+     "best_seed": "20263924",
+     "best_CE_pct": -1.0843443498154293,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 443,
+     "best_seed": "20265924",
+     "best_CE_pct": 0.1664257579875472,
+     "matched_iters": 15,
+     "ratio_batching_free": 0.6790404209179869,
+     "ratio_five_calls": 0.13422814976776257
+    },
+    {
+     "problem_id": 499,
+     "best_seed": "20261924",
+     "best_CE_pct": 0.04976094647941362,
+     "matched_iters": 10,
+     "ratio_batching_free": 0.4147517805819848,
+     "ratio_five_calls": 0.08274676293729652
+    },
+    {
+     "problem_id": 523,
+     "best_seed": "20264924",
+     "best_CE_pct": -0.12024548047257357,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 530,
+     "best_seed": "20262924",
+     "best_CE_pct": 4.480775400106252,
+     "matched_iters": 100,
+     "ratio_batching_free": 5.0619581184216464,
+     "ratio_five_calls": 0.9706037756029854
+    },
+    {
+     "problem_id": 580,
+     "best_seed": "20262924",
+     "best_CE_pct": 1.5666174175714027,
+     "matched_iters": 15,
+     "ratio_batching_free": 0.7494333455262048,
+     "ratio_five_calls": 0.14309429148289246
+    },
+    {
+     "problem_id": 581,
+     "best_seed": "20265924",
+     "best_CE_pct": -0.3565562133153073,
+     "matched_iters": 15,
+     "ratio_batching_free": 0.5894147504039514,
+     "ratio_five_calls": 0.11182860739892816
+    },
+    {
+     "problem_id": 629,
+     "best_seed": "20261924",
+     "best_CE_pct": 1.248127897149067,
+     "matched_iters": 20,
+     "ratio_batching_free": 0.8823129780116802,
+     "ratio_five_calls": 0.17391946552531942
+    },
+    {
+     "problem_id": 681,
+     "best_seed": "20263924",
+     "best_CE_pct": -0.042054655406963994,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 760,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.011430906654567008,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 788,
+     "best_seed": "20263924",
+     "best_CE_pct": 0.038785031157524436,
+     "matched_iters": 100,
+     "ratio_batching_free": 2.1568347215933703,
+     "ratio_five_calls": 0.4305625868017767
+    },
+    {
+     "problem_id": 817,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.2376519401688897,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 972,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.009147055261765989,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    },
+    {
+     "problem_id": 974,
+     "best_seed": "20262924",
+     "best_CE_pct": 0.027971700992235116,
+     "matched_iters": 20,
+     "ratio_batching_free": 0.5881181133240079,
+     "ratio_five_calls": 0.11726318984981433
+    },
+    {
+     "problem_id": 985,
+     "best_seed": "20261924",
+     "best_CE_pct": -0.018477046268333738,
+     "matched_iters": null,
+     "ratio_batching_free": null,
+     "ratio_five_calls": null
+    }
+   ]
+  }
+ }
+}

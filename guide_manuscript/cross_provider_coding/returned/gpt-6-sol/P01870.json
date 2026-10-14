@@ -1,0 +1,26 @@
+{
+  "pid": "P01870",
+  "citation": {
+    "title": "Exploring VAE-driven implicit parametric unit cells for multiscale topology optimization",
+    "authors": "Chenchen Chu, Alexander Leichner, Franziska Wenz, Heiko Andrä",
+    "year": 2024,
+    "venue": "Materials & Design 244, 113087",
+    "doi": "10.1016/j.matdes.2024.113087",
+    "version_coded": "version of record, author-uploaded open copy"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-MLONLY", "stratum": "none", "method_family": "vae", "physics": "multiphysics", "dim": "2d"},
+  "claim": {},
+  "baseline": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-excluded", "evidence": "Section 3.3.1: no eligible classical-method comparison; full-text exclusion."},
+    "R2": {"verdict": "na", "marker": "R2-excluded", "evidence": "Section 3.3.1: no eligible classical-method comparison; full-text exclusion."},
+    "R3": {"verdict": "na", "marker": "R3-excluded", "evidence": "Section 3.3.1: no eligible classical-method comparison; full-text exclusion."},
+    "R4": {"verdict": "na", "marker": "R4-excluded", "evidence": "Section 3.3.1: no eligible classical-method comparison; full-text exclusion."}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Section 3.3.1 and Figures 16-17 compare multiscale designs produced from two VAE-managed cell datasets. Classical TO creates training cells (section 3.1.1), but no classical, non-learned optimizer is used as a comparison method for the VAE-assisted optimization. The conclusion's reference to conventional structural parametrization is qualitative motivation, not a run, timing, or cited result for that comparator."
+}

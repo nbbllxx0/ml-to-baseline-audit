@@ -1,0 +1,101 @@
+{
+ "notebook": "train_network",
+ "pinning": {
+  "pinned": true,
+  "affinity_mask": "0xfff",
+  "priority": "HIGH_PRIORITY_CLASS"
+ },
+ "cells": [
+  {
+   "index": 0,
+   "seconds": 2.3280669000232592,
+   "source": "import sys\nsys.path.append('../')\n\nimport yaml\n\nimport torch\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimport dataset\nimport networks\nimport utils\n_Ext = utils.Extent\nfrom sklearn.model_selection import KFold"
+  },
+  {
+   "index": 1,
+   "seconds": 0.00635930011048913,
+   "source": "with open('../settings.yaml', 'r') as file:\n  config = yaml.safe_load(file)\n\n\ntrain_cfg = config['NN_TRAINING']\nnn_cfg = config['NEURAL_NETWORK']"
+  },
+  {
+   "index": 2,
+   "seconds": 0.003819699981249869,
+   "source": "# input data\ncx_raw = np.load('../data/cx_aniso_raw.npy')\ncy_raw = np.load('../data/cy_aniso_raw.npy')\nbeta_raw = np.load('../data/beta_aniso_raw.npy')\norient_raw = np.load('../data/orient_aniso_raw.npy')\naniso_raw = np.load('../data/aniso_raw.npy')\n\n# output data\nvf_raw = np.load('../data/vf_aniso_raw.npy')\nconstit_chol_raw = np.load('../data/const_chol_aniso_raw.npy')"
+  },
+  {
+   "index": 3,
+   "seconds": 6.290001329034567e-05,
+   "source": "num_samples = cx_raw.shape[0]\n\nprint(f'We have {num_samples} samples')"
+  },
+  {
+   "index": 4,
+   "seconds": 0.0019706999883055687,
+   "source": "# input\n\n# All the cx of the first cell stacked on top of the second and so on...\n# note that the center cell corresponds to the 4th entry (look at neighbors code)\nnn_in_raw = np.hstack(( cx_raw.reshape((num_samples, -1)),\n                        cy_raw.reshape((num_samples, -1)),\n                        beta_raw[:, np.newaxis],\n                        orient_raw[:, np.newaxis],\n                        aniso_raw[:, np.newaxis],))\n\nprint(f'input data contains {nn_in_raw.shape[0]} samples with {nn_in_raw.shape[1]} features')\n\n# output\nnn_out_raw = np.vstack((constit_chol_raw[:,0],\n                        constit_chol_raw[:,1],\n                        constit_chol_raw[:,2],\n                        constit_chol_raw[:,3],\n                        constit_chol_raw[:,4],\n                        constit_chol_raw[:,5],\n                        vf_raw\n                        )).T\n\nprint(f'output data contains {nn_out_raw.shape[0]} samples with {nn_out_raw.shape[1]} features')"
+  },
+  {
+   "index": 5,
+   "seconds": 0.0008978000842034817,
+   "source": "output_mean, output_std = np.mean(nn_out_raw, axis=0), np.std(nn_out_raw, axis=0)\n\nnp.save('../data/output_mean', output_mean)\nnp.save('../data/output_std', output_std)"
+  },
+  {
+   "index": 6,
+   "seconds": 0.00021980004385113716,
+   "source": "nn_out = utils.normalize_z_scale(nn_out_raw, output_mean, output_std)"
+  },
+  {
+   "index": 7,
+   "seconds": 0.003195500001311302,
+   "source": "num_train = 10000\nnum_test = 1000\nnum_validate = 1000\n\nvoronoi_data = dataset.VoronoiDataset(voronoi_params=nn_in_raw,\n                                      homogen_params=nn_out)\n\ntrain_data = torch.utils.data.Subset(voronoi_data, np.arange(0, num_train))\ntest_data = torch.utils.data.Subset(voronoi_data, np.arange(num_train, num_train+ num_test))\nval_data = torch.utils.data.Subset(voronoi_data, np.arange(num_train+ num_test, num_train+ num_test+num_validate))"
+  },
+  {
+   "index": 8,
+   "seconds": 0.00045430008322000504,
+   "source": "num_workers = 0\nbatch_size = train_cfg['batch_size']\n\ntrain_loader = torch.utils.data.DataLoader(train_data, \n                                           batch_size=batch_size,\n                                           shuffle=True,\n                                           num_workers=num_workers)\ntest_loader = torch.utils.data.DataLoader(test_data,\n                                          batch_size=batch_size,\n                                          shuffle=True,\n                                          num_workers=num_workers)"
+  },
+  {
+   "index": 9,
+   "seconds": 0.006417899974621832,
+   "source": "\nnn_settings = networks.NNSettings(\n                          input_dim = nn_in_raw.shape[1],\n                          num_layers = nn_cfg['num_layers'],\n                          num_neurons_per_layer = nn_cfg['neurons_per_layer'],\n                          output_dim = nn_out.shape[1]\n                          )\n\nvoro_net = networks.VoronoiNet(nn_settings)"
+  },
+  {
+   "index": 10,
+   "seconds": 0.9402360999956727,
+   "source": "# Optimizer\noptimizer = torch.optim.Adam(voro_net.parameters(), lr= train_cfg['lr'])"
+  },
+  {
+   "index": 11,
+   "seconds": 0.0001824999926611781,
+   "source": "def get_C_matrix(homo_params_unnormalized):\n  L = torch.zeros((homo_params_unnormalized.shape[0], 3, 3))\n  L[:,0,0] = torch.clip(homo_params_unnormalized[:, 0], min=1e-3)\n  L[:,1,1] = torch.clip(homo_params_unnormalized[:, 1], min=1e-3)\n  L[:,2,2] = torch.clip(homo_params_unnormalized[:, 2], min=1e-3)\n  L[:,1,0] = homo_params_unnormalized[:, 3]\n  L[:,2,0] = homo_params_unnormalized[:, 4]\n  L[:,2,1] = homo_params_unnormalized[:, 5]\n  C_matrix = torch.einsum('dij,djk->dik',L, torch.transpose(L, 1, 2))\n  return C_matrix"
+  },
+  {
+   "index": 12,
+   "seconds": 0.004936099983751774,
+   "source": "homo_params_unnorm = torch.tensor(nn_out_raw)\nC_matrix = get_C_matrix(homo_params_unnorm)\nmax_C_norm = torch.amax(torch.linalg.norm(C_matrix, dim=(1, 2)))"
+  },
+  {
+   "index": 13,
+   "seconds": 0.00020840007346123457,
+   "source": "def loss_wrapper(homo_params, pred_homo_params):\n  homo_params_unnorm = utils.unnormalize_z_scale(homo_params, torch.tensor(output_mean), torch.tensor(output_std))\n  pred_homo_params_unnorm = utils.unnormalize_z_scale(pred_homo_params, torch.tensor(output_mean), torch.tensor(output_std))\n\n  pred_vf = pred_homo_params_unnorm[:, 6].unsqueeze(1)\n  vf = homo_params_unnorm[:, 6].unsqueeze(1)\n\n  pred_C_matrix = get_C_matrix(pred_homo_params_unnorm).view(homo_params_unnorm.shape[0], -1)\n  C_matrix = get_C_matrix(homo_params_unnorm).view(homo_params_unnorm.shape[0], -1)\n  \n  pred_C_vf = torch.hstack((pred_C_matrix, pred_vf))\n  actual_C_vf = torch.hstack((C_matrix, vf))\n  \n  mean_squared_loss = torch.mean((pred_C_vf - actual_C_vf)**2 )\n\n  return mean_squared_loss.item()"
+  },
+  {
+   "index": 14,
+   "seconds": 119.3455179000739,
+   "source": "# number of epochs to train the model\nnum_epochs = train_cfg['num_epochs']\n\nconvg_history = {'train_loss': [], 'test_loss': [], 'val_loss': []}\n\nfor epoch in range(1, num_epochs+1):\n\n  net_loss = 0.\n\n  for data in train_loader:\n\n    voro_params, homo_params = data\n    optimizer.zero_grad()\n\n    pred_homo_params = voro_net(voro_params)\n\n    loss = torch.mean((pred_homo_params - homo_params)**2)\n\n    loss.backward()\n    optimizer.step()\n\n    net_loss += loss.item()\n\n\n  net_loss = net_loss/len(train_loader)\n\n  print(f'epoch: {epoch:d} \\t loss: {net_loss:.2E}')\n  \n\n  if epoch%1 == 0:\n    voro_params, homo_params = train_data[:]\n    pred_homo_params = voro_net(voro_params)\n    \n    loss = loss_wrapper(homo_params, pred_homo_params)\n    convg_history['train_loss'].append(loss)\n\n    voro_params, homo_params = test_data[:]\n    pred_homo_params = voro_net(voro_params)\n\n    \n    test_loss = loss_wrapper(homo_params, pred_homo_params)\n    convg_history['test_loss'].append(test_loss)\n\n\n    voro_params, homo_params = val_data[:]\n    pred_homo_params = voro_net(voro_params)\n    \n    val_loss = loss_wrapper(homo_params, pred_homo_params)\n    convg_history['val_loss'].append(val_loss)\n\n\n    print(\"-\"*65)\n    print(f'Validation: {epoch:d} \\t loss: {val_loss:.2E}')\n    print(\"-\"*65)"
+  },
+  {
+   "index": 15,
+   "seconds": 0.013016799930483103,
+   "source": "plt.figure()\nplt.plot(convg_history['train_loss'], label='Training Loss')\nplt.plot(convg_history['test_loss'], label='Testing Loss')\nplt.plot(convg_history['val_loss'], label='Validation Loss')\nplt.xlabel('Epoch')\nplt.ylabel('Loss')\nplt.legend()\nplt.show()"
+  },
+  {
+   "index": 16,
+   "seconds": 0.008859599940478802,
+   "source": "torch.save(voro_net.state_dict(), '../data/voro_net.pt')"
+  },
+  {
+   "index": 17,
+   "seconds": 0.021337299956940114,
+   "source": "voro_net = networks.VoronoiNet(nn_settings)\nvoro_net.load_state_dict(torch.load('../data/voro_net.pt'))\nvoro_net.eval()"
+  }
+ ],
+ "total_seconds": 122.68651169992518
+}

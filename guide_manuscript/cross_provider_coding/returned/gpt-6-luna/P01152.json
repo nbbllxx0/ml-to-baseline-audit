@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P01152",
+    "citation":  {
+                     "title":  "Topology optimization of 2D structures with nonlinearities using deep learning",
+                     "authors":  "Diab W. Abueidda, Seid Koric, Nahil A. Sobh",
+                     "year":  2020,
+                     "venue":  "Computers \u0026 Structures",
+                     "doi":  "10.1016/j.compstruc.2020.106283",
+                     "arxiv_id":  "2002.01896",
+                     "version_coded":  "arXiv v4 (latest)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "cnn",
+                     "physics":  "multiphysics",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "CNN models predict optimized 2D designs without running the iterative optimizer for each query, with negligible inference time.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "Inference time is described as negligible, but no classical runtime or speed-up factor is provided.",
+                  "direction":  "outperform",
+                  "alternatives":  "Conclusion says the predicted designs agree well with rigorous nonlinear TO results; test-set mean Dice scores are reported for design similarity."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP topology optimization",
+                     "implementation":  "SIMULIA TOSCA called from implicit FEA software; sensitivity-based solver with MMA",
+                     "solver":  "TOSCA sensitivity-based solver / MMA; FE linear solver not stated",
+                     "hardware_classical":  "HPC used for generating optimization data; specific hardware not stated",
+                     "hardware_ml":  "single NVIDIA V100 GPU with 32 GB for training; inference platform described as low-end laptop",
+                     "problem_size":  "2D design domains; 32 x 32 elements for compared cases",
+                     "classical_iterations":  "iterative TOSCA optimization; stopping count not stated",
+                     "classical_time":  "not reported",
+                     "ml_time":  "described as negligible inference time; no value",
+                     "training_time":  "1.25 h linear and 1.5 h nonlinear on GPU; linear CPU-only 12.5 h (Section 5, Fig. 7)",
+                     "data_generation_cost":  "not stated; datasets generated with TO framework using HPC",
+                     "quality_metric":  "mean Dice similarity coefficient (DSC) between predicted and ground-truth designs",
+                     "quality_gap":  "mean testing DSC 0.958 (linear) and 0.964 (nonlinear), Sections 5 and Figures 10–11"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "fail",
+                             "marker":  "R1-unmatched",
+                             "evidence":  "Abstract claims negligible inference cost versus iterative optimization, but returned designs are evaluated against ground truth with image-level DSC rather than matched compliance/objective or equal-time results (Sections 5, Figures 10–11)."
+                         },
+                  "R2":  {
+                             "verdict":  "partial",
+                             "marker":  "R2-commercial",
+                             "evidence":  "Section 2 uses commercial TOSCA with MMA as the classical optimizer; no direct strong-baseline comparison is provided."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-data-cost",
+                             "evidence":  "Section 5 reports training durations (1.25 h linear, 1.5 h nonlinear), but does not report dataset-generation cost or a break-even number."
+                         },
+                  "R4":  {
+                             "verdict":  "fail",
+                             "marker":  "R4-image-metric",
+                             "evidence":  "Sections 5 and Figures 10–11 assess predicted outputs with mean DSC and image examples; returned designs are not reported as FE-verified and failure rates are not counted."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "test sets for 3 problem types (linear without stress constraint, linear with stress constraint, nonlinear); sample test sizes not stated in inspected reporting",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "on_request",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The queue title matches this work under its earlier title; coded the latest arXiv version, corresponding to the 2020 journal article. A guessed arXiv identifier (1910.08735) resolved to an unrelated cell-segmentation paper; it was not used.",
+    "stage":  "cross_provider_pass"
+}

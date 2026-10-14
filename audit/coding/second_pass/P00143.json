@@ -1,0 +1,88 @@
+{
+  "pid": "P00143",
+  "citation": {
+    "title": "Improving Solar Cell Metallization Designs using Convolutional Neural Networks",
+    "authors": "S. Bhattacharya, D. Arya, D. Bhowmick, R. M. Thomas, D. K. Gupta",
+    "year": 2021,
+    "venue": "arXiv preprint (cs.CE)",
+    "doi": "10.48550/arxiv.2104.04017",
+    "arxiv_id": "2104.04017",
+    "version_coded": "arXiv v1 (8 Apr 2021; only version on the abs page - no later revisions exist), full text read from the PDF at https://arxiv.org/pdf/2104.04017"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (abstract/intro/conclusion claim only qualitative outperformance of traditional TO; the first quantitative comparison, in the Results, is a design-quality (efficiency) comparison with no speed/cost claim anywhere)",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "other",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "SolarNet (a CNN weight-reparameterization of the density field, optimized end-to-end by backpropagating through the solar-cell physics model) raised power-conversion efficiency over traditional density-based TO by up to 0.42 percentage points (about 3.5% relative) across 4 busbar configurations on a square cell, and by 0.36 points on a triangular domain.",
+    "key_phrase": "improvements go up to 0.42% in absolute terms",
+    "location": "Sec. 4 main text (Results/Discussion, Fig. 2, Fig. 3); the Abstract, Introduction and Conclusion state only the qualitative claim 'SolarNet improves the performance of solar cells compared to the traditional TO approach', with no number, so per Sec. 5.1's cascade the first quantitative classical comparison (found only in the main text) is taken as the primary outcome",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime, iteration count, or hardware is mentioned anywhere in the article for either SolarNet or the traditional TO baseline; the entire comparison is on design quality (efficiency), so no speed-up factor exists to derive.",
+    "direction": "outperform",
+    "alternatives": "None; this is the only classical (traditional density-based TO) comparison presented. The paper's only other numeric content is the two efficiency-vs-configuration figures already covered above."
+  },
+  "baseline": {
+    "classical_method": "Traditional density-based topology optimization for solar-cell front-metallization design (following Gupta et al. 2015), with density filtering (radius r = 1.5 elements); the design-update scheme (e.g., OC/MMA) is not named",
+    "implementation": "Not stated for the classical TO baseline. SolarNet itself: CNN in TensorFlow 2.0 (5 conv layers, 5x5 kernels, batch norm + Leaky ReLU, final sigmoid, Glorot-normal init), with physics-model derivatives obtained via the Autograd package and adjoint sensitivity analysis for backpropagation through the solar-cell model",
+    "solver": "Not stated (the electrical conduction system GV = I, Eq. 5, is solved by an unspecified finite-element discretization for both methods)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "Square domain 1.5 cm x 1.5 cm (Table 1) and a triangular domain; CNN output resolution 200x200 (stated explicitly only for SolarNet, Sec. 4; the classical TO's own discretization is not restated but the two are compared directly on the same domains, so a matched resolution is inferred, not confirmed)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not applicable: per-problem neural reparameterization, trained end-to-end on the single design instance being optimized (Sec. 3), not on a separate offline dataset; no wall-clock figure is given regardless",
+    "data_generation_cost": "none (no labeled TO dataset is used; Sec. 3)",
+    "quality_metric": "Solar-cell power-conversion efficiency eta = (P_out/A_c)/P_in x 100 (Eq. 7), computed from the physics-based current/voltage model (Eqs. 1-6) applied to the design each method returns; not an image-similarity metric",
+    "quality_gap": "Square cell, 4 busbar configurations (Fig. 2): traditional TO 12.20%, 12.05%, 11.98%, 12.55% vs SolarNet 12.34%, 12.47%, 12.25%, 12.64% [pairing inferred from the text's explicit statement that the maximum absolute improvement is 0.42%, which matches only the 12.05%->12.47% pair]. Triangular domain (Fig. 3): traditional TO 12.31% vs SolarNet 12.67% (0.36 points absolute, about 2.9% relative [derived])."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Both methods solve the identical physics-based efficiency-maximization problem on the same cell shape and busbar layout (Sec. 4), which supports a matched comparison, but neither method's convergence criterion, iteration count, or discretization is stated for the classical TO run (only SolarNet's 200x200 CNN output resolution is given), so exact matching cannot be confirmed from the text - the protocol's own partial example ('the classical stopping rule is unstated') applies directly."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome is a design-quality (efficiency) comparison with no speed or cost claim, so the R2(a)-(e) efficiency criteria do not bear on it. No hardware or solver information is given for either method in any case."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 3: SolarNet optimizes CNN weights for one design instance at a time via end-to-end backpropagation through the physics model, with no pretrained network and no labeled TO dataset (a per-problem neural reparameterization, like Hoyer et al. 2019, on which it is explicitly built). Its cost sits inside R1/R2, and no speed claim is made in any case."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Efficiency is computed from the genuine physics-based current/voltage model (Eqs. 1-7) applied to each method's own returned design, not an image-similarity metric. However, the article reports no volume/material constraint, no connectivity check, and no failure or infeasibility rate for any of the returned metallization patterns (a disconnected busbar trace would be a realistic failure mode for this problem, but this is never discussed)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5 design cases: a square cell under 4 busbar configurations (Fig. 2) plus 1 triangular-domain case (Fig. 3)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Access: arXiv HTML and PDF both returned HTTP 200 with no bot-check; the article has only one arXiv version (v1, 8 Apr 2021). Full text (6 pages) read in full via PDF text extraction. No author named Jun Wang (authors: S. Bhattacharya, D. Arya, D. Bhowmick, R. M. Thomas, D. K. Gupta). Duplicate check: audit/pool/pool.csv searched for 'Solar Cell Metallization' (case-insensitive) returned exactly one match (this record, pid P00143); no FT-DUPLICATE applies. Full-text inclusion (Sec. 3-4): the article is a learned-model (CNN) reparameterization of density-based TO (Sec. 3), an arXiv preprint in English from 2021 (within the date window), and it runs and reports a classical, non-learned comparator ('traditional density-based TO') rather than only citing one, so FT-NOBASELINE does not apply. The one judgment call is physics scope: the governing physics is electrical conduction on the solar cell's front surface (Ohm's/Kirchhoff's law, Eq. 4-5), which the protocol's Sec. 3.1 list does not name explicitly (it names elasticity, heat conduction, and compliant mechanisms). I treated this as in scope because the governing equation (a linear elliptic conduction problem, GV = I) is structurally the same class as heat conduction, not 'electromagnetic TO' in the Maxwell/antenna/radiation sense that Sec. 4 excludes; physics is coded as 'other' rather than 'compliance'/'heat_thermal' to keep this distinction visible, and this scope call is flagged for the adjudicator given it is not explicitly addressed in the protocol or its Sec. 11 deviations log. method_family = neural_reparam because SolarNet optimizes CNN weights end-to-end per design instance (Sec. 3), the same family as Hoyer et al. 2019 (which it explicitly builds on) and as the HGTO example provided for this task. Code: footnote 1 states 'Code is publicly available at https://github.com/transmuteAI/SolarNet' (verified via the GitHub API, 2026-09-24: repository exists, not archived, last pushed 2021-04-09, but no license is declared). retest_candidate is set to false despite the public repository, because (a) no license is declared, so permission to run/redistribute is unclear, and (b) there is no speed/cost claim in this quality-only article for a re-test to target."
+}

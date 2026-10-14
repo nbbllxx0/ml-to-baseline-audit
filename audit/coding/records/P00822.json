@@ -1,0 +1,60 @@
+{
+ "pid": "P00822",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Wasserstein generative adversarial networks for topology optimization",
+  "authors": "Lucas Matheus Silva Pereira, Larissa Driemeier",
+  "year": 2024,
+  "venue": "Structures 67 (2024) 106924 (Elsevier; issue dated September 2024; hybrid open access with a CC BY-NC-ND licence per OpenAlex and Semantic Scholar; Crossref lists only text-mining licences)",
+  "doi": "10.1016/j.istruc.2024.106924",
+  "arxiv_id": "none found",
+  "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); full text not reachable by this agent"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "gan",
+  "physics": "compliance",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (abstract only). The abstract says WGANs trained on a TO dataset map physical fields such as von Mises stress to final optimized layouts, removing the iterative algorithm; designs are assessed with metrics, but no classical comparison or number is given.",
+  "location": "Abstract (pool record, from OpenAlex)",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "no full text"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent 'Mozilla/5.0 (research-audit)'. (1) The open copy OpenAlex lists is the DOI; it resolves to ScienceDirect PII S2352012424010762, which answered HTTP 403 with a captcha/robot page to curl. No bypass was attempted. (2) OpenAlex (stored lookup) and Semantic Scholar list no location other than the publisher. (3) Europe PMC: no record. (4) arXiv API: no version (title query 'Wasserstein' AND 'topology optimization'; the author query on Driemeier returns only unrelated papers). (5) The University of S\u00e3o Paulo repository (repositorio.usp.br/item/003252478) holds a record of the article with a published-version PDF (3252478.pdf), but the repository labels that file 'Privado' (private) and gives no public link, so it was not requested. Free to read in a browser: probably yes, since OpenAlex, Semantic Scholar and the USP record (via Unpaywall) all report hybrid open access, but Crossref shows no Creative Commons licence and this agent could not confirm it [inferred]. A human can try https://doi.org/10.1016/j.istruc.2024.106924, or ask USP for the repository copy. The abstract's only comparative framing is speed by removing the iterative TO algorithm, not measured; the full text decides whether any SIMP run is timed (else FT-NOBASELINE) and whether quality is FE-verified or image-based (R4). dim is left unclear, as at screening: the pool abstract does not state 2D or 3D (a search-engine snippet of the publisher page mentions a fixed-mesh 2D problem; unverified). Duplicate check: no prefill matches the title, 'Wasserstein' or the authors. No author named Jun Wang. Screening code was I-SPEED.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00822.json",
+  "result": "full agreement"
+ }
+}

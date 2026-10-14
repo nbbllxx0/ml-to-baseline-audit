@@ -1,0 +1,27 @@
+{
+  "pid": "P00042",
+  "citation": {
+    "title": "Variational Quantum Latent Encoding for Topology Optimization",
+    "authors": "Alireza Tabarraei",
+    "year": 2025,
+    "venue": "Engineering with Computers 41(6), 4549–4573",
+    "doi": "10.1007/s00366-025-02208-x",
+    "arxiv_id": "2506.17487",
+    "version_coded": "arXiv v1 (20 June 2025)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-MLONLY", "stratum": "none", "method_family": "other", "physics": "compliance", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "No non-learned classical optimizer is compared; the Gaussian-sampled latent encoding shares the neural decoder pipeline.", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "Compliance and design diversity, compared between quantum and Gaussian latent encodings", "quality_gap": "not stated"},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Abstract and Sections 5–6 compare quantum latent encoding with Gaussian-sampled latent encoding; neither is a classical optimization method."},
+    "R2": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Abstract and Sections 5–6 provide no comparison against a non-learned classical TO method."},
+    "R3": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Excluded before rule coding because the comparator is ML-only."},
+    "R4": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Excluded before rule coding because the comparator is ML-only."}
+  },
+  "reporting": {"n_test_cases": "", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "partial", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Excluded at full text: the article's baseline is Gaussian latent sampling in the same neural-decoder optimization, not a non-learned classical optimization method. The text describes traditional methods only as background; no classical optimizer result, cost, or runtime is compared."
+}

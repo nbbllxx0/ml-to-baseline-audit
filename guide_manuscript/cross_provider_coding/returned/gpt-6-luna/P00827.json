@@ -1,0 +1,72 @@
+﻿{
+  "pid": "P00827",
+  "citation": {
+    "title": "Stress-constrained optimization of multiscale structures with parameterized microarchitectures using machine learning",
+    "authors": "Nolan Black; Ahmad Najafi",
+    "year": 2024,
+    "venue": "Structural and Multidisciplinary Optimization, 67, article 102",
+    "doi": "10.1007/s00158-024-03821-y",
+    "arxiv_id": "none",
+    "version_coded": "Version of record, open access"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "stress",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Neural surrogates predict local stress 1,000–10,000 times faster than full-scale evaluation or successive homogenization, with reported stress predictions within 10–15% of ground truth.",
+    "key_phrase": "",
+    "location": "Section 3, neural network performance evaluation",
+    "quantitative": true,
+    "claimed_speedup": 1000,
+    "claimed_speedup_basis": "Section 3 reports evaluation speedups of 1,000–10,000 times; the numeric field stores the lower end of that reported range.",
+    "direction": "outperform",
+    "alternatives": "Abstract and Section 6 report that the multiscale designs do not outperform density-based topology optimization in stress-constrained volume minimization; in a multifunctional example they use more material but better match target displacement (Section 5.3)."
+  },
+  "baseline": {
+    "classical_method": "Full-scale finite-element evaluation or successive unit-cell homogenization for local stress evaluation; density-based topology optimization is also used for design-quality comparisons",
+    "implementation": "not stated",
+    "solver": "Finite-element analysis and homogenization; linear solver not stated",
+    "hardware_classical": "not stated for evaluation comparison",
+    "hardware_ml": "not stated for evaluation comparison",
+    "problem_size": "Four pedagogical local-stress cases; optimization examples include domains discretized into 5,632 and 5,000 microstructures (Section 5.2)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated; evaluation speedup reported as 1,000–10,000 times",
+    "ml_time": "not stated; evaluation speedup reported as 1,000–10,000 times",
+    "training_time": "not stated separately",
+    "data_generation_cost": "Approximately one hour to generate training data on Intel i7 at 4.1 GHz, 4 cores; Section 3 reports 1,000 examples for constitutive tensors and 10,000 for stress amplification",
+    "quality_metric": "Relative error norm / RRMSE for maximum microstructural von Mises stress; stress-constraint violation and volume fraction in optimized designs",
+    "quality_gap": "Predicted maximum stress is within 10–15% of ground truth (Section 3); optimized multiscale designs have 1–2% stress-constraint violation in the reported examples (Section 5.2)."
+  },
+  "rules": {
+    "R1": {"verdict": "pass", "marker": "R1-matched-accuracy", "evidence": "Section 3: the surrogate evaluations are compared with full-scale FE/homogenization and reported within 10–15% of ground truth, alongside the speedup claim."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Sections 3 and 5: the text names full-scale FE and successive homogenization comparators but does not establish an inefficient solver, hardware mismatch, or fixed-iteration excess."},
+    "R3": {"verdict": "partial", "marker": "R3-no-amortization", "evidence": "Section 3 reports data generation of about one hour and training-set sizes, but not neural-network training time or break-even use count; Section 6 notes data-generation time should be considered."},
+    "R4": {"verdict": "fail", "marker": "R4-surrogate", "evidence": "Sections 4–5 use surrogate-predicted stresses within optimization and report example constraint violations; the returned optimized designs are not reported as FE-verified."}
+  },
+  "reporting": {
+    "n_test_cases": "Four pedagogical local-stress test cases (Section 3); multiple optimization examples including L-bracket, double L-bracket, stress-concentration, and multifunctional designs (Sections 5.1–5.3).",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Full text accessed as open-access version of record. The 1,000–10,000× claim concerns local stress evaluations inside the design workflow, not a timed end-to-end optimization comparison."
+}

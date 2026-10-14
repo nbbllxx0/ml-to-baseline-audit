@@ -1,0 +1,42 @@
+{
+  "pid": "P00141",
+  "citation": {"title": "GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning", "authors": "Mohammad Mahdi Behzadi, Horea T. Ilies", "year": 2022, "venue": "Journal of Mechanical Design", "doi": "10.1115/1.4052757", "arxiv_id": "2105.03045", "version_coded": "arXiv v1"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR", "stratum": "quality", "method_family": "gan", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "For seen boundary conditions with one force, GANTL outputs differ from SIMP designs by 1.00% average compliance error and 2.12% image MSE across the tested mesh sizes.",
+    "key_phrase": "",
+    "location": "Section 4.2, Table 2",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No paired classical versus GANTL run times or numeric speed-up are reported; the introduction cites 1.85 s per SIMP iteration from a prior paper on a different problem.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Abstract and introduction claim real-time design exploration qualitatively; Tables 3-5 report larger compliance errors for unseen boundary and loading conditions."
+  },
+  "baseline": {
+    "classical_method": "SIMP for training and test ground truth (Sections 3.4, 4.1)",
+    "implementation": "freely available MATLAB code cited as the 88-line SIMP code, modified for automatic case generation (Section 4.1)",
+    "solver": "not stated",
+    "hardware_classical": "UConn HPC facility, Red Hat RHEL7; method-specific hardware not stated (Section 3.5)",
+    "hardware_ml": "UConn HPC facility, Red Hat RHEL7; method-specific hardware not stated (Section 3.5)",
+    "problem_size": "40 x 80 through 200 x 400 elements (Tables 2-5)",
+    "classical_iterations": "not stated for own experiments; introduction cites hundreds of iterations in prior SIMP work",
+    "classical_time": "not stated for own experiments; introduction cites 1.85 s per iteration for a 300 x 100 MMB beam from prior work",
+    "ml_time": "not stated numerically; real-time prediction claimed (abstract and introduction)",
+    "training_time": "not stated numerically; topology-aware loss said to increase training time (Section 4.2)",
+    "data_generation_cost": "11,000 low-resolution cases plus 1,500 high-resolution cases generated with SIMP; time cost not stated here (Sections 3.4, 4.1, 5)",
+    "quality_metric": "compliance error, image MSE, binary accuracy (Section 3.5, Tables 2-5)",
+    "quality_gap": "seen BC/one force: 1.00% mean compliance error; unseen BC/one force: 7.74%; seen BC/two forces: 10.48% (Tables 2-4)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-stratum", "evidence": "Section 4.2, Table 2: primary quantitative comparison is compliance quality, with no paired speed timing."},
+    "R2": {"verdict": "na", "marker": "R2-quality-stratum", "evidence": "Section 4.2, Table 2: no classical versus GANTL timing forms the primary outcome."},
+    "R3": {"verdict": "na", "marker": "R3-quality-stratum", "evidence": "Section 4.2, Table 2: primary outcome is design-quality error, not a quantified speed claim."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 3.5 and Tables 2-5: returned outputs are assigned compliance errors against SIMP, but no volume-violation or disconnected-output rate is reported; the text notes connectivity problems."}
+  },
+  "reporting": {"n_test_cases": "Tables 2-5: 7,473 seen-BC/one-force 40 x 80 tests and smaller sets by mesh and scenario; counts stated per row", "ood_test": "yes", "seeds_or_variance": "yes", "failure_rate_reported": "no", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The paper uses SIMP results as a classical comparator, but the first quantitative GANTL-to-SIMP outcome is quality error in Section 4.2. Real-time speed statements are qualitative, without model inference times."
+}

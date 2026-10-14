@@ -1,0 +1,88 @@
+{
+  "pid": "P00002",
+  "citation": {
+    "title": "Machine-learning-assisted multiscale topology optimization of functionally graded superimposed lattice structures",
+    "authors": "Prashant Kumar Gupta, Jonathan Stollberg, Dominik Schillinger, Mohammad Ashraf Iqbal",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.CE)",
+    "doi": "10.48550/arXiv.2608.28513",
+    "arxiv_id": "2608.28513",
+    "version_coded": "arXiv v1 (28 Aug 2026), HTML full text incl. Appendix A; v1 is the only version; no version of record found (web search 2026-09-24)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Two offline-trained networks, one for stiffness and one for density, stand in for unit-cell homogenization at every MMA lattice iteration, framed as removing the homogenization cost that limits graded-lattice multiscale TO; nothing is timed or run classically.",
+    "key_phrase": "The trained stiffness and density surrogates replace repeated online homogenization",
+    "location": "abstract, sentences 1 and 10; restated in Sec. 4.4 para 1 and Sec. 5 para 2",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No times, FE-solve counts or speed-up factors are reported anywhere (full text read, incl. Appendix A).",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 4.4 para 2: qualitative contrast with plain single-scale SIMP output, which the framework extends with lattice-parameter and relative-density fields; an output-richness claim, not speed or quality. (2) Sec. 5 para 2: the conclusion repeats that the surrogates avoid online unit-cell homogenization. No quantitative comparison with any classical method exists in the article."
+  },
+  "baseline": {
+    "classical_method": "Implicit comparator only: multiscale lattice optimization with repeated online computational homogenization, never run. The pipeline itself uses SIMP with OC and a sensitivity filter for the macroscale stage (Sec. 3, Table 2) and MMA with the NN surrogates for the lattice stage (Sec. 4.2).",
+    "implementation": "No classical baseline implementation. Surrogates in Julia/Flux (Sec. 2.3); training data from an in-house homogenization code with Gmsh meshes and Abaqus cubic Euler-Bernoulli beam elements (Sec. 2.2); MMA from an open-source implementation, ref. [40] (Sec. 4.2).",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "3D MBB beam, domain 20 × 5 × 5, 60 × 15 × 15 = 13,500 first-order hexahedral elements (Sec. 4.1)",
+    "classical_iterations": "No classical run. Pipeline stopping rules: SIMP stage stops on windowed relative compliance change with N = 5 and tolerance 10^-3 (Eq. 25, Table 2); lattice stage stopped after 32 iterations at tolerance 10^-3 (Eq. 29, Sec. 4.2).",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; stiffness network 50,000 epochs with AMSGrad, learning rate 3 × 10^-3 (Sec. 2.3); density network 500 epochs with Adam, learning rate 1 × 10^-3 (Sec. 2.4)",
+    "data_generation_cost": "not stated as time or compute; 1,926 homogenized stiffness samples (Sec. 2.3), each from six unit-strain beam-FE load cases (Eq. 8, Sec. 2.2), and 1,500 Monte Carlo relative-density estimates using 500 to 2,000 points each (Sec. 2.4, Table 1)",
+    "quality_metric": "Surrogate accuracy on held-out data: stiffness R^2 = 0.974, relative L2 error 9.2 %, RMSE 0.32 on 386 test samples (Sec. 2.3, Fig. 6); density R^2 = 0.965, relative L2 error 8.0 %, RMSE 1.1 × 10^-2 on 300 test samples (Sec. 2.4, Fig. 10). Design quality only as the surrogate-based compliance history: final compliance 1.46 times the initial value after 32 iterations (Sec. 4.2, Fig. 13).",
+    "quality_gap": "not stated; the surrogate-based design is never compared with a directly homogenized or classical multiscale design (Sec. 4.4 defers this check)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-no-quality-comparison",
+      "evidence": "Abstract, Sec. 4.4, Sec. 5: the cost-avoidance claim against online homogenization has no design-quality comparison with any classical multiscale result. Sec. 4.4 leaves for future work any check of the final design by direct homogenization."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-no-classical-run",
+      "evidence": "Full text: no classical baseline is executed or timed. The comparator appears only as the avoided cost (abstract sentence 1; Sec. 1 para 3), so solver efficiency and hardware cannot be judged. [judgment] pass would also be defensible."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-amortization",
+      "evidence": "Sec. 2.3-2.4, Table 1: offline effort is given only as counts (1,926 stiffness and 1,500 density samples; 50,000 and 500 epochs). No data-generation or training time and no break-even against the online homogenizations avoided. [judgment] fail is arguable if counts are not accepted as cost."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-surrogate-predicted",
+      "evidence": "Sec. 4.2-4.4, Figs. 13-14: compliance and relative density of the returned lattice design come from the NN surrogates inside the FE model. No direct homogenization, Monte Carlo density check or full-lattice FE of the final design. Sec. 4.4 calls the fields approximate (relative L2 error of the stiffness factors 9.2 %, and 13.0 % for G33; Sec. 2.3)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1 optimization benchmark (3D MBB beam, Sec. 4.1); surrogate hold-out sets of 386 stiffness samples (Sec. 2.3) and 300 density samples (Sec. 2.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "no",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Borderline include: the only comparison with a classical method is a qualitative cost-avoidance claim; the article reports no timing, no solve-count comparison and no classical run. If the verifier judges that no comparison is made, recode as exclude with FT-no-classical-comparison. Data availability section: data and code from the corresponding author on reasonable request. The authors declare LLM-assisted language editing. Figure images were not inspected; coding uses text, tables and captions."
+}

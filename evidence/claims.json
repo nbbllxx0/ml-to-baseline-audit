@@ -1,0 +1,18 @@
+{
+  "mode": "verified only (AI double-coded and agreed or adjudicated)",
+  "n_speed_stratum": 28,
+  "n_with_numeric_claim": 26,
+  "median": 24.5,
+  "q25": 3.33,
+  "q75": 2280.0,
+  "min": 1.16,
+  "max": 300000.0,
+  "direction_counts": {
+    "outperform": 26,
+    "underperform": 0,
+    "similar_or_mixed": 2,
+    "null": 0
+  },
+  "n_below_1": 0,
+  "verified": 28
+}

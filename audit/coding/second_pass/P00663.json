@@ -1,0 +1,88 @@
+{
+  "pid": "P00663",
+  "citation": {
+    "title": "Topology Optimisation under Uncertainties with Neural Networks",
+    "authors": "Martin Eigel, Marvin Haase, Johannes Neumann",
+    "year": 2022,
+    "venue": "Algorithms (MDPI), Vol. 15, No. 7, Article 241",
+    "doi": "10.3390/a15070241",
+    "arxiv_id": "",
+    "version_coded": "Version of record, open access (CC BY 4.0), PDF downloaded from the publisher's own file host at https://mdpi-res.com/d_attachment/algorithms/algorithms-15-00241/article_deploy/algorithms-15-00241.pdf (www.mdpi.com itself returned an Akamai 'Access Denied' bot block to scripted access, not bypassed; the mdpi-res.com file host worked directly)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Table 1/4 (load g=(0,-5000)^T, the main deterministic bridge case): the CNN-augmented optimizer (Algorithm 1) converges in 441 iterations and 4 min 05 s versus the classical Algorithm A1's 538 iterations and 4 min 43 s, at slightly better compliance.",
+    "key_phrase": "Algorithm 1 requires less computing time than the reference procedure",
+    "location": "Section 4.1.3 (Table 1) and Section 4.4 (Table 4, the same experiment with wall-clock time added and extended to 4 more loads plus the TLSTM variant). The Abstract's claim ('clearly outperforms the classical optimisation method') is qualitative, with no numbers",
+    "quantitative": true,
+    "claimed_speedup": 1.15,
+    "claimed_speedup_basis": "Derived, not stated as a factor by the authors: Table 4, load (0,-5000)^T, classical Algorithm A1 = 4 min 43 s (283 s) versus TCNN-augmented Algorithm 1 = 4 min 05 s (245 s); 283/245 = 1.15. The article states only that 'Algorithm 1 requires less computing time than the reference procedure,' with no numeric ratio anywhere.",
+    "direction": "outperform",
+    "alternatives": "Table 4's four other ('extreme') loads give much more modest or inconsistent gains for TCNN: 271/254=1.07, 290/261=1.11, 311/282=1.10, and 137/133=1.03 [derived]. TLSTM (Algorithm 3) is slower than classical on 4 of 5 loads: 274/283=0.97, 274/271=0.99, 281/290=0.97, 283/311=0.91, 179/137=0.77 [derived] - i.e. 30% slower on the last load despite a similar iteration count. Table 2 (stochastic/risk-averse setting, single fixed seed=42): Algorithm 2 reaches lower (better) Jε/compliance (744.11/708.61) than classical Algorithm A2 (765.85/729.20) but needs more iterations (517 vs 490); no wall-clock time is reported for this comparison."
+  },
+  "baseline": {
+    "classical_method": "Deterministic: Allen-Cahn phase-field gradient-flow topology optimization with adjoint-based gradient and adaptive mesh refinement (Algorithm A1, from the authors' prior work [1,2]). Stochastic: a Monte Carlo risk-averse (CVaR) extension of the same scheme (Algorithm A2), N=224 samples per iteration",
+    "implementation": "Authors' own implementation using the open-source FEniCS finite-element framework (Sec. 4); code publicly available at https://github.com/MarvinHaa/DeepNNforTopoOptisation (per the article, accessed 1 June 2022) - confirmed public on 2026-09-24, containing CNN_optimizer.py, LSTM_optimizer.py, optimizer.py and an experiment notebook matching the paper's section numbering, but no LICENSE file was found",
+    "solver": "First-order conforming finite elements (FEniCS) with Dorfler-marking adaptive mesh refinement (Appendix B); the underlying linear-algebra solver within FEniCS is not specified",
+    "hardware_classical": "not stated beyond a generic Acknowledgments line thanking WIAS for 'IT infrastructure'; no CPU/GPU model given",
+    "hardware_ml": "not stated (PyTorch is used for the NN, Sec. 4; batched/parallel evaluation of Monte Carlo samples is mentioned, Sec. 4.1.4, but no GPU/CPU model is named)",
+    "problem_size": "2D bridge benchmark, domain D=[-1,1]x[0,1] (Appendix A.1); adaptive FE mesh capped at |V(Tm)| <= 15,000 vertices (Sec. 4.1.3); NN reference/interpolation mesh 201x101 nodes (Example 1)",
+    "classical_iterations": "Runs to its own adaptive mesh-refinement convergence criterion (Eq. A1); n_final = 538, 473, 457, 470, 365 for the five loads in Table 4",
+    "classical_time": "4 min 43 s, 4 min 31 s, 4 min 50 s, 5 min 11 s, 2 min 17 s for the five loads reported in Table 4 (Sec. 4.4), each the average of 10 runs (Sec. 4.1.3)",
+    "ml_time": "TCNN (Algorithm 1): 4 min 05 s, 4 min 14 s, 4 min 21 s, 4 min 42 s, 2 min 13 s for the same five loads. TLSTM (Algorithm 3): 4 min 34 s, 4 min 34 s, 4 min 41 s, 4 min 43 s, 2 min 59 s (Table 4)",
+    "training_time": "not stated (no epoch count, wall-clock duration, or hardware given for training either the TCNN, 8,806 parameters, or the TLSTM, 509,266 parameters; confirmed by keyword search, no 'epoch'/'GPU'/'hours' figures found)",
+    "data_generation_cost": "not stated numerically; training data are S sample paths of Algorithm A1/A2, storing gradient steps every k iterations up to Nmax=500 (Sec. 4.1.1, 4.2.1), but the value of S and the resulting compute cost of building the dataset are never given",
+    "quality_metric": "The cost functional value Jε(phi_n_final) and the compliance integral (load work over the boundary), both computed via the FE model for the actual returned phase field of each method (Tables 1-4)",
+    "quality_gap": "Load (0,-5000)^T: Jε 1475.39 (A1) vs 1206.49 (TCNN) vs 1209.24 (TLSTM); compliance 1173.22 (A1) vs 1148.66 (TCNN) vs 1151.27 (TLSTM) (Table 4). Across the other 4 loads the ML variants are sometimes slightly better and sometimes slightly worse than classical on both metrics (Tables 3-4); e.g. load (-3197.16,-3844.24)^T: TCNN Jε 852.36 vs classical 845.93 (TCNN slightly worse)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Tables 1 and 4: classical Algorithm A1 and the CNN/LSTM-augmented Algorithms 1 and 3 run to the identical adaptive mesh-refinement convergence criterion (Eq. A1, |V(Tm)| <= 15,000) and are scored by the same cost functional. Both computation time and quality (Jε, compliance) are reported side by side for all 5 loads, including cases unfavorable to the ML methods (TLSTM is slower than classical on 4 of 5 loads), not only a cherry-picked best case."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-unstated-small-problem",
+      "evidence": "No solver detail or hardware is stated for Algorithm A1/A2 beyond a generic WIAS 'IT infrastructure' acknowledgment (no GPU/CPU model anywhere for either the classical or the NN computations), so (b)/(d)/(e) cannot be positively evaluated either way. The mesh is capped at 15,000 vertices, well under the 1e5-DOF threshold for R2(c), and nothing suggests classical and NN run on different hardware classes. The classical method itself is the authors' own published, adaptive-mesh research code, not an obviously inefficient implementation."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost-accounting",
+      "evidence": "The TCNN/TLSTM networks are trained offline on data generated by running classical Algorithm A1/A2 for S sample paths (Sec. 4.1.1, 4.2.1) and are then reused across many future loads g, so this is the offline-training/amortized-reuse case and R3 applies (not na). Neither the data-generation cost (S is never given a numeric value or wall-clock cost) nor the training cost (no epoch count, duration, or hardware) is reported anywhere in the article."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-fe-no-failure-rate",
+      "evidence": "Jε and compliance are computed via the FE model for the actual returned phase field in every reported case (Tables 1-4), a genuine physics-based verification, not an image-similarity proxy. However, no quantitative failure/collapse rate is given: Sec. 4.1.4 and 4.4 discuss topology 'collapse' under a poorly chosen step-size parameter c_m only qualitatively ('this was the case in each of our test runs if the c_m chosen was too small' for TLSTM) without stating how many runs collapsed, and final volume-fraction satisfaction (m=0.4, enforced structurally via the projection in Eq. 6) is not explicitly re-confirmed as a checked number for the Table 1-4 results."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5 distinct loads g (1 expected-value case + 4 'extreme' cases), each averaged over 10 runs, for the deterministic TCNN/TLSTM comparison (Tables 3-4); 1 stochastic risk-averse setting with N=224 Monte Carlo samples per iteration and a fixed seed=42 (Table 2)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": true,
+  "notes": "Primary outcome treated as one continuous result spanning Table 1 (Sec. 4.1.3, quality/iterations) and Table 4 (Sec. 4.4, same experiment with wall-clock time added and extended to 4 more loads and the TLSTM variant); these share identical Algorithm A1/Algorithm 1 numbers for the (0,-5000)^T load, so they are the same underlying comparison rather than two separate candidates. Observed anomaly in the source PDF, not corrected here: Table 4's Algorithm 3 (TLSTM) rows for the (0,-5000)^T and (2632.16,-4251.09)^T loads report identical Jε/compliance (1209.24/1151.27) despite different loads, which looks like a copy-paste error in the published table [observed]; reported as printed. Direction is coded 'outperform' to match the headline row and the Abstract's claim, but the fuller Table 4 picture (4 of 5 TLSTM cases slower than classical, TCNN speed-ups ranging only 1.03x-1.16x) is materially more modest/mixed - see rules and alternatives. R3 fails despite this otherwise being one of the more carefully reported papers in the queue (real wall-clock times, adaptive mesh refinement matched between methods, extreme-case/OOD stress testing, public code) - training and data-generation cost are simply never quantified. Data Availability Statement literally reads 'Not applicable' (mapped to data_available=no) even though the code repository (confirmed public, 2026-09-24) would let a user regenerate data; no LICENSE file was found in that repository, but the article explicitly states the code is published to reproduce the work, so retest_candidate is set to true. No author named Jun Wang. No duplicate pool record found for this title or DOI (pool.csv has only P00663; a keyword search also returned the unrelated P00616, a different CNN-based robust-TO article)."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P02361",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Distributed design optimization of multi-component systems using meta models and topology optimization",
+    "authors": "Lukas Krischer, Felix Endress, Tobias Wanninger, Markus Zimmermann",
+    "year": 2024,
+    "venue": "Structural and Multidisciplinary Optimization 67:160 (published online 12 Sep 2024; CC BY 4.0)",
+    "doi": "10.1007/s00158-024-03836-5",
+    "arxiv_id": "none found",
+    "version_coded": "Version of record: publisher PDF (20 pp.) from link.springer.com (the open copy OpenAlex lists), read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screening code confirmed at full text)",
+    "stratum": "quality",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Designs from the meta-model-based decoupled architecture (system optimization with learned feasibility and mass estimators, then independent component TO) are feasible but up to 12.9% heavier than monolithic TO of the whole system.",
+    "key_phrase": "at most 12.9% heavier than those of a monolithic optimization",
+    "location": "Abstract (quantitative comparison with a classical method); numbers in Table 5, p. 16 (P2, 12.9%) and Table 3, pp. 12-13 (P1, 3.87-8.18%); restated in Sec. 8",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime is reported for either approach; Sec. 7 states that time was not investigated and that meta-model training is not counted. The conclusion says only that computation time may be significantly reduced (qualitative).",
+    "direction": "underperform",
+    "alternatives": "(1) P1, Sec. 5.4 and Table 3: two-component system, six single-load-case problems; the decoupled designs are 3.87-8.18% heavier, with both approaches feasible. (2) Sec. 7 and 8, qualitative: smaller subproblems and no coordination, so computation time may drop; not measured, training excluded."
+  },
+  "baseline": {
+    "classical_method": "Monolithic SIMP-based topology optimization of all components together: minimum mass subject to the end-effector displacement requirement for every load case (approach A, Eq. 4). The component optimizations use SIMP (p = 3, sensitivity filter r = 2) with MMA (Sec. 3.2); the optimizer used for A is not stated [same tools inferred]",
+    "implementation": "MATLAB (replication statement); custom code, not released",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "P1: two components, each a 30×30×100 mm box meshed with 20×8×8 brick elements (Sec. 5.1) [1,280 elements per component, derived]; P2: four components 30×30 mm in section, lengths 150/100/50/50 mm, 100 load cases (Sec. 6.1); P2 mesh not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "not reported (Sec. 7)",
+    "ml_time": "not reported (Sec. 7)",
+    "training_time": "not reported; Sec. 7 notes that training of meta models is not taken into account",
+    "data_generation_cost": "not stated; each training sample is a component TO run from active-learning sampling of the 8-dimensional stiffness space (Sec. 3.3, 5.2, 6.2); sample counts only shown in Figs. 11 and 15; Sec. 7 calls the offline database computationally expensive",
+    "quality_metric": "System mass (g) and relative mass deviation from approach A; end-effector displacement relative to the 1 mm limit; meta-model FPR, TPR, accuracy, R² and MSE (Tables 2-5)",
+    "quality_gap": "P2: 250.6 g vs 221.9 g, +12.9%; max displacement 0.99 vs 1.00 mm (Table 5). P1: +3.87% (LC1), 8.06% (LC2), 8.18% (LC3), 5.83% (LC4), 6.90% (LC5), 7.20% (LC6); displacement ratios 0.99-1.00 (Table 3; Sec. 5.4)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Tables 3 and 5: both approaches solve the same problems with the same design domains, P1 mesh, material and 1 mm displacement limit, and both designs are feasible, so mass is compared at matched constraints. The stopping rules of the monolithic run and the component runs are not stated, which the protocol lists as loose matching. The comparison disfavors the ML approach; pass is defensible if the shared setup is given more weight."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "No runtime of either approach is reported (Sec. 7), and no speed claim is quantified, so the efficiency criteria (a)-(e) do not apply. The monolithic baseline is the authors' own MATLAB SIMP formulation on the same model."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No quantified speed claim. For C3: neither sampling (component TO runs) nor meta-model training cost is reported; Sec. 7 calls the offline database computationally expensive and says training is excluded from the time argument."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Tables 3 and 5: mass and end-effector displacement are reported for the returned component designs of both approaches. The displacement is computed from the condensed FE stiffness of the detailed designs [inferred from Sec. 3.2]. Constraint satisfaction is reported for every case (0.99-1.00 of the limit), and all final designs are feasible (Sec. 5.4, 6.4). A failed temporary classifier during sampling is disclosed (Sec. 6.2)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "P1: 6 load cases, each solved as a separate two-component problem (Table 3); P2: one four-component robot with 100 load cases (Table 5)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Scope: learned meta models (a physical-feasibility classifier and a mass regressor over an 8-dimensional stiffness representation, trained by active learning) set the component stiffness targets, so that component TO can run without the monolithic coupling. This counts as ML used to produce or replace iterative TO at system level. The model type (e.g. SVM or neural network) is not stated in this article, which refers to Krischer et al. 2022 for the sampling strategy; method_family keeps the screening value. The system optimization uses particle swarm optimization with the meta models (Sec. 3.1). Direction: underperform in quality, with a speed advantage asserted but never measured (C4 relevant). Minor inconsistency: percentages recomputed from the rounded masses in Table 3 differ slightly from the stated ones, e.g. LC4 120.7/114.0 = 5.88% [derived] vs 5.83% stated, and LC2 8.01% vs 8.06%; P2 250.6/221.9 = 12.93% [derived] matches. PSO is stochastic, but no repeats or seeds are reported. Replication statement: results reproducible with MATLAB and the derivations; no code or data link. The results derive from the first author's PhD thesis (Krischer 2023), cited in Sec. 1. Earlier planar versions of the method (Krischer & Zimmermann 2021; Krischer et al. 2022) are not in the pool. No author named Jun Wang. Screening code was I-QUALITY."
+}

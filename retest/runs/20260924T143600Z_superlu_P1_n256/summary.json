@@ -1,0 +1,22 @@
+{
+  "solver": "superlu",
+  "problem": "P1_cantilever",
+  "n": 256,
+  "iters": 150,
+  "total_s_median": 530.4669859000132,
+  "total_s_min": 481.855537499825,
+  "total_s_max": 557.8235032001394,
+  "total_s_all": [
+    557.8235032001394,
+    481.855537499825,
+    530.4669859000132
+  ],
+  "setup_s": 1.0655643999925815,
+  "warmup_s": 39.12956520001171,
+  "per_iter_s_median": 4.547308100009104,
+  "solve_s_median": 3.797617549978895,
+  "c_last": 19.80282285264788,
+  "vol_last": 0.40000013299457005,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 1.2193085718507293e-12
+}

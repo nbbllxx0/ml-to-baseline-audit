@@ -1,0 +1,60 @@
+﻿{
+  "pid": "P00149",
+  "citation": {
+    "title": "Data-driven topology optimization of spinodoid metamaterials with seamlessly tunable anisotropy",
+    "authors": "Li Zheng, Siddhant Kumar, Dennis M. Kochmann",
+    "year": 2021,
+    "venue": "Computer Methods in Applied Mechanics and Engineering",
+    "doi": "10.1016/j.cma.2021.113894",
+    "arxiv_id": "2012.15744",
+    "version_coded": "Version of record (Delft University of Technology repository copy)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "surrogate_mlp_gp", "physics": "metamaterial_homogenization", "dim": "3d"},
+  "claim": {
+    "primary_outcome_paraphrase": "A neural surrogate replaces repeated finite-element homogenization in the multiscale optimizer, predicting effective stiffness in 0.001 s per sample versus about 5 min for finite-element homogenization.",
+    "key_phrase": "significantly less than FEM homogenization",
+    "location": "Appendix B, Table B.1",
+    "quantitative": true,
+    "claimed_speedup": 300000,
+    "claimed_speedup_basis": "Appendix B, Table B.1 reports 5 min (300 s) for FEM stiffness calculation and 0.001 s per DNN prediction; 300 / 0.001 = 300,000.",
+    "direction": "outperform",
+    "alternatives": "Abstract and §6 state that the DNN surrogate speeds multiscale calculations and supplies exact sensitivities; §5 reports four compliance optimization benchmarks."
+  },
+  "baseline": {
+    "classical_method": "Finite-element numerical homogenization of spinodoid microstructures within a two-scale compliance optimization; macro comparison also includes classical SIMP (§§3, 5).",
+    "implementation": "In-house C++ FEM code for stiffness homogenization; DNN implemented with PyTorch in Python (Appendix B, Table B.1).",
+    "solver": "FEM solver type not stated.",
+    "hardware_classical": "16 MPI cores on ETH Zürich Euler IV cluster: two 18-core 2.7 GHz Intel Xeon Gold 6150 processors, 192 GB DDR4 memory (Appendix B, Table B.1).",
+    "hardware_ml": "CPU, no parallelization, on four 12-core 2.2 GHz Intel Xeon E5-2650 processors, 256 GB DDR3 memory (Appendix B, Table B.1).",
+    "problem_size": "RVE size l × l × l; macro examples include 22,060 and 25,350 linear tetrahedral elements (Appendix B; §5).",
+    "classical_iterations": "not stated",
+    "classical_time": "5 min per FEM stiffness computation (Appendix B, Table B.1).",
+    "ml_time": "0.001 s per DNN prediction on one data sample (Appendix B, Table B.1).",
+    "training_time": "10 min (Appendix B, Table B.1).",
+    "data_generation_cost": "FEM stiffness computation takes 5 min per sample; total dataset size or aggregate generation cost not stated (Appendix B, Table B.1; §4.1).",
+    "quality_metric": "Effective elastic stiffness tensor for each spinodoid; macro objective is linear-elastic compliance, with relative density constraint (Abstract; §§3–5).",
+    "quality_gap": "not stated as a numerical comparison of surrogate prediction error in this paper; the surrogate is described as accurate (§4.1)."
+  },
+  "rules": {
+    "R1": {"verdict": "pass", "marker": "R1-same-stiffness-task", "evidence": "Appendix B, Table B.1: timings compare a DNN stiffness prediction with FEM stiffness homogenization for one sample; no contrary design-quality mismatch is established."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Appendix B, Table B.1 identifies in-house C++ FEM on 16 MPI cores; solver efficiency or an inefficient baseline is not established by the text."},
+    "R3": {"verdict": "partial", "marker": "R3-no-amortization", "evidence": "Appendix B, Table B.1 reports 10 min DNN training and 5 min per FEM stiffness sample, but no break-even use count or explicit per-query-only qualification."},
+    "R4": {"verdict": "fail", "marker": "R4-surrogate", "evidence": "Sections 4–5 use DNN-predicted effective stiffness in the multiscale design workflow; returned microstructures are not reported as FE-verified for all outputs."}
+  },
+  "reporting": {
+    "n_test_cases": "Four macro compliance optimization benchmarks (Appendix B, Table B.1; §5).",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "The benchmark runtimes are described as rough single-CPU duration estimates; the stiffness FEM and DNN timing use different stated hardware (Appendix B)."
+}

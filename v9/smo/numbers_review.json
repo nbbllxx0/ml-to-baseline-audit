@@ -1,0 +1,32 @@
+{
+ "N501": {
+  "value": 5303671.13621389,
+  "text": "5.3 million",
+  "note": "upper bound on break-even uses from the five-problem mean saving; 256^2 GPU, volume-condition rule"
+ },
+ "N502": {
+  "value": 7467118.160773478,
+  "text": "7.5 million",
+  "note": "upper bound on break-even uses from the five-problem mean saving; 256^2 GPU, pre-registered rule"
+ },
+ "N503": {
+  "value": 24698064.468530122,
+  "text": "24.7 million",
+  "note": "upper bound on break-even uses from the five-problem mean saving; 64^2 GPU, both rules"
+ },
+ "N504": {
+  "value": 4.119496037522743,
+  "text": "4.1 %",
+  "note": "largest coefficient of variation, CPU-pinned GPU three-repeat runs of the time-to-quality problems (median 0.44 %)"
+ },
+ "N505": {
+  "value": 3.28501698936481,
+  "text": "3.3 %",
+  "note": "largest coefficient of variation, CPU-pinned PARDISO three-repeat runs of the time-to-quality problems (median 2.34 %)"
+ },
+ "N506": {
+  "value": 0.005282580852508545,
+  "text": "0.005",
+  "note": "largest excess of an OAT sample's thresholded volume over the target volume (256^2 and 64^2)"
+ }
+}

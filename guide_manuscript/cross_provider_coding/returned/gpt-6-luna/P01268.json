@@ -1,0 +1,88 @@
+{
+  "pid": "P01268",
+  "citation": {
+    "title": "Application of a Machine Learning-Based Topology Optimization Method on an Automotive B-Pillar for Crashworthy Lightweight Design",
+    "authors": "Jirair Aroyan; Johannes Sperber; Christopher Ortmann; Axel Schumacher",
+    "year": 2026,
+    "venue": "MATEC Web of Conferences",
+    "doi": "10.1051/matecconf/202642203010",
+    "arxiv_id": "",
+    "version_coded": "not accessible"
+  },
+  "access": "no_access",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "unclear",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The title indicates an ML-based topology optimization application to an automotive B-pillar; no abstract or full text was reachable to establish its comparative outcome.",
+    "key_phrase": "",
+    "location": "title",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No accessible abstract or full text.",
+    "direction": "similar_or_mixed",
+    "alternatives": "No abstract available for coding."
+  },
+  "baseline": {
+    "classical_method": "not stated",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "not stated",
+    "quality_gap": "not stated"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "na",
+      "marker": "na",
+      "evidence": "no full text"
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "na",
+      "evidence": "no full text"
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "na",
+      "evidence": "no full text"
+    },
+    "R4": {
+      "verdict": "na",
+      "marker": "na",
+      "evidence": "no full text"
+    }
+  },
+  "reporting": {
+    "n_test_cases": "unclear",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Publisher DOI route returned an access error, and no legitimate open full text or abstract was found. A conference schedule search result confirmed the title and listed authors. No paywall or bot check was bypassed.",
+  "stage": "cross_provider_pass"
+}

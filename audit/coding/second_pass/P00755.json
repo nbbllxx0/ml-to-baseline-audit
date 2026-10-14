@@ -1,0 +1,88 @@
+{
+  "pid": "P00755",
+  "citation": {
+    "title": "Artificial neural network supported design of a lattice-based artificial spinal disc for restoring patient-specific anisotropic behaviors",
+    "authors": "Zhiyang Yu, Prakash Thakolkaran, Kristina Shea, Tino Stanković",
+    "year": 2023,
+    "venue": "Computers in Biology and Medicine, vol. 152, art. 106475 (available online 23 Dec 2022)",
+    "doi": "10.1016/j.compbiomed.2022.106475",
+    "arxiv_id": "",
+    "version_coded": "Version of record. The article is CC BY 4.0 open access (confirmed via Crossref licence metadata, VOR licence effective 2022-12-23), but ScienceDirect returned an HTTP 403 CAPTCHA challenge to anonymous automated access and was not read there. Full text (identical PDF, filename 1-s2.0-S0010482522011830-main.pdf) instead obtained from the ETH Zurich Research Collection institutional repository (OpenAlex-confirmed OA location, DOI 10.3929/ethz-b-000589651 / handle 20.500.11850/589651), via that repository's own public REST API (item to bundle to bitstream), a route that returned the article directly with no CAPTCHA or bot check."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (first quantitative comparison with a classical method appears in the main text: ANN-surrogate-driven GA optimization time vs. an FE-based GA optimization time estimate)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "An ANN surrogate (MLP or CNN) replacing FE analysis inside a genetic-algorithm search over lattice unit-cell assignments finishes optimizing a patient-specific spinal-disc lattice in about 40 seconds, versus an estimated 24 hours (1D beam elements) to several days (solid elements) for FE-based search.",
+    "key_phrase": "significantly more efficient compared to a FE-analysis-based optimization process",
+    "location": "Section 5.2 (Methodology evaluation, Discussion) -- main text; the Abstract, Conclusion (Sec. 6) and Introduction state efficiency only qualitatively ('fast convergence rate', 'computationally efficient'), with no comparison numbers",
+    "quantitative": true,
+    "claimed_speedup": 2160,
+    "claimed_speedup_basis": "Derived from Sec. 5.2's own figures: 'the optimization process is finished within around 40s, which is significantly more efficient compared to a FE-analysis-based optimization process that will take around 24 h.' 24 h = 86,400 s; 86,400 / 40 = 2160 [derived]. Both routes use the identical GA settings (Table 2: population 50, 500 generations), so the evaluation budget is matched in principle, but the classical figure is stated in future/conditional tense ('will take') rather than as a completed, measured run -- i.e. it is the article's own estimate, not a re-test. The same sentence adds that with more realistic eight-node solid elements the FE-based route would take 'several days' instead, an even larger but unquantified factor.",
+    "direction": "outperform",
+    "alternatives": "None beyond the 'several days' (solid-element FE) estimate already folded into the basis above. Sec. 5.3 separately frames the comparison qualitatively as a one-time (ML data generation) vs. ongoing (classical re-optimization per patient) cost trade-off, with no additional numbers."
+  },
+  "baseline": {
+    "classical_method": "FE-analysis-based genetic-algorithm (GA) optimization of the identical lattice unit-cell-assignment problem: the same GA (Table 2 settings) but with each candidate's six rotational stiffnesses computed by direct FE analysis at every fitness evaluation instead of by the trained ANN surrogate",
+    "implementation": "In-house Matlab script for the FE analysis (1D Euler beam elements, Sec. 3.1.4); the GA itself (for both the ANN-based and the hypothetical FE-based route) uses the open-source Python package PyGAD (Sec. 3.3)",
+    "solver": "Linear FE analysis via an in-house Matlab script, 1D Euler beam elements; direct vs. iterative linear solve is not stated",
+    "hardware_classical": "Same machine as the ANN route: Intel Core i7-8550U CPU, 16 GB RAM (Sec. 3: 'All the computational tasks, i.e. structural analysis, network training, and optimization, are performed on a machine with an Intel Core i7-8550U CPU and 16 GB RAM')",
+    "hardware_ml": "Same: Intel Core i7-8550U CPU, 16 GB RAM (no GPU is used anywhere in this study)",
+    "problem_size": "90 design variables (unit-cell assignments) per ASD: a 15 (angular) x 3 (radial) x 2 (height) grid (Table 2); a sensitivity case uses a denser 25x4x2 = 200-variable grid (Sec. 5.1, Fig. 14). Each candidate's fitness is 6 rotational stiffnesses (flexion, extension, left/right lateral bending, left/right axial rotation)",
+    "classical_iterations": "GA: 500 generations, population/solution size 50, 7 parents in the mating pool, single-point crossover and mutation (Table 2) -- identical for the ANN-surrogate route and the (unexecuted) FE-based route",
+    "classical_time": "Estimated, not an executed/completed run: 'around 24 h' with 1D beam elements, or 'several days' with eight-node solid elements (Sec. 5.2)",
+    "ml_time": "'Within around 40s' for the GA optimization itself using the trained ANN surrogate, and separately 'within 1 min' reported for the Library A and Library B cases (Sec. 4.2, 4.3, 5.2); training-dataset generation (600,000 FE analyses per library) is not timed",
+    "training_time": "~17 min (MLP) and ~23 min (CNN), each reported for both Library A and Library B (Sec. 4.2-4.3), after 500 training epochs, batch size 128, learning rate 1e-4, Adam optimizer (Sec. 3.2)",
+    "data_generation_cost": "600,000 randomly generated lattice designs and their FE-computed six rotational stiffnesses, generated separately for each of the two unit-cell libraries (Sec. 3.1.4); no time or compute cost is given for this data-generation step, only the sample count",
+    "quality_metric": "Six rotational stiffnesses computed by linear FE analysis of the returned unit-cell distribution ('Optimized true'), compared against in-vitro-measured human lumbar L2-L3 and L4-L5 IVD stiffnesses (ref. [36]); ANN prediction accuracy is separately reported as MAE and r^2 against FE ground truth on a held-out 120,000-sample verification set (Table 4)",
+    "quality_gap": "Not given as a single number. Figs. 9, 12 and 14 plot 'Optimized true' (FE-computed) vs. 'Optimized ML' (ANN-predicted) normalized stiffnesses side by side; Library B (heuristic unit-cell selection) is described as a 'good stiffness match', while Library A (random unit-cell selection) 'fail[s] to reproduce the natural relative amplitudes', with torsional (axial-rotation) stiffness much lower than the IVD's. ANN-vs-FE agreement on the verification set: MAE 0.0147-0.0397 and r^2 0.993-0.999 (CNN), or MAE 0.0278-0.0799 and r^2 0.975-0.998 (MLP), depending on library and loading scenario (Table 4)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-baseline-not-run",
+      "evidence": "The ANN-surrogate and the classical FE-based route use the identical GA settings (Table 2), an equal evaluation budget in principle, and the ANN-selected final design's quality is independently confirmed by real FE analysis (Sec. 3.3, Figs. 9/12/14). But the classical route's own time (~24 h / 'several days') is stated as an estimate ('will take'), not an executed, completed run, so there is no actual FE-based-GA-optimized design to check for equal quality against -- a loose match, per the protocol's example of an unstated/unverified classical run."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-pass-shared-hardware",
+      "evidence": "Both routes explicitly share the same CPU-only hardware (Intel Core i7-8550U, 16 GB RAM, Sec. 3) and the same GA budget (Table 2). No GPU-vs-CPU asymmetry, no abstract-vs-results mismatch (the abstract makes no numeric claim at all), and the article itself flags that a more realistic classical FE model (solid elements) would be slower still, not weaker-than-reported. None of R2(a)-(e) is evidenced."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "Training cost is explicitly reported (~17 min MLP / ~23 min CNN per library, Sec. 4.2-4.3), but the data-generation cost -- 600,000 FE analyses per library (Sec. 3.1.4) -- is never given a time or compute figure, only a sample count. Sec. 5.3 argues qualitatively that this data generation is a 'one-time cost' amortized over future re-use, but gives no break-even number of uses."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "The final selected design's six stiffnesses are computed by real FE analysis, not just ANN prediction (Sec. 3.3; Figs. 9/12/14 'Optimized true'), and a manufacturability check is reported (member sizes within the target 3D printer's 10 micron resolution, Sec. 5.1). But no failure or infeasibility rate is reported for the GA search (the discrete unit-cell-assignment formulation has no direct disconnection/volume-violation failure mode comparable to density-based TO, so this is a structurally different problem class, but the protocol's 'failure rate not reported' condition is still literally met)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "6 optimized-design instances: 2 target IVDs (human lumbar L2-L3, L4-L5) x 2 unit-cell libraries (A, B), plus a denser-grid (25x4x2) sensitivity re-run of both IVD targets on Library A (Sec. 5.1, Fig. 14)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Included as speed-stratum: Sec. 5.2 gives an explicit, first-hand time comparison between the ANN-surrogate-accelerated GA (~40 s) and an FE-based GA using the identical settings (~24 h with 1D beam elements, 'several days' with solid elements). method_family = surrogate_mlp_gp because both an MLP and a CNN are trained and compared as FE-replacing regression surrogates for GA fitness evaluation (Sec. 3.2, Fig. 6); Library A's reported case uses the MLP, Library B's uses the CNN (higher verification accuracy), so both architectures are actually deployed, not just one. physics is metamaterial_homogenization because unit-cell anisotropy is characterised via numerical homogenization (Sec. 3.1.2, Eq. 1) before the topology (unit-cell assignment) search. dim is 3d: the disc is a 3D grid of 3D lattice unit cells (BCC/FCC-type, Fig. 4). The reporting field 'timing_protocol_stated' is coded 'partial' because hardware is explicitly named for all tasks but no warm-up/repeat-run methodology is described and the classical figure is an estimate, not a measured run; this article's reporting picture is unusually asymmetric (ML side fully measured, classical side estimated). No code-availability or data-availability statement appears anywhere in the article (only third-party tools are named: PyGAD, IntraLattice/Grasshopper/Rhino), so code_available and data_available are both 'no' and retest_candidate is false. No author named Jun Wang (authors: Zhiyang Yu, Prakash Thakolkaran, Kristina Shea, Tino Stankovic). Duplicate check: audit/pool/pool.csv searched by title on 2026-09-24; no second pool record found. Not a duplicate, but related prior/parallel work by an overlapping author group turned up in the access search and was not further investigated: 'Computational Design of a Personalized Artificial Spinal Disc With a Data-Driven Design Variable Linking Heuristic' and 'The Application of a Multi-Material Flexible Chain Mail...' (different titles/DOIs, not in this coder's queue or in pool.csv under this title)."
+}

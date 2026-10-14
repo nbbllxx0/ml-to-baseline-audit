@@ -1,0 +1,88 @@
+{
+  "pid": "P01960",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Reinforcement learning-based topology optimization for generative designed lightweight structures",
+    "authors": "Keerthi Kumar N, Manasa C M, Pavan Kumar B K, Manish Bali (author list as printed in the PMC copy; the pool/OpenAlex record lists 'Kodanda Ramaiah G.N; C M Manasa; Pankaj Kumar; Manish Bali')",
+    "year": 2025,
+    "venue": "MethodsX 15 (Dec 2025) 103539, Elsevier, CC BY-NC-ND (received 24 May 2025, accepted 28 Jul 2025, per PMC)",
+    "doi": "10.1016/j.mex.2025.103539",
+    "arxiv_id": "",
+    "version_coded": "Version of record as deposited in PubMed Central (PMC12355488; OpenAlex labels the PMC location 'submittedVersion'), read in full as JATS XML via the Europe PMC REST API; Figs. 5, 7, 9, 11, 12 and 13 viewed from the NCBI PMC image CDN; Table 6 (an image) viewed from the Elsevier image CDN. ScienceDirect answered with a captcha page (HTTP 403), which was not bypassed"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screening code confirmed at full text; the abstract's quantitative classical comparison is a weight-reduction claim)",
+    "stratum": "quality",
+    "method_family": "rl",
+    "physics": "stress",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The abstract says the PPO-based design method beats conventional SIMP and level-set approaches on the ToD benchmark, with up to 40% lower weight at maintained compliance. In the body, the 40% is measured against a traditional hub design, not against SIMP or level-set.",
+    "key_phrase": "achieving up to 40 % weight reduction while maintaining compliance",
+    "location": "Abstract (first quantitative comparison with a classical method, §5.1 rule 1). The number reappears in the closing summary paragraph of 'Method validation' (the article has no separate Conclusion section) and in the wheel-hub case study (Fig. 13, weight bar chart)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable to the quality-stratum primary outcome. Alternative, 'Method validation' text and Fig. 12 (inference-time bar chart): PPO-RL about 2.1 s vs SIMP about 18.4 s, so 18.4 / 2.1 = 8.8 [derived]. The text attributes the SIMP time to ref. [36] (Halle et al., Appl. Sci. 2021); whether the authors measured it or took it from [36], and on which problem size and hardware, is not stated. RL training time is not included.",
+    "direction": "outperform",
+    "alternatives": "(1) 'Method validation', Fig. 12: inference time PPO-RL about 2.1 s vs SIMP about 18.4 s [8.8x derived], Graph ANN about 6.3 s, U-Net about 0.8 s; this is the only quantitative ML-vs-classical comparison in the body and would give stratum speed. (2) Contribution list in 'Method validation': the 2.1 s inference time is said to beat FEA-driven SIMP methods. (3) Closing summary paragraph, qualitative: the framework is said to outperform classical and contemporary methods in adaptability, inference time and manufacturability. (4) Table 6: qualitative comparison with three ML references only ([36]-[38]); no classical method."
+  },
+  "baseline": {
+    "classical_method": "SIMP and level-set are named as the outperformed conventional approaches (Abstract), but no SIMP or level-set design is run or reported anywhere in the article. The only classical number is a SIMP time of about 18.4 s, attributed to ref. [36] ('Method validation', Fig. 12). The comparator of the 40% weight figure is a traditional hub design (Fig. 13 bar chart), whose origin is not described",
+    "implementation": "not stated",
+    "solver": "not stated (the proposed method uses FEniCS for its FEA, Step 4)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "ToD case: 60 x 40 grid (2400 elements), 2D cantilever, left edge clamped, 1000 N point load on the right edge, aluminium E = 70 GPa, nu = 0.33 (Step 1, Table 1). Wheel hub: cylindrical domain, 5000 N radial load and 1000 Nm torque, 5 mm minimum wall; mesh not stated (Application case study)",
+    "classical_iterations": "not stated",
+    "classical_time": "about 18.4 s for SIMP, cited to ref. [36] ('Method validation', Fig. 12); case, size and hardware not stated",
+    "ml_time": "about 2.1 s inference for PPO-RL ('Method validation', Fig. 12); case and hardware not stated",
+    "training_time": "not stated; 100 RL episodes, 1000-2000 timesteps per epoch, 4-10 PPO epochs per update, Adam lr 3e-4 (Table 4; 'Method validation')",
+    "data_generation_cost": "not stated; the RL agent learns from FEA feedback in the loop (Steps 2-4); the role of the ToD dataset in training is not specified",
+    "quality_metric": "ToD case: volume fraction, maximum displacement, maximum von Mises stress and compliance of one final design by FEniCS FEA (Table 5). Wheel hub: weight relative to a traditional hub (Fig. 13 bar chart); stress and displacement stated to be under 300 MPa and 0.5 mm",
+    "quality_gap": "No classical (SIMP or level-set) design result is reported, so no gap to a classical design can be computed. ToD design: volume fraction 0.32, maximum displacement 0.49 mm, maximum stress 298 MPa, compliance 2.4e-5 N/mm (Table 5). Wheel hub: optimized hub at about 60% of the traditional hub's weight (Fig. 13 bar chart; 40% reduction, text)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched (no classical design result; quality stratum)",
+      "evidence": "Abstract vs body: the claimed advantage over SIMP and level-set has no classical counterpart in the article. No SIMP or level-set design, volume or compliance is reported (full text read; Table 6 compares only with ML references [36]-[38]). The 40% figure compares the optimized hub with a traditional hub of unstated origin (Fig. 13), not with a classical optimizer at matched volume or compliance, and the compliance of neither hub is quantified. Alternative: na, if R1 is read as applying to speed comparisons only."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-stratum",
+      "evidence": "Quality stratum, and no classical design is run, so the competence of a comparator cannot be judged. For the Fig. 12 speed alternative: the SIMP time (about 18.4 s) is attributed to ref. [36], with no implementation, solver, iteration count, problem size or hardware for either method, so (a)-(e) cannot be established; partial (R2-hardware-unjustified) would be the likely code under that reading [inferred]."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Primary outcome is quality only. For C3: the PPO agent's training (100 episodes of FEA-in-the-loop interaction, Table 4, 'Method validation') has no reported time or hardware, and the 2.1 s inference time in Fig. 12 excludes it; no break-even is given."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Step 4 and Table 5: the final ToD design is said to be checked by FEniCS FEA; volume fraction 0.32 and constraint values (0.49 mm, 298 MPa) are reported. The returned binary grid has disconnected and floating elements ('Method validation', Fig. 7), which the authors say SDF smoothing removes, but they are not counted, and Table 5 does not say whether it describes the design before or after smoothing. One design per case, so no failure rate. The 40% hub figure has no FE-computed compliance for either hub."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1 ToD cantilever design (60 x 40, one load case, Table 5) plus 1 wheel-hub case study (Fig. 13); the abstract says the method was tested on ToD, but no further ToD cases are reported",
+    "ood_test": "unclear",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code I-QUALITY confirmed at full text. Primary outcome: the abstract's weight claim names SIMP and level-set, so §5.1 rule 1 takes it, although the body never runs either method and reports the 40% only against a traditional hub (Fig. 13). If the verifier reads the abstract's 40% as not a classical comparison, §5.1 rule 2 gives Fig. 12 ('Method validation': about 2.1 s vs about 18.4 s for SIMP; 8.8x [derived]) as primary, stratum speed. Would-be codes then: R1 fail (a speed claim with no quality comparison; no SIMP design exists); R2 partial (hardware and implementation unstated; SIMP time attributed to ref. [36]); R3 fail (the PPO training cost is not reported; if the agent is trained per problem, R3 is n/a and the uncounted training time becomes an R1 issue); R4 partial as above. Not FT-NOBASELINE: the article cites a SIMP cost (Fig. 12). Observations for the verifier [observed on the figure images; interpretation inferred]: (1) The XML caption of Fig. 12 describes an FEA stress distribution, but the image is the inference-time bar chart. Its bar labels attribute U-Net to Lin et al. (ref. [38] is a 6G digital-twin networks paper) and Graph ANN to Woldseth et al. (ref. [37] is a review). (2) The optimized 60 x 40 grid (Fig. 7) looks like scattered pixels. The stress map (Fig. 9) shows values of about 200-300 MPa over the whole grid, and the displacement map (Fig. 11) shows a noise-like pattern; neither shows a load path, so they may not be FE fields of the shown design [inferred]. (3) The wheel-hub panels (Fig. 13) show a stylized blob, 10 x 10 colour grids for stress and displacement, and a checkerboard for the sliced layers [observed]; the hub FE claims cannot be traced to an analysis [inferred]. (4) The text says the reward converges after about 70 episodes, but Fig. 5 still rises steeply at episode 100 [observed]. Reporting locators: data statement = 'Data availability' section (on request) and the Specifications table (ToD link); no code statement; no hardware or timing protocol anywhere. retest_candidate false: no code. COI check: no author named Jun Wang."
+}

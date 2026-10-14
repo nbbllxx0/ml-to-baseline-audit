@@ -1,0 +1,27 @@
+﻿{
+  "pid": "P00139",
+  "citation": {
+    "title": "DNN-Based Topology Optimisation: Spatial Invariance and Neural Tangent Kernel",
+    "authors": "Benjamin Dupuis, Arthur Jacot",
+    "year": 2021,
+    "venue": "Advances in Neural Information Processing Systems 34",
+    "doi": "10.48550/arXiv.2106.05710",
+    "arxiv_id": "2106.05710",
+    "version_coded": "NeurIPS 2021 proceedings version (full text)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-NOBASELINE", "stratum": "none", "method_family": "neural_reparam", "physics": "compliance", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "not applicable", "key_phrase": "", "location": "not applicable", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "not applicable", "direction": "similar_or_mixed", "alternatives": "not applicable"},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full text excluded: no primary outcome compares the learned approach with a classical method."},
+    "R2": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full text excluded: no classical baseline comparison."},
+    "R3": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full text excluded: no applicable speed claim against a classical baseline."},
+    "R4": {"verdict": "na", "marker": "FT-NOBASELINE", "evidence": "Full text excluded: rule coding not applicable."}
+  },
+  "reporting": {"n_test_cases": "not applicable", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The paper analyzes neural-network parameterization of SIMP and spatial invariance, and discusses traditional filtering, but it does not compare a learned method with a classical method's optimization cost or design result as required for inclusion. Code link is stated in §1.1."
+}

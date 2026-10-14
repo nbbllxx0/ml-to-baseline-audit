@@ -1,0 +1,60 @@
+{
+ "pid": "P00533",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "A complete Physics-Informed Neural Network-based framework for structural topology optimization",
+  "authors": "Hyogu Jeong, Chanaka Batuwatta-Gamage, Jinshuai Bai, Yi Min Xie, Charith Rathnayaka, Ying Zhou, Yuantong Gu",
+  "year": 2023,
+  "venue": "Computer Methods in Applied Mechanics and Engineering 417 (2023) 116401 (issue dated December 2023, online 2023-09-09; CC BY-NC 4.0 per Crossref)",
+  "doi": "10.1016/j.cma.2023.116401",
+  "arxiv_id": "none found",
+  "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); full text not reachable"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "neural_reparam",
+  "physics": "compliance",
+  "dim": "both"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (abstract only). The abstract states that CPINNTO, a deep-energy-method PINN for analysis plus a sensitivity PINN, reaches optimal topologies without labelled data or FEA, with compliance comparable to density-based TO designs (no numbers).",
+  "location": "Abstract (pool record, from OpenAlex)",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "no full text"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all anonymous with a generic User-Agent. (1) The only open copy OpenAlex lists is the DOI (hybrid OA, CC BY-NC). It resolves to ScienceDirect PII S004578252300525X, which answered HTTP 403 with a robot check; no bypass was attempted. WebFetch was refused (HTTP 403) on another ScienceDirect article in this batch (P00550). (2) Crossref lists Elsevier text-mining links (api.elsevier.com). An anonymous request returned HTTP 401 'Invalid API Key'; no key was used or sought. (3) arXiv: no version found (title phrase 'complete physics-informed'; titles PINNTO or CPINNTO; authors Jeong and Batuwatta). (4) Europe PMC: no record. (5) OpenAlex lists no repository copy. Author or institutional copies not listed by OpenAlex were not searched, per the task's source rule. The abstract suggests a quality-stratum record at full text: compliance comparable to density-based TO, no speed claim, with compliance, multi-constraint and 3D examples. Duplicate check: the screening sheet flagged 'possible duplicate of P00527' (PINNTO, Engineering Structures 2023, same group; not coded). Judged a separate study, not FT-DUPLICATE: different journal, and CPINNTO adds a second PINN for sensitivities to the PINNTO idea [inferred from titles and this abstract; the verifier should confirm]. A human with ScienceDirect access should code this record. No author named Jun Wang. Screening code was I-QUALITY.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00533.json",
+  "result": "full agreement"
+ }
+}

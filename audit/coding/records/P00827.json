@@ -1,0 +1,92 @@
+{
+ "pid": "P00827",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Stress-constrained optimization of multiscale structures with parameterized microarchitectures using machine learning",
+  "authors": "Nolan Black, Ahmad Najafi",
+  "year": 2024,
+  "venue": "Structural and Multidisciplinary Optimization 67:102 (2024) (Springer; published online 8 June 2024; open access, CC BY 4.0)",
+  "doi": "10.1007/s00158-024-03821-y",
+  "arxiv_id": "",
+  "version_coded": "Version of record, Springer publisher PDF (23 pp.) from link.springer.com, read in full as text"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-SPEED (screened I-QUALITY; the first quantitative classical comparison is the surrogate's evaluation speed-up over homogenization or fullscale FE, a per-evaluation cost proxy as in P00149 and P00786, \u00a75.1 rule 2)",
+  "stratum": "speed",
+  "method_family": "surrogate_mlp_gp",
+  "physics": "stress",
+  "dim": "2d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "The two neural-network surrogates evaluate homogenized properties and microstructural stress amplification 1,000-10,000\u00d7 faster than fullscale FE or successive unit-cell homogenization (about 10^4 on one core), predicting maximum microstructural stress within 10-15% of fullscale FE.",
+  "key_phrase": "has yielded 1,000\u201310,000 times faster evaluations",
+  "location": "Sec. 3, p. 11, and the Table 2 note, p. 12 (first quantitative comparison with a classical method, in the main text; the abstract, introduction and conclusion compare only qualitatively; \u00a75.1 rule 2)",
+  "quantitative": true,
+  "claimed_speedup": 10000,
+  "claimed_speedup_basis": "Stated: 1,000-10,000\u00d7 faster evaluations than fullscale FE or successive unit-cell homogenization (p. 11) and a speed-up of order 10^4 measured on a single core (Table 2 note, p. 12). Per evaluation only; no raw times; no optimization-level run time of any method is reported. Data generation (about 1 h) is outside the ratio.",
+  "direction": "outperform",
+  "alternatives": "(1) Table 4 and Sec. 5.2 (optimization-level, quality): the multiscale designs need more volume than monoscale density-based stress-constrained TO: L-bracket 0.333-0.431 vs 0.261, double L-bracket 0.423 vs 0.271, stress concentration 0.212 vs 0.153, with yielded fractions 0.006-0.014 vs 0.010-0.018 (stratum Q, direction underperform). (2) Abstract and conclusion, qualitative: the distributed microstructures cannot surpass density-based TO in volume minimization. (3) Sec. 5.3: multifunctional beam, density-based 33% volume and displacement-error norm 0.133 vs multiscale 43% and 0.070."
+ },
+ "baseline": {
+  "classical_method": "Per-evaluation comparator: fullscale FE analysis of the resolved structure, or successive unit-cell homogenization (first-order properties plus second-order local stress) (Sec. 2-3). Optimization-level comparator: monoscale density-based stress-constrained TO (volume minimization with augmented Lagrangian stress constraints and MMA) on three benchmarks (Sec. 5.2, Table 4)",
+  "implementation": "not stated for FE and homogenization; MMA optimizer for the multiscale designs (Sec. 5); the density-based designs follow the same Table 3 schedule and 500 iterations (stated for Sec. 5.3; inferred for Sec. 5.2)",
+  "solver": "not stated",
+  "hardware_classical": "not stated for the timing; the speed-up was measured on a single core (Table 2 note, p. 12); training data were generated on an Intel i7 at 4.1 GHz with 4 cores (p. 11)",
+  "hardware_ml": "single core for the speed-up measurement (Table 2 note); training hardware not stated",
+  "problem_size": "Microstructures on 64\u00d764 quadrilaterals; L-bracket with 4,096 microstructures (its horizontal 1 \u00d7 0.4 arm alone is 80\u00d732 cells, equivalent to a 5,120\u00d72,048 fullscale mesh); double L-bracket 5,632 and stress concentration 5,000 microstructures (Sec. 5); pedagogical fullscale meshes 1,280\u00d7640 and 2,560\u00d71,280 (Sec. 2.3)",
+  "classical_iterations": "Not applicable to the per-evaluation comparison; the optimizations run 500 iterations with the Table 3 continuation schedule (Sec. 5, 5.3)",
+  "classical_time": "not stated (only the ratio)",
+  "ml_time": "not stated (only the ratio)",
+  "training_time": "not stated; DNN1 1,000 epochs on 667 samples (333 validation), DNN2 1,000 epochs on 6,660 samples, Adam, batch 8 (pp. 9-10)",
+  "data_generation_cost": "about 1 h on an Intel i7 at 4.1 GHz with 4 cores for all training data (p. 11)",
+  "quality_metric": "Relative error norm of the maximum microstructural von Mises stress against fullscale FE on four pedagogical cases (Table 2); for designs, net volume and the fraction of yielded microstructures (YF) from a fullscale re-analysis (Table 4)",
+  "quality_gap": "Stress error on the four cases: DNN 0.079-0.176 vs second-order homogenization 0.046-0.122 and first-order 0.065-0.155 (Table 2). Designs: multiscale volume 0.333-0.431 vs density-based 0.261 (L-bracket), 0.423 vs 0.271, 0.212 vs 0.153; YF 0.006-0.014 vs 0.010-0.018 (Table 4)"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "partial",
+   "marker": "R1-loose",
+   "evidence": "Sec. 3 and Table 2: the speed claim is per evaluation, and its accuracy is reported on four pedagogical cases: the DNN stress error (0.079-0.176) is above the second-order homogenization it replaces (0.046-0.122) in all four and above first-order homogenization in two. No raw times, no optimization run with classical homogenization, and no time- or budget-matched comparison are reported."
+  },
+  "R2": {
+   "verdict": "pass",
+   "marker": "R2-none-established",
+   "evidence": "Table 2 note: the speed-up was measured on a single core; the FE and homogenization implementation and solver are not stated. No GPU is involved [inferred], so (c) does not apply; (b) not observed (no figure in the abstract); (d) and (e) are not derivable (no iteration count or per-iteration time). Unsure, so pass."
+  },
+  "R3": {
+   "verdict": "partial",
+   "marker": "R3-no-training-cost",
+   "evidence": "p. 11: data generation is reported (about 1 h on four cores), but training time is not, and no break-even or per-query limitation is given. For C3: the data cost is about 4 core-hours [derived: 1 h \u00d7 4 cores]; without a training time or any per-evaluation time, a break-even cannot be computed from the article."
+  },
+  "R4": {
+   "verdict": "pass",
+   "marker": "R4-FE-verified",
+   "evidence": "Sec. 5 and Table 4: every optimized design is resolved on the fullscale mesh and its von Mises stress recomputed; net volume and the fraction of yielded microstructures are reported for all designs, and the non-converged HS-truss case is disclosed (Sec. 5.1). Surrogate accuracy is checked against fullscale FE (Table 2) and on validation sets (Figs. 10-11)."
+  }
+ },
+ "reporting": {
+  "n_test_cases": "4 pedagogical cases for stress accuracy (Tables 1-2) and 333 validation samples for DNN1 (Fig. 10); design benchmarks: L-bracket (3 microstructures, 2 initial infills), double L-bracket and stress concentration (Table 4), plus one multifunctional beam (Sec. 5.3)",
+  "ood_test": "no",
+  "seeds_or_variance": "no",
+  "failure_rate_reported": "yes",
+  "timing_protocol_stated": "partial",
+  "runtimes_all_cases": "no",
+  "code_available": "no",
+  "data_available": "on_request",
+  "hardware_per_method_stated": "partial"
+ },
+ "retest_candidate": false,
+ "notes": "Stratum judgment for the verifier: coded in the speed stratum by the per-evaluation cost-proxy precedent (P00149, P00786). The abstract, introduction and conclusion compare only qualitatively (the conclusion points to Table 4 without numbers), so \u00a75.1 rule 2 reaches the main text, where the first quantitative ML-vs-classical comparison is the surrogate's evaluation speed-up (Sec. 3, p. 11; Table 2). Alternative, emphasized by the abstract and conclusion and matching the screening code I-QUALITY: the optimization-level comparison with monoscale density-based TO (Table 4), in which the multiscale designs need 27-56% more volume [derived: 0.333/0.261, 0.423/0.271, 0.212/0.153]; this would be stratum Q with direction underperform, with would-be verdicts R1 pass (same stress limit, schedule and 500 iterations), R2 na, R3 na, R4 pass. The volume penalty comes from the multiscale design space, not from the ML; the authors credit the layout freedom of density-based design (Sec. 6). Internal inconsistencies: p. 11 cites 1,000 and 10,000 training examples, while pp. 9-10 give 667 + 333 for DNN1 and 6,660 for DNN2; the speed-up is 1,000-10,000\u00d7 in the text and about 10^4 in the Table 2 note. Replication statement: implementation details in the article; training data on request from the authors; no code link. retest_candidate false: no public code, and the speed claim concerns a per-evaluation surrogate, not a TO run. Duplicate check: no other pool record or prefill of this study (P00777 and P01151 by the same group are different studies). No author named Jun Wang. Screening code was I-QUALITY.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00827.json",
+  "result": "full agreement"
+ }
+}

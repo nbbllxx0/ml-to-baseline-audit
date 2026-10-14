@@ -1,0 +1,282 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.jit
+#1 transferring dockerfile: 272B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/census-p00663:2
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/census-p00663:2@sha256:7242a37a4b87501332f72ee28d7494ef072bec6467de9a9f51a2c9e74e41d5b7
+#4 resolve docker.io/library/census-p00663:2@sha256:7242a37a4b87501332f72ee28d7494ef072bec6467de9a9f51a2c9e74e41d5b7 0.0s done
+#4 DONE 0.1s
+
+#5 [2/2] RUN mamba install -y -n dnn -c conda-forge cxx-compiler make pkg-config && mamba clean -afy
+#5 12.83 
+#5 12.83 Pinned packages:
+#5 12.83 
+#5 12.83   - python=3.9
+#5 12.83 
+#5 253.1 
+#5 253.1 Transaction
+#5 253.1 
+#5 253.1   Prefix: /opt/conda/envs/dnn
+#5 253.1 
+#5 253.1   Updating specs:
+#5 253.1 
+#5 253.1    - cxx-compiler
+#5 253.1    - make
+#5 253.1    - pkg-config
+#5 253.1 
+#5 253.1 
+#5 253.1   Package                      Version  Build                    Channel          Size
+#5 253.1 ────────────────────────────────────────────────────────────────────────────────────────
+#5 253.1   Install:
+#5 253.1 ────────────────────────────────────────────────────────────────────────────────────────
+#5 253.1 
+#5 253.1   + binutils                      2.39  hdd6e379_1               conda-forge      30kB
+#5 253.1   + c-compiler                   1.7.0  hd590300_1               conda-forge       6kB
+#5 253.1   + cxx-compiler                 1.7.0  h00ab1b0_1               conda-forge       6kB
+#5 253.1   + fftw                        3.3.10  mpi_mpich_h5537406_7     conda-forge       2MB
+#5 253.1   + gcc                         12.2.0  h26027b1_13              conda-forge      27kB
+#5 253.1   + gxx                         12.2.0  h26027b1_13              conda-forge      26kB
+#5 253.1   + libaec                       1.1.5  h088129d_0               conda-forge      37kB
+#5 253.1   + libboost                    1.82.0  h6fcfa73_6               conda-forge       3MB
+#5 253.1   + libboost-devel              1.82.0  h00ab1b0_6               conda-forge      36kB
+#5 253.1   + libboost-headers            1.82.0  ha770c72_6               conda-forge      14MB
+#5 253.1   + make                         4.4.1  hb03c661_3               conda-forge     511kB
+#5 253.1   + yaml                         0.2.5  hebe6cf0_3               conda-forge      85kB
+#5 253.1 
+#5 253.1   Change:
+#5 253.1 ────────────────────────────────────────────────────────────────────────────────────────
+#5 253.1 
+#5 253.1   - fenics                    2019.1.0  py39hf3d152e_21          conda-forge      11kB
+#5 253.1   + fenics                    2019.1.0  py39hcaacaa7_39          conda-forge      24kB
+#5 253.1   - fenics-dolfin             2019.1.0  py39hc6fefde_21          conda-forge       1MB
+#5 253.1   + fenics-dolfin             2019.1.0  py39ha1c9805_39          conda-forge       1MB
+#5 253.1   - fenics-libdolfin          2019.1.0  h5ba192a_21              conda-forge       2MB
+#5 253.1   + fenics-libdolfin          2019.1.0  hbd4cf78_39              conda-forge       2MB
+#5 253.1   - mshr                      2019.1.0  py39h9761ab4_5           conda-forge       2MB
+#5 253.1   + mshr                      2019.1.0  py39h9e2e2ce_8           conda-forge       2MB
+#5 253.1   - mumps-include                5.2.1  ha770c72_10              conda-forge      23kB
+#5 253.1   + mumps-include                5.2.1  ha770c72_11              conda-forge      24kB
+#5 253.1   - mumps-mpi                    5.2.1  hd6b9cac_10              conda-forge       4MB
+#5 253.1   + mumps-mpi                    5.2.1  h7ee95aa_11              conda-forge       3MB
+#5 253.1 
+#5 253.1   Upgrade:
+#5 253.1 ────────────────────────────────────────────────────────────────────────────────────────
+#5 253.1 
+#5 253.1   - boost-cpp                   1.74.0  h75c5d50_8               conda-forge      17MB
+#5 253.1   + boost-cpp                   1.82.0  h44aadfe_6               conda-forge      14kB
+#5 253.1   - eigen                        3.3.9  h4bd325d_1               conda-forge     993kB
+#5 253.1   + eigen                        3.4.0  h54a6638_2               conda-forge       1MB
+#5 253.1   - gcc_impl_linux-64            9.5.0  h99780fb_19              conda-forge      46MB
+#5 253.1   + gcc_impl_linux-64           12.2.0  hcc96c02_19              conda-forge      59MB
+#5 253.1   - gcc_linux-64                 9.5.0  h4258300_13              conda-forge      30kB
+#5 253.1   + gcc_linux-64                12.2.0  h4798a0e_13              conda-forge      30kB
+#5 253.1   - gxx_impl_linux-64            9.5.0  h99780fb_19              conda-forge      11MB
+#5 253.1   + gxx_impl_linux-64           12.2.0  hcc96c02_19              conda-forge      15MB
+#5 253.1   - gxx_linux-64                 9.5.0  h43f449f_13              conda-forge      28kB
+#5 253.1   + gxx_linux-64                12.2.0  hb41e900_13              conda-forge      28kB
+#5 253.1   - hdf5                        1.10.6  mpi_mpich_h996c276_1014  conda-forge       3MB
+#5 253.1   + hdf5                        1.12.2  mpi_mpich_h08b82f9_1     conda-forge       3MB
+#5 253.1   - hypre                       2.18.2  hc98498a_1               conda-forge       2MB
+#5 253.1   + hypre                       2.27.0  mpi_mpich_h716cb5e_0     conda-forge       2MB
+#5 253.1   - icu                           70.1  h27087fc_0               conda-forge      14MB
+#5 253.1   + icu                           73.2  h59595ed_0               conda-forge      12MB
+#5 253.1   - libgcc-devel_linux-64        9.5.0  h0a57e50_19              conda-forge       4MB
+#5 253.1   + libgcc-devel_linux-64       12.2.0  h3b97bd3_19              conda-forge       4MB
+#5 253.1   - libsanitizer                 9.5.0  h2f262e1_19              conda-forge       7MB
+#5 253.1   + libsanitizer                12.2.0  h46fd767_19              conda-forge       6MB
+#5 253.1   - libstdcxx-devel_linux-64     9.5.0  h0a57e50_19              conda-forge      10MB
+#5 253.1   + libstdcxx-devel_linux-64    12.2.0  h3b97bd3_19              conda-forge      10MB
+#5 253.1   - mpich                        3.4.1  h846660c_104             conda-forge      10MB
+#5 253.1   + mpich                        4.0.3  h846660c_100             conda-forge       6MB
+#5 253.1   - numpy                       1.20.2  py39hdbf815f_0           conda-forge       6MB
+#5 253.1   + numpy                       1.26.4  py39h474f0d3_0           conda-forge       7MB
+#5 253.1   - petsc                       3.14.5  h60475ce_0               conda-forge      11MB
+#5 253.1   + petsc                       3.18.4  real_hd0e127d_100        conda-forge      11MB
+#5 253.1   - petsc4py                    3.14.1  py39h16c3f58_1           conda-forge       1MB
+#5 253.1   + petsc4py                    3.18.4  real_h1bd14e5_100        conda-forge       1MB
+#5 253.1   - pybind11                     2.6.2  py39h1a9c180_0           conda-forge     152kB
+#5 253.1   + pybind11                    2.11.1  py39h7633fee_2           conda-forge     184kB
+#5 253.1   - pybind11-global              2.6.2  py39h1a9c180_0           conda-forge     185kB
+#5 253.1   + pybind11-global             2.11.1  py39h7633fee_2           conda-forge     172kB
+#5 253.1   - scalapack                    2.0.2  hfacbc1e_1009            conda-forge       2MB
+#5 253.1   + scalapack                    2.2.0  hd931219_1               conda-forge       2MB
+#5 253.1   - slepc                       3.14.2  h44d3fa2_0               conda-forge       4MB
+#5 253.1   + slepc                       3.18.2  real_h41e0a76_100        conda-forge       4MB
+#5 253.1   - slepc4py                    3.14.0  py39h1e75aa9_1           conda-forge     284kB
+#5 253.1   + slepc4py                    3.18.2  real_hb3f7552_100        conda-forge     370kB
+#5 253.1   - suitesparse                  5.6.0  h717dc36_0               conda-forge       2MB
+#5 253.1   + suitesparse                 5.10.1  hd8046ac_0               conda-forge       3MB
+#5 253.1   - superlu_dist                 6.2.0  h050a5a1_4               conda-forge     897kB
+#5 253.1   + superlu_dist                 7.2.0  h25dcc4a_0               conda-forge       1MB
+#5 253.1 
+#5 253.1   Summary:
+#5 253.1 
+#5 253.1   Install: 12 packages
+#5 253.1   Change: 6 packages
+#5 253.1   Upgrade: 23 packages
+#5 253.1 
+#5 253.1   Total download: 177MB
+#5 253.1 
+#5 253.1 ────────────────────────────────────────────────────────────────────────────────────────
+#5 253.1 
+#5 253.1 
+#5 253.1 
+#5 253.1 Transaction starting
+#5 262.4 Unlinking suitesparse-5.6.0-h717dc36_0
+#5 262.5 Unlinking mpich-3.4.1-h846660c_104
+#5 262.8 Unlinking icu-70.1-h27087fc_0
+#5 262.8 Unlinking eigen-3.3.9-h4bd325d_1
+#5 262.9 Unlinking numpy-1.20.2-py39hdbf815f_0
+#5 263.0 Unlinking libgcc-devel_linux-64-9.5.0-h0a57e50_19
+#5 263.0 Unlinking libsanitizer-9.5.0-h2f262e1_19
+#5 263.0 Unlinking libstdcxx-devel_linux-64-9.5.0-h0a57e50_19
+#5 263.0 Unlinking mumps-include-5.2.1-ha770c72_10
+#5 263.0 Unlinking pybind11-global-2.6.2-py39h1a9c180_0
+#5 263.0 Unlinking superlu_dist-6.2.0-h050a5a1_4
+#5 263.1 Unlinking scalapack-2.0.2-hfacbc1e_1009
+#5 263.1 Unlinking hypre-2.18.2-hc98498a_1
+#5 263.1 Unlinking gcc_impl_linux-64-9.5.0-h99780fb_19
+#5 263.2 Unlinking pybind11-2.6.2-py39h1a9c180_0
+#5 263.2 Unlinking hdf5-1.10.6-mpi_mpich_h996c276_1014
+#5 263.2 Unlinking mumps-mpi-5.2.1-hd6b9cac_10
+#5 263.2 Unlinking gxx_impl_linux-64-9.5.0-h99780fb_19
+#5 263.2 Unlinking gcc_linux-64-9.5.0-h4258300_13
+#5 263.2 Unlinking petsc-3.14.5-h60475ce_0
+#5 263.3 Unlinking boost-cpp-1.74.0-h75c5d50_8
+#5 264.5 Unlinking gxx_linux-64-9.5.0-h43f449f_13
+#5 264.5 Unlinking petsc4py-3.14.1-py39h16c3f58_1
+#5 264.5 Unlinking slepc-3.14.2-h44d3fa2_0
+#5 264.5 Unlinking slepc4py-3.14.0-py39h1e75aa9_1
+#5 264.5 Unlinking fenics-libdolfin-2019.1.0-h5ba192a_21
+#5 264.5 Unlinking fenics-dolfin-2019.1.0-py39hc6fefde_21
+#5 264.6 Unlinking mshr-2019.1.0-py39h9761ab4_5
+#5 264.6 Unlinking fenics-2019.1.0-py39hf3d152e_21
+#5 264.6 Linking make-4.4.1-hb03c661_3
+#5 264.6 Linking suitesparse-5.10.1-hd8046ac_0
+#5 264.6 Linking mpich-4.0.3-h846660c_100
+#5 264.7 Linking icu-73.2-h59595ed_0
+#5 264.7 Linking libboost-headers-1.82.0-ha770c72_6
+#5 265.3 Linking eigen-3.4.0-h54a6638_2
+#5 265.3 Linking numpy-1.26.4-py39h474f0d3_0
+#5 265.3 Linking libgcc-devel_linux-64-12.2.0-h3b97bd3_19
+#5 265.3 Linking libsanitizer-12.2.0-h46fd767_19
+#5 265.3 Linking libstdcxx-devel_linux-64-12.2.0-h3b97bd3_19
+#5 265.4 Linking mumps-include-5.2.1-ha770c72_11
+#5 265.4 Linking pybind11-global-2.11.1-py39h7633fee_2
+#5 265.4 Linking libaec-1.1.5-h088129d_0
+#5 265.4 Linking binutils-2.39-hdd6e379_1
+#5 265.4 Linking yaml-0.2.5-hebe6cf0_3
+#5 265.4 Linking fftw-3.3.10-mpi_mpich_h5537406_7
+#5 265.4 Linking superlu_dist-7.2.0-h25dcc4a_0
+#5 265.4 warning  libmamba [superlu_dist-7.2.0-h25dcc4a_0] The following files were already present in the environment:
+#5 265.4     - include/colamd.h
+#5 265.4 Linking scalapack-2.2.0-hd931219_1
+#5 265.4 Linking hypre-2.27.0-mpi_mpich_h716cb5e_0
+#5 265.4 Linking libboost-1.82.0-h6fcfa73_6
+#5 265.4 Linking gcc_impl_linux-64-12.2.0-hcc96c02_19
+#5 265.6 Linking pybind11-2.11.1-py39h7633fee_2
+#5 265.6 Linking hdf5-1.12.2-mpi_mpich_h08b82f9_1
+#5 265.6 Linking mumps-mpi-5.2.1-h7ee95aa_11
+#5 265.6 Linking libboost-devel-1.82.0-h00ab1b0_6
+#5 265.6 Linking gcc-12.2.0-h26027b1_13
+#5 265.6 Linking gxx_impl_linux-64-12.2.0-hcc96c02_19
+#5 265.6 Linking gcc_linux-64-12.2.0-h4798a0e_13
+#5 265.6 Linking petsc-3.18.4-real_hd0e127d_100
+#5 265.8 Linking boost-cpp-1.82.0-h44aadfe_6
+#5 265.8 Linking gxx-12.2.0-h26027b1_13
+#5 265.8 Linking gxx_linux-64-12.2.0-hb41e900_13
+#5 265.8 Linking c-compiler-1.7.0-hd590300_1
+#5 265.8 Linking petsc4py-3.18.4-real_h1bd14e5_100
+#5 265.8 Linking slepc-3.18.2-real_h41e0a76_100
+#5 265.8 Linking cxx-compiler-1.7.0-h00ab1b0_1
+#5 265.8 Linking slepc4py-3.18.2-real_hb3f7552_100
+#5 265.8 Linking fenics-libdolfin-2019.1.0-hbd4cf78_39
+#5 265.8 Linking fenics-dolfin-2019.1.0-py39ha1c9805_39
+#5 265.8 Linking mshr-2019.1.0-py39h9e2e2ce_8
+#5 265.8 Linking fenics-2019.1.0-py39hcaacaa7_39
+#5 265.8 
+#5 265.8 Transaction finished
+#5 265.8 
+#5 265.9 Collect information..
+#5 265.9 Cleaning index cache..
+#5 266.0 Cleaning lock files..
+#5 266.0   Package file                                            Size
+#5 266.0 ────────────────────────────────────────────────────────────────
+#5 266.0   /opt/conda/pkgs
+#5 266.0 ────────────────────────────────────────────────────────────────
+#5 266.0 
+#5 266.0   binutils-2.39-hdd6e379_1.conda                          30kB
+#5 266.0   boost-cpp-1.82.0-h44aadfe_6.conda                       14kB
+#5 266.0   c-compiler-1.7.0-hd590300_1.conda                        6kB
+#5 266.0   cxx-compiler-1.7.0-h00ab1b0_1.conda                      6kB
+#5 266.0   eigen-3.4.0-h54a6638_2.conda                             1MB
+#5 266.0   fenics-2019.1.0-py39hcaacaa7_39.conda                   24kB
+#5 266.0   fenics-dolfin-2019.1.0-py39ha1c9805_39.conda             1MB
+#5 266.0   fenics-libdolfin-2019.1.0-hbd4cf78_39.conda              2MB
+#5 266.0   fftw-3.3.10-mpi_mpich_h5537406_7.conda                   2MB
+#5 266.0   gcc-12.2.0-h26027b1_13.conda                            27kB
+#5 266.0   gcc_impl_linux-64-12.2.0-hcc96c02_19.tar.bz2            59MB
+#5 266.0   gcc_linux-64-12.2.0-h4798a0e_13.conda                   30kB
+#5 266.0   gxx-12.2.0-h26027b1_13.conda                            26kB
+#5 266.0   gxx_impl_linux-64-12.2.0-hcc96c02_19.tar.bz2            15MB
+#5 266.0   gxx_linux-64-12.2.0-hb41e900_13.conda                   28kB
+#5 266.0   hdf5-1.12.2-mpi_mpich_h08b82f9_1.conda                   3MB
+#5 266.0   hypre-2.27.0-mpi_mpich_h716cb5e_0.conda                  2MB
+#5 266.0   icu-73.2-h59595ed_0.conda                               12MB
+#5 266.0   libaec-1.1.5-h088129d_0.conda                           37kB
+#5 266.0   libboost-1.82.0-h6fcfa73_6.conda                         3MB
+#5 266.0   libboost-devel-1.82.0-h00ab1b0_6.conda                  36kB
+#5 266.0   libboost-headers-1.82.0-ha770c72_6.conda                14MB
+#5 266.0   libgcc-devel_linux-64-12.2.0-h3b97bd3_19.tar.bz2         4MB
+#5 266.0   libsanitizer-12.2.0-h46fd767_19.tar.bz2                  6MB
+#5 266.0   libstdcxx-devel_linux-64-12.2.0-h3b97bd3_19.tar.bz2     10MB
+#5 266.0   make-4.4.1-hb03c661_3.conda                            511kB
+#5 266.0   mpich-4.0.3-h846660c_100.tar.bz2                         6MB
+#5 266.0   mshr-2019.1.0-py39h9e2e2ce_8.conda                       2MB
+#5 266.0   mumps-include-5.2.1-ha770c72_11.tar.bz2                 24kB
+#5 266.0   mumps-mpi-5.2.1-h7ee95aa_11.tar.bz2                      3MB
+#5 266.0   numpy-1.26.4-py39h474f0d3_0.conda                        7MB
+#5 266.0   petsc-3.18.4-real_hd0e127d_100.conda                    11MB
+#5 266.0   petsc4py-3.18.4-real_h1bd14e5_100.conda                  1MB
+#5 266.0   pybind11-2.11.1-py39h7633fee_2.conda                   184kB
+#5 266.0   pybind11-global-2.11.1-py39h7633fee_2.conda            172kB
+#5 266.0   scalapack-2.2.0-hd931219_1.tar.bz2                       2MB
+#5 266.0   slepc-3.18.2-real_h41e0a76_100.conda                     4MB
+#5 266.0   slepc4py-3.18.2-real_hb3f7552_100.conda                370kB
+#5 266.0   suitesparse-5.10.1-hd8046ac_0.tar.bz2                    3MB
+#5 266.0   superlu_dist-7.2.0-h25dcc4a_0.tar.bz2                    1MB
+#5 266.0   yaml-0.2.5-hebe6cf0_3.conda                             85kB
+#5 266.0 
+#5 266.0   /root/.mamba/pkgs
+#5 266.0 ────────────────────────────────────────────────────────────────
+#5 266.0 
+#5 266.0 
+#5 266.0   
+#5 266.0 ────────────────────────────────────────────────────────────────
+#5 266.0 
+#5 266.0   Total size:                                            177MB
+#5 266.0 Cleaning tarballs..
+#5 266.0 Cleaning packages..
+#5 DONE 266.5s
+
+#6 exporting to image
+#6 exporting layers
+#6 exporting layers 15.3s done
+#6 exporting manifest sha256:517f95aa20f8045650ccd8b5a56fccef2d1fa67eea288dacc2aa38badb7a2c95 0.0s done
+#6 exporting config sha256:d763015f8de53a951270eca566d9457d09ca1718bed6ad11f4fb6211baa119f8 0.0s done
+#6 exporting attestation manifest sha256:b210fbcefb649567de201ceffa9b0c1e3c0c829ca40f5dcd603bf44a9a4d5f4f 0.0s done
+#6 exporting manifest list sha256:a3b6191336886f3809f7af7839d65b6af21cc5489b12bed8771829f98e4490d9
+#6 exporting manifest list sha256:a3b6191336886f3809f7af7839d65b6af21cc5489b12bed8771829f98e4490d9 0.0s done
+#6 naming to docker.io/library/census-p00663:3 done
+#6 unpacking to docker.io/library/census-p00663:3
+#6 unpacking to docker.io/library/census-p00663:3 3.6s done
+#6 DONE 19.0s
+exit 0

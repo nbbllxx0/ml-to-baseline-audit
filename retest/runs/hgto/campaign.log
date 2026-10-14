@@ -1,0 +1,179 @@
+oc2            cantilever_120x40      r0 wall     10.04 s  C 175.0823294  converged
+oc2            cantilever_120x40      r1 wall     10.00 s  C 175.0823294  converged
+oc2            cantilever_120x40      r2 wall      9.95 s  C 175.0823294  converged
+oc2            cantilever_120x40      r3 wall      9.95 s  C 175.0823294  converged
+oc2            half_mbb               r0 wall      9.89 s  C 191.493159  converged
+oc2            half_mbb               r1 wall      9.98 s  C 191.493159  converged
+oc2            half_mbb               r2 wall      9.95 s  C 191.493159  converged
+oc2            half_mbb               r3 wall      9.93 s  C 191.493159  converged
+oc2            inclined_cantilever    r0 wall     29.79 s  C 132.7216582  max_stage_steps
+oc2            inclined_cantilever    r1 wall     30.14 s  C 132.7216582  max_stage_steps
+oc2            inclined_cantilever    r2 wall     29.36 s  C 132.7216582  max_stage_steps
+oc2            inclined_cantilever    r3 wall     28.35 s  C 132.7216582  max_stage_steps
+oc2            cantilever_240x80      r0 wall     39.35 s  C 175.765098  converged
+oc2            cantilever_240x80      r1 wall     39.31 s  C 175.765098  converged
+oc2            cantilever_240x80      r2 wall     39.47 s  C 175.765098  converged
+oc2            cantilever_240x80      r3 wall     38.92 s  C 175.765098  converged
+oc2            cantilever_480x160     r0 wall    244.29 s  C 171.5841491  converged
+oc2            cantilever_480x160     r1 wall    242.98 s  C 171.5841491  converged
+oc2            cantilever_480x160     r2 wall    242.96 s  C 171.5841491  converged
+oc2            cantilever_480x160     r3 wall    241.20 s  C 171.5841491  converged
+oc2            cantilever_960x320     r0 wall   2140.69 s  C 168.5552452  converged
+ours_validate  cantilever_120x40      r0 wall      7.24 s  C 175.0823293  converged
+ours_validate  half_mbb               r0 wall      8.52 s  C 191.493159  converged
+ours_validate  inclined_cantilever    r0 wall     29.11 s  C 132.7216582  max_stage_steps
+ours_validate  cantilever_240x80      r0 wall      7.18 s  C 175.765098  converged
+ours_validate  cantilever_480x160     r0 wall     19.25 s  C 171.5841491  converged
+ours_validate  cantilever_960x320     r0 wall    107.42 s  C 168.5552453  converged
+{
+  "per_update_first_50": {
+    "cantilever_120x40": {
+      "updates_compared": 50,
+      "max_relative_difference": 3.9233757718317176e-11,
+      "pass": true
+    },
+    "half_mbb": {
+      "updates_compared": 50,
+      "max_relative_difference": 8.027038281766855e-11,
+      "pass": true
+    },
+    "inclined_cantilever": {
+      "updates_compared": 50,
+      "max_relative_difference": 3.547587338752256e-11,
+      "pass": true
+    }
+  },
+  "final": {
+    "cantilever_120x40": {
+      "C_oc2": 175.0823293512004,
+      "C_port": 175.08232934281386,
+      "relative_difference": 4.790052737620241e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 298,
+      "updates_port": 298,
+      "pass": true
+    },
+    "half_mbb": {
+      "C_oc2": 191.493158987081,
+      "C_port": 191.49315900103417,
+      "relative_difference": 7.286517999552823e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 292,
+      "updates_port": 292,
+      "pass": true
+    },
+    "inclined_cantilever": {
+      "C_oc2": 132.7216582362833,
+      "C_port": 132.72165822971493,
+      "relative_difference": 4.948981819162077e-11,
+      "termination_oc2": "max_stage_steps",
+      "termination_port": "max_stage_steps",
+      "updates_oc2": 1000,
+      "updates_port": 1000,
+      "pass": true
+    },
+    "cantilever_240x80": {
+      "C_oc2": 175.76509800138618,
+      "C_port": 175.76509799938964,
+      "relative_difference": 1.1359136967806e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 208,
+      "updates_port": 208,
+      "pass": true
+    },
+    "cantilever_480x160": {
+      "C_oc2": 171.58414908369124,
+      "C_port": 171.5841490880218,
+      "relative_difference": 2.5238689270647843e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 291,
+      "updates_port": 291,
+      "pass": true
+    },
+    "cantilever_960x320": {
+      "C_oc2": 168.55524524688354,
+      "C_port": 168.55524525464529,
+      "relative_difference": 4.604864986787707e-11,
+      "termination_oc2": "converged",
+      "termination_port": "converged",
+      "updates_oc2": 571,
+      "updates_port": 571,
+      "pass": true
+    }
+  },
+  "gate_pass": true
+}
+ours           cantilever_120x40      r0 wall      7.20 s  C 175.0823293  converged
+ours           cantilever_120x40      r1 wall      7.18 s  C 175.0823293  converged
+ours           cantilever_120x40      r2 wall      7.34 s  C 175.0823293  converged
+ours           cantilever_120x40      r3 wall      7.22 s  C 175.0823293  converged
+hgto_gpu       cantilever_120x40      r0 wall     10.59 s  C 176.4932713  converged
+hgto_gpu       cantilever_120x40      r1 wall     10.90 s  C 176.4932713  converged
+hgto_gpu       cantilever_120x40      r2 wall      9.86 s  C 176.4932713  converged
+hgto_gpu       cantilever_120x40      r3 wall     10.02 s  C 176.4932713  converged
+oc6            cantilever_120x40      r0 wall      9.17 s  C 175.0823294  converged
+oc6            cantilever_120x40      r1 wall      9.02 s  C 175.0823294  converged
+oc6            cantilever_120x40      r2 wall      9.28 s  C 175.0823294  converged
+oc6            cantilever_120x40      r3 wall      9.30 s  C 175.0823294  converged
+ours           half_mbb               r0 wall      8.31 s  C 191.493159  converged
+ours           half_mbb               r1 wall      8.31 s  C 191.493159  converged
+ours           half_mbb               r2 wall      8.36 s  C 191.493159  converged
+ours           half_mbb               r3 wall      8.34 s  C 191.493159  converged
+hgto_gpu       half_mbb               r0 wall      9.18 s  C 195.4705819  converged
+hgto_gpu       half_mbb               r1 wall      9.14 s  C 195.4705819  converged
+hgto_gpu       half_mbb               r2 wall      9.24 s  C 195.4705819  converged
+hgto_gpu       half_mbb               r3 wall      9.09 s  C 195.4705819  converged
+oc6            half_mbb               r0 wall      9.20 s  C 191.493159  converged
+oc6            half_mbb               r1 wall      9.12 s  C 191.493159  converged
+oc6            half_mbb               r2 wall      9.05 s  C 191.493159  converged
+oc6            half_mbb               r3 wall      9.18 s  C 191.493159  converged
+ours           inclined_cantilever    r0 wall     29.02 s  C 132.7216582  max_stage_steps
+ours           inclined_cantilever    r1 wall     29.01 s  C 132.7216582  max_stage_steps
+ours           inclined_cantilever    r2 wall     29.09 s  C 132.7216582  max_stage_steps
+ours           inclined_cantilever    r3 wall     29.08 s  C 132.7216582  max_stage_steps
+hgto_gpu       inclined_cantilever    r0 wall     10.52 s  C 133.4785325  converged
+hgto_gpu       inclined_cantilever    r1 wall     10.52 s  C 133.4785325  converged
+hgto_gpu       inclined_cantilever    r2 wall     10.54 s  C 133.4785325  converged
+hgto_gpu       inclined_cantilever    r3 wall     11.02 s  C 133.4785325  converged
+oc6            inclined_cantilever    r0 wall     26.83 s  C 132.7216582  max_stage_steps
+oc6            inclined_cantilever    r1 wall     26.86 s  C 132.7216582  max_stage_steps
+oc6            inclined_cantilever    r2 wall     26.66 s  C 132.7216582  max_stage_steps
+oc6            inclined_cantilever    r3 wall     26.92 s  C 132.7216582  max_stage_steps
+ours           cantilever_240x80      r0 wall      7.12 s  C 175.765098  converged
+ours           cantilever_240x80      r1 wall      7.23 s  C 175.765098  converged
+ours           cantilever_240x80      r2 wall      7.15 s  C 175.765098  converged
+ours           cantilever_240x80      r3 wall      7.14 s  C 175.765098  converged
+hgto_gpu       cantilever_240x80      r0 wall     15.47 s  C 176.852376  converged
+hgto_gpu       cantilever_240x80      r1 wall     15.28 s  C 176.852376  converged
+hgto_gpu       cantilever_240x80      r2 wall     15.34 s  C 176.852376  converged
+hgto_gpu       cantilever_240x80      r3 wall     15.28 s  C 176.852376  converged
+oc6            cantilever_240x80      r0 wall     36.87 s  C 175.765098  converged
+oc6            cantilever_240x80      r1 wall     36.89 s  C 175.765098  converged
+oc6            cantilever_240x80      r2 wall     37.07 s  C 175.765098  converged
+oc6            cantilever_240x80      r3 wall     37.15 s  C 175.765098  converged
+ours           cantilever_480x160     r0 wall     19.22 s  C 171.5841491  converged
+ours           cantilever_480x160     r1 wall     19.16 s  C 171.5841491  converged
+ours           cantilever_480x160     r2 wall     19.16 s  C 171.5841491  converged
+ours           cantilever_480x160     r3 wall     19.16 s  C 171.5841491  converged
+hgto_gpu       cantilever_480x160     r0 wall     49.39 s  C 172.4415222  converged
+hgto_gpu       cantilever_480x160     r1 wall     49.16 s  C 172.4415222  converged
+hgto_gpu       cantilever_480x160     r2 wall     49.24 s  C 172.4415222  converged
+hgto_gpu       cantilever_480x160     r3 wall     49.13 s  C 172.4415222  converged
+oc6            cantilever_480x160     r0 wall    217.30 s  C 171.5841491  converged
+oc6            cantilever_480x160     r1 wall    218.76 s  C 171.5841491  converged
+oc6            cantilever_480x160     r2 wall    217.86 s  C 171.5841491  converged
+oc6            cantilever_480x160     r3 wall    225.18 s  C 171.5841491  converged
+ours           cantilever_960x320     r0 wall    109.27 s  C 168.5552453  converged
+ours           cantilever_960x320     r1 wall    106.52 s  C 168.5552453  converged
+ours           cantilever_960x320     r2 wall    106.35 s  C 168.5552453  converged
+ours           cantilever_960x320     r3 wall    106.43 s  C 168.5552453  converged
+hgto_gpu       cantilever_960x320     r0 wall    198.09 s  C 170.9963143  converged
+hgto_gpu       cantilever_960x320     r1 wall    197.86 s  C 170.9963143  converged
+hgto_gpu       cantilever_960x320     r2 wall    197.37 s  C 170.9963143  converged
+hgto_gpu       cantilever_960x320     r3 wall    197.24 s  C 170.9963143  converged
+oc6            cantilever_960x320     r0 wall   1875.80 s  C 168.5552452  converged
+campaign exit 0

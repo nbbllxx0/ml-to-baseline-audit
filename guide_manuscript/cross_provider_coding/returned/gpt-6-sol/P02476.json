@@ -1,0 +1,30 @@
+{
+  "pid": "P02476",
+  "citation": {
+    "title": "Deep generative modeling for mechanistic-based learning and design of metamaterial systems",
+    "authors": "Liwei Wang; Yu-Chin Chan; Faez Ahmed; Zhao Liu; Ping Zhu; Wei Chen",
+    "year": 2020,
+    "venue": "Computer Methods in Applied Mechanics and Engineering 372, 113377",
+    "doi": "10.1016/j.cma.2020.113377",
+    "arxiv_id": "2006.15274",
+    "version_coded": "version of record, NSF Public Access Repository PDF"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR", "stratum": "speed", "method_family": "vae", "physics": "metamaterial_homogenization", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "Using a precomputed metamaterial database in place of nested optimization is said to make multiscale design more computationally efficient.", "key_phrase": "", "location": "Section 6, Conclusions", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "No classical runtime or numerical speed-up is reported.", "direction": "outperform", "alternatives": "Section 5.2 says a single-scale SIMP solution for the smiley-face displacement problem tends to produce unrealistic intermediate densities and infeasibility, without numerical baseline metrics."},
+  "baseline": {
+    "classical_method": "single-scale SIMP for the smiley-face example (Section 5.2); nested homogenization-based multiscale optimization discussed in Introduction and Conclusions",
+    "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "Intel i7-9750H 2.6 GHz CPUs for Section 5.2 examples; GeForce GTX Titan XP GPU with 12 GB memory for training (Section 3.3)", "problem_size": "Section 5.2: 15 x 40, 4 x 30, and 50 x 50 macro design meshes with 50 x 50 microstructures", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "Section 5.2: 20 min with two CPUs for second example; 11 h 12 min with six processors for third", "training_time": "44,496 s for 500 epochs (Section 3.3)", "data_generation_cost": "not stated as time; Section 3.3 reports 1,400 SIMP-generated initial microstructures and approximately 250,000 after 200 stochastic perturbation iterations", "quality_metric": "Section 5.2: displacement-profile relative root mean square error", "quality_gap": "not stated against a classical result"
+  },
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-loose-quality-match", "evidence": "Section 6 asserts greater computational efficiency than nested optimization without a timed classical run. Section 5.2 gives a qualitative SIMP infeasibility observation, but no matched-time or quantitative matched-quality comparison."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 5.2 mentions a single-scale SIMP result but states no implementation or solver details; no R2(a)-(e) condition can be established."},
+    "R3": {"verdict": "partial", "marker": "R3-no-data-cost", "evidence": "Section 3.3 reports 44,496 s VAE training and 1,400 SIMP-generated seed microstructures expanded to approximately 250,000, but no data-generation wall-clock time or break-even use count."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 5.2 reports returned-structure displacement error and boundary compatibility for three examples, but does not report a failure/infeasibility rate."}
+  },
+  "reporting": {"n_test_cases": "3 multiscale system examples (Section 5.2)", "ood_test": "unclear", "seeds_or_variance": "no", "failure_rate_reported": "no", "timing_protocol_stated": "partial", "runtimes_all_cases": "selective", "code_available": "no", "data_available": "yes", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "Section 5.2 says the authors observed that single-scale SIMP gives unrealistic intermediate densities on the smiley-face problem. This is treated as their own qualitative classical comparison, although they provide neither the baseline design nor its timing. The primary speed claim is qualitative and comes from the conclusion."
+}

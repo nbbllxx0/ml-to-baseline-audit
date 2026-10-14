@@ -1,0 +1,88 @@
+{
+  "pid": "P00019",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Multi-material Multi-physics Topology Optimization with Physics-informed Gaussian Process Priors",
+    "authors": "Xiangyu Sun, Shirin Hosseinmardi, Amin Yousefpour, Ramin Bostanabad",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.LG). Version of record: Computer Methods in Applied Mechanics and Engineering 461, 119163 (Nov 2026), doi 10.1016/j.cma.2026.119163 (Crossref title search, same four authors); not open access (Crossref licence metadata lists only Elsevier TDM licences and an author-manuscript licence from 18 Jun 2027; Elsevier API openaccess flag 0), so not read",
+    "doi": "10.48550/arXiv.2602.17783",
+    "arxiv_id": "2602.17783",
+    "version_coded": "arXiv v1 (19 Feb 2026; only version on the abs page), full text read from https://arxiv.org/html/2602.17783; the paywalled version of record was not read"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "multiphysics",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "With a mass constraint on four 2D multi-material compliance benchmarks, PIGP's median compliance over 10 runs is slightly above ordered SIMP's and PolyMat's (e.g., MBB 1.049 vs 0.982 and 0.987); with a cost-only constraint it matches PolyMat.",
+    "key_phrase": "achieves compliance values that are slightly higher yet comparable",
+    "location": "Section 4.1, Table 4 (first quantitative classical comparison; the abstract, introduction and conclusion compare with the open-source codes and COMSOL only qualitatively)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime of any method is reported anywhere. Only hardware and budgets are given: SIMP, PolyMat and COMSOL on an Intel i7-11700K CPU; PIGP in Python on an NVIDIA A100 GPU for up to 10,000 Adam epochs, 20,000 for the thermo-mechanical cases (Sec. 4, 4.4). The conclusion states qualitatively that PIGP costs more to train than SIMP and that COMSOL is slower than the open-source codes and PIGP. Not derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 4.4, Table 15 (thermo-mechanical, single material Ni, vs COMSOL with MMA): median ABAQUS output displacement 21.88 vs 18.23 (actuator) and 16.61 vs 13.47 (gripper), with smaller spread for PIGP; the conclusion presents this as improved objectives. (2) Table 5 (3D single material vs SIMP 3D, 10 runs): median compliance MBB 0.198 vs 0.191, cantilever 0.176 vs 0.169, bridge 0.234 vs 0.243, L-shape 1.126 vs 1.249. (3) Table 8 (heat conduction): 2D single material 1.775 vs 1.986 (ordered SIMP), 2D multi-material 0.577 vs 0.487, 3D single material 25.421 vs 29.954 (SIMP 3D). (4) Table 11 (compliant mechanisms; objective is output displacement, larger is better per Sec. 4.3): inverter single 2.163 vs 2.197 and multi 1.979 vs 2.243; gripper single 0.094 vs 0.099 and multi 0.097 vs 0.109. (5) Conclusion, qualitative cost statements with no numbers: higher training cost than SIMP; COMSOL slower and in need of fine-tuning."
+  },
+  "baseline": {
+    "classical_method": "2D: ordered SIMP for multi-material TO (ref. [14], Da Silveira and Palma 2022) and PolyMat (ref. [43], Sanders et al. 2018); 3D: single-material SIMP 3D code (ref. [33], Liu and Tovar 2014); thermo-mechanical: COMSOL with a nested MMA workflow (Sec. 4, 4.1, 4.4)",
+    "implementation": "Published open-source codes (refs. [14], [33], [43]; the titles of [33] and [43] name MATLAB); ordered SIMP filter radius 6, PolyMat density filter radius 2 mm, no projection in these codes (Sec. 4, 4.1). COMSOL (commercial) with a Helmholtz filter of radius 5 um and projection continuation beta = 8, 12, 16 (Sec. 4.4)",
+    "solver": "not stated for any classical code",
+    "hardware_classical": "Intel Core i7-11700K CPU for SIMP, PolyMat and COMSOL (Sec. 4)",
+    "hardware_ml": "NVIDIA A100 GPU; Python implementation (Sec. 4)",
+    "problem_size": "Primary (2D compliance): ordered SIMP 301x151 FE nodes (MBB, cantilever) or 151x151 (bridge, L-shape); PolyMat 45,413 / 45,413 / 22,734 / 14,701 nodes; PIGP 201x101 to 401x201 collocation points, 101x101 to 201x201 for bridge and L-shape (Table 3). 3D: SIMP 3D 77x39x27 or 76x76x20 nodes; PIGP 61x31x21 to 92x47x32 or 61x61x16 to 92x92x24 CPs (Table 3)",
+    "classical_iterations": "not stated for ordered SIMP, PolyMat or SIMP 3D; COMSOL three projection stages of 500 iterations each (Sec. 4.4). PIGP: up to 10,000 epochs, 20,000 in Sec. 4.4 (Sec. 4)",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated (per-problem training is the optimization; only epoch counts are given)",
+    "data_generation_cost": "none required: per-problem physics-informed training without a dataset (Sec. 3) [inferred]",
+    "quality_metric": "Median compliance over 10 random initializations, computed by FEM on the final topologies of every method, plus achieved mass and cost values (Table 4 caption; Sec. 4 opening)",
+    "quality_gap": "Table 4 medians, mass-only, PIGP vs ordered SIMP vs PolyMat: MBB 1.049 / 0.982 / 0.987; cantilever 0.976 / 0.890 / 0.899; bridge 1.133 / 1.041 / 1.050; L-shape 3.529 / 3.194 / 3.303 [derived: PIGP +6.8% to +10.5% vs ordered SIMP, +6.3% to +8.6% vs PolyMat]. Cost-only: PIGP 0.651 / 0.586 / 0.769 / 1.799 vs PolyMat 0.652 / 0.587 / 0.771 / 1.805 vs ordered SIMP 0.991 / 0.886 / 1.035 / 2.764. Mass and cost both: PIGP 1.104 / 0.987 / 1.154 / 3.817 vs ordered SIMP 1.010 / 0.907 / 1.076 / 3.194. Achieved MBB mass 6006.3 (PIGP), 5990.8 (ordered SIMP), 5988.0 (PolyMat) against a target of 6000 [derived: 0.3 x 2x10^4, Table 2]"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4, 4.1, Tables 2-4: every method is scored by FEM at the same mass or cost target, and achieved values are reported (e.g., MBB mass 6006.3 PIGP, 5990.8 ordered SIMP, 5988.0 PolyMat; target 6000 [derived]). Matching is loose: discretizations differ (Table 3), length-scale control differs (filter radius 6 and 2 mm vs the PGCAN resolution, which Sec. 4.2 links to feature complexity), and PIGP runs up to 10,000 epochs while the iteration counts and stopping rules of ordered SIMP and PolyMat are not stated. No runtimes are compared."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Quality stratum, competence of the comparator. Sec. 4-4.1: the 2D comparators are published open-source codes with stated filter radii, and projection was switched off in PIGP to match them. No speed claim exists, so markers (a)-(e) do not bear. Ordered SIMP's weak cost-only result (MBB 0.991 vs 0.652 for PolyMat) is attributed by the authors to its interpolation scheme, a property of the method rather than a weak run [inferred]. For the alternative COMSOL comparison, the conclusion says COMSOL needs fine-tuning to be competitive and Sec. 4.4 reports that a multi-material COMSOL setup could not be made to work, so that comparator may be under-tuned [inferred]; it is not the primary outcome. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Quality stratum with per-problem physics-informed training and no offline data (Sec. 3); no speed claim. For C3: no runtime, training time or GPU-hours are reported for any method; the conclusion says only that PIGP costs more to train than SIMP."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 4 opening and the captions of Tables 4, 5, 8, 11 and 15: the objectives of the final topologies of all methods are evaluated by FEM (ABAQUS after binarization in Sec. 4.4), achieved mass and cost values are reported, and statistics cover all 10 runs (medians in Table 4). Defective designs are not counted: gray areas (Sec. 4.3) and thin or disconnected features (Sec. 4.4) are described only qualitatively, and whether the Table 4 designs were binarized before the FEM evaluation is not stated."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2D compliance: 4 benchmarks x 3 constraint settings (Table 4); 3D compliance: 4 benchmarks (Table 5); heat conduction 2D and 3D (Table 8); 2 compliant mechanisms (Table 11); 2 thermo-mechanical devices, single and multi-material (Table 15); 10 random initializations each (Sec. 4); 100 runs per method for the shape-function vs finite-difference study (Sec. 4.1.1)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; full text gives stratum Q (I-QUALITY): classical codes are run and compared on objective values only, and no runtime appears anywhere. Primary outcome under PROTOCOL 5.1 rule 2: the abstract, conclusion and introduction hold no quantitative classical comparison, so the first one in the main text (Table 4) is taken; the COMSOL comparison that the conclusion stresses is listed as alternative (1). Direction similar_or_mixed: under the mass constraint PIGP's median compliance is 6.3-10.5% above the two codes [derived from Table 4], but under the cost-only constraint it matches PolyMat and beats ordered SIMP. Reporting locators: variance = Tables 5, 8, 11, 15 (mean and std over 10 runs); hardware and epochs = Sec. 4; timing protocol partial because hardware and PIGP epochs are stated but no times and no SIMP/PolyMat iteration counts. Code and data: the arXiv v1 promises GitHub release upon publication (Replication statement); on 2026-09-24 the repository github.com/Bostanabad-Research-Group/MM-TO (MIT licence, created 2026-06-21, README matches the paper's examples) and Zenodo record 20840006 (CC-BY-4.0, dated 2026-06-10, code plus the Data folders) were public. retest_candidate false: no speed claim to re-test (a quality re-run would be possible under MIT/CC-BY terms). Minor inconsistencies: Table 2 lists P0 = 1.728x10^4 for the 3D bridge, where every other row has P0 = 1.6 x M0 (1.728x10^5 expected) [inferred typo]; the Table 9 caption says dimensions are in um while the header says mm; the arXiv HTML drops some gripper rows in Tables 10, 12 and 14 (rendering gap; check the PDF if needed). No author overlap with Jun Wang (all four authors are at UC Irvine). Related pool records by the same group (P00048, P00068) are different papers, not duplicates."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00003",
+  "citation": {
+    "title": "Adversarial Agents on Topology Optimization: Understanding the Fragility and Robustness of Deep Learning-based and Physics-Based Design Models under Adversarial Perturbation",
+    "authors": "Hoang Anh Nguyen, Yuan Hong, Hongyi Xu",
+    "year": 2026,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arxiv.2608.22606",
+    "arxiv_id": "2608.22606",
+    "version_coded": "arXiv v1 (submitted 23 Aug 2026; only version on the abs page); no arXiv HTML rendering exists (404), so full text (33 pages, including Appendix) was read from https://arxiv.org/pdf/2608.22606"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Bounded (10%) adversarial perturbation of only the initial-density input can raise a surrogate's compliance to a median 132.65x of the SIMP reference, but re-running SIMP from that same perturbed initialization restores the median ratio to 1.000x.",
+    "key_phrase": "learned surrogates should serve as physics-verified initializers instead of replacing physics-based solvers entirely",
+    "location": "Conclusion (Sec. 6) and Sec. 5.2/5.4 (Table 1, Table 3); the Abstract states the vulnerability and recovery findings only qualitatively, without specific ratios",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable: this paper reports no wall-clock or timing numbers for either the DL surrogates or SIMP anywhere in the text. The Abstract's statement that surrogates have 'speed in online design generation' restates prior literature's general finding as motivation; it is not a quantity this paper itself measures or compares.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 5.1 (Fig. 5, Table A.1): under clean, non-adversarial conditions, all nine surrogate configurations closely track the SIMP reference, with median clean/GT compliance ratios from 0.999x to 1.047x - a quality-parity finding that serves as the paper's baseline before the attack is introduced. (2) Sec. 5.4, Appendix A.5: when the adversary instead attacks SIMP's own internal channels (sensitivity field, filter, or load vector) rather than the surrogate's input, SIMP itself fails to converge to a physically reasonable design, with final compliance degraded by roughly 5x to over 700x - showing the classical solver is not universally immune to adversarial manipulation, only to the specific non-intrusive channel that is the paper's main case."
+  },
+  "baseline": {
+    "classical_method": "Standard minimum-compliance density-based topology optimization (SIMP), penalization p=3, optimality-criteria updates with sensitivity filtering, referred to as 'Top88/SIMP' (Sec. 2.1, Eqs. 1-3); used both to generate reference/ground-truth topologies (training targets) and as the recovery mechanism re-run from adversarially perturbed initializations (Sec. 5.4)",
+    "implementation": "Not named beyond 'Top88/SIMP', i.e. following the well-known 88-line-style SIMP-OC formulation; no specific code repository is cited for this implementation",
+    "solver": "Not stated (the KU=F equilibrium solve method is not specified as direct or iterative)",
+    "hardware_classical": "Not stated anywhere in the article",
+    "hardware_ml": "Not stated anywhere in the article (no CPU/GPU specification for training or inference of any of the three surrogate families)",
+    "problem_size": "20x60 finite-element grid; 300-sample dataset (210 train / 45 validation / 45 test, seed-0 split); volume fraction sampled uniformly in [0.3, 0.7]; a unit downward load applied at a randomly selected admissible node on the lower, upper or right boundary, left boundary fixed (Sec. 4)",
+    "classical_iterations": "Not stated as a fixed count; standard OC-based SIMP run to convergence generates the training targets and the ground-truth references used throughout (Sec. 2.1, Sec. 4)",
+    "classical_time": "Not stated anywhere in the article",
+    "ml_time": "Not stated anywhere in the article. Three architectures are benchmarked: U-Net (about 1.93M parameters, 4-level encoder-decoder), nn4topopt-style (about 135K parameters, 3-level), and a TopologyGAN-style generator (about 6.79M parameters, 32 SE-residual blocks) (Sec. 2.2, Sec. 4)",
+    "training_time": "Not stated as a wall-clock or GPU-hour figure. Training protocol: U-Net at base width 32, MSE loss, Adam (lr 1e-3, cosine annealed to 1e-5), batch size 16, 40 epochs; nn4topopt-style and TopologyGAN-style models trained with combined binary cross-entropy plus soft-Dice loss (Dice weight 0.5), Adam (lr 1e-3, batch size 16), up to 200 epochs with ReduceLROnPlateau and early stopping (patience 40 after epoch 60) (Sec. 4)",
+    "data_generation_cost": "Not stated as a wall-clock or compute figure; the 300-sample dataset (210/45/45 split) is reported as '300 accepted samples from 300 attempts and no solver failures' (Sec. 4), with no timing given",
+    "quality_metric": "Compliance evaluated by finite-element analysis under the original physical problem for every prediction (clean, attacked, transferred, and SIMP-rerun), reported as compliance ratios relative to the SIMP reference (R_clean, R_adv, R_pair; Eqs. 13-16, Sec. 3.4). This is an explicit, deliberate departure from image-only metrics: the paper also reports binary accuracy, IoU and F1 (Table A.1) but argues at length (Sec. 1, Sec. 6) that these are insufficient on their own",
+    "quality_gap": "Clean conditions (Sec. 5.1, Table A.1): median clean/GT compliance ratios from 0.999x to 1.047x across the nine models (near-parity with SIMP). Adversarial conditions (Table 1): up to 132.65x median degradation (UNet1 under PGD), with individual worst cases reaching about 1.62e7x (Table A.2). SIMP-rerun recovery (Table 3): median ratio 1.000x for all nine attack sources, though 14 of 405 pooled source-instance pairs (3.5%) still exceed 1.05x and 6 (1.5%) exceed 1.10x, with a worst case of 1.353x"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Every comparison (clean surrogate vs. SIMP, attacked vs. clean, transfer, and SIMP-rerun vs. reference) is a paired evaluation on the identical physical problem instance (same load, supports, volume target and conditioning channels; Sec. 3.4, Fig. 3), summarized by the median over the full 45-case held-out test set rather than selected examples. Volume fraction and boundary conditions are held fixed within each comparison by construction, and compliance is computed by FE analysis of the actual returned design in every case (Sec. 3.4)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-reference-baseline",
+      "evidence": "SIMP ('Top88/SIMP', standard OC updates with sensitivity filtering, Sec. 2.1) is treated as the trusted reference/ground truth throughout rather than as a comparator to be outperformed, and is also the recovery mechanism in Sec. 5.4. No re-test was performed by this coder, but nothing in the article suggests a deliberately weakened or inflated classical implementation; if anything, the study's central claim rests on SIMP being at least as reliable as the reference standard."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim against SIMP is made anywhere in this article with actual numbers; the only mention of surrogate speed is a background citation to prior literature (Sec. 1). Training cost, data-generation cost, and inference time are all unreported (Sec. 4), but since no speed advantage is claimed here, R3's cost-accounting requirement does not bear on this article's primary outcome."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Sec. 3.4: quality is computed by FE analysis of the compliance of the actual returned design (not merely image similarity) for every condition tested, over the full 45-case held-out test set. The paper explicitly argues (Sec. 1, Sec. 6) that image-only metrics such as pixel accuracy, IoU and MSE are insufficient and reports them only alongside, not instead of, compliance. Failure/exceedance rates are extensively quantified (e.g. Table A.2: 31/45, 26/45 and 25/45 held-out cases exceed 2x, 10x and 100x compliance increase respectively for the most vulnerable model; Table 3 reports analogous exceedance counts for the SIMP-rerun recovery)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "45 held-out test problems (fixed across experiments), evaluated for 9 architecture-conditioning-depth combinations (3 architectures x k=0,1,5) under 4 attack algorithms (FGSM, PGD, Adam-based, RAE-PGD), plus a full 9x9 source-target transfer grid (Table 2) and a SIMP-rerun for each of the 9 selected attacks (Table 3)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Hoang Anh Nguyen, Yuan Hong, Hongyi Xu, University of Connecticut). Duplicate check via audit/pool/pool.csv title search: only one matching row (P00003 itself); no duplicate found. This article is atypical for the audit: it is not a paper proposing a new ML-for-TO method and claiming it beats a classical baseline; it is an adversarial-robustness study of three existing surrogate families (U-Net, nn4topopt, TopologyGAN) that ultimately argues classical SIMP is more reliable and should stay in the loop as a verifier/recovery step. It is coded as an include (I-QUALITY) because a learned model is used to produce topology designs and a quantitative compliance comparison against classical SIMP exists (Sec. 5.1 clean baseline; Sec. 5.2/5.4 under adversarial perturbation), satisfying Sec. 3 of the protocol even though the paper's own thesis runs counter to the 'ML beats classical' framing most other queue articles use. Primary-outcome choice: the Abstract has no numbers; the Conclusion (Sec. 6) is the first location with quantitative figures (132.65x degradation, 1.000x SIMP-rerun median), so that adversarial-attack-and-recovery result is coded as primary, with the clean-condition quality-parity result (Sec. 5.1) recorded as alternative (1) since it is the more conventional 'ML matches classical quality' comparison. method_family is coded 'cnn' as the closest single-value fit, though the study spans three families (U-Net and nn4topopt are CNN encoder-decoders; the TopologyGAN generator is also CNN-based with a GAN training procedure) - this is a multi-architecture robustness study, not a single-method paper. Data/code availability: the article states, verbatim in substance, that data and the model will be made available upon acceptance via email request, which is coded as 'on_request' rather than 'yes'; retest_candidate is set to false because nothing is currently public and the audit's own access rules prohibit contacting authors by email."
+}

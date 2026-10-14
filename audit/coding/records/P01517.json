@@ -1,0 +1,101 @@
+{
+  "pid": "P01517",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "A Multi-Grid, Single-Mesh Online Learning Framework for Stress-Constrained Topology Optimization Based on Isogeometric Formulation",
+    "authors": "Kangjie Li, Wenjing Ye",
+    "year": 2025,
+    "venue": "Computer Modeling in Engineering & Sciences 145(2) (2025) 1665-1688 (Tech Science Press; diamond open access, CC BY 4.0; received 27 Aug 2025, issue published 26 Nov 2025)",
+    "doi": "10.32604/cmes.2025.072447",
+    "arxiv_id": "",
+    "version_coded": "version of record, full-text HTML read from techscience.com/CMES/v145n2/64584/html; Tables 1-5 (published as images) and Figs. 10 and 13 read from the publisher's image files. The PDF download was stopped (file above 130 MB), so locators use section, table and figure numbers, not pages. The adjudicator re-read the same HTML in full on 2026-09-24 and read Tables 1 and 5 from the publisher's image files (cdn.techscience.cn)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screened I-UNCLEAR; the first quantitative classical comparison reports total run times against the same isogeometric TO without the surrogate, Sec. 5.1, Table 1)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "stress",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On two 2D stress-constrained L-bracket problems (103×52 control points), FNO online learning cut IGA evaluations from 210 to 150 and total time by about 20% (2540.44 to 2062.78 s; 2429.20 to 2058.63 s) at matching volume and maximum stress.",
+    "key_phrase": "reducing the total computational time by about 20%",
+    "location": "Sec. 5.1 and Table 1 (first quantitative comparison with the classical TO-IGA run; the abstract and conclusion compare only qualitatively, and the introduction cites other studies' results only). Sec. 5.2.4 states the Table 1 speed-up as 1.23",
+    "quantitative": true,
+    "claimed_speedup": 1.23,
+    "claimed_speedup_basis": "Stated in Sec. 5.2.4 as the speed-up of Table 1. Derived from Table 1: case (a) 2540.44 s ÷ 2062.78 s = 1.23; case (b) 2429.20 s ÷ 2058.63 s = 1.18. Both totals are wall-clock times on the same machine and code; the online-learning total is taken to include FNO training [inferred: Sec. 5.1 reports the whole run time].",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5.2.4, Table 5: L-bracket (a) at 207×102 control points, 30,604.28 s vs 17,222.91 s (1.78, stated), volume objective 0.1444 vs 0.1446; at 63×48, 950.12 s vs 738.27 s (1.29, stated), 0.1834 vs 0.1887 (online learning 2.9% higher [derived]). (2) Sec. 5.2.4, Table 4: n1 = 5 with overlap, 1767.56 s, speed-up 1.44 (stated) against the Table 1 case (a) baseline, objective 0.1513 vs 0.1500. (3) Sec. 5.1, Table 2, quarter annulus: 2406.58 s vs 1783.18 s (2×2 Gauss points; 1.35 [derived]), volume 0.1232 vs 0.1238; 3316.6 s vs 2570.9 s (3×3; 1.29 [derived]), 0.1314 vs 0.1278. (4) Conclusion, qualitative: substantial savings at results comparable to ground-truth IGA in large-scale examples. (5) Fig. 13: speed-up rises with control points toward the schedule limit (n1+n2)/n1 = 2.0."
+  },
+  "baseline": {
+    "classical_method": "The same isogeometric density-based TO without the surrogate, which the authors treat as the ground truth: quadratic NURBS, volume minimization under a p-norm (p = 8) von Mises stress constraint, Shepard filter, tanh projection, adjoint sensitivities, MMA (Sec. 3, 5)",
+    "implementation": "In-house MATLAB 2020b code; the online-learning part runs in Python 3.8 with PyTorch 1.10.2 (Sec. 5)",
+    "solver": "not stated",
+    "hardware_classical": "One workstation for all runs: Intel i7-11700 CPU, 16 GB RAM, NVIDIA RTX 3060 (12 GB), Windows 10 Pro (Sec. 5); the device used by the MATLAB IGA code is not stated [CPU inferred]",
+    "hardware_ml": "Same workstation (Sec. 5); FNO on the RTX 3060 [inferred; not stated per method]",
+    "problem_size": "L-bracket 103×52 control points, padded to 104×52 for the FNO (Sec. 5.1) [derived: 10,712 DOFs]; extra cases 63×48 and 207×102 control points (Sec. 5.2.4) [derived: 6,048 and 42,228 DOFs]; quarter annulus size not stated in the text",
+    "classical_iterations": "Stop after 210 iterations or when the mean design change falls below 1e-3, the same rule for both methods (Sec. 5.1); the baseline used 210 IGA evaluations vs 150 for online learning (Sec. 5.1); Fig. 10 shows all four runs reaching about 210 iterations [read from plot]",
+    "classical_time": "Table 1: 2540.44 s (a) and 2429.20 s (b) [derived: about 12.1 s and 11.6 s per iteration at 210 iterations]; Table 2: 2406.58 s and 3316.6 s; Table 5: 950.12 s and 30,604.28 s",
+    "ml_time": "Table 1: 2062.78 s (a) and 2058.63 s (b) total optimization time; Table 2: 1783.18 s and 2570.9 s; Table 4 text: 1767.56 s for n1 = 5 with overlap; Table 5: 738.27 s and 17,222.91 s",
+    "training_time": "Online only: 150 epochs, batch 12, per (re)training (Sec. 5.1); training time not reported separately [taken to be inside the totals, inferred]",
+    "data_generation_cost": "none offline; training data come from TO-IGA iterations of the same run (n0 = 20 warm-up iterations, then blocks of n1 = 10 IGA and n2 = 5 FNO iterations; Sec. 4, 5.1)",
+    "quality_metric": "Volume fraction (objective) and maximum von Mises stress of the final designs against the stress limit (25 Pa L-bracket, 40 Pa quarter annulus), from IGA analysis (Tables 1, 2, 4, 5)",
+    "quality_gap": "Table 1: (a) volume 0.1489 vs 0.1500, max stress 24.9176 vs 25.2465 (baseline 1.0% over the limit [derived]); (b) 0.1464 vs 0.1465, 24.9528 vs 24.9757. Table 2: 0.1238 vs 0.1232 with 40.4327 vs 40.1762 (2×2); 0.1278 vs 0.1314 with 40.1300 vs 39.9690 (3×3). Table 5: 0.1887 vs 0.1834 and 0.1446 vs 0.1444"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. 5.1, Table 1 and Fig. 10: both methods run the same code, formulation and stopping rule (210 iterations or mean design change below 1e-3) on one machine, and the online-learning designs match the baseline (volume 0.1489 vs 0.1500 and 0.1464 vs 0.1465; max stress 24.9176 vs 25.2465 and 24.9528 vs 24.9757 against a 25 Pa limit). The time comparison is therefore made at matched design quality. No post-processing is applied to either design."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl",
+      "evidence": "Sec. 5, Table 1: the baseline is the authors' in-house MATLAB isogeometric TO code, the same code the online framework calls. It takes about 12.1 s per iteration at 10,712 DOFs [derived: 2540.44 s ÷ 210], and Sec. 4 names the stress-sensitivity step as the most time-consuming step. This looks slow for the size [inferred]; the article itself cites efficiency-oriented MATLAB IGA-TO implementations ([18], [19]), but no direct comparison is possible. A faster baseline would shrink the saving, because the FNO overhead stays fixed [inferred]. (c) does not apply (at most 4.2×10⁴ DOFs [derived]); (b) and (d) are not observed (no abstract figure; both methods share the 210-iteration cap, and Fig. 10 shows the volume still falling until about iteration 170 [read from plot]). Unsure alternative: pass. For scale only: the project's compliance-SIMP strong baseline needs 0.0045 s per iteration at n = 64 with PARDISO (retest/logs/g2_benchmark_2026-09-24.log), a different problem class, so R2(e) cannot be applied."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem-learning",
+      "evidence": "Sec. 4 and 5.1: the FNO is trained online on data from the same optimization run (warm-up n0 = 20 IGA iterations, then n1 = 10 IGA and n2 = 5 FNO iterations per block, 150 epochs per training), with no offline dataset or pretraining. Its cost sits inside the total times compared under R1 [inferred: Sec. 5.1 reports the whole run time]."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-FE-verified",
+      "evidence": "Tables 1, 2, 4 and 5: volume fraction and maximum von Mises stress are reported for every returned design, with stress plots at the Gauss points; they come from IGA analysis of the final design [inferred from Sec. 4, where the design at the last iteration is evaluated]. Constraint satisfaction is visible for each case, including small overshoots of the stress limit by both methods (e.g. online learning 40.4327 vs 40 Pa, Table 2). All runs are shown; failed runs are neither reported nor discussed, and each case is a single run. Unsure, so pass."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "6 ML-vs-classical comparisons: 2 L-bracket load cases at 103×52 control points (Table 1), the quarter annulus with 2×2 and 3×3 Gauss points (Table 2), and L-bracket (a) at 63×48 and 207×102 (Table 5); parameter studies without classical runs (Fig. 12; Tables 3-4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR; full text gives I-SPEED. The comparator is the same isogeometric stress-constrained TO without the surrogate, which the authors call ground truth TO-IGA; it is a classical, non-learned optimizer, so it qualifies under §3.2. Primary outcome under §5.1 rule 2: the abstract and conclusion are qualitative, and the only numbers in the introduction are another study's result (Villalba et al., 40-60% time reduction vs FEM), so the first quantitative comparison in the main text (Sec. 5.1, Table 1) is primary. The larger 1.78 speed-up at 207×102 (Table 5) is the main alternative; the conclusion's large-scale wording points to it. The authors call the Table 1 gain rather small, below 20% (Sec. 5.2.4); the derived reductions are 18.8% and 15.3%. The speed-up comes from skipping IGA analysis and sensitivity evaluation in n2 of every n1 + n2 iterations, with a stated ceiling of (n1+n2)/n1 = 2.0 for n1 = n2 = 5 (Sec. 5.2.4). How the stress-constraint value is obtained in FNO iterations is not described [not found]. Related study, not a duplicate: P01505 (same authors, Engineering with Computers 2026; compliance-based multi-grid online learning, cited as ref. [29]). Other pool records from the same group (P00125/P00652, P00156/P00538) are different studies. Reporting locators: hardware and software Sec. 5; stopping rule and online-learning settings Sec. 5.1; Availability statement: data on request; no code statement. retest_candidate false: no public code. No author named Jun Wang. Decision order position 49.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R2": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "partial",
+        "reason": "The in-house MATLAB baseline needs about 12.1 s per iteration at 10,712 DOFs (Table 1: 2540.44 s for 210 IGA evaluations, Sec. 5.1) [derived], and Sec. 4 names the sensitivity step, which the FNO replaces, as the bottleneck. The implementation thus looks inefficient while no direct comparison is possible, the §5.3 R2 partial case; shared hardware settles only the hardware criteria."
+      }
+    }
+  }
+}

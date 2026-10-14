@@ -1,0 +1,60 @@
+{
+ "pid": "P02479",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Pragmatic generative optimization of novel structural lattice metamaterials with machine learning",
+  "authors": "Anthony P. Garland, Benjamin C. White, Scott C. Jensen, Brad L. Boyce",
+  "year": 2021,
+  "venue": "Materials & Design 203 (2021) 109632 (Elsevier; publication date 2021-03-02 per OpenAlex; gold open access, CC BY per OpenAlex and Semantic Scholar metadata; OSTI record 1768685)",
+  "doi": "10.1016/j.matdes.2021.109632",
+  "arxiv_id": "none found",
+  "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); full text not reachable"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "cnn",
+  "physics": "metamaterial_homogenization",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (abstract only). The abstract says an ML-guided search finds Pareto-optimal lattice unit cells for stiffness under static load and low wave speed under impact, with about 3500 simulation calls. It names no classical comparator.",
+  "location": "Abstract (pool record, from OpenAlex)",
+  "quantitative": false,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "no full text"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent. (1) The open copy OpenAlex lists (ScienceDirect PDF, PII S0264127521001854) and the article page both returned HTTP 403 to curl; WebFetch of the article page also returned HTTP 403. No bypass was attempted. (2) OSTI: record 1768685 (DOE PAGES) has no full-text file; the servlets/purl links for it return HTTP 404. (3) arXiv API: no preprint (title words; authors Garland and Boyce). (4) Europe PMC: no record. Semantic Scholar lists only the ScienceDirect PDF. (5) CORE search answered with a Cloudflare bot check; not bypassed. (6) OSTI 1841074 (SAND2021-0287C) is the first author's conference slides, not the article; they were read for context only and are not coded. The slides describe a CNN surrogate for modulus and wave speed on a 12x12-pixel unit cell, used inside an NSGA-II genetic algorithm with active learning over 11 generations. Their results compare with intuition-based designs and 15k random designs; a slide on design methods argues that TO does not suit contact and failure. [inferred from the slides, not the article: the full text may hold no classical-optimizer comparison, so FT-NOBASELINE or FT-MLONLY is a plausible outcome; the verifier should check.] Scope note: one objective is wave speed through the lattice during an impact event (explicit dynamics with contact per the slides). This is impact-wave, not acoustic or phononic design, but the verifier may treat elastic-wave objectives as the open FT-DOMAIN (acoustic) scope question. Free to read in a browser: yes, the version of record is gold open access (CC BY) at https://www.sciencedirect.com/science/article/pii/S0264127521001854, so a human can fetch and code it. method_family cnn rests on the slides and a search-engine summary of the article, not on the article text. No author named Jun Wang. Screening code was I-UNCLEAR.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P02479.json",
+  "result": "full agreement"
+ }
+}

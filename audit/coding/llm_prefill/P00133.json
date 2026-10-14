@@ -1,0 +1,88 @@
+{
+  "pid": "P00133",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks",
+    "authors": "Aaditya Chandrasekhar, Krishnan Suresh",
+    "year": 2021,
+    "venue": "arXiv preprint (cs.CE; arXiv comment: submitted to Computer Aided Design, 2021). Version of record, retitled 'Approximate Length Scale Filter in Topology Optimization using Fourier Enhanced Neural Networks', Computer-Aided Design 150 (2022) 103277, doi 10.1016/j.cad.2022.103277 (Crossref, same authors). Not open access per Crossref licence metadata (only an accepted-manuscript licence from 2023-05-10); not accessed",
+    "doi": "10.48550/arXiv.2109.01861",
+    "arxiv_id": "2109.01861",
+    "version_coded": "arXiv v1 (4 Sep 2021; only version), full HTML text read from https://arxiv.org/html/2109.01861; Figs. 9, 11 and 12 viewed as images for their printed values"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screened I-UNCLEAR; the first quantitative classical comparison lists FE-iteration counts beside compliance and adds a run-time parity statement)",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On four 60×30 benchmarks, Fourier-TOuNN reached 10.4-18.1% lower compliance than the 88-line SIMP code [derived] while using 151 versus 92-131 FE iterations; its 4-6 s run time is described as comparable to mesh-based codes.",
+    "key_phrase": "the compliance values are lower (better) than both SIMP and TOuNN",
+    "location": "Sec. 5.1 and Fig. 9 (first quantitative comparison with a classical method; the abstract, introduction and conclusion make no comparison with a classical method)",
+    "quantitative": true,
+    "claimed_speedup": 0.79,
+    "claimed_speedup_basis": "No speed-up is claimed and no SIMP run time is printed. Proxy from the FE-iteration counts in Fig. 9, SIMP ÷ Fourier-TOuNN: 119/151 = 0.79, 92/151 = 0.61, 119/151 = 0.79, 131/151 = 0.87; median 0.79 [derived], i.e. Fourier-TOuNN needs more FE solves. Sec. 5.1 gives 4-6 s per example and says this matches mesh-based codes like the 88-line code.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 5.1 text only: run-time parity (4-6 s) with mesh-based implementations, no SIMP time. (2) Sec. 5.2, Fig. 12: compliance against published designs of a classical level-set length-scale method, ref. [53] (values taken from that paper, not rerun): 173 vs 180 without tight control and 216 vs 232 with tight control; Fig. 11 against ref. [17] is visual only. (3) Sec. 5.3, Figs. 13-14: Fourier-TOuNN vs TOuNN convergence (ML vs ML). (4) Abstract framing: approximate control without extra constraints, contrasted with exact control described as expensive (motivation, not measured)."
+  },
+  "baseline": {
+    "classical_method": "SIMP minimum compliance with the 88-line code (ref. [50]), filter radius 1.4, no extra length-scale control (Sec. 5.1, Fig. 9); published classical length-scale methods compared visually or by reported compliance in Sec. 5.2 (refs. [17], [53])",
+    "implementation": "88-line MATLAB educational code (ref. [50]); Fourier-TOuNN in Python and PyTorch with a CVXOPT Cholesky FE solve (Sec. 3.2, 5). The public repository also holds a Python SIMP port (topopt99.py, crediting the Aage-Johansen Python code) [file list and header checked 2026-09-24]; the article names only ref. [50] for the Fig. 9 SIMP column",
+    "solver": "Fourier-TOuNN: sparse Cholesky via CVXOPT (Sec. 3.2). SIMP: not stated (the 88-line code uses a sparse direct solve [recalled, not verified in-session])",
+    "hardware_classical": "Intel i7-6700 CPU at 2.6 GHz with 16 GB RAM, stated for all experiments (Sec. 5)",
+    "hardware_ml": "the same CPU (Sec. 5); no GPU mentioned",
+    "problem_size": "60×30 elements (Table 1, Sec. 5.1) [≈3.8×10³ DOFs, derived]; 6,040 network weights as design variables",
+    "classical_iterations": "SIMP 119, 92, 119, 131 FE iterations for the tip cantilever, mid-cantilever, MBB and Michell cases (Fig. 9) under its own stopping rule [88-line default inferred]. Fourier-TOuNN 151 each (minimum 150, maximum 500 iterations; stops when gray elements fall below 0.25%; Sec. 4-5)",
+    "classical_time": "not stated",
+    "ml_time": "4-6 s per Fig. 9 example, proportional to the FE-iteration count; FE 41%, forward pass 20%, backward pass 27%, other 13% (Sec. 5.1)",
+    "training_time": "not applicable (per-problem neural reparameterization; the optimization is the training)",
+    "data_generation_cost": "none (no training data)",
+    "quality_metric": "Final compliance J on the 60×30 FE mesh as printed in Fig. 9 [taken to be the final-iteration objective, inferred from Sec. 3.2-3.3]; attained volume fraction not reported",
+    "quality_gap": "Fig. 9, Fourier-TOuNN vs SIMP: 43.39 vs 48.45; 48.81 vs 55.66; 71.2 vs 86.9; 12.23 vs 14.83 (10.4-18.1% lower [derived]). TOuNN: 43.69, 48.73, 73.24, 12.55"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-no-speed-advantage-claimed",
+      "evidence": "Sec. 5.1 and Fig. 9: compliance and FE-iteration counts are printed side by side for all four cases on the same mesh and volume targets. Fourier-TOuNN needs more FE iterations (151 vs 92-131) and the text claims only run-time parity, so no speed claim needs quality matching. The quality comparison itself is loose (see R4): attained volume is not reported and the penalization probably differs; a verifier who weighs this may choose partial (R1-loose)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 5 and 5.1: the baseline is the published 88-line SIMP code with filter radius 1.4, and all experiments ran on the same i7-6700 CPU. (b) is not observed (no classical figure in the abstract); (c) does not apply (CPU only; ≈3.8×10³ DOFs [derived]); (d) is not established (SIMP stops by its own criterion after 92-131 iterations); (e) is not derivable (no SIMP time). A stronger baseline would only widen Fourier-TOuNN's iteration disadvantage."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 3-4, Algorithm 1: the network weights are optimized per problem from a Glorot initialization with no dataset or offline training; the cost sits inside the 4-6 s run time."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Fig. 9 and Sec. 3.2-3.3: the printed compliance comes from the FE model on the 60×30 mesh [inferred final-iteration objective], but the attained volume fraction of the Fourier-TOuNN designs is never reported although the volume constraint is only a growing penalty (about 30 at iteration 151 [derived from Table 1]). The two methods are probably not scored at the same penalization: the SIMP penalty for Fig. 9 is not stated (the 88-line default is p = 3 [recalled]) and its designs are partly gray, while Fourier-TOuNN's continuation reaches p ≈ 4.0 by iteration 151 [derived from Table 1] on near-binary designs. The displayed high-resolution extraction (15×15 samples per element) is not re-analysed, and disconnected designs (Sec. 5.5) are described without counts."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 benchmarks compared with SIMP (Fig. 9); tensile bar (Fig. 10); comparisons with published designs of refs. [17] and [53] (Figs. 11-12); convergence study (Figs. 13-14); parametric studies (Figs. 15-20); multi-material (Figs. 21-22)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Screening code was I-UNCLEAR. Stratum judgment: the first quantitative classical comparison (Fig. 9) prints FE-iteration counts for both methods beside compliance, and Sec. 5.1 adds a run-time parity statement, so the record enters the speed stratum by the P00100/P00512 convention; the article's emphasis is design quality with approximate length-scale control, and no speed advantage over SIMP is claimed. If the verifier treats Fig. 9 as quality-only, the stratum becomes Q with R3 = na and the R1/R4 reasoning unchanged. Internal inconsistencies: the text says Fourier-TOuNN beats SIMP and TOuNN on compliance in every case, but for the mid-cantilever TOuNN is lower (48.73 vs 48.81; Fig. 9); the Fig. 11 caption gives l_min = 2 while the text gives l_min = 1; the Fig. 12 caption gives length scales (3/100 and 5/8) that differ from the text (2/150 and 2/4); the multi-material text refers to Figs. 21 and 22 in swapped order. Reporting locators: hardware Sec. 5 (all experiments on one CPU); timing Sec. 5.1 (4-6 s range for Fourier-TOuNN only, no SIMP time, no repeats); code = Replication of results section. data_available = no because the method uses no training data (the schema has no n/a option). Repository github.com/UW-ERSL/Fourier-TOuNN checked 2026-09-24 (page, file list, LICENSE and README read; nothing downloaded or run): MIT licence; examples.py defines the 60×30 benchmarks (tip cantilever, mid-cantilever, MBB, ...); a Colab notebook demo is mentioned. retest_candidate true: public code, runnable benchmark, permissive licence. Re-test priority is low because the article claims no speed advantage; a matched-volume, strong-baseline comparison at 60×30 would test the compliance claim and the parity statement. Version: arXiv v1 coded; the retitled CAD version of record was not accessed and may differ."
+}

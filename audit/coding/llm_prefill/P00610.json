@@ -1,0 +1,45 @@
+{
+  "pid": "P00610",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Effective thermal conductivity estimation using a convolutional neural network and its application in topology optimization",
+    "authors": "Andre Adam, Huazhen Fang, Xianglin Li",
+    "year": 2023,
+    "venue": "Energy and AI 15 (2024) 100310 (Crossref; published online 2023-10-19 per the pool record; gold open access, CC BY-NC-ND 4.0 per Crossref and OpenAlex)",
+    "doi": "10.1016/j.egyai.2023.100310",
+    "arxiv_id": "",
+    "version_coded": "none: only the abstract was read (pool record from OpenAlex; the DOAJ record repeats it). The version of record could not be retrieved"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "cnn",
+    "physics": "thermal",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no accessible full text). Abstract only: a VGG-style CNN predicts effective thermal conductivity of a 128×128 binary image in 15 ms, stated as 3-5 orders of magnitude faster than a finite volume simulation.",
+    "location": "Abstract (the only text read)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded. The abstract states a range of 3 to 5 orders of magnitude for one CNN prediction (15 ms, 128×128 image) against one finite volume simulation; this is a per-evaluation forward comparison, and no optimization-level time is given in the abstract.",
+    "alternatives": "Abstract: training on 130,000 binary images; test MAPE 0.35% at a solid-to-fluid conductivity ratio of 10 and 2.35% for aluminium and water; inside topology optimization the CNN keeps a MAPE of 0.67-11.8% across cases and brings the structure close to a theoretical maximum."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all with a generic User-Agent and no personal data: (1) doi.org → linkinghub.elsevier.com → ScienceDirect article page (pii S2666546823000824): HTTP 403 with a captcha page by curl, and HTTP 403 via WebFetch; the captcha was not attempted. (2) ScienceDirect PDF endpoint (/pdfft): connection closed, no response. (3) OpenAlex lists only the publisher DOI and a DOAJ record; the DOAJ API record holds metadata only and links back to ScienceDirect. (4) arXiv API searches by title words and by author gave no preprint. No other legal copy is listed by OpenAlex. The article is open access (CC BY-NC-ND), so a human verifier can read it in a browser. Pointers from the abstract for the verifier: the only quantitative classical comparison in the abstract is per-evaluation (CNN prediction vs finite volume simulation of effective conductivity). Under §5.1 rule 1 it would be the primary outcome and a speed-stratum cost proxy, as for P00149 (per-evaluation surrogate vs FE homogenization inside TO). If the full text holds no optimization-level comparison and the verifier rejects the proxy, FT-FORWARD is the likely exclusion code. The TO is heat conduction in a two-phase (solid and fluid) medium [inferred from the abstract]. Screening code was I-SPEED. No author named Jun Wang."
+}

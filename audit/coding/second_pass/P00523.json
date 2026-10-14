@@ -1,0 +1,88 @@
+{
+  "pid": "P00523",
+  "citation": {
+    "title": "A Supervised Machine Learning Approach for Accelerating the Design of Particulate Composites: Application to Thermal Conductivity",
+    "authors": "Mohammad Saber Hashemi, Masoud Safdari, Azadeh Sheidaei",
+    "year": 2021,
+    "venue": "Computational Materials Science; arXiv preprint (physics.comp-ph, cs.NE)",
+    "doi": "10.1016/j.commatsci.2021.110664",
+    "arxiv_id": "2010.00041",
+    "version_coded": "arXiv v3 (revised 2021-01-05, latest version on the abs page), full text read from the downloaded PDF (https://arxiv.org/pdf/2010.00041v3); version of record not independently fetched (arXiv preprint accepted as an explicitly sanctioned access route)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (inverse design of an architected/particulate material with a homogenization-based classical comparator, per PROTOCOL §3.1's architected-material clause; Sec. 3.2/3.3 give an explicit quantitative per-evaluation cost comparison: ~0.1 s surrogate prediction vs ~1+3 h conventional packing+FFT-homogenization)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "A fully-connected neural network surrogate is trained (5-fold cross-validated) on ~10,000 Sobol-sampled particulate-composite microstructures, each characterized by dense-packing generation plus FFT homogenization to compute thermal conductivity. The trained surrogate then serves as the fitness function inside a genetic algorithm for inverse design. The surrogate predicts a microstructure's thermal conductivity in about 0.1 s, versus an average of 1 hour (packing) plus 3 hours (FFT homogenization) per microstructure classically; a full GA-based inverse-design run (finding descriptors for a target conductivity) takes about 1-2 minutes with the surrogate, versus an estimated ~4 hours per evaluated point if run directly.",
+    "key_phrase": "in minutes compared with days for the traditional method",
+    "location": "Conclusion Sec. 4 (order-of-magnitude claim: 'minutes compared with days for the traditional method of microstructure reconstruction and direct numerical solution'); precise figures in main text Sec. 3.2 (0.1 s vs 1+3 h per microstructure) and Sec. 3.3/Table 4 (per-process minute breakdown: packing 60, FFT homogenization 180, surrogate training+prediction 1, inverse design 1-2)",
+    "quantitative": true,
+    "claimed_speedup": 144000,
+    "claimed_speedup_basis": "Derived from the article's own paired per-microstructure figures (Sec. 3.2): surrogate prediction '~0.1 seconds' vs conventional packing+homogenization '1+3 hours' (=4 h = 14,400 s); 14,400/0.1 = 144,000 [derived]. This is the more precise of two figures the article gives for essentially the same comparison: Table 4 instead lists 'surrogate model training and prediction/RVE' as 1 minute against packing+FFT of 240 minutes, an internally inconsistent, far more conservative ratio of ~240x [derived] -- the article does not reconcile this discrepancy (Table 4's '1 minute' may include an amortized training-cost component not present in the '0.1 s' inference-only figure in the text). Both are recorded for the verifier.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 4's more conservative per-RVE ratio (~240x, see basis above). (2) Sec. 3.3: the full GA-based inverse-design optimization 'took 1 min on average' with the surrogate, versus an estimated ~4 h per evaluated point without it (implying total classical GA time would be impractically large given a GA needs many evaluations per run, though the article does not state the GA's population size or generation count, so a total classical GA time cannot be derived). (3) Abstract/Conclusion: qualitative-only claims of accuracy and robustness with no comparison numbers."
+  },
+  "baseline": {
+    "classical_method": "Dense-particle packing algorithm to realize a 3D microstructure from physical descriptors, followed by Fast Fourier Transform (FFT) homogenization to compute the effective (homogenized) thermal conductivity tensor -- used both as the classical route to evaluate any candidate design and as the (comprehensive but slow) data-generation process for the surrogate's training set",
+    "implementation": "Authors' own FFT homogenization method (cited as previously developed and separately validated against LM-composite experiments, ref. [33]) and dense-packing code; explicitly chosen over finite-element homogenization because FFT scales O(N log N) versus FEM's O(N^3) and needs no conformal meshing (Sec. 2.1.3) -- i.e. the classical comparator is itself the more efficient of the two conventional numerical options, not a deliberately weak baseline",
+    "solver": "FFT-based (spectral) homogenization solver, not a sparse FE solve; voxelized RVE at 300x300 (per-slice) resolution, chosen as the minimum resolution needed for converged homogenized properties (Sec. 2.1.2)",
+    "hardware_classical": "Same machine as the ML side: AMD Ryzen 1950x CPU, 32 GB DDR4 RAM (Sec. 1: 'computational times reported in this study are based on what has been achieved on' this machine) -- a single, uniformly-stated hardware platform for every reported time, so no GPU-vs-CPU or cross-machine mismatch",
+    "hardware_ml": "Same AMD Ryzen 1950x CPU / 32 GB RAM machine (no GPU mentioned anywhere in the article; NN training and inference both run on this CPU)",
+    "problem_size": "3D particulate composite RVEs (spherical + ellipsoidal LM particles in a silicone elastomer matrix), voxelized to 300x300 per 2D slice for FFT homogenization; ~10,000-point Sobol-sequence design of experiments; 6 physical descriptors (design variables) per microstructure",
+    "classical_iterations": "Not an iterative optimization in the TO sense: one packing run + one FFT homogenization solve per evaluated microstructure. The GA itself (population-based, elitist, mutation/crossover) iterates over generations, but neither its population size nor generation count is stated",
+    "classical_time": "~60 min packing + ~180 min (3 h) FFT homogenization = ~240 min (~4 h) per microstructure evaluation (Table 4; Sec. 2.1.2, Sec. 3.2)",
+    "ml_time": "~0.1 s per surrogate prediction (Sec. 3.2); full GA-based inverse-design run ~1-2 min on average (Sec. 3.3, Table 4)",
+    "training_time": "Table 4 lists 'surrogate model training and prediction/RVE' as 1 minute; the article does not separately break out one-time training time from the ~10,000-point dataset versus per-query prediction time, and this figure is inconsistent with the ~0.1 s inference time quoted in Sec. 3.2 (see claimed_speedup_basis)",
+    "data_generation_cost": "Extensively documented at the per-point level: ~60 min packing + ~180 min FFT homogenization per microstructure (Table 4), for a ~10,000-point Sobol database (Sec. 3.1) -- an implied total on the order of tens of thousands of hours of serial compute [derived, not stated as a grand total by the authors]; points that could not be packed within a 1-hour limit, or were physically inconsistent, were excluded (Table 2 caption, Sec. 2.1.2)",
+    "quality_metric": "Homogenized thermal conductivity from FFT simulation (physics-based, not an image metric) as the ground truth; surrogate accuracy assessed by mean squared error under 5-fold cross-validation (Sec. 2.2) and by a regression plot of predicted vs. FFT-reference TC over the whole dataset (Fig. 5b). The single inverse-design case study is independently re-verified by FFT: predicted TC = 2.9 W/mK vs. FFT-calculated TC = 2.7 W/mK for the GA-selected descriptor set (Sec. 3.3)",
+    "quality_gap": "~7.4% relative error between surrogate-predicted and FFT-verified TC for the one detailed inverse-design case study (2.9 vs 2.7 W/mK) [derived]; Fig. 5b shows generally low prediction error across the dataset but 'accuracy is lower for large conductivity composites due to fewer DoE points' at high volume fractions (Sec. 3.2)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-verified-case-study",
+      "evidence": "The surrogate's speed advantage is not asserted in isolation: its accuracy is quantified both in aggregate (5-fold cross-validated MSE, regression plot against FFT ground truth over the whole ~10,000-point dataset, Fig. 5) and for the specific timed inverse-design case study, where the GA-selected design's surrogate-predicted TC (2.9 W/mK) is independently checked against an actual FFT homogenization run (2.7 W/mK, ~7.4% error, disclosed rather than hidden). Both the fast (surrogate) and slow (packing+FFT) routes target the same physical quantity for the same microstructure, so the comparison is not one of mismatched quality levels dressed up as a speed win."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-efficient-chosen-baseline",
+      "evidence": "The classical comparator (FFT-based homogenization) is explicitly chosen and justified by the authors as the more efficient of the two standard numerical options, scaling O(N log N) versus finite-element homogenization's O(N^3) and requiring no conformal meshing (Sec. 2.1.3) -- i.e. the article compares against a deliberately efficient classical method, not a strawman. All reported times (packing, FFT homogenization, surrogate training/inference, GA optimization) are stated to come from the same single machine (AMD Ryzen 1950x CPU, 32 GB RAM, Sec. 1), so there is no GPU-vs-CPU or cross-platform mismatch of the kind R2(c) targets. No inflated iteration count or hidden weaker-baseline pattern (R2(b)/(d)) is evident from the text."
+    },
+    "R3": {
+      "verdict": "pass",
+      "marker": "R3-per-query-with-datacost-disclosed",
+      "evidence": "Data-generation cost is explicitly and specifically reported at the per-microstructure level (60 min packing + 180 min FFT homogenization, Table 4) for the ~10,000-point database (Sec. 3.1), and training cost is given a figure in Table 4 ('surrogate model training and prediction/RVE', 1 minute), even though that figure is not fully reconciled with the separately-quoted 0.1 s inference time. Critically, the article's headline speed claim is explicitly framed per query/evaluation: 'If there was no surrogate model, each design point in the inverse design optimization loop would have taken around 4 hours... while it is taking seconds using our trained surrogate model' (Sec. 3.3) -- matching R3's 'explicitly limits the claim to per-query inference' criterion, on top of the disclosed (if imprecisely reconciled) training and data-generation costs."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-partial-no-failure-rate",
+      "evidence": "Quality is verified by genuine physics simulation (FFT homogenization), not an image-similarity proxy: the surrogate is validated against FFT ground truth over the whole cross-validated dataset (Fig. 5b) and the specific inverse-design case study's selected design is independently re-verified by an actual FFT run (2.9 vs 2.7 W/mK, Sec. 3.3). Volume fraction is an intrinsic design variable here rather than an externally imposed and separately checked constraint. Infeasible/failed points are acknowledged qualitatively -- 'absent Sobol IDs are due to physically inconsistent sets of parameters or others for which packs were not generated under an hour time limit' (Table 2 caption) and 'some design points are not feasible, as pointed out in Eq. (1)' (Sec. 3.2) -- but no quantified failure/infeasibility rate (count or percentage) is reported anywhere."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "~10,000-point Sobol-sequence database (5-fold cross-validated) for the surrogate; one detailed inverse-design case study (target TC = 3 W/mK) for the full pipeline validation (Sec. 3.3)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "yes",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Scope: this article does not perform pixel/voxel-density topology optimization; it is inverse design of an architected/particulate composite material via physical microstructure descriptors, with the classical comparator being homogenization-based (FFT), which PROTOCOL §3.1 explicitly admits ('inverse design of architected materials or metamaterials, where the classical comparator is TO or homogenization-based optimization'). Included on that basis, with stratum = speed because the primary outcome (Conclusion Sec. 4, substantiated in Sec. 3.2-3.3/Table 4) is an explicit per-evaluation cost/speed comparison, not a quality-only one. Data/code: the GitHub repository named in the article's Data Availability statement (github.com/ms-hashemi/Insulated-LM-elastomer-conductivity, BSD-3-Clause licence, checked 2026-09-24) contains a 'Packs/' folder and an FFT-homogenization-outputs archive -- i.e. released DATA -- but no training/optimization source code was found in the repository listing, so code_available = no and retest_candidate = false (the packing algorithm, FFT homogenization implementation, neural-network training script and GA optimizer are not confirmed present, so the described benchmark could not be independently re-run from what is public). Duplicate check: audit/pool/pool.csv has exactly one record for this title/arXiv id (P00523); no FT-DUPLICATE applies. No author of this article is named Jun Wang (authors: Mohammad Saber Hashemi, Masoud Safdari, Azadeh Sheidaei). No conflicts of interest declared by the authors."
+}

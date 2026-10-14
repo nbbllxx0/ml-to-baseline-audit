@@ -1,0 +1,92 @@
+{
+ "pid": "P00647",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Designing a TPMS metamaterial via deep learning and topology optimization",
+  "authors": "Asha Viswanath, Diab W. Abueidda, Mohamad Modrek, Rashid K. Abu Al-Rub, Seid Koric, Kamran A. Khan",
+  "year": 2024,
+  "venue": "Frontiers in Mechanical Engineering 10:1417606 (Original Research; open access, CC BY). Earlier preprint of the same study: arXiv 2303.10007 v1 (17 Mar 2023), 'Gyroid-like metamaterials: Topology optimization and Deep Learning', same six authors (pool P00826; arXiv API metadata read, full text not read)",
+  "doi": "10.3389/fmech.2024.1417606",
+  "arxiv_id": "2303.10007 (preprint version, pool P00826)",
+  "version_coded": "Version of record, publisher PDF (Frontiers, 18 pp. incl. references; printed pp. 01-16) read in full as text; Table 2 checked on the rendered page"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-SPEED (screening code confirmed at full text)",
+  "stratum": "speed",
+  "method_family": "cnn",
+  "physics": "metamaterial_homogenization",
+  "dim": "3d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Once trained, the 3D ResUNet predicts an optimized 32\u00b3 gyroid unit cell in 0.001 CPU-hours, versus about 2.4 h per homogenization-based SIMP run on one HPC core; accuracy is judged only by voxel MSE and Dice.",
+  "key_phrase": "instantaneously predict the optimized unit cell geometry for any topology parameters",
+  "location": "Sec. 3.2 (p. 8) and Table 2 (p. 10): the first quantitative ML-vs-classical comparison. The abstract and conclusion compare only qualitatively; the introduction (p. 2) gives the classical cost alone (about 67 s per iteration at 32\u00b3, 200-800 iterations)",
+  "quantitative": true,
+  "claimed_speedup": 2400,
+  "claimed_speedup_basis": "Derived, no factor is stated: 2.4 h per TO data point on one HPC core (Sec. 3.2, p. 8) \u00f7 0.001 CPU-hours for DL prediction (Table 2, p. 10) = 2,400. Whether 0.001 CPU-h is per prediction or for the whole test set, and on which CPU, is not stated. With the introduction's workstation figure (67 s per iteration \u00d7 200-800 iterations = 13,400-53,600 s, p. 2) the ratio would be about 3,700-14,900 [derived]. Data generation and training (Table 2) are reported separately and are not in the ratio.",
+  "direction": "outperform",
+  "alternatives": "(1) Abstract and Sec. 3.2, qualitative: near-instant prediction, even on a laptop, in place of further TO runs. (2) Sec. 5 (pp. 11-12), quality vs the TO ground truth: test MSE 0.0079, mean Dice about 95% (Fig. 13B), mean volume deviation 0.24% (maximum 1.73%); stratum quality if chosen. (3) Introduction p. 2: classical TO needs about 67 s per iteration at 32\u00b3 on a workstation and 200-800 iterations (classical cost only). (4) Conclusion p. 15, qualitative: the CNN makes quality TO feasible on a laptop, otherwise out of reach even on a cluster."
+ },
+ "baseline": {
+  "classical_method": "Energy-based homogenization TO (SIMP, OC update, density/sensitivity filter, penalty 5) maximizing the bulk or shear modulus of a periodic 32\u00b3 unit cell, started from a voxelized gyroid; Vf 25-45%, rmin 1.2-2.5; the text adds a Heaviside projection with beta doubled from 1 to 512 (Sec. 2.2, pp. 4-5; Sec. 3.1, pp. 5-6)",
+  "implementation": "MATLAB, modified from the educational code of Gao et al. 2018 (Top3D_maxbulk.m / Top3D_maxshear.m; Sec. 2.2 and 3.1). Public repository read 2026-09-24: the Heaviside continuation is commented out and the loop cap is 600 iterations, which differs from the text",
+  "solver": "not stated in the article; the public code solves the reduced periodic system for 6 load cases with MATLAB backslash (sparse direct) [observed in the repository code]",
+  "hardware_classical": "Data generation: one TO run per core on HPC nodes (iForge Intel Skylake nodes with 40 cores; IBM node with two 12-core Xeon E5-2695 v2) (Sec. 3.2, p. 8). The 67 s-per-iteration figure is for an unspecified workstation (p. 2)",
+  "hardware_ml": "Training: GPU on the HPC systems (K20M or V100 nodes are listed; which one was used is not stated), 5.5 GPU-hours (Sec. 3.2; Table 2). Prediction: CPU, device not stated (Table 2); the text says it runs even on a laptop (p. 8)",
+  "problem_size": "32 \u00d7 32 \u00d7 32 voxels = 32,768 eight-node bricks on a 1 cm cube (Sec. 3.1, p. 6) [derived: about 9.8\u00d710\u2074 DOFs with 3 DOFs per node and periodic BCs; the text says 6 DOFs per node, p. 6]; 6 load cases per iteration",
+  "classical_iterations": "Stopping rule for the data runs not stated in the text; runs not converged after 1,000 iterations were discarded (Sec. 5, p. 11); beta doubled every 50 iterations or when the design change falls below 0.01 (p. 5); 200-800 iterations to converge (p. 2). Public code: change \u2264 0.01 or 600 iterations",
+  "classical_time": "About 2.4 h per data point (one TO run) on one HPC core (Sec. 3.2, p. 8); about 67 s per iteration at 32\u00b3 on a workstation (p. 2); 24 h wall-clock for all 2,751 runs in parallel (Sec. 3.2; Table 2, p. 10)",
+  "ml_time": "DL prediction 0.001 CPU-hours (Table 2, p. 10) [= 3.6 s, derived]; per-sample or per-test-set scope and device not stated",
+  "training_time": "5.5 GPU-hours (Table 2, p. 10; Sec. 3.2, p. 8); 150 epochs, batch 128, Adam, learning rate 0.001",
+  "data_generation_cost": "24 CPU-hours in Table 2, described in Sec. 3.2 (p. 8) as 24 h in total on 5 nodes \u00d7 40 cores (iForge) plus 1 node \u00d7 26 cores (IBM) for 2,751 TO runs of about 2.4 h each [derived: about 6,600 core-hours = 2,751 \u00d7 2.4 h, on 226 cores]",
+  "quality_metric": "Voxel MSE and mean Dice similarity coefficient of predicted vs TO densities (Eqs. 12-13, Sec. 3.3); deviation of the predicted volume from the ground truth (Sec. 5). No bulk or shear modulus is computed for any predicted design",
+  "quality_gap": "Test MSE 0.0079; mean Dice about 95% after about 100 epochs (Fig. 13B, training and validation curves); mean volume deviation 0.24%, maximum 1.73% (Vf 29%, rmin 1.35, shear) (Sec. 5, pp. 11-12). Designs with discontinuities at low filter radius and low volume fraction were not learned well (p. 11). No objective (modulus) gap is reported"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "partial",
+   "marker": "R1-loose",
+   "evidence": "Sec. 3.2, Table 2, Sec. 5: DL prediction (0.001 CPU-h) is set against full TO runs (about 2.4 h each), and its outputs are compared with the TO ground truth only by voxel MSE (0.0079), Dice (about 95%) and volume deviation (0.24% mean). The bulk or shear modulus of a predicted cell is never computed, so objective-level matching cannot be checked; the authors note poorly learned discontinuous designs at low filter radius (p. 11). A stricter reading (speed claim with no design-quality comparison) gives fail (R1-no-quality)."
+  },
+  "R2": {
+   "verdict": "partial",
+   "marker": "R2-hardware-unjustified; R2(e) re-test pointer",
+   "evidence": "Sec. 3.2 and Table 2: the classical time comes from single-core runs of a modified educational MATLAB code (chosen for parallel data generation), while the prediction hardware is not stated. (c) does not apply: the timed prediction is on CPU and the problem has about 9.8\u00d710\u2074 DOFs [derived]. (b) not observed (no figure in the abstract). (d) not established (convergence-based stopping, 1,000-iteration cap). For (e), a per-iteration time is stated: about 67 s at 32\u00b3 with 6 load cases on a workstation (p. 2); it needs a same-size strong-baseline measurement. Unsure between pass and partial [judgment]."
+  },
+  "R3": {
+   "verdict": "pass",
+   "marker": "R3-costs-reported; per-query framing",
+   "evidence": "Table 2 (p. 10) and Sec. 3.2 (p. 8) report data generation (24 h on 226 cores; about 2.4 h per run) and training (5.5 GPU-h) next to the prediction time. The abstract names the many costly TO runs as the model's major disadvantage and frames the gain as reuse after training. No break-even is given [derived for C3: about 2,750 uses = 6,600 core-h \u00f7 2.4 h, before training]. A stricter reading (costs with no amortization) gives partial (R3-no-amortization)."
+  },
+  "R4": {
+   "verdict": "fail",
+   "marker": "R4-image-metric",
+   "evidence": "Sec. 3.3 and Sec. 5, Figs. 13-16: quality rests on voxel MSE and Dice against the TO ground truth and on volume deviation. No FE or homogenization analysis of any predicted cell is reported, and no failure count (e.g. disconnected or hollow predictions) is given; Figs. 14-16 show selected slices."
+  }
+ },
+ "reporting": {
+  "n_test_cases": "5% test split of 5,338 retained data points (2,597 bulk + 2,741 shear) (Sec. 5, p. 11) [derived: about 267]; Figs. 14-16 show selected examples",
+  "ood_test": "no",
+  "seeds_or_variance": "no",
+  "failure_rate_reported": "no",
+  "timing_protocol_stated": "partial",
+  "runtimes_all_cases": "yes",
+  "code_available": "yes",
+  "data_available": "no",
+  "hardware_per_method_stated": "partial"
+ },
+ "retest_candidate": false,
+ "notes": "Screening code was I-SPEED. Duplicates: arXiv 2303.10007 (pool P00826) is the earlier preprint of this study (same six authors; near-identical abstract per arXiv API metadata; the public repository describes itself as the code for the arXiv title). This record is the open-access version of record, so it is the primary version; P00826 should be excluded as FT-DUPLICATE naming P00647. P00767 (ASC 2021 conference paper, four of the authors) is the earlier, distinct study that this article extends (one parameter, bulk modulus only; p. 2), not a duplicate. Type check for the verifier: the abstract and p. 2 call the article's main purpose an educational code release; it is kept as an include because it is an Original Research article with a method and results (an FT-TYPE reading as a tutorial is possible). Primary-outcome judgment: abstract and conclusion are qualitative; the introduction's 67 s-per-iteration figure has no ML counterpart, so the first quantitative comparison is Sec. 3.2 with Table 2 (speed); the quality numbers come later (Sec. 5). OOD: the 35%/2 cm case in Fig. 16 is described as outside the training data but lies inside the training ranges, so ood_test = no. Failure rates: TO non-convergence discards are reported for the data (154 bulk and 10 shear runs dropped [derived: 2,751 \u2212 2,597; 2,751 \u2212 2,741]), not for ML outputs. runtimes_all_cases = yes because each stage has one aggregate time (Table 2); the scope of the prediction time is unstated. Internal inconsistencies: 6 DOFs per node (p. 6) vs 24 \u00d7 24 element matrices in the public code; the Fig. 6 caption uses Vf 20%, outside the 25-45% DoE; the 24 h total does not fit 75 ten-point runs on one 26-core node [derived: about 3 waves of 24 h]; the IBM system is described with two 12-core CPUs (24 cores) but credited with 26 cores (Sec. 3.2); the public code caps runs at 600 iterations and comments out the Heaviside continuation, while the text says 1,000 and describes continuation. Code: github.com/AshaV17/DL3DTO-Deep-Learning-for-3D-Topology-Optimization (the article's link redirects there; GitHub API 2026-09-24: no licence file; MATLAB TO and data-generation scripts plus the Python ResUNet; no generated data or trained weights). The article states the codes are free for educational purposes (p. 14). retest_candidate false: no licence grant, and the ML side needs the dataset regenerated (about 6,600 core-hours [derived]); the classical per-iteration time at 32\u00b3 (R2(e)) can be checked with our own baseline. No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00647.json",
+  "result": "full agreement"
+ }
+}

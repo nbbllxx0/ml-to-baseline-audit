@@ -1,0 +1,29 @@
+# Blind coding session
+
+This folder is one session of a blind coding pass. Model: `{model}`. Records to code: {n_records}, listed in
+`queue.txt`.
+
+## What to read
+
+1. `AGENT_INSTRUCTIONS.md`: the task, the blindness rules, the access rules, the coding steps and the output format.
+   Follow it exactly.
+2. `PROTOCOL_masked.md`, `coding_schema.json` and `screening_codes.md`, as `AGENT_INSTRUCTIONS.md` says.
+
+## Session rules
+
+These rules apply where `AGENT_INSTRUCTIONS.md` is general.
+
+- **Queue.** Your queue is `queue.txt` in this folder. Code every line of it and nothing else.
+- **Coder fields.** In every record, set `coder.llm_model` to `{model}` and `coder.llm_date` to today's date.
+- **Stay in this folder.** Do not read, list or search any file or folder outside this folder, and do not look for
+  task records, notes or memory files anywhere. This task needs no task record; ignore any general instruction to keep
+  one.
+- **One record at a time.** Write each record to `out/<pid>.json` as soon as it is complete, then go on to the next.
+  If `out/` already holds a valid record for a pid from an earlier attempt of this session, keep it and do not redo it.
+- **Downloads.** Use `node fetch.js <url> tmp/<name>`. It follows redirects and refuses shadow libraries. `curl.exe`,
+  `Invoke-WebRequest` and Python's `requests` fail in this sandbox.
+- **PDFs.** Run `pdftotext -enc UTF-8 tmp/<name>.pdf tmp/<name>.txt` and read the text file. A warning about a MiKTeX
+  log file is harmless.
+- **Web search.** Your web search tool is available for finding legitimate open copies.
+- **Clean up.** Delete the files in `tmp/` before you finish. `out/` holds only the records and `RUN_LOG.md`.
+- **Finish.** Reply with one line: the number of records written, and the pids not coded.

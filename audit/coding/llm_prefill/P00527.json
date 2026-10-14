@@ -1,0 +1,88 @@
+{
+  "pid": "P00527",
+  "citation": {
+    "title": "A Physics-Informed Neural Network-based Topology Optimization (PINNTO) framework for structural optimization",
+    "authors": "Hyogu Jeong, Jinshuai Bai, Chanaka P. Batuwatta-Gamage, Charith Rathnayaka, Ying Zhou, YuanTong Gu",
+    "year": 2023,
+    "venue": "Engineering Structures 278 (2023) 115484 (online 2022-12-21 per OpenAlex)",
+    "doi": "10.1016/j.engstruct.2022.115484",
+    "arxiv_id": "none found (arXiv API title and author searches, 2026-09-24)",
+    "version_coded": "Accepted author manuscript from QUT ePrints 237324 (eprints.qut.edu.au/237324/1/122042111.pdf, CC BY-NC-ND 4.0), 33 pages including the repository cover page, read in full; Figs. 7, 14 and 18 checked as page images. The version of record (ScienceDirect) was not read."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the article claims design parity with SIMP and reports PINNTO as slower)",
+    "stratum": "quality",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On four 40×20 compliance benchmarks, PINNTO designs reach compliance within 0.02-5.51% of 88-line SIMP designs (lower only in case 1), while each run takes 399-2,177 s against 0.3-1.6 s for SIMP.",
+    "key_phrase": "generate comparable designs to those produced by the current successful approaches",
+    "location": "Sec. 4.1, Fig. 7 and Table 1 (first quantitative comparison with a classical method; the Abstract claims comparable designs to SIMP without numbers, and Sec. 5 has no numbers); key phrase from the Abstract",
+    "quantitative": true,
+    "claimed_speedup": 0.000765,
+    "claimed_speedup_basis": "Derived from Table 1, SIMP total time ÷ PINNTO total time: 0.81/915.02, 1.19/1,581.02, 1.56/2,176.68 and 0.31/398.86 give 0.00089, 0.00075, 0.00072 and 0.00078; the median, 0.000765, is entered. PINNTO is about 1,130-1,395 times slower in total and about 1,200-1,700 times slower per iteration (32.01-36.26 s vs 0.02-0.03 s) [derived]. The authors state that PINNTO's computational time exceeds SIMP's.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Table 1 as a speed outcome: PINNTO far slower than SIMP (see claimed_speedup_basis), which the authors acknowledge (Sec. 4.1). (2) Sec. 4.3, Fig. 14: compliance vs SIMP at meshes 10×10 to 120×120, PINNTO lower at 10×10 and similar elsewhere. (3) Sec. 4.6, Fig. 18: 3D cantilever (60×20×4), PINNTO 155.3196 vs SIMP 147.6219 (+5.2% relative to SIMP [derived]; the text says under 5%) in 45 vs 104 iterations, presented as faster convergence, with no times. (4) Abstract: optimized topologies without labelled data or FEA (qualitative)."
+  },
+  "baseline": {
+    "classical_method": "SIMP with sensitivity filter and optimality-criteria update, 88-line MATLAB code of Andreassen et al. [52] for the 2D validation; 3D SIMP code of Liu and Tovar [48] for the 3D case (Secs. 2.2, 4.1, 4.6)",
+    "implementation": "88-line MATLAB code (2D); Liu and Tovar 3D MATLAB code (3D); PINNTO in Python 3.9.5 with PyTorch 1.9.1+cpu (Sec. 3.2)",
+    "solver": "SIMP: not stated. PINNTO: energy-based PINN (8 hidden layers × 80 neurons, Adam, 1000 epochs per TO iteration) replaces FEA (Sec. 3.2)",
+    "hardware_classical": "Intel Core i7-10700 CPU @ 2.90 GHz, 16 GB RAM, stated for all numerical cases (Sec. 3.2)",
+    "hardware_ml": "Same CPU (PyTorch CPU build), stated for all numerical cases (Sec. 3.2)",
+    "problem_size": "2D validation 40×20 elements (4 cases, volume fraction 0.5, 0.5, 0.5, 0.4); NN-size study 80×40; mesh study 10×10 to 120×120; passive elements 60×40; two loads 50×50; 3D cantilever 60×20×4 (Secs. 4.1-4.6)",
+    "classical_iterations": "Convergence tolerance τ = 0.01% for the validation (Sec. 4.1; Sec. 3.1.2 states a 1% change criterion for PINNTO). SIMP 35, 49, 67, 11 iterations vs PINNTO 27, 46, 68, 11 (Table 1); 3D SIMP 104 vs PINNTO 45 (Fig. 18)",
+    "classical_time": "Total 0.81, 1.19, 1.56, 0.31 s; 0.02-0.03 s per iteration (Table 1)",
+    "ml_time": "Total 915.02, 1,581.02, 2,176.68, 398.86 s; 32.01-36.26 s per iteration (Table 1)",
+    "training_time": "No offline training: the PINN is trained within every TO iteration (1000 epochs) and this cost is inside the Table 1 times [inferred from Secs. 3.1.2 and 3.2]",
+    "data_generation_cost": "none (no labelled data)",
+    "quality_metric": "Mean compliance (objective value). For PINNTO it appears to be computed from the PINN displacement field, not by FEA of the returned design [inferred from Sec. 3.1.2 and the Sec. 4.3 discussion]; for SIMP by FEA.",
+    "quality_gap": "Table 1, PINNTO vs SIMP: 8.815 vs 8.817, 8.784 vs 8.531, 10.03 vs 9.903, 0.076 vs 0.072 (printed differences 0.02, 2.92, 1.28 and 5.51%; Fig. 7 prints 10.031, 0.0764 and 0.0723). 3D: 155.3196 vs 147.6219 (Fig. 18)."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. 4.1, Fig. 7, Table 1: both methods use the same 40×20 meshes, volume fractions, rmin = 3, p = 3, OC update and convergence tolerance; iteration counts and times are reported for both. Compliance is within 0.02-5.51%, PINNTO lower only in case 1. The parity claim is made at about 1,100-1,400 times the SIMP wall-clock [derived], so the unequal budget favours the ML side and is fully disclosed. [judgment: an adjudicator may prefer partial for the unequal budget]"
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Quality-stratum primary outcome with no speed advantage claimed; the SIMP baseline (88-line MATLAB, same CPU) is by far the faster method in Table 1, and the abstract names no weaker baseline than the results."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Secs. 3.1-3.2: the PINN is trained from scratch inside each TO iteration without labelled data; its cost is part of the Table 1 times (R1/R2). Also quality stratum."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-surrogate-predicted",
+      "evidence": "Secs. 3.1.2, 4.1 and 4.3: PINNTO's compliance appears to come from the PINN displacement field [inferred]; no FE re-analysis of the returned PINNTO designs is described, and Sec. 4.3 explains PINNTO's lower coarse-mesh compliance by FEA inaccuracy, which suggests the two objectives come from different solvers. Achieved volume fractions and failure counts are not reported; Fig. 12 shows non-optimized results for small networks (qualitative only)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 validation cases with times (Table 1); mesh study at 5 sizes and a 3D cantilever compared with SIMP without times; NN-size, passive-element and two-load cases without a SIMP comparison (Secs. 4.1-4.6)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-UNCLEAR. Full-text inclusion: the energy-based PINN replaces the FE solver inside SIMP (per-problem learning, §3.1). method_family set to 'other': the PINN parameterizes the displacement field, not the design, so neural_reparam does not fit well. Primary outcome: the first quantitative classical comparison (Sec. 4.1, Fig. 7) and the abstract's emphasis are both design parity, so stratum Q; Table 1's speed result (PINNTO about 1,000 times slower) is recorded as an alternative and is a negative speed result reported by the authors (useful for C4). Reporting locators: CPU, library versions and per-iteration and total times = Sec. 3.2 and Table 1 (no warm-up or repeats; MATLAB vs PyTorch; hence timing_protocol_stated = partial); times only for the four validation cases (selective); no code or data statement. Inconsistencies for the verifier: convergence criterion 1% (Sec. 3.1.2) vs τ = 0.01% (Sec. 4.1); Table 1 vs Fig. 7 rounding; 3D gap 5.2% of the SIMP value vs the text's claim of under 5% (4.96% of the PINNTO value [derived]). Related records by the same group, judged separate studies, not duplicates: P00533 (CPINNTO, CMAME 2023), P00559 (Engineering Structures 2024), P00669 (FF-PINNTO, CMAME 2025) and P01420 (first author's thesis). Access: QUT ePrints institutional repository, generic User-Agent, no personal data. No author named Jun Wang."
+}

@@ -1,0 +1,93 @@
+{
+  "pid": "P01468",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning",
+    "authors": "Mohammad Mahdi Behzadi, Horea T. Ilieş",
+    "year": 2021,
+    "venue": "arXiv preprint (cs.LG; also cs.AI). This pool record is OpenAlex work W4302027779, whose DOI is the arXiv DOI and whose only location is arxiv.org/abs/2105.03045. Version of record: Journal of Mechanical Design, doi 10.1115/1.4052757 (Crossref: online 2021-10-18; licence field is the ASME legal policy, no Creative Commons licence), carried together with the same arXiv id by pool record P00141",
+    "doi": "10.48550/arXiv.2105.03045",
+    "arxiv_id": "2105.03045",
+    "version_coded": "arXiv v1 (7 May 2021; the only version on the abs page). Identity with P00141 checked on the arXiv abs page and the header of https://arxiv.org/html/2105.03045 (title, authors, v1 label). The full text was not coded again, because it is the document already coded under P00141. Adjudicator (2026-09-24): the abs page again lists v1 only, and the arXiv PDF (16 pages) carries the stamp arXiv:2105.03045v1, 7 May 2021"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as a duplicate of P00141, the same arXiv document). Would-be primary outcome as coded under P00141 (not re-read here): GANTL predictions differ from the SIMP designs by 1.00% average compliance error (Table 2), with no GANTL run time reported.",
+    "location": "Would-be: Sec. 4.2 and Table 2, as coded under P00141",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). The arXiv HTML, read on 2026-09-24, reports no GANTL, training or data-generation time; its only cost number is a cited SIMP cost of 1.85 s per iteration for a 300 x 100 MBB beam (Introduction)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (duplicates) with code FT-DUPLICATE. Duplicate of P00141 (decision order 51; already coded in llm_prefill). Evidence: this record's DOI, 10.48550/arXiv.2105.03045, is the arXiv DOI of arXiv 2105.03045, which is the arxiv_id of P00141; titles and authors match; the arXiv abs page lists a single version (v1). Primary version: the JMD version of record is not open access (Crossref licence = ASME legal policy), so the latest arXiv version is primary, and P00141 already holds it together with the JMD DOI. A third pool record, P02546 (OAT reference-list entry for the JMD article; decision order 309), is another duplicate of the same study. Screening flagged this record as a possible duplicate of P00141 (audit/pool/possible_duplicates.csv, similarity 1.00). Screening code was I-SPEED. Authors checked: no author named Jun Wang. Adjudicator check (2026-09-24): audit/screening/pilot_final_order.csv places P00141 at position 51 (arXiv 2105.03045, doi 10.1115/1.4052757), this record at position 175 (doi 10.48550/arxiv.2105.03045, possible duplicate of P00141) and P02546 at position 309. Both P00141 and this record hold arXiv v1, the only version, so the PROTOCOL §11 duplicate tie-break (2026-09-24) applies: the earlier record, P00141, carries the coding, and its final record (stage ai_adjudicated, coded from arXiv v1) already names this record as a duplicate. The second coder's full coding of the same arXiv v1 (stratum Q; R4 fail) is therefore not used; P00141's adjudicated record settles R4 as partial.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "decision": {
+        "first": "exclude",
+        "second": "include",
+        "decision": "exclude",
+        "reason": "This record (arXiv DOI 10.48550/arXiv.2105.03045, decision order 175) and P00141 (arXiv 2105.03045 with the JMD DOI, order 51) hold the same version, arXiv v1, the only one on the abs page (PDF stamp arXiv:2105.03045v1). Under the §11 duplicate tie-break the earlier record, P00141, carries the coding, so this record is excluded; the second coder's primary-version rule cannot choose between two records of one version (§11)."
+      },
+      "ft_code": {
+        "first": "FT-DUPLICATE",
+        "second": null,
+        "decision": "FT-DUPLICATE",
+        "reason": "FT-DUPLICATE is the first code in table order (screening_codes.md, second table) and marks the non-carrying record of an identical pair (§11 tie-break; pilot_final_order.csv positions 51 and 175). The other pool id, P00141, is named in notes."
+      },
+      "stratum": {
+        "first": null,
+        "second": "quality",
+        "decision": "none",
+        "reason": "An excluded record has stratum none (adjudication_instructions.md, procedure step 3). The stratum-Q coding of this document is held by P00141's final record."
+      },
+      "R1": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE (see decision), so all rule verdicts are na (adjudication_instructions.md, procedure step 3); P00141's final record holds the verdicts for arXiv v1."
+      },
+      "R2": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE (see decision), so all rule verdicts are na (adjudication_instructions.md, procedure step 3)."
+      },
+      "R3": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE (see decision), so all rule verdicts are na (adjudication_instructions.md, procedure step 3)."
+      },
+      "R4": {
+        "first": null,
+        "second": "fail",
+        "decision": "na",
+        "reason": "Excluded as FT-DUPLICATE (see decision), so all rule verdicts are na (adjudication_instructions.md, procedure step 3). The second coder's fail reading of the compliance error (Sec. 3.5, p. 6) was already rejected for the same document in P00141's adjudication (R4 partial)."
+      }
+    }
+  }
+}

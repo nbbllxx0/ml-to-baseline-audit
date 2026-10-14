@@ -1,0 +1,88 @@
+{
+  "pid": "P01217",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Enhancing Structural Topology Optimization with Deep Learning: A Stress Field-Based Approach",
+    "authors": "Sourav Parida, Rati Ranjan Dash",
+    "year": 2023,
+    "venue": "Advancement in Mechanical Engineering and Technology 6(2) (2023) 24-37 (HBRP Publication), per the PDF header and the Zenodo record (resource type 'Journal article'). The Zenodo record lists CC BY 4.0; the PDF footer reads 'All Rights Reserved'",
+    "doi": "10.5281/zenodo.8003313",
+    "arxiv_id": "",
+    "version_coded": "Publisher PDF (journal pages 24-37) deposited on Zenodo (record 8003313, published 2023-06-04), read in full as text; p. 35 (Table 4, Figs. 9-10) also checked on the rendered page. Page locators are the printed journal pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On five 32×96 cantilever cases, the Attention Res-U-Net is claimed to match SIMP and Abaqus designs within 5% volume-fraction error in one tenth of their time (per case 3 s + 0.004 s vs 10 s and 20 s).",
+    "key_phrase": "outperforming in terms of computational efficiency by taking 1/10th of their total time",
+    "location": "Abstract (quantitative comparison with classical methods, §5.1 rule 1); supporting numbers in Table 3 (p. 34), Table 4 and Figs. 9-10 (p. 35); repeated in the Conclusion (p. 36)",
+    "quantitative": true,
+    "claimed_speedup": 10,
+    "claimed_speedup_basis": "Stated as one tenth of the conventional methods' total time (abstract; p. 34; conclusion). Not reproduced by Table 4 (p. 35): DL 3 s pre-processing + 0.004 s solution = 3.004 s [derived] vs SIMP 10 s and Abaqus CAE 20 s gives 3.3× and 6.7× [derived]; solution time alone gives 2,500× and 5,000× [derived]. Whether the times are averages over the five cases is not stated. Data generation and training are excluded.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 3 and Fig. 9: achieved VF at target 0.5 is 0.53-0.54 for DL (Fig. 9 prints 0.55 for L4) vs 0.49-0.51 for SIMP and 0.49-0.50 for Abaqus. (2) Fig. 10 and p. 34: DL strain energy is stated to lie within 8% of SIMP; the DL bars are above SIMP in all five cases. (3) Table 2: on 600 test samples, accuracy 0.9891, Dice 0.9816, R 0.9972 against the Abaqus labels (image metrics). (4) Solution time only: 0.004 s vs 10 s and 20 s (Table 4)."
+  },
+  "baseline": {
+    "classical_method": "SIMP with the original 99-line MATLAB code (penalty 3, filter radius 1.5), plus the Abaqus CAE structural optimization module that also generated the training data; 2D cantilever, target VF 0.5, five load cases (pp. 28, 34)",
+    "implementation": "MATLAB 99-line educational code (Sigmund 2001, ref. [4]) and commercial Abaqus CAE driven by Python scripts (the optimization module is not named) (pp. 28, 34)",
+    "solver": "not stated",
+    "hardware_classical": "not stated for the timed runs; training data were generated on a local PC with an AMD Ryzen 5 5600X CPU and an NVIDIA RTX 2060 GPU (p. 32)",
+    "hardware_ml": "training on Kaggle with 2× NVIDIA Tesla T4 GPUs (p. 32); inference hardware not stated",
+    "problem_size": "2D cantilever on a 32×96 mesh with a 100 N point load of arbitrary direction on the perimeter (p. 31) [derived: 6,402 nodal DOFs]",
+    "classical_iterations": "not stated",
+    "classical_time": "per case: SIMP 10 s; Abaqus CAE 20 s (Table 4, p. 35)",
+    "ml_time": "per case: 3 s pre-processing plus 0.004 s solution (Table 4, p. 35); the pre-processing includes the FE stress solve that builds the input image [inferred from pp. 28-30]",
+    "training_time": "about 0.9 h on Kaggle 2× T4, 50 epochs, batch 25 (p. 32, Table 1)",
+    "data_generation_cost": "not stated; 2,000 Abaqus optimizations augmented fourfold to 8,000 samples, plus 600 test samples (pp. 31, 34) [inferred: about 11 h at the Table 4 Abaqus time, 2,000 × 20 s]",
+    "quality_metric": "Achieved VF (Table 3, Fig. 9) and strain energy (Fig. 10; computation method not stated) on five load cases; test-set BCE, accuracy, MSE, MAE, Dice and R (Table 2); predicted vs target VF correlation (Fig. 8)",
+    "quality_gap": "VF at target 0.5: DL 0.53-0.54 (0.55 for L4 in Fig. 9), SIMP 0.49-0.51, Abaqus 0.49-0.50 (Table 3); the text gives the largest VF deviation of DL as 8% from SIMP and 6% from Abaqus (p. 34). Strain energy: DL above SIMP in all five cases, within 8% per the text (p. 34) [bars read roughly 5-10% above SIMP, Fig. 10]"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Table 4, Table 3 and Figs. 9-10: DL inference (3 s + 0.004 s) is set against complete SIMP (10 s) and Abaqus (20 s) runs, while the DL designs are measurably worse on both counts: they use 0.53-0.54 volume against a 0.5 target (SIMP 0.49-0.51), and their strain energy is higher than SIMP's in all five cases despite the extra material. No matching is attempted, and the SIMP stopping rule is not stated."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl",
+      "evidence": "p. 34: the SIMP baseline is the original 99-line MATLAB educational code, and the other baseline is Abaqus CAE's general-purpose optimization module; the hardware of the timed runs is not stated for either method. The mesh has about 6.4×10³ DOFs [derived], so (c) does not apply; (b) not observed (the abstract gives no baseline time); no iteration count is given, so (d) and (e) cannot be derived."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-data-cost",
+      "evidence": "p. 32: training time is reported (about 0.9 h), but the cost of the 2,000 Abaqus optimizations is not, and no break-even or per-query limitation is given. For C3 [derived]: at the Table 4 times, data cost about 2,000 × 20 s = 40,000 s plus 3,240 s of training; per-use saving 16.996 s vs Abaqus and 6.996 s vs SIMP, so break-even after about 2,540 and 6,180 uses."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-selected-examples",
+      "evidence": "pp. 34-35: the only mechanical check (strain energy, Fig. 10) covers five load cases at VF 0.5 chosen without a stated rule, and how the strain energy was computed is not stated. The 600-sample test set is scored only by image metrics (Table 2, Fig. 7) and a VF correlation (Fig. 8). Failed or disconnected predictions are not counted."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "600 test samples scored by image metrics (Table 2, Figs. 7-8); 5 load cases at VF 0.5 compared with SIMP and Abaqus (Table 3, Figs. 9-10)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Type check: the pool lists a Zenodo DOI, but the Zenodo record is typed 'Journal article' and holds the publisher PDF of Advancement in Mechanical Engineering and Technology 6(2), pp. 24-37 (HBRP Publication), so §3.3 (journal article) is met; the §11 rule on non-arXiv preprints does not apply. Primary outcome: the abstract's quantitative claim (within 5% VF error, one tenth of the total time). The stated factor of 10 is not reproduced by Table 4 (3.3× vs SIMP and 6.7× vs Abaqus on total time [derived]), and Table 4 gives one time per method without saying whether it is an average; no times exist for the 600 test samples (runtimes_all_cases = no). The '5% VF error' matches the undefined 'error percentages' printed under the DL designs in Fig. 9 (3.39-4.69%), not the deviation of the achieved VF from the 0.5 target (6-10% [derived from Fig. 9 and Table 3]). Table 3's average accuracy for DL (96.86%) is not reproducible from the listed VFs (92.4% [derived]). Fig. 9 prints L4 = 0.55 for DL, Table 3 lists 0.54. The SIMP designs in Fig. 9 are grey (not thresholded), while the DL and Abaqus designs are binary. Fig. 10 values were read approximately from the rendered bars. The related-work section attributes a CNN TO method to ref. [14], which is a 2006 paper on fastened composite joints. No code or data statement. retest_candidate false: no public code; the 99-line SIMP baseline could be re-timed at 32×96 by itself. Duplicate check: no other pool record or prefill of this study. No author named Jun Wang. Screening code was I-SPEED."
+}

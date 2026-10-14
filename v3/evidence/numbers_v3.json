@@ -1,0 +1,262 @@
+{
+  "N300": {
+    "value": 7,
+    "unit": "",
+    "text": "seven",
+    "source": "v3/census/frame.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "speed claims in the sample with public code",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N301": {
+    "value": 6,
+    "unit": "",
+    "text": "six",
+    "source": "v3/census/frame.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "claims re-run in the census",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N302": {
+    "value": 4,
+    "unit": "",
+    "text": "four",
+    "source": "v3/runs/*/REPAIRS.md",
+    "script": "v3/tools/census_numbers.py",
+    "note": "claims needing code or dependency repairs",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N303": {
+    "value": [
+      2280.0000000000005,
+      24746.666666666668
+    ],
+    "unit": "",
+    "text": "2,280–24,747×",
+    "source": "v3/runs/P00610/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N304": {
+    "value": [
+      319.786991393385,
+      1111.8381082821786
+    ],
+    "unit": "",
+    "text": "320–1,112×",
+    "source": "v3/runs/P00610/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N305": {
+    "value": [
+      3.5946455380568723,
+      3.653299755234891
+    ],
+    "unit": "",
+    "text": "3.6×",
+    "source": "v3/runs/P00610/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "median over the four ratios; range 3.59-3.65",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N306": {
+    "value": [
+      12.17776329739647,
+      37.793210457886325
+    ],
+    "unit": "",
+    "text": "12–38",
+    "source": "v3/runs/P00610/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "article Table 1 time / our time for the same released solver",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N307": {
+    "value": [
+      2200,
+      20775
+    ],
+    "unit": "",
+    "text": "2,200× and 20,775×",
+    "source": "audit/coding/records/P00080.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "528 min / 0.24 min; 4,986 min / 0.24 min",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N308": {
+    "value": [
+      770.9504492281125,
+      2366.593387955253
+    ],
+    "unit": "",
+    "text": "771× and 2,367×",
+    "source": "v3/runs/P00080/timing/homog.json; cpu_iter.json; voroto.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N309": {
+    "value": 4.692178964318944,
+    "unit": "",
+    "text": "4.7×",
+    "source": "v3/runs/P00080/timing/gpu.json; voroto.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "VoroTO time / classical time to VoroTO's fine-scale compliance",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N310": {
+    "value": 2.4462960998062044,
+    "unit": "",
+    "text": "2.45 s",
+    "source": "v3/runs/P00080/timing/gpu.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N311": {
+    "value": 11.478459100006148,
+    "unit": "",
+    "text": "11.5 s",
+    "source": "v3/runs/P00080/timing/voroto.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N312": {
+    "value": [
+      32330.583170021117,
+      33829.488910104126
+    ],
+    "unit": "",
+    "text": "3.2–3.4 × 10⁴",
+    "source": "v3/runs/P00183/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N313": {
+    "value": [
+      16411.944695083996,
+      16868.538404051655
+    ],
+    "unit": "",
+    "text": "1.6–1.7 × 10⁴",
+    "source": "v3/runs/P00183/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N314": {
+    "value": [
+      1.8471086826781178,
+      1.961207245194128
+    ],
+    "unit": "",
+    "text": "1.85–1.96",
+    "source": "v3/runs/P00183/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "generator compliance / TO compliance, repository evaluator",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N315": {
+    "value": 1.1551020408163266,
+    "unit": "",
+    "text": "1.16×",
+    "source": "v3/runs/P00663/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "283 s / 245 s",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N316": {
+    "value": 1.1453258670147617,
+    "unit": "",
+    "text": "1.145×",
+    "source": "v3/runs/P00663/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "median classical / median CNN, 3 runs each",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N317": {
+    "value": [
+      1.692807300016284,
+      2.0973694999702275
+    ],
+    "unit": "",
+    "text": "1.7–2.1 s",
+    "source": "v3/runs/P00140/timing/dehom.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N318": {
+    "value": 1546.1991745011183,
+    "unit": "",
+    "text": "1,546 s",
+    "source": "v3/runs/P00140/timing/classical_1440.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N319": {
+    "value": 8.909722222222221,
+    "unit": "",
+    "text": "8.9 h",
+    "source": "v3/runs/P00647/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "one-core run, stopped, not converged",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N320": {
+    "value": 253,
+    "unit": "",
+    "text": "253",
+    "source": "v3/runs/P00647/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N321": {
+    "value": 3.283380312525656,
+    "unit": "",
+    "text": "3.3×",
+    "source": "v3/runs/P00647/summary.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  },
+  "N322": {
+    "value": 57,
+    "unit": "",
+    "text": "57 of 100",
+    "source": "evidence/p00150_check.json",
+    "script": "v3/tools/census_numbers.py",
+    "note": "",
+    "status": "provisional",
+    "registered_utc": "2026-09-26T03:12:56+00:00"
+  }
+}

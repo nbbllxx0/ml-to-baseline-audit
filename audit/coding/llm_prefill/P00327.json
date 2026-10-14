@@ -1,0 +1,57 @@
+{
+  "pid": "P00327",
+  "citation": {
+    "title": "Data-driven topology design based on principal component analysis for 3D structural design problems",
+    "authors": "Jun Yang; Kentaro Yaji; Shintaro Yamasaki",
+    "year": 2025,
+    "venue": "Structural and Multidisciplinary Optimization 68(5), article 103 (2025), CC BY 4.0, per Crossref",
+    "doi": "10.1007/s00158-025-04036-5",
+    "arxiv_id": "2409.01607",
+    "version_coded": "arXiv v1 (3 Sep 2024; the only arXiv version), full HTML text read. Checked against the version of record (published 10 June 2025, open access), read through WebFetch of the Springer HTML: same section structure, and still no classical comparison on the target problems."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-ML-only",
+    "stratum": "none",
+    "method_family": "vae",
+    "physics": "stress",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Excluded at full text. The only method-versus-method comparison is PCA-based DDTD against non-PCA DDTD, an ML baseline. The other results compare DDTD outputs with the method's own initial designs. No classical optimizer is run on the target problems.",
+    "location": "Sec. 4.2 Comparison (Figs. 5-7); Sec. 5 Conclusions; Abstract",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed claim against a classical method. The version of record adds DDTD-only per-iteration times.",
+    "direction": "outperform",
+    "alternatives": "Iteration-0 designs come from density-based TO of a low-fidelity problem. DDTD designs improve on them, e.g. Sec. 4.3: S5 versus S4, 62.9% lower maximum stress; Sec. 4.4: S9 versus S6, 32.5% lower volume. A verifier who treats these initial designs as a classical comparator would include the article in stratum Q. The Abstract and Sec. 2 also say, qualitatively, that sensitivity-based TO struggles with strongly nonlinear problems; this is background about the DDTD family, not a result of this article."
+  },
+  "baseline": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na", "evidence": "excluded at full text"},
+    "R2": {"verdict": "na", "marker": "na", "evidence": "excluded at full text"},
+    "R3": {"verdict": "na", "marker": "na", "evidence": "excluded at full text"},
+    "R4": {"verdict": "na", "marker": "na", "evidence": "excluded at full text"}
+  },
+  "reporting": {
+    "n_test_cases": "4 problems: 2D compliant mechanism (PCA vs non-PCA DDTD, Sec. 4.2), 3D L-beam maximum-stress problem without and with large deformation (Sec. 4.3), 3D compliant mechanism (Sec. 4.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Excluded as ML-only (protocol Sec. 4); this article belongs in the ML-only tally. The reporting fields are informational only. Locators: arXiv v1 Sec. 4 names one Linux x86_64 machine with 128 cores and gives no times. The version of record (Springer HTML, read through WebFetch summaries; not checked against raw text) adds average DDTD times per iteration: 13.2 and 11.88 min for PCA and non-PCA DDTD (2D, Sec. 4.2); 51.1 and 60.0 min for the 3D stress problem without and with large deformation (Sec. 4.3); 60.5 min for the 3D mechanism (Sec. 4.4). It also says code details and data are available on request. There are 50 DDTD iterations per run (Sec. 4.1). All designs are evaluated by FE on a body-fitted mesh (Sec. 3.1). The screening code was I-UNCLEAR."
+}

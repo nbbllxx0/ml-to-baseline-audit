@@ -1,0 +1,88 @@
+{
+  "pid": "P00698",
+  "citation": {
+    "title": "Novel Artificial Neural Network Aided Structural Topology Optimization",
+    "authors": "Xiangrui Kong, Yuching Wu, Peng Zhu, Peng Zhi, and Qianfan Yang",
+    "year": 2024,
+    "venue": "Applied Sciences 14(23), 11416",
+    "doi": "10.3390/app142311416",
+    "arxiv_id": "",
+    "version_coded": "Abstract only; version of record"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (no accessible full text)",
+    "stratum": "none",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "",
+    "key_phrase": "",
+    "location": "",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up factor can be coded without the full text.",
+    "direction": "outperform",
+    "alternatives": "Abstract says computational efficiency improves and reports a reduction in the finite-element share of total operation time from over 90% to 40%."
+  },
+  "baseline": {
+    "classical_method": "SIMP (abstract)",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "Structural configuration and accuracy (abstract)",
+    "quality_gap": "Abstract says accuracy is acceptable but gives no numerical classical-versus-ML quality gap."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "na",
+      "marker": "no-full-text",
+      "evidence": "no full text"
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "no-full-text",
+      "evidence": "no full text"
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "no-full-text",
+      "evidence": "no full text"
+    },
+    "R4": {
+      "verdict": "na",
+      "marker": "no-full-text",
+      "evidence": "no full text"
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Several numerical examples named in the abstract: cantilever, MBB, L-shape, column, and rod-supported bridge.",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "no",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Full text was not accessible. The publisher's MDPI article page/PDF/XML requests returned HTTP 429/403. The article abstract was readable in an open DOAJ record and official publisher search-index result; no access restriction was bypassed."
+}

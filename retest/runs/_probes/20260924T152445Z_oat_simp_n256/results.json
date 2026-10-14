@@ -1,0 +1,40 @@
+[
+ {
+  "problem_id": 1015,
+  "solver": "MultiGrid",
+  "optimizer": "OC",
+  "wall_s": 4.930261100002099,
+  "per_iter_s": 0.24651305500010495,
+  "c_first": 13.228260276098414,
+  "c_last": 8.191192478724957,
+  "compliance": [
+   13.228260276098414,
+   31.35587712590656,
+   105.82608842506815,
+   38.579138159919026,
+   18.949010328213454,
+   11.618485179333554,
+   9.906670772877598,
+   9.126721913748971,
+   8.720054598737043,
+   8.488912474876702,
+   8.355870609855842,
+   8.28117723809142,
+   8.242920831015208,
+   8.223029346428902,
+   8.212010658429296,
+   8.205273800146937,
+   8.200566687527141,
+   8.196906773878078,
+   8.19384531077865,
+   8.191192478724957
+  ]
+ },
+ {
+  "problem_id": 1015,
+  "solver": "MultiGrid",
+  "optimizer": "PGD",
+  "error": "CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered",
+  "traceback": "\"E:\\AI\\ml-to-baseline-audit\\retest\\targets\\OptimizeAnyTopology\\pyEDGE\\solvers\\CUDA\\_solvers.py\", line 297, in _multi_grid\n    e = self._multi_grid(coarse_u, coarse_residual, level+1)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  [Previous line repeated 2 more times]\n  File \"E:\\AI\\ml-to-baseline-audit\\retest\\targets\\OptimizeAnyTopology\\pyEDGE\\solvers\\CUDA\\_solvers.py\", line 279, in _multi_grid\n    return self.coarse_solve(b)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\AI\\ml-to-baseline-audit\\retest\\targets\\OptimizeAnyTopology\\pyEDGE\\solvers\\CUDA\\_solvers.py\", line 264, in <lambda>\n    return lambda rhs: SOLVER.solve(rhs)\n                       ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\<user>\\anaconda3\\envs\\oat\\Lib\\site-packages\\cupyx\\scipy\\sparse\\linalg\\_solve.py\", line 609, in solve\n    x = sm(self.U, x, lower=False, transa=trans)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\<user>\\anaconda3\\envs\\oat\\Lib\\site-packages\\cupyx\\scipy\\sparse\\linalg\\_solve.py\", line 591, in spsm\n    return cusparse.spsm(A, B, lower=lower, transa=transa)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\<user>\\anaconda3\\envs\\oat\\Lib\\site-packages\\cupyx\\cusparse.py\", line 2398, in spsm\n    _cusparse.spSM_solve(\n  File \"cupy_backends/cuda/libs/cusparse.pyx\", line 3442, in cupy_backends.cuda.libs.cusparse.spSM_solve\n  File \"cupy_backends/cuda/libs/cusparse.pyx\", line 3446, in cupy_backends.cuda.libs.cusparse.spSM_solve\n  File \"cupy_backends/cuda/libs/cusparse.pyx\", line 1355, in cupy_backends.cuda.libs.cusparse._setStream\n  File \"cupy_backends/cuda/libs/cusparse.pyx\", line 1337, in cupy_backends.cuda.libs.cusparse.setStream\n  File \"cupy_backends/cuda/api/runtime.pyx\", line 1040, in cupy_backends.cuda.api.runtime.streamIsCapturing\n  File \"cupy_backends/cuda/api/runtime.pyx\", line 146, in cupy_backends.cuda.api.runtime.check_status\ncupy_backends.cuda.api.runtime.CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered\n"
+ }
+]

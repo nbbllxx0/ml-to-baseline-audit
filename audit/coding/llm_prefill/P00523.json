@@ -1,0 +1,46 @@
+{
+  "pid": "P00523",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "A Supervised Machine Learning Approach for Accelerating the Design of Particulate Composites: Application to Thermal Conductivity",
+    "authors": "Mohammad Saber Hashemi, Masoud Safdari, Azadeh Sheidaei",
+    "year": 2021,
+    "venue": "arXiv preprint 2010.00041 (v1 30 Sep 2020, v2 15 Oct 2020, v3 5 Jan 2021). Version of record: Computational Materials Science 197 (2021) 110664, doi 10.1016/j.commatsci.2021.110664 (Crossref; Elsevier user licence, not open access); not accessed",
+    "doi": "10.1016/j.commatsci.2021.110664",
+    "arxiv_id": "2010.00041",
+    "version_coded": "arXiv v3 (5 Jan 2021; latest version; no arXiv HTML), PDF (24 pages) read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-SCOPE",
+    "stratum": "none",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "thermal",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as FT-SCOPE). Would-be primary outcome: the GA inverse design with the neural surrogate takes about 1 min, whereas each design-point evaluation by packing plus FFT homogenization would take about 4 h.",
+    "location": "Would-be: Sec. 3.3 and Table 4 (p. 17). The abstract makes no speed comparison; the conclusion compares only qualitatively with conventional optimization, and quantitatively (minutes vs days) only for plotting response surfaces, i.e. forward prediction",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded). Would-be values: surrogate prediction on the order of 0.1 s vs 1 h packing + 3 h FFT homogenization per microstructure (Sec. 3.2, p. 14), i.e. about 1.4x10^5 per evaluation [derived: 14,400 s / 0.1 s]; inverse design about 1 min (Sec. 3.3) or 2 min (Table 4). No classical optimization run exists, so no end-to-end ratio is derivable.",
+    "direction": "outperform",
+    "alternatives": "Would-be alternatives: (1) Conclusion: response surfaces in minutes vs days for reconstruction plus direct numerical solution (forward prediction, order of magnitude only). (2) Conclusion, qualitative: superior computational speed compared with conventional optimization techniques. (3) Sec. 3.2: surrogate about 0.1 s vs 1+3 h per microstructure (per-evaluation cost proxy)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-SCOPE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-SCOPE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-SCOPE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-SCOPE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded as FT-SCOPE (first applicable code; FT-DUPLICATE does not apply: no other version of this study in the pool or in llm_prefill, searched by title words, surnames and arXiv id). Reason: the article is neither TO nor architected-material inverse design. The design variables are six statistical descriptors of a random particulate composite (liquid-metal droplets in silicone): volume fraction, aspect ratio, particle counts, and mean and standard deviation of particle size (Sec. 2.1.1, Table 1). Microstructures are random packings (Rocpack), and the effective thermal conductivity comes from the authors' FFT homogenization of packs voxelized at 300 pixels per direction (Sec. 2.1.2-2.1.3). A fully connected network (grid-searched 1-2 hidden layers, 5-fold cross-validation, Sec. 2.2, Table 3) predicts conductivity from the descriptors, and an elitist genetic algorithm searches the descriptors for a target conductivity (Sec. 2.3). There is no material-distribution field, no topology and no designed architecture [judgment]. Judgment call for the verifier: §3.1 admits architected materials or metamaterials with homogenization-based comparators, and §2.1 searched 'microstructure' with homogenization comparators. If descriptor-based design of random composites is accepted as in scope, the record enters stratum speed (screening code was I-UNCLEAR). Would-be coding: primary outcome as above (Sec. 3.3, Table 4: packing 60 min and FFT 180 min per RVE; surrogate training and prediction 1 min per RVE; inverse design 2 min; all on one AMD Ryzen 1950X CPU with 32 GB RAM, Sec. 1). R1 fail (R1-no-quality): the GA with FFT evaluations is never run; the speed claim rests on per-evaluation times; the single case study (target 3 W/mK) gives 2.9 W/mK predicted and 2.7 W/mK by FFT on a reconstructed pack (Sec. 3.3), a 10% miss [derived], and 'multiple tests' are mentioned without numbers. R2 pass (R2-none-established): both methods run on the same CPU, so (c) does not apply; the classical cost is an estimate per evaluation; FFT at about 3 h per pack (300 pixels per direction) cannot be judged without a re-test. R3 partial (R3-no-amortization): per-RVE data cost (about 4 h) and training time (Table 4) are reported, but the dataset size is only approximate (about 10,000 Sobol points before removing infeasible or unpacked points, Sec. 3.1) and no break-even is given. R4 partial (R4-no-failure-rate): the returned design is re-packed and checked by FFT homogenization, but only one case is reported and no failure rate or constraint check is given. Would-be reporting: n_test_cases = 1 inverse-design case; ood_test no; seeds_or_variance yes for cross-validation accuracy (Sec. 2.2), no for the design; failure rate no; timing protocol partial (CPU named, Sec. 1; averages only, Table 4); runtimes all cases yes (one case); code no (the repository holds data only); data yes: github.com/ms-hashemi/Insulated-LM-elastomer-conductivity (Data availability statement; GitHub API 2026-09-24: BSD-3-Clause licence; packs and a zip of FFT homogenization outputs, no model or GA code); hardware per method partial (one CPU named for all times). retest_candidate false: out of scope, and no model or GA code is public. physics = thermal (steady conduction homogenization); dim = 3d (3D packs, homogenized in 3D per Sec. 2.1.2 [the text also mentions 2D slices of the packs; the verifier should confirm]). No author named Jun Wang."
+}

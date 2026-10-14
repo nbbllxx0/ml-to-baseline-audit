@@ -1,0 +1,51 @@
+{
+  "pid": "P00755",
+  "citation": {
+    "title": "Artificial neural network supported design of a lattice-based artificial spinal disc for restoring patient-specific anisotropic behaviors",
+    "authors": "Zhiyang Yu; Prakash Thakolkaran; Kristina Shea; Tino Stanković",
+    "year": 2023, "venue": "Computers in Biology and Medicine",
+    "doi": "10.1016/j.compbiomed.2022.106475", "arxiv_id": "none",
+    "version_coded": "open-access version of record, author-uploaded full text"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "surrogate_mlp_gp", "physics": "other", "dim": "3d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The surrogate-assisted disc optimization is said to finish in about 40 seconds, versus an estimated 24 hours for optimization using finite-element analysis at every evaluation.",
+    "key_phrase": "", "location": "§5.2, methodology evaluation", "quantitative": true,
+    "claimed_speedup": 2160,
+    "claimed_speedup_basis": "[inferred] §5.2 gives about 24 h for FE-based optimization and about 40 s for ANN-assisted optimization; 24 × 3600 / 40 = 2160. The FE-based duration is prospective wording, not a documented completed run.",
+    "direction": "outperform",
+    "alternatives": "Abstract and §6 qualitatively claim faster or more efficient optimization; §4 compares stiffness predictions from MLP and CNN against FE results."
+  },
+  "baseline": {
+    "classical_method": "Genetic algorithm with FE structural analysis for fitness evaluation (§3.3, §5.2)",
+    "implementation": "MATLAB 1D beam-element structural analysis (§3.1.4); FE-in-the-loop GA implementation not stated",
+    "solver": "not stated",
+    "hardware_classical": "Intel Core i7-8550U CPU, 16 GB RAM for all computational tasks (§3, workflow)",
+    "hardware_ml": "Intel Core i7-8550U CPU, 16 GB RAM for all computational tasks (§3, workflow)",
+    "problem_size": "15 × 3 × 2 lattice grid, 90 unit-cell assignment variables (§3.3, Table 2)",
+    "classical_iterations": "500 GA generations and population size 50 specified for ANN-assisted optimization (§3.3, Table 2); FE-based comparator iteration count not separately stated",
+    "classical_time": "around 24 h, estimated for FE-analysis-based optimization (§5.2)",
+    "ml_time": "around 40 s for ANN-assisted optimization (§5.2)",
+    "training_time": "500 training epochs, wall time not stated (§3.2)",
+    "data_generation_cost": "600,000 FE-analysed samples per unit-cell library, two libraries; wall time not stated (§3.1.4)",
+    "quality_metric": "Six rotational stiffnesses compared with target disc; final design FE-validated (§3.3, Figs. 9 and 13)",
+    "quality_gap": "No optimized result from FE-in-the-loop GA is reported for quality comparison (§5.2)"
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-unmatched", "evidence": "§5.2 compares optimization durations without a quality result for the FE-based GA comparator; Figs. 9 and 13 validate only the returned ANN-assisted designs."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "§3 and §5.2 place tasks on one CPU machine, but give no FE-baseline solver, actual iteration timing, or convergence plot establishing R2(a)–(e)."},
+    "R3": {"verdict": "partial", "marker": "R3-no-amortization", "evidence": "§3.1.4 reports 600,000 FE-labelled samples per library and §3.2 gives 500 training epochs, but §5.2's 40 s claim omits their wall times and gives no break-even use count."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "§3.3 and Figs. 9/13: optimized discs are checked by FE analysis, but no failure or infeasibility rate across optimization runs is given."}
+  },
+  "reporting": {
+    "n_test_cases": "2 target lumbar disc levels, L2–L3 and L4–L5, studied with two unit-cell libraries (§4.2–4.3)",
+    "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial", "runtimes_all_cases": "selective",
+    "code_available": "no", "data_available": "no", "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "The 24 h FE-based optimizer time is phrased prospectively in §5.2; no completed classical optimization run or classical design quality is documented. The author-uploaded version of record was readable through ResearchGate; the ETH repository download returned HTTP 429."
+}

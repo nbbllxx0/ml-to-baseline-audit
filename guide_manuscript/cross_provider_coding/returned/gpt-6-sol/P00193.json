@@ -1,0 +1,52 @@
+{
+  "pid": "P00193",
+  "citation": {"title": "Zero-shot rib design: merging a training-free generative prior with topology optimization", "authors": "Yongmin Kwon, Namwoo Kang", "year": 2026, "venue": "arXiv preprint", "doi": "", "arxiv_id": "2609.10643", "version_coded": "arXiv v1"},
+  "access": "full_text",
+  "stage": "cross_provider_pass",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "diffusion_flow", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "Across four domains and two physics regimes, 38 of 49 prompt-domain settings had significant compliance reductions against gradient-based baselines, with reported reductions up to 31.5% mechanical and 23.0% thermoelastic.",
+    "key_phrase": "",
+    "location": "Abstract, p. 1",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No faster-than-classical speed-up is claimed; Section 4 reports an SDS run about 3 minutes slower than pure SIMP, and Table 1's training-cost comparison concerns other learned methods.",
+    "direction": "outperform",
+    "alternatives": "Section 5.2/Table 6 compares best-run SDS compliance with tuned MMA and shows mixed results (SDS wins in Circle/Hole, MMA in Rect); Section 4 reports SDS runtime around 44 minutes versus 41 minutes for pure SIMP; Section 7/Table 11 reports a negative heat-conduction result."
+  },
+  "baseline": {
+    "classical_method": "Sections 4-5: pure SIMP with Adam, tuned MMA, OC, 50-start SIMP, perturbation SIMP and image-guided SIMP; all use FE-based compliance.",
+    "implementation": "Sections 3-4 and Appendix A: in-house Mindlin-Reissner MITC4 plate FE plus plane-stress FE, SIMP and Heaviside projection; Appendix D.8 uses FEniCSx for 3D re-analysis; implementation code on request.",
+    "solver": "not stated",
+    "hardware_classical": "Section 4, p. 11: pure-SIMP baseline runtime reported beside SDS on NVIDIA RTX 4090 (24 GB VRAM); tuned MMA hardware not separately specified.",
+    "hardware_ml": "Section 4, p. 11: NVIDIA RTX 4090 (24 GB VRAM).",
+    "problem_size": "Table 3, p. 10: 150 x 150 FE elements for principal 2D domains; Appendix D.7 tests Hole at 100 x 100 and 200 x 200.",
+    "classical_iterations": "Section 5.2/Table 6: Adam and MMA compared at a fixed 1,000 iterations under identical filtering and Heaviside continuation; Section 4/Table 3 specifies 1,000 for SDS.",
+    "classical_time": "Section 4, p. 11: pure SIMP about 41 minutes per run [inferred from 44-minute SDS run and 3-minute overhead]; Section 5.2: tuned MMA 4.90 s/iteration.",
+    "ml_time": "Section 4, p. 11: SDS about 44 minutes per 1,000-iteration run; Section 3 CAD conversion: about 5 seconds on one CPU core.",
+    "training_time": "Sections 1 and 4: no task-specific training or fine-tuning; pretrained Stable Diffusion 2.1 stays frozen.",
+    "data_generation_cost": "Sections 1 and 4: no task-specific training dataset; optimization itself uses FE analysis at every iteration.",
+    "quality_metric": "Abstract and Tables 5-7: FE-computed mechanical/thermoelastic compliance at fixed target volume; Appendix D.8 gives 3D solid FE re-analysis of reconstructed rib geometry.",
+    "quality_gap": "Abstract: up to 31.5% lower mechanical and 23.0% lower thermoelastic compliance; Section 5.2/Table 6: SDS best versus MMA is 7.886 vs 7.721 in Rect, 2.522 vs 2.598 in Circle, 43.20 vs 48.848 in Hole."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-stratum", "evidence": "Abstract, p. 1: primary outcome is compliance improvement at fixed volume; Section 4 reports SDS is slower than pure SIMP, so no faster-than-classical primary claim needs matching."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 5.2/Table 6: tuned MMA and Adam are both tested; no re-test, per-iteration comparison against an independent strong solver, or established R2(a)-(e) condition is shown."},
+    "R3": {"verdict": "na", "marker": "R3-no-offline-training", "evidence": "Sections 1 and 4: pretrained diffusion weights remain frozen with no task-specific training or data-generation phase; the primary claim concerns quality."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 3-5 and Appendix B.3: final density compliance is evaluated by FE and target volume enforced by bisection; Appendix D.8 re-analyzes reconstructed solids, but disconnected/failed or post-CAD volume-violation rates are not counted."}
+  },
+  "reporting": {
+    "n_test_cases": "Abstract and Section 4: 245 primary SDS runs, 49 prompt-domain combinations across 4 geometric domains and 2 physics regimes; 5 random seeds per combination. Section 7 additionally tests heat conduction.",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "on_request",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Table 1 compares avoided training costs against other ML approaches, but the relevant classical comparison is quality. Section 5.2 reports a stronger MMA benchmark and acknowledges mixed best-run results; Section 7 gives a negative heat-conduction result. Data availability states numerical outputs can be reproduced from code and settings but code is available only on request, with no released result dataset."
+}

@@ -1,0 +1,14 @@
+{
+  "pid": "P00537",
+  "citation": {"title": "Non-iterative structural topology optimization using deep learning", "authors": "Baotong Li, Congjia Huang, Xin Li, Shuai Zheng, Jun Hong", "year": 2019, "venue": "Computer-Aided Design 115, 172-180", "doi": "10.1016/j.cad.2019.05.038", "arxiv_id": "", "version_coded": "repository/publisher abstract only"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED (no accessible full text)", "stratum": "none", "method_family": "gan", "physics": "thermal", "dim": "unclear"},
+  "claim": {"primary_outcome_paraphrase": "The abstract says the two-stage GAN predicts conductive heat-transfer topologies with negligible per-design computation after training on classical optimization outputs.", "key_phrase": "", "location": "abstract", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "The accessible abstract gives no numerical classical-versus-ML runtime ratio.", "direction": "outperform", "alternatives": "The abstract also says the predicted topology is an accurate estimate of optimized outputs."},
+  "baseline": {"classical_method": "topology optimization simulations; precise method not stated in abstract", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "negligible, unquantified (abstract)", "training_time": "not stated", "data_generation_cost": "many topology optimization runs for low- and high-resolution datasets; cost not quantified (abstract)", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "R1-no-full-text", "evidence": "no full text"}, "R2": {"verdict": "na", "marker": "R2-no-full-text", "evidence": "no full text"}, "R3": {"verdict": "na", "marker": "R3-no-full-text", "evidence": "no full text"}, "R4": {"verdict": "na", "marker": "R4-no-full-text", "evidence": "no full text"}},
+  "reporting": {"n_test_cases": "not stated", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The queued LSU repository URL resolves to a page stating that the document is not available there. The publisher article is blocked; no legitimate open full text was located. Despite the title, the abstract identifies heat-conduction rather than elasticity TO; heat conduction is in scope."
+}

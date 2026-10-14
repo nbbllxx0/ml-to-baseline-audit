@@ -1,0 +1,137 @@
+{
+  "pid": "P00676",
+  "citation": {
+    "title": "Length Scale Control in Topology Optimization using Fourier Enhanced Neural Networks",
+    "authors": "Aaditya Chandrasekhar; Krishnan Suresh",
+    "year": 2021,
+    "venue": "arXiv preprint (Department of Mechanical Engineering, University of Wisconsin-Madison)",
+    "doi": "10.48550/arxiv.2109.01861",
+    "arxiv_id": "2109.01861",
+    "version_coded": "arXiv v1 (4 Sep 2021; only version on the abs page), full text read from https://arxiv.org/html/2109.01861; the adjudicator re-read the v1 PDF (21 pp.) and rendered Fig. 9 (p. 11) for its printed values"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_adjudicated",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On four 60x30 benchmarks, Fourier-TOuNN with length-scale bounds (lmin = 6, lmax = 30) reports lower compliance than the 88-line SIMP code in every case (43.39 vs 48.45, 48.81 vs 55.66, 71.2 vs 86.9, 12.23 vs 14.83; Fig. 9).",
+    "key_phrase": "the compliance values are lower (better) than both SIMP and TOuNN",
+    "location": "Sec. 5.1 (p. 10) and Fig. 9 (p. 11): the first quantitative comparison with a classical method; the abstract, introduction and conclusion make none. The text emphasizes the compliance result (§5.1 rule 4); the FE-iteration counts in Fig. 9 and the run-time remarks of Sec. 5.1 are recorded as alternatives.",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up is claimed, and no SIMP run time is printed. Fig. 9 (p. 11) lists FE-iteration counts for both methods: SIMP 119, 92, 119 and 131 against 151 for Fourier-TOuNN in every case, i.e. SIMP / Fourier-TOuNN = 0.61-0.87, median 0.79 [derived]: Fourier-TOuNN needs more FE solves. Sec. 5.1 (p. 10) gives 4-6 s per Fig. 9 example and calls this consistent with mesh-based codes such as the 88-line code.",
+    "direction": "outperform",
+    "alternatives": "(1) Fig. 9, cost side: 151 FE iterations for Fourier-TOuNN against 92-131 for SIMP (proxy ratio 0.61-0.87 [derived]). (2) Sec. 5.1: Fourier-TOuNN takes 4-6 s per example, described as consistent with mesh-based implementations such as [50], and spends 41% of its time in FE against about 96% cited for SIMP implementations from [51]; no SIMP time is measured. (3) Sec. 5.2: Fig. 11 compares topologies with ref. [17] visually (compliance not compared because [17] did not report it); Fig. 12 compares with published designs of ref. [53] (not re-run). (4) Sec. 5.3: Fourier-TOuNN against TOuNN convergence (ML against ML)."
+  },
+  "baseline": {
+    "classical_method": "SIMP, filter radius 1.4 (checkerboard/minimum-length-scale filtering only, no explicit additional length-scale control imposed)",
+    "implementation": "the '88-line' MATLAB SIMP implementation of Andreassen et al. 2011 [ref 50]",
+    "solver": "direct (MATLAB backslash sparse solve, per the 88-line code); not restated explicitly in this paper's own text beyond citing [50]",
+    "hardware_classical": "Intel i7-6700 CPU @ 2.6 GHz, 16 GB RAM — stated as used for 'all experiments' (i.e. SIMP, TOuNN and Fourier-TOuNN alike)",
+    "hardware_ml": "same: Intel i7-6700 CPU @ 2.6 GHz, 16 GB RAM (no GPU used anywhere in the paper)",
+    "problem_size": "60x30-element mesh (default) for the four Figure 9 benchmarks; additional cases include a tensile bar, a distributed-load problem, and single/multi-material Michell structures",
+    "classical_iterations": "SIMP: 119, 92, 119 and 131 FE iterations for the tip cantilever, mid-cantilever, MBB and Michell cases (Fig. 9, p. 11), under the 88-line code's own stopping rule (p. 8 cites a density-change criterion of 0.01 for classic SIMP [50]). Fourier-TOuNN: 151 in every case (minimum 150, maximum 500 iterations; stops when the gray-element fraction falls below 0.0025; Sec. 4-5, Table 1)",
+    "classical_time": "not stated as an absolute number for the Figure 9 problems (only FE-iteration count, in the figure); a ~96% FE-time-share figure for generic SIMP is cited from a different reference [51], not measured by this paper's own SIMP run",
+    "ml_time": "aggregate 4-6 s total across the four Figure 9 problems (Section 5.1), decomposed as FE 41%, forward propagation 20%, backward propagation 27%, other 13%; this total already includes the network's per-problem optimization (there is no separate offline training stage)",
+    "training_time": "not applicable as a separate figure: Fourier-TOuNN is optimized from scratch per design case ('a fresh neural network from scratch for each design case'), and this per-problem optimization is exactly what the reported 4-6 s covers",
+    "data_generation_cost": "none: no training dataset is used; each case is solved by per-instance optimization",
+    "quality_metric": "Compliance J on the 60x30 FE mesh (Eq. 7, Sec. 3.2; values printed in Fig. 9) at the same target volume fraction per benchmark (0.75, 0.6, 0.45, 0.3). Fourier-TOuNN enforces the volume by a growing penalty (Eq. 8; alpha grows by 0.2 per iteration, Table 1), and its attained volume is not reported; its penalization follows a continuation from p = 1 by 0.02 per iteration (Table 1), while the SIMP penalty for Fig. 9 is not stated",
+    "quality_gap": "Fig. 9 (p. 11), Fourier-TOuNN vs SIMP: 43.39 vs 48.45 (tip cantilever), 48.81 vs 55.66 (mid-cantilever), 71.2 vs 86.9 (MBB), 12.23 vs 14.83 (Michell), i.e. 10.4-18.1% lower [derived]. TOuNN: 43.69, 48.73, 73.24, 12.55, so TOuNN is lower than Fourier-TOuNN for the mid-cantilever, contrary to the text's 'lower than both'"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Stratum Q, so R1 applies as written (PROTOCOL §11, 2026-09-24); no time is compared, so no fail marker applies. Sec. 5.1 and Fig. 9 (pp. 10-11): all methods use the same 60x30 mesh, the same target volume fractions and the same CPU. Matching is loose: Fourier-TOuNN's volume is only a growing penalty (Eq. 8, Table 1) and its attained volume is never reported; it runs 151 FE iterations against SIMP's 92-131; and the SIMP penalization for Fig. 9 is not stated, while Fourier-TOuNN's continuation reaches about p = 4.0 at iteration 151 [derived from Table 1], so the printed compliances may not be evaluated at the same penalization. Fourier-TOuNN also carries length-scale bounds that SIMP does not."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) names no baseline and gives no figures, so (b) is not observed. For the record: the baseline is the published 88-line SIMP code with filter radius 1.4 [50], and all methods ran on the same i7-6700 CPU (Sec. 5, p. 10)."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Stratum Q (PROTOCOL §11): R3 is na. It would be na in any case: a fresh neural network is optimized from scratch for each design case, with no offline training or reusable pretrained model (Algorithm 1, p. 9); this per-problem cost is already inside the reported 4-6 s total time (Section 5.1)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "The printed compliance comes from the FE model on the 60x30 mesh (Sec. 3.2, Eq. 7; Fig. 9) [inferred: final-iteration objective], not from an image metric or a surrogate. But the attained volume fraction of the penalty-constrained Fourier-TOuNN designs is not reported for any case, the high-resolution topologies displayed (15x15 samples per element, Sec. 5) are not re-analysed, and disconnected topologies (Sec. 5.5, p. 14) are described without counts: FE-verified, with constraint violations and failures unreported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "11 distinct benchmark problems overall (mid-cantilever, MBB beam, L-bracket and Michell in Fig. 9; plus a tensile bar, a distributed-load case, single/multi-material Michell variants, and the length-scale and frequency parameter studies)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Duplicate pool entry found (not a version-of-record vs. preprint situation, but an apparent double-ingestion of the identical single-version arXiv preprint): audit/pool/pool.csv contains P00133 with the exact same title, date (2021-09-04), authors and arXiv id (2109.01861) as this record, but with blank venue and DOI fields; the arXiv abs page confirms only one version (v1, 4 Sep 2021) exists, so P00133 and P00676 are the same document, not different versions. Because P00676 carries the fuller/correct metadata (resolved DOI, OpenAlex linkage, venue) and is the pid actually assigned to this queue, it is coded here in full rather than marked as the FT-DUPLICATE record; P00133 is flagged here as the redundant pool entry for the audit team's attention, since excluding both would silently drop an otherwise includable article. Primary-outcome selection required judgment, explained in claim.alternatives: this paper never states a matched, self-run, directional SIMP-vs-Fourier-TOuNN timing comparison (only a borrowed FE-time-percentage citation and SIMP's iteration count, not its wall-clock time, for the Figure 9 problems), so the clearly directional, matched-setup compliance comparison in Section 5.1 (Fig. 9) was coded as the primary outcome instead (stratum quality); a coder who treats the Section 5.1 timing remark as sufficient could instead code stratum speed. Access and privacy: the arXiv HTML page was read directly with no login, CAPTCHA, or bot check encountered; no personal data was sent. No author named Jun Wang (authors: Aaditya Chandrasekhar, Krishnan Suresh, University of Wisconsin-Madison). Code is public at https://github.com/UW-ERSL/Fourier-TOuNN under the MIT licence (GitHub API, 2026-09-24), supporting retest_candidate = true; no training dataset is used (per-instance optimization), so data_available is coded 'no' rather than 'on_request'. Adjudication (2026-09-24): P00676 carries the coding under the PROTOCOL §11 duplicate tie-break, which names this pair: P00676 is at decision-order position 111 and P00133 at 362 (audit/screening/pilot_final_order.csv), so P00133 is the FT-DUPLICATE. The retitled version of record (Computer-Aided Design 150, 103277, 2022; pool P00552, position 591) is a different version; Crossref lists only an accepted-manuscript open-access licence from 2023-05-10 (OpenAlex: bronze, acceptedVersion), not an open version of record, so the latest arXiv version stays primary. Corrections to the second coding (made in place above): the compared compliance and FE-iteration values are printed in Fig. 9 and readable in the PDF (see quality_gap and classical_iterations); the comparison sits in Sec. 5.1, not Sec. 5.2; and the repository licence is MIT, not CC BY 4.0.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "second",
+    "items": {
+      "decision": {
+        "first": "exclude",
+        "second": "include",
+        "decision": "include",
+        "reason": "P00676 (decision-order position 111) and P00133 (position 362) hold the same arXiv version (2109.01861 v1, the only version), so under the §11 duplicate tie-break the earlier record, P00676, carries the coding and P00133 is the FT-DUPLICATE. The CAD 2022 version of record (P00552, position 591) is a different version without an open version of record (Crossref: accepted-manuscript licence only), so the latest arXiv version stays primary."
+      },
+      "ft_code": {
+        "first": "FT-DUPLICATE",
+        "second": null,
+        "decision": null,
+        "reason": "The record is included: it precedes P00133 in the decision order (positions 111 and 362, audit/screening/pilot_final_order.csv), so no full-text exclusion code applies."
+      },
+      "stratum": {
+        "first": null,
+        "second": "quality",
+        "decision": "quality",
+        "reason": "The abstract, introduction and conclusion hold no classical comparison, so §5.1 takes Sec. 5.1 and Fig. 9 (pp. 10-11), where the text stresses lower compliance than SIMP and TOuNN and the FE-iteration counts (151 vs 92-131) and a run-time parity remark follow as cost context. By emphasis (§5.1 rule 4) the primary outcome compares design quality only, as in adjudicated records P00842 and P00051."
+      },
+      "R1": {
+        "first": null,
+        "second": "pass",
+        "decision": "partial",
+        "reason": "In stratum Q, R1 applies as written (§11), and no time is compared, so no fail marker holds. Matching is loose: Fourier-TOuNN's volume is a growing penalty with no attained volume reported (Eq. 8, Table 1, p. 10), it runs 151 FE iterations against SIMP's 92-131 (Fig. 9, p. 11), and SIMP's penalization for Fig. 9 is unstated while Fourier-TOuNN reaches about p = 4.0 [derived]: the §5.3 R1 partial case."
+      },
+      "R2": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "Stratum Q (§11): R2 is na unless criterion (b) applies, and the abstract (p. 1) names no baseline and gives no figures, so (b) is not observed."
+      },
+      "R3": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "R3 is na in stratum Q (§11); Fourier-TOuNN is also optimized per problem with no dataset or offline training (Algorithm 1, p. 9)."
+      },
+      "R4": {
+        "first": null,
+        "second": "partial",
+        "decision": "partial",
+        "reason": "Compliance comes from the FE model on the 60x30 mesh (Sec. 3.2; Fig. 9, p. 11), but the attained volume of the penalty-constrained Fourier-TOuNN designs is never reported and disconnected topologies (Sec. 5.5, p. 14) are described without counts: the §5.3 R4 partial case."
+      }
+    }
+  }
+}

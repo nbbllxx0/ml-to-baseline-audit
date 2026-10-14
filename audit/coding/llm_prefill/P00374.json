@@ -1,0 +1,88 @@
+{
+  "pid": "P00374",
+  "citation": {
+    "title": "NSTO: Neural Synthesizing Topology Optimization for Modulated Structure Generation",
+    "authors": "Shengze Zhong; Parinya Punpongsanon; Daisuke Iwai; Kosuke Sato",
+    "year": 2022,
+    "venue": "Computer Graphics Forum 41(7):553-566 (Pacific Graphics 2022), per Crossref record of the DOI",
+    "doi": "10.1111/cgf.14700",
+    "arxiv_id": "2303.11757",
+    "version_coded": "arXiv v1 (21 Mar 2023; the arXiv comment field notes acceptance at Pacific Graphics 2022), full HTML text read. The Wiley version of record is not open access (Crossref licence; Semantic Scholar lists only the arXiv copy) and was not accessed."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "NSTO optimizes on a coarse grid and super-resolves the result, cutting high-resolution TO time to seconds; in the Daruma task NSTO took 15.51 s versus SIMP's 120.37 s and 475.56 s at 2x and 3x resolution.",
+    "key_phrase": "shortening computation from hours/minutes to seconds",
+    "location": "Introduction, first contribution bullet (headline claim); quantitative support in Sec. 4.2, the Daruma timing table (third table, unnumbered in the arXiv HTML). If the Introduction phrase is judged non-quantitative, the primary outcome is that Sec. 4.2 table; stratum and verdicts do not change.",
+    "quantitative": true,
+    "claimed_speedup": 30.7,
+    "claimed_speedup_basis": "No factor is stated. Derived from the Sec. 4.2 Daruma timing table: SIMP at 55x46x53, 475.56 s / NSTO at 18x15x17, 15.51 s = 30.7. SIMP at 36x30x35 gives 120.37/15.51 = 7.8. SIMP at the same 18x15x17 grid gives 16.03/15.51 = 1.03. The two methods run at different resolutions. The NSTO time does not include the super-resolution step; the text calls that step negligible but gives no time for it.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 1, Sec. 4.2: same resolution, 80 iterations for both; NSTO compliance is lower than SIMP's in all 9 benchmark cases (quality only, no times). (2) Abstract: qualitative claim of much shorter computation time. (3) Sec. 4.2: NSTO totals are set beside times from another paper's GPU solver ([WDW16], 263.33-709.16 s) on different models; this is a cross-paper comparison, not the same problem. (4) Conclusions: qualitative claim of lower computational cost."
+  },
+  "baseline": {
+    "classical_method": "SIMP benchmark following Ferrari and Sigmund 2020 [FS20]; Sec. 4.2 attributes SIMP's initialization to its optimality-criteria update; density filter radius tuned (Sec. 4.2)",
+    "implementation": "Not fully stated. SIMP after [FS20] (the 99-line code family), run with the same algebraic multigrid FEA solver and in the same environment as NSTO (Sec. 4.2). The language of the SIMP port is not stated. NSTO itself uses Python 3.6 and PyTorch (Sec. 3.2, 4.1).",
+    "solver": "Multigrid. NSTO: GPU AMGX [NAC*15] with a multi-level V-cycle hierarchy and Jacobi smoother, tolerance 1e-8, at most 100 iterations (Sec. 3.1). SIMP: stated to use the same AMG solver, but the citation given is PyAMG [BOS22] (Sec. 4.2). Whether SIMP ran on CPU or GPU is not explicit; the text says SIMP at higher resolution might exceed GPU memory, which suggests GPU use [inferred].",
+    "hardware_classical": "Same environment as NSTO (Sec. 4.2): Intel Core i9-10900KF, Nvidia RTX2080S 8GB (Sec. 4.1)",
+    "hardware_ml": "Intel Core i9-10900KF, Nvidia RTX2080S 8GB, Ubuntu 16.04, Python 3.6 (Sec. 4.1)",
+    "problem_size": "Timed comparison (Sec. 4.2 Daruma table): NSTO 18x15x17; SIMP 18x15x17, 36x30x35 and 55x46x53 (4,590, 37,800 and 134,090 elements). Quality benchmarks (Table 1): MBB beam and bridge 120x40, L-bracket 100x100 (Sec. 4.2).",
+    "classical_iterations": "Table 1: 80 iterations for both methods (Table 1 caption). Daruma: both methods ran 85 iterations at the same resolution (Sec. 4.2). Iteration counts for the SIMP runs at 36x30x35 and 55x46x53 are not stated. NSTO stopping rule: 0.3% compliance change and 1% volume difference (Sec. 4.2).",
+    "classical_time": "SIMP: 16.03 s (18x15x17), 120.37 s (36x30x35), 475.56 s (55x46x53) (Sec. 4.2 Daruma table). No SIMP times for the Table 1 benchmarks.",
+    "ml_time": "NSTO: 15.51 s total, of which FEA 15.32 s, 85 iterations at 18x15x17 (Table 2; Sec. 4.2 Daruma table). The super-resolution time is not reported (Sec. 4.2 calls it negligible). The Daruma output was super-resolved 10x per axis and smoothed (Sec. 4.3).",
+    "training_time": "Not applicable. Optimization is per-problem and self-supervised, so network training is the optimization and is inside the 15.51 s (Table 2).",
+    "data_generation_cost": "None. No dataset is used (Sec. 1).",
+    "quality_metric": "FEA compliance C and volume fraction V of the optimized design at the optimization resolution (Table 1). Table 2 gives C/C0 and V/V0 for NSTO only; C0 is not defined in the text.",
+    "quality_gap": "Table 1 (same resolution, 80 iterations): NSTO compliance is below SIMP's in all 9 cases, e.g. MBB at delta 0.30: 292.88 (omega 60) vs 373.89. NSTO volumes are 0.00-0.02 above delta; SIMP volumes equal delta. Daruma timed comparison: no quality comparison with the SIMP runs at 36x30x35 or 55x46x53 is reported."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-no-quality",
+      "evidence": "Sec. 4.2 Daruma table: the speed-up exists only against SIMP runs at 2x and 3x resolution (120.37 s, 475.56 s) versus NSTO at 18x15x17 (15.51 s). No compliance or volume is reported for those SIMP runs, and no FE evaluation of the 10x super-resolved Daruma design is reported (Sec. 4.3). At equal resolution the times are similar (16.03 vs 15.51 s). Table 1 compares quality only at equal resolution and has no times. The super-resolution FEA check (1-5x per axis, benchmarks only, Sec. 4.2) includes no SIMP comparison at those resolutions."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-pass (multigrid solver, same PC)",
+      "evidence": "Sec. 4.2: SIMP uses the same AMG FEA solver in the same environment as NSTO (i9-10900KF plus RTX2080S, Sec. 4.1), with the filter radius tuned. Multigrid is in the protocol's efficient class. Markers (b), (c) and (d) are not established by the text. There is one ambiguity: SIMP's solver is cited as PyAMG [BOS22] while NSTO cites GPU AMGX [NAC*15], so the SIMP device is unclear, but the text asserts the same solver and environment. Markers (a) and (e) need the re-test."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 1 and 3: per-problem, self-supervised neural reparameterization with no dataset and no offline training. The network training is the optimization and is counted in the reported total time (Table 2)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Table 1: compliance comes from FEA of the optimized designs, and volumes are reported (NSTO 0.00-0.02 above delta). Sec. 4.2: FEA of the super-resolved benchmark designs showed stable compliance for 1-5x per axis; the values appear only in Fig. 3(d). No failure or infeasibility counts are given. No FE evaluation of the 10x super-resolved and smoothed Daruma output is reported (Sec. 4.3)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Quality: 3 benchmarks x 3 volume fractions, each with 3 omega values (Table 1). Speed versus SIMP: 1 task (Daruma) with SIMP at 3 resolutions (Sec. 4.2 table). NSTO-only timings for 10 tasks (Table 2).",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Reporting locators: hardware Sec. 4.1; iteration counts Table 1 caption, Table 2 and Sec. 4.2; no warm-up or repeat protocol stated; SIMP timed only in the Sec. 4.2 Daruma table; no code, data or seed statements anywhere in the text; the SIMP device is ambiguous (Sec. 3.1 vs Sec. 4.2 citations). OOD is not applicable to per-problem optimization. Other observations: (1) The Introduction says NSTO is compared with physical and data-driven methods, but the experiments compare only with SIMP. (2) If the SIMP run at 55x46x53 also used 85 iterations, its per-iteration time is about 5.6 s [inferred; the 85-iteration count is stated only for the equal-resolution runs]. This could serve R2(e) after the re-test. (3) Full-grid DOF counts are about 16k, 124k and 426k for the three Daruma grids [inferred for 8-node hexahedra with 3 DOF per node]; the doll domain is shape-constrained, so the active DOF counts are lower. (4) Alternative R1 reading: partial, if the verifier accepts Table 1 plus the 1-5x super-resolution check as quality evidence for the timed comparison. (5) retest_candidate is false because no public code is stated."
+}

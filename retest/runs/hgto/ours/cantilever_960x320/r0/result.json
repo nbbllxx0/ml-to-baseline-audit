@@ -1,0 +1,116 @@
+{
+  "method": "SIMP-OC (GPU port)",
+  "C_raw": 168.55524526195202,
+  "volume": 0.49999999998288674,
+  "target_volume": 0.5,
+  "converged": true,
+  "termination": "converged",
+  "stages": [
+    {
+      "beta": 1.0,
+      "penalty": 1.0,
+      "steps": 50,
+      "converged": false,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 2.0,
+      "penalty": 2.0,
+      "steps": 50,
+      "converged": false,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 4.0,
+      "penalty": 3.0,
+      "steps": 50,
+      "converged": false,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 8.0,
+      "penalty": 3.0,
+      "steps": 421,
+      "converged": true,
+      "stage_budget": 850,
+      "continuation_stage": false
+    }
+  ],
+  "state_evaluations": 571,
+  "setup_s": 0.6947628999478184,
+  "optimization_s": 95.21972770005232,
+  "pcg_iterations_total": 21597,
+  "pcg_fallbacks": 0,
+  "max_state_residual": 1.0000534533135831e-09,
+  "cuda_graphs": true,
+  "case": "cantilever_960x320",
+  "wall_s": 109.27260849997401,
+  "optimization_end_s": 95.91709099995205,
+  "validation_s": 13.35551750002196,
+  "independent_relative_C_error": 8.677849957086093e-10,
+  "independent_fem": {
+    "library": "scikit-fem",
+    "library_version": "12.0.2",
+    "element": "ElementQuad1",
+    "model": "plane stress",
+    "basis": "ElementVector",
+    "assembly": "linear_elasticity.elemental; COOData.fromlocal.tocsr",
+    "quadrature_points": 4,
+    "corner_permutation": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "solver": "pypardiso",
+    "linear_solver_version": "0.4.7",
+    "E0": 1.0,
+    "Emin": 1e-06,
+    "nu": 0.3,
+    "penalty": 3.0,
+    "thickness": 1.0,
+    "calls": 1,
+    "max_residual": 6.368322350972557e-12,
+    "energy_relative_error": 1.715349809584493e-11,
+    "assembly_seconds": 0.6956563999992795,
+    "solve_seconds": 2.313470499997493
+  },
+  "cpu_threads": 2,
+  "cpu_pinning": {
+    "pinned": true,
+    "affinity_mask": "0xfff",
+    "priority": "HIGH_PRIORITY_CLASS"
+  },
+  "hardware": "NVIDIA GeForce RTX 5090",
+  "validate_mode": false,
+  "config": "E:\\AI\\ml-to-baseline-audit\\retest\\targets\\HGTO\\configs\\linear2d\\cantilever_960x320.yaml",
+  "oc_config": {
+    "betas": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "max_stage_steps": 850,
+    "min_stage_steps": 1,
+    "move": 0.2,
+    "change_tolerance": 0.005,
+    "compliance_tolerance": 0.001,
+    "stable_steps": 5,
+    "snapshot_interval": 25,
+    "solver": "pypardiso-spd",
+    "rho_min": 0.001,
+    "penalties": [
+      1.0,
+      2.0,
+      3.0,
+      3.0
+    ],
+    "stopping_rule": "physical",
+    "continuation_stage_cap": 50
+  },
+  "timing_scope": "as hgto.linear.run: case construction, setup, optimization and the final independent scikit-fem evaluation; imports and file output excluded"
+}

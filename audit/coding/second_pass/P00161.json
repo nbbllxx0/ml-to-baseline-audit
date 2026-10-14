@@ -1,0 +1,88 @@
+{
+  "pid": "P00161",
+  "citation": {
+    "title": "Deep learning-based topological optimization for representing a user-specified design area",
+    "authors": "Keigo Nakamura; Yoshiro Suzuki",
+    "year": 2020,
+    "venue": "arXiv preprint (cs.CE)",
+    "doi": "10.48550/arxiv.2004.05461",
+    "arxiv_id": "2004.05461",
+    "version_coded": "arXiv v2 (19 Apr 2020; latest of 2 versions). Full text (12 pp.) downloaded from https://arxiv.org/pdf/2004.05461 and read in full via PyMuPDF extraction. OpenAlex (W3015728595) lists only arXiv locations, no journal version of record."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On the top-80%-ranked subset of a 37,000-case test set (32x32 cantilever-type domains with a circular exclusion zone), the proposed CNN (encoder-decoder with batch normalization and SPADE ResBlk) has 2.75% mean-compliance error against SIMP ground truth, versus 18.7% for a baseline CNN without these additions; volume-fraction error is 9.70% and 99.6% of outputs respect the specified design-area exclusion zone.",
+    "key_phrase": "the average error for the top 80% of results was 18.7%, compared to ... 2.75% for the proposed model",
+    "location": "Conclusion (Sec. 5) and Table 2/Sec. 4.3.2 (main text). This is the first quantitative comparison with the classical method (SIMP) encountered under the protocol's abstract-then-conclusion-then-introduction-then-main-text search order: the Abstract states both the quality and the speed advantage only qualitatively ('were smaller', 'in less computational time', no digits), and within the Conclusion's four bullets this compliance-error figure appears before the Conclusion's own quantitative speed-reduction bullet ('reduced by 83%')",
+    "quantitative": true,
+    "claimed_speedup": 5.75,
+    "claimed_speedup_basis": "Derived from Table 1 / Sec. 4.3: classical (SIMP) 0.4393 s per case ÷ proposed-model 0.07634 s per case ≈ 5.75x [derived], both measured 'using the same CPU'. This matches the article's own stated '83% reduction in calculation time' (1 - 1/5.75 = 82.6%, consistent with 83% after rounding). This speed figure is explicitly stated in the article (Sec. 4.3 and Conclusion) but was not selected as the primary outcome because, by the protocol's location-order rule, the compliance-error comparison appears earlier in the Conclusion; it is recorded here because R1-R3 evidence draws on it.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) The 83%/5.75x computation-time reduction vs. SIMP (Table 1, Conclusion) -- a clear, explicit, and arguably the article's most quotable number, but appearing after the compliance-error bullet in the Conclusion's own bullet list. (2) Volume-fraction error 9.70% vs. SIMP's target (Yu's baseline: 10.28%) (Table 2). (3) Design-area threshold-0.01 satisfaction rate, 99.6% vs. Yu's baseline 68.2% (Table 2, Fig. 15) -- the article explicitly calls this 'the most important element of this study' (Sec. 4.3.2), though it is framed as an own-model accuracy statistic and an ML-vs-ML comparison against Yu et al.'s CNN rather than a number stated for SIMP itself (SIMP satisfies this by construction). (4) The 'lower 20%' compliance-error subset, where both the proposed model (103,872%) and Yu's model (51,624,956%) show extreme errors driven by rare disconnected, near-zero-stiffness outputs (Table 2) -- deliberately excluded from the headline 2.75%/18.7% figures, which are computed on the top-80%-ranked subset only."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Bendsøe & Sigmund 1999)",
+    "implementation": "Unmodified 88-line open-source MATLAB SIMP code (Andreassen et al. 2011), used to generate all 370,000 training/validation/test cases and as the ground truth for every quality metric (Sec. 4.2)",
+    "solver": "not stated in this article",
+    "hardware_classical": "'the same CPU' as the proposed model (Sec. 4.3); no CPU model, clock speed or core count given",
+    "hardware_ml": "same CPU as classical for the reported inference timing (Sec. 4.3); training hardware (e.g. GPU) is not stated anywhere",
+    "problem_size": "32x32-element domain (33x33-node force/fixity grids), design area = square with one circular void (radius < 25% of the square's side, center randomised); volume fraction 0.2-0.8; up to 4 point loads with discrete values -2,-1,0,1,2 in x and y (Sec. 4.1)",
+    "classical_iterations": "not stated (no iteration count or convergence criterion given for the SIMP data-generation runs)",
+    "classical_time": "0.4393 s per case, average (Table 1)",
+    "ml_time": "0.07634 s per case, average (Table 1)",
+    "training_time": "not stated; only epoch counts at minimum validation MAE are given (proposed model: 51 epochs; without BN: 37; Yu's model: 115; Sec. 4.3.1), with batch size 512 and learning rate 0.01 (Sec. 4.3)",
+    "data_generation_cost": "not stated; 370,000 SIMP-generated samples (296,000/37,000/37,000 train/val/test, Sec. 4.2) with no reported compute time or cost, and no statement scoping the 83%/5.75x speed claim to exclude this cost",
+    "quality_metric": "Mean-compliance error and volume-fraction error, both measured against the SIMP ground truth for the same case; plus a design-area 'rate of following' the specified exclusion zone (share of test cases whose maximum density inside the void is below a stated threshold, e.g. 0.01) (Sec. 4.3, Table 2). Compliance error is reported separately for the 'higher 80%' and 'lower 20%' ranked subsets of the test set, explicitly to separate the effect of rare disconnected outputs with very large compliance",
+    "quality_gap": "Table 2 (proposed model vs. Yu et al.'s baseline CNN): mean-compliance error, higher-80% subset 2.75% vs 18.7%; lower-20% subset 103,872% vs 51,624,956% (both driven by rare disconnected/near-zero-stiffness outputs); volume-fraction error 9.70% vs 10.28%; design-area (threshold 0.01) satisfaction rate 99.6% vs 68.2%"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.3, Table 1-2: the 5.75x/83% speed figure is measured on the same CPU and is accompanied by quality data from the same test population (compliance, volume, design-area errors), so it is not a bare speed claim with no quality comparison. However, matching is loose in ways the protocol's '!' example names directly: the classical (SIMP) stopping rule/iteration count is never stated, and the single headline compliance-error number (2.75%) is computed only on the top-80%-ranked subset of the test set, explicitly excluding a 'lower 20%' subset with catastrophically large compliance error (103,872%) from disconnected outputs -- so the population-wide quality gap at matched volume fraction is not cleanly stated as one number."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-matched-hardware",
+      "evidence": "Sec. 4.3 states the timing comparison used 'the same CPU' for both methods -- no GPU-vs-CPU asymmetry, unlike many ML-for-TO speed comparisons. The classical baseline is the well-regarded 88-line MATLAB SIMP code (Andreassen et al. 2011), a standard efficient reference implementation, not a naive or unvectorized one. The problem (32x32 elements, ~10^3 design variables) is far below the 10^5-DOF threshold for R2(c), and no evidence in the text establishes R2(b) or R2(d) (no abstract/body baseline mismatch is visible, and no classical iteration count is given to compare against a stated convergence need). R2(a)/(e) would need a re-test or a per-iteration time, neither available. The only gap is that the specific CPU model is not named."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-data-cost",
+      "evidence": "Neither the cost of generating the 370,000 SIMP-based training/validation/test cases (Sec. 4.2) nor the wall-clock training time of the CNN (Sec. 4.3, batch size 512, epochs up to ~115) is reported anywhere, and -- unlike some other ML-for-TO articles -- there is no statement here limiting the 83%/5.75x claim to per-query inference only; the Conclusion presents 'reduced by 83%, compared with the SIMP method' as an unqualified headline figure."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-failure-rate-unclear",
+      "evidence": "Quality is judged by physically meaningful, SIMP-referenced quantities (mean compliance and volume fraction), not by an image-similarity metric alone (MAE is used only as the training loss, Sec. 3.2/4.3, not as a reported test-time quality index). The article explicitly discusses a real failure mode -- occasional disconnected, near-zero-stiffness outputs (Fig. 13) -- and reports its effect through the 'lower 20%' error subset (103,872% for the proposed model, Table 2), so failure is not hidden. However, no single, clean failure/infeasibility rate (e.g. 'X% of outputs are disconnected') is ever stated; the top-80/bottom-20 split is a ranking device for compliance error, not an explicit feasibility count, so the true incidence of disconnection is left for the reader to infer."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "37,000 (370,000 total samples, train:val:test = 8:1:1, Sec. 4.2)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Stratum determination was a close, consequential judgement call, flagged for the verifier: the Abstract gives no numbers for either the quality or the speed advantage. Within the Conclusion (the next location the protocol checks), the compliance-error figure (2.75%, a quality comparison with SIMP) appears in the bullet list before the speed-reduction figure (83%, also vs. SIMP), so strict textual order makes this a quality-stratum ('I-QUALITY') record rather than speed. This is reinforced by the article's own statement that the design-area-fidelity evaluation (a quality metric) is 'the most important element of this study' (Sec. 4.3.2), and by the much greater textual weight given to the compliance/volume/design-area analysis (Secs. 4.3.1-4.3.2, Table 2, Figs. 12-16) versus the single paragraph and one Table (Table 1) devoted to speed. A verifier reading 'the first quantitative comparison' as the article's single most prominent/quotable number could instead select the 83%/5.75x speed figure as primary, which would move this record to stratum 'speed'; R1-R3 evidence above is written so that determination does not need to be redone. Duplicate check (audit/pool/pool.csv): no other pool record matches this title, DOI or arXiv id; OpenAlex lists only the two arXiv versions (v1, v2), no journal publication. No author named Jun Wang (authors: Keigo Nakamura, Yoshiro Suzuki)."
+}

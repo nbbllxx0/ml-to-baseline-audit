@@ -1,0 +1,190 @@
+=== eval 256 ===
+{"problem_id": 1015, "c_gt": 8.807345701194553, "vf_target": 0.3799999952316284, "candidates": {"OAT": {"c": 8.154146142602281, "CE_pct": -7.4165313904242165, "vf_thresholded": 0.3772125244140625, "vf_mean": 0.3772536957348281}, "OAT-SIMP[CG_OC]": {"c": 9.761005364184069, "CE_pct": 10.828003070893079, "vf_thresholded": 0.3799591064453125, "vf_mean": 0.37999999523913786}, "ours[gpu]": {"c": 8.085891273142975, "CE_pct": -8.191508003980426, "vf_thresholded": 0.3800201416015625, "vf_mean": 0.37999299685431087}, "ours[pardiso]": {"c": 8.085891273142975, "CE_pct": -8.191508003980426, "vf_thresholded
+{"problem_id": 1676, "c_gt": 5.169905573377041, "vf_target": 0.30000001192092896, "candidates": {"OAT": {"c": 5.184627230722803, "CE_pct": 0.2847567936554424, "vf_thresholded": 0.3052825927734375, "vf_mean": 0.30530961074698526}, "OAT-SIMP[CG_OC]": {"c": 5.2899905931498825, "CE_pct": 2.322770079036486, "vf_thresholded": 0.300079345703125, "vf_mean": 0.3000000119399262}, "ours[gpu]": {"c": 5.194315871472842, "CE_pct": 0.47216139152529807, "vf_thresholded": 0.29998779296875, "vf_mean": 0.29999114972774077}, "ours[pardiso]": {"c": 5.194315871472842, "CE_pct": 0.47216139152529807, "vf_thresholded"
+{"problem_id": 1839, "c_gt": 33.360052887485686, "vf_target": 0.3199999928474426, "candidates": {"OAT": {"c": 34.860556061425534, "CE_pct": 4.497904062084774, "vf_thresholded": 0.3177642822265625, "vf_mean": 0.3176611276179505}, "OAT-SIMP[CG_OC]": {"c": 34.729538468730325, "CE_pct": 4.105166097498522, "vf_thresholded": 0.320098876953125, "vf_mean": 0.31999999286443354}, "ours[gpu]": {"c": 34.032216669910525, "CE_pct": 2.0148762494228145, "vf_thresholded": 0.3199920654296875, "vf_mean": 0.31998812032038276}, "ours[pardiso]": {"c": 34.032216669910525, "CE_pct": 2.0148762494228145, "vf_thresholde
+{"problem_id": 1935, "c_gt": 5.673302811516524, "vf_target": 0.30000001192092896, "candidates": {"OAT": {"c": 5.655665948281026, "CE_pct": -0.3108747024695346, "vf_thresholded": 0.300079345703125, "vf_mean": 0.30008431452392353}, "OAT-SIMP[CG_OC]": {"c": 5.662110479799887, "CE_pct": -0.1972807038241783, "vf_thresholded": 0.3000640869140625, "vf_mean": 0.3000000119211962}, "ours[gpu]": {"c": 5.653044052987621, "CE_pct": -0.3570893217224124, "vf_thresholded": 0.3000335693359375, "vf_mean": 0.29999665460556113}, "ours[pardiso]": {"c": 5.653044052987621, "CE_pct": -0.3570893217224124, "vf_threshol
+{"problem_id": 1961, "c_gt": 33.446455136197336, "vf_target": 0.4399999976158142, "candidates": {"OAT": {"c": 34.704164379679554, "CE_pct": 3.760366347825798, "vf_thresholded": 0.4355316162109375, "vf_mean": 0.4355743827044763}, "OAT-SIMP[CG_OC]": {"c": 33.922912403267354, "CE_pct": 1.4245374139945042, "vf_thresholded": 0.4400482177734375, "vf_mean": 0.43999999762867215}, "ours[gpu]": {"c": 33.67183152859906, "CE_pct": 0.6738423892276934, "vf_thresholded": 0.4401397705078125, "vf_mean": 0.4399933936489986}, "ours[pardiso]": {"c": 33.67183152859906, "CE_pct": 0.6738423892276934, "vf_thresholded
+wrote E:\AI\ml-to-baseline-audit\evidence\oat_eval_n256.json
+=== eval 64 ===
+{"problem_id": 15, "c_gt": 5.2843306106813355, "vf_target": 0.30000001192092896, "candidates": {"OAT": {"c": 6.35267056504191, "CE_pct": 20.21712934086893, "vf_thresholded": 0.30078125, "vf_mean": 0.3008996149425913}, "OAT-SIMP[CG_OC]": {"c": 5.454292202591645, "CE_pct": 3.216331536235881, "vf_thresholded": 0.30029296875, "vf_mean": 0.30000001191670034}, "OAT-SIMP[SPSOLVE_OC]": {"c": 5.452495700318087, "CE_pct": 3.182334755831431, "vf_thresholded": 0.300537109375, "vf_mean": 0.30000001193326686}, "ours[gpu]": {"c": 5.445766795599129, "CE_pct": 3.054997819240883, "vf_thresholded": 0.30004882812
+{"problem_id": 676, "c_gt": 3.663037955943273, "vf_target": 0.46000000834465027, "candidates": {"OAT": {"c": 3.6623124484400122, "CE_pct": -0.019806169414207167, "vf_thresholded": 0.461181640625, "vf_mean": 0.46095687465158625}, "OAT-SIMP[CG_OC]": {"c": 3.672375294108228, "CE_pct": 0.2549069454714566, "vf_thresholded": 0.46044921875, "vf_mean": 0.4600000083205656}, "OAT-SIMP[SPSOLVE_OC]": {"c": 3.6725620748242616, "CE_pct": 0.2600060112818544, "vf_thresholded": 0.4599609375, "vf_mean": 0.46000000835565225}, "ours[gpu]": {"c": 3.6628855081993845, "CE_pct": -0.004161784445646152, "vf_thresholded
+{"problem_id": 839, "c_gt": 3.8202604470387582, "vf_target": 0.46000000834465027, "candidates": {"OAT": {"c": 3.826426728903781, "CE_pct": 0.16140998632180986, "vf_thresholded": 0.455078125, "vf_mean": 0.4550421878858053}, "OAT-SIMP[CG_OC]": {"c": 3.8208348593204855, "CE_pct": 0.015035945577284592, "vf_thresholded": 0.46044921875, "vf_mean": 0.4600000083550957}, "OAT-SIMP[SPSOLVE_OC]": {"c": 3.820713138932665, "CE_pct": 0.011849765223667713, "vf_thresholded": 0.460205078125, "vf_mean": 0.46000000834803273}, "ours[gpu]": {"c": 3.8198992509077656, "CE_pct": -0.009454751475716578, "vf_thresholded
+{"problem_id": 935, "c_gt": 9.548647346848277, "vf_target": 0.4399999976158142, "candidates": {"OAT": {"c": 9.603103652734214, "CE_pct": 0.5703038755946044, "vf_thresholded": 0.43359375, "vf_mean": 0.4335772831681292}, "OAT-SIMP[CG_OC]": {"c": 9.551584879460265, "CE_pct": 0.030763861155236653, "vf_thresholded": 0.43994140625, "vf_mean": 0.4399999976027536}, "OAT-SIMP[SPSOLVE_OC]": {"c": 9.551788965249767, "CE_pct": 0.032901187858051587, "vf_thresholded": 0.439697265625, "vf_mean": 0.43999999761208486}, "ours[gpu]": {"c": 9.552874051347445, "CE_pct": 0.044264955502442124, "vf_thresholded": 0.43
+{"problem_id": 961, "c_gt": 22.533898377167933, "vf_target": 0.3199999928474426, "candidates": {"OAT": {"c": 23.021392911066158, "CE_pct": 2.163383031815614, "vf_thresholded": 0.31982421875, "vf_mean": 0.32003649691375}, "OAT-SIMP[CG_OC]": {"c": 23.031559503063217, "CE_pct": 2.208499912290057, "vf_thresholded": 0.3212890625, "vf_mean": 0.31999999285783515}, "OAT-SIMP[SPSOLVE_OC]": {"c": 23.039865776865494, "CE_pct": 2.24536114980541, "vf_thresholded": 0.320556640625, "vf_mean": 0.3199999929207956}, "ours[gpu]": {"c": 23.14327145043631, "CE_pct": 2.704250560949597, "vf_thresholded": 0.321777343
+wrote E:\AI\ml-to-baseline-audit\evidence\oat_eval_n64.json
+=== ttq rescore 256 ===
+problem 1015 K=  5: CE   -9.08%  (reused, flips 0)
+problem 1015 K= 10: CE   -7.94%  (reused, flips 0)
+problem 1015 K= 15: CE   -7.93%  (reused, flips 0)
+problem 1015 K= 20: CE   -7.97%  (reused, flips 0)
+problem 1015 K= 30: CE   -8.00%  (reused, flips 0)
+problem 1015 K= 40: CE   -8.03%  (reused, flips 0)
+problem 1015 K= 50: CE   -8.06%  (reused, flips 0)
+problem 1015 K= 75: CE   -8.09%  (reused, flips 0)
+problem 1015 K=100: CE   -8.14%  (reused, flips 0)
+problem 1015 K=150: CE   -8.19%  (reused, flips 0)
+problem 1676 K=  5: CE    2.21%  (reused, flips 0)
+problem 1676 K= 10: CE    2.02%  (reused, flips 0)
+problem 1676 K= 15: CE    0.78%  (reused, flips 0)
+problem 1676 K= 20: CE    0.69%  (reused, flips 0)
+problem 1676 K= 30: CE    0.62%  (reused, flips 0)
+problem 1676 K= 40: CE    0.58%  (reused, flips 0)
+problem 1676 K= 50: CE    0.56%  (reused, flips 0)
+problem 1676 K= 75: CE    0.52%  (reused, flips 0)
+problem 1676 K=100: CE    0.50%  (reused, flips 0)
+problem 1676 K=150: CE    0.47%  (reused, flips 0)
+problem 1839 K=  5: CE   47.92%  (reused, flips 0)
+problem 1839 K= 10: CE   12.34%  (reused, flips 0)
+problem 1839 K= 15: CE    5.33%  (reused, flips 0)
+problem 1839 K= 20: CE    4.12%  (reused, flips 0)
+problem 1839 K= 30: CE    3.29%  (reused, flips 0)
+problem 1839 K= 40: CE    2.96%  (reused, flips 0)
+problem 1839 K= 50: CE    2.72%  (reused, flips 0)
+problem 1839 K= 75: CE    2.37%  (reused, flips 0)
+problem 1839 K=100: CE    2.23%  (reused, flips 0)
+problem 1839 K=150: CE    2.01%  (reused, flips 0)
+problem 1935 K=  5: CE   -0.93%  (reused, flips 0)
+problem 1935 K= 10: CE   -0.00%  (reused, flips 0)
+problem 1935 K= 15: CE   -0.22%  (reused, flips 0)
+problem 1935 K= 20: CE   -0.27%  (reused, flips 0)
+problem 1935 K= 30: CE   -0.30%  (reused, flips 0)
+problem 1935 K= 40: CE   -0.31%  (reused, flips 0)
+problem 1935 K= 50: CE   -0.33%  (reused, flips 0)
+problem 1935 K= 75: CE   -0.33%  (reused, flips 0)
+problem 1935 K=100: CE   -0.35%  (reused, flips 0)
+problem 1935 K=150: CE   -0.36%  (reused, flips 0)
+problem 1961 K=  5: CE   16.81%  (reused, flips 0)
+problem 1961 K= 10: CE    5.50%  (reused, flips 0)
+problem 1961 K= 15: CE    2.47%  (reused, flips 0)
+problem 1961 K= 20: CE    1.77%  (reused, flips 0)
+problem 1961 K= 30: CE    1.38%  (reused, flips 0)
+problem 1961 K= 40: CE    1.21%  (reused, flips 0)
+problem 1961 K= 50: CE    1.10%  (reused, flips 0)
+problem 1961 K= 75: CE    0.91%  (reused, flips 0)
+problem 1961 K=100: CE    0.80%  (reused, flips 0)
+problem 1961 K=150: CE    0.67%  (reused, flips 0)
+reused 50, scored 0; wrote retest/runs/20260924T171052Z_ttq_gpu_n256/ttq.json
+=== ttq rescore 64 ===
+problem 15 K=  5: CE   41.86%  (reused, flips 0)
+problem 15 K= 10: CE   28.55%  (reused, flips 0)
+problem 15 K= 15: CE    4.63%  (reused, flips 0)
+problem 15 K= 20: CE    4.37%  (reused, flips 0)
+problem 15 K= 30: CE    4.01%  (reused, flips 0)
+problem 15 K= 40: CE    3.53%  (reused, flips 0)
+problem 15 K= 50: CE    3.45%  (reused, flips 0)
+problem 15 K= 75: CE    3.24%  (reused, flips 0)
+problem 15 K=100: CE    3.21%  (reused, flips 0)
+problem 15 K=150: CE    3.05%  (reused, flips 0)
+problem 676 K=  5: CE    0.23%  (reused, flips 0)
+problem 676 K= 10: CE    0.03%  (reused, flips 0)
+problem 676 K= 15: CE    0.01%  (reused, flips 0)
+problem 676 K= 20: CE    0.00%  (reused, flips 0)
+problem 676 K= 30: CE    0.01%  (reused, flips 0)
+problem 676 K= 40: CE    0.00%  (reused, flips 0)
+problem 676 K= 50: CE   -0.00%  (reused, flips 0)
+problem 676 K= 75: CE   -0.00%  (reused, flips 0)
+problem 676 K=100: CE   -0.00%  (reused, flips 0)
+problem 676 K=150: CE   -0.00%  (reused, flips 0)
+problem 839 K=  5: CE    0.12%  (reused, flips 0)
+problem 839 K= 10: CE    0.06%  (reused, flips 0)
+problem 839 K= 15: CE    0.03%  (reused, flips 0)
+problem 839 K= 20: CE    0.01%  (reused, flips 0)
+problem 839 K= 30: CE    0.00%  (reused, flips 0)
+problem 839 K= 40: CE    0.01%  (reused, flips 0)
+problem 839 K= 50: CE   -0.00%  (reused, flips 0)
+problem 839 K= 75: CE   -0.01%  (reused, flips 0)
+problem 839 K=100: CE   -0.01%  (reused, flips 0)
+problem 839 K=150: CE   -0.01%  (reused, flips 0)
+problem 935 K=  5: CE    0.71%  (reused, flips 0)
+problem 935 K= 10: CE    0.25%  (reused, flips 0)
+problem 935 K= 15: CE    0.15%  (reused, flips 0)
+problem 935 K= 20: CE    0.14%  (reused, flips 0)
+problem 935 K= 30: CE    0.07%  (reused, flips 0)
+problem 935 K= 40: CE    0.05%  (reused, flips 0)
+problem 935 K= 50: CE    0.01%  (reused, flips 0)
+problem 935 K= 75: CE    0.06%  (reused, flips 0)
+problem 935 K=100: CE    0.07%  (reused, flips 0)
+problem 935 K=150: CE    0.04%  (reused, flips 0)
+problem 961 K=  5: CE 208822.63%  (reused, flips 0)
+problem 961 K= 10: CE   21.80%  (reused, flips 0)
+problem 961 K= 15: CE    8.41%  (reused, flips 0)
+problem 961 K= 20: CE    5.16%  (reused, flips 0)
+problem 961 K= 30: CE    3.83%  (reused, flips 0)
+problem 961 K= 40: CE    3.67%  (reused, flips 0)
+problem 961 K= 50: CE    3.47%  (reused, flips 0)
+problem 961 K= 75: CE    3.24%  (reused, flips 0)
+problem 961 K=100: CE    2.63%  (reused, flips 0)
+problem 961 K=150: CE    2.70%  (reused, flips 0)
+reused 50, scored 0; wrote retest/runs/20260924T171311Z_ttq_gpu_n64/ttq.json
+=== repro spSM ===
+outer 0: n = 544, relative residual 2.98e-10
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+cupy 14.2.0; CUDA runtime 13020; device NVIDIA GeForce RTX 5090
+outer 0: n = 544, relative residual 2.98e-10
+FAILED at outer iteration 6
+Traceback (most recent call last):
+  File "E:\AI\ml-to-baseline-audit\retest\oat_harness\repro_spsm.py", line 66, in main
+    x = lu.solve(b)
+        ^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\scipy\sparse\linalg\_solve.py", line 609, in solve
+    x = sm(self.U, x, lower=False, transa=trans)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\scipy\sparse\linalg\_solve.py", line 591, in spsm
+    return cusparse.spsm(A, B, lower=lower, transa=transa)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\cusparse.py", line 2398, in spsm
+    _cusparse.spSM_solve(
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 3442, in cupy_backends.cuda.libs.cusparse.spSM_solve
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 3446, in cupy_backends.cuda.libs.cusparse.spSM_solve
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 1355, in cupy_backends.cuda.libs.cusparse._setStream
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 1337, in cupy_backends.cuda.libs.cusparse.setStream
+  File "cupy_backends/cuda/api/runtime.pyx", line 1040, in cupy_backends.cuda.api.runtime.streamIsCapturing
+  File "cupy_backends/cuda/api/runtime.pyx", line 146, in cupy_backends.cuda.api.runtime.check_status
+cupy_backends.cuda.api.runtime.CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered
+
+wrote retest/logs/repro_spsm_20260924T172745Z.txt
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Exception ignored in: 'cupy.cuda.function.Module.__dealloc__'
+Traceback (most recent call last):
+  File "cupy_backends/cuda/api/driver.pyx", line 247, in cupy_backends.cuda.api.driver.moduleUnload
+  File "cupy_backends/cuda/api/driver.pyx", line 73, in cupy_backends.cuda.api.driver.check_status
+cupy_backends.cuda.api.driver.CUDADriverError: CUDA_ERROR_ILLEGAL_ADDRESS: an illegal memory access was encountered
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+PINNED SCORING DONE

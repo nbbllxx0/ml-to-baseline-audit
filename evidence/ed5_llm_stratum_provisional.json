@@ -1,0 +1,24 @@
+{
+  "n_coded": 2,
+  "records": [
+    {
+      "pid": "P00238",
+      "decision": "exclude",
+      "stratum": "none",
+      "R1": "na",
+      "R2": "na",
+      "R3": "na",
+      "R4": "na"
+    },
+    {
+      "pid": "P00501",
+      "decision": "include",
+      "stratum": "quality",
+      "R1": "partial",
+      "R2": "fail",
+      "R3": "na",
+      "R4": "partial"
+    }
+  ],
+  "note": "rates are reported only when n >= 5 (evidence map, R-1)"
+}

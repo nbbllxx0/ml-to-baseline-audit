@@ -1,0 +1,100 @@
+{
+  "pid": "P00238",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "AutoMS: Multi-Agent Evolutionary Search for Cross-Physics Inverse Microstructure Design",
+    "authors": "Zhenyuan Zhao, Yu Xing, Tianyang Xue, Lingxin Cao, Xin Yan, Lin Lu",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.AI)",
+    "doi": "10.48550/arXiv.2603.27195",
+    "arxiv_id": "2603.27195",
+    "version_coded": "arXiv v2 (12 Apr 2026; v1 28 Mar 2026), full text read from https://arxiv.org/html/2603.27195"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-MLONLY",
+    "stratum": "none",
+    "method_family": "llm_agent",
+    "physics": "multiphysics",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded). Headline: 83.8% success rate on 17 cross-physics tasks versus NSGA-II 43.7%, CMA-ES 66.7% and BayesOpt 65.0%, all baselines searching the inputs of the same learned MIND generator.",
+    "location": "Abstract; Section 1 contributions; Section 5.1, Table 1",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded at full text).",
+    "direction": "outperform"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R2": {"verdict": "na", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R3": {"verdict": "na", "evidence": "excluded at full text (FT-MLONLY)"},
+    "R4": {"verdict": "na", "evidence": "excluded at full text (FT-MLONLY)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded as ML-only (PROTOCOL §4). Every baseline (NSGA-II, BayesOpt with a Gaussian-process surrogate, CMA-ES, ReAct, and the SAES variants) optimizes the conditioning vector (E, G, ν) of the same pretrained MIND diffusion generator with the same simulator (Sec. 4 Baselines; App. B.2). No TO or inverse-homogenization comparator is run; TO appears only as motivation (abstract, Introduction, Related Work). Judgment call for the verifier: the authors call NSGA-II and CMA-ES traditional numerical baselines. If generator-wrapped evolutionary search is accepted as a classical comparator, the record would enter stratum Q with primary outcome SR 83.8% vs NSGA-II 43.7% (Table 1). Table 1 also lists wall-clock times of 2180.5 s (AutoMS), 5550.2 s (NSGA-II), 4202.3 s (CMA-ES) and 3982.9 s (BayesOpt), averaged over four runs, excluding plasticity simulations (Sec. 4; App. E.3); hardware is two NVIDIA A40 GPUs and a 64-core AMD EPYC 7763 (Sec. 4). Physics: homogenized elasticity, thermal and electrical conductivity, and plasticity on 64^3 voxels with C3D8 elements and a PCG solver (App. D.3). No code availability statement found. Screening code was I-QUALITY. Adjudicator check (2026-09-24): read the arXiv v2 PDF (24 pp.; the abs page lists v1 of 28 Mar and v2 of 12 Apr 2026). Sec. 3.1 (p. 3) defines the design variables as the conditioning vector of the pretrained MIND generator; Sec. 4 (pp. 5-6) and App. B.2 (p. 15) state that NSGA-II, BayesOpt and CMA-ES all search that same conditioning space through the same generator and simulator, and App. C.4 (p. 20) swaps in another learned generator. BayesOpt's Gaussian-process surrogate is itself a learned model under §3.1. No TO or inverse-homogenization run, time or result appears; TO and inverse homogenization are named only as motivation and related work (abstract p. 1; Sec. 2.1, p. 2). Codes checked in order: FT-DUPLICATE (single pool record), FT-SCOPE (it is architected-microstructure inverse design), FT-TYPE (method paper), FT-DOMAIN (the physics centres on elasticity and heat conduction, with electrical conductivity as one of several targets), FT-NOML and FT-FORWARD do not apply, so FT-MLONLY is the first applicable code. The second coder's would-be speed-stratum coding (Table 1, 5550.2 s vs 2180.5 s, 2.55× [derived]) is recorded in the adjudication object.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "decision": {
+        "first": "exclude",
+        "second": "include",
+        "decision": "exclude",
+        "reason": "Every comparator searches the conditioning vector of the same pretrained MIND diffusion generator with the same simulator (Sec. 3.1, p. 3; Sec. 4, pp. 5-6; App. B.2, p. 15), so each is a learned-generator pipeline, not a classical, non-learned optimization method (§3.2); BayesOpt's GP surrogate is itself a learned model (§3.1). No TO or inverse-homogenization comparator is run, timed or cited; both appear only as motivation (abstract; Sec. 2.1, p. 2)."
+      },
+      "ft_code": {
+        "first": "FT-MLONLY",
+        "second": null,
+        "decision": "FT-MLONLY",
+        "reason": "FT-DUPLICATE, FT-SCOPE, FT-TYPE, FT-DOMAIN, FT-NOML and FT-FORWARD do not apply: it is a single pool record, a method paper on architected-microstructure inverse design with elasticity and heat conduction at its core. The article compares only with generator-based ML pipelines (Table 1, p. 6; Table 9, p. 20), so FT-MLONLY is the first applicable code in the closed list."
+      },
+      "stratum": {
+        "first": null,
+        "second": "speed",
+        "decision": "none",
+        "reason": "A full-text exclusion carries stratum none (adjudication instructions, step 3). The second coder's would-be speed outcome (Table 1, p. 6: 2180.5 s vs 5550.2 s for NSGA-II) compares two search strategies over the same learned generator."
+      },
+      "R1": {
+        "first": null,
+        "second": "pass",
+        "decision": "na",
+        "reason": "Excluded as FT-MLONLY (Sec. 4, pp. 5-6; App. B.2, p. 15), so all rule verdicts are na (adjudication instructions, step 3)."
+      },
+      "R2": {
+        "first": null,
+        "second": "pass",
+        "decision": "na",
+        "reason": "Excluded as FT-MLONLY (Sec. 4, pp. 5-6; App. B.2, p. 15), so all rule verdicts are na (adjudication instructions, step 3)."
+      },
+      "R3": {
+        "first": null,
+        "second": "na",
+        "decision": "na",
+        "reason": "Excluded as FT-MLONLY (Sec. 4, pp. 5-6; App. B.2, p. 15), so all rule verdicts are na (adjudication instructions, step 3)."
+      },
+      "R4": {
+        "first": null,
+        "second": "pass",
+        "decision": "na",
+        "reason": "Excluded as FT-MLONLY (Sec. 4, pp. 5-6; App. B.2, p. 15), so all rule verdicts are na (adjudication instructions, step 3)."
+      },
+      "claimed_speedup": {
+        "first": null,
+        "second": 2.55,
+        "decision": null,
+        "reason": "Not coded for an excluded record. The second coder's 2.55 is NSGA-II time over AutoMS time (5550.2 s ÷ 2180.5 s, Table 1, p. 6), a ratio between two searches of the same learned generator, not an ML-vs-classical ratio; the article's only stated time gain is 23.3% against ReAct, an LLM baseline (Sec. 1, p. 2; Sec. 5.1, p. 6)."
+      }
+    }
+  }
+}

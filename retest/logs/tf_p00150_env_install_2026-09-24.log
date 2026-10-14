@@ -1,0 +1,125 @@
+2026-09-24: venv C:\Users\YSL0\venvs\tf_p00150 created from C:\Users\YSL0\anaconda3\envs\Pytorch\python.exe (Python 3.10.18); the Pytorch env itself is not modified. Packages from PyPI:
+Collecting tensorflow==2.15.1
+Collecting tensorflow-intel==2.15.1
+     -------------------------------------- 300.9/300.9 MB 7.5 MB/s eta 0:00:00
+Collecting packaging
+     -------------------------------------- 130.0/130.0 kB 8.0 MB/s eta 0:00:00
+Collecting google-pasta>=0.1.1
+     ---------------------------------------- 57.5/57.5 kB ? eta 0:00:00
+Collecting gast!=0.5.0,!=0.5.1,!=0.5.2,>=0.2.1
+Collecting numpy<2.0.0,>=1.23.5
+     ---------------------------------------- 15.8/15.8 MB 9.6 MB/s eta 0:00:00
+Collecting tensorflow-estimator<2.16,>=2.15.0
+     ------------------------------------- 442.0/442.0 kB 27.0 MB/s eta 0:00:00
+Collecting typing-extensions>=3.6.6
+     ---------------------------------------- 45.6/45.6 kB 2.2 MB/s eta 0:00:00
+Collecting six>=1.12.0
+  Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting wrapt<1.15,>=1.11.0
+Collecting libclang>=13.0.0
+     --------------------------------------- 26.4/26.4 MB 10.6 MB/s eta 0:00:00
+Collecting opt-einsum>=2.3.2
+     ---------------------------------------- 71.9/71.9 kB 4.1 MB/s eta 0:00:00
+Collecting tensorboard<2.16,>=2.15
+     ---------------------------------------- 5.5/5.5 MB 13.1 MB/s eta 0:00:00
+Collecting ml-dtypes~=0.3.1
+     -------------------------------------- 127.8/127.8 kB 7.8 MB/s eta 0:00:00
+Collecting h5py>=2.9.0
+     ---------------------------------------- 3.2/3.2 MB 12.7 MB/s eta 0:00:00
+Collecting tensorflow-io-gcs-filesystem>=0.23.1
+     ---------------------------------------- 1.5/1.5 MB 23.4 MB/s eta 0:00:00
+Collecting absl-py>=1.0.0
+     -------------------------------------- 137.4/137.4 kB 7.9 MB/s eta 0:00:00
+Collecting protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.20.3
+  Using cached protobuf-4.25.9-cp310-abi3-win_amd64.whl (413 kB)
+Collecting keras<2.16,>=2.15.0
+     ---------------------------------------- 1.7/1.7 MB 9.0 MB/s eta 0:00:00
+Requirement already satisfied: setuptools in c:\users\ysl0\venvs\tf_p00150\lib\site-packages (from tensorflow-intel==2.15.1->tensorflow==2.15.1) (65.5.0)
+Collecting grpcio<2.0,>=1.24.3
+     ---------------------------------------- 5.3/5.3 MB 18.7 MB/s eta 0:00:00
+Collecting flatbuffers>=23.5.26
+  Using cached flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Collecting termcolor>=1.1.0
+  Using cached termcolor-3.3.0-py3-none-any.whl (7.7 kB)
+Collecting astunparse>=1.6.0
+Collecting wheel<1.0,>=0.23.0
+Collecting markdown>=2.6.8
+  Using cached markdown-3.10.3-py3-none-any.whl (110 kB)
+Collecting google-auth-oauthlib<2,>=0.5
+Collecting google-auth<3,>=1.6.3
+     ------------------------------------- 262.5/262.5 kB 16.8 MB/s eta 0:00:00
+Collecting werkzeug>=1.0.1
+     ------------------------------------- 226.5/226.5 kB 13.5 MB/s eta 0:00:00
+Collecting requests<3,>=2.21.0
+     ---------------------------------------- 73.1/73.1 kB 1.0 MB/s eta 0:00:00
+Collecting tensorboard-data-server<0.8.0,>=0.7.0
+Collecting cryptography>=38.0.3
+     ---------------------------------------- 3.9/3.9 MB 9.9 MB/s eta 0:00:00
+Collecting pyasn1-modules>=0.2.1
+     ------------------------------------- 181.3/181.3 kB 10.7 MB/s eta 0:00:00
+Collecting requests-oauthlib>=0.7.0
+Collecting urllib3<3,>=1.26
+     -------------------------------------- 135.7/135.7 kB 7.8 MB/s eta 0:00:00
+Collecting charset_normalizer<4,>=2
+     ------------------------------------- 206.0/206.0 kB 12.2 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+     ---------------------------------------- 69.6/69.6 kB 4.0 MB/s eta 0:00:00
+Collecting certifi>=2023.5.7
+     -------------------------------------- 137.0/137.0 kB 7.9 MB/s eta 0:00:00
+Collecting markupsafe>=2.1.1
+Collecting cffi>=2.0.0
+     ------------------------------------- 185.1/185.1 kB 10.9 MB/s eta 0:00:00
+Collecting pyasn1<0.7.0,>=0.6.1
+     ---------------------------------------- 84.4/84.4 kB ? eta 0:00:00
+Collecting oauthlib>=3.0.0
+     -------------------------------------- 160.1/160.1 kB 9.4 MB/s eta 0:00:00
+Collecting pycparser
+  Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+Installing collected packages: libclang, flatbuffers, wrapt, urllib3, typing-extensions, termcolor, tensorflow-io-gcs-filesystem, tensorflow-estimator, tensorboard-data-server, six, pycparser, pyasn1, protobuf, packaging, opt-einsum, oauthlib, numpy, markupsafe, markdown, keras, idna, gast, charset_normalizer, certifi, absl-py, wheel, werkzeug, requests, pyasn1-modules, ml-dtypes, h5py, grpcio, google-pasta, cffi, requests-oauthlib, cryptography, astunparse, google-auth, google-auth-oauthlib, tensorboard, tensorflow-intel, tensorflow
+Successfully installed absl-py-2.5.0 astunparse-1.6.3 certifi-2026.7.22 cffi-2.1.1 charset_normalizer-3.5.1 cryptography-50.0.1 flatbuffers-25.12.19 gast-0.7.0 google-auth-2.58.1 google-auth-oauthlib-1.4.1 google-pasta-0.2.0 grpcio-1.84.0 h5py-3.16.0 idna-3.20 keras-2.15.0 libclang-18.1.1 markdown-3.10.3 markupsafe-3.0.3 ml-dtypes-0.3.2 numpy-1.26.4 oauthlib-3.3.1 opt-einsum-3.4.0 packaging-26.3 protobuf-4.25.9 pyasn1-0.6.4 pyasn1-modules-0.4.2 pycparser-3.0 requests-2.34.2 requests-oauthlib-2.0.0 six-1.17.0 tensorboard-2.15.2 tensorboard-data-server-0.7.2 tensorflow-2.15.1 tensorflow-estimator-2.15.0 tensorflow-intel-2.15.1 tensorflow-io-gcs-filesystem-0.31.0 termcolor-3.3.0 typing-extensions-4.16.0 urllib3-2.8.0 werkzeug-3.1.8 wheel-0.48.0 wrapt-1.14.2
+absl-py==2.5.0
+astunparse==1.6.3
+certifi==2026.7.22
+cffi==2.1.1
+charset-normalizer==3.5.1
+cryptography==50.0.1
+flatbuffers==25.12.19
+gast==0.7.0
+google-auth==2.58.1
+google-auth-oauthlib==1.4.1
+google-pasta==0.2.0
+grpcio==1.84.0
+h5py==3.16.0
+idna==3.20
+keras==2.15.0
+libclang==18.1.1
+Markdown==3.10.3
+MarkupSafe==3.0.3
+ml-dtypes==0.3.2
+numpy==1.26.4
+oauthlib==3.3.1
+opt_einsum==3.4.0
+packaging==26.3
+protobuf==4.25.9
+pyasn1==0.6.4
+pyasn1_modules==0.4.2
+pycparser==3.0
+requests==2.34.2
+requests-oauthlib==2.0.0
+six==1.17.0
+tensorboard==2.15.2
+tensorboard-data-server==0.7.2
+tensorflow==2.15.1
+tensorflow-estimator==2.15.0
+tensorflow-intel==2.15.1
+tensorflow-io-gcs-filesystem==0.31.0
+termcolor==3.3.0
+typing_extensions==4.16.0
+urllib3==2.8.0
+Werkzeug==3.1.8
+wrapt==1.14.2
+2026-09-24 17:36:55.246961: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From C:\Users\YSL0\venvs\tf_p00150\lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+tensorflow 2.15.1 [PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+2026-09-25: venv C:\Users\YSL0\venvs\tf_p00150 removed. The P00150 reconstruction check failed (BASELINE_PREREG §9), so the predictor was never run. The venv can be recreated from the package list above.

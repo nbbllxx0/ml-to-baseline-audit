@@ -1,0 +1,125 @@
+{
+  "pid": "P01974",
+  "citation": {
+    "title": "Toward Large Language Model-Driven Symbolic Topology Optimisation for Rapid Structural Concept Generation in Manufacturable Design",
+    "authors": "Musaddiq Al Ali",
+    "year": 2026,
+    "venue": "Journal of Manufacturing and Materials Processing 10(4), 117 (MDPI; published 30 March 2026; CC BY)",
+    "doi": "10.3390/jmmp10040117",
+    "arxiv_id": "none found (arXiv API title search, 2026-09-24)",
+    "version_coded": "Version of record: 35-page PDF from the publisher's file host mdpi-res.com (jmmp-10-00117.pdf?version=1774855773), read in full; Figs. 5-10 checked as page images. The www.mdpi.com PDF link returned HTTP 403 'Access Denied' and was not used. The adjudicator re-read the same mdpi-res.com PDF (35 pp.) on 2026-09-24, including Figs. 5-10 as page images."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_adjudicated",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "llm_agent",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "LLM-DSTO (local 8B LLM plus rule-based refinement) reaches about 87.5% of SIMP stiffness on a small 2D cantilever and 94.3% of SIMP thermal performance on a 30×30 heat sink, at claimed much lower cost without repeated FE simulations.",
+    "key_phrase": "approximately 87.5% of the stiffness obtained using the classical SIMP method",
+    "location": "Abstract (quantitative quality ratios plus the qualitative cost claim); details in Sec. 4.1 and Fig. 7 (cantilever) and Sec. 4.2 and Fig. 10 (heat sink); repeated in Sec. 6",
+    "quantitative": true,
+    "claimed_speedup": 3.33,
+    "claimed_speedup_basis": "Derived, per iteration only; the article states no speed-up factor. Sec. 4.2 gives about 1.5 s per LLM-DSTO iteration (heat sink) against about 5 s per iteration, which the author calls typical of traditional TO for numerical computation alone: 5 / 1.5 = 3.33. The 5 s is a generic statement, not a timed SIMP run on this problem, and no SIMP iteration count or total time is reported, so no total-time ratio is derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 4.2: the per-iteration timing above; LLM-DSTO used 7 iterations (Fig. 9), about 10.5 s in total [derived]. (2) Sec. 4.3: Darcy thermofluid channel (25×50), 3-8 s per LLM iteration and convergence within a few minutes, against up to several hours for conventional Navier-Stokes-based thermofluid TO (not measured; fluid-flow physics, outside §3.1 if taken as primary). (3) Secs. 4.4-4.5: compliant mechanism (60×60, printed prototype) and 3D cantilever (60×40×15, 50% volume) with no classical comparison."
+  },
+  "baseline": {
+    "classical_method": "SIMP, named only as the traditional SIMP method; penalty, filter, optimizer, volume fraction and stopping rule of the comparison runs are not stated (Secs. 4.1-4.2; Sec. 2 gives only the generic SIMP formulation)",
+    "implementation": "not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "DeepSeek R1 0528 Qwen3 8B run locally on a workstation with an Intel Core i7-13700 CPU (printed as 24-core), 64 GB RAM and an NVIDIA RTX PRO 6000 Blackwell Workstation Edition (96 GB); the runtimes are attributed to the CPU-based system (Secs. 4.2-4.3)",
+    "problem_size": "Cantilever 30 by 20 segments per the text (Sec. 4.1) but 30 by 30 in Fig. 5; heat sink 30 by 30 (Fig. 8); Darcy thermofluid 25 by 50 (Sec. 4.3); compliant mechanism 60 by 60 (Sec. 4.4); 3D cantilever 60 by 40 by 15 (Sec. 4.5)",
+    "classical_iterations": "not stated",
+    "classical_time": "No SIMP run time reported. Generic statement: traditional TO typically needs about 5 s per iteration for numerical computation alone, excluding sensitivity analysis and solver convergence (Sec. 4.2). Conventional Navier-Stokes-based thermofluid TO said to take up to several hours (Sec. 4.3, not measured).",
+    "ml_time": "About 1.5 s per iteration for the heat sink (Sec. 4.2) over 7 iterations (Fig. 9; about 10.5 s [derived]); 3-8 s per iteration and convergence within a few minutes for the Darcy case (Sec. 4.3); cantilever 9 iterations (Fig. 6) with no per-iteration time",
+    "training_time": "none reported: a pre-trained LLM is used without fine-tuning (no training is described, Sec. 4)",
+    "data_generation_cost": "none (no training data are used)",
+    "quality_metric": "Normalised stiffness (cantilever) and normalised thermal resistance or performance (heat sink) of one design per method, SIMP = 1 (Figs. 7 and 10). How the LLM designs were evaluated is not stated. The optimization itself uses heuristic symbolic scores C1-C5 (Eqs. 11-17), not FE.",
+    "quality_gap": "Cantilever: LLM-DSTO 0.875 of SIMP stiffness, 12.5% lower (Sec. 4.1, Fig. 7). Heat sink: 0.9432, read by the author as SIMP better by about 5.7% (Sec. 4.2); Fig. 10's axis is labelled 'Normalised thermal resistance', which would make the LLM design 5.7% better instead [observed in the Fig. 10 image]. Volume fractions of the compared designs are not reported."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Abstract (p. 1), Secs. 4.1-4.2 (pp. 19-22), Figs. 7 and 10: the cost claim (no repeated FE simulations; about 1.5 s vs 5 s per iteration) is set against the SIMP reference designs (stopping rule not stated; taken as the finished optimum [inferred]), while the LLM designs are measurably worse (stiffness 12.5% lower; heat sink described as 5.7% worse). No equal-quality or equal-time matching is attempted, no SIMP run time is reported, and the volume fractions of the compared designs are not given (the LLM design meets the target only through a soft penalty, Eq. 13)."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl [inferred]",
+      "evidence": "Secs. 4.1-4.2 (pp. 19-22): SIMP implementation, solver, hardware, iteration count and stopping rule are not stated. The only classical cost figure is a generic 'around 5 s per iteration' for traditional TO (Sec. 4.2, p. 22), placed in the heat-sink section (30×30 grid, Fig. 8) without a stated size, implementation or hardware. Our strong baseline's median per-iteration time on a larger 64×64 cantilever is 4.5 ms with PARDISO (retest/logs/g2_benchmark_2026-09-24.log, line 51), so the quoted figure is about 1,000 times slower [inferred across size and physics]. Because the 5 s is not a timed run of the article's SIMP at a stated size and hardware, R2(e) is not applied as fail. (b), (c) and (d) are not established: the abstract names the same SIMP as the results, problems are far below 10^5 DOFs, and no iteration count is given."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 4: a pre-trained general-purpose LLM (DeepSeek R1 0528 Qwen3 8B) is used zero-shot for each problem, with no task-specific training and no TO data generation, so learning cost sits inside R1/R2. The LLM's pre-training cost is not attributable to this article."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Secs. 4.1-4.2 (pp. 19-22), Figs. 7 and 10: one returned design per case is compared by normalised stiffness or thermal resistance, but the evaluation method is not stated (an FE analysis of the returned grid is presumably needed for a stiffness on the SIMP scale [inferred]). The loop itself is driven by the heuristic score Q(X) (Secs. 3.3 and 3.9), but nothing states that the reported ratios are Q(X) values, and Fig. 6's symbolic-objective plateau (about 0.91) differs from the 0.875 stiffness ratio, so surrogate-only evaluation is not established. Achieved volume fractions are not reported (soft penalty only, Eq. 13), no failure rate or number of LLM runs is given, and the Fig. 10 axis label conflicts with the text's reading of the heat-sink result."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "5 cases (2D cantilever, heat sink, Darcy thermofluid channel, compliant mechanism with printed prototype, 3D cantilever); SIMP comparison for the cantilever and heat sink only (Sec. 4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; the full text confirms the speed stratum because the abstract pairs the quantitative SIMP quality ratios with a cost claim (results obtained without repeated FE simulations). Primary outcome taken from the Abstract (§5.1 rule 1). The Darcy thermofluid case (Sec. 4.3) is fluid-flow TO, outside §3.1, but it is not the primary outcome. Reporting locators: hardware and per-iteration times = Sec. 4 and Secs. 4.2-4.3 (no warm-up, repeats or SIMP timing, hence timing_protocol_stated = partial); runtimes only for the heat-sink and thermofluid cases (selective); Data Availability Statement = on reasonable request; no code statement. Inconsistencies for the verifier: cantilever grid 30×20 in the text vs 30×30 in Fig. 5; Fig. 10 axis label vs the text; Sec. 4.4 describes a physics-based solver giving feedback on LLM proposals (Eqs. 32-40), while the abstract says no repeated FE simulations are used; which device ran the LLM (CPU or the listed GPU) is unclear. Access on 2026-09-24 with a generic User-Agent and no personal data: the www.mdpi.com PDF link returned HTTP 403 'Access Denied' (no bypass); the same version of record was taken from the publisher's file host mdpi-res.com. Single author (Musaddiq Al Ali, Toyota Technological Institute); no author named Jun Wang. No other version found in the pool (title and author search). Decision-order position 167 (audit/screening/pilot_final_order.csv).",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "stratum": {
+        "first": "speed",
+        "second": "quality",
+        "decision": "speed",
+        "reason": "Abstract (p. 1): the quantitative SIMP comparison (87.5 % stiffness, 94.3 % thermal) is followed by the statement that these results need no repeated FE simulations, claimed as a significant cost reduction; §3.2 lists such FE-evaluation savings as a cost proxy. So the §5.1 rule-1 primary outcome is a quality-for-cost comparison, not quality only, as the title and Sec. 1 (p. 6) also frame it."
+      },
+      "R1": {
+        "first": "fail",
+        "second": "partial",
+        "decision": "fail",
+        "reason": "The cost claim (abstract, p. 1; Sec. 4.2, p. 22) is made for LLM designs that are measurably worse than the SIMP reference, 12.5 % less stiff (Sec. 4.1 and Fig. 7, pp. 19-20), with no equal-quality or equal-budget matching and no volume fractions. That is the §5.3 R1 fail case, not loose matching of comparable designs."
+      },
+      "R2": {
+        "first": "partial",
+        "second": "na",
+        "decision": "partial",
+        "reason": "The stratum is speed, so R2 applies. SIMP's implementation, solver and hardware are unstated, and the only classical cost, a generic 5 s per iteration (Sec. 4.2, p. 22), is about 1,000× our 4.5 ms PARDISO per-iteration time at 64×64 [inferred]; as it is not a timed run at a stated size and hardware, (e) cannot apply and the inefficient-implementation partial case holds."
+      },
+      "R4": {
+        "first": "partial",
+        "second": "fail",
+        "decision": "partial",
+        "reason": "Secs. 4.1-4.2 (pp. 19-22) never say how the 0.875 and 0.9432 ratios were computed, and nothing establishes that they are the heuristic Q(X) scores (Fig. 6's objective plateau, about 0.91, differs from 0.875), so the surrogate fail case is not established. Volume fractions and failure counts are unreported, the §5.3 R4 partial case."
+      },
+      "claimed_speedup": {
+        "first": 3.33,
+        "second": null,
+        "decision": 3.33,
+        "reason": "No factor is stated. The only printed classical and ML times are about 1.5 s per LLM-DSTO iteration against the author's 5 s per iteration for traditional TO (Sec. 4.2, p. 22), so 5/1.5 = 3.33 per iteration [derived]; it quantifies the speed-stratum primary outcome, and the basis notes that the 5 s is a generic figure, not a timed SIMP run."
+      }
+    }
+  }
+}

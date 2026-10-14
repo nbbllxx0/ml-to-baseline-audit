@@ -1,0 +1,60 @@
+{
+  "pid": "P00148",
+  "stage": "cross_provider_pass",
+  "citation": {
+    "title": "A Parametric Level Set Method for Topology Optimization based on Deep Neural Network (DNN)",
+    "authors": "Hao Deng; Albert C. To",
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2101.03286",
+    "arxiv_id": "2101.03286",
+    "version_coded": "arXiv full text; version not stated in retrieved PDF"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "neural_reparam", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "For MBB and short-cantilever compliance examples, DNN level-set designs have compliance close to or slightly better than SIMP benchmark designs.",
+    "key_phrase": "close to the benchmark solution",
+    "location": "Section 4.1; Section 4.2",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed or computational-cost comparison is reported.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Section 4 reports stable solutions after 120–150 iterations for some architectures, but no classical runtime comparison."
+  },
+  "baseline": {
+    "classical_method": "SIMP",
+    "implementation": "top88 code (Section 4.1, citing Ref. 61)",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "MBB beam: 200 × 100 elements; short cantilever: 100 × 100 elements (Sections 4.1–4.2)",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "compliance",
+    "quality_gap": "MBB: one-hidden-layer and two-hidden-layer networks described as close to SIMP compliance 33.48; two/three hidden-layer short-cantilever designs reported around 3.5% below the benchmark (Sections 4.1–4.2)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-only", "evidence": "Sections 4.1–4.2 compare compliance/design quality; no speed comparison is made."},
+    "R2": {"verdict": "na", "marker": "R2-quality-only", "evidence": "Section 4 compares compliance only and reports no comparative runtime."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "Section 3 updates network parameters within each optimization; no offline training cost is claimed."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 4.1–4.2 report compliance for returned designs and formulate volume constraints, but do not report infeasibility or failure rates."}
+  },
+  "reporting": {
+    "n_test_cases": "Three benchmark problem setups (MBB beam, short cantilever, and additional architecture variants; Sections 4.1–4.2)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": ""
+}

@@ -1,0 +1,121 @@
+order,pid,doi,arxiv_id,already_coded,oa_status,oa_url,arxiv_location,accessible,title
+1,P02328,10.1016/j.ijheatmasstransfer.2023.124823,,False,bronze,https://doi.org/10.1016/j.ijheatmasstransfer.2023.124823,,yes,Two-scale data-driven design for heat manipulation
+2,P00557,10.1016/j.cma.2021.114158,,False,closed,,,no (paywalled per OpenAlex),Machine learning-combined topology optimization for functionary graded composite structure design
+3,P00751,10.1016/j.cma.2025.118360,,False,closed,,,no (paywalled per OpenAlex),A robust-weighted hybrid nonlinear regression for reliability based topology optimization with multi-source uncertaintie
+4,P00647,10.3389/fmech.2024.1417606,,False,gold,https://www.frontiersin.org/journals/mechanical-engineering/articles/10.3389/fmech.2024.1417606/pdf,,yes,Designing a TPMS metamaterial via deep learning and topology optimization
+5,P00170,10.1016/j.advengsoft.2020.102841,1910.07227,False,arXiv,,https://arxiv.org/abs/1910.07227,yes,Machine Learning based parameter tuning strategy for MMC based topology optimization
+6,P00616,10.1016/j.cma.2026.118894,,False,closed,,,no (paywalled per OpenAlex),A level-set-oriented and problem-independent robust topology optimization strategy based on convolutional neural network
+7,P00607,10.1016/j.cma.2023.116651,,False,closed,,,no (paywalled per OpenAlex),Machine learning powered sketch aided design via topology optimization
+8,P00183,10.1016/j.cad.2018.12.008,1807.10787,True,arXiv,,https://arxiv.org/abs/1807.10787,yes,One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning
+9,P00627,10.1007/s00466-020-01859-5,,False,closed,,,no (paywalled per OpenAlex),Topology optimization based on deep representation learning (DRL) for compliance and stress-constrained design
+10,P01960,10.1016/j.mex.2025.103539,,False,gold,https://doi.org/10.1016/j.mex.2025.103539,,yes,Reinforcement learning-based topology optimization for generative designed lightweight structures
+11,P00786,10.1093/jcde/qwaf064,,False,gold,https://doi.org/10.1093/jcde/qwaf064,,yes,Multi-scale topology optimization of multi-material heterogeneous microstructures based on deep learning
+12,P00754,10.1016/j.cma.2026.119135,,False,closed,,,no (paywalled per OpenAlex),Machine-learning driven differentiable concurrent multiscale topology optimization framework for truss structures
+13,P00732,10.1016/j.ijmecsci.2026.111380,,False,closed,,,no (paywalled per OpenAlex),Machine learning-based multiscale topology optimization framework for nonlinear materials
+14,P01268,10.1051/matecconf/202642203010,,False,diamond,https://doi.org/10.1051/matecconf/202642203010,,yes,Application of a Machine Learning-Based Topology Optimization Method on an Automotive B-Pillar for Crashworthy Lightweig
+15,P00165,10.1016/j.compstruc.2020.106283,2002.01896,False,arXiv,,https://arxiv.org/abs/2002.01896,yes,Topology optimization of 2D structures with nonlinearities using deep learning
+16,P00979,10.1002/smll.202500634,,False,closed,,,no (paywalled per OpenAlex),"Machine‐Learning‐Powered, Rapid, Accurate, and Multi‐Target Mechanical Metamaterials Inverse Design"
+17,P02179,10.1016/j.ijsolstr.2026.113844,,False,closed,,,no (paywalled per OpenAlex),Data-Driven-Design ( D 3 ) of multi-material systems: A novel framework and its application to viscoelastic metamaterial
+18,P00019,10.1016/j.cma.2026.119163,2602.17783,True,arXiv,,https://arxiv.org/abs/2602.17783,yes,Multi-material Multi-physics Topology Optimization with Physics-informed Gaussian Process Priors
+19,P00140,10.1016/j.cma.2021.114197,2105.04232,False,arXiv,,https://arxiv.org/abs/2105.04232,yes,De-homogenization using Convolutional Neural Networks
+20,P00767,10.12783/asc36/35824,,False,closed,,,no (paywalled per OpenAlex),DEEP LEARNING FOR TOPOLOGY OPTIMIZATION OF TRIPLY PERIODIC MINIMAL SURFACE BASED GYROID-LIKE STRUCTURES
+21,P01429,10.1007/978-3-031-49791-9_9,,False,closed,,,no (paywalled per OpenAlex),Highly Efficient Multi-resolution Topology Optimization Based on the Kriging-Interpolation Network
+22,P01971,10.70792/jngr5.0.v1i3.95,,False,hybrid,https://doi.org/10.70792/jngr5.0.v1i3.95,,yes,Reinforcement Learning Guided Engineering Design: from Topology Optimization to Advanced Modelling
+23,P01132,10.1007/978-981-97-8197-3_10,,False,closed,,,no (paywalled per OpenAlex),"Optimization of Electric-Bike’s Frame Using Topology Optimization, Back Propagation Neural Network and Genetic Algorithm"
+24,P00918,10.1016/j.cma.2025.118044,,False,hybrid,https://doi.org/10.1016/j.cma.2025.118044,,yes,Accelerating cell topology optimisation by leveraging similarity in the parametric input space
+25,P01258,10.1049/icp.2025.4682,,False,closed,,,no (paywalled per OpenAlex),Generative design and optimization of lightweight mechanical structures based on physics-constrained neural networks
+26,P00610,10.1016/j.egyai.2023.100310,,False,gold,https://doi.org/10.1016/j.egyai.2023.100310,,yes,Effective thermal conductivity estimation using a convolutional neural network and its application in topology optimizat
+27,P00804,10.1016/j.engappai.2025.113136,,False,closed,,,no (paywalled per OpenAlex),"Data-driven robust topology optimization using surrogate modeling, model reduction, and machine learning"
+28,P00874,10.1016/j.ijhydene.2023.11.325,,False,closed,,,no (paywalled per OpenAlex),Artificial neural network reinforced topological optimization for bionics-based tridimensional stereoscopic hydrogen sen
+29,P01870,10.1016/j.matdes.2024.113087,,False,gold,https://doi.org/10.1016/j.matdes.2024.113087,,yes,Exploring VAE-driven implicit parametric unit cells for multiscale topology optimization
+30,P01214,10.1201/9781003658641-176,,False,gold,https://api.taylorfrancis.com/content/chapters/oa-edit/download?identifierName=doi&identifierValue=10.1201/9781003658641-176&type=chapterpdf,,yes,Deep learning-based topology optimization design method for bridge structures guided by aesthetics
+31,P02042,10.3390/app16094080,,False,gold,https://www.mdpi.com/2076-3417/16/9/4080/pdf?version=1776858804,,yes,DQN-Based Pre-Optimization for Dual-Scale Collaborative Topology Optimization of Anisotropic Materials
+32,P01873,10.1007/s10338-025-00587-8,,False,closed,,,no (paywalled per OpenAlex),Efficient Topology Optimization Design for Three-Dimensional Heat Transfer Structure Based on ResUNet-Involved Generativ
+33,P00576,10.1080/17452759.2021.1913783,,False,closed,,,no (paywalled per OpenAlex),Multiscale topology optimisation with nonparametric microstructures using three-dimensional convolutional neural network
+34,P00375,10.1115/detc2023-116595,2303.09760,True,arXiv,,https://arxiv.org/abs/2303.09760,yes,Diffusing the Optimal Topology: A Generative Optimization Approach
+35,P00875,10.1002/nme.7221,,False,hybrid,https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/nme.7221,,yes,Learning topology optimization process via convolutional long‐short‐term memory autoencoder‐decoder
+36,P00915,10.1088/1361-665x/ad69ea,,False,closed,,,no (paywalled per OpenAlex),Topology optimization of smart structures to enhance the performances of vibration control and energy harvesting
+37,P01859,10.1016/j.engappai.2024.109444,,False,closed,,,no (paywalled per OpenAlex),Structural topology optimization based on diffusion generative adversarial networks
+38,P00042,10.1007/s00366-025-02208-x,2506.17487,False,arXiv,,https://arxiv.org/abs/2506.17487,yes,Variational Quantum Latent Encoding for Topology Optimization
+39,P00548,10.1007/s00158-022-03223-y,,False,closed,,,no (paywalled per OpenAlex),Improving connectivity and accelerating multiscale topology optimization using deep neural network techniques
+40,P00550,10.1016/j.cma.2022.115116,,False,bronze,https://doi.org/10.1016/j.cma.2022.115116,,yes,Machine learning for topology optimization: Physics-based learning through an independent training strategy
+41,P01500,10.1109/aero58975.2024.10521001,,False,closed,,,no (paywalled per OpenAlex),Super-Resolution Based Topology Optimization for Rapid Generation of Low Mass Structural Designs
+42,P00983,10.1016/j.tws.2025.112942,,False,hybrid,https://doi.org/10.1016/j.tws.2025.112942,,yes,A function online learning and prediction method for accelerating structural topology optimization and its application t
+43,P00605,10.1111/mice.13100,,False,hybrid,https://doi.org/10.1111/mice.13100,,yes,Fast topology optimization of phononic crystal‐based metastructures for vibration isolation by deep learning
+44,P01151,10.1016/j.cma.2026.119038,,False,hybrid,https://doi.org/10.1016/j.cma.2026.119038,,yes,Two-scale topology optimization of multiscale structures and materials via deep neural networks for local and global buc
+45,P00808,10.3390/sym18030537,,False,gold,https://doi.org/10.3390/sym18030537,,yes,A Geometric-Enhanced Neural Network Method for Scalable and High-Resolution Topology Optimization
+46,P00143,10.48550/arxiv.2104.04017,2104.04017,True,arXiv,,https://arxiv.org/abs/2104.04017,yes,Improving Solar Cell Metallization Designs using Convolutional Neural Networks
+47,P00663,10.3390/a15070241,,False,gold,https://doi.org/10.3390/a15070241,,yes,Topology Optimisation under Uncertainties with Neural Networks
+48,P01605,10.1109/mercon67903.2025.11217036,,False,closed,,,no (paywalled per OpenAlex),Design-Aware Optimization of 2D Skeletal Structures Using conditional Generative Adversarial Networks (cGANs)
+49,P01517,10.32604/cmes.2025.072447,,False,diamond,https://doi.org/10.32604/cmes.2025.072447,,yes,"A Multi-Grid, Single-Mesh Online Learning Framework for Stress-Constrained Topology Optimization Based on Isogeometric F"
+50,P01928,10.1007/978-981-95-1723-7_11,,False,closed,,,no (paywalled per OpenAlex),A Two-Stage Integrated Approach for Accelerating Structural Topology Optimization Using VAE and SIMP
+51,P00141,10.1115/1.4052757,2105.03045,True,arXiv,,https://arxiv.org/abs/2105.03045,yes,GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning
+52,P00858,10.1016/j.engstruct.2025.121203,,False,closed,,,no (paywalled per OpenAlex),Deep learning-driven topology optimization using principal stress information based on assumed source point
+53,P00544,10.1115/1.4050105,,False,closed,,,no (paywalled per OpenAlex),A Parametric Level Set Method for Topology Optimization Based on Deep Neural Network
+54,P00833,10.1007/s11081-023-09806-y,,False,closed,,,no (paywalled per OpenAlex),Comparative study on manifold learning approaches for parametric topology optimization problem via unsupervised deep lea
+55,P00719,10.1007/s00158-022-03433-4,,False,closed,,,no (paywalled per OpenAlex),Deep learning accelerated topology optimization with inherent control of image quality
+56,P02398,10.1007/s00158-025-03984-2,,False,closed,,,no (paywalled per OpenAlex),Conditional diffusion models for the inverse design of lattice structures
+57,P01101,10.1016/j.engappai.2026.115159,,False,closed,,,no (paywalled per OpenAlex),Topology optimization of piezoelectric structures based on multi-modal input neural network
+58,P00092,10.1007/s00158-023-03686-7,2310.15506,False,arXiv,,https://arxiv.org/abs/2310.15506,yes,Topology Optimization with Text-Guided Stylization
+59,P01729,10.1109/icaace69793.2026.11508877,,False,closed,,,no (paywalled per OpenAlex),Building Structure Optimization: A Framework Based on Multi-Agent Reinforcement Learning
+60,P02490,10.1021/acsmaterialslett.1c00390,,False,closed,,,no (paywalled per OpenAlex),Deep Reinforcement Learning for Digital Materials Design
+61,P00139,10.48550/arxiv.2106.05710,2106.05710,True,arXiv,,https://arxiv.org/abs/2106.05710,yes,DNN-Based Topology Optimisation: Spatial Invariance and Neural Tangent Kernel
+62,P02524,10.1016/j.cma.2019.02.002,,False,closed,,,no (paywalled per OpenAlex),Kriging-assisted topology optimization of crash structures
+63,P00687,10.1016/j.eml.2024.102237,,False,closed,,,no (paywalled per OpenAlex),Problem-independent machine learning-enhanced structural topology optimization of complex design domains based on isopar
+64,P02074,10.1007/s41024-026-00833-7,,False,hybrid,https://doi.org/10.1007/s41024-026-00833-7,,yes,UDHF-SMERO: a unified deep hybrid framework for co-evolutionary smart material design and energy-adaptive structural opt
+65,P00553,10.1016/j.eml.2022.101887,,False,closed,,,no (paywalled per OpenAlex),Problem-independent machine learning (PIML)-based topology optimization—A universal approach
+66,P01855,10.1115/detc2020-22399,,False,closed,,,no (paywalled per OpenAlex),Generative Adversarial Networks With Synthetic Training Data for Enforcing Manufacturing Constraints on Topology Optimiz
+67,P00934,10.2514/1.j062195,,False,closed,,,no (paywalled per OpenAlex),Theory of Machine Learning Assisted Structural Optimization Algorithm and Its Application
+68,P00893,10.1093/jcde/qwae037,,False,gold,https://doi.org/10.1093/jcde/qwae037,,yes,Deep learning-aided topology design of metasurfaces for Rayleigh waves
+69,P00860,10.1016/j.procir.2021.11.221,,False,diamond,https://www.sciencedirect.com/science/article/pii/S2212827121011197/pdf,,yes,AI-Based Topology Optimization of Freehand Sketches
+70,P00615,10.1016/j.engappai.2023.106436,,False,closed,,,no (paywalled per OpenAlex),Supervised deep learning for the moving morphable components topology optimization framework
+71,P00613,10.1016/j.probengmech.2022.103356,,False,closed,,,no (paywalled per OpenAlex),Reliability-based optimization of structural topologies using artificial neural networks
+72,P01457,10.26226/morressier.612f6735bc98103724100785,,False,closed,,,no (paywalled per OpenAlex),CNN-driven Approximate Algorithm of Topology Optimization Based on Initial Stress Learning
+73,P01994,10.13140/rg.2.2.16548.95369,,False,gold,https://doi.org/10.13140/rg.2.2.16548.95369,,yes,Practical topology optimization with deep reinforcement learning
+74,P02361,10.1007/s00158-024-03836-5,,False,hybrid,https://link.springer.com/content/pdf/10.1007/s00158-024-03836-5.pdf,,yes,Distributed design optimization of multi-component systems using meta models and topology optimization
+75,P00650,10.1016/j.compstruc.2024.107527,,False,closed,,,no (paywalled per OpenAlex),Enhancing topology optimization with adaptive deep learning
+76,P00335,10.1016/j.cma.2025.117735,2406.16066,True,arXiv,,https://arxiv.org/abs/2406.16066,yes,Constructing Boundary-identical Microstructures via Guided Diffusion for Fast Multiscale Topology Optimization
+77,P00545,10.1007/s00466-023-02333-8,,False,closed,,,no (paywalled per OpenAlex),Convolution Hierarchical Deep-Learning Neural Network Tensor Decomposition (C-HiDeNN-TD) for high-resolution topology op
+78,P01100,10.1115/imece2022-94604,,False,closed,,,no (paywalled per OpenAlex),Topology Optimization Through Deep Neural Network for Different Mechanical and Thermomechanical Problems
+79,P00817,10.1007/978-3-031-38271-0_54,,False,closed,,,no (paywalled per OpenAlex),DL4TO : A Deep Learning Library for Sample-Efficient Topology Optimization
+80,P01856,10.1016/j.autcon.2024.105747,,False,closed,,,no (paywalled per OpenAlex),Intelligent design of key joints in aerial building machine using topology optimization and generative adversarial netwo
+81,P00150,10.3390/app11199041,2012.06384,True,arXiv,,https://arxiv.org/abs/2012.06384,yes,An AI-Assisted Design Method for Topology Optimization Without Pre-Optimized Training Data
+82,P00842,10.1145/3485114.3485124,,False,gold,https://dl.acm.org/doi/pdf/10.1145/3485114.3485124,,yes,Topology Optimization via Frequency Tuning of Neural Design Representations
+83,P00755,10.1016/j.compbiomed.2022.106475,,False,hybrid,https://doi.org/10.1016/j.compbiomed.2022.106475,,yes,Artificial neural network supported design of a lattice-based artificial spinal disc for restoring patient-specific anis
+84,P00149,10.1016/j.cma.2021.113894,2012.15744,True,arXiv,,https://arxiv.org/abs/2012.15744,yes,Data-driven topology optimization of spinodoid metamaterials with seamlessly tunable anisotropy
+85,P00925,,,False,,,,"unknown (no DOI, no arXiv id)",Generative Design by Reinforcement Learning: Maximizing Diversity of Topology Optimized Designs.
+86,P00690,10.1007/s00158-022-03181-5,,False,closed,,,no (paywalled per OpenAlex),A machine learning-assisted structural optimization scheme for fast-tracking topology optimization
+87,P02135,10.1080/09544828.2026.2624356,,False,closed,,,no (paywalled per OpenAlex),Large language model agent as a mechanical designer
+88,P00549,10.1016/j.ymssp.2023.110636,,False,hybrid,https://doi.org/10.1016/j.ymssp.2023.110636,,yes,Deep learning aided topology optimization of phononic crystals
+89,P02084,10.1016/j.ijheatmasstransfer.2026.129081,,False,hybrid,https://doi.org/10.1016/j.ijheatmasstransfer.2026.129081,,yes,Hierarchical thermal design for battery packs using phase change materials
+90,P00889,10.1016/j.cirp.2025.04.068,,False,closed,,,no (paywalled per OpenAlex),Implicit geometry representation via neural operators on Riemannian manifolds for topology optimisation
+91,P01827,10.70671/dq9am588,,False,hybrid,https://doi.org/10.70671/dq9am588,,yes,TPMS-Optimized Cement Geometries for Carbon-Efficient Structural Performance
+92,P01152,,,False,,,,"unknown (no DOI, no arXiv id)",Deep learning accelerated topology optimization of linear and nonlinear structures
+93,P01398,10.1117/12.3111177,,False,closed,,,no (paywalled per OpenAlex),CoPR-DTO: collaboratively driven and periodically recalibrated dynamic topology optimization
+94,P00922,10.1016/j.autcon.2024.105901,,False,closed,,,no (paywalled per OpenAlex),Physics-guided deep learning for generative design of large-diameter tunnels under existing metro lines
+95,P00533,10.1016/j.cma.2023.116401,,False,hybrid,https://doi.org/10.1016/j.cma.2023.116401,,yes,A complete Physics-Informed Neural Network-based framework for structural topology optimization
+96,P00178,10.48550/arxiv.1901.04859,1901.04859,True,arXiv,,https://arxiv.org/abs/1901.04859,yes,A Novel Topology Optimization Approach using Conditional Deep Learning
+97,P00373,10.1002/nme.70004,2303.13672,False,arXiv,,https://arxiv.org/abs/2303.13672,yes,Neural Level Set Topology Optimization Using Unfitted Finite Elements
+98,P00698,10.3390/app142311416,,False,gold,https://doi.org/10.3390/app142311416,,yes,Novel Artificial Neural Network Aided Structural Topology Optimization
+99,P01016,10.1016/j.procir.2024.08.033,,False,diamond,https://doi.org/10.1016/j.procir.2024.08.033,,yes,Designing Porous Structure with Optimized Topology using Machine Learning
+100,P00034,10.48550/arxiv.2509.05800,2509.05800,True,arXiv,,https://arxiv.org/abs/2509.05800,yes,Transformer-based Topology Optimization
+101,P01133,10.1007/s10409-025-25750-x,,False,closed,,,no (paywalled per OpenAlex),A new level set structual topology optimization framework enhanced by nested physical informed neural network
+102,P00051,10.48550/arxiv.2502.13174,2502.13174,False,arXiv,,https://arxiv.org/abs/2502.13174,yes,Diverse Topology Optimization using Modulated Neural Fields
+103,P00543,10.1115/1.4041319,,False,closed,,,no (paywalled per OpenAlex),Machine Learning-Driven Real-Time Topology Optimization Under Moving Morphable Component-Based Framework
+104,P00181,10.48550/arxiv.1808.07440,1808.07440,False,arXiv,,https://arxiv.org/abs/1808.07440,yes,3D Topology Optimization using Convolutional Neural Networks
+105,P01004,,,False,,,,"unknown (no DOI, no arXiv id)",One-Shot Optimal Topology Generation through Theory-Driven Machine Learning.
+106,P00709,10.1016/j.ymssp.2025.113670,,False,hybrid,https://doi.org/10.1016/j.ymssp.2025.113670,,yes,On demand design of two-dimensional phononic crystal bandgap based on machine learning and multi-objective topology opti
+107,P00797,10.1016/j.cma.2022.115762,,False,closed,,,no (paywalled per OpenAlex),SVR-TO-APMA: Hybrid efficient modelling and topology framework for stable topology optimization with accelerated perform
+108,P01390,10.1016/j.mfglet.2023.08.030,,False,hybrid,https://doi.org/10.1016/j.mfglet.2023.08.030,,yes,Structural and thermal generative design using reinforcement learning-based search strategy for additive manufacturing
+109,P02479,10.1016/j.matdes.2021.109632,,False,gold,https://www.sciencedirect.com/science/article/pii/S0264127521001854/pdf,,yes,Pragmatic generative optimization of novel structural lattice metamaterials with machine learning
+110,P01232,10.1088/1742-6596/2791/1/012064,,False,diamond,https://doi.org/10.1088/1742-6596/2791/1/012064,,yes,Research on topology optimization of carbon fiber reinforced composite electric vehicle helmet based on deep learning
+111,P00676,10.48550/arxiv.2109.01861,,False,green,https://arxiv.org/pdf/2109.01861,https://doi.org/10.48550/arxiv.2109.01861,yes,Length Scale Control in Topology Optimization using Fourier Enhanced\n Neural Networks
+112,P01905,10.1039/d6mh00986g,,False,green,https://doi.org/10.48550/arxiv.2604.03276,https://doi.org/10.48550/arxiv.2604.03276,yes,Scaling atom-by-atom inverse design using nano-topology optimization and diffusion models
+113,P00358,10.1016/j.cad.2024.103707,2309.11601,True,arXiv,,https://arxiv.org/abs/2309.11601,yes,Latent Diffusion Models for Structural Component Design
+114,P01105,10.1016/j.matdes.2021.110083,,False,gold,https://www.sciencedirect.com/science/article/pii/S0264127521006389/pdf,,yes,Optimisation of three-dimensional hierarchical structures with tailored lattice metamaterial anisotropy
+115,P01279,10.1016/j.cma.2026.118882,,False,closed,,,no (paywalled per OpenAlex),A novel approach for topology optimization mirroring human intention: Introducing a pattern-embedded filter built by mac
+116,P01382,10.1115/1.4072316,,False,closed,,,no (paywalled per OpenAlex),Variable-Resolution Topology Optimization Based on Dynamic Vision Transformer
+117,P02240,10.1016/j.engappai.2024.109991,,False,closed,,,no (paywalled per OpenAlex),A force neural network framework for structural optimization
+118,P00938,10.1016/j.ijmecsci.2025.110500,,False,closed,,,no (paywalled per OpenAlex),Graph convolutional networks-driven multiscale topology optimization base on polygonal coarse-grid elements
+119,P00648,10.1016/j.matdes.2022.110672,,False,gold,https://www.sciencedirect.com/science/article/pii/S0264127522002933/pdf,,yes,“Deep reinforcement learning for engineering design through topology optimization of elementally discretized design doma
+120,P00523,10.1016/j.commatsci.2021.110664,2010.00041,False,arXiv,,https://arxiv.org/abs/2010.00041,yes,A Supervised Machine Learning Approach for Accelerating the Design of Particulate Composites: Application to Thermal Con

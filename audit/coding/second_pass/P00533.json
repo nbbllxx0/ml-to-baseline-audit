@@ -1,0 +1,55 @@
+{
+  "pid": "P00533",
+  "citation": {
+    "title": "A complete Physics-Informed Neural Network-based framework for structural topology optimization",
+    "authors": "Hyogu Jeong, Chanaka Batuwatta-Gamage, Jinshuai Bai, Yi Min Xie, Charith Rathnayaka, Ying Long Zhou, Yuantong Gu",
+    "year": 2023,
+    "venue": "Computer Methods in Applied Mechanics and Engineering (CMAME), Vol. 417, Article 116401",
+    "doi": "10.1016/j.cma.2023.116401",
+    "arxiv_id": "",
+    "version_coded": "Abstract only (pool.csv abstract field). No full text was legally reachable: the version of record (linkinghub.elsevier.com/retrieve/pii/S004578252300525X and sciencedirect.com/science/article/pii/S004578252300525X) returned HTTP 403 to automated fetch on two separate attempts; the author-deposited SSRN preprint (doi 10.2139/ssrn.4482435, papers.ssrn.com/sol3/papers.cfm?abstract_id=4482435) also returned HTTP 403; no arXiv version exists (confirmed by web search); QUT ePrints (the QUT co-authors' institutional repository) and the RMIT Centre for Innovative Structures and Materials publications page (a co-author's institutional page) both list this exact article's citation but neither hosts a PDF or a DOI link for it, only a ResearchGate link, which is an excluded route under the access rules. All bot-blocking pages (403s) were treated as bot checks and not bypassed"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (abstract states 'resulting designs exhibit favorable compliance values comparable to the designs obtained via density-based topology optimization', a qualitative quality comparison with a classical method; no speed/cost comparison is stated in the abstract)",
+    "stratum": "none",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Per the abstract only (full text not accessible): a 'Complete Physics-Informed Neural Network-based Topology Optimization' (CPINNTO) framework integrates a Deep Energy Method PINN (computing deformation directly, without FEA) and a Sensitivity-analysis PINN (computing design sensitivities via automatic differentiation, without labeled data). Across several case studies -- compliance minimization, multi-constrained problems, and 3D problems -- the resulting designs show 'favorable compliance values comparable to' designs from density-based topology optimization.",
+    "key_phrase": "favorable compliance values comparable to the designs obtained via density-based topology optimization",
+    "location": "Abstract (only section accessible)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable from the abstract. No runtime, iteration count, hardware or cost figure is given for either CPINNTO or the classical (density-based) comparator; the abstract's only comparison is the qualitative compliance-comparability statement quoted above. The methodological claim 'without labeled data nor FEA' describes how CPINNTO computes its own loss, not a measured cost comparison against a classical run."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not determinable from the abstract (it mentions 'several case studies' covering compliance minimization, multi-constrained problems, and 3D problems, with no count)",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "stratum is set to 'none' per validate_records (an included-but-unread/abstract_only record cannot be confidently assigned to the speed/quality stratum used for headline pooling); based on the abstract text alone, the primary outcome reads as a quality-type comparison (see claim fields) if full text were available. Access exhausted every legal route listed in the task's access rules: (1) DOI landing page -> Elsevier linkinghub -> sciencedirect.com, HTTP 403 on repeated attempts (bot-blocked, not bypassed); (2) arXiv: no preprint of this article exists (confirmed by targeted web search, which surfaces only a different, later 2024/2025 follow-up paper by an overlapping author team, 'An advanced physics-informed neural network-based framework for nonlinear and complex topology optimization', Engineering Structures, doi 10.1016/j.engstruct.2024.119194 -- explicitly checked and confirmed to be a DIFFERENT article, not this one, so it was not substituted); (3) SSRN author preprint (doi 10.2139/ssrn.4482435), HTTP 403; (4) institutional/funder repositories: QUT ePrints (co-authors Jeong, Batuwatta-Gamage, Bai, Rathnayaka, Zhou, Gu are QUT-affiliated) does not have a record for this specific CMAME article (only for the later Engineering Structures paper, verified by opening that record and checking its title/DOI); (5) author page: the RMIT Centre for Innovative Structures and Materials publications page (co-author Yi Min Xie) lists this exact citation for 2023 but links only to ResearchGate, not a PDF or DOI. ResearchGate is explicitly excluded by the access rules and was not opened for content. Given no legal full text was reachable, this record was coded from the abstract text alone (retrieved from audit/pool/pool.csv, which stores the OpenAlex-sourced abstract), per the abstract-only fallback rule; all rule (R1-R4) verdicts are 'na' with evidence 'no full text', consistent with coding_instructions.md step 1. Reporting-indicator fields are marked 'unclear'/'no' only because they cannot be verified from the abstract, not because they are confirmed absent -- full-text access would be needed to determine them properly, and a human/adjudicator with journal access should re-check this record if the audit's rate estimates depend on it. Privacy/bot-check compliance: only a generic User-Agent was used for all fetch/download attempts; no email address, mailto parameter, Unpaywall, API key or login was used at any point; every 403/access-denied response was treated as a stop signal, not a bypass target. Duplicate check: audit/pool/pool.csv has exactly one record for this title/DOI (P00533); no FT-DUPLICATE applies. No author of this article is named Jun Wang (authors: Hyogu Jeong, Chanaka Batuwatta-Gamage, Jinshuai Bai, Yi Min Xie, Charith Rathnayaka, Ying Long Zhou, Yuantong Gu)."
+}

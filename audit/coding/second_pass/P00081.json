@@ -1,0 +1,88 @@
+{
+  "pid": "P00081",
+  "citation": {
+    "title": "PyTOaCNN: Topology optimization using an adaptive convolutional neural network in Python",
+    "authors": "Khaish Singh Chadha, Prabhat Kumar",
+    "year": 2024,
+    "venue": "Soft Computing (Springer); arXiv preprint cs.CE",
+    "doi": "10.1007/s00500-025-10919-y",
+    "arxiv_id": "2404.12244",
+    "version_coded": "arXiv v1 (only version, 18 Apr 2024), full text including Appendix (embedded Python code, Section 9) read from https://arxiv.org/html/2404.12244"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (the only quantitative comparison with a classical method anywhere in the article, Tables 1-7 in Sec. 7, is a design-quality/error comparison; the article's repeated speed claims -- 'instantly', 'a fraction of a second', 'instantaneously' -- are qualitative only, with no numeric time given anywhere for either the CNN or the classical MATLAB codes)",
+    "stratum": "quality",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For the mid-load compliance-minimization benchmark, the CNN-predicted optimized density field is compared against the target from the standard top88 MATLAB SIMP code at the same volume fractions, with volume-fraction and compliance (objective) errors typically around 0.5% (e.g. 0.48% and 0.51% at volume fraction 0.25); similarly small errors (up to 2.17% volume-fraction error for volume fractions outside the training set) are reported across all four tested problem classes (mid-load and end-load cantilever compliance minimization, design-dependent pressure-load compliance minimization, and bulk-modulus maximization). Separately, the paper repeatedly states -- without ever giving a number -- that once trained, the CNN produces each design 'instantly' / 'in a fraction of a second'.",
+    "key_phrase": "obtained in a fraction of a second",
+    "location": "Section 7 ('Results and discussion'), Tables 1-7 (main text). No quantitative comparison with a classical method appears in the Abstract, Conclusion (Sec. 8) or Introduction; all three state the speed advantage only qualitatively ('instantly', 'a fraction of a second', 'instantaneously'), and no numeric time is given anywhere in the article for either the CNN or the classical MATLAB codes (top88, TOPress, topX)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable. No numeric runtime is given anywhere in the article for the classical MATLAB codes (top88/TOPress/topX) or for the CNN -- only qualitative phrases ('instantly', 'a fraction of a second', 'instantaneously'). Despite the speed claim being the paper's most repeated selling point (Abstract, Introduction, Conclusion), this absence of any actual timing number is why the primary outcome for stratum/inclusion purposes is the quantitative design-quality comparison (Tables 1-7) rather than the speed claim.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) The paper's own most emphasized claim, repeated in the Abstract, Introduction and Conclusion, is the qualitative speed claim ('instantly' / 'a fraction of a second' / 'instantaneously') versus an unnamed, unquantified classical optimization run; it was not selected as the primary outcome because protocol section 5.1 requires a quantitative comparison where one exists, and none exists anywhere in the article for speed specifically. (2) Table 7 compares different widths n of the model's own adaptive layer against each other and against the target -- an internal ablation, not a comparison with a classical method beyond the same Verr/Objerr metric already used in Tables 1-6."
+  },
+  "baseline": {
+    "classical_method": "Three different open-source, non-learned SIMP-family MATLAB TO codes, one per problem type: top88 (Andreassen et al., 2011; standard 88-line SIMP code) for compliance minimization with constant loads; TOPress (Kumar, 2023) for compliance minimization with design-dependent pressure loads; topX (Xia and Breitkopf, 2015) for bulk-modulus/microstructure homogenization",
+    "implementation": "The three classical codes are standard, published, open-source MATLAB implementations (not the authors' own code); the CNN is implemented in Python (TensorFlow/Keras), with the complete code given in Appendix 9 (Sec. 9) of the article itself",
+    "solver": "not stated for any of the three classical codes (direct/iterative); top88 conventionally uses MATLAB's built-in sparse direct solver, but this is not stated in the article text itself",
+    "hardware_classical": "not stated anywhere in the article",
+    "hardware_ml": "not stated anywhere in the article (no CPU/GPU model, no training hardware named)",
+    "problem_size": "100x100 finite-element grid (bi-linear quadrilateral elements) for every problem in this paper; 95 training image pairs generated per problem (68 for the bulk-modulus case, 'due to limitations of topX MATLAB code'; a reduced 32-sample set is also tested in Sec. 7.1/Table 4)",
+    "classical_iterations": "not stated for any of the three classical codes (their own internal SIMP convergence loops are not described numerically in this article, only referenced by citation)",
+    "classical_time": "not stated anywhere in the article, for any of the three classical codes",
+    "ml_time": "not stated numerically anywhere; described only as 'instantly' / 'a fraction of a second' / 'instantaneously' (Sec. 1, 7, 8)",
+    "training_time": "not stated in wall-clock terms; only the epoch count is given: 2000 epochs for every reported model (Sec. 7.1-7.2)",
+    "data_generation_cost": "not stated; the 95 (or 68, or 32) training pairs are generated by running the classical MATLAB codes once per volume fraction (Sec. 5), but no per-run time or total cost is given",
+    "quality_metric": "Volume-fraction error Verr = (V*-V_CNN)/Vf x100% and objective (compliance, or bulk-modulus objective) error Objerr = (C_opt-C_CNN)/C_opt x100%, both computed by feeding the CNN's predicted density field back into the same classical code used to generate the target, so the 'ground truth' physical objective is always obtained via the classical FE-based code, not a surrogate (Sec. 7)",
+    "quality_gap": "Table 1 (mid-load, top88): e.g. Verr=0.48%, Objerr=0.51% at volume fraction 0.25 ('close to 0.5%, i.e., negligible'). Table 2 (cantilever, end load, top88): Verr=0.19%, Objerr=0.063% at Vf=0.70. Table 3 (cantilever, volume fractions outside the training set): maximum Verr=2.17% at Vf=17.5%, with Objerr=0.49% at that point. Table 4 (cantilever, only 32 training samples): errors 'relatively higher... compared with Table 2'. Table 5 (pressure load, TOPress) and Table 6 (bulk modulus, topX): errors reported per volume fraction, with Table 6 explicitly noted to have 'relatively high Verr compared to previous instances'. Table 7: best result at adaptive-layer width n=8000"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched-same-input",
+      "evidence": "The quality comparison (Verr/Objerr, Tables 1-7) evaluates the CNN and the classical code on exactly the same input (identical volume fraction and boundary/load condition), and the objective/compliance value used for both is computed by the same classical FE-based code (the CNN's predicted density field is fed back into top88/TOPress/topX to obtain C_CNN, so the scoring function is identical for both). This is a same-input, same-metric emulation-fidelity comparison rather than a competing-search-budget comparison, so no budget-matching concern of the kind flagged in other quality-stratum records arises here."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome (Tables 1-7) is a design-quality/error comparison, not a speed or computational-cost claim, so R2's efficiency criteria do not bear on it. For the record: no solver type, hardware, or timing is stated anywhere in the article for top88, TOPress or topX."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No quantitative speed or cost claim against a classical method exists anywhere in the article (see claim.claimed_speedup_basis); the repeated speed claims are qualitative only. For the record: training is reported only as 2000 epochs per model (Sec. 7.1-7.2), with no wall-clock training time, no hardware, and no data-generation cost given anywhere."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "The quality metrics (Verr, Objerr) are obtained by taking the CNN's predicted density field and evaluating it with the same classical FE-based code used to generate the training target (Sec. 7), i.e. an actual FE analysis of the CNN's returned design, not a surrogate-predicted or pure image-similarity metric. Volume-fraction error is explicitly reported for every case (Tables 1-7), functioning as the constraint-satisfaction check; no infeasible/failed-design cases are reported, consistent with all tested volume fractions being interior, feasible points (no disconnection or manufacturability failures are discussed, but none are evident from the reported small errors either)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 problem classes (mid-load, cantilever with end load, design-dependent pressure-loaded arch, bulk-modulus maximization) plus a center-loaded cantilever adaptive-layer study; each evaluated at 5-10 discrete volume fractions per table (Tables 1-7), both within and outside the training set",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": true,
+  "notes": "No author named Jun Wang (authors: Khaish Singh Chadha, Prabhat Kumar). No duplicate pool entry found: audit/pool/pool.csv has exactly one row for this title (P00081), matching both the DOI and arXiv id given in the queue. Access: arXiv v1 HTML (https://arxiv.org/html/2404.12244) read in full, including the complete embedded Python code in Section 9/Appendix 9; the Springer version of record (Soft Computing) was not attempted since the arXiv preprint already gave full-text access and the paper states the arXiv version is the complete, code-inclusive version. retest_candidate is true because the paper itself contains the complete, runnable CNN code (Section 9) plus explicit references to three independently public classical codes (top88 -- Andreassen et al. 2011, TOPress -- Kumar 2023, topX -- Xia and Breitkopf 2015) with training-data generation fully specified (volume fraction sweeps, 2000 epochs); this coding pass did not attempt to actually download or run any of it, so runnability and licensing of the classical MATLAB codes were not independently verified. Key limitation for the audit: the paper's own headline claim is speed ('instantly'), yet the article gives no timing number anywhere for either method, which is itself a reportable transparency gap (reflected in reporting.timing_protocol_stated = 'no')."
+}

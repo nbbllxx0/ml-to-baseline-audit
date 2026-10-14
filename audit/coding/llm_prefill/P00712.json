@@ -1,0 +1,44 @@
+{
+  "pid": "P00712",
+  "citation": {
+    "title": "DL-Scale: Deep Learning for model upgrading in topology optimization",
+    "authors": "Nikos Ath. Kallioras, Nikos D. Lagaros",
+    "year": 2020,
+    "venue": "Procedia Manufacturing 44 (2020) 433-440 (conference proceedings; diamond OA, CC BY-NC-ND per OpenAlex)",
+    "doi": "10.1016/j.promfg.2020.02.273",
+    "arxiv_id": "none found (arXiv API title search, 2026-09-24)",
+    "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); full text not reachable"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (abstract only). The abstract claims that a deep belief network, trained once on a reference problem and applied with SIMP over coarser identical sub-problems, vastly reduces the SIMP iterations needed on fine meshes; no numbers are given.",
+    "location": "Abstract (pool record, from OpenAlex)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with a generic browser User-Agent and no personal data. (1) The open copy OpenAlex lists (www.sciencedirect.com/science/article/pii/S235197892030860X/pdf) returned HTTP 403 with a robot check. Stopped there; no bypass. (2) OpenAlex lists no repository copy (any_repository_has_fulltext = false). (3) arXiv API: no version. (4) A ResearchGate copy exists but was not used (third-party upload site). Duplicate check: P00665 ('DL-SCALE: a novel deep learning-based model order upscaling scheme for solving topology optimization problems', Neural Computing and Applications 33(12) 7125-7144, online 2020-11-10 per OpenAlex, same two authors, same method name) is probably the extended journal report of this conference paper [inferred from titles, authors and the abstract]. It is closed access per OpenAlex and sits at decision-order position 238, outside the first 200. Not coded FT-DUPLICATE: the two are separate versions of record (conference paper vs journal article), and their overlap cannot be checked without either full text; the adjudicator should decide whether they report one study. Also related, same group: P00535 ('Accelerated topology optimization by means of deep learning', Structural and Multidisciplinary Optimization 2020, with a third co-author), a different article (title and authors checked only). From the abstract, the full text would likely be speed stratum (fewer SIMP iterations on dense meshes) [inferred]. No author named Jun Wang. Screening code was I-SPEED."
+}

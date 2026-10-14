@@ -1,0 +1,60 @@
+{
+  "pid": "P00019",
+  "citation": {
+    "title": "Multi-material Multi-physics Topology Optimization with Physics-informed Gaussian Process Priors",
+    "authors": "Xiangyu Sun, Shirin Hosseinmardi, Amin Yousefpour, and Ramin Bostanabad",
+    "year": 2026,
+    "venue": "Computer Methods in Applied Mechanics and Engineering",
+    "doi": "10.1016/j.cma.2026.119163",
+    "arxiv_id": "2602.17783",
+    "version_coded": "arXiv v1 (19 February 2026)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "surrogate_mlp_gp", "physics": "multiphysics", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "For 2D mass-only cases, PIGP median compliance was 1.049, 0.976, 1.133, and 3.529 across four examples, compared with ordered SIMP values 0.982, 0.890, 1.041, and 3.194.",
+    "key_phrase": "slightly higher yet comparable",
+    "location": "Section 4.1, Table 4",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No classical-method speed-up factor is reported; the conclusion says training costs are higher than SIMP.",
+    "direction": "similar_or_mixed",
+    "alternatives": "The conclusion says PIGP has higher training costs than SIMP and that COMSOL is slower; neither is quantified."
+  },
+  "baseline": {
+    "classical_method": "Ordered SIMP; PolyMat; 3D SIMP; COMSOL for thermo-mechanical cases",
+    "implementation": "Open-source implementations [22, 23, 73]; commercial COMSOL",
+    "solver": "not stated",
+    "hardware_classical": "Intel Core i7-11700K CPU (Section 4, numerical setup)",
+    "hardware_ml": "NVIDIA A100 GPU (Section 4, numerical setup)",
+    "problem_size": "2D and 3D examples; FE node counts in Table 3; thermo-mechanical grids in Table 14",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; up to 10,000 epochs, and 20,000 for thermo-mechanical case (Sections 4 setup, 4.3)",
+    "data_generation_cost": "not stated; no offline training dataset described",
+    "quality_metric": "FEM compliance/objective and mass or cost constraints (Tables 4, 5, 15)",
+    "quality_gap": "Described as comparable; Table 4 gives medians across 10 runs and Table 5 reports compliance and mass statistics."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-only", "evidence": "Section 5, Conclusions: primary comparison concerns objective quality; speed is not the primary outcome."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 4 setup identifies CPU and GPU classes but establishes no R2 criterion about baseline efficiency."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "Sections 3–4 describe per-problem optimization; no offline model training dataset or amortized query claim is stated."},
+    "R4": {"verdict": "partial", "marker": "R4-unreported-failures", "evidence": "Sections 4.1–4.3 and Tables 4, 5, 15 evaluate final designs by FEM and report constraint values; Section 4.3 notes disconnected features but no failure rate is reported."}
+  },
+  "reporting": {
+    "n_test_cases": "Four 2D and four 3D compliance examples; heat conduction, compliant mechanism, and thermo-mechanical examples (Sections 4.1–4.3).",
+    "ood_test": "unclear",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "na",
+    "code_available": "on_request",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Section 4 states each experiment was repeated 10 times and final objectives were evaluated by FEM. Replication statement says model code is accessible via GitHub upon publication; public availability is not established in the article text."
+}

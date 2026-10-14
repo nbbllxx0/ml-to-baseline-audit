@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P02187",
+    "citation":  {
+                     "title":  "Equivariant neural operators for gradient-consistent topology optimization",
+                     "authors":  "David Erzmann, Sören Dittmer",
+                     "year":  2024,
+                     "venue":  "Journal of Computational Design and Engineering 11(3), 91–100",
+                     "doi":  "10.1093/jcde/qwae039",
+                     "arxiv_id":  "none",
+                     "version_coded":  "published version; Cambridge Apollo repository copy"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "other",
+                     "physics":  "compliance",
+                     "dim":  "3d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The authors say neural operators substantially reduce solution time relative to classical numerical PDE solvers and use them to replace the solver in 3D SIMP.",
+                  "key_phrase":  "remarkable speed-ups over classical numerical PDE solvers",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  4,
+                  "claimed_speedup_basis":  "Section 5.3 reports at least a fourfold inference speed improvement over classical SIMP; this is a lower bound, not an exact factor.",
+                  "direction":  "outperform",
+                  "alternatives":  "Abstract: the proposed U-Net FNO is said to outperform U-Net and other FNO methods (learned baselines; not the primary classical comparison). Section 5.3 reports at least fourfold inference improvement and gives an example at 160,000 voxels."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP with the classical finite-difference method (FDM) PDE solver",
+                     "implementation":  "Classical SIMP with FDM; implementation details not stated",
+                     "solver":  "FDM; iterative/direct solver details not stated",
+                     "hardware_classical":  "Intel Xeon Silver 4210 CPU (Table 2)",
+                     "hardware_ml":  "Intel Xeon Silver 4210 CPU for inference (Table 2); GeForce RTX 2080 Ti GPU for training (Section 5.1)",
+                     "problem_size":  "3D, 39 × 39 × 4 voxel grid; also cites a 160,000-voxel fine grid (Sections 5.1, 5.3)",
+                     "classical_iterations":  "SIMP trajectories run for 60 iterations in dataset construction (Section 5.1); stopping rule not stated",
+                     "classical_time":  "75 s average inference runtime (Table 2)",
+                     "ml_time":  "2–18 s average inference runtime across the listed NO variants (Table 2); less than 1 s for one NO solution at 160,000 voxels (Section 5.3)",
+                     "training_time":  "2–14 h (Section 5.1)",
+                     "data_generation_cost":  "not stated; dataset contains almost 10,000 3D TO problems and is based on SIMP ground truths (Section 5.1)",
+                     "quality_metric":  "intersection over union (IoU), failure percentage, mean compliance, and weighted mean absolute error (WMAE) against the reference SIMP trajectory (Section 5.2)",
+                     "quality_gap":  "Quality and failure measures are reported by model and training-set size in Table 1; no explicit matched-quality tolerance is stated."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "partial",
+                             "marker":  "R1-loose-match",
+                             "evidence":  "Sections 5.2–5.3 and Tables 1–2 compare quality/failure measures and runtime, but do not specify a matched-quality tolerance or a classical stopping criterion for the speed comparison."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Table 2 compares inference on the same Intel Xeon Silver 4210 CPU; text does not establish any other R2 criterion."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-data-cost",
+                             "evidence":  "Section 5.1 reports 2–14 h of training and training-set sizes; it does not report the cost of generating the SIMP training data or amortization."
+                         },
+                  "R4":  {
+                             "verdict":  "fail",
+                             "marker":  "R4-surrogate-predicted",
+                             "evidence":  "Sections 5.2–5.3 report quality/failure measures while SIMP is run with learned PDE solvers; no independent FDM/FE verification of the returned learned designs is stated."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Not stated; all problems in the test dataset were evaluated (Section 5.2).",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "yes",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "selective",
+                      "code_available":  "no",
+                      "data_available":  "yes",
+                      "hardware_per_method_stated":  "partial"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The open access published version was read from the University of Cambridge Apollo repository. Section 5.1 says the study uses the SELTO disc dataset and cites DL4TO/NO libraries, but does not identify an experiment-specific public code release or its license.",
+    "stage":  "cross_provider_pass"
+}

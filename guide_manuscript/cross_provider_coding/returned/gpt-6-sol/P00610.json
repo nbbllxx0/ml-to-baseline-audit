@@ -1,0 +1,14 @@
+{
+  "pid": "P00610",
+  "citation": {"title": "Effective thermal conductivity estimation using a convolutional neural network and its application in topology optimization", "authors": "Andre Adam, Huazhen Fang, Xianglin Li", "year": 2024, "venue": "Energy and AI 15, 100310", "doi": "10.1016/j.egyai.2023.100310", "version_coded": "open access article in press, author-hosted copy"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-FORWARD", "stratum": "none", "method_family": "cnn", "physics": "thermal", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "not coded (full-text exclusion)", "direction": "outperform", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "FT-FORWARD", "evidence": "Full-text exclusion."}, "R2": {"verdict": "na", "marker": "FT-FORWARD", "evidence": "Full-text exclusion."}, "R3": {"verdict": "na", "marker": "FT-FORWARD", "evidence": "Full-text exclusion."}, "R4": {"verdict": "na", "marker": "FT-FORWARD", "evidence": "Full-text exclusion."}},
+  "reporting": {"n_test_cases": "not coded (full-text exclusion)", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "partial", "runtimes_all_cases": "na", "code_available": "yes", "data_available": "yes", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "Sections 4.2 and 5 compare CNN conductivity prediction with a finite-volume forward simulation. Section 5 runs voxel-swap optimization with CNN prediction and re-evaluates its designs with the numerical heat-transfer model. The cited classical optimization duration is extrapolated from forward-simulation time, with no classical optimizer run or optimization-level result. The method's comparison is therefore forward prediction, despite the application to optimization."
+}

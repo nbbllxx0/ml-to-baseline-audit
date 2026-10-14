@@ -1,0 +1,13 @@
+angle 16 repeat 1: 115.6 s, 4741 FE analyses, c_eval 166.4309
+angle 16 repeat 2: 115.0 s, 4741 FE analyses, c_eval 166.4309
+angle 16 repeat 3: 115.1 s, 4741 FE analyses, c_eval 166.4309
+angle 16 repeat 4: 115.1 s, 4741 FE analyses, c_eval 166.4309
+angle 62 repeat 1: 110.4 s, 4635 FE analyses, c_eval 34.1571
+angle 62 repeat 2: 110.4 s, 4635 FE analyses, c_eval 34.1571
+angle 62 repeat 3: 110.7 s, 4635 FE analyses, c_eval 34.1571
+angle 62 repeat 4: 112.5 s, 4635 FE analyses, c_eval 34.1571
+angle 75 repeat 1: 115.7 s, 4711 FE analyses, c_eval 107.5723
+angle 75 repeat 2: 115.8 s, 4711 FE analyses, c_eval 107.5723
+angle 75 repeat 3: 115.8 s, 4711 FE analyses, c_eval 107.5723
+angle 75 repeat 4: 115.3 s, 4711 FE analyses, c_eval 107.5723
+generator compliance on angles [16 62 75]: [310.825 66.9892 198.698]

@@ -1,0 +1,65 @@
+{
+ "pid": "P00983",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "A function online learning and prediction method for accelerating structural topology optimization and its application to pneumatic soft actuator",
+  "authors": "Yi Xing, Yifu Lu, Liyong Tong",
+  "year": 2025,
+  "venue": "Thin-Walled Structures (2025), article 112942; hybrid open access, CC BY per OpenAlex",
+  "doi": "10.1016/j.tws.2025.112942",
+  "arxiv_id": "",
+  "version_coded": "none; only the abstract and highlights were read (pool record and OpenAlex metadata)"
+ },
+ "access": "abstract_only",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-UNCLEAR (no accessible full text)",
+  "stratum": "none",
+  "method_family": "other",
+  "physics": "compliant_mechanism",
+  "dim": "unclear"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (no full text). The abstract claims that FoLap, a one-hidden-layer network that learns and predicts design-function updates online, saves up to 65.1% of total computing time for a soft-actuator cell design versus level-set and moving-isosurface-threshold TO.",
+  "location": "abstract only",
+  "quantitative": true,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "not coded (no full text). The abstract states a total time saving of up to 65.1% against the selected level-set and moving isosurface threshold methods [\u22482.9\u00d7 derived as 1 \u00f7 (1 \u2212 0.651); not checked against the article]",
+  "alternatives": "not assessed (no full text)"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "marker": "no-full-text",
+   "evidence": "no full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Screening code was I-SPEED. Access attempts on 2026-09-24, generic User-Agent, no login: (1) the ScienceDirect article page (PII S0263823125000369, the open-access copy that OpenAlex reports) returned HTTP 403 with an 'Are you a robot?' CAPTCHA page; no bypass was attempted. (2) The Elsevier text-mining endpoint listed in Crossref returned HTTP 401 (an API key is required; not used, because keys are credentials). (3) OpenAlex lists no other location. (4) arXiv API searches (FoLap; authors Xing and Tong; title phrase; pneumatic soft actuator with topology optimization) found no version. The abstract also reports 3D-printed prototypes and agreement between experiments and nonlinear FE analysis. Per-problem online learning with no offline dataset is likely, so R3 would probably be n/a [inferred from the abstract]. Related records by the same group, all different articles [inferred from titles]: P00690, P00707, P00728, P00743, P00934, P00951; P01237 is Yi Xing's dissertation on the same topic (screened E-TYPE). No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00983.json",
+  "result": "full agreement"
+ }
+}

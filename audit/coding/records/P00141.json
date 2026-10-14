@@ -1,0 +1,113 @@
+{
+  "pid": "P00141",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning",
+    "authors": "Mohammad Mahdi Behzadi, Horea T. Ilieş",
+    "year": 2021,
+    "venue": "arXiv preprint (cs.LG; also cs.AI). Version of record: Journal of Mechanical Design 144(2) 021711, doi 10.1115/1.4052757, retitled 'GANTL: Toward Practical and Real-Time Topology Optimization With Conditional Generative Adversarial Networks and Transfer Learning' (doi.org resolves to the ASME article page; volume, issue and article number taken from the ASME URL in a web-search listing, same article id 1121902). The ASME page returned HTTP 403 to scripted access, so its open-access status and content were not checked",
+    "doi": "10.48550/arXiv.2105.03045",
+    "arxiv_id": "2105.03045",
+    "version_coded": "arXiv v1 (7 May 2021; only version on the abs page), full text read from https://arxiv.org/html/2105.03045. The JMD version of record could not be opened, so it was not coded"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "For seen boundary conditions with one random load, GANTL predictions at six resolutions (40×80 to 200×400) differ from the SIMP designs by 1.00% average compliance error (std 2.5%), 2.12% MSE and 96.72% binary accuracy.",
+    "key_phrase": "with a 1% average compliance error and a 2.5% standard deviation",
+    "location": "Sec. 4.2 para 3 and Table 2 (first quantitative comparison with a classical method; the abstract, conclusion and introduction hold none)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable. No GANTL inference, training or data-generation time is reported anywhere (full text read). The only classical timing is cited, not measured: the SIMP code of [4] needs 1.85 s per iteration and hundreds of iterations for a 300×100 MBB beam (Sec. 1 para 1).",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Qualitative speed framing: title (real-time TO), Sec. 2.1 outline (real-time design exploration) and the cited SIMP cost of 1.85 s per iteration × hundreds of iterations at 300×100 (Sec. 1); no GANTL time exists, so there is no quantitative speed comparison. (2) Table 3 (unseen BCs, 1 load): compliance error 7.74% average (std 11.74%), MSE 8.94%, binary accuracy 89.10%. (3) Tables 4-5 (2 loads): compliance error 10.48% (seen BCs) and 11.53% (unseen BCs). (4) Sec. 4.2: 250 test cases with 5 and 10 loads at 200×400, binary accuracy about 84% and 82%, no compliance given. (5) Sec. 4.3, Fig. 11: topology-aware loss reduces disconnected members, shown on examples only."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with the 88-line MATLAB code [4] (Andreassen et al. 2011), modified to automate data generation; volume fraction 0.5, filter radius 1.5; one point load with components sampled uniformly in [-100, 100] N; BCs of Fig. 5(a)-(b) for training. The SIMP designs are the ground truth for training and testing (Sec. 3.4, 4.1)",
+    "implementation": "MATLAB 88-line educational code [4], modified for batch generation (Sec. 3.4, 4.1); initial-domain stress and strain-energy input channels computed with SolidsPy in Python (Sec. 3.4)",
+    "solver": "not stated",
+    "hardware_classical": "not stated per method; all experiments ran on the UConn HPC cluster (RHEL7), with no CPU or GPU given (Sec. 3.5)",
+    "hardware_ml": "not stated per method; same cluster (Sec. 3.5)",
+    "problem_size": "2D rectangular domains: source network 40×80; target networks 80×160, 120×160, 120×240, 160×320 and 200×400 elements (Tables 2-5) [derived: up to 161,202 DOFs at 200×400, assuming 4-node elements]",
+    "classical_iterations": "not stated (penalty value and stopping rule of the SIMP runs not stated)",
+    "classical_time": "not stated for the article's own SIMP runs; cited only: 1.85 s per iteration and hundreds of iterations for a 300×100 MBB beam with the code of [4] (Sec. 1 para 1)",
+    "ml_time": "not stated",
+    "training_time": "not stated; GAN training stops when discriminator accuracy falls below 50% (Sec. 3.5); the topology-aware loss is said to raise training time considerably, not quantified (Sec. 5)",
+    "data_generation_cost": "not stated; 11,000 SIMP cases at 40×80 and 1,500 high-resolution cases, augmented by mirroring about the x and y axes (Sec. 3.4, 4.1); the conclusion refers the data-generation cost to the authors' earlier paper [5] (Sec. 5)",
+    "quality_metric": "Compliance error relative to SIMP (|sum of element compliance differences| / sum of SIMP element compliances), MSE and binary accuracy after rounding to 0/1 (Sec. 3.5); how the compliance of a prediction is computed is not stated (FE analysis of the predicted density [inferred])",
+    "quality_gap": "Seen BCs, 1 load (Table 2): compliance error 0.32% (40×80 source network, n = 7,473) to 1.45% (200×400, n = 350), average 1.00% (std 2.5%); MSE 2.12%; binary accuracy 96.72%. Unseen BCs, 1 load (Table 3): 7.74% (std 11.74%). 2 loads: 10.48% seen (Table 4), 11.53% unseen (Table 5). Volume fraction of predictions not reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Stratum Q; R1 applies as written (PROTOCOL §11). Tables 2-5, Sec. 3.4-3.5, 4.2: predictions are compared with SIMP designs for the same loads, BCs and prescribed volume fraction 0.5, but the achieved volume fraction of the predictions is not reported, and the compliance error takes the absolute value of the summed difference (Sec. 3.5, p. 6), so its sign is hidden. The SIMP penalty value and stopping rule are not stated, and no run time exists on either side, so no budget is matched. No speed claim is quantified."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) names no classical baseline and gives no numbers (its comparisons are with other deep-learning networks), so it cannot report a weaker baseline than Tables 2-5; (b) is not observed. The SIMP references come from the public 88-line MATLAB code [4] (Sec. 3.4, 4.1); the cited 1.85 s per iteration (Sec. 1) is not used in any comparison."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "No quantified speed claim against a classical method. For C3: 11,000 + 1,500 SIMP training cases (Sec. 3.4, 4.1); no data-generation, training or inference time is reported; the conclusion refers the data-generation cost to [5] (Sec. 5)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-constraint-report",
+      "evidence": "Sec. 3.5 (p. 6) and Tables 2-5: the compliance error is the absolute difference of the summed element compliances of prediction and SIMP design over the SIMP total, i.e. a relative total-compliance error [derived from the formula], reported for every test set (250-7,473 cases per row) with MSE and binary accuracy; compliance of predictions presumably from FE analysis [inferred; method not stated]. The volume fraction of predictions is not reported, and disconnected predictions are acknowledged (Sec. 4.3) but not counted. The topology-loss improvement (Fig. 11) rests on examples shown without a stated selection rule."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Seen BCs, 1 load: 7,473 (40×80) plus 350/463/388/350/350 (80×160 to 200×400) (Table 2); unseen BCs, 1 load: 1,000 + 4×500 + 250 (Table 3); 2 loads, seen and unseen BCs: 1,000 + 4×500 + 250 each (Tables 4-5); 250 cases with 5 and 10 loads at 200×400 (Sec. 4.2)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; the full text gives stratum Q. No GANTL, training or data-generation time appears anywhere, so the speed material is only the real-time framing (title; Sec. 2.1) and a cited SIMP cost (Sec. 1). Primary-outcome judgment: Table 2 is the first quantitative comparison with a classical method because its compliance error is measured against the SIMP designs for the same problems (Sec. 3.5; same convention as P00375). If the verifier reads the cited SIMP cost plus the real-time framing as a speed outcome, the record moves to the speed stratum; with no GANTL time and no training or data cost, R3 would then be fail and R1 at best partial. The Average rows of Tables 2-5 are unweighted means of the six per-resolution rows, not weighted by case counts [derived: (0.32+1.03+1.08+0.98+1.14+1.45)/6 = 1.00]. The 40×80 rows come from the source network (11,000 training cases); the other rows come from the fine-tuned target networks (1,500 cases). C4: the abstract's comparative claims are against ML (training-set size versus conventional deep networks; connectivity versus a plain cross-entropy loss), and Sec. 4.2 claims better prediction performance than state-of-the-art deep-learning methods without side-by-side numbers. Reference [5] (Behzadi & Ilieş 2021, Computer-Aided Design 135:103014) appears to be the journal version of pool record P00145 (arXiv 2102.07657) [inferred from the identical title]; the data-generation cost discussion is deferred there. Reporting locators: n = Tables 2-5 and Sec. 4.2; OOD = unseen BCs of Fig. 5(c)-(e) and 2, 5 and 10 loads after training on 1 load (Table 1); the std columns are spreads over test cases, not seeds; disconnection is discussed only qualitatively (Sec. 4.3); hardware = Sec. 3.5 (cluster only); no code or data statement. Version: arXiv v1 coded; differences from the JMD version are unknown. Adjudicator check (2026-09-24): doi.org again led to the ASME page, which returned a Cloudflare challenge (HTTP 403); it was not bypassed. Duplicates: P01468 (same arXiv preprint, decision-order position 175) and P02546 (OAT bibliography stub of the JMD title, position 309) are later in the decision order than P00141 (position 51), so under the §11 tie-break P00141 carries the coding. arXiv licence: perpetual non-exclusive. retest_candidate false: no public code and no quantified speed claim. COI check: no author named Jun Wang.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "R1": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "partial",
+        "reason": "R1 applies as written in stratum Q (§11). Instances match, but the physical volume of the predictions is never reported, the compliance error hides its sign (absolute value of the summed difference, Sec. 3.5, p. 6), and the SIMP stopping rule is unstated (Sec. 3.4). That is the §5.3 R1 partial case, quality reported with loose matching."
+      },
+      "R2": {
+        "first": "pass",
+        "second": "na",
+        "decision": "na",
+        "reason": "Both coders code stratum Q, which the text supports: no GANTL or SIMP run time is reported (arXiv v1, Sec. 3-5). Under the §11 stratum-Q rule R2 is na unless criterion (b) applies, and the abstract (p. 1) names no classical baseline and gives no numbers, so (b) does not apply."
+      },
+      "R4": {
+        "first": "partial",
+        "second": "fail",
+        "decision": "partial",
+        "reason": "The compliance error is not an image metric: its formula (Sec. 3.5, p. 6) is the absolute difference of summed element compliances over the SIMP total, a relative total-compliance error that needs an analysis of the predicted design [inferred; method not stated]. The second coder read it as an element-wise absolute sum. Predicted volumes are not reported and disconnections are not counted (Sec. 4.3), which is the §5.3 R4 partial case."
+      }
+    }
+  }
+}

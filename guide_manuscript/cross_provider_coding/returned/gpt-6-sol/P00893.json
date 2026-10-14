@@ -1,0 +1,14 @@
+{
+  "pid": "P00893",
+  "citation": {"title": "Deep learning-aided topology design of metasurfaces for Rayleigh waves", "authors": "Cheng Zhao, Chen-Xu Liu, Gui-Lan Yu", "year": 2024, "venue": "Journal of Computational Design and Engineering", "doi": "10.1093/jcde/qwae037", "version_coded": "version of record"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-MLONLY", "stratum": "none", "method_family": "vae", "physics": "other", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "R1-excluded", "evidence": "not applicable: full-text exclusion"}, "R2": {"verdict": "na", "marker": "R2-excluded", "evidence": "not applicable: full-text exclusion"}, "R3": {"verdict": "na", "marker": "R3-excluded", "evidence": "not applicable: full-text exclusion"}, "R4": {"verdict": "na", "marker": "R4-excluded", "evidence": "not applicable: full-text exclusion"}},
+  "reporting": {"n_test_cases": "not stated", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Sections 5.1 and 6 report tests against target bandgaps and compare timing to an ablated neural design model without VAE. The introduction mentions level-set and genetic optimization only as general motivation; it gives no classical run, timing, or result for the article's method. Full text read at https://academic.oup.com/jcde/article/11/3/56/7649376 ."
+}

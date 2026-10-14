@@ -1,0 +1,88 @@
+{
+  "pid": "P00006",
+  "citation": {
+    "title": "Explainable quantum neural networks for multi-material topology optimization",
+    "authors": "Dahyun Joo, Naruethep Sukulthanasorn, Kenjiro Terada, Do-Nyun Kim",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.CE)",
+    "doi": "10.48550/arxiv.2607.00438",
+    "arxiv_id": "2607.00438",
+    "version_coded": "arXiv v1 (submitted 1 Jul 2026; only version on the abs page); full text (main paper plus supplementary notes/tables merged in the same PDF, 40 pages as extracted) read from https://arxiv.org/pdf/2607.00438"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "quality",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Without any 3D retraining, XQNN (trained only on 2D 50x25 histories) predicts multi-material layouts on a 20x20x10 voxel mesh with mean element-wise accuracy of 89.3%/79.6%/73.6% and mean normalized compliance (relative to the MMA ground truth) of 0.96/0.98/0.83 for two/three/four materials.",
+    "key_phrase": "voxel-wise three-dimensional problems without additional training",
+    "location": "Sec. 2.3 (Generalization performance, 'Three-dimensional MMTO' paragraph, and Fig. 3c); the Abstract and Discussion (Sec. 3) state the generalization capability only qualitatively, without the specific accuracy/compliance numbers",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable: this paper reports no wall-clock time, inference time, or any other cost/speed figure for XQNN or for the classical MMA solver anywhere in the main text or supplementary material (verified by full-text search for timing-related terms). The Introduction motivates the work by noting that 'repeated MMTO calculations are computationally demanding,' but this is a generic, unquantified motivation, not a measured comparison.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 2.3, OOD boundary/loading conditions (O1-O4, same 50x25 mesh): the two-material case shows high accuracy and normalized compliance close to 1; three- and four-material cases show larger, problem-dependent variation, and one two-material case (O2) shows a compliance deviation despite high pixel accuracy, traced to a local material-interface error. (2) Sec. 2.3, mesh-resolution transfer (HR1-HR3, V1 condition at 100x50 to 200x100): three- and four-material accuracy 73%-91% with normalized compliance close to 1 and no clear mesh dependency, but two-material predictions become less stable at higher resolution due to interface errors causing disconnected parts. (3) Sec. 2.2: validation-set (V1-V3) element-wise accuracy ranges from 81.4% to 94.0% across the material-count settings, without a number-per-material-count breakdown given in that form."
+  },
+  "baseline": {
+    "classical_method": "Method of Moving Asymptotes (MMA)-based multi-material topology optimization (MMTO), minimizing compliance subject to FE equilibrium, box constraints and one volume constraint per material type, using mapping-based material interpolation (Sec. 4.1); this classical solver generates every ground-truth (GT) layout that XQNN is trained on and compared against",
+    "implementation": "Adapted from the published MATLAB code of Zheng et al. (cited for its 2D/3D multi-material compliance-minimization implementation; not otherwise identified further in the text) (Sec. 4.1)",
+    "solver": "Not stated beyond the MMA update scheme; the underlying FE linear-solve method is not named",
+    "hardware_classical": "Not stated",
+    "hardware_ml": "AMD Ryzen 7 9700X 8-core CPU; exact statevector simulation (no real quantum hardware used) in Python 3.12.10 with Qiskit SDK v2.3.1 and Qiskit Aer v0.17.2 (Sec. 4.3)",
+    "problem_size": "2D training/validation/OOD: 50x25 mesh, 4-node quadrilateral plane-stress elements. High-resolution transfer: 100x50, 150x75, 200x100 meshes (same V1 condition, no retraining). 3D transfer: 20x20x10 voxel mesh (8-node hexahedral elements), no retraining. Two-, three- and four-solid-material cases studied (plus void) (Sec. 2.1, 2.3, 4.1)",
+    "classical_iterations": "MMA run to a grayscale-discreteness stopping criterion, G<0.02 for regular cases and G<0.01 for high-resolution cases (Sec. 4.1); XQNN's own input snapshots are instead taken at mechanically defined milestones (k_em, k_em+5, and a prediction-decision iteration k_pd, with target grayscale G_target = 0.20/0.15/0.10 for 2-/3-/4-material cases), not at MMA's own final iteration",
+    "classical_time": "Not stated",
+    "ml_time": "Not stated (no inference-time figure is given for XQNN anywhere)",
+    "training_time": "Not stated as wall-clock; training protocol given as 100 epochs, class-balanced sampling of up to 20 elements per class per design (180/240/300 total elements for the 2-/3-/4-material tasks), Adam optimizer (initial lr 0.1 with linear decay, gradient clipping to [-5,5]), parameter-shift-rule gradients (shift +/- pi/2) (Sec. 2.2, 4.3)",
+    "data_generation_cost": "Not stated as a cost figure; the training/validation/OOD datasets derive from only 3+3+4=10 MMA-solved boundary/loading conditions on the 50x25 mesh (Sec. 2.2-2.3), each solved once by the classical MMA solver to produce ground truth and intermediate snapshots",
+    "quality_metric": "Two metrics reported together: (1) element-wise material-type classification accuracy against the MMA ground-truth label map, and (2) normalized compliance, C_pred/C_GT, i.e. the FE-computed compliance of the predicted material layout divided by the FE-computed compliance of the classical MMA solution for the same problem (Sec. 2.3)",
+    "quality_gap": "Validation (V1-V3, in-distribution): element-wise accuracy 81.4%-94.0% (Sec. 2.2). OOD (O1-O4): two-material accuracy and normalized compliance both close to 1; three-/four-material show larger variation (no single summary number given). High-resolution transfer (HR1-HR3): three-/four-material accuracy 73%-91%, normalized compliance close to 1; two-material becomes less stable (disconnected parts) at higher resolution. 3D transfer (3D1-3D4, no 3D training): mean accuracy 89.3%/79.6%/73.6% and mean normalized compliance 0.96/0.98/0.83 for two/three/four materials respectively (Sec. 2.3)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "The normalized-compliance metric (Sec. 2.3) is paired by design: it compares XQNN's prediction to the classical MMA solution for the identical problem, load case and target volume fraction, which is a fair basis in principle. However, the article itself discloses (Sec. 2.3, 3D discussion) that 'XQNN ... predicts material type labels element-wise and does not explicitly enforce the global volume constraints during inference,' meaning the compared designs are not guaranteed to share the same actual volume fraction as the MMA reference, which the authors offer as a candidate explanation for the four-material 3D case appearing stiffer (normalized compliance 0.83) despite lower accuracy."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-reference-baseline",
+      "evidence": "The classical comparator is a published, peer-reviewed MMA-based MMTO solver (adapted from Zheng et al.'s MATLAB code, Sec. 4.1), used as the trusted ground-truth generator throughout rather than a comparator being deliberately weakened. No re-test was performed by this coder, and no GPU-vs-CPU asymmetry is possible here since the ML side itself runs on ordinary CPU (statevector simulation, Sec. 4.3), not specialized hardware."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim against the classical MMA solver is made anywhere in this article with actual numbers (confirmed by full-text search); training cost, data-generation cost and inference time are all unreported, but since no speed advantage is claimed, R3's cost-accounting requirement does not bear on this article's primary outcome."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Quality is assessed by FE-computed compliance of the returned design (normalized compliance, Sec. 2.3), not by an image-similarity metric alone, and this is reported alongside (not instead of) classification accuracy. However, structural-instability/disconnection failure modes are discussed only qualitatively and by specific example (e.g. case O2, and the general high-resolution two-material instability discussion), with no quantified failure or disconnection rate given across the full test set."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "10 distinct boundary/loading conditions across roles (3 training T1-T3, 3 validation V1-V3, 4 OOD test O1-O4, all on a 50x25 mesh), plus 3 high-resolution transfers of the V1 case (HR1-HR3) and 4 three-dimensional transfer cases (3D1-3D4, 20x20x10 voxels); each evaluated separately for 2-, 3- and 4-material settings (Sec. 2.2-2.3)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Dahyun Joo, Naruethep Sukulthanasorn, Kenjiro Terada, Do-Nyun Kim; Seoul National University and Tohoku University). Duplicate check via audit/pool/pool.csv title search: only one matching row (P00006 itself); no duplicate found. method_family is coded 'other' because the method is a parameterized quantum circuit (quantum neural network), which does not fit any of the specific listed categories (cnn/gan/vae/diffusion_flow/transformer/gnn/llm_agent/rl/neural_reparam/surrogate_mlp_gp); it is a trainable, gradient-optimized model functionally analogous to a neural network, which supports treating it as a learned model under protocol Sec. 3.1. No real quantum hardware is used anywhere; all reported results use exact statevector simulation on a classical CPU (Sec. 4.3), which the paper itself flags as a limitation ('Real devices would introduce shot noise, gate errors, and decoherence'). Primary-outcome choice: the Abstract and Discussion state the OOD/mesh/3D generalization capability only qualitatively; the first main-text location with actual numbers is Sec. 2.3, and within it the 3D transfer result is selected as primary because it is the specific capability foregrounded in the Abstract's own headline claim ('voxel-wise three-dimensional problems without additional training'). Data/code availability: both are stated as available only 'upon reasonable request' / 'on request' to the corresponding author, coded as 'on_request' rather than 'yes'; retest_candidate is set to false because nothing is currently public and the audit's access rules prohibit contacting authors."
+}

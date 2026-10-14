@@ -1,0 +1,131 @@
+{
+  "pid": "P01105",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Optimisation of three-dimensional hierarchical structures with tailored lattice metamaterial anisotropy",
+    "authors": "Lei Zhu, Liao Sun, Xiaoyang Wang, Nan Li",
+    "year": 2021,
+    "venue": "Materials & Design 210 (2021) 110083 (Elsevier; available online 2 September 2021; open access, CC BY-NC-ND 4.0 per the article's first page)",
+    "doi": "10.1016/j.matdes.2021.110083",
+    "arxiv_id": "",
+    "version_coded": "Version of record: the typeset publisher PDF (19 pp., journal header and CC BY-NC-ND licence line) deposited in Spiral, Imperial College London's repository (hdl.handle.net/10044/1/92217; OpenAlex labels this copy submittedVersion), read in full as text; pp. 10, 12, 13 and 15 also checked on rendered pages for Figs. 9, 12, 16 and 19. The adjudicator re-read the same Spiral PDF (bitstream 6f3567ff-c389-4820-b0b2-e728875f8b5b; PDF metadata naming Materials & Design 210 (2021) 110083; HTTP 200, no challenge) in full on 2026-09-24 and checked Figs. 12, 16 and 19 on the rendered pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screening code confirmed at full text)",
+    "stratum": "quality",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "MBB beam at volume fraction 0.3: the ANN-surrogate lattice optimization with orthotropic PC cells (PC-A) reaches 30.6% lower compliance than solid-void SIMP (p = 3) and 13.0% lower than quasi-isotropic PC lattices, on the same Nastran platform.",
+    "key_phrase": "is 30.6% lower than that of the topology optimisation case (Iso-P3)",
+    "location": "Sec. 6 Conclusions, p. 17 (first quantitative comparison with a classical method; the abstract's comparison is qualitative, §5.1 rule 2); the same values are plotted in Fig. 16, p. 13",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no run time of any method is reported. The ANN surrogates are said to improve computational efficiency over direct homogenization (abstract; highlights; Sec. 2.1, 3.3), without numbers.",
+    "direction": "outperform",
+    "alternatives": "(1) Abstract, qualitative: anisotropic lattice designs have better structural efficiency than classical TO and quasi-isotropic lattice optimization. (2) Fig. 12, MBB beam at vf 0.5, compliance normalised by SIMP p = 3: PC-A 0.86, SIMP p = 2 0.86, SIMP p = 1 0.65, PC-Q 0.91, BCC-Q 0.95, BCC-A 0.94, PCBCC-Q 0.98, PCBCC-A 0.87. (3) Fig. 19, L-shaped beam at vf 0.3: PC-A 0.69 vs SIMP p = 3 1.00, SIMP p = 2 0.74, SIMP p = 1 0.43. (4) Fig. 16 and p. 14: the PC-A curve almost coincides with SIMP p = 2 over vf 0.3-0.9, and SIMP p = 1 lies below all lattice designs. (5) Efficiency of the ANN surrogate: asserted, never measured."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with an isotropic power-law material: penalty 3 (Iso-P3, the solid-void benchmark), plus penalties 1 and 2 (Iso-P1, Iso-P2) as intermediate-density references; same filter, volume constraint and optimizer as the lattice cases (Sec. 5, Table 2)",
+    "implementation": "Commercial: Nastran 2018 FE solver with its built-in modified method of feasible directions (MMFD) optimizer, driven by a user-defined MATLAB program (Sec. 2.2, Sec. 4); the lattice data come from an adapted 149-line MATLAB homogenization code (Dong et al., ref. [35], Sec. 3.2)",
+    "solver": "not stated (Nastran FE solver)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "3D hexahedral meshes with one element per lattice cell (Sec. 2.2); MBB beam with dimensions 6L, 3L and L, half modelled by symmetry (Fig. 9); L-shaped beam (Fig. 18); cantilever (Fig. 21); element counts not stated. At least 8 lattice cells per dimension are required for scale separation (Sec. 5.1)",
+    "classical_iterations": "Stopping on the relative change of the objective and the constraint violation (Sec. 2.1, p. 4); tolerances and iteration counts not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated; one-hidden-layer ANNs with 2-9 neurons per output (Table B1), trained with Levenberg-Marquardt in MATLAB on a 70/15/15 split; R² at least 0.98 (Table 1), RMSE 0.002-0.027 (Table B2)",
+    "data_generation_cost": "not stated; numerical homogenization of 165 (PC), 330 (BCC) and 1,327 (PCBCC) strut-radius samples, with the rest of the 729, 4,096 and 5,832 full-factorial samples obtained by rotation (Sec. 3.1, p. 5)",
+    "quality_metric": "Optimised compliance from the Nastran FE analysis of the homogenised macroscale model (ANN-predicted effective properties for lattice cases, power-law densities for SIMP), normalised by the SIMP p = 3 value (Figs. 12, 16, 19, 22)",
+    "quality_gap": "MBB beam, vf 0.3: PC-A 30.6% below SIMP p = 3 and 13.0% below PC-Q (Sec. 6). MBB beam, vf 0.5: PC-A 0.86 vs SIMP p = 3 1.00 (Fig. 12). L-shaped beam, vf 0.3: PC-A 0.69 vs 1.00 (Fig. 19). Against SIMP p = 2 the PC-A values are about equal (0.86 vs 0.86; 0.69 vs 0.74). Achieved volume fractions are not reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 5 and Figs. 12, 16, 19 (pp. 12-15): R1 applies as written in stratum Q (PROTOCOL §11). All designs share the compliance problem, volume-fraction bound, mesh, filter, MMFD optimizer and convergence criteria, and no time is compared, so no fail marker holds. Matching is loose: the convergence tolerances are not stated (Sec. 2.1, p. 4); achieved volume fractions are not reported, and for the lattice cases the volume comes from the ANN relative-density surrogate rather than the geometry (Eqs. 3.3 and 19; Table B2 RMSE 0.0081-0.0126 [read from table]); the SIMP p = 3 designs keep filter-induced grey regions without post-processing (p. 11). This is the §5.3 R1 partial case."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) claims superiority over 'classical topology optimisation'; the results define it as solid-void SIMP p = 3 (Iso-P3, Sec. 5, p. 9; Sec. 6, p. 17). The results also run SIMP p = 1 and p = 2, which match (p = 2) or beat (p = 1) PC-A (Figs. 12, 16, 19), but the article states that their intermediate densities lack physical meaning and uses them only as indications (p. 10), so they are not a stronger valid baseline hidden by the abstract; (b) is not established. No run time is reported for any method."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11): R3 concerns speed claims and is na. The efficiency gain of the ANN over direct homogenization is asserted (abstract; Sec. 2.1, 3.3) but never measured. For C3: the homogenization of 165, 330 and 1,327 samples (Sec. 3.1) and the ANN training are not costed; no break-even is given."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Figs. 12, 16 and 19: compliance comes from a Nastran FE analysis of the optimised designs, but of the homogenised model with ANN-predicted properties. The returned lattice CAD model, with radii averaged at strut junctions (p. 14), is not analysed in detail. The homogenization check covers uniform lattices only (Sec. 5.1, Table C1: strain-energy difference below 5% at 8 cells per dimension). Achieved volume fractions and failed runs are not reported. A stricter reading (lattice performance partly surrogate-predicted) gives fail."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 case studies: MBB beam (9 material cases at vf 0.5, Fig. 12; 5 cases over vf 0.3-0.9, Fig. 16), L-shaped beam (8 cases at vf 0.3, Fig. 19), cantilever torsion (3 lattice cases at vf 0.3, no SIMP case, Fig. 22)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code I-QUALITY confirmed. Primary-outcome judgment: the abstract compares with classical TO only qualitatively, so §5.1 rule 2 selects the conclusion's first quantitative comparison (MBB beam, vf 0.3, 30.6% lower compliance than SIMP p = 3), which matches the Fig. 16 sweep. Attribution caveat [inferred]: the ANN only replaces the homogenization lookup; the compliance gain comes from the lattice design space (intermediate densities with real lattice properties, plus anisotropy), and the ANN's own contribution is not isolated. Against SIMP with p = 2 the PC-A designs are about equal, and SIMP with p = 1 gives lower compliance than every lattice design (Figs. 12, 16, 19); the authors treat p = 1 and p = 2 as physically meaningless (p. 10). The Fig. 12 and Fig. 19 values were read from the printed bar and panel labels on the rendered pages. Internal inconsistencies: the Fig. 11-12 captions cite 'Table 3' for the case list, which is Table 2; the lattice is named PCBCC in most of the text and BCCPC in Fig. 12 and Sec. 5.2; the conclusion attributes the 30.6% to the MBB beam at vf 0.3, while Sec. 5.2 runs vf 0.5 and vf 0.3 appears only in the Fig. 16 sweep; relative density is described as total voxels divided by solid voxels (p. 7), the inverse of Eq. 2. Access: the listed open copy on ScienceDirect answered curl with HTTP 403 and a captcha page; no challenge was attempted, and the Spiral repository copy (listed by OpenAlex) was used. No code or data statement. Duplicate check: no other pool record or prefill of this study. No author named Jun Wang. Adjudication (2026-09-24): the second coder met the ScienceDirect block and coded abstract-only; the adjudicator read the Spiral copy in full and confirmed the first coding's figures (Figs. 12, 16, 19 on the rendered pages; Sec. 6, p. 17). Changes: R1 from pass to partial (loose matching, as in the stratum-Q records P00141 and P00148); R2 and R3 evidence rewritten for the §11 stratum-Q reading, with criterion (b) checked against the SIMP p = 1 and p = 2 results.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "access": {
+        "first": "full_text",
+        "second": "not_full_text",
+        "decision": "full_text",
+        "reason": "The first coder's route works: Spiral, Imperial College London's repository (hdl.handle.net/10044/1/92217), serves the typeset 19-page version of record with HTTP 200 and no challenge; the adjudicator read it in full. The second coder tried only ScienceDirect, which blocks scripts."
+      },
+      "stratum": {
+        "first": "quality",
+        "second": null,
+        "decision": "quality",
+        "reason": "The abstract (p. 1) compares with classical TO only qualitatively, so §5.1 rule 2 takes the conclusion's first quantitative comparison: PC-A compliance 30.6% below SIMP p = 3 at vf 0.3 (Sec. 6, p. 17; Fig. 16, p. 13). No time is reported anywhere, so the outcome compares design quality only."
+      },
+      "R1": {
+        "first": "pass",
+        "second": null,
+        "decision": "partial",
+        "reason": "R1 applies as written in stratum Q (§11) and no time is compared, so no fail marker holds; but convergence tolerances are unstated (Sec. 2.1, p. 4), achieved volumes are not reported and the lattice volume comes from the ANN density surrogate (Eqs. 3.3, 19), and the SIMP p = 3 grey regions are not post-processed (p. 11). Quality reported with loose matching is the §5.3 R1 partial case."
+      },
+      "R2": {
+        "first": "na",
+        "second": null,
+        "decision": "na",
+        "reason": "In stratum Q, R2 is na unless criterion (b) applies (§11). The abstract's 'classical topology optimisation' is the solid-void SIMP p = 3 of the results (Sec. 5, p. 9; Sec. 6, p. 17); the stronger-looking SIMP p = 1 and p = 2 runs are declared physically meaningless by the authors (p. 10), so (b) is not established."
+      },
+      "R3": {
+        "first": "na",
+        "second": null,
+        "decision": "na",
+        "reason": "R3 is na in stratum Q (§11); the ANN's efficiency gain over homogenization is only asserted (abstract; Sec. 2.1, 3.3), with no timing anywhere."
+      },
+      "R4": {
+        "first": "partial",
+        "second": null,
+        "decision": "partial",
+        "reason": "Compliance comes from a Nastran FE analysis of the homogenised model with ANN-predicted properties (Figs. 12, 16, 19); the returned CAD lattice with junction-averaged radii (p. 14) is not analysed, the homogenization check covers uniform lattices only (Table C1, p. 18), and volumes and failures are not reported: the §5.3 R4 partial case, as for the surrogate-property records P00149 and P00786."
+      }
+    }
+  }
+}

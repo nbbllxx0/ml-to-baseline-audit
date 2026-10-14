@@ -1,0 +1,67 @@
+﻿{
+  "pid": "P00029",
+  "citation": {
+    "title": "Accelerating metamaterial topology optimization using deep super-resolution networks",
+    "authors": "Ajendra Singh, Shubham Saurabh, Abhinav Gupta, Rajib Chowdhury",
+    "year": 2025,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2511.04795",
+    "arxiv_id": "2511.04795",
+    "version_coded": "arXiv v1 (6 Nov 2025)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-luna", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The trained EDSR predicts 192 × 192 metamaterial layouts from 48 × 48 SIMP layouts at 5–7% of the conventional same-resolution computational cost.",
+    "key_phrase": "",
+    "location": "Abstract",
+    "quantitative": true,
+    "claimed_speedup": 19.04,
+    "claimed_speedup_basis": "Abstract states 5–7% of conventional cost (about 14.3–20× speed-up). Table 1 gives a concrete case: 457 sec / 24 sec = 19.04×, including low-resolution generation and prediction (Section 4.1).",
+    "direction": "outperform",
+    "alternatives": "Abstract and conclusion also claim accurate reconstruction; the conclusion reports volume-fraction error below 2%, pixel error within 3%, objective-function error about 3%, and IoU above 0.90."
+  },
+  "baseline": {
+    "classical_method": "SIMP-based metamaterial topology optimization",
+    "implementation": "55-line Python/FEniCS topology-optimization code cited for data generation (Section 4); comparator implementation details not further stated",
+    "solver": "not stated",
+    "hardware_classical": "Intel Xeon 6230 CPU and NVIDIA Quadro P2200 GPU system; method-specific allocation not stated (Section 4)",
+    "hardware_ml": "Intel Xeon 6230 CPU and NVIDIA Quadro P2200 GPU (Section 4)",
+    "problem_size": "48 × 48 low-resolution input to 192 × 192 high-resolution prediction; comparison at 192 × 192 (Abstract; Section 4)",
+    "classical_iterations": "not stated",
+    "classical_time": "457 sec (bulk modulus, Table 1); other objective averages: 493 sec (shear modulus, Table 3), 365 sec (elastic modulus, Table 5), 386 sec (Poisson ratio, Table 7)",
+    "ml_time": "24 sec (bulk modulus, Table 1); other objective averages: 26 sec (shear modulus, Table 3), 26 sec (elastic modulus, Table 5), 24 sec (Poisson ratio, Table 7); includes low-resolution generation and prediction (Section 4.1)",
+    "training_time": "not stated; described as a one-time offline expenditure (Section 3)",
+    "data_generation_cost": "not stated; dataset generation described in Section 3.1",
+    "quality_metric": "Volume-fraction error, objective-function error, pixel MSE, and IoU (Sections 3.4 and 4; Tables 2, 4, 6, 8)",
+    "quality_gap": "Average errors are reported against high-resolution reference topologies, e.g. bulk-modulus case: 1.95% volume fraction, 3.03% objective function, 2.24% pixel MSE, IoU 0.92 (Table 2); not a matched-quality comparison to a converged classical run."
+  },
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-loose-match", "evidence": "Sections 3.4 and 4: prediction quality is assessed against high-resolution references, but the time comparison does not establish equal design quality or equal optimization budget; classical stopping details are unstated."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Section 4: both approaches are reported on the same CPU/GPU system; no inefficient solver, abstract-baseline discrepancy, or excess iterations are established."},
+    "R3": {"verdict": "fail", "marker": "R3-no-training-or-data-cost", "evidence": "Section 3 describes offline training and dataset preparation, but no training or data-generation costs are quantified and no break-even is given."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 3.4: predicted topologies are meshed and objective functions recomputed; volume error is reported, but infeasible or failed designs are not counted."}
+  },
+  "reporting": {
+    "n_test_cases": "150 held-out test samples per objective; four objectives are evaluated (Section 4).",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "The paper says held-out test samples are used but does not report an out-of-distribution test."
+}

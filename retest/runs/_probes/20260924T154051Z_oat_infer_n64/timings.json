@@ -1,0 +1,35 @@
+{
+ "config": {
+  "size": 64,
+  "k": 1,
+  "steps": 20,
+  "repeats": 2,
+  "compile": "not requested",
+  "seed": 20260924,
+  "problem_ids": [
+   15
+  ],
+  "torch": "2.11.0+cu128",
+  "device": "NVIDIA GeForce RTX 5090"
+ },
+ "results": [
+  {
+   "problem_id": 15,
+   "times_s": [
+    0.5208632000139914,
+    0.5401797000085935
+   ],
+   "median_s": 0.5305214500112925,
+   "mean_s": 0.5305214500112925,
+   "shape": [
+    64,
+    64
+   ],
+   "output_structure": "tuple/list/list",
+   "value_range": [
+    0.0,
+    1.0
+   ]
+  }
+ ]
+}

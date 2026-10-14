@@ -1,0 +1,88 @@
+{
+  "pid": "P00041",
+  "citation": {
+    "title": "Data-driven topology optimization for multiscale biomimetic spinodal design",
+    "authors": "Shiguang Deng, Doksoo Lee, Aaditya Chandrasekhar, Stefan Knapik, Liwei Wang, Horacio D. Espinosa, Wei Chen",
+    "year": 2026,
+    "venue": "Structural and Multidisciplinary Optimization 69, article 10 (2026); published online 12 Dec 2025; open access, CC BY 4.0",
+    "doi": "10.1007/s00158-025-04176-8",
+    "arxiv_id": "2506.23420",
+    "version_coded": "Version of record (Springer HTML, CC BY 4.0, read in full 2026-09-24), cross-checked against arXiv v2 (15 Oct 2025) PDF; no arXiv HTML exists (HTTP 404). Page locators refer to the arXiv v2 PDF; section, figure and table numbers are the same in both versions."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code kept at full text; the cost claim is qualitative and never measured, so inclusion is borderline)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The framework's Gaussian-process surrogate replaces repeated computational homogenization inside multiscale spinodoid TO, which the authors present as a cost and scalability advantage over homogenization-in-the-loop TO; no runtime of any method is reported.",
+    "key_phrase": "eliminating the need for repeated computational homogenization",
+    "location": "Abstract (qualitative); restated in Sec. 5 Conclusion, para. 2 (arXiv v2 p. 21) as the approach's primary strength. No quantitative comparison of this framework with a clearly classical method exists (see alternatives 1-2), so protocol 5.1 rule 3 applies.",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not derivable: no runtime, iteration time or cost is reported for any method (full text searched). Sec. 5 cites 'up to four orders of magnitude' cost reduction for constitutive surrogates versus FE2-type direct simulation from the authors' earlier works (Deng et al. 2024, 2022a, 2023; arXiv v2 refs [18], [61], [62]). That figure concerns other models and forward simulation, not this framework, so it is not entered.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 5, p. 21: the cited 'up to four orders of magnitude' figure; a literal reading of rule 5.1(2) would make it the primary outcome (quantitative, 10^4, speed stratum). (2) Abstract, Sec. 4.1 and Sec. 5 (quality): multiscale spinodoid designs beat a single-scale design of the tensile bar in compliance (Fig. 16(a); the single-scale value is not printed). The single-scale run appears to use the same neural, penalty-based optimizer, so it may not be a classical comparator [inferred from Fig. 16(b)-(c)]. (3) Sec. 4.1 (ML vs ML): monoclinic 4.85e3, orthotropic 7.67e3, isotropic 7.86e3 N·m. (4) Sec. 4.4: qualitative comparison with a classic solid prosthesis, no numbers."
+  },
+  "baseline": {
+    "classical_method": "Named but never run for the cost claim: repeated computational (FE) homogenization inside multiscale TO loops (Abstract; Sec. 1; Sec. 5). The only other comparator is a 'classic single-scale structural TO' of the tensile bar with the solid modulus penalized to its 70% value (Sec. 4.1, Fig. 15(b)); its optimizer is not stated.",
+    "implementation": "Not applicable to the cost claim (no homogenization-in-the-loop TO implemented). Framework: spinodoid reconstruction and data repository in MATLAB; NN-reparameterized TO in JAX (Sec. 4, p. 14). Single-scale run: not stated; Fig. 16 plots it on the same 100-iteration axis, with a decaying volume-violation history like the neural runs [inferred: same framework].",
+    "solver": "not stated (macroscale FE and RVE homogenization FE)",
+    "hardware_classical": "not applicable (no classical baseline timed); all numerical experiments ran on one 64-bit Linux workstation with 18 Intel Xeon W-2295 cores at 3.0 GHz and 256 GB RAM (Sec. 4, p. 14)",
+    "hardware_ml": "same workstation (Sec. 4, p. 14); no GPU mentioned",
+    "problem_size": "Tensile bar 80×20 quadrilateral elements; bending beam 40×20; multi-load domain 40×40; hip prosthesis 2,032 elements (Secs. 4.1-4.4). RVE homogenization mesh for the dataset not stated; the Fig. 5 example microstructures are 500×500 pixels.",
+    "classical_iterations": "not stated; Fig. 16 shows 100 optimization iterations for the single-scale and the three multiscale tensile-bar runs; Algorithm 1 stops 'until convergence' without a stated criterion",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated (three multi-response GPs fitted by maximum likelihood on 500 training samples each; Sec. 3.4)",
+    "data_generation_cost": "not stated; three datasets of 600 spinodoid samples each (500 train, 100 test), each reconstructed and FE-homogenized (Sec. 3.4, pp. 9-11)",
+    "quality_metric": "GP accuracy against FE homogenization: RRMSE on 100 test samples per spinodoid type (Fig. 13). Designs: compliance from the macroscale FE analysis with GP-predicted moduli, plus volume-fraction and violation histories (Figs. 16, 19).",
+    "quality_gap": "GP test RRMSE 8.05e-3 (isotropic), 2.59e-3 (monoclinic), 3.37e-3 (orthotropic) (Fig. 13 caption, p. 12). No design-level gap against a classical multiscale TO (none run). Tensile bar: all three multiscale designs have lower compliance than the single-scale design (Sec. 4.1, Fig. 16(a)); no single-scale value is printed."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 3.4, Fig. 13: the surrogate that carries the cost claim is checked against FE homogenization (test RRMSE 2.59e-3 to 8.05e-3), so some quality evidence exists. No speed comparison is run at all: no classical homogenization-in-the-loop TO, no timing, and no design-level matching. A stricter reading (speed claim with no design-quality comparison) gives fail, as in P00519."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-no-baseline-run",
+      "evidence": "No classical optimization baseline is implemented or timed for the cost claim, so markers (a)-(e) cannot apply. If the verifier moves the record to stratum Q via the single-scale comparison, R2 would be pass (unsure): that run's optimizer and solver are not stated and it used the same 100 iterations as the neural runs (Fig. 16)."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "The GPs are trained offline on 3 × 500 samples drawn from 1,800 reconstructed and FE-homogenized microstructures (Sec. 3.4; Algorithm 1 initialization). Neither the homogenization time nor the GP training time is reported, no break-even is given, and the claim is not limited to per-query use. The neural reparameterization itself is per-problem, but the offline GP makes R3 applicable."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-surrogate-predicted",
+      "evidence": "Design compliances (e.g. 4.85e3, 7.67e3, 7.86e3 N·m, Sec. 4.1) come from a real macroscale FE analysis but with GP-predicted effective moduli. The returned post-processed designs (interface interpolation and amplification, Sec. 3.2; Algorithm 1 postprocess) are never re-analysed; the smoothing effect was checked on four sample microstructures only (Table 1, RRMSE 0.0092-0.0370). Volume is a soft penalty constraint; its history is plotted for the tensile bar only (Fig. 16(b)-(c)) with no final values; no failure counts (e.g. loss of bi-continuity). A stricter reading gives fail."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 design problems: tensile bar (single-scale, three single-type multiscale runs and one free-type run), bending beam (2 runs), multi-load domain (2 load settings), hip prosthesis (Secs. 4.1-4.4); GP test sets of 100 samples per spinodoid type (Sec. 3.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; kept. Stratum is a judgment call with three options for the verifier. (a) Speed, as coded: the abstract's cost claim is the first qualitative comparison with a classical method, and Sec. 5 calls the reduced homogenization cost the approach's primary strength; it is never measured (compare P00519, coded the same way). (b) Quality: requires accepting the single-scale tensile-bar run as a classical comparator. Fig. 16(b)-(c) shows that run starting near volume fraction 0.9 with a volume violation near 0.6 that decays, which fits the neural penalty scheme of Eq. (35) rather than an OC or MMA update [inferred from the plots]; the authors attribute the gain to the larger multiscale design space. (c) Exclude as FT-NOCOMPARISON if an unmeasured cost claim is not accepted as a comparison. Inconsistency: Sec. 4.1 prints J^mon = 4.85e3, J^ort = 7.67e3 and J^iso = 7.86e3 N·m, but the Fig. 16(a) curves plateau at about 1.2e5 to 2.4e5 on a 0 to 1.0E+06 axis [read from the plot]. The arXiv v2 PDF text layer drops exponents (it renders 4.85e3 as 4.853), so values were read from the rendered page and the version-of-record HTML. The version of record matches arXiv v2 in the passages used here. Reporting locators: cases = Sec. 4; hardware = Sec. 4, p. 14 (one workstation for all runs; no timings anywhere); code: none, the Replication statement says results should be reproducible from the described methods; data: the statement says all data are in the paper, but the 1,800-sample repository is only plotted (Figs. 11-12), not released. retest_candidate false: no code and no timed classical benchmark."
+}

@@ -1,0 +1,131 @@
+{
+  "pid": "P01813",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Diffusion-based cGAN framework for automated optimization and code-compliant generative design of thin-walled structures",
+    "authors": "Chamod Fernando, Sumudu Herath, Lowhikan Sivanantha Sarma",
+    "year": 2026,
+    "venue": "Thin-Walled Structures 231 (2026) 115420 (Elsevier; special issue 'AI-Assisted Thin-Walled Structure Design'; received 15 May 2026, available online 24 July 2026; open access under CC BY 4.0 per the article and Crossref)",
+    "doi": "10.1016/j.tws.2026.115420",
+    "arxiv_id": "none found",
+    "version_coded": "Version of record: the publisher PDF (20 pp., CC BY) deposited in the University of Cambridge Apollo repository (handle 1810/406695; the location OpenAlex lists), read in full as text; Tables 1-2 and Fig. 9 checked on the rendered pages. The adjudicator re-read the same Apollo PDF (20 pp.) in full as text on 2026-09-24"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; the abstract's only quantitative classical comparison is image similarity (SSIM, Dice) to the conventional-pipeline reference layouts, §5.1 rule 1, as in P00208; the 40,000x speed claim of Sec. 4.4 is the main alternative)",
+    "stratum": "quality",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Generated 512×512 frame layouts reproduce the reference layouts of the conventional TopOpt-plus-sizing pipeline with SSIM up to 0.956 and Dice up to 0.985 (simply supported: SSIM 0.917-0.956; cantilevered: 0.841-0.93), shown for representative test examples.",
+    "key_phrase": "(SSIM) up to 0.956 and a Dice coefficient up to 0.985",
+    "location": "Abstract (the only quantitative comparison with the classical pipeline's output; its speed statement is qualitative); numbers in Sec. 4.3, Table 1 and Fig. 13; repeated in Sec. 5 (Conclusions)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable to the quality-stratum primary outcome. Alternative (Sec. 4.4, Table 2): the text claims an average speed-up of over 40,000x against the Sarma et al. pipeline (94.8-1089.1 s vs 0.011-0.022 s per case). From the 12 printed cases, per-case ratios are 7,900-55,692, mean 26,430, median 21,982; ratio of mean times 26,967 [all derived], so the 40,000x figure is not reproduced by Table 2. Dataset generation and training are excluded by the authors (Sec. 4.4).",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 4.4, Table 2 (speed): conventional pipeline of Sarma et al. [1] 94.8-1089.1 s vs diffusion-based cGAN 0.011-0.022 s on 6 simply supported and 6 cantilevered test cases; the text claims 'four to five orders of magnitude' and an average of over 40,000x; stratum speed if chosen (would-be verdicts in notes). (2) Abstract and Sec. 5, qualitative: notable reduction in online inference time relative to the conventional iterative pipeline. (3) Table 3 (ML-only): ACC 0.963, TPR 0.918, TNR 0.976 vs four CNN/FFNN models of ref. [47] on the simply supported case. (4) Sec. 4.6, Tables 6-8: two representative generated designs pass EN 1993-1-1 checks after section identification (max utilization 0.627 and 0.976; max displacement 3.433 and 10.320 mm vs limits 15.000 and 13.333 mm); no comparison with the reference designs."
+  },
+  "baseline": {
+    "classical_method": "Conventional pipeline of Sarma et al. 2024 (ref. [1], Computers & Structures 302:107474): SIMP-based TopOpt compliance minimization (penalty 3, density filter, volume constraint), Zhang-Suen skeletonization, frame extraction and pruning, size and layout optimization with SLSQP over the EN 1993-1-1 CHS catalogue, and code checks (Sec. 3.1-3.3). It generates the training data and is the timed comparator in Table 2",
+    "implementation": "not stated in this article (TopOpt 'algorithm' [12] inside the authors' pipeline of ref. [1]); language, code and settings such as mesh, volume fraction and filter radius not stated",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "NVIDIA Quadro RTX 5000 GPU, PyTorch 2.4.0, CUDA 12.4 (Sec. 2.3, 4.2)",
+    "problem_size": "2D frames: span 1.5-5 m (simply supported) or 1-4 m (cantilevered), height 0.5-2 m, point load 5-200 kN (Fig. 9); layouts rendered at 512×512 pixels; TopOpt mesh resolution not stated",
+    "classical_iterations": "not stated",
+    "classical_time": "94.8-1089.1 s per case: simply supported 711.5, 724.0, 408.21, 219.2, 423.1, 521.6 s; cantilevered 222.76, 140.7, 94.8, 1089.1, 298.4, 405.1 s (Table 2)",
+    "ml_time": "0.011-0.022 s per layout (Table 2); whether image-to-section identification is included is not stated [the column is labelled 'Diffusion-based cGAN (s)'; inferred to be generator inference only]",
+    "training_time": "not stated; reported only as 100 epochs (simply supported) and 300 epochs (cantilevered), batch 16, on the Quadro RTX 5000 (Sec. 2.3, 4.2)",
+    "data_generation_cost": "not stated; 1805 simply supported and 1708 cantilevered layouts from the conventional pipeline (Sec. 3.4) [inferred ≈429 h at the Table 2 mean times of 501.27 s and 375.14 s per case, excluding rejected candidates]",
+    "quality_metric": "SSIM, PSNR, IoU and Dice between generated and reference images (Sec. 4.1, 4.3; Table 1; Fig. 13); ACC/TPR/TNR against ML baselines (Table 3); equivalent-diameter error in pixels for section identification (Tables 4-5); frame re-analysis of two generated designs against EN 1993-1-1 limits (Tables 6-8)",
+    "quality_gap": "Table 1: simply supported (a) SSIM 0.917, PSNR 17.1 dB, IoU 0.926, Dice 0.962; (b) 0.937, 18.7, 0.953, 0.976; cantilevered (c) 0.920, 17.3, 0.935, 0.966; (d) 0.841, 12.5, 0.887, 0.940. Text ranges over the Fig. 13 examples: simply supported SSIM 0.917-0.956, Dice 0.962-0.985, IoU 0.926-0.970; cantilevered SSIM 0.841-0.93, PSNR 12.5-17.4 dB, IoU 0.867-0.94, Dice 0.928-0.970 (Sec. 4.3). No compliance, mass or utilization difference between generated and reference designs is reported"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.3, Table 1, Fig. 13: generated and reference layouts share the input parameters (F, S, H), so the comparison is matched by construction, but quality is only image similarity on representative examples. No structural performance (compliance, mass, utilization) of the generated designs is compared with that of the reference designs; the two designs re-analysed in Sec. 4.6 are checked against code limits only."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "The primary outcome is image similarity to the reference layouts, so the efficiency criteria (a)-(e) do not bear on it. For the Table 2 speed alternative, R2 would be partial (the hardware and implementation of the conventional pipeline are not stated); see notes. Under the §11 stratum-Q rule (2026-09-24) only criterion (b) could apply: the abstract (p. 1) gives no baseline figures and names the same conventional iterative pipeline that Table 2 (p. 14) times, so (b) is not observed."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-stratum",
+      "evidence": "Quality stratum. For C3: the authors state that the Table 2 times exclude dataset generation, hyperparameter tuning and training (Sec. 4.4) and limit the speed claim to online inference; training is reported only in epochs; the 3513 layouts (split into training, validation and test sets) come from the conventional pipeline (Sec. 3.4) [inferred ≈429 h at the Table 2 mean times]."
+    },
+    "R4": {
+      "verdict": "fail",
+      "marker": "R4-image-metric",
+      "evidence": "Sec. 4.3, Table 1, Fig. 13: the quality result rests only on image-similarity metrics (SSIM, PSNR, IoU, Dice) for representative examples; no selection rule and no test-set average are given. The frame re-analysis in Sec. 4.6 (Tables 6-8) covers two representative generated designs, checks code limits rather than the reference designs, and reports no failure rate. Table 3 gives pixel metrics against ML baselines only."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Similarity: representative examples only (Table 1: 2 simply supported + 2 cantilevered; more in Fig. 13); timing: 6 simply supported + 6 cantilevered test cases (Table 2); ML comparison: simply supported set of unstated size (Table 3); section identification and structural validation: 1 + 1 designs (Tables 4-8). Datasets: 1805 + 1708 layouts split into training, validation and test sets of unstated size (Sec. 3.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED. Stratum judgment, the main open point for the verifier: under §5.1 rule 1 the abstract's only quantitative comparison with the classical pipeline's output is the SSIM/Dice similarity, and the precedents P00375, P00165 and P00208 treat accuracy against classical reference designs as the primary outcome, giving stratum Q. If the verifier does not count similarity to reference designs as a comparison with a classical method, rule 2 leads to Table 2 (Sec. 4.4) and stratum speed. Would-be speed-stratum coding: primary outcome = conventional pipeline 94.8-1089.1 s vs cGAN 0.011-0.022 s per case, claimed average over 40,000x (Sec. 4.4) [derived mean of per-case ratios 26,430]. R1 fail (R1-unmatched): generated layouts differ measurably from the references (SSIM down to 0.841, Table 1), no structural-performance matching is attempted, and the image-to-section identification needed for a code-compliant design is apparently not in the 0.011-0.022 s [inferred], while the classical time includes sizing. R2 partial (hardware and implementation of the conventional pipeline not stated; (c) cannot be judged because the TopOpt mesh size is not given). R3 fail (R3-no-cost): the claim is explicitly limited to online inference (Sec. 4.4), but neither data-generation nor training time is reported; a verifier who credits the explicit per-query framing may choose partial. R4 fail as coded. Internal inconsistencies: the stated average speed-up of over 40,000x is not reproduced by Table 2 (mean of ratios 26,430; ratio of mean times 26,967 [derived]); Sec. 4.4 calls the comparator 'conventional SIMP', although the timed pipeline also includes skeletonization and SLSQP sizing (Sec. 3); Sec. 3.4 says, without explanation, that the datasets were selected based on convergence during training. Related pool records, not coded: P01605 (MERCon 2025, Fernando & Herath) and P01832 (CERS 2025, Fernando & Herath) are earlier conference papers on the same diffusion-based cGAN for 2D CHS skeletal frames; their pool abstracts claim about 50,000x. This open-access journal article is the most complete version, so it is the primary record; if the verifier treats the conference papers as versions of this study, they are the FT-DUPLICATE candidates. P00364 (Sarma, Mallikarachchi & Herath) is the source of the conventional pipeline (ref. [1]). Reporting locators: hardware Sec. 2.3 and 4.2 (ML only); timing Table 2 without warm-up, repeats or classical hardware; data availability statement: data on request; no code statement. retest_candidate false: no public code. No author named Jun Wang. Decision order positions: P01813 143, P01605 48, P01832 509 (audit/screening/pilot_final_order.csv); the conference papers carry different titles and venues, so the adjudicator did not treat them as the same version (duplicate tie-break of PROTOCOL §11 not applied; decision not disputed).",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "stratum": {
+        "first": "quality",
+        "second": "speed",
+        "decision": "quality",
+        "reason": "The abstract (p. 1) states speed only qualitatively but reports SSIM up to 0.956 and Dice up to 0.985 against the conventional pipeline's reference layouts (Sec. 4.3, Table 1, p. 11). §5.1 rule 1 makes that quantitative design-quality comparison primary, as for P00165 and P00375; the 40,000x of Sec. 4.4 (p. 13) is the main alternative."
+      },
+      "claimed_speedup": {
+        "first": null,
+        "second": 40000,
+        "decision": null,
+        "reason": "The quality-stratum primary outcome carries no speed factor, as decided for P00051. The stated 40,000x (Sec. 4.4, p. 13) stays in claimed_speedup_basis, which notes that Table 2 (p. 14) gives a mean per-case ratio of 26,430 [derived]."
+      },
+      "R1": {
+        "first": "partial",
+        "second": "fail",
+        "decision": "partial",
+        "reason": "The second coder's fail rests on the Table 2 speed alternative (p. 14), which is not the primary outcome (as for P00051). For the primary similarity comparison, generated and reference layouts share F, S and H (Table 1, p. 11), but agreement is image-level only, with no compliance or mass comparison: the §5.3 R1 partial case."
+      },
+      "R2": {
+        "first": "na",
+        "second": "partial",
+        "decision": "na",
+        "reason": "Stratum Q (§11): R2 applies only through criterion (b). The abstract (p. 1) gives no baseline figure and names the same conventional iterative pipeline that Table 2 (p. 14) times, so (b) is not observed."
+      },
+      "R3": {
+        "first": "na",
+        "second": "pass",
+        "decision": "na",
+        "reason": "Stratum Q (§11): R3 concerns speed claims and is na. For C3, Sec. 4.4 (p. 13) limits the speed claim to online inference, and no data-generation or training time is reported."
+      },
+      "R4": {
+        "first": "fail",
+        "second": "partial",
+        "decision": "fail",
+        "reason": "The primary outcome's quality is image similarity alone (SSIM, PSNR, IoU, Dice; Sec. 4.3, Table 1, pp. 11-13). The FE frame re-analysis covers two designs 'selected to illustrate' the workflow (Sec. 4.5, p. 15), checks code limits instead of comparing with the references (Table 6, p. 16), and counts no failures: the §5.3 R4 fail case."
+      }
+    }
+  }
+}

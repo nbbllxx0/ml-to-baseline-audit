@@ -1,0 +1,44 @@
+{
+  "pid": "P02128",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Generative Lattice Units with 3D Diffusion for Inverse Design: GLU3D",
+    "authors": "Yayati Jadhav, Joeseph Berthel, Chunshan Hu, Rahul P. Panat, Jack Beuth, Amir Barati Farimani",
+    "year": 2024,
+    "venue": "Advanced Functional Materials 34(41) (2024) 2404165 (Wiley; published online 2024-06-06, issue dated October 2024, per Crossref); hybrid open access, CC BY-NC 4.0, per Crossref, OpenAlex and Semantic Scholar",
+    "doi": "10.1002/adfm.202404165",
+    "arxiv_id": "",
+    "version_coded": "none: only the abstract was read (pool record from OpenAlex). The version of record could not be retrieved by script"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "diffusion_flow",
+    "physics": "metamaterial_homogenization",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no accessible full text). Abstract: a 3D diffusion model generates lattice unit cells for target stiffness, said to speed up design and to beat simple-cubic and BCC cells in energy absorption and compression load at lower density.",
+    "location": "Abstract (the only text read)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent and no personal data: (1) the Wiley PDF (advanced.onlinelibrary.wiley.com/doi/pdfdirect/...) and full-text pages (onlinelibrary.wiley.com/doi/full/...) answered curl with HTTP 403 and a JavaScript and cookie challenge ('Just a moment...'); WebFetch received HTTP 403. No challenge was attempted. (2) OpenAlex (hybrid OA, CC BY-NC, publisher version only, any_repository_has_fulltext false) and Semantic Scholar (open PDF = the DOI, HYBRID, CCBYNC) list no other copy. (3) arXiv API: no preprint for 'GLU3D', 'Generative Lattice Units', the author Yayati Jadhav, or Jadhav with Farimani. (4) Europe PMC: no record. (5) A web search found only the Wiley page, aggregator listings and a third-party upload on Scribd, which was not used (not a legal open copy). Free to read in a browser: yes, per OpenAlex and Semantic Scholar (CC BY-NC hybrid open access), so a human verifier can open it on Wiley. Pointers from the abstract for the verifier: the stated comparators are standard unit cells (simple cubic and body-centred cubic), not a classical optimizer, and the design-speed claim is qualitative (FE simulation and expert input described as costly). At full text, check for a TO or homogenization-based optimization comparator; without one, FT-NOBASELINE (no classical optimizer run, timed or cited) or FT-SCOPE (§3.1 admits architected-material inverse design only with a TO or homogenization comparator) would apply. Code: the public repository github.com/BaratiLab/GLU3D-Generative-Lattice-Units-with-3D-Diffusion exists (GitHub API 2026-09-24: created 2023-10-31, last push 2024-07-31, no licence declared); it was found by web search, not from the article. Duplicate check: no other pool record or prefill of this study (P02135 by the same first author is a different study). No author named Jun Wang. Screening code was I-UNCLEAR."
+}

@@ -1,0 +1,477 @@
+{
+ "256_gpu": {
+  "size": 256,
+  "solver": "gpu",
+  "ttq_run": "retest/runs/20260924T160806Z_ttq_gpu_n256",
+  "eval": "evidence/oat_eval_n256.json",
+  "n_problems": 5,
+  "oat_inference_median_s": 0.533164399996167,
+  "per_problem": [
+   {
+    "problem_id": 1015,
+    "CE_OAT_pct": -7.4165313904242165,
+    "vf_OAT": 0.3772125244140625,
+    "vf_target": 0.3799999952316284,
+    "vf_cap": 0.3799999952316284,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 10.828003070893079
+    },
+    "CE_ours_150_pct": -8.191508003980426,
+    "wall_150_incl_setup_s": 3.802880500035826,
+    "primary_ce_and_volume": {
+     "matched": false,
+     "matched_iters": null,
+     "matched_wall_incl_setup_s": null,
+     "matched_loop_s": null
+    },
+    "preregistered_ce_only": {
+     "matched": true,
+     "matched_iters": 5,
+     "matched_wall_incl_setup_s": 0.26346960000228137,
+     "matched_loop_s": 0.13604180002585053
+    }
+   },
+   {
+    "problem_id": 1676,
+    "CE_OAT_pct": 0.2847567936554424,
+    "vf_OAT": 0.3052825927734375,
+    "vf_target": 0.30000001192092896,
+    "vf_cap": 0.3052825927734375,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 2.322770079036486
+    },
+    "CE_ours_150_pct": 0.47216139152529807,
+    "wall_150_incl_setup_s": 11.296072500001173,
+    "primary_ce_and_volume": {
+     "matched": false,
+     "matched_iters": null,
+     "matched_wall_incl_setup_s": null,
+     "matched_loop_s": null
+    },
+    "preregistered_ce_only": {
+     "matched": false,
+     "matched_iters": null,
+     "matched_wall_incl_setup_s": null,
+     "matched_loop_s": null
+    }
+   },
+   {
+    "problem_id": 1839,
+    "CE_OAT_pct": 4.497904062084774,
+    "vf_OAT": 0.3177642822265625,
+    "vf_target": 0.3199999928474426,
+    "vf_cap": 0.3199999928474426,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 4.105166097498522
+    },
+    "CE_ours_150_pct": 2.0148762494228145,
+    "wall_150_incl_setup_s": 14.629777599999215,
+    "primary_ce_and_volume": {
+     "matched": true,
+     "matched_iters": 20,
+     "matched_wall_incl_setup_s": 1.8362725999904796,
+     "matched_loop_s": 1.701650100236293
+    },
+    "preregistered_ce_only": {
+     "matched": true,
+     "matched_iters": 20,
+     "matched_wall_incl_setup_s": 1.8362725999904796,
+     "matched_loop_s": 1.701650100236293
+    }
+   },
+   {
+    "problem_id": 1935,
+    "CE_OAT_pct": -0.3108747024695346,
+    "vf_OAT": 0.300079345703125,
+    "vf_target": 0.30000001192092896,
+    "vf_cap": 0.300079345703125,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": -0.1972807038241783
+    },
+    "CE_ours_150_pct": -0.3570893217224124,
+    "wall_150_incl_setup_s": 3.275692399998661,
+    "primary_ce_and_volume": {
+     "matched": true,
+     "matched_iters": 40,
+     "matched_wall_incl_setup_s": 1.0655961000011303,
+     "matched_loop_s": 0.9206992002436891
+    },
+    "preregistered_ce_only": {
+     "matched": true,
+     "matched_iters": 5,
+     "matched_wall_incl_setup_s": 0.29701580002438277,
+     "matched_loop_s": 0.1685592999565415
+    }
+   },
+   {
+    "problem_id": 1961,
+    "CE_OAT_pct": 3.760366347825798,
+    "vf_OAT": 0.4355316162109375,
+    "vf_target": 0.4399999976158142,
+    "vf_cap": 0.4399999976158142,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 1.4245374139945042
+    },
+    "CE_ours_150_pct": 0.6738423892276934,
+    "wall_150_incl_setup_s": 9.800018300011288,
+    "primary_ce_and_volume": {
+     "matched": true,
+     "matched_iters": 15,
+     "matched_wall_incl_setup_s": 0.8953273000079207,
+     "matched_loop_s": 0.7414744999841787
+    },
+    "preregistered_ce_only": {
+     "matched": true,
+     "matched_iters": 15,
+     "matched_wall_incl_setup_s": 0.8953273000079207,
+     "matched_loop_s": 0.7414744999841787
+    }
+   }
+  ],
+  "rules": {
+   "primary_ce_and_volume": {
+    "n_matched": 3,
+    "matched_time_median_s": 1.0655961000011303,
+    "median_note": "median over the 3 matched problems only",
+    "ratio_ours_over_oat_sorted": [
+     1.7150444638442328,
+     2.1051982645228993,
+     3.444102044329443,
+     null,
+     null
+    ],
+    "ratio_median_censored": 3.444102044329443,
+    "ratio_note": "unmatched problems ranked as slowest (None in the sorted list); median undefined (null) if it falls on an unmatched problem"
+   },
+   "preregistered_ce_only": {
+    "n_matched": 4,
+    "matched_time_median_s": 0.5961715500161517,
+    "median_note": "median over the 4 matched problems only",
+    "ratio_ours_over_oat_sorted": [
+     0.4800960375853846,
+     0.5867862567689089,
+     1.7150444638442328,
+     3.444102044329443,
+     null
+    ],
+    "ratio_median_censored": 1.7150444638442328,
+    "ratio_note": "unmatched problems ranked as slowest (None in the sorted list); median undefined (null) if it falls on an unmatched problem"
+   }
+  },
+  "breakeven_inputs": [
+   {
+    "scenario": "same machine, matched quality (primary, censored median ratio)",
+    "size": 256,
+    "C_SIMP_label": "ours gpu: median ratio 3.444 x OAT time (3/5 matched)",
+    "C_SIMP_s": 1.8362725999904796,
+    "C_inf_label": "OAT inference, no Ref (median of 5)",
+    "C_inf_s": 0.533164399996167,
+    "hardware": "RTX 5090 / i5-14600KF (this study)"
+   },
+   {
+    "scenario": "same machine, matched quality (primary, matched problems only)",
+    "size": 256,
+    "C_SIMP_label": "ours gpu, median over 3/5 matched problems",
+    "C_SIMP_s": 1.0655961000011303,
+    "C_inf_label": "OAT inference, no Ref (median of 5)",
+    "C_inf_s": 0.533164399996167,
+    "hardware": "RTX 5090 / i5-14600KF (this study)"
+   },
+   {
+    "scenario": "same machine, matched quality (pre-registered rule, censored median ratio)",
+    "size": 256,
+    "C_SIMP_label": "ours gpu: median ratio 1.715 x OAT time (4/5 matched)",
+    "C_SIMP_s": 0.9144006525322584,
+    "C_inf_label": "OAT inference, no Ref (median of 5)",
+    "C_inf_s": 0.533164399996167,
+    "hardware": "RTX 5090 / i5-14600KF (this study)"
+   },
+   {
+    "scenario": "same machine, matched quality (pre-registered rule, matched problems only)",
+    "size": 256,
+    "C_SIMP_label": "ours gpu, median over 4/5 matched problems",
+    "C_SIMP_s": 0.5961715500161517,
+    "C_inf_label": "OAT inference, no Ref (median of 5)",
+    "C_inf_s": 0.533164399996167,
+    "hardware": "RTX 5090 / i5-14600KF (this study)"
+   }
+  ]
+ },
+ "64_gpu": {
+  "size": 64,
+  "solver": "gpu",
+  "ttq_run": "retest/runs/20260924T161037Z_ttq_gpu_n64",
+  "eval": "evidence/oat_eval_n64.json",
+  "n_problems": 5,
+  "oat_inference_median_s": 0.5205807499878574,
+  "per_problem": [
+   {
+    "problem_id": 15,
+    "CE_OAT_pct": 20.21712934086893,
+    "vf_OAT": 0.30078125,
+    "vf_target": 0.30000001192092896,
+    "vf_cap": 0.30078125,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 3.216331536235881,
+     "OAT-SIMP[SPSOLVE_OC]": 3.182334755831431
+    },
+    "CE_ours_150_pct": 3.054997819240883,
+    "wall_150_incl_setup_s": 2.119212699995842,
+    "primary_ce_and_volume": {
+     "matched": true,
+     "matched_iters": 15,
+     "matched_wall_incl_setup_s": 0.32031440001446754,
+     "matched_loop_s": 0.21783960005268455
+    },
+    "preregistered_ce_only": {
+     "matched": true,
+     "matched_iters": 15,
+     "matched_wall_incl_setup_s": 0.32031440001446754,
+     "matched_loop_s": 0.21783960005268455
+    }
+   },
+   {
+    "problem_id": 676,
+    "CE_OAT_pct": -0.019806169414207167,
+    "vf_OAT": 0.461181640625,
+    "vf_target": 0.46000000834465027,
+    "vf_cap": 0.461181640625,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 0.2549069454714566,
+     "OAT-SIMP[SPSOLVE_OC]": 0.2600060112818544
+    },
+    "CE_ours_150_pct": -0.004161784445646152,
+    "wall_150_incl_setup_s": 1.5526149999932386,
+    "primary_ce_and_volume": {
+     "matched": false,
+     "matched_iters": null,
+     "matched_wall_incl_setup_s": null,
+     "matched_loop_s": null
+    },
+    "preregistered_ce_only": {
+     "matched": false,
+     "matched_iters": null,
+     "matched_wall_incl_setup_s": null,
+     "matched_loop_s": null
+    }
+   },
+   {
+    "problem_id": 839,
+    "CE_OAT_pct": 0.16140998632180986,
+    "vf_OAT": 0.455078125,
+    "vf_target": 0.46000000834465027,
+    "vf_cap": 0.46000000834465027,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 0.015035945577284592,
+     "OAT-SIMP[SPSOLVE_OC]": 0.011849765223667713
+    },
+    "CE_ours_150_pct": -0.009454751475716578,
+    "wall_150_incl_setup_s": 1.900842500035651,
+    "primary_ce_and_volume": {
+     "matched": true,
+     "matched_iters": 5,
+     "matched_wall_incl_setup_s": 0.16698419995373115,
+     "matched_loop_s": 0.0702070000115782
+    },
+    "preregistered_ce_only": {
+     "matched": true,
+     "matched_iters": 5,
+     "matched_wall_incl_setup_s": 0.16698419995373115,
+     "matched_loop_s": 0.0702070000115782
+    }
+   },
+   {
+    "problem_id": 935,
+    "CE_OAT_pct": 0.5703038755946044,
+    "vf_OAT": 0.43359375,
+    "vf_target": 0.4399999976158142,
+    "vf_cap": 0.4399999976158142,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 0.030763861155236653,
+     "OAT-SIMP[SPSOLVE_OC]": 0.032901187858051587
+    },
+    "CE_ours_150_pct": 0.044264955502442124,
+    "wall_150_incl_setup_s": 1.6074439999647439,
+    "primary_ce_and_volume": {
+     "matched": true,
+     "matched_iters": 10,
+     "matched_wall_incl_setup_s": 0.22029669996118173,
+     "matched_loop_s": 0.11945739988004789
+    },
+    "preregistered_ce_only": {
+     "matched": true,
+     "matched_iters": 10,
+     "matched_wall_incl_setup_s": 0.22029669996118173,
+     "matched_loop_s": 0.11945739988004789
+    }
+   },
+   {
+    "problem_id": 961,
+    "CE_OAT_pct": 2.163383031815614,
+    "vf_OAT": 0.31982421875,
+    "vf_target": 0.3199999928474426,
+    "vf_cap": 0.3199999928474426,
+    "CE_OAT_SIMP_pct": {
+     "OAT-SIMP[CG_OC]": 2.208499912290057,
+     "OAT-SIMP[SPSOLVE_OC]": 2.24536114980541
+    },
+    "CE_ours_150_pct": 2.704250560949597,
+    "wall_150_incl_setup_s": 3.426370000001043,
+    "primary_ce_and_volume": {
+     "matched": false,
+     "matched_iters": null,
+     "matched_wall_incl_setup_s": null,
+     "matched_loop_s": null
+    },
+    "preregistered_ce_only": {
+     "matched": false,
+     "matched_iters": null,
+     "matched_wall_incl_setup_s": null,
+     "matched_loop_s": null
+    }
+   }
+  ],
+  "rules": {
+   "primary_ce_and_volume": {
+    "n_matched": 3,
+    "matched_time_median_s": 0.22029669996118173,
+    "median_note": "median over the 3 matched problems only",
+    "ratio_ours_over_oat_sorted": [
+     0.3207652222208103,
+     0.4270590447068304,
+     0.6237743545670826,
+     null,
+     null
+    ],
+    "ratio_median_censored": 0.6237743545670826,
+    "ratio_note": "unmatched problems ranked as slowest (None in the sorted list); median undefined (null) if it falls on an unmatched problem"
+   },
+   "preregistered_ce_only": {
+    "n_matched": 3,
+    "matched_time_median_s": 0.22029669996118173,
+    "median_note": "median over the 3 matched problems only",
+    "ratio_ours_over_oat_sorted": [
+     0.3207652222208103,
+     0.4270590447068304,
+     0.6237743545670826,
+     null,
+     null
+    ],
+    "ratio_median_censored": 0.6237743545670826,
+    "ratio_note": "unmatched problems ranked as slowest (None in the sorted list); median undefined (null) if it falls on an unmatched problem"
+   }
+  },
+  "breakeven_inputs": [
+   {
+    "scenario": "same machine, matched quality (primary, censored median ratio)",
+    "size": 64,
+    "C_SIMP_label": "ours gpu: median ratio 0.624 x OAT time (3/5 matched)",
+    "C_SIMP_s": 0.32472492132372355,
+    "C_inf_label": "OAT inference, no Ref (median of 5)",
+    "C_inf_s": 0.5205807499878574,
+    "hardware": "RTX 5090 / i5-14600KF (this study)"
+   },
+   {
+    "scenario": "same machine, matched quality (primary, matched problems only)",
+    "size": 64,
+    "C_SIMP_label": "ours gpu, median over 3/5 matched problems",
+    "C_SIMP_s": 0.22029669996118173,
+    "C_inf_label": "OAT inference, no Ref (median of 5)",
+    "C_inf_s": 0.5205807499878574,
+    "hardware": "RTX 5090 / i5-14600KF (this study)"
+   },
+   {
+    "scenario": "same machine, matched quality (pre-registered rule, censored median ratio)",
+    "size": 64,
+    "C_SIMP_label": "ours gpu: median ratio 0.624 x OAT time (3/5 matched)",
+    "C_SIMP_s": 0.32472492132372355,
+    "C_inf_label": "OAT inference, no Ref (median of 5)",
+    "C_inf_s": 0.5205807499878574,
+    "hardware": "RTX 5090 / i5-14600KF (this study)"
+   },
+   {
+    "scenario": "same machine, matched quality (pre-registered rule, matched problems only)",
+    "size": 64,
+    "C_SIMP_label": "ours gpu, median over 3/5 matched problems",
+    "C_SIMP_s": 0.22029669996118173,
+    "C_inf_label": "OAT inference, no Ref (median of 5)",
+    "C_inf_s": 0.5205807499878574,
+    "hardware": "RTX 5090 / i5-14600KF (this study)"
+   }
+  ]
+ },
+ "breakeven_inputs": [
+  {
+   "scenario": "same machine, matched quality (primary, censored median ratio)",
+   "size": 256,
+   "C_SIMP_label": "ours gpu: median ratio 3.444 x OAT time (3/5 matched)",
+   "C_SIMP_s": 1.8362725999904796,
+   "C_inf_label": "OAT inference, no Ref (median of 5)",
+   "C_inf_s": 0.533164399996167,
+   "hardware": "RTX 5090 / i5-14600KF (this study)"
+  },
+  {
+   "scenario": "same machine, matched quality (primary, matched problems only)",
+   "size": 256,
+   "C_SIMP_label": "ours gpu, median over 3/5 matched problems",
+   "C_SIMP_s": 1.0655961000011303,
+   "C_inf_label": "OAT inference, no Ref (median of 5)",
+   "C_inf_s": 0.533164399996167,
+   "hardware": "RTX 5090 / i5-14600KF (this study)"
+  },
+  {
+   "scenario": "same machine, matched quality (pre-registered rule, censored median ratio)",
+   "size": 256,
+   "C_SIMP_label": "ours gpu: median ratio 1.715 x OAT time (4/5 matched)",
+   "C_SIMP_s": 0.9144006525322584,
+   "C_inf_label": "OAT inference, no Ref (median of 5)",
+   "C_inf_s": 0.533164399996167,
+   "hardware": "RTX 5090 / i5-14600KF (this study)"
+  },
+  {
+   "scenario": "same machine, matched quality (pre-registered rule, matched problems only)",
+   "size": 256,
+   "C_SIMP_label": "ours gpu, median over 4/5 matched problems",
+   "C_SIMP_s": 0.5961715500161517,
+   "C_inf_label": "OAT inference, no Ref (median of 5)",
+   "C_inf_s": 0.533164399996167,
+   "hardware": "RTX 5090 / i5-14600KF (this study)"
+  },
+  {
+   "scenario": "same machine, matched quality (primary, censored median ratio)",
+   "size": 64,
+   "C_SIMP_label": "ours gpu: median ratio 0.624 x OAT time (3/5 matched)",
+   "C_SIMP_s": 0.32472492132372355,
+   "C_inf_label": "OAT inference, no Ref (median of 5)",
+   "C_inf_s": 0.5205807499878574,
+   "hardware": "RTX 5090 / i5-14600KF (this study)"
+  },
+  {
+   "scenario": "same machine, matched quality (primary, matched problems only)",
+   "size": 64,
+   "C_SIMP_label": "ours gpu, median over 3/5 matched problems",
+   "C_SIMP_s": 0.22029669996118173,
+   "C_inf_label": "OAT inference, no Ref (median of 5)",
+   "C_inf_s": 0.5205807499878574,
+   "hardware": "RTX 5090 / i5-14600KF (this study)"
+  },
+  {
+   "scenario": "same machine, matched quality (pre-registered rule, censored median ratio)",
+   "size": 64,
+   "C_SIMP_label": "ours gpu: median ratio 0.624 x OAT time (3/5 matched)",
+   "C_SIMP_s": 0.32472492132372355,
+   "C_inf_label": "OAT inference, no Ref (median of 5)",
+   "C_inf_s": 0.5205807499878574,
+   "hardware": "RTX 5090 / i5-14600KF (this study)"
+  },
+  {
+   "scenario": "same machine, matched quality (pre-registered rule, matched problems only)",
+   "size": 64,
+   "C_SIMP_label": "ours gpu, median over 3/5 matched problems",
+   "C_SIMP_s": 0.22029669996118173,
+   "C_inf_label": "OAT inference, no Ref (median of 5)",
+   "C_inf_s": 0.5205807499878574,
+   "hardware": "RTX 5090 / i5-14600KF (this study)"
+  }
+ ]
+}

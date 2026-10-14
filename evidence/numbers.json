@@ -1,0 +1,1966 @@
+{
+  "N001": {
+    "value": 4484,
+    "unit": "",
+    "text": "4,484",
+    "source": "evidence/prisma.json",
+    "script": "analysis/prisma.py",
+    "note": "records returned by all searches (quarantined FC1 results excluded)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:57:05+00:00"
+  },
+  "N002": {
+    "value": 2591,
+    "unit": "",
+    "text": "2,591",
+    "source": "evidence/prisma.json",
+    "script": "analysis/prisma.py",
+    "note": "unique records after de-duplication (audit/pool/pool.csv)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:57:05+00:00"
+  },
+  "N003": {
+    "value": 709,
+    "unit": "",
+    "text": "709",
+    "source": "evidence/prisma.json",
+    "script": "analysis/prisma.py",
+    "note": "records included at title/abstract screening (LLM screen)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:57:05+00:00"
+  },
+  "N004": {
+    "value": 655,
+    "unit": "",
+    "text": "655",
+    "source": "evidence/prisma.json",
+    "script": "analysis/prisma.py",
+    "note": "screening includes eligible for the decision order after the \u00a73.3 type and \u00a73.4 date rules",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:57:05+00:00"
+  },
+  "N005": {
+    "value": 0.2857142857142857,
+    "unit": "",
+    "text": "29 % (8/28; 95 % CI 13\u201349 %)",
+    "source": "evidence/c1_rules.json",
+    "script": "analysis/rules.py",
+    "note": "speed stratum, analysis sample: share failing R1 among records where it applies",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:28+00:00"
+  },
+  "N006": {
+    "value": 0.0,
+    "unit": "",
+    "text": "0 % (0/28; 95 % CI 0\u201312 %)",
+    "source": "evidence/c1_rules.json",
+    "script": "analysis/rules.py",
+    "note": "speed stratum, analysis sample: share failing R2 among records where it applies",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:28+00:00"
+  },
+  "N007": {
+    "value": 0.28,
+    "unit": "",
+    "text": "28 % (7/25; 95 % CI 12\u201349 %)",
+    "source": "evidence/c1_rules.json",
+    "script": "analysis/rules.py",
+    "note": "speed stratum, analysis sample: share failing R3 among records where it applies",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:28+00:00"
+  },
+  "N008": {
+    "value": 0.14285714285714285,
+    "unit": "",
+    "text": "14 % (4/28; 95 % CI 4\u201333 %)",
+    "source": "evidence/c1_rules.json",
+    "script": "analysis/rules.py",
+    "note": "speed stratum, analysis sample: share failing R4 among records where it applies",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:28+00:00"
+  },
+  "N009": {
+    "value": 0.4642857142857143,
+    "unit": "",
+    "text": "46 % (13/28; 95 % CI 28\u201366 %)",
+    "source": "evidence/c1_rules.json",
+    "script": "analysis/rules.py",
+    "note": "speed stratum, analysis sample: share failing at least one of R1-R4",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:28+00:00"
+  },
+  "N010": {
+    "value": 0.2857142857142857,
+    "unit": "",
+    "text": "29 % (8/28; 95 % CI 13\u201349 %)",
+    "source": "evidence/c1_rules.json",
+    "script": "analysis/rules.py",
+    "note": "speed stratum, analysis sample: share failing R1 or R2 (weak baseline, template-comparable)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:28+00:00"
+  },
+  "N011": {
+    "value": 0.25,
+    "unit": "",
+    "text": "25 % (5/20; 95 % CI 9\u201349 %)",
+    "source": "evidence/gates.json",
+    "script": "analysis/gates.py",
+    "note": "G1: share of the first 20 verified speed-stratum records in the decision order failing R1 or R2; band: ACME/SMO framing",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:56:50+00:00"
+  },
+  "N012": {
+    "value": 0.8571428571428571,
+    "unit": "",
+    "text": "86 % (24/28; 95 % CI 67\u201396 %)",
+    "source": "evidence/c1_rules_sensitivity.json",
+    "script": "analysis/rules.py",
+    "note": "speed stratum, analysis sample: share with fail or partial on R1 or R2 (ED4 sensitivity)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:29+00:00"
+  },
+  "N013": {
+    "value": 24.5,
+    "unit": "\u00d7",
+    "text": "24\u00d7",
+    "source": "evidence/claims.json",
+    "script": "analysis/claims.py",
+    "note": "median claimed speed-up, verified speed-stratum records",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:59:24+00:00"
+  },
+  "N014": {
+    "value": [
+      1.16,
+      300000.0
+    ],
+    "unit": "\u00d7",
+    "text": "1.2\u00d7 to 300,000\u00d7",
+    "source": "evidence/claims.json",
+    "script": "analysis/claims.py",
+    "note": "range of claimed speed-ups",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:59:24+00:00"
+  },
+  "N015": {
+    "value": 26,
+    "unit": "",
+    "text": "26 of 28",
+    "source": "evidence/claims.json",
+    "script": "analysis/claims.py",
+    "note": "speed-stratum records with a numeric claimed speed-up",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:59:24+00:00"
+  },
+  "N016": {
+    "value": 133.92156862745097,
+    "unit": "\u00d7",
+    "text": "134\u00d7",
+    "source": "2026-09-24-ml-to-baseline-audit.md#6.2",
+    "script": "(published)",
+    "note": "arXiv 2510.23667 Table 6: OAT's reported speed-up at 256\u00b2, SIMP-GPU 68.30 s / OAT 0.51 s (RTX 4090)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N017": {
+    "value": 18.594931111883444,
+    "unit": "\u00d7",
+    "text": "18.6\u00d7",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "same machine, pinned, 256\u00b2: median of ours GPU 150 its incl. setup / median of OAT inference, 5 NITO problems",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N018": {
+    "value": 3.4662195588802005,
+    "unit": "\u00d7",
+    "text": "3.47\u00d7",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "same machine, pinned, 256\u00b2: median over 5 problems of (ours GPU time to OAT's quality, CE and volume condition, setup included) / (OAT inference time); 3/5 matched, unmatched ranked slowest. > 1 means OAT is faster",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N019": {
+    "value": 17.972440944881892,
+    "unit": "\u00d7",
+    "text": "18.0\u00d7",
+    "source": "2026-09-24-ml-to-baseline-audit.md#6.2",
+    "script": "(published)",
+    "note": "arXiv 2510.23667 Table 6: OAT's reported speed-up at 64\u00b2, SIMP-GPU 9.13 s / OAT 0.508 s (RTX 4090)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N020": {
+    "value": 3.2576679334322325,
+    "unit": "\u00d7",
+    "text": "3.3\u00d7",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "same machine, pinned, 64\u00b2: median of ours (pardiso, the faster of GPU and PARDISO incl. setup) 150 its / median of OAT inference, 5 NITO problems",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N021": {
+    "value": 2320000.0,
+    "unit": "uses",
+    "text": "2.32 million",
+    "source": "2026-09-24-ml-to-baseline-audit.md#6.2",
+    "script": "(published)",
+    "note": "arXiv 2510.23667 App. G: OAT's stated break-even; with 168 + 16 H100-days it implies a per-design gap of 6.85 s",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N022": {
+    "value": 234512.46496533416,
+    "unit": "uses",
+    "text": "0.23 million",
+    "source": "evidence/breakeven.json",
+    "script": "analysis/breakeven.py",
+    "note": "\u03c4 from OAT's own Table 6 at 256\u00b2 (SIMP-GPU 68.30 s vs OAT 0.51 s) with OAT's C_train",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N023": {
+    "value": 1917482.1930545748,
+    "unit": "uses",
+    "text": "1.92 million",
+    "source": "evidence/breakeven.json",
+    "script": "analysis/breakeven.py",
+    "note": "\u03c4, same machine, pinned, 256\u00b2, ours GPU 150 its incl. setup vs OAT inference",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N024": {
+    "value": 13680033.869481323,
+    "unit": "uses",
+    "text": "13.7 million",
+    "source": "evidence/breakeven.json",
+    "script": "analysis/breakeven.py",
+    "note": "\u03c4, same machine, pinned, 256\u00b2: C_SIMP = censored median ratio \u00d7 OAT's median inference time (1.633 s) vs OAT inference (0.471 s); 'never' = C_SIMP \u2264 C_inf",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N025": {
+    "value": 1560.3297698246397,
+    "unit": "J",
+    "text": "1560 J",
+    "source": "evidence/energy.json",
+    "script": "analysis/energy.py",
+    "note": "energy ours GPU 256: GPU board energy per design (median over problems; instant power, exact window); above idle: 991 J",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N026": {
+    "value": 102.44945207166673,
+    "unit": "J",
+    "text": "102 J",
+    "source": "evidence/energy.json",
+    "script": "analysis/energy.py",
+    "note": "energy OAT inference 256: GPU board energy per design (median over problems; instant power, exact window); above idle: 67 J",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N027": {
+    "value": 0.6666666666666666,
+    "unit": "",
+    "text": "67 %",
+    "source": "evidence/reporting.json",
+    "script": "analysis/reporting.py",
+    "note": "share of included articles whose primary outcome claims to outperform",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:06+00:00"
+  },
+  "N028": {
+    "value": 0.21428571428571427,
+    "unit": "",
+    "text": "21 % (6/28)",
+    "source": "evidence/reporting.json",
+    "script": "analysis/reporting.py",
+    "note": "runtimes_all_cases = selective among included (speed)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:06+00:00"
+  },
+  "N029": {
+    "value": 0.22807017543859648,
+    "unit": "",
+    "text": "23 % (13/57)",
+    "source": "evidence/reporting.json",
+    "script": "analysis/reporting.py",
+    "note": "failure_rate_reported = yes among included (speed+quality)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:06+00:00"
+  },
+  "N030": {
+    "value": 0.17543859649122806,
+    "unit": "",
+    "text": "18 % (10/57)",
+    "source": "evidence/reporting.json",
+    "script": "analysis/reporting.py",
+    "note": "seeds_or_variance = yes among included (speed+quality)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:06+00:00"
+  },
+  "N031": {
+    "value": 0.19298245614035087,
+    "unit": "",
+    "text": "19 % (11/57)",
+    "source": "evidence/reporting.json",
+    "script": "analysis/reporting.py",
+    "note": "ood_test = yes among included (speed+quality)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:06+00:00"
+  },
+  "N032": {
+    "value": 0.24561403508771928,
+    "unit": "",
+    "text": "25 % (14/57)",
+    "source": "evidence/reporting.json",
+    "script": "analysis/reporting.py",
+    "note": "code_available = yes among included (speed+quality)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:06+00:00"
+  },
+  "N033": {
+    "value": 0.14035087719298245,
+    "unit": "",
+    "text": "14 % (8/57)",
+    "source": "evidence/reporting.json",
+    "script": "analysis/reporting.py",
+    "note": "data_available = yes among included (speed+quality)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:06+00:00"
+  },
+  "N034": {
+    "value": 0.21428571428571427,
+    "unit": "",
+    "text": "21 % (6/28)",
+    "source": "evidence/reporting.json",
+    "script": "analysis/reporting.py",
+    "note": "hardware_per_method_stated = yes among included (speed)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:06+00:00"
+  },
+  "N035": {
+    "value": 0.354879863916649,
+    "unit": "",
+    "text": "\u03ba = 0.35 (0.21\u20130.49)",
+    "source": "evidence/agreement.json",
+    "script": "analysis/agreement.py",
+    "note": "first AI pass vs blind second AI pass (different model), R1, n = 82",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:21:21+00:00"
+  },
+  "N036": {
+    "value": 0.27788649706457924,
+    "unit": "",
+    "text": "\u03ba = 0.28 (0.12\u20130.43)",
+    "source": "evidence/agreement.json",
+    "script": "analysis/agreement.py",
+    "note": "first AI pass vs blind second AI pass (different model), R2, n = 82",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:21:21+00:00"
+  },
+  "N037": {
+    "value": 0.6587395957193816,
+    "unit": "",
+    "text": "\u03ba = 0.66 (0.49\u20130.80)",
+    "source": "evidence/agreement.json",
+    "script": "analysis/agreement.py",
+    "note": "first AI pass vs blind second AI pass (different model), R3, n = 82",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:21:21+00:00"
+  },
+  "N038": {
+    "value": 0.5617785378366823,
+    "unit": "",
+    "text": "\u03ba = 0.56 (0.42\u20130.70)",
+    "source": "evidence/agreement.json",
+    "script": "analysis/agreement.py",
+    "note": "first AI pass vs blind second AI pass (different model), R4, n = 82",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:21:21+00:00"
+  },
+  "N039": {
+    "value": 0.6170275826344652,
+    "unit": "\u00d7",
+    "text": "0.62\u00d7",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "same machine, pinned, 64\u00b2: median over 5 problems of (ours GPU time to OAT's quality, CE and volume condition, setup included) / (OAT inference time); 3/5 matched, unmatched ranked slowest. > 1 means OAT is faster",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N040": {
+    "value": 4.343264400027692,
+    "unit": "s",
+    "text": "4.34 s",
+    "source": "evidence/g2_provisional.json",
+    "script": "analysis/baseline_summary.py",
+    "note": "G2: P1_cantilever 256\u00b2, gpu, 150 its, median of 3, CPU pinned = True; OAT Table 6 SIMP-GPU 68.30 s is 15.7\u00d7 longer (cross-hardware)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N041": {
+    "value": 4.509377400507219,
+    "unit": "s",
+    "text": "4.51 s",
+    "source": "evidence/g2_provisional.json",
+    "script": "analysis/baseline_summary.py",
+    "note": "G2: P2_mbb 256\u00b2, gpu, 150 its, median of 3, CPU pinned = True; OAT Table 6 SIMP-GPU 68.30 s is 15.1\u00d7 longer (cross-hardware)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N042": {
+    "value": 0.47120800003176555,
+    "unit": "s",
+    "text": "0.47 s",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "same machine, pinned: OAT inference 256, median over 5 NITO problems (range 0.465\u20130.502 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N043": {
+    "value": 8.449985099898186,
+    "unit": "s",
+    "text": "8.45 s",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "same machine, pinned: ours GPU 256, median over 5 NITO problems (range 2.737\u201313.613 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N044": {
+    "value": 37.04258690000279,
+    "unit": "s",
+    "text": "37.04 s",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "same machine, pinned: OAT SIMP 256 CG+OC, median over 5 NITO problems (range 20.696\u201337.255 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N045": {
+    "value": 0.4670831499970518,
+    "unit": "s",
+    "text": "0.47 s",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "same machine, pinned: OAT inference 64, median over 5 NITO problems (range 0.459\u20130.486 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N046": {
+    "value": 0.6072915000841022,
+    "unit": "s",
+    "text": "0.61 s",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "same machine, pinned: ours PARDISO 64, median over 5 NITO problems (range 0.591\u20130.638 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N047": {
+    "value": 13.047415499750059,
+    "unit": "s",
+    "text": "13.05 s",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "same machine, pinned: ours PARDISO 256, median over 5 NITO problems (range 12.854\u201314.086 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N048": {
+    "value": 1.5225570995244198,
+    "unit": "s",
+    "text": "1.52 s",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "same machine, pinned: ours GPU 64, median over 5 NITO problems (range 1.232\u20132.792 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N049": {
+    "value": 14.637219900032505,
+    "unit": "s",
+    "text": "14.64 s",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "same machine, pinned: OAT SIMP 64 CG+OC, median over 5 NITO problems (range 9.782\u201338.500 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N050": {
+    "value": null,
+    "unit": "uses",
+    "text": "never",
+    "source": "evidence/breakeven.json",
+    "script": "analysis/breakeven.py",
+    "note": "\u03c4, same machine, pinned, 64\u00b2: C_SIMP = censored median ratio \u00d7 OAT's median inference time (0.288 s) vs OAT inference (0.467 s); 'never' = C_SIMP \u2264 C_inf",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N051": {
+    "value": 7,
+    "unit": "",
+    "text": "7 of 10",
+    "source": "evidence/oat_eval_n256.json",
+    "script": "retest/oat_harness/eval_designs.py",
+    "note": "problems (both sizes) where our 150-iteration GPU design has lower compliance error than OAT's output under OAT's evaluator; also evidence/oat_eval_n64.json",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N052": {
+    "value": 3,
+    "unit": "",
+    "text": "3 of 5",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "256\u00b2: problems where our GPU run reached OAT's quality within 150 iterations (primary rule)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N053": {
+    "value": 3,
+    "unit": "",
+    "text": "3 of 5",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "64\u00b2: problems where our GPU run reached OAT's quality within 150 iterations (primary rule)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N054": {
+    "value": 15.725499004749635,
+    "unit": "\u00d7",
+    "text": "15.7\u00d7",
+    "source": "evidence/g2_provisional.json",
+    "script": "analysis/baseline_summary.py",
+    "note": "OAT's reported SIMP-GPU time at 256\u00b2 (68.30 s, RTX 4090) / our pinned GPU time for P1 (cross-hardware)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N055": {
+    "value": 0.79,
+    "unit": "",
+    "text": "79 % (60 of 76)",
+    "source": "2026-09-24-ml-to-baseline-audit.md#6.1",
+    "script": "(published)",
+    "note": "McGreivy & Hakim, Nat. Mach. Intell. 2024, doi 10.1038/s42256-024-00897-5: share of articles claiming to outperform that compare with a weak baseline (abstract; verified 2026-09-24)",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:11:16+00:00"
+  },
+  "N056": {
+    "value": 3.7007538925935384,
+    "unit": "\u00d7",
+    "text": "3.7\u00d7",
+    "source": "figures/data/ed9_scheduling.csv",
+    "script": "analysis/fig_extended.py",
+    "note": "largest ratio of default-scheduling to pinned median time (G2 pardiso P1 256); ED9",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N057": {
+    "value": "168 + 16",
+    "unit": "H100-days",
+    "text": "168 + 16 H100-days",
+    "source": "2026-09-24-ml-to-baseline-audit.md#6.2",
+    "script": "(published)",
+    "note": "arXiv 2510.23667 App. G: data generation 168 H100-days, final training 16 H100-days",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:12:35+00:00"
+  },
+  "N058": {
+    "value": 2200000.0,
+    "unit": "",
+    "text": "2.2 million",
+    "source": "2026-09-24-ml-to-baseline-audit.md#6.2",
+    "script": "(published)",
+    "note": "arXiv 2510.23667: OpenTO training set, 2.2 M optimized structures",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:12:35+00:00"
+  },
+  "N059": {
+    "value": 17.932601100423902,
+    "unit": "\u00d7",
+    "text": "17.9\u00d7",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "loop only (pre-registered timing), pinned, 256\u00b2: ours GPU 150 its median / OAT inference median",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N060": {
+    "value": 1.3001785658248115,
+    "unit": "\u00d7",
+    "text": "1.3\u00d7",
+    "source": "evidence/oat_retest_summary.json",
+    "script": "analysis/oat_retest_summary.py",
+    "note": "loop only (pre-registered timing), pinned, 64\u00b2: ours PARDISO 150 its median / OAT inference median",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N061": {
+    "value": 1992485.7908696504,
+    "unit": "uses",
+    "text": "1.99 million",
+    "source": "evidence/breakeven.json",
+    "script": "analysis/breakeven.py",
+    "note": "\u03c4, same machine, 256\u00b2, ours GPU 150 its loop only vs OAT inference",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N062": {
+    "value": 8.762080299959052,
+    "unit": "s",
+    "text": "8.76 s",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "ours GPU, 256\u00b2, 150 its incl. setup, median of 5 NITO problems",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N063": {
+    "value": 1.5216017999919131,
+    "unit": "s",
+    "text": "1.52 s",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "ours pardiso, 64\u00b2, 150 its incl. setup, median of 5 NITO problems",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N064": {
+    "value": 1.894134700007271,
+    "unit": "s",
+    "text": "1.89 s",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "ours gpu, 64\u00b2, 150 its incl. setup, median of 5 NITO problems",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N065": {
+    "value": 16.90169520000927,
+    "unit": "s",
+    "text": "16.90 s",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/ttq_summary.py",
+    "note": "ours pardiso, 256\u00b2, 150 its incl. setup, median of 5 NITO problems",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T20:20:23+00:00"
+  },
+  "N066": {
+    "value": 0.09042553191489362,
+    "unit": "",
+    "text": "9 % (17/188; 95 % CI 5\u201314 %)",
+    "source": "evidence/rescreen.json",
+    "script": "analysis/rescreen.py",
+    "note": "estimated false-exclusion rate: share of sampled LLM excludes that a blind re-screen by a different model includes",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T22:37:22+00:00"
+  },
+  "N067": {
+    "value": 170,
+    "unit": "",
+    "text": "about 170 (95 % CI 101\u2013265)",
+    "source": "evidence/rescreen.json",
+    "script": "analysis/rescreen.py",
+    "note": "implied number of screening false exclusions among all 1882 LLM excludes",
+    "status": "provisional",
+    "registered_utc": "2026-09-24T22:37:22+00:00"
+  },
+  "N068": {
+    "value": 4.942126951631399,
+    "unit": "\u00d7",
+    "text": "4.9\u00d7",
+    "source": "evidence/hgto_retest.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "HGTO speed-up over its own two-thread SIMP-OC, same machine, cantilever_480x160 (article: 4.2\u00d7)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N069": {
+    "value": 10.84630305861028,
+    "unit": "\u00d7",
+    "text": "10.8\u00d7",
+    "source": "evidence/hgto_retest.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "HGTO speed-up over its own two-thread SIMP-OC, same machine, cantilever_960x320 (article: 9.6\u00d7)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N070": {
+    "value": 4.449833421770445,
+    "unit": "\u00d7",
+    "text": "4.4\u00d7",
+    "source": "evidence/hgto_retest.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "six-thread SIMP-OC wall time / HGTO GPU wall time, cantilever_480x160",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N071": {
+    "value": 9.50418858748713,
+    "unit": "\u00d7",
+    "text": "9.5\u00d7",
+    "source": "evidence/hgto_retest.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "six-thread SIMP-OC wall time / HGTO GPU wall time, cantilever_960x320",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N072": {
+    "value": 2.5663217999662913,
+    "unit": "\u00d7",
+    "text": "2.6\u00d7",
+    "source": "evidence/hgto_retest.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "HGTO GPU wall time / wall time of the GPU port of the same SIMP-OC, cantilever_480x160 (above 1: the port is faster)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N073": {
+    "value": 1.8544293205151523,
+    "unit": "\u00d7",
+    "text": "1.9\u00d7",
+    "source": "evidence/hgto_retest.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "HGTO GPU wall time / wall time of the GPU port of the same SIMP-OC, cantilever_960x320 (above 1: the port is faster)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N074": {
+    "value": 1.4482308676496691,
+    "unit": "%",
+    "text": "1.4 %",
+    "source": "evidence/hgto_retest.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "HGTO compliance above the GPU SIMP-OC port's, common independent evaluator, cantilever_960x320",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N075": {
+    "value": 6.507287237069009,
+    "unit": "\u00d7",
+    "text": "6.5\u00d7",
+    "source": "evidence/hgto_retest.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "HGTO GPU wall time / time of the GPU SIMP-OC port to reach HGTO's compliance, cantilever_960x320",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N076": {
+    "value": 8.027038281766855e-11,
+    "unit": "",
+    "text": "10\u207b\u00b9\u2070",
+    "source": "evidence/hgto_gate.json",
+    "script": "analysis/hgto_summary.py",
+    "note": "largest relative compliance difference between the GPU port and HGTO's SIMP-OC (first 50 updates on the 120x40 problems; final compliance on all six); the gate also found equal update counts",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T00:33:20+00:00"
+  },
+  "N077": {
+    "value": 57,
+    "unit": "",
+    "text": "57 of 100",
+    "source": "evidence/p00150_check.json",
+    "script": "retest/p00150_harness/check.py",
+    "note": "P00150 reconstruction check: cases where our top88 port matches the stored compliance within 1 % (pre-registered pass: at least 95)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:03:07+00:00"
+  },
+  "N078": {
+    "value": 0.18615976252064326,
+    "unit": "%",
+    "text": "19 %",
+    "source": "evidence/p00150_check.json",
+    "script": "retest/p00150_harness/check.py",
+    "note": "largest amount by which a stored top88 compliance falls below our reproduction",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:03:07+00:00"
+  },
+  "N079": {
+    "value": 0.6246719160104988,
+    "unit": "",
+    "text": "\u03ba = 0.62 (0.42\u20130.80)",
+    "source": "evidence/agreement.json",
+    "script": "analysis/agreement.py",
+    "note": "first AI pass vs blind second AI pass (different model), included, n = 110",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:21:21+00:00"
+  },
+  "N080": {
+    "value": 0.5319752449716348,
+    "unit": "",
+    "text": "\u03ba = 0.53 (0.40\u20130.65)",
+    "source": "evidence/agreement.json",
+    "script": "analysis/agreement.py",
+    "note": "first AI pass vs blind second AI pass (different model), stratum, n = 110",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:21:21+00:00"
+  },
+  "N081": {
+    "value": 0.46153846153846156,
+    "unit": "",
+    "text": "46 % (12/26)",
+    "source": "evidence/coder_sensitivity.json",
+    "script": "analysis/coder_sensitivity.py",
+    "note": "speed-stratum share with a fail on R1 or R2 in the analysis sample, first coding (post hoc)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:57+00:00"
+  },
+  "N082": {
+    "value": 0.2631578947368421,
+    "unit": "",
+    "text": "26 % (10/38)",
+    "source": "evidence/coder_sensitivity.json",
+    "script": "analysis/coder_sensitivity.py",
+    "note": "speed-stratum share with a fail on R1 or R2 in the analysis sample, second coding (post hoc)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:57+00:00"
+  },
+  "N083": {
+    "value": 0.2857142857142857,
+    "unit": "",
+    "text": "29 % (8/28)",
+    "source": "evidence/coder_sensitivity.json",
+    "script": "analysis/coder_sensitivity.py",
+    "note": "speed-stratum share with a fail on R1 or R2 in the analysis sample, final coding (post hoc)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:54:57+00:00"
+  },
+  "N084": {
+    "value": 110,
+    "unit": "",
+    "text": "110",
+    "source": "evidence/prisma.json",
+    "script": "analysis/prisma.py",
+    "note": "records in decision-order positions 1-200 not paywalled per OpenAlex, each coded twice and verified",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:57:05+00:00"
+  },
+  "N085": {
+    "value": 83,
+    "unit": "",
+    "text": "83",
+    "source": "evidence/prisma.json",
+    "script": "analysis/prisma.py",
+    "note": "of those, records whose full text was read",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:57:05+00:00"
+  },
+  "N086": {
+    "value": 57,
+    "unit": "",
+    "text": "57",
+    "source": "evidence/prisma.json",
+    "script": "analysis/prisma.py",
+    "note": "of those, included at full text",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:57:05+00:00"
+  },
+  "N087": {
+    "value": 28,
+    "unit": "",
+    "text": "28",
+    "source": "evidence/prisma.json",
+    "script": "analysis/prisma.py",
+    "note": "of those, in the speed stratum",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T01:57:05+00:00"
+  },
+  "N088": {
+    "value": 0.2857142857142857,
+    "unit": "",
+    "text": "8 of 28 (29 %)",
+    "source": "evidence/c1_rules.json",
+    "script": "analysis/rules.py",
+    "note": "short form of N010 for the abstract",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:28+00:00"
+  },
+  "N089": {
+    "value": 0.28,
+    "unit": "",
+    "text": "7 of 25 (28 %)",
+    "source": "evidence/c1_rules.json",
+    "script": "analysis/rules.py",
+    "note": "short form of N007 for the abstract",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:28+00:00"
+  },
+  "N090": {
+    "value": 0.8571428571428571,
+    "unit": "",
+    "text": "24 of 28 (86 %)",
+    "source": "evidence/c1_rules_sensitivity.json",
+    "script": "analysis/rules.py",
+    "note": "short form of N012 for the abstract",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T02:36:29+00:00"
+  },
+  "N091": {
+    "value": 78.61196519903235,
+    "unit": "\u00d7",
+    "text": "78.6\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT 256\u00b2: speed-up over OAT's own SIMP code on our machine (pyEDGE CG+OC, loop only, median 37.04 s) / OAT inference median; decomposition stage 2",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N092": {
+    "value": 31.33750361177639,
+    "unit": "\u00d7",
+    "text": "31.3\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT 64\u00b2: same as N091 (pyEDGE CG+OC 14.64 s)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N093": {
+    "value": 1.7436420410495514,
+    "unit": "",
+    "text": "1.74",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "largest factor between a reported speed-up and the same method's speed-up over its authors' classical code on our machine (4 cases: OAT 256\u00b2, 64\u00b2; HGTO 480\u00d7160, 960\u00d7320)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N094": {
+    "value": [
+      4.227601851603198,
+      20.11370241108008
+    ],
+    "unit": "",
+    "text": "4.2- to 20-fold",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "range over the 4 cases of (speed-up over the authors' classical code on our machine) / (speed-up over our strong baseline); OAT 256\u00b2 4.23, OAT 64\u00b2 9.62, HGTO 480\u00d7160 12.68, HGTO 960\u00d7320 20.11",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N095": {
+    "value": 4.171140611566878,
+    "unit": "\u00d7",
+    "text": "4.2\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "HGTO article: two-thread SIMP-OC time / HGTO time, 480\u00d7160 (article's hardware)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N096": {
+    "value": 9.604778960706717,
+    "unit": "\u00d7",
+    "text": "9.6\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "HGTO article: same, 960\u00d7320",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N097": {
+    "value": 0.3896627461190311,
+    "unit": "\u00d7",
+    "text": "0.39\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "same machine: port time / HGTO time, 480\u00d7160 (HGTO's speed-up over the port)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N098": {
+    "value": 0.5392494547714574,
+    "unit": "\u00d7",
+    "text": "0.54\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "same machine: port time / HGTO time, 960\u00d7320",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N099": {
+    "value": 0.21204162641880442,
+    "unit": "\u00d7",
+    "text": "0.21\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "same machine, matched quality: port time to HGTO's compliance / HGTO time, 480\u00d7160",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N100": {
+    "value": 0.15367386801422597,
+    "unit": "\u00d7",
+    "text": "0.15\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "same machine, matched quality: same, 960\u00d7320",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N101": {
+    "value": 1.724021812751362,
+    "unit": "\u00d7",
+    "text": "1.72\u00d7",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT 256\u00b2, pre-registered matching rule (CE only): censored median ratio ours/OAT",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:07+00:00"
+  },
+  "N102": {
+    "value": 4,
+    "unit": "",
+    "text": "4 of 5",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT 256\u00b2: problems matched under the pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N103": {
+    "value": 46597998.15540152,
+    "unit": "",
+    "text": "46.6 million",
+    "source": "evidence/breakeven.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "break-even \u03c4 at 256\u00b2 under the pre-registered matching rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N104": {
+    "value": 8.082854489391105,
+    "unit": "\u00d7",
+    "text": "8.1\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "final G2: OAT's reported SIMP-GPU 68.30 s / our GPU baseline on OAT's problems at 256\u00b2, 150 iterations, loop only (N043, median of 5); cross-hardware",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N105": {
+    "value": 1.9118013963486875,
+    "unit": "\u00d7",
+    "text": "1.91\u00d7",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT 64\u00b2, PARDISO baseline at matched quality: censored median ratio ours/OAT",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N106": {
+    "value": [
+      6.251642798503155,
+      27.742180277847208
+    ],
+    "unit": "",
+    "text": "6.3\u00d7 to 27.7\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT 256\u00b2: range over the 5 problems of (our GPU 150 iterations incl. setup) / (OAT inference), per problem",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N107": {
+    "value": [
+      3.191742443642259,
+      3.3496103928474725
+    ],
+    "unit": "",
+    "text": "3.2\u00d7 to 3.3\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT 64\u00b2: same with our PARDISO baseline",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N108": {
+    "value": 5,
+    "unit": "",
+    "text": "5 of 6",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "HGTO: problems where the GPU port converged faster than HGTO",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N109": {
+    "value": [
+      1.0957771321385936,
+      2.5663217999662913
+    ],
+    "unit": "\u00d7",
+    "text": "1.1\u00d7 to 2.6\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "HGTO time / port time over those problems",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N110": {
+    "value": 2.757861606702266,
+    "unit": "\u00d7",
+    "text": "2.8\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "inclined load: port time / HGTO time (port stops at the 1000-update cap; HGTO converges)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N111": {
+    "value": 294,
+    "unit": "",
+    "text": "294",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "inclined load: HGTO updates to convergence",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N112": {
+    "value": [
+      1.9842898238289637,
+      6.507287237069009
+    ],
+    "unit": "\u00d7",
+    "text": "2.0\u00d7 to 6.5\u00d7",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "matched quality, all six problems: HGTO time / port time to HGTO's final compliance",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N113": {
+    "value": 15,
+    "unit": "",
+    "text": "15 of 28",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims whose R2 pass was a default (marker R2-none-established: no R2 criterion could be established from the text; unsure scores pass)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N114": {
+    "value": 11,
+    "unit": "",
+    "text": "11 of 28",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims with R2 partial",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N115": {
+    "value": 7,
+    "unit": "",
+    "text": "7 of 8",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "R1 fails of the unmatched kind (ML inference vs a converged classical run while the ML output is measurably worse)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N116": {
+    "value": 14,
+    "unit": "",
+    "text": "14 of 28",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims with R1 partial (quality reported, matching loose)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N117": {
+    "value": 13,
+    "unit": "",
+    "text": "13 of 28",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims with R4 partial because no failure rate is reported",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N118": {
+    "value": 13,
+    "unit": "",
+    "text": "13 of 25",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims with R3 partial (some but not all offline costs)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N119": {
+    "value": 1,
+    "unit": "",
+    "text": "1 of 28",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims that name the linear solver of the classical baseline (post hoc reading of the coded baseline.solver field)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N120": {
+    "value": 0,
+    "unit": "",
+    "text": "0 of 28",
+    "source": "evidence/reporting.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims that fully state a timing protocol",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N121": {
+    "value": 21,
+    "unit": "",
+    "text": "21",
+    "source": "evidence/reporting.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims that state a timing protocol in part",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N122": {
+    "value": [
+      3.33,
+      2280.0
+    ],
+    "unit": "\u00d7",
+    "text": "3.3\u00d7 to 2,280\u00d7",
+    "source": "evidence/claims.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "interquartile range of the claimed speed-ups (26 numeric claims)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N123": {
+    "value": 24.5,
+    "unit": "\u00d7",
+    "text": "24.5\u00d7",
+    "source": "evidence/claims.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "median claimed speed-up (26 numeric claims)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N124": {
+    "value": 13,
+    "unit": "",
+    "text": "13 of 28",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims from convolutional networks",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N125": {
+    "value": 18,
+    "unit": "",
+    "text": "18 of 28",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims on compliance problems",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N126": {
+    "value": 17,
+    "unit": "",
+    "text": "17 of 28",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims on two-dimensional problems only",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N127": {
+    "value": [
+      2018,
+      2026
+    ],
+    "unit": "",
+    "text": "2018\u20132026",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "publication years of the 57 included articles",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N128": {
+    "value": 90,
+    "unit": "",
+    "text": "90",
+    "source": "audit/coding/access_final_order.csv",
+    "script": "analysis/v2_numbers.py",
+    "note": "records at positions 1-200 skipped as paywalled per OpenAlex",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N129": {
+    "value": 23,
+    "unit": "",
+    "text": "23",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "coded records with an abstract only",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N130": {
+    "value": 4,
+    "unit": "",
+    "text": "4",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "coded records blocked by a publisher bot check",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N131": {
+    "value": 27,
+    "unit": "",
+    "text": "27",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "coded records without a readable full text (enter no rate)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N132": {
+    "value": 20,
+    "unit": "",
+    "text": "20 of 110",
+    "source": "audit/coding/llm_prefill",
+    "script": "analysis/v2_numbers.py",
+    "note": "first-pass records that name the model (Claude Opus 5.5)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N133": {
+    "value": 90,
+    "unit": "",
+    "text": "90",
+    "source": "audit/coding/llm_prefill",
+    "script": "analysis/v2_numbers.py",
+    "note": "first-pass records that record only 'Claude subagent'",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N134": {
+    "value": 0,
+    "unit": "",
+    "text": "none",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "solves that fell back to the direct solver in the logged timed GPU runs",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N135": {
+    "value": 64,
+    "unit": "",
+    "text": "64",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "logged timed GPU runs checked for fallbacks (pinned benchmark runs (record_rep*.json), the pinned 150-iteration runs on OAT's problems (results.json) and every HGTO port run (result.json); the time-to-quality runs do not log it)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N136": {
+    "value": 3.455833112319581e-09,
+    "unit": "",
+    "text": "3.5 \u00d7 10\u207b\u2079",
+    "source": "evidence/baseline_equivalence.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "largest relative final-compliance difference to SuperLU after 150 iterations (GPU and PARDISO; P1, P2; 64\u00b2, 256\u00b2)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N137": {
+    "value": 3.680318825249884e-07,
+    "unit": "",
+    "text": "3.7 \u00d7 10\u207b\u2077",
+    "source": "evidence/baseline_equivalence.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "largest physical-density difference to SuperLU after 150 iterations",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N138": {
+    "value": 3913,
+    "unit": "\u00d7",
+    "text": "3,913\u00d7",
+    "source": "audit/coding/records/P00176.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "worked example (record P00176): claimed speed-up",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N139": {
+    "value": 4.16,
+    "unit": "",
+    "text": "4.16 %",
+    "source": "audit/coding/records/P00176.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "worked example (record P00176): mean compliance error of the network's designs",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N140": {
+    "value": 4.12,
+    "unit": "",
+    "text": "4.12 %",
+    "source": "audit/coding/records/P00176.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "worked example (record P00176): share of outputs disconnected and left out of the averages",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N141": {
+    "value": 80000,
+    "unit": "",
+    "text": "80,000",
+    "source": "audit/coding/records/P00176.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "worked example (record P00176): SIMP samples generated for training, cost not reported",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N142": {
+    "value": 40,
+    "unit": "",
+    "text": "40 s",
+    "source": "audit/coding/records/P00755.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "worked example (record P00755): learned-model optimization time",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N143": {
+    "value": 24,
+    "unit": "",
+    "text": "about 24 h",
+    "source": "audit/coding/records/P00755.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "worked example (record P00755): estimated, never-run classical optimization time",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N144": {
+    "value": 38,
+    "unit": "",
+    "text": "38 of 57 (67 %)",
+    "source": "evidence/reporting.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "included articles whose primary outcome claims to outperform",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N145": {
+    "value": 8,
+    "unit": "",
+    "text": "8",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims failing R1",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N146": {
+    "value": 2,
+    "unit": "",
+    "text": "2",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "speed claims whose R2 pass rests on stated evidence",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N147": {
+    "value": 6,
+    "unit": "",
+    "text": "6 of 6",
+    "source": "evidence/v2_extras.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "HGTO: problems where the port reached HGTO's final compliance before HGTO finished",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N148": {
+    "value": 168,
+    "unit": "",
+    "text": "168 H100-days",
+    "source": "2026-09-24-ml-to-baseline-audit.md#6.2",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT App. G: data-generation cost (arXiv 2510.23667; checked in-session 2026-09-24)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N149": {
+    "value": 16,
+    "unit": "",
+    "text": "16",
+    "source": "2026-09-24-ml-to-baseline-audit.md#6.2",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT App. G: final training cost in H100-days",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N150": {
+    "value": 9,
+    "unit": "",
+    "text": "nine of the ten",
+    "source": "manuscript/2026-09-24-latex-manuscript-audit.md",
+    "script": "analysis/v2_numbers.py",
+    "note": "McGreivy & Hakim re-tests: articles where the stronger baseline was at least two orders of magnitude faster than the article's baseline (arXiv 2407.07218 HTML, fetched 2026-09-24)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N151": {
+    "value": 29,
+    "unit": "",
+    "text": "29",
+    "source": "evidence/prisma.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "analysis sample: quality stratum",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N152": {
+    "value": 15,
+    "unit": "",
+    "text": "15",
+    "source": "evidence/ttq_summary.json",
+    "script": "analysis/v2_numbers.py",
+    "note": "OAT 256\u00b2, problem 1961: first budget (iterations) at which our GPU baseline matched OAT (both rules)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T04:58:08+00:00"
+  },
+  "N153": {
+    "value": 2,
+    "unit": "",
+    "text": "2 of 3",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "speed claims available only as arXiv preprints that fail R1 or R2",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N154": {
+    "value": 6,
+    "unit": "",
+    "text": "6 of 25",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "speed claims with a journal or proceedings version that fail R1 or R2",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N155": {
+    "value": 11,
+    "unit": "",
+    "text": "11 of 28",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "speed claims on 3D problems (coded dim 3d or both)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N156": {
+    "value": 10,
+    "unit": "",
+    "text": "10",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "paywalled, skipped records (positions 1-200) with venue CMAME (pool venue field)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N157": {
+    "value": 7,
+    "unit": "",
+    "text": "7",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "paywalled, skipped records with venue Journal of Mechanical Design",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N158": {
+    "value": 5,
+    "unit": "",
+    "text": "5",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "paywalled, skipped records with venue Structural and Multidisciplinary Optimization",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N159": {
+    "value": 5,
+    "unit": "",
+    "text": "5",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "paywalled, skipped records with venue Engineering Applications of Artificial Intelligence",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N160": {
+    "value": 12,
+    "unit": "",
+    "text": "12",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "paywalled, skipped records with no venue in the pool record",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N161": {
+    "value": 3.28,
+    "unit": "s",
+    "text": "3.28 s",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "OAT with refinement at 256\u00b2, its own Table 6 (published)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N162": {
+    "value": 20.823170731707318,
+    "unit": "\u00d7",
+    "text": "20.8\u00d7",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "speed-up over SIMP-GPU with refinement at 256\u00b2, from OAT Table 6 (published)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  },
+  "N163": {
+    "value": "0.76\u00d7",
+    "unit": "",
+    "text": "0.76\u00d7",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: median over 25 problems of the per-problem median ratio (ours \u00f7 OAT) at matched quality, post hoc rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N164": {
+    "value": "15 of 25",
+    "unit": "",
+    "text": "15 of 25",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: problems where our baseline matched OAT faster (median over seeds), post hoc rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N165": {
+    "value": "p = 0.42",
+    "unit": "",
+    "text": "p = 0.42",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: exact two-sided sign test, post hoc rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N166": {
+    "value": "90 of 125",
+    "unit": "",
+    "text": "90 of 125",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: OAT samples matched within 150 iterations, post hoc rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N167": {
+    "value": "0.69\u00d7",
+    "unit": "",
+    "text": "0.69\u00d7",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: median over 25 problems of the per-problem median ratio (ours \u00f7 OAT) at matched quality, pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N168": {
+    "value": "15 of 25",
+    "unit": "",
+    "text": "15 of 25",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: problems where our baseline matched OAT faster (median over seeds), pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N169": {
+    "value": "p = 0.42",
+    "unit": "",
+    "text": "p = 0.42",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: exact two-sided sign test, pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N170": {
+    "value": "92 of 125",
+    "unit": "",
+    "text": "92 of 125",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: OAT samples matched within 150 iterations, pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N171": {
+    "value": 1.3417857257644143,
+    "unit": "",
+    "text": "1.3 percentage points",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "64\u00b2: median over problems of the range of OAT's CE across 5 seeds",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N172": {
+    "value": "1.59\u00d7",
+    "unit": "",
+    "text": "1.59\u00d7",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: median over 25 problems of the per-problem median ratio (ours \u00f7 OAT) at matched quality, post hoc rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N173": {
+    "value": "7 of 25",
+    "unit": "",
+    "text": "7 of 25",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: problems where our baseline matched OAT faster (median over seeds), post hoc rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N174": {
+    "value": "p = 0.043",
+    "unit": "",
+    "text": "p = 0.043",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: exact two-sided sign test, post hoc rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N175": {
+    "value": "90 of 125",
+    "unit": "",
+    "text": "90 of 125",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: OAT samples matched within 150 iterations, post hoc rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N176": {
+    "value": "1.47\u00d7",
+    "unit": "",
+    "text": "1.47\u00d7",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: median over 25 problems of the per-problem median ratio (ours \u00f7 OAT) at matched quality, pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N177": {
+    "value": "8 of 25",
+    "unit": "",
+    "text": "8 of 25",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: problems where our baseline matched OAT faster (median over seeds), pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N178": {
+    "value": "p = 0.11",
+    "unit": "",
+    "text": "p = 0.11",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: exact two-sided sign test, pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N179": {
+    "value": "96 of 125",
+    "unit": "",
+    "text": "96 of 125",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: OAT samples matched within 150 iterations, pre-registered rule",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N180": {
+    "value": 1.4055541686246298,
+    "unit": "",
+    "text": "1.4 percentage points",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: median over problems of the range of OAT's CE across 5 seeds",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N181": {
+    "value": 56048490.437868185,
+    "unit": "",
+    "text": "56 million",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: break-even uses from the extension, post hoc rule (C_train / (ratio*t_OAT - t_OAT))",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N182": {
+    "value": 70488916.45060574,
+    "unit": "",
+    "text": "70 million",
+    "source": "evidence/oat_extended.json",
+    "script": "analysis/oat_extended.py",
+    "note": "256\u00b2: break-even uses from the extension, pre-registered rule (C_train / (ratio*t_OAT - t_OAT))",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T09:53:31+00:00"
+  },
+  "N200": {
+    "value": 25,
+    "unit": "",
+    "text": "25 of 28",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "authors' review agrees with the adjudicated R1 verdict",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N201": {
+    "value": 26,
+    "unit": "",
+    "text": "26 of 28",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "authors' review agrees with the adjudicated R2 verdict",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N202": {
+    "value": 28,
+    "unit": "",
+    "text": "28 of 28",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "authors' review agrees with the adjudicated R3 verdict",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N203": {
+    "value": 26,
+    "unit": "",
+    "text": "26 of 28",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "authors' review agrees with the adjudicated R4 verdict",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N204": {
+    "value": 7,
+    "unit": "",
+    "text": "7",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "speed-stratum verdicts changed by the authors' review (of 112)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N205": {
+    "value": 11,
+    "unit": "",
+    "text": "39 % (11/28)",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "speed claims failing R1 or R2 under the authors' review (reported rates stay adjudicated)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N206": {
+    "value": 0.8339920948616601,
+    "unit": "",
+    "text": "0.83 (95 % CI 0.63\u20131.00)",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "Cohen's \u03ba, authors' review vs adjudicated R1 verdicts (28 speed-stratum records; bootstrap 2,000 resamples, seed 20260924)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N207": {
+    "value": 0.845303867403315,
+    "unit": "",
+    "text": "0.85 (95 % CI 0.59\u20131.00)",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "Cohen's \u03ba, authors' review vs adjudicated R2 verdicts (28 speed-stratum records; bootstrap 2,000 resamples, seed 20260924)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N208": {
+    "value": 1.0,
+    "unit": "",
+    "text": "1.00",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "Cohen's \u03ba, authors' review vs adjudicated R3 verdicts (28 speed-stratum records; bootstrap 2,000 resamples, seed 20260924)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N209": {
+    "value": 0.8813559322033899,
+    "unit": "",
+    "text": "0.88 (95 % CI 0.69\u20131.00)",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "Cohen's \u03ba, authors' review vs adjudicated R4 verdicts (28 speed-stratum records; bootstrap 2,000 resamples, seed 20260924)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N210": {
+    "value": 3,
+    "unit": "",
+    "text": "3",
+    "source": "evidence/human_review.json",
+    "script": "analysis/human_review.py",
+    "note": "changed verdicts that became R1 fails (each adds a weak-baseline record)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:01:18+00:00"
+  },
+  "N211": {
+    "value": 3,
+    "unit": "",
+    "text": "Three",
+    "source": "evidence/v2_revision_extras.json",
+    "script": "analysis/v2_revision_numbers.py",
+    "note": "re-test candidates flagged in the final coding records of the sample and not attempted (sentence-initial)",
+    "status": "provisional",
+    "registered_utc": "2026-09-25T12:42:32+00:00"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "pid": "P02328",
+  "citation": {
+    "title": "Two-scale data-driven design for heat manipulation",
+    "authors": "Daicong Da; Wei Chen",
+    "year": 2024,
+    "venue": "International Journal of Heat and Mass Transfer 219, 124823",
+    "doi": "10.1016/j.ijheatmasstransfer.2023.124823",
+    "version_coded": "Version of record"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "gpt-6-luna",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "cross_provider_pass",
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-NOML",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "thermal",
+    "dim": "2d"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion: no learned model."},
+    "R2": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion: no learned model."},
+    "R3": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion: no learned model."},
+    "R4": {"verdict": "na", "marker": "na", "evidence": "Full-text exclusion: no learned model."}
+  },
+  "claim": {},
+  "reporting": {},
+  "notes": "Section 3 defines the optimized design variables as homogenized thermal-conductivity components, followed by gradient-based topology optimization and nearest-RVE database extraction; no learned model is used."
+}

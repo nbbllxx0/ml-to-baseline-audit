@@ -1,0 +1,88 @@
+{
+  "pid": "P00161",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Deep learning-based topological optimization for representing a user-specified design area",
+    "authors": "Keigo Nakamura, Yoshiro Suzuki",
+    "year": 2020,
+    "venue": "arXiv preprint (cs.CE; also cs.LG). No journal version found (pool search and web search, 2026-09-24)",
+    "doi": "10.48550/arXiv.2004.05461",
+    "arxiv_id": "2004.05461",
+    "version_coded": "arXiv v2 (19 Apr 2020; latest; v1 11 Apr 2020), PDF (12 pages) read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; primary outcome chosen by §5.1 rules 2 and 4)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On 32x32 compliance problems with user-specified design areas, the CNN returns a design in 0.07634 s versus 0.4393 s for the 88-line SIMP code on the same CPU (83% less time); best-80% compliance error 2.75%.",
+    "key_phrase": "using our model was reduced by 83%, compared with the SIMP method",
+    "location": "Conclusion (Sec. 5, bullet list, p. 11), with Sec. 4.3 and Table 1 (p. 8) for the times and Table 2 (p. 9) for the errors. The abstract compares with the MATLAB code only qualitatively. The conclusion holds two quantitative classical comparisons (2.75% compliance error; 83% time cut); rule 4 takes the time cut, which the abstract's only classical comparison emphasises",
+    "quantitative": true,
+    "claimed_speedup": 5.75,
+    "claimed_speedup_basis": "Derived from Table 1: 0.4393 s / 0.07634 s = 5.75. The article states an 83% reduction (1 - 0.07634 / 0.4393 = 82.6% [derived]). Per-case inference only; training and data generation are not included.",
+    "direction": "outperform",
+    "alternatives": "(1) Conclusion bullet 2 and Table 2 (quality): mean compliance error 2.75% against SIMP for the best 80% of test outputs; a strict 'first quantitative comparison in the conclusion' reading takes this and gives stratum Q. (2) Table 2: mean compliance error 103,872% for the worst 20% (disconnected outputs), mean volume-fraction error 9.70%, 99.6% of outputs respect the design area at threshold 0.01. (3) Abstract: MAE, compliance and volume errors compared with CNNs without batch normalization and SPADE (ML-only)."
+  },
+  "baseline": {
+    "classical_method": "SIMP compliance minimization with the 88-line MATLAB code of Andreassen et al. 2011 (Sec. 4.2, Table 1); update scheme, filter and stopping settings are not stated in the article",
+    "implementation": "MATLAB 88-line code (Andreassen et al. 2011, 'Efficient topology optimization in MATLAB using 88 lines of code'), as cited (Sec. 4.2)",
+    "solver": "not stated",
+    "hardware_classical": "'the same CPU' as the CNN; model not stated (Sec. 4.3)",
+    "hardware_ml": "same CPU for inference (Sec. 4.3); training hardware not stated",
+    "problem_size": "32 x 32 elements (2,178 DOFs [derived: 2 x 33 x 33]); square domain with one circular non-design region, left edge fixed, up to 4 loaded elements (Sec. 4.1)",
+    "classical_iterations": "not stated",
+    "classical_time": "0.4393 s average per case (Table 1; Sec. 4.3)",
+    "ml_time": "0.07634 s average per case (Table 1; Sec. 4.3)",
+    "training_time": "not stated (Adam, learning rate 0.01, batch 512; validation minimum at epoch 51; Sec. 4.3 and 4.3.1)",
+    "data_generation_cost": "370,000 SIMP runs (296,000 train, 37,000 validation, 37,000 test; Sec. 4.2); time not stated [about 45.2 h at the Table 1 rate of 0.4393 s per run, derived]",
+    "quality_metric": "Mean compliance error of CNN outputs against the SIMP designs, reported for the best 80% and worst 20% of test outputs ranked by error; mean volume-fraction error against the target; share of outputs whose maximum density in the non-design circle is below 0.01 (Sec. 4.3.2, Table 2, Fig. 14). Computing the compliance of CNN outputs implies an FE analysis of the continuous outputs [inferred; the procedure is not described]",
+    "quality_gap": "Proposed model (Table 2): mean compliance error 2.75% (best 80%) and 103,872% (worst 20%); mean volume-fraction error 9.70%; 99.6% of outputs respect the design area"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Sec. 4.3, Tables 1-2: CNN inference (0.07634 s) is set against complete SIMP runs (0.4393 s), while the CNN outputs are measurably worse: mean volume-fraction error 9.70%, so the volume is not matched; compliance 2.75% worse on the best 80% and far worse (103,872%) on the worst 20%, where outputs are disconnected (Fig. 13). No matching, such as a SIMP run stopped at equal quality or equal time, is attempted."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 4.2-4.3: the baseline is the published 88-line MATLAB code, which its cited paper presents as an efficient implementation, run on the same CPU as the CNN. (c) does not apply (2,178 DOFs [derived]; CPU for both). The SIMP iteration count and stopping rule are not stated, so (d) and (e) cannot be derived; (b) not observed. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Sec. 4.2-4.3: the speed claim reports neither training time nor data-generation time; only the number of SIMP samples (370,000) is given. [derived] At 0.4393 s per SIMP run the data cost about 45.2 h and are recovered after about 448,000 uses at 0.363 s saved per use, before training."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 4.3.2, Table 2, Figs. 13-14: compliance of CNN outputs is computed against SIMP [FE analysis inferred], volume-fraction error and design-area satisfaction are reported, and the best-80% / worst-20% split follows a stated rule. Disconnected outputs are shown (Fig. 13) and said to occur occasionally, but their number is not reported."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "37,000 test cases (Sec. 4.2; Table 2); the Table 1 times are per-case averages over an unstated set",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED. Primary-outcome judgment: the abstract has no quantitative classical comparison; its comparisons of MAE, compliance and volume errors are with CNNs lacking batch normalization and SPADE (ML-only). The conclusion lists two quantitative classical comparisons: the 2.75% compliance error (bullet 2) and the 83% time cut (bullet 4). Rule 4 takes the time cut, because the abstract's only classical comparison is the speed claim against the open-source MATLAB code. A strict 'first in the conclusion' reading would take bullet 2 and give stratum Q, with R2 and R3 na. This batch applies the same rule-2-then-rule-4 reading to P01219 and P00080. Reporting locators: timing = Sec. 4.3 and Table 1 ('the same CPU', model unstated; no warm-up, repeats or SIMP iteration counts, hence partial); test set = Sec. 4.2; there are no code, data, seed or variance statements. Only 32 x 32 is tested; higher resolutions and 3D are named as future work (Sec. 5). retest_candidate false: no public code for the CNN. FT-DUPLICATE checked: no other version in the pool, and no journal version found. Licence: arXiv non-exclusive distribution. Authors checked: no author named Jun Wang."
+}

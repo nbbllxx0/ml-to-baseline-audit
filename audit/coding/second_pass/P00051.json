@@ -1,0 +1,88 @@
+{
+  "pid": "P00051",
+  "citation": {
+    "title": "Diverse Topology Optimization using Modulated Neural Fields",
+    "authors": "Andreas Radler, Eric Volkmann, Johannes Brandstetter, Arturs Berzins",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.LG)",
+    "doi": "10.48550/arxiv.2502.13174",
+    "arxiv_id": "2502.13174",
+    "version_coded": "arXiv v2 (17 Jun 2025; latest of two versions, v1/v2 both on the abs page), full text incl. all appendices read from the PDF at https://arxiv.org/pdf/2502.13174v2"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screened I-UNCLEAR; the abstract/conclusion/introduction give only qualitative claims, so per the Sec. 5.1 cascade the first quantitative classical-method comparison is taken from the main text: TOM vs. the classical Deflated Barrier method on wall-clock time and diversity, Sec. 4.4/Table 1)",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On the MBB beam and cantilever benchmarks, TOM produces a diverse, continuous distribution of near-optimal designs 9.1x and 4.2x faster in wall-clock time than the classical Deflated Barrier (DB) method, and with far higher solution diversity, while its mean compliance is measurably higher (worse) than DB's.",
+    "key_phrase": "TOM is more diverse and faster than DB",
+    "location": "Sec. 4.4 (Results), subsection heading 'TOM is more diverse and faster than DB'; Table 1. The Abstract, Introduction and Conclusion state only qualitative claims ('more diverse solutions than any previous method', 'substantially faster') with no comparator named as classical or numbers given, so per Sec. 5.1's cascade the first quantitative classical comparison, found only in the main text, is taken as the primary outcome",
+    "quantitative": true,
+    "claimed_speedup": 6.67,
+    "claimed_speedup_basis": "Derived from Table 1 wall-clock times, DB time / TOM time: MBB 55.5/6.1 = 9.10 [derived]; Cantilever 123/29 = 4.24 [derived]. The article states the comparison only qualitatively ('faster than DB'); 6.67 is the mean of the two derived ratios entered here since only two cases exist. No DB result exists for the 3D jet engine bracket (DB was 'omitted, given DB's slow performance... complexity, and hyperparameter sensitivity', Sec. 4.2).",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 4.4 'TOM has high quality and diversity' (the first Results paragraph, preceding the DB-specific subsection): a joint compliance/diversity comparison across DB and TopoDiff together ('DB has better compliance but a substantially lower diversity'), design-quality framed rather than speed-framed. (2) TOM vs. FeniTop (single-solution classical SIMP): MBB 6.1 vs 2 min and Cantilever 29 vs 4 min (FeniTop faster, but produces only 1 solution vs. TOM's many); Bracket (3D) 47 vs 187 min (TOM 4x faster [derived], but on a much coarser mesh, 26x43x15 vs. FeniTop's 104x172x60 elements - a likely confound, see notes). (3) 'TOM outperforms TopoDiff' (Sec. 4.4): TopoDiff is a data-driven diffusion model, i.e. ML-vs-ML, not a classical comparator, so it is not eligible as the primary outcome under Sec. 3.2. (4) Introduction: 'TOM obtains more diverse solutions than prior work while being substantially faster' - qualitative, no comparator named, no number."
+  },
+  "baseline": {
+    "classical_method": "Deflated Barrier (DB) method (Papadopoulos et al., 2021) - described in the article as 'the state-of-the-art method for finding multiple solutions to TO problems', a sequential, non-learned algorithm with adaptive mesh refinement. Also compared: FeniTop/SIMP (Jia et al., 2024), the classical single-solution baseline",
+    "implementation": "DB: the authors' own run of DB's public implementation, which the article states performs mesh refinement during training ('the slower wall-clock time of DB can be partially attributed to its public implementation, which involves mesh refinement during training, thereby increasing the runtime for each solver step', Sec. 4.4). FeniTop: 'a well-documented Python wrapper of the standard FenicsX/DolfinX FEM solvers' (Sec. 4.2). TOM: WIRE neural-field architecture in PyTorch, FEM solved via the same FenicsX/DolfinX backend, parallelized across CPU cores (one process per shape, Sec. 3.1)",
+    "solver": "Not stated beyond 'FenicsX/DolfinX FEM solvers' for FeniTop/TOM/DB's mesh-based FEM step; no direct/iterative solver type is named",
+    "hardware_classical": "Same node as TOM (see hardware_ml) per Appendix A.3: 'We run all experiments on a single GPU... with a Xeon Gold 6150 CPU (36 Cores, 2.70GHz) and 384GB RAM' - DB and FeniTop are classical/CPU-bound methods and presumably used only the CPU side of this node, but this is not stated separately for each baseline",
+    "hardware_ml": "Single NVIDIA Titan V GPU (max <2GB GPU memory used) plus the same Xeon Gold 6150 CPU (36 cores) used in parallel for the FEM solves, on a shared node (Appendix A.3, 'Compute')",
+    "problem_size": "MBB beam: FeniTop/TOM fixed mesh 180x60; DB adaptive mesh 50x150 (initial) -> 27174 elements (final) (Table 2). Cantilever: FeniTop/TOM fixed mesh 150x100; DB adaptive 25x37 -> 52024 elements. Jet engine bracket (3D, no DB result): FeniTop 104x172x60 elements vs. TOM 26x43x15 elements - a roughly 64x difference in element count [derived], not matched",
+    "classical_iterations": "DB: 3190 iterations (MBB), 4922 iterations (Cantilever), each with one sequential solver call per iteration on the growing adaptive mesh (Table 2; 'Total solver calls' not legible/blank in the extracted table for DB, consistent with its stated sequential, one-call-per-iteration nature). FeniTop: 400 iterations (all three problems)",
+    "classical_time": "DB: 55.5 min (MBB), 123 min (Cantilever), not run for the 3D bracket. FeniTop: 2 min (MBB), 4 min (Cantilever), 187 min (Bracket)",
+    "ml_time": "TOM: 6.1 min (MBB, 400 iterations x 25 shapes/batch = 10000 total solver calls), 29 min (Cantilever, 1000 iterations x 25 = 25000 calls), 47 min (Bracket, 1000 iterations x 9 = 9000 calls) (Table 1, Table 2)",
+    "training_time": "not applicable: data-free, per-problem training; the reported wall-clock times above already are the full 'training' (optimization) cost, with no separate offline pretraining phase (Sec. 3.1, Sec. 4.4: 'It is also data-free, eliminating the need for an expensive pretraining dataset')",
+    "data_generation_cost": "none - explicitly data-free (no dataset of prior TO solutions is used or generated)",
+    "quality_metric": "Compliance C and volume V computed by an independent FenicsX numerical solver on the same high-resolution evaluation mesh for every method on a given problem ('to minimize the discretization error and prevent numerical artifacts due to the mesh dependency of the solver', Sec. 4.3); Load Violation Ratio (LVR, share of solutions with no material at a load point) as an explicit failure-rate metric; diversity via the Hill number E[W1] (expected Wasserstein-1 distance between generated shapes)",
+    "quality_gap": "MBB: DB compliance 0.67+/-0.01 (min 0.66, max 0.67) vs TOM 0.75+/-0.03 (min 0.66, max 0.83), i.e. TOM about 12% higher/worse [derived], non-overlapping error ranges; volumes matched (53.49 vs 55.08+/-1.04%); both LVR = 0%; diversity DB 1.36 vs TOM 4.23 (TOM about 3.1x more diverse [derived]). Cantilever: DB compliance 0.58+/-0.01 vs TOM* 0.69+/-0.13 (about 19% higher/worse [derived]); volumes 49.98 vs 49.21+/-0.48%; LVR 0% (DB) vs 8% (TOM, after filtering 8% load-violating outputs); diversity DB 1.01 vs TOM* 2.42 (about 2.4x [derived]). (*TOM/TopoDiff cantilever statistics are reported after filtering out load-violating solutions.)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Table 1: DB is run to its own convergence (a deterministic sequential search, not an early-stopped or partial run), and TOM's mean compliance is measurably worse than DB's with non-overlapping error ranges on both 2D problems (MBB 0.75+/-0.03 vs 0.67+/-0.01; Cantilever 0.69+/-0.13 vs 0.58+/-0.01), while TOM is reported as 4-9x faster. No matching procedure (e.g., restricting the comparison to iso-compliance points, or an equal wall-clock/FE-budget comparison) is attempted before comparing time - this matches the protocol's R1(a) fail condition directly. The article is transparent about this trade-off and frames it as a genuinely different deliverable (a diverse manifold of near-optimal designs vs. DB's small set of high-quality ones, and DB's own diversity, E(W1), is far lower), which is real context but does not itself satisfy R1's matching requirement as written."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-implementation-caveat",
+      "evidence": "DB is explicitly presented as 'the state-of-the-art method for finding multiple solutions to TO problems' (Sec. 4.2), not a weak or outdated baseline, and both DB and TOM appear to run on the same hardware node (Appendix A.3 states hardware for 'all experiments'), so R2(b)-(d) are not clearly triggered. However, the article itself attributes part of DB's slow wall-clock time to 'its public implementation, which involves mesh refinement during training, thereby increasing the runtime for each solver step' (Sec. 4.4) - an author-acknowledged implementation caveat matching the protocol's R2 partial condition ('the implementation looks inefficient... but no direct comparison is possible'). No independent re-test or per-iteration time at matched mesh size was performed here to invoke R2(a)/(e); DB's mesh also grows to a larger final element count (27174) than TOM's fixed mesh (10800) for MBB, complicating any same-size comparison."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 3.1, Sec. 4.4: TOM is data-free and trains per-problem with no pretrained network and no labeled TO dataset ('the first data-free, solver-in-the-loop neural network training' method, Contribution 1). Its cost sits inside R1/R2, and the reported wall-clock times already include the full per-problem optimization."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Sec. 4.3: 'For each problem, we use the same high-resolution mesh across all methods to compute the evaluation metrics', via an independent FenicsX solver, rather than each method's own optimization mesh. Load violations (a real infeasibility mode) are explicitly defined, computed, and reported as LVR for every method (0% for DB/FeniTop; 8% and 87% for TOM and TopoDiff respectively on the cantilever, before filtering); volumes are reported with mean+/-SD for every method. Floaters/disconnected components in TOM's raw outputs are also explicitly acknowledged as a limitation (Sec. 4.4, Appendix D.3) rather than hidden, and the headline Table 1 numbers are not shown to depend on the optional post-processing demonstrated separately in Appendix D.3."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 standard TO benchmark problems (MBB beam, cantilever beam, 3D jet engine bracket/Simjeb), each evaluated as a distribution of many generated solutions rather than a single design",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Access: arXiv abs/PDF pages returned HTTP 200 with no bot-check; the abs page lists two versions ([v1], [v2]), and the latest (v2, 17 Jun 2025) PDF was read in full, including all appendices. No author named Jun Wang among the paper's actual authors (Andreas Radler, Eric Volkmann, Johannes Brandstetter, Arturs Berzins); the reference list cites unrelated prior works by a 'Wang, F.' and a 'Wang, Z.' (TopoGAN and an image-quality-metric paper respectively) as sources, not as authors of this article. Duplicate check: audit/pool/pool.csv searched for 'Modulated Neural Fields' (case-insensitive) returned exactly one match (this record, pid P00051); no FT-DUPLICATE applies. Code: footnote 1 gives https://github.com/ml-jku/Topology-Optimization-Modulated-Neural-Fields, confirmed via the GitHub API (2026-09-24) as public, not archived, MIT-licensed, last pushed the same day as the v2 arXiv update (17 Jun 2025); retest_candidate = true given the public MIT-licensed code, fully specified hyperparameters (Table 3) and hardware (Appendix A.3), and standard, well-defined benchmark problems (Appendix D.1). Primary-outcome selection followed the Sec. 5.1 cascade exactly: the Abstract, Conclusion and Introduction each state only qualitative comparisons with no classical method named and no number given, so the search proceeded to the main text, where Sec. 4.4's explicitly headlined 'TOM is more diverse and faster than DB' subsection is the first and most clearly emphasized quantitative comparison against a named classical (non-learned) method; the preceding, more general 'TOM has high quality and diversity' paragraph (which also touches DB and TopoDiff together on compliance/diversity) and the FeniTop and TopoDiff comparisons are recorded as alternatives. A notable secondary observation, not part of the scored primary outcome: for the 3D jet engine bracket, TOM's reported 4x wall-clock advantage over FeniTop uses a mesh with roughly 64x fewer elements (26x43x15 vs. 104x172x60) [derived], which is a plausible confound for that specific comparison and is flagged for the adjudicator even though it does not feed into the R1/R2 verdicts above (which are scored against the DB comparison, the article's chosen primary outcome, for which no such mesh mismatch could be fully resolved either given DB's own adaptive, growing mesh)."
+}

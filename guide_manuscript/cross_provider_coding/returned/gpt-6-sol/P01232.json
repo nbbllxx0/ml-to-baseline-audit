@@ -1,0 +1,34 @@
+{
+  "pid": "P01232",
+  "citation": {
+    "title": "Research on topology optimization of carbon fiber reinforced composite electric vehicle helmet based on deep learning",
+    "authors": "Xiangkui Zhang; Wei Wei; Ping Hu; Chengxiang Han",
+    "year": 2024,
+    "venue": "Journal of Physics: Conference Series",
+    "doi": "10.1088/1742-6596/2791/1/012064",
+    "version_coded": "version of record abstract only"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "gpt-6-sol",
+    "llm_date": "2026-09-26",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none"
+  },
+  "claim": {},
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "The Crossref abstract describes a U-Net trained on designs from a variable-density optimizer and compares the optimized helmet with an ordinary helmet, but does not establish an optimization-level comparison with a classical method. The publisher full-text URL returned a bot-validation page; no other permitted full-text copy was found. Full-text eligibility and reporting indicators remain unassessed.",
+  "stage": "cross_provider_pass"
+}

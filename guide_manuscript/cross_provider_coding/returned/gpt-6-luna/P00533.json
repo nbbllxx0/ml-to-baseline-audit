@@ -1,0 +1,88 @@
+{
+    "pid":  "P00533",
+    "citation":  {
+                     "title":  "A complete Physics-Informed Neural Network-based framework for structural topology optimization",
+                     "authors":  "Hyogu Jeong; Chanaka Batuwatta-Gamage; Jinshuai Bai; Yi Min Xie; Charith Rathnayaka; Ying Zhou; YuanTong Gu",
+                     "year":  2023,
+                     "venue":  "Computer Methods in Applied Mechanics and Engineering 417, 116401",
+                     "doi":  "10.1016/j.cma.2023.116401",
+                     "arxiv_id":  "none",
+                     "version_coded":  "publisher version"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-QUALITY",
+                     "stratum":  "quality",
+                     "method_family":  "neural_reparam",
+                     "physics":  "compliance",
+                     "dim":  "both"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The CPINNTO framework produces compliance values described as comparable to traditional SIMP designs for two- and three-dimensional cases.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  false,
+                  "claimed_speedup":  0.0032,
+                  "claimed_speedup_basis":  "Section 4.1 reports total CPINNTO computation time at least 312 times longer than SIMP, equivalent to classical time / CPINNTO time ≤1/312 ≈ 0.0032; this is an underperformance ratio, not a speed advantage.",
+                  "direction":  "similar_or_mixed",
+                  "alternatives":  "Section 5 claims fewer than half as many iterations as SIMP for computationally intensive 3D problems, while Section 4.1 reports much longer total runtime; Table 1 shows compliance differences of 1.48%–11.42% against SIMP with Heaviside projection."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP, with SIMP plus Heaviside projection also compared",
+                     "implementation":  "Open-source 88-line MATLAB code by Andreassen et al.; CPINNTO outputs evaluated with same interpolation and TO settings (Section 4.1)",
+                     "solver":  "SIMP uses FEA; 88-line code",
+                     "hardware_classical":  "Intel Core i7-10700 CPU 2.90 GHz, 16 GB DDR4 RAM (Section 4)",
+                     "hardware_ml":  "Intel Core i7-10700 CPU 2.90 GHz, 16 GB DDR4 RAM (Section 4)",
+                     "problem_size":  "2D beam 80×40 elements (Section 4.1); 3D cantilever 40×20×20 and bridge 60×20×10 hexahedral meshes (Section 4.6)",
+                     "classical_iterations":  "SIMP cases (a–d): 154, 68, 41, 25; SIMP + Heaviside: 1394, 1015, 840, 710 (Table 2)",
+                     "classical_time":  "SIMP total time reported as at least 312× shorter than CPINNTO; Table 2 gives per-case totals (Section 4.1)",
+                     "ml_time":  "CPINNTO total time reported as at least 312× longer than SIMP and 34× longer than SIMP + Heaviside (Section 4.1)",
+                     "training_time":  "PINNs trained per problem; included in reported total runtime; separate training duration not stated",
+                     "data_generation_cost":  "not applicable: no labeled data used (abstract)",
+                     "quality_metric":  "compliance; volume fraction; maximum von Mises stress for constrained case",
+                     "quality_gap":  "Table 1: SIMP + Heaviside compliance is 1.48%–11.42% lower than CPINNTO in four cases; 3D CPINNTO compliance is up to 6% lower and 8% higher than SIMP (Section 4.6)"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "partial",
+                             "marker":  "R1-loose-quality-match",
+                             "evidence":  "Section 4.1 and Table 1 compare same load cases and target volume fractions, but CPINNTO compliance differs from SIMP + Heaviside by 1.48%–11.42%; exact matched-quality runtime is not established."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Section 4.1 uses the open-source 88-line SIMP code, and Section 4 states a shared CPU; no text establishes a weak classical solver or overlong iteration count."
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "R3-per-problem-learning",
+                             "evidence":  "Section 2 trains the DEM-PINN and S-PINN within each topology optimization problem; cost is part of the reported per-problem runtime, with no offline dataset training."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-no-failure-rate",
+                             "evidence":  "Sections 4.1 and 4.6 evaluate returned designs with SIMP/COMSOL finite-element analyses and state volume constraints; Section 4.2 notes one nonconverged shallow network, but failure rates are not reported."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Four 2D beam configurations; additional 2D passive-element and stress-constrained cases; two 3D problems; network and mesh-size studies (Section 4)",
+                      "ood_test":  "yes",
+                      "seeds_or_variance":  "no",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "yes",
+                      "code_available":  "no",
+                      "data_available":  "on_request",
+                      "hardware_per_method_stated":  "yes"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Open version on the University of the Sunshine Coast repository, CC BY-NC 4.0. The primary abstract comparison is quality based; the runtime comparison in Section 4.1 shows substantial underperformance.",
+    "stage":  "cross_provider_pass"
+}

@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00808",
+    "citation":  {
+                     "title":  "A Geometric-Enhanced Neural Network Method for Scalable and High-Resolution Topology Optimization",
+                     "authors":  "Lei Zhang, Shiqiang Li, Zhichu Lei, Guangzhe Du, Xiao Zhang, Guanbin Chen, Wenliang Qian",
+                     "year":  2026,
+                     "venue":  "Symmetry, 18(3), 537",
+                     "doi":  "10.3390/sym18030537",
+                     "arxiv_id":  "",
+                     "version_coded":  "Version of record (MDPI open access full text)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "quality",
+                     "method_family":  "neural_reparam",
+                     "physics":  "compliance",
+                     "dim":  "both"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "On cantilever and Michell beam cases, GeNN reduces the checkerboard index versus unfiltered SIMP by 65.3% and 27.6%, respectively.",
+                  "key_phrase":  "reduces the checkerboard index",
+                  "location":  "Section 4.1, Figure 7",
+                  "quantitative":  true,
+                  "claimed_speedup":  1.89,
+                  "claimed_speedup_basis":  "A secondary speed comparison in Section 4.3 reports SIMP at 61.36 s and GeNN at 32.55 s for the simply supported beam: 61.36 / 32.55 = 1.89. The 3D table separately implies 727.91 / 91.42 = 7.96.",
+                  "direction":  "outperform",
+                  "alternatives":  "Section 4.3: SS-beam compliance objective is 112,737.99 for GeNN versus 115,819.95 for SIMP, with 32.55 s versus 61.36 s; 3D cantilever results are also reported. The abstract qualitatively claims improved computational efficiency and reports a bridge case completed in under ten minutes."
+              },
+    "baseline":  {
+                     "classical_method":  "SIMP density-based topology optimization",
+                     "implementation":  "Standard SIMP implementation with density filter (2D filter radius 1.3 elements; 3D 1.5 elements); code details not stated",
+                     "solver":  "3D linear system uses sparse direct PARDISO; 2D solver not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "SS beam comparison: 160 × 80 Q4 elements; 3D cantilever: 80 × 40 × 4 hexahedral elements; default 2D examples: 80 × 40 elements",
+                     "classical_iterations":  "SS beam: 400; 3D cantilever: 500 (Tables 1–2)",
+                     "classical_time":  "SS beam: 61.36 s; 3D cantilever: 727.91 s (Tables 1–2)",
+                     "ml_time":  "SS beam: 32.55 s; 3D cantilever: 91.42 s (Tables 1–2). High-resolution forward pass: \u003c0.02 s; total with training about 30 s (Section 4.2).",
+                     "training_time":  "About 30 s including training for the high-resolution inference example (Section 4.2); separate timing for the main optimization cases not stated",
+                     "data_generation_cost":  "not applicable to per-problem optimization; no offline data-generation cost stated",
+                     "quality_metric":  "Compliance objective value, checkerboard index, and volume fraction",
+                     "quality_gap":  "SS beam: GeNN objective 112,737.99 versus SIMP 115,819.95 (Table 1); volume fraction set to 0.4 (Section 4)."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "R1-quality-primary",
+                             "evidence":  "Section 4.1, Figure 7: the primary comparison is checkerboard-index quality; the protocol\u0027s speed-matching rule does not apply to this quality-only primary outcome."
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "R2-quality-primary",
+                             "evidence":  "Section 4.1, Figure 7: the primary outcome is design quality, not a speed comparison. Later speed results are secondary."
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "R3-per-problem-learning",
+                             "evidence":  "Sections 3–4: design parameters are optimized for each problem through iterative FEA and backpropagation; there is no offline training-data generation phase for this method."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-FE-constraint-failure-rate-unreported",
+                             "evidence":  "Sections 3–4: compliance is evaluated through FEA and volume fraction is constrained, but infeasible or failed-design rates are not reported."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Multiple examples: cantilever and Michell beams, L-bracket, simply supported beam, 3D cantilever, heat conduction, multi-volume design, and bridge (Sections 4–5).",
+                      "ood_test":  "no",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "partial",
+                      "runtimes_all_cases":  "selective",
+                      "code_available":  "no",
+                      "data_available":  "on_request",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "The primary quantitative comparison under the protocol ordering is checkerboard-index quality in Section 4.1. The later direct classical speed comparison is recorded as an alternative outcome and in the baseline fields.",
+    "stage":  "cross_provider_pass"
+}

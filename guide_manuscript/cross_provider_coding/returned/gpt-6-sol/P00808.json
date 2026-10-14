@@ -1,0 +1,54 @@
+{
+  "pid": "P00808",
+  "citation": {
+    "title": "A Geometric-Enhanced Neural Network Method for Scalable and High-Resolution Topology Optimization",
+    "authors": "Lei Zhang, Shiqiang Li, Zhichu Lei, Guangzhe Du, Xiao Zhang, Guanbin Chen, Wenliang Qian",
+    "year": 2026,
+    "venue": "Symmetry 18(3), 537",
+    "doi": "10.3390/sym18030537",
+    "version_coded": "open-access version of record"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "neural_reparam", "physics": "compliance", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "For the simply supported beam, GeNN completed optimization in 32.55 seconds versus 61.36 seconds for SIMP, with a lower reported objective value.",
+    "key_phrase": "",
+    "location": "Section 4.3, Table 1, p. 13",
+    "quantitative": true,
+    "claimed_speedup": 1.8851,
+    "claimed_speedup_basis": "61.36 s / 32.55 s = 1.8851 from section 4.3, Table 1, p. 13.",
+    "direction": "outperform",
+    "alternatives": "Abstract reports a 256 m bridge with millions of degrees of freedom optimized within ten minutes, without a classical time. Section 4.3, Table 2 compares 3D SIMP and GeNN."
+  },
+  "baseline": {
+    "classical_method": "Density-based SIMP with density filtering (section 4 and Table 1)",
+    "implementation": "Python 3.10.16 and PyTorch 2.5.1 stated for examples; specific SIMP implementation not stated (section 4)",
+    "solver": "2D solver not stated; 3D linear system uses PARDISO sparse direct solver (section 4.3, p. 14)",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated for Table 1; bridge example used GPU with peak memory about 21.3 GB (section 5, p. 19)",
+    "problem_size": "160 × 80 Q4 elements, 12,800 SIMP design variables for primary SS beam (section 4.3, Table 1, p. 13)",
+    "classical_iterations": "400 iterations for primary SS beam; its stopping rule not stated (Table 1, p. 13)",
+    "classical_time": "61.36 s for primary SS beam (Table 1, p. 13)",
+    "ml_time": "32.55 s for primary SS beam, including per-problem parameter optimization (Table 1, p. 13)",
+    "training_time": "32.55 s per-problem optimization for primary SS beam (Table 1, p. 13); 4× refined inference takes less than 0.02 s after approximately 30 s total training/runtime on separate examples (section 4.2, p. 13)",
+    "data_generation_cost": "not applicable; network parameters are optimized anew for each design problem rather than learned from an offline design dataset (section 3, Figure 4)",
+    "quality_metric": "Compliance/objective value (section 4.3, Table 1, p. 13)",
+    "quality_gap": "GeNN 112,737.99 versus SIMP 115,819.95 objective value for primary SS beam (section 4.3, Table 1, p. 13)"
+  },
+  "rules": {
+    "R1": {"verdict": "partial", "marker": "R1-loose-matching", "evidence": "Section 4.3, Table 1, p. 13: GeNN has lower objective than SIMP under a shared prescribed volume fraction, but SIMP uses 400 iterations with no stated stopping rule or physical-field volume comparison."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Sections 4 and 4.3, pp. 10 and 13-14: SIMP has a density filter and the 3D solver is PARDISO, but primary 2D solver and hardware are not specified; no article evidence establishes R2(a)-(e)."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "Section 3, Figure 4 and section 4.3, Table 1: GeNN parameters are trained within each problem's timed iterative optimization; there is no offline dataset acquisition to amortize."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 3-4 and Table 1: compliance is computed via FEA on returned density fields and volume is constrained, but infeasible or failed-design rates are not reported."}
+  },
+  "reporting": {
+    "n_test_cases": "8 named example types across sections 4-5 (2D cantilever, Michell, L-bracket, SS beam; 3D cantilever; heat, multi-volume, and bridge)",
+    "ood_test": "no", "seeds_or_variance": "yes", "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial", "runtimes_all_cases": "selective",
+    "code_available": "no", "data_available": "on_request", "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Reporting locators: section 6, Table 6 reports seed stability; sections 4-5 provide selected timings, with no separate hardware assignment for SIMP and GeNN. The Data Availability Statement offers further inquiries; no public source-code link is given. The abstract's bridge time is not a quantitative classical comparison, so the first eligible quantitative comparison is Table 1."
+}

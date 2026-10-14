@@ -1,0 +1,44 @@
+{
+  "pid": "P01390",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Structural and thermal generative design using reinforcement learning-based search strategy for additive manufacturing",
+    "authors": "Vysakh Venugopal, Sam Anand",
+    "year": 2023,
+    "venue": "Manufacturing Letters 35 (2023) 564-575 (Elsevier; Crossref type journal-article, issue dated August 2023; version-of-record licence CC BY-NC-ND 4.0 from 2024-02-13 per Crossref)",
+    "doi": "10.1016/j.mfglet.2023.08.030",
+    "arxiv_id": "none found",
+    "version_coded": "none: abstract only (OpenAlex abstract as stored in the pool); full text not reachable by this agent"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "rl",
+    "physics": "multiphysics",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (abstract only). The abstract says an Upper Confidence Bound (UCB) search perturbs SIMP to give diverse compliance and heat-conduction designs with AM filters, and calls the method computationally efficient and scalable; no classical comparison or number is given.",
+    "location": "Abstract (pool record, from OpenAlex)",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "no full text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "evidence": "no full text"},
+    "R2": {"verdict": "na", "evidence": "no full text"},
+    "R3": {"verdict": "na", "evidence": "no full text"},
+    "R4": {"verdict": "na", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Access attempts on 2026-09-24, all anonymous with the generic User-Agent 'Mozilla/5.0 (research-audit)'. (1) The open copy OpenAlex lists is the DOI. It resolves via linkinghub to ScienceDirect PII S2213846323000871, which answered HTTP 403 with a captcha/robot page to curl; WebFetch also got HTTP 403. No bypass was attempted. (2) OpenAlex (stored lookup in audit/search/raw/oa_lookup): one location only, the publisher (hybrid, cc-by-nc-nd), any_repository_has_fulltext false. (3) Semantic Scholar Graph API: openAccessPdf points only to the DOI. (4) Europe PMC: no record for the DOI. (5) arXiv API: no version (author query Venugopal AND Anand; title-term query). (6) Web search on the exact title: only the ScienceDirect page. Free to read in a browser: very likely yes, because the version of record carries a CC BY-NC-ND 4.0 licence (Crossref) and OpenAlex and Semantic Scholar list it as hybrid open access [inferred; not opened in a browser by this agent]. A human can fetch it from https://doi.org/10.1016/j.mfglet.2023.08.030. What the abstract suggests for the verifier: a UCB bandit (a learned search policy built from historical TO iterations, no training data) perturbs SIMP to produce several optimal designs for compliance and thermal conduction with support-minimization and thin-feature filters; the only comparative framing is against data-reliant deep learning and a qualitative claim of computational efficiency and scalability. The full text decides whether plain SIMP is run or timed as a comparator; if not, FT-NOBASELINE is the likely outcome, and if only designs are compared, stratum Q. Duplicate check: no prefill matches the title, the authors or the UCB method (grep of audit/coding/llm_prefill, 2026-09-24). No author named Jun Wang. Screening code was I-UNCLEAR."
+}

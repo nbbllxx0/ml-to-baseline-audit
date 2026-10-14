@@ -1,0 +1,60 @@
+{
+  "pid": "P00006",
+  "citation": {
+    "title": "Explainable quantum neural networks for multi-material topology optimization",
+    "authors": "Dahyun Joo, Naruethep Sukulthanasorn, Kenjiro Terada, Do-Nyun Kim",
+    "year": 2026,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arXiv.2607.00438",
+    "arxiv_id": "2607.00438",
+    "version_coded": "arXiv v1"
+  },
+  "access": "full_text",
+  "stage": "cross_provider_pass",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "other", "physics": "compliance", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "Against terminal MMA layouts, XQNN attained 81.4% to 94.0% material-type agreement on three validation load cases; the four-material predictions were less clean.",
+    "key_phrase": "",
+    "location": "Section 2.2, validation results",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No end-to-end runtime or classical/ML time ratio is reported; Section 2.2 and Table S6 discuss only an early-stopping time/accuracy tradeoff.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Section 2.3 reports OOD, mesh-transfer and 3D material accuracy and normalized compliance against terminal MMA; Table S6 qualitatively notes an early-stopping acceleration benefit."
+  },
+  "baseline": {
+    "classical_method": "Section 4.1: MMA-based multi-material topology optimization with FE equilibrium and compliance minimization.",
+    "implementation": "Section 4.1: adapted from Zheng et al.'s MATLAB two- and three-dimensional MMTO code.",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "Section 4.3: AMD Ryzen 7 9700X 8-Core Processor for exact Qiskit statevector simulation.",
+    "problem_size": "Sections 2.2-2.3: training/validation/OOD 50 x 25 elements; transfer 100 x 50, 150 x 75, 200 x 100 elements; 3D 20 x 20 x 10 voxels.",
+    "classical_iterations": "Section 4.1: terminal MMA stops at grayscale ratio <0.02 for regular 2D/3D and <0.01 for high-resolution 2D; iteration counts not stated.",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated",
+    "quality_metric": "Sections 2.2-2.3: material-type accuracy and normalized compliance Cpred/CGT; Table S2 gives material-volume constraints.",
+    "quality_gap": "Section 2.2: validation accuracy 81.4%-94.0%; Section 2.3: 3D mean accuracy 89.3%, 79.6%, 73.6% and mean normalized compliance 0.96, 0.98, 0.83 for two, three, four materials."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-stratum", "evidence": "Section 2.2: primary quantitative comparison is design agreement with terminal MMA, not a measured speed comparison."},
+    "R2": {"verdict": "pass", "marker": "R2-none-established", "evidence": "Sections 4.1-4.3: MMA implementation and ML CPU are identified, but no same-task times, per-iteration times or hardware contrast establish an R2 criterion."},
+    "R3": {"verdict": "fail", "marker": "R3-no-data-cost", "evidence": "Section 2.2 and Table S6 claim an early-stopping acceleration benefit without training or data-generation costs or a break-even calculation."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Section 2.3 and Figures S6-S8 report compliance of predicted layouts [inferred FE verification]; Section 2.3 notes disconnected members and no enforced volume constraints, but gives neither violation magnitudes nor failure rates."}
+  },
+  "reporting": {
+    "n_test_cases": "Section 2 and Table S1: O1-O4 = 4 OOD conditions, HR1-HR3 = 3 resolution cases, 3D1-3D4 = 4 three-dimensional conditions, each at 2/3/4 materials; V1-V3 = 3 validation conditions.",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "on_request",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Section 2.3 reports some predictions stiffer than terminal MMA but explicitly says XQNN does not enforce volume constraints. The primary comparison is quality; the paper gives only qualitative acceleration discussion, with no observed end-to-end speed-up. Sections 5-6 offer data and code on request."
+}

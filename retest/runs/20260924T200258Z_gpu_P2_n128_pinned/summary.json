@@ -1,0 +1,28 @@
+{
+  "solver": "gpu",
+  "problem": "P2_mbb",
+  "n": 128,
+  "iters": 150,
+  "total_s_median": 2.9367586997686885,
+  "total_s_min": 2.928381899895612,
+  "total_s_max": 2.943396099784877,
+  "total_s_all": [
+    2.943396099784877,
+    2.9367586997686885,
+    2.928381899895612
+  ],
+  "setup_s": 0.09887029998935759,
+  "warmup_s": 0.7636223000008613,
+  "per_iter_s_median": 0.01957725000102073,
+  "solve_s_median": 0.014002400013851002,
+  "c_last": 30.11013706981305,
+  "vol_last": 0.5000008531419479,
+  "first_iter_change_below_0.01": null,
+  "true_res_max": 9.98268892519471e-09,
+  "pcg_its_median": 17.0,
+  "pcg_its_max": 19,
+  "fallbacks": 0,
+  "idle_power_w": 80.90934782608696,
+  "energy_j_median": 384.5017634367604,
+  "energy_above_idle_j_median": 133.23888469837777
+}

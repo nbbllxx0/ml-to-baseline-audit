@@ -1,0 +1,88 @@
+{
+  "pid": "P00100",
+  "citation": {
+    "title": "DMF-TONN: Direct Mesh-free Topology Optimization using Neural Networks",
+    "authors": "Aditya Joglekar, Hongrui Chen, Levent Burak Kara",
+    "year": 2023,
+    "venue": "Engineering with Computers 40(4):2227-2240 (2024), published online 28 Oct 2023, open access (CC BY 4.0), per Crossref and the publisher page",
+    "doi": "10.1007/s00366-023-01904-w",
+    "arxiv_id": "2305.04107",
+    "version_coded": "Version of record (Springer HTML full text and Tables 1-3, open access), cross-checked against arXiv v2 (22 Sep 2023, HTML); text and Table 1-3 values match except the Fig. 3c time (see notes)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On a 2D cantilever at volume fraction 0.5, DMF-TONN reaches lower FE-evaluated compliance than the 88-line SIMP code (binary 2.52×10^-4 vs 2.66×10^-4) but needs 277 s versus 69 s on the same machine.",
+    "key_phrase": "though our method is slower than SIMP",
+    "location": "Sec. 4.1, Table 1: the first quantitative comparison with a classical method; the abstract, introduction and conclusion compare only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": 0.249,
+    "claimed_speedup_basis": "Derived from Table 1: SIMP 69 s ÷ DMF-TONN 277 s = 0.249, so the ML method is about 4.0 times slower. The article claims no speed-up over SIMP.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Abstract and Sec. 5: qualitative parity with standard TO; the article's most emphasised message (stratum quality if chosen). (2) Table 2 (volume fraction 0.3): binary compliance 4.01×10^-4 vs 4.55×10^-4 (SIMP); 275 s vs 124 s. (3) Sec. 4.2, Fig. 2: 3D cantilever on a 40x20x8 grid, compliance 6.76×10^-3 vs 7.49×10^-3; 588 s vs 227 s. (4) Sec. 4.4, Table 3: DMF-TONN 517 s vs SIMP 99 s (60x20x8) and 807 s (90x30x12); compliance 2.40×10^-2 vs 2.65×10^-2 and 2.38×10^-2. This is the only case where DMF-TONN beats a classical run on time, and the conclusion highlights it as a trade-off. (5) Sec. 4.3: case-study totals 236 min vs 96 min (SIMP) and 124 min (FENN TO)."
+  },
+  "baseline": {
+    "classical_method": "SIMP. 2D: the 88-line code of Andreassen et al. 2011 (ref. [34]) at its default convergence criterion, density filter radius 1.5 elements (Sec. 4, 4.1). 3D: Top3D of Liu and Tovar 2014 (ref. [35]).",
+    "implementation": "MATLAB educational codes (88-line 2D code; Top3D for 3D), per the titles of refs. [34] and [35]; DMF-TONN in TensorFlow (Sec. 3.2.2)",
+    "solver": "not stated",
+    "hardware_classical": "not stated per method; all experiments ran on one machine: Intel Core i7-12700 2.10 GHz, 16 GB RAM, Nvidia GeForce RTX 3060 (Sec. 3.3)",
+    "hardware_ml": "the same single machine (Sec. 3.3); the device used by each method is not stated",
+    "problem_size": "2D cantilever: grid not stated in the text (Tables 1-2). 3D: 40x20x8 grid with 19,200 DOF (Sec. 4.2); 60x20x8 with 28,800 DOF and 90x30x12 with 97,200 DOF (Table 3). DMF-TONN: batch of 6,000 points, 4,096 trainable weights per network (Sec. 4.2, 4.5).",
+    "classical_iterations": "2D: default convergence criterion of the 88-line code, value not stated (Sec. 4.1). Top3D: 200 maximum iterations, change tolerance 0.01 (Sec. 4.4). Case study: all methods run for 700 iterations (Sec. 4.3).",
+    "classical_time": "69 s (Table 1); 124 s (Table 2); 227 s (Sec. 4.2); 99 s and 807 s (Table 3); 96 min total (Sec. 4.3)",
+    "ml_time": "277 s (Table 1); 275 s (Table 2); 588 s (Sec. 4.2); 517 s (Table 3); 236 min total (Sec. 4.3); under 800 s for each additional example (Sec. 4.5)",
+    "training_time": "not applicable: per-problem training is the optimization itself, so its cost is inside the reported run times [inferred]. Schedule: 1,000 initial PINN iterations, then 20 per optimization iteration; 2,000 (2D) or 700 (3D) optimization iterations (Sec. 3.3, 4.1, 4.2).",
+    "data_generation_cost": "none: no training data (per-problem method)",
+    "quality_metric": "Compliance from FEA of the returned design with the same FE solver as SIMP; convergence compliance and thresholded, volume-preserving binary compliance; volume fraction achieved (Sec. 4, Tables 1-3)",
+    "quality_gap": "Table 1: binary compliance 2.52×10^-4 (DMF-TONN) vs 2.66×10^-4 (SIMP); convergence compliance 2.73×10^-4 vs 2.86×10^-4; volume fraction 0.50 for both. Across 9 single 3D examples (Fig. 2, Table 3, Figs. 5-11), SIMP reaches lower compliance in 5 (Figs. 6, 8, 9, 10, 11; in Figs. 8-9 by 0.01×10^-3) [derived from the figure captions]."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "none",
+      "evidence": "Sec. 4.1, Table 1: run time and FE-evaluated compliance are reported side by side at equal volume fraction (0.50). The ML method is slower and claims no speed advantage over SIMP, so no speed claim needs quality matching. Its compliance advantage comes with about 4 times the SIMP run time."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "none",
+      "evidence": "Sec. 3.3, 4.1: SIMP uses the published 88-line code at its default stopping rule on the same machine. No marker is established: the 2D grid size and the device per method are not stated, and the largest 3D case has 97,200 DOF, below 10^5. A stronger baseline would only widen the reported slow-down."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-per-problem",
+      "evidence": "Sec. 3: per-problem neural reparameterization with a PINN; no offline data or training. Its cost sits inside the reported run times."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 4 intro, Tables 1-3: the compliance of every returned design is recomputed by FEA, and the volume fraction is reported. Failures are not counted: non-convergence below volume fraction 0.2 (Sec. 5) and a dangling feature (Fig. 14c, Sec. 4.6) are described only qualitatively."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2D: 2 cases (Tables 1-2). 3D: 9 single examples (Fig. 2, Table 3, Figs. 5-11), 3 same-grid variants (Figs. 12-14), and a case study over load locations and volume fractions (Fig. 4; the number of cases appears only in the figure).",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Stratum changed from the screening code I-QUALITY to speed: PROTOCOL §5.1 rule 2 selects the first quantitative classical comparison (Table 1), which reports run time as well as compliance; the abstract gives only qualitative parity. Code: github.com/AdityaJoglekar/DMF-TONN exists (GitHub API, 2026-09-24) but declares no licence, so retest_candidate = false under PROTOCOL §10; human to decide. data_available = no only because the method uses no training data (the schema has no n/a option). The version of record prints the Fig. 3c time as 249.2 s, while arXiv v2 prints 24902 s (a secondary result). Figure images were not inspected; compliance values come from the text, tables and captions."
+}

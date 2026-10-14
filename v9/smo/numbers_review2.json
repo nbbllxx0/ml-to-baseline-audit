@@ -1,0 +1,50 @@
+{
+ "N530": {
+  "value": 20.11370241108008,
+  "text": "20-fold",
+  "note": "largest implementation cut over the eight in-depth cases (HGTO 960x320)"
+ },
+ "N531": {
+  "value": 5.494594059765818,
+  "text": "5.5-fold",
+  "note": "implementation cut, HGTO cantilever 240x80"
+ },
+ "N532": {
+  "value": [
+   1.0094450476954555,
+   1.3781896362764223
+  ],
+  "text": "1.0- to 1.4-fold",
+  "note": "implementation cut, the three 120x40 HGTO configurations"
+ },
+ "N533": {
+  "value": 153,
+  "text": "153 of 250",
+  "note": "OAT extension samples above the original target volume (both sizes)"
+ },
+ "N534": {
+  "value": 1.263672113418579,
+  "text": "1.3 percentage points",
+  "note": "largest excess of an OAT extension sample's thresholded volume over the target"
+ },
+ "N535": {
+  "value": 83,
+  "text": "83 of 125",
+  "note": "256^2 extension samples matched with classical volume <= original target"
+ },
+ "N536": {
+  "value": 78,
+  "text": "78 of 125",
+  "note": "64^2 extension samples matched with classical volume <= original target"
+ },
+ "N537": {
+  "value": 1.7695154422192672,
+  "text": "1.77×",
+  "note": "256^2 extension median factor (classical / OAT), classical volume <= original target"
+ },
+ "N538": {
+  "value": 0.9585671176238084,
+  "text": "0.96×",
+  "note": "64^2 extension median factor (classical / OAT), classical volume <= original target"
+ }
+}

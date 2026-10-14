@@ -1,0 +1,165 @@
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+OC update=25 C=153.66832 elapsed=1.8s
+OC update=50 C=153.61307 elapsed=2.5s
+OC update=75 C=194.94443 elapsed=3.2s
+OC update=100 C=189.04397 elapsed=3.9s
+OC update=125 C=185.70985 elapsed=4.6s
+OC update=150 C=185.34833 elapsed=5.3s
+OC update=175 C=175.33407 elapsed=6.0s
+OC update=200 C=175.23368 elapsed=6.7s
+OC update=225 C=175.16968 elapsed=7.3s
+OC update=250 C=175.12591 elapsed=8.0s
+OC update=275 C=175.09378 elapsed=8.8s
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+{
+  "method": "SIMP-OC",
+  "case": "cantilever_120x40",
+  "description": "left edge clamped; downward unit force at right midpoint",
+  "C_raw": 175.0823293512004,
+  "volume": 0.49999999989338517,
+  "target_volume": 0.5,
+  "gray_fraction": 0.15375000000000005,
+  "grayness_percent": 9.951504028278801,
+  "converged": true,
+  "stages": [
+    {
+      "beta": 1.0,
+      "penalty": 1.0,
+      "steps": 50,
+      "converged": false,
+      "design_change": 0.01183658538898369,
+      "max_density_change": 0.0024366470513239036,
+      "relative_C_window": 7.549337116879533e-05,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 2.0,
+      "penalty": 2.0,
+      "steps": 50,
+      "converged": false,
+      "design_change": 0.09999999999999998,
+      "max_density_change": 0.03130295817285467,
+      "relative_C_window": 0.011103369871427649,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 4.0,
+      "penalty": 3.0,
+      "steps": 50,
+      "converged": false,
+      "design_change": 0.0344039555949216,
+      "max_density_change": 0.007334383519152388,
+      "relative_C_window": 0.00037760216158126177,
+      "stage_budget": 50,
+      "continuation_stage": true
+    },
+    {
+      "beta": 8.0,
+      "penalty": 3.0,
+      "steps": 148,
+      "converged": true,
+      "design_change": 0.006492033011433085,
+      "max_density_change": 0.00256855989716398,
+      "relative_C_window": 1.3805872625022879e-05,
+      "stage_budget": 850,
+      "continuation_stage": false
+    }
+  ],
+  "termination": "converged",
+  "state_evaluations": 298,
+  "setup_s": 1.0307210000464693,
+  "optimization_s": 8.409551199991256,
+  "wall_s": 9.948200500046369,
+  "max_state_residual": 1.2933876145386297e-12,
+  "filter_radius": 3.0,
+  "config": {
+    "betas": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "max_stage_steps": 850,
+    "min_stage_steps": 1,
+    "move": 0.2,
+    "change_tolerance": 0.005,
+    "compliance_tolerance": 0.001,
+    "stable_steps": 5,
+    "snapshot_interval": 25,
+    "solver": "pypardiso-spd",
+    "rho_min": 0.001,
+    "penalties": [
+      1.0,
+      2.0,
+      3.0,
+      3.0
+    ],
+    "stopping_rule": "physical",
+    "continuation_stage_cap": 50
+  },
+  "fem_backend": {
+    "library": "scikit-fem",
+    "library_version": "12.0.2",
+    "element": "ElementQuad1",
+    "model": "plane stress",
+    "basis": "ElementVector",
+    "assembly": "linear_elasticity.elemental; COOData.fromlocal.tocsr",
+    "quadrature_points": 4,
+    "corner_permutation": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "solver": "pypardiso-spd",
+    "linear_solver_version": "0.4.7",
+    "E0": 1.0,
+    "Emin": 1e-06,
+    "nu": 0.3,
+    "penalty": 3.0,
+    "thickness": 1.0,
+    "calls": 298,
+    "max_residual": 1.2933876145386297e-12,
+    "energy_relative_error": 1.9705651167333817e-12,
+    "assembly_seconds": 2.340429499570746,
+    "solve_seconds": 3.757237800513394
+  },
+  "processing": "Element-measure-weighted hat density filter; tanh projection; post-projection rho_min floor; final p=3 (per-stage penalties recorded); physical weighted volume; stage-wise convergence",
+  "timing_scope": "Case construction, physics/network setup, all optimization evaluations, and final independent scikit-fem physical-field evaluation; excludes imports, serialization, plots and offline trajectory rescoring",
+  "optimization_end_s": 9.446346000011545,
+  "validation_s": 0.501854500034824,
+  "independent_relative_C_error": 6.561515941865972e-13,
+  "independent_fem": {
+    "library": "scikit-fem",
+    "library_version": "12.0.2",
+    "element": "ElementQuad1",
+    "model": "plane stress",
+    "basis": "ElementVector",
+    "assembly": "linear_elasticity.elemental; COOData.fromlocal.tocsr",
+    "quadrature_points": 4,
+    "corner_permutation": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "solver": "pypardiso",
+    "linear_solver_version": "0.4.7",
+    "E0": 1.0,
+    "Emin": 1e-06,
+    "nu": 0.3,
+    "penalty": 3.0,
+    "thickness": 1.0,
+    "calls": 1,
+    "max_residual": 7.437925709998907e-13,
+    "energy_relative_error": 1.3140888557497537e-12,
+    "assembly_seconds": 0.008792800013907254,
+    "solve_seconds": 0.023405799991451204
+  },
+  "cpu_threads": 2,
+  "hardware": "CPU"
+}

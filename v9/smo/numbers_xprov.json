@@ -1,0 +1,106 @@
+{
+ "N510": {
+  "value": 0.6073765615704936,
+  "text": "0.61 (0.39–0.79)",
+  "note": "kappa (95 % CI), GPT-6-Sol vs GPT-6-Luna, included, n = 110 (post hoc)"
+ },
+ "N516": {
+  "value": [
+   0.4765020820939915,
+   0.5602198900549723
+  ],
+  "text": "0.48–0.56",
+  "note": "kappa range, four OpenAI-model/Claude-pass pairs, included (post hoc)"
+ },
+ "N511": {
+  "value": 0.5932160163223668,
+  "text": "0.59 (0.47–0.71)",
+  "note": "kappa (95 % CI), GPT-6-Sol vs GPT-6-Luna, stratum, n = 110 (post hoc)"
+ },
+ "N517": {
+  "value": [
+   0.458829621957535,
+   0.6020671834625324
+  ],
+  "text": "0.46–0.60",
+  "note": "kappa range, four OpenAI-model/Claude-pass pairs, stratum (post hoc)"
+ },
+ "N512": {
+  "value": 0.23069679849340863,
+  "text": "0.23 (0.11–0.36)",
+  "note": "kappa (95 % CI), GPT-6-Sol vs GPT-6-Luna, R1, n = 86 (post hoc)"
+ },
+ "N518": {
+  "value": [
+   0.16214942257836432,
+   0.25139896373056997
+  ],
+  "text": "0.16–0.25",
+  "note": "kappa range, four OpenAI-model/Claude-pass pairs, R1 (post hoc)"
+ },
+ "N513": {
+  "value": 0.2571428571428572,
+  "text": "0.26 (0.11–0.41)",
+  "note": "kappa (95 % CI), GPT-6-Sol vs GPT-6-Luna, R2, n = 86 (post hoc)"
+ },
+ "N519": {
+  "value": [
+   0.22892347600518803,
+   0.3872160591653459
+  ],
+  "text": "0.23–0.39",
+  "note": "kappa range, four OpenAI-model/Claude-pass pairs, R2 (post hoc)"
+ },
+ "N514": {
+  "value": 0.4719877206446661,
+  "text": "0.47 (0.30–0.63)",
+  "note": "kappa (95 % CI), GPT-6-Sol vs GPT-6-Luna, R3, n = 86 (post hoc)"
+ },
+ "N520": {
+  "value": [
+   0.41839557399723376,
+   0.5594283722551412
+  ],
+  "text": "0.42–0.56",
+  "note": "kappa range, four OpenAI-model/Claude-pass pairs, R3 (post hoc)"
+ },
+ "N515": {
+  "value": 0.7119531086455934,
+  "text": "0.71 (0.58–0.83)",
+  "note": "kappa (95 % CI), GPT-6-Sol vs GPT-6-Luna, R4, n = 86 (post hoc)"
+ },
+ "N521": {
+  "value": [
+   0.43564980054587443,
+   0.5556597140848372
+  ],
+  "text": "0.44–0.56",
+  "note": "kappa range, four OpenAI-model/Claude-pass pairs, R4 (post hoc)"
+ },
+ "N522": {
+  "value": [
+   0.16214942257836432,
+   0.354879863916649
+  ],
+  "text": "κ = 0.16–0.35",
+  "note": "R1 kappa range over all six coder pairs (post hoc)"
+ },
+ "N523": {
+  "value": 0.65625,
+  "text": "66 % (21/32; 95 % CI 47–81 %)",
+  "note": "R1 fail share among gpt-6-sol's own speed claims (post hoc)"
+ },
+ "N524": {
+  "value": 0.3684210526315789,
+  "text": "37 % (14/38; 95 % CI 22–54 %)",
+  "note": "R1 fail share among gpt-6-luna's own speed claims (post hoc)"
+ },
+ "N525": {
+  "value": [
+   3,
+   4
+  ],
+  "text": "3 or 4",
+  "note": "re-screen referrals eligible at full text and under the draw rules, by model (post hoc)"
+ }
+}

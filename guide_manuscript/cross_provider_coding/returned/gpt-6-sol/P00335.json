@@ -1,0 +1,19 @@
+{
+  "pid": "P00335",
+  "citation": {"title": "Constructing Boundary-identical Microstructures via Guided Diffusion for Fast Multiscale Topology Optimization", "authors": "Jingxuan Feng, Lili Wang, Xiaoya Zhai, Kai Chen, Wenming Wu, Ligang Liu, Xiao-Ming Fu", "year": 2025, "venue": "Computer Methods in Applied Mechanics and Engineering", "doi": "10.1016/j.cma.2025.117735", "arxiv_id": "2406.16066", "version_coded": "arXiv v2 (8 January 2025)"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-MLONLY", "stratum": "none", "method_family": "diffusion_flow", "physics": "elasticity/microstructure homogenization", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Sections 4.3-4.5: no classical optimization comparator is run or timed."},
+    "R2": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Sections 4.3-4.5: no classical optimization comparator is run or timed."},
+    "R3": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Sections 4.3-4.5: no classical optimization comparator is run or timed."},
+    "R4": {"verdict": "na", "marker": "FT-MLONLY", "evidence": "Sections 4.3-4.5: no classical optimization comparator is run or timed."}
+  },
+  "reporting": {"n_test_cases": "not coded", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "yes", "data_available": "yes", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "Section 4.3 compares diffusion model variants; Sections 4.4-4.5 compare dataset expansion and design examples. Figure 20 reports only the proposed method's 16.54-40.80 s optimization times. Classical inverse homogenization is used to build training data (Section 3.2), but its optimization-level result or cost is not compared. Introductory speed claims against prior approaches have no cited classical run or timing."
+}

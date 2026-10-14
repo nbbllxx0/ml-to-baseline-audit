@@ -1,0 +1,296 @@
+{
+  "run_utc": "2026-09-24T14:30:21+00:00",
+  "python": "C:\\Users\\YSL0\\anaconda3\\envs\\torch5090\\python.exe",
+  "results": [
+    {
+      "test": "KE symmetry max|KE-KE^T|",
+      "value": 2.7755575615628914e-17,
+      "threshold": "<1e-14",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "KE: 3 zero eigenvalues (max |lambda_1..3|)",
+      "value": 1.705259457272858e-16,
+      "threshold": "<1e-12",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "KE: 5 positive eigenvalues (min lambda_4..8)",
+      "value": 0.4945054945054943,
+      "threshold": ">1e-3",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "KE: rigid rotation in nullspace |KE r|",
+      "value": 2.7755575615628914e-17,
+      "threshold": "<1e-13",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "KE equals top88 closed form",
+      "value": 1.6653345369377348e-16,
+      "threshold": "<1e-14",
+      "pass": true,
+      "gating": true,
+      "note": "Andreassen et al. 2011 KE, same node order"
+    },
+    {
+      "test": "patch test: interior forces under linear field",
+      "value": 5.898059818321144e-17,
+      "threshold": "<1e-14",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P1_cantilever n=32: GPU eager vs eager (nondeterminism floor), max |dxPhys|",
+      "value": 5.7699790612097956e-08,
+      "threshold": "recorded; must be <1e-6",
+      "pass": true,
+      "gating": true,
+      "note": "atomic-add summation order"
+    },
+    {
+      "test": "P1_cantilever n=32: GPU loop graph vs eager, max rel. compliance diff (40 its)",
+      "value": 8.136881326909202e-13,
+      "threshold": "<1e-10",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P1_cantilever n=32: GPU loop graph vs eager, max |dxPhys|",
+      "value": 1.0717180709551855e-07,
+      "threshold": "<1e-6 (floor-calibrated)",
+      "pass": true,
+      "gating": true,
+      "note": "eager-vs-eager floor 5.8e-08; first threshold 1e-8 was below the measured floor (2.9e-7)"
+    },
+    {
+      "test": "P1_cantilever n=32: GPU vs CPU top88-faithful port, rel. compliance diff at it 40",
+      "value": 2.49710624651206e-10,
+      "threshold": "<1e-5",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P1_cantilever n=32: GPU vs CPU top88-faithful port, max |dxPhys| at it 40",
+      "value": 4.0170154513852196e-07,
+      "threshold": "<1e-3",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P2_mbb n=48: GPU eager vs eager (nondeterminism floor), max |dxPhys|",
+      "value": 4.98895258438381e-10,
+      "threshold": "recorded; must be <1e-6",
+      "pass": true,
+      "gating": true,
+      "note": "atomic-add summation order"
+    },
+    {
+      "test": "P2_mbb n=48: GPU loop graph vs eager, max rel. compliance diff (40 its)",
+      "value": 1.3543572254999549e-12,
+      "threshold": "<1e-10",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P2_mbb n=48: GPU loop graph vs eager, max |dxPhys|",
+      "value": 1.0416822959768979e-09,
+      "threshold": "<1e-6 (floor-calibrated)",
+      "pass": true,
+      "gating": true,
+      "note": "eager-vs-eager floor 5.0e-10; first threshold 1e-8 was below the measured floor (2.9e-7)"
+    },
+    {
+      "test": "P2_mbb n=48: GPU vs CPU top88-faithful port, rel. compliance diff at it 40",
+      "value": 2.2574608617746133e-11,
+      "threshold": "<1e-5",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P2_mbb n=48: GPU vs CPU top88-faithful port, max |dxPhys| at it 40",
+      "value": 1.0958490404000543e-07,
+      "threshold": "<1e-3",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P1_cantilever n=32: restriction = adjoint of prolongation",
+      "value": 3.5493985497129373e-16,
+      "threshold": "<1e-12",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P1_cantilever n=32: element-local Galerkin = global P^T K P",
+      "value": 2.404996681948121e-16,
+      "threshold": "<1e-12",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P1_cantilever n=32 [uniform]: PCG vs sparse direct, rel. error in u",
+      "value": 1.0030802349706048e-10,
+      "threshold": "<1e-6",
+      "pass": true,
+      "gating": true,
+      "note": "PCG its=10"
+    },
+    {
+      "test": "P1_cantilever n=32 [uniform]: PCG true residual without fallback",
+      "value": 2.75302188895468e-09,
+      "threshold": "<=1e-7",
+      "pass": true,
+      "gating": true,
+      "note": "fallback=False"
+    },
+    {
+      "test": "P1_cantilever n=32 [random_no_void]: PCG vs sparse direct, rel. error in u",
+      "value": 2.518725725211012e-10,
+      "threshold": "<1e-6",
+      "pass": true,
+      "gating": true,
+      "note": "PCG its=37"
+    },
+    {
+      "test": "P1_cantilever n=32 [random_no_void]: PCG true residual without fallback",
+      "value": 7.928457783591799e-09,
+      "threshold": "<=1e-7",
+      "pass": true,
+      "gating": true,
+      "note": "fallback=False"
+    },
+    {
+      "test": "P1_cantilever n=32 [simp_design_it60]: PCG vs sparse direct, rel. error in u",
+      "value": 6.870090886225757e-08,
+      "threshold": "<1e-6",
+      "pass": true,
+      "gating": true,
+      "note": "PCG its=25"
+    },
+    {
+      "test": "P1_cantilever n=32 [simp_design_it60]: PCG true residual without fallback",
+      "value": 8.520020611588555e-09,
+      "threshold": "<=1e-7",
+      "pass": true,
+      "gating": true,
+      "note": "fallback=False"
+    },
+    {
+      "test": "P1_cantilever n=32 [simp_design_it60]: CUDA-graph path equals eager path",
+      "value": 3.1225037912561555e-15,
+      "threshold": "<1e-12",
+      "pass": true,
+      "gating": true,
+      "note": "PCG its graph=25, eager=25"
+    },
+    {
+      "test": "P1_cantilever n=32 [stress_random_30pct_isolated_voids]: guarded solve true residual",
+      "value": 9.87871498441186e-09,
+      "threshold": "<=1e-7",
+      "pass": true,
+      "gating": false,
+      "note": "PCG its=296, fallback=False; forward error vs direct 7.9e-05. Stress field: isolated E_min voids make K near-singular; a residual floor here also bounds sparse direct solvers"
+    },
+    {
+      "test": "P2_mbb n=64: restriction = adjoint of prolongation",
+      "value": 5.572349285371169e-16,
+      "threshold": "<1e-12",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P2_mbb n=64: element-local Galerkin = global P^T K P",
+      "value": 2.4361164865724537e-16,
+      "threshold": "<1e-12",
+      "pass": true,
+      "gating": true,
+      "note": ""
+    },
+    {
+      "test": "P2_mbb n=64 [uniform]: PCG vs sparse direct, rel. error in u",
+      "value": 3.383518278688434e-11,
+      "threshold": "<1e-6",
+      "pass": true,
+      "gating": true,
+      "note": "PCG its=12"
+    },
+    {
+      "test": "P2_mbb n=64 [uniform]: PCG true residual without fallback",
+      "value": 3.2459045602877478e-09,
+      "threshold": "<=1e-7",
+      "pass": true,
+      "gating": true,
+      "note": "fallback=False"
+    },
+    {
+      "test": "P2_mbb n=64 [random_no_void]: PCG vs sparse direct, rel. error in u",
+      "value": 9.596663892572019e-11,
+      "threshold": "<1e-6",
+      "pass": true,
+      "gating": true,
+      "note": "PCG its=48"
+    },
+    {
+      "test": "P2_mbb n=64 [random_no_void]: PCG true residual without fallback",
+      "value": 7.138425551827961e-09,
+      "threshold": "<=1e-7",
+      "pass": true,
+      "gating": true,
+      "note": "fallback=False"
+    },
+    {
+      "test": "P2_mbb n=64 [simp_design_it60]: PCG vs sparse direct, rel. error in u",
+      "value": 2.3879278573431264e-07,
+      "threshold": "<1e-6",
+      "pass": true,
+      "gating": true,
+      "note": "PCG its=24"
+    },
+    {
+      "test": "P2_mbb n=64 [simp_design_it60]: PCG true residual without fallback",
+      "value": 4.092452001890986e-09,
+      "threshold": "<=1e-7",
+      "pass": true,
+      "gating": true,
+      "note": "fallback=False"
+    },
+    {
+      "test": "P2_mbb n=64 [simp_design_it60]: CUDA-graph path equals eager path",
+      "value": 4.218916976390565e-14,
+      "threshold": "<1e-12",
+      "pass": true,
+      "gating": true,
+      "note": "PCG its graph=24, eager=24"
+    },
+    {
+      "test": "P2_mbb n=64 [stress_random_30pct_isolated_voids]: guarded solve true residual",
+      "value": 3.22679459132876e-05,
+      "threshold": "<=1e-7",
+      "pass": false,
+      "gating": false,
+      "note": "PCG its=500, fallback=True; forward error vs direct 0.0e+00. Stress field: isolated E_min voids make K near-singular; a residual floor here also bounds sparse direct solvers"
+    }
+  ],
+  "all_pass": true,
+  "non_gating_failures": 1
+}

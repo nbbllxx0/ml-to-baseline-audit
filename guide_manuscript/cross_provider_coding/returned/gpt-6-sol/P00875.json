@@ -1,0 +1,42 @@
+{
+  "pid": "P00875",
+  "citation": {"title": "Learning topology optimization process via convolutional long-short-term memory autoencoder-decoder", "authors": "Qiaochu Ma, Edward C. DeMeter, Saurabh Basu", "year": 2023, "venue": "International Journal for Numerical Methods in Engineering", "doi": "10.1002/nme.7221", "version_coded": "open-access version of record, publisher HTML"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "other (ConvLSTM autoencoder-decoder)", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The learned sequence model reduces per-query computation by 99.97% relative to SIMP on 40 x 40 meshes, while its reported compliance error is 5.13% after excluding two disconnected outputs.",
+    "key_phrase": "",
+    "location": "Section 4.1, Table 1",
+    "quantitative": true,
+    "claimed_speedup": 3711,
+    "claimed_speedup_basis": "Section 4.1 prints 3.711 s for SIMP and 0.001 s for the model; 3.711/0.001 = 3711.",
+    "direction": "outperform",
+    "alternatives": "Abstract qualitatively claims significant cost reduction; Table 2 reports 99.97%-99.99% saved across mesh sizes; Table 3 compares inference/SIMP ratios with other ML models."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Sections 2, 3.2)",
+    "implementation": "open-source Topy (Section 3.2)",
+    "solver": "not stated",
+    "hardware_classical": "not stated separately; Section 4 says experiments on NVIDIA GeForce GTX 3090 GPU",
+    "hardware_ml": "NVIDIA GeForce GTX 3090 GPU (Section 4)",
+    "problem_size": "40 x 40 elements for Table 1; 80 x 40 and 80 x 80 also tested (Section 4, Table 2)",
+    "classical_iterations": "fixed 100 iterations, said to converge in samples (Section 3.2)",
+    "classical_time": "3.711 s average for 40 x 40 test cases (Section 4.1)",
+    "ml_time": "0.001 s average for 40 x 40 test cases; initial three SIMP encoder steps are required but their time is not itemized (Sections 3.4, 4.1)",
+    "training_time": "Figure 11 plots training times by mesh and hidden dimension; exact values not stated in text (Section 4.3)",
+    "data_generation_cost": "5,000 training, 100 validation and 100 test SIMP samples, each run for 100 iterations; wall-clock generation cost not stated (Sections 3.2, 4)",
+    "quality_metric": "pixel value error and compliance error versus SIMP (Section 4.1, Table 1)",
+    "quality_gap": "4.92% average final pixel error; 5.13% average compliance error after excluding two disconnected cases (Section 4.1, Table 1)"
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-unmatched", "evidence": "Section 4.1, Table 1: 3.711 s SIMP is compared with 0.001 s model inference despite 5.13% compliance error; two disconnected cases are omitted from this quality average, and three required SIMP input steps are not separately timed."},
+    "R2": {"verdict": "partial", "marker": "R2-hardware-unjustified", "evidence": "Sections 3.2 and 4: classical baseline is Topy and ML experiments use a GTX 3090; separate classical hardware and its sparse solver are not specified, so hardware comparability is unresolved."},
+    "R3": {"verdict": "fail", "marker": "R3-no-data-cost", "evidence": "Sections 3.2 and 4.1: 5,200 SIMP samples are generated and inference-only savings are claimed, but generation/training costs and break-even uses are not quantified."},
+    "R4": {"verdict": "partial", "marker": "R4-no-constraint-report", "evidence": "Section 4.1: returned designs are evaluated by compliance and two disconnected cases among 100 tests are identified, but their compliance is omitted from the average and volume-constraint violations are not reported."}
+  },
+  "reporting": {"n_test_cases": "100 (Section 4)", "ood_test": "yes", "seeds_or_variance": "no", "failure_rate_reported": "yes", "timing_protocol_stated": "partial", "runtimes_all_cases": "no", "code_available": "no", "data_available": "on_request", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "Publisher PDF endpoint returned HTTP 403; the publisher's open-access HTML held the complete article. Two disconnected cases are explicitly acknowledged but excluded from the mean compliance error."
+}

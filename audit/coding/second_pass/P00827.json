@@ -1,0 +1,88 @@
+{
+  "pid": "P00827",
+  "citation": {
+    "title": "Stress-constrained optimization of multiscale structures with parameterized microarchitectures using machine learning",
+    "authors": "Nolan Black, Ahmad Najafi",
+    "year": 2024,
+    "venue": "Structural and Multidisciplinary Optimization, Vol. 67, Article 102",
+    "doi": "10.1007/s00158-024-03821-y",
+    "arxiv_id": "",
+    "version_coded": "Version of record, open access (CC BY 4.0). link.springer.com's direct PDF route returned the same 'Client Challenge' bot-detection page seen on other Springer articles in this queue (not bypassed). The identical PDF (verified by title/author/DOI/abstract match) was instead obtained via the NSF Public Access Repository (a US federal funder repository, legal per the access rules) at https://par.nsf.gov/servlets/purl/10535678, consistent with the Acknowledgements' NSF CAREER Award CMMI-2143422"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "stress",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Sec. 3/Table 2: replacing repeated classical homogenization and fullscale FE stress evaluation with a trained neural-network surrogate speeds up each microstructure's stress-amplification evaluation by about 1,000-10,000x (order 10^4, single core), at 10-15% error versus the fullscale ground truth.",
+    "key_phrase": "the neural network surrogate model approach has yielded 1,000-10,000 times faster evaluations",
+    "location": "Section 3 (main text), restated as a footnote to Table 2 ('speedup... on the order of 10^4'). No quantitative comparison with a classical method appears in the Abstract, Conclusion, or Introduction - the Abstract's/Conclusion's claim that the multiscale designs 'cannot surpass density-based topology optimization designs' is qualitative, later quantified only in Table 4 (Sec. 5.2), which appears later in the main text than Section 3's speedup claim",
+    "quantitative": true,
+    "claimed_speedup": 10000,
+    "claimed_speedup_basis": "Stated directly by the article: 'the neural network surrogate model approach has yielded 1,000-10,000 times faster evaluations' (Sec. 3), and Table 2's footnote gives 'the speedup in homogenization and local stress evaluation for the DNN is on the order of 10^4 (measured on a single core)'. The order-of-magnitude value (10,000) is used here; the article gives a range rather than a single derived number.",
+    "direction": "outperform",
+    "alternatives": "The article's other, arguably more central, finding is a quality (not speed) comparison, quantified in Table 4 (Sec. 5.2, main text, textually after Section 3): monoscale density-based topology optimization gives lower (better) structural volume than every multiscale/surrogate-based design across all three benchmark problems (e.g. L-bracket 0.261 vs. 0.333-0.431, roughly +28% to +65% [derived]), matching the Abstract's and Conclusion's explicit, qualitative admission that 'the distributed microstructures cannot surpass density-based topology optimization designs in canonical volume minimization problems.' A multifunctional example (Sec. 5.3) shows the reverse pattern for a displacement-matching objective: the multiscale design uses more volume (43% vs 33%) but achieves a better target-displacement match (L2 error 0.070 vs 0.133)."
+  },
+  "baseline": {
+    "classical_method": "Two-step homogenization: first-order numerical homogenization for effective macroscale constitutive properties (Guedes & Kikuchi 1990), and second-order homogenization (Kouznetsova et al. 2002, 2004) for local microscale stress amplification, both compared against direct 'fullscale' finite element analysis of the fully-resolved structure as ground truth (Sec. 2-3). Overall design-optimization comparator: monoscale, density-based stress-constrained topology optimization with an augmented-Lagrangian stress formulation (da Silva et al. 2021a)",
+    "implementation": "Authors' own implementation (no software package/language named); the Method of Moving Asymptotes (Svanberg 1987) is used as the optimizer for both the multiscale and the density-based comparator",
+    "solver": "Quadratic 8-node plane-stress finite elements for the macroscale, 4-node plane-stress elements for the microscale/fullscale analyses (Sec. 2.3); linear-algebra solver type not stated",
+    "hardware_classical": "Data generation and the surrogate speedup benchmark: Intel i7 @4.1 GHz, 4 cores (speedup measured on a single core), Sec. 3. No hardware is stated for the density-based TO comparator's own runs (Table 4) or for the fullscale FE verification of final designs",
+    "hardware_ml": "Same machine as above for training-data generation; DNN training/inference hardware is not separately specified",
+    "problem_size": "Microstructures: uniform 64x64 discretization per unit cell (Sec. 3). L-bracket: 4,096 microstructures (macroscale 80x32 mesh for the horizontal portion, characteristic length ratio 1/80; 'fullscale' equivalent 5,120x2,048). Double L-bracket: 5,632 microstructures (ratio 1/80). Stress-concentration case: 5,000 microstructures (ratio 1/100). Multifunctional example: 100x50 elements (density-based) vs 40x20 microstructures (multiscale)",
+    "classical_iterations": "500 total iterations for every optimization example (400 per the Table 3 parameter-update schedule, then 100 more), for both the multiscale and the density-based comparator (Sec. 5)",
+    "classical_time": "not stated (no wall-clock time for the density-based TO runs or for fullscale FE verification of optimized designs)",
+    "ml_time": "not stated in absolute units for the optimization runs; the surrogate evaluation speedup is reported only as a relative factor (1,000-10,000x, 'order of 10^4', single core, Sec. 3/Table 2)",
+    "training_time": "not stated as a wall-clock duration; hyperparameters given are 1,000 epochs, batch size 8, Adam optimizer, learning rate 1e-3, for both DNN1 (properties) and DNN2 (stress amplification), Sec. 3",
+    "data_generation_cost": "DNN1 (effective properties): 667 training + 333 validation examples per microstructure type. DNN2 (stress amplification): 6,660 training examples. Total data generation (1,000 + 10,000 examples across both networks) took 'approximately one hour on (Intel i7 @4.1 GHz on 4 cores)' (Sec. 3) - an explicit, quantified data-generation wall-clock figure, unusual for this queue",
+    "quality_metric": "Surrogate accuracy: relative error norm of predicted von Mises stress vs. fullscale FE analysis (Tables 1-2), and RRMSE for the constitutive-tensor and stress-amplification networks (<0.05 and <0.1 respectively, Sec. 3). Design optimization: net structural volume fraction V, layout volume V_rho, average microstructural volume V_alpha, and the fraction of yielded microstructures YF (local stress exceeding the yield limit), all evaluated on a fully-resolved fullscale mesh of the final design (Table 4, Sec. 5)",
+    "quality_gap": "Table 4: density-based TO gives lower (better) volume than every multiscale variant - L-bracket 0.261 (density-based) vs 0.333-0.431 (multiscale, roughly +28% to +65% [derived]); double L-bracket 0.271 vs 0.423 (+56% [derived]); stress-concentration 0.153 vs 0.212 (+39% [derived]). Yield fraction YF stays low and comparable for both (0.6%-1.8%). Surrogate stress-prediction relative error: 0.079-0.176 across four pedagogical test cases (Table 2), versus 0.061-0.127 for second-order homogenization alone without the surrogate"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "The speedup claim is unusually transparent about its accuracy cost: Table 2 reports the DNN surrogate's relative stress error (0.079-0.176) directly alongside first- and second-order homogenization's own error (0.061-0.127) for the same four cases, and Sec. 3 states the prediction is 'within 10-15% of the ground truth.' However, the DNN is measurably worse than the second-order homogenization it replaces in 3 of 4 cases, and no formal argument or re-matching is given for why this compounded error is acceptable for the downstream optimization beyond the generally low yield fractions (YF, Table 4) observed in the final designs."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-same-hardware",
+      "evidence": "Sec. 3/Table 2: the reported ~10^4 speedup is explicitly measured on the same hardware class for both arms ('measured on a single core', following the Intel i7 @4.1 GHz data-generation machine), so there is no GPU-vs-CPU or otherwise unstated hardware asymmetry. The classical comparator (second-order computational homogenization, Kouznetsova et al. 2002/2004) is an established, non-trivial numerical method, not an inefficient implementation."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-partial-costs",
+      "evidence": "Sec. 3 explicitly quantifies data-generation cost (1,000 + 10,000 training examples generated in 'approximately one hour on Intel i7 @4.1 GHz on 4 cores'), satisfying half of R3's requirement. Training cost itself, however, is given only as hyperparameters (1,000 epochs, batch 8, lr 1e-3) with no wall-clock duration or hardware-time figure, so the full data-generation-plus-training cost cannot be fully checked against the claimed 10^4 per-evaluation speedup."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Surrogate accuracy is checked against direct 'fullscale' finite element analysis of the fully-resolved (non-homogenized) structure, the most rigorous available ground truth (Sec. 2.3, Table 1-2), not an image-similarity metric. For the design-optimization examples, every final design in Table 4 is re-evaluated on a fully-resolved fullscale mesh, and the fraction of yielded microstructures YF (local stress exceeding the yield limit) is explicitly reported as a failure/infeasibility metric for every case (0.6%-1.8%)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "4 pedagogical validation cases for surrogate accuracy (Tables 1-2, Figs. 4-5), plus 333 validation examples for DNN1; design-optimization examples: L-bracket (2 initial conditions x 3 microstructure types), double L-bracket, a stress-concentration benchmark, and 1 multifunctional example (Table 4, Figs. 20-26)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "This is a distinctively candid paper, directly comparable to another article in this queue (P02361): both explicitly report that their ML-assisted method produces WORSE (heavier/larger-volume) designs than a classical comparator on the primary quality metric, while still publishing the result. Primary-outcome choice required judgment: the Abstract/Conclusion's headline qualitative claim ('cannot surpass density-based topology optimization designs') is never given a percentage there, so per protocol order the first QUANTITATIVE classical comparison in the main text was taken instead - the surrogate-vs-classical-homogenization speedup in Sec. 3 (~10^4x), which appears earlier in the document than Table 4's volume comparison (Sec. 5.2). This makes the coded primary outcome a 'speed' result even though the paper's own emphasis (Abstract, Conclusion, dedicated Sec. 5.1-5.2) is arguably the volume/quality comparison; that comparison is fully documented above as the leading alternative, with its own numbers, since an adjudicator may reasonably prefer it as primary (which would flip stratum to quality and direction to underperform/similar_or_mixed). Data-generation cost is unusually well quantified (~1 hour, specific CPU) for this queue, though training time itself is not. Author contact is offered for training-dataset access, but no code repository exists, so code_available=no and retest_candidate=false. No author named Jun Wang (authors: Nolan Black, Ahmad Najafi; unrelated 'Wang' entries appear only in the reference list). No duplicate pool record found for this title or DOI (pool.csv has only P00827)."
+}

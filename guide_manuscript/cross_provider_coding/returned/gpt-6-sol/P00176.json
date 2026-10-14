@@ -1,0 +1,42 @@
+{
+  "pid": "P00176",
+  "citation": {"title": "A deep Convolutional Neural Network for topology optimization with strong generalization ability", "authors": "Yiquan Zhang, Bo Peng, Xiaoyi Zhou, Cheng Xiang, Dalei Wang", "year": 2019, "venue": "arXiv preprint", "doi": "10.48550/arXiv.1901.07761", "arxiv_id": "1901.07761", "version_coded": "arXiv PDF accessed 2026-09-26"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-SPEED", "stratum": "speed", "method_family": "cnn", "physics": "compliance", "dim": "2d"},
+  "claim": {
+    "primary_outcome_paraphrase": "The trained CNN produces a topology in 0.001 s on average, compared with 3.913 s for conventional SIMP on the tested problems.",
+    "key_phrase": "",
+    "location": "Section 5, opening paragraphs and Table 1",
+    "quantitative": true,
+    "claimed_speedup": 3913,
+    "claimed_speedup_basis": "Section 5 reports 3.913 s for SIMP and 0.001 s for CNN; 3.913/0.001 = 3913 [inferred]. Training and data-generation time are excluded explicitly.",
+    "direction": "outperform",
+    "alternatives": "Abstract and conclusion claim qualitative speed gain; Table 1 reports 99.97% calculation time saved and 4.16% mean compliance error, excluding disconnected cases."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Section 4.1)",
+    "implementation": "Andreassen et al. 88-line MATLAB code (Section 4.1)",
+    "solver": "not stated",
+    "hardware_classical": "Intel Core i7-8700K CPU and NVIDIA GeForce GTX 1080 Ti GPU machine; device used for SIMP not specified (Section 5)",
+    "hardware_ml": "Intel Core i7-8700K CPU and NVIDIA GeForce GTX 1080 Ti GPU machine; device used for inference not specified (Sections 4.1, 5)",
+    "problem_size": "40 × 80 elements; 41 × 81 × 6 input (Section 4.1)",
+    "classical_iterations": "not stated",
+    "classical_time": "3.913 s average (Section 5)",
+    "ml_time": "0.001 s average (Section 5)",
+    "training_time": "not stated; validation loss stabilizes at about 50 epochs (Section 4.2.2)",
+    "data_generation_cost": "80,000 SIMP-generated samples; time not stated (Section 4.1)",
+    "quality_metric": "Finite-element compliance error, pixel-value error, volume-fraction error, disconnection percentage (Section 5, Tables 1–2)",
+    "quality_gap": "4.16% mean compliance error, 0.13% mean volume-fraction error, and 4.12% disconnected test structures; compliance average omits disconnections (Section 5, Table 1)."
+  },
+  "rules": {
+    "R1": {"verdict": "fail", "marker": "R1-unmatched", "evidence": "Section 5 and Table 1 compare 0.001 s inference against full SIMP runs despite 4.16% mean compliance error and 4.12% disconnections; no matched-quality timing is attempted."},
+    "R2": {"verdict": "partial", "marker": "R2-educational-code", "evidence": "Section 4.1 uses the 88-line educational MATLAB SIMP implementation. Section 5 identifies a shared CPU/GPU machine but does not specify each method's actual device or a strong classical solver comparison."},
+    "R3": {"verdict": "fail", "marker": "R3-no-data-cost", "evidence": "Section 5 explicitly excludes the time to generate 80,000 SIMP targets and train the CNN, with no cost numbers or break-even calculation."},
+    "R4": {"verdict": "pass", "marker": "R4-FE-and-failures", "evidence": "Section 5 and Tables 1–2 report compliance of returned structures, volume-fraction error, and percentages of disconnected designs; disconnected designs are excluded from average compliance and separately counted."}
+  },
+  "reporting": {"n_test_cases": "8,000 in-distribution test cases (Section 5); 8,000 each for two other support conditions (Section 6)", "ood_test": "yes", "seeds_or_variance": "no", "failure_rate_reported": "yes", "timing_protocol_stated": "partial", "runtimes_all_cases": "no", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "Reported speed-up is derived from rounded average times. The abstract's speed comparison is qualitative; the conclusion and introduction also have no quantitative own-method timing comparison, so Section 5 supplies the primary outcome."
+}

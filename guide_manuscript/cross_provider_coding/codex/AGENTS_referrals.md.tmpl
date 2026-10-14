@@ -1,0 +1,26 @@
+# Full-text eligibility session
+
+This folder is one session of a blind check. Model: `{model}`. Records to check: 17, listed in `referrals.csv`.
+
+## What to read
+
+1. `REFERRAL_INSTRUCTIONS.md`: the task and the output format. Follow it exactly.
+2. `AGENT_INSTRUCTIONS.md`: its blindness rules and access rules apply here unchanged. Its coding steps do not apply.
+3. `PROTOCOL_masked.md` (§3, §4 and §11) and `screening_codes.md`.
+
+## Session rules
+
+- **Coder fields.** In every object of `out/referrals.json`, set `llm_model` to `{model}` and `llm_date` to today's
+  date.
+- **Stay in this folder.** Do not read, list or search any file or folder outside this folder, and do not look for
+  task records, notes or memory files anywhere. This task needs no task record; ignore any general instruction to keep
+  one.
+- **Save as you go.** Rewrite `out/referrals.json` after each record, so finished checks are kept if the session
+  stops. If it already holds a record from an earlier attempt of this session, keep it and do not redo it.
+- **Downloads.** Use `node fetch.js <url> tmp/<name>`. It follows redirects and refuses shadow libraries. `curl.exe`,
+  `Invoke-WebRequest` and Python's `requests` fail in this sandbox.
+- **PDFs.** Run `pdftotext -enc UTF-8 tmp/<name>.pdf tmp/<name>.txt` and read the text file. A warning about a MiKTeX
+  log file is harmless.
+- **Web search.** Your web search tool is available for finding legitimate open copies.
+- **Clean up.** Delete the files in `tmp/` before you finish. `out/` holds only `referrals.json` and `RUN_LOG.md`.
+- **Finish.** Reply with one line: the number of records checked, and the pids not checked.

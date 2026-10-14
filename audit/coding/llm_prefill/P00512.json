@@ -1,0 +1,88 @@
+{
+  "pid": "P00512",
+  "citation": {
+    "title": "HGTO: A Unified Graph-Based Physics-Informed Formulation for Structural Topology Optimization",
+    "authors": "Kangzheng Liu, Uday Kumar Punna, Leixin Ma",
+    "year": 2026,
+    "venue": "arXiv preprint (cs.LG)",
+    "doi": "10.48550/arXiv.2609.15001",
+    "arxiv_id": "2609.15001",
+    "version_coded": "arXiv v1 (14 Sep 2026; only version on the abs page), main text and supplementary material (Sections S1-S6) read in full from the PDF; Table 1 checked against https://arxiv.org/html/2609.15001"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screened I-UNCLEAR; the first quantitative classical comparison reports run times against SIMP–OC)",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On three 120×40 planar benchmarks at volume fraction 0.5, HGTO reaches compliance within about 0.6–2.1% [derived] of SIMP–OC (all slightly higher) in 7.4–8.5 s versus 9.0–26.9 s, which the authors describe as cost of the same order.",
+    "key_phrase": "at a total cost of the same order as SIMP–OC on these small problems",
+    "location": "Sec. 3.2 and Table 1, pp. 10-11 (first quantitative comparison with a classical method; the Abstract and Sec. 5 compare with SIMP–OC only qualitatively, and their cost statements are against the neural baseline NTopo)",
+    "quantitative": true,
+    "claimed_speedup": 1.22,
+    "claimed_speedup_basis": "Derived, not claimed: the authors state cost of the same order. Table 1 SIMP–OC ÷ HGTO time: cantilever 9.0/8.3 = 1.08, half-MBB 9.0/7.4 = 1.22, inclined load 26.9/8.5 = 3.16 (the SIMP–OC run hit its 1,000-update limit); the median, 1.22, is entered. The article's explicit speed-up claims against SIMP–OC are in the alternatives.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Sec. 3.3, Table S3: 'approximately fourfold' at 480×160 (197.52 vs 47.35 s = 4.17 [derived]) and 'nearly tenfold' at 960×320 (1,880.10 vs 195.75 s = 9.60 [derived]); GPU HGTO against two-thread CPU SIMP–OC at about 1.5×10^5 and 6.2×10^5 DOFs [inferred]. (2) Sec. 3.5, Table 1: 3D runs 24.3-48.1 s vs 188.3-377.2 s (7.0-9.6 [derived]) with compliance within -0.5% to +1.1% [derived]. (3) Sec. 4, Table 2: finite deformation 64.1 vs 854.3 s, 130.5 vs 772.2 s (OC stalled), 62.0 vs 418.8 s. Table S5 shows HGTO with CPU mechanics (density network still on the GPU) at 286.90, 554.13 and 377.03 s, i.e. 1.1-3.0 times faster than OC on the same two-thread CPU mechanics backend [derived]. (4) Abstract: compliance comparable to conventional density-based TO (qualitative); lower cost than NTopo (ML-only)."
+  },
+  "baseline": {
+    "classical_method": "SIMP with optimality-criteria updates (SIMP–OC), same density filter, projection and (p, β) continuation as HGTO, move limit 0.2/max(1, β) (Sec. 3.1; S1.3)",
+    "implementation": "Authors' own Python implementation (repository src/hgto/reference); article states only CPU mechanics with two threads (Sec. 3.1; S5). Repository docs say linear OC configurations use pypardiso-spd and nonlinear OC uses CPU SciPy mechanics (docs/reproduction.md, read 2026-09-24).",
+    "solver": "SIMP–OC: sparse direct (article S5, for the nonlinear cases; repository docs: PARDISO for linear OC). HGTO: preconditioned CG with geometric multigrid, or smoothed-aggregation AMG with GPU V-cycles on the perforated mesh (Sec. 2.4; S5); nonlinear HGTO uses cuDSS sparse LU on the GPU (S5).",
+    "hardware_classical": "Two CPU threads on an AMD Ryzen Threadripper PRO 5995WX (Sec. 3.1; S5)",
+    "hardware_ml": "NVIDIA RTX 6000 Ada GPU for the neural computations (Sec. 3.1; S5)",
+    "problem_size": "Primary: 120×40 elements (4,800; ≈9.9×10³ DOFs [inferred]). Also 240×80 to 960×320 (307,200 elements), L-bracket 4,800 and perforated bracket 3,852 quadrilaterals, 3D grids 48×16×16, 24×32×24 and 32×24×24 (Table S2).",
+    "classical_iterations": "Stopping rule (S1.3): relative objective range below 1e-3 over ten checks and maximum density change below 5e-3, both holding for five consecutive checks, with volume error below 1e-7 and residual below 1e-8; 1,000-update limit. S1.3 applies it to SIMP–OC as well (the inclined-load SIMP–OC run reached the limit; the other SIMP–OC runs converged). SIMP–OC update counts are not reported. HGTO: 280-293 updates on the three primary cases (Table S1).",
+    "classical_time": "9.0 s (cantilever), 9.0 s (half-MBB), 26.9 s (inclined load, update limit) (Table 1); timings cover problem construction, solver setup, optimization and final evaluation (S5)",
+    "ml_time": "8.3 s, 7.4 s, 8.5 s for the same cases (Table 1), same timing scope including network setup (S5)",
+    "training_time": "not applicable: per-problem neural reparameterization without offline training; network optimization is inside the reported times (Sec. 3.1; S5)",
+    "data_generation_cost": "none (no labeled topology data; Sec. 3.1)",
+    "quality_metric": "Compliance of the returned physical density, evaluated for all methods by a common independent scikit-fem model with p = 3 (Sec. 3.1; S2); volume error below 1e-7 for HGTO and SIMP–OC (S1.3)",
+    "quality_gap": "Table 1, SIMP–OC vs HGTO compliance: 175.08 vs 176.49; 191.49 vs 195.47; 132.72 vs 133.48 (HGTO higher by 0.81%, 2.08%, 0.57% [derived])"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. 3.1, S1.3, S2, Table 1: both methods use the same filter, projection, continuation and stopping rule, satisfy the volume constraint within 1e-7, and are scored by the same independent FE evaluator. HGTO compliance is 0.6-2.1% higher [derived], while its times are similar (8.3 vs 9.0 s and 7.4 vs 9.0 s), so the comparison sits near equal wall-clock and the authors claim only cost of the same order. The inclined-load SIMP–OC run stopped at the update limit, and its time (26.9 s) is flagged in Table 1."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-hardware-unjustified",
+      "evidence": "Sec. 3.1, S5: HGTO runs on an RTX 6000 Ada GPU while SIMP–OC is restricted to two CPU threads of a Threadripper PRO 5995WX, with no stated reason. For the primary cases (≈9.9×10³ DOFs [inferred]) R2(c) does not apply. SIMP–OC uses a sparse direct solver (S5; PARDISO per the repository docs), which is in the efficient class; (b) and (d) are not observed. Per-update SIMP–OC time is derivable only for the inclined case: 26.9 s over 1,000 updates ≈ 0.027 s per update including setup [derived], an input for an R2(e) re-test. If the verifier takes the Sec. 3.3 fourfold and tenfold claims as primary (about 1.5×10^5 and 6.2×10^5 DOFs [inferred]), R2(c) gives fail."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "Sec. 3.1 and S1.3: each design is optimized from a uniform density without labeled data or offline training. S5: HGTO timings include network setup and optimization, so learning cost sits inside R1/R2."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Sec. 3.1 and S2: the optimized physical densities of every method are passed to a common independent scikit-fem evaluator (p = 3, full quadrature). S1.3: HGTO and SIMP–OC meet the volume constraint within 1e-7, and Table S1 lists achieved NTopo volumes. Every run's convergence status is reported (all HGTO runs converge; the SIMP–OC update-limit and stagnation cases and the NTopo nonlinear failures are flagged). No post-processing is applied."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "8 linear cases in Table 1 (3 planar benchmarks, 2 irregular domains, 3 3D cases), a 4-level cantilever resolution study (Table S3), 3 finite-deformation cases (Table 2) and 1 elastoplastic comparison (Table S4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Screening code was I-UNCLEAR; the full text gives the speed stratum because Table 1 reports times for SIMP–OC and HGTO side by side, although the primary claim is parity. Primary-outcome judgment: Sec. 3.2/Table 1 is the first main-text quantitative comparison with SIMP–OC and matches the Abstract's emphasis (compliance comparable to conventional TO). The article's speed-up claims against SIMP–OC appear only in the body (Secs. 3.3, 3.5, 4) and are recorded as alternatives; they involve GPU vs two-thread CPU hardware, and Table S5 shows that much of the nonlinear gap comes from GPU mechanics (CPU/GPU ratio 4.25-6.09). Reporting locators: hardware and timing scope = Sec. 3.1 and S5 (jobs run serially; no warm-up or repeat timings; SIMP–OC update counts not reported, hence timing_protocol_stated = partial); seeds = one initialization each (HGTO seed 0, NTopo seed 42; S1.3); ood_test = no (not applicable to per-problem optimization); data_available = no (no dataset is used; problem definitions are in S2). Code: the article says code 'will be made available' at github.com/Liukz233/HGTO; on 2026-09-24 the repository was public under the MIT licence with configurations for every paper experiment, the SIMP–OC reference, an NTopo adapter and recorded reference metrics (README and docs/reproduction.md read; nothing downloaded or run). retest_candidate true: public code and configurations, runnable benchmark, and a permissive licence; the published timings need an RTX 6000 Ada-class GPU."
+}

@@ -1,0 +1,60 @@
+{
+ "pid": "P02328",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Two-scale data-driven design for heat manipulation",
+  "authors": "Daicong Da, Wei Chen",
+  "year": 2023,
+  "venue": "International Journal of Heat and Mass Transfer 219 (2024) 124823 (online 2023-10-31; volume and issue date per Crossref). Preprint: arXiv 2304.00747 (cs.CE)",
+  "doi": "10.1016/j.ijheatmasstransfer.2023.124823",
+  "arxiv_id": "2304.00747",
+  "version_coded": "arXiv v1 (3 Apr 2023; only version on the abs page), PDF (31 pp.) read in full as text. Version of record not accessed: ScienceDirect answered HTTP 403 with a robot check (no bypass attempted); OpenAlex lists no repository copy"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "exclude",
+  "reason": "FT-NOML",
+  "stratum": "none",
+  "method_family": "other",
+  "physics": "thermal",
+  "dim": "2d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Not coded (excluded). Headline: gradient-based optimization of the two homogenized conductivity components per macro element achieves thermal cloaking, concentration, rotation and their combinations; nearest-neighbour substitution from an 8282-RVE database matches the optimized properties (MSE down to 9.3e-6, R2 up to 0.9998).",
+  "location": "Abstract; Sec. 3 (database), Sec. 5 (examples), Sec. 6 (extraction), Sec. 7",
+  "quantitative": true,
+  "claimed_speedup": null,
+  "claimed_speedup_basis": "Not coded (excluded at full text). No runtime, iteration count or hardware is reported anywhere in the article."
+ },
+ "rules": {
+  "R1": {
+   "verdict": "na",
+   "evidence": "excluded at full text"
+  },
+  "R2": {
+   "verdict": "na",
+   "evidence": "excluded at full text"
+  },
+  "R3": {
+   "verdict": "na",
+   "evidence": "excluded at full text"
+  },
+  "R4": {
+   "verdict": "na",
+   "evidence": "excluded at full text"
+  }
+ },
+ "reporting": {},
+ "retest_candidate": false,
+ "notes": "Excluded as FT-NOML (first applicable code; FT-DUPLICATE, FT-SCOPE, FT-TYPE and FT-DOMAIN do not apply: steady heat conduction in a two-scale thermal metamaterial is in scope). The 'data-driven' element is a precomputed database of 8282 unique RVEs (three bar-width parameters on a 50\u00d750 mesh; 26^3 = 17576 combinations before removing repeats), each homogenized numerically (Sec. 3, p. 5). The design variables are the conductivity components kappa11 and kappa22 themselves, bounded by the database range 0-1 (Sec. 3.1), with adjoint sensitivities (Sec. 4). Unit cells are then chosen by the smallest summed absolute property difference (Sec. 6, p. 25). No neural network, Gaussian process or other fitted model appears anywhere [checked across the full text]. There is also no classical comparator: results are reported only as objective values before and after optimization (e.g. thermal cloak objective 5.14 before, 0.097 after, Sec. 5.1; concentration index 0.7551 to 0.9653, Sec. 5.2) and state-of-the-art methods are criticised only qualitatively (Sec. 1, p. 3). So if a verifier counted the database lookup as a learned model, the next applicable code would be FT-NOBASELINE. Macro mesh 75\u00d750 bilinear elements (Sec. 5.1). Residual uncertainty: the version of record (IJHMT, published about seven months after arXiv v1) could not be read and may differ; the title and author list match. No code or data availability statement in the preprint. No author named Jun Wang (reference [7] cites J. Wang et al., IH-GAN, pool P00428, but that is a citation, not authorship). Screening code was I-UNCLEAR.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P02328.json",
+  "result": "full agreement"
+ }
+}

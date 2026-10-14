@@ -1,0 +1,380 @@
+{
+ "size": 256,
+ "problem_ids": [
+  1015,
+  1676,
+  1839,
+  1935,
+  1961
+ ],
+ "budgets": [
+  5,
+  10,
+  15,
+  20,
+  30,
+  40,
+  50,
+  75,
+  100,
+  150
+ ],
+ "solver": "gpu",
+ "cpu_pinning": {
+  "pinned": true,
+  "affinity_mask": "0xfff",
+  "priority": "HIGH_PRIORITY_CLASS"
+ },
+ "runs": [
+  {
+   "problem_id": 1015,
+   "iters": 5,
+   "loop_s": 0.1222441999707371,
+   "wall_incl_setup_s": 0.2316947000217624,
+   "c_ours_last": 10.04180049808764
+  },
+  {
+   "problem_id": 1015,
+   "iters": 10,
+   "loop_s": 0.2458316000411287,
+   "wall_incl_setup_s": 0.36076449998654425,
+   "c_ours_last": 8.311374084352554
+  },
+  {
+   "problem_id": 1015,
+   "iters": 15,
+   "loop_s": 0.3477297999197617,
+   "wall_incl_setup_s": 0.4624972000019625,
+   "c_ours_last": 8.202359358940729
+  },
+  {
+   "problem_id": 1015,
+   "iters": 20,
+   "loop_s": 0.46448759984923527,
+   "wall_incl_setup_s": 0.58501919999253,
+   "c_ours_last": 8.184848933881781
+  },
+  {
+   "problem_id": 1015,
+   "iters": 30,
+   "loop_s": 0.6769584001158364,
+   "wall_incl_setup_s": 0.7884759999578819,
+   "c_ours_last": 8.168591639986715
+  },
+  {
+   "problem_id": 1015,
+   "iters": 40,
+   "loop_s": 0.8998936002608389,
+   "wall_incl_setup_s": 1.0322706999722868,
+   "c_ours_last": 8.160536294801691
+  },
+  {
+   "problem_id": 1015,
+   "iters": 50,
+   "loop_s": 1.2452028000261635,
+   "wall_incl_setup_s": 1.375394500035327,
+   "c_ours_last": 8.155751095856704
+  },
+  {
+   "problem_id": 1015,
+   "iters": 75,
+   "loop_s": 1.8384774001897313,
+   "wall_incl_setup_s": 1.991651299991645,
+   "c_ours_last": 8.14883958356335
+  },
+  {
+   "problem_id": 1015,
+   "iters": 100,
+   "loop_s": 2.480968500021845,
+   "wall_incl_setup_s": 2.6393954000086524,
+   "c_ours_last": 8.14369571759595
+  },
+  {
+   "problem_id": 1015,
+   "iters": 150,
+   "loop_s": 3.705705899919849,
+   "wall_incl_setup_s": 3.9099275000044145,
+   "c_ours_last": 8.138779947293042
+  },
+  {
+   "problem_id": 1676,
+   "iters": 5,
+   "loop_s": 0.19187709997640923,
+   "wall_incl_setup_s": 0.3452518000267446,
+   "c_ours_last": 5.319618295066091
+  },
+  {
+   "problem_id": 1676,
+   "iters": 10,
+   "loop_s": 0.46096820005914196,
+   "wall_incl_setup_s": 0.5907023000181653,
+   "c_ours_last": 5.258013371175135
+  },
+  {
+   "problem_id": 1676,
+   "iters": 15,
+   "loop_s": 0.9504306000308134,
+   "wall_incl_setup_s": 1.0800108999828808,
+   "c_ours_last": 5.223102049767344
+  },
+  {
+   "problem_id": 1676,
+   "iters": 20,
+   "loop_s": 1.4437030000262894,
+   "wall_incl_setup_s": 1.6372873000218533,
+   "c_ours_last": 5.21564979961776
+  },
+  {
+   "problem_id": 1676,
+   "iters": 30,
+   "loop_s": 2.2476492000278085,
+   "wall_incl_setup_s": 2.387109400006011,
+   "c_ours_last": 5.210061175667393
+  },
+  {
+   "problem_id": 1676,
+   "iters": 40,
+   "loop_s": 3.0295019001932815,
+   "wall_incl_setup_s": 3.173742599959951,
+   "c_ours_last": 5.207836438061407
+  },
+  {
+   "problem_id": 1676,
+   "iters": 50,
+   "loop_s": 3.831473800179083,
+   "wall_incl_setup_s": 3.981602599960752,
+   "c_ours_last": 5.206685894858232
+  },
+  {
+   "problem_id": 1676,
+   "iters": 75,
+   "loop_s": 5.939078200026415,
+   "wall_incl_setup_s": 6.0804781000479124,
+   "c_ours_last": 5.204477680117115
+  },
+  {
+   "problem_id": 1676,
+   "iters": 100,
+   "loop_s": 7.7079358998453245,
+   "wall_incl_setup_s": 7.874225900042802,
+   "c_ours_last": 5.203465250839855
+  },
+  {
+   "problem_id": 1676,
+   "iters": 150,
+   "loop_s": 9.950143499823753,
+   "wall_incl_setup_s": 10.098472599987872,
+   "c_ours_last": 5.202169107527746
+  },
+  {
+   "problem_id": 1839,
+   "iters": 5,
+   "loop_s": 0.21576680016005412,
+   "wall_incl_setup_s": 0.32336350000696257,
+   "c_ours_last": 87.9412998067873
+  },
+  {
+   "problem_id": 1839,
+   "iters": 10,
+   "loop_s": 0.611953099956736,
+   "wall_incl_setup_s": 0.7197013000259176,
+   "c_ours_last": 39.73088197174145
+  },
+  {
+   "problem_id": 1839,
+   "iters": 15,
+   "loop_s": 1.0609412000630982,
+   "wall_incl_setup_s": 1.171476099989377,
+   "c_ours_last": 36.28215634624945
+  },
+  {
+   "problem_id": 1839,
+   "iters": 20,
+   "loop_s": 1.5026857998454943,
+   "wall_incl_setup_s": 1.6132512000040151,
+   "c_ours_last": 35.609345291625736
+  },
+  {
+   "problem_id": 1839,
+   "iters": 30,
+   "loop_s": 2.4483755998080596,
+   "wall_incl_setup_s": 2.5584515999653377,
+   "c_ours_last": 35.277919730781214
+  },
+  {
+   "problem_id": 1839,
+   "iters": 40,
+   "loop_s": 3.381303399684839,
+   "wall_incl_setup_s": 3.492145400028676,
+   "c_ours_last": 35.150597960382875
+  },
+  {
+   "problem_id": 1839,
+   "iters": 50,
+   "loop_s": 4.314214399724733,
+   "wall_incl_setup_s": 4.4297516999649815,
+   "c_ours_last": 35.07548567265982
+  },
+  {
+   "problem_id": 1839,
+   "iters": 75,
+   "loop_s": 6.590118900174275,
+   "wall_incl_setup_s": 6.707727800006978,
+   "c_ours_last": 34.964291222184364
+  },
+  {
+   "problem_id": 1839,
+   "iters": 100,
+   "loop_s": 8.823182199790608,
+   "wall_incl_setup_s": 8.964281799970195,
+   "c_ours_last": 34.911375027822544
+  },
+  {
+   "problem_id": 1839,
+   "iters": 150,
+   "loop_s": 12.766179600555915,
+   "wall_incl_setup_s": 12.911791899998207,
+   "c_ours_last": 34.84553596427709
+  },
+  {
+   "problem_id": 1935,
+   "iters": 5,
+   "loop_s": 0.15016799996374175,
+   "wall_incl_setup_s": 0.27620580000802875,
+   "c_ours_last": 7.513986742679107
+  },
+  {
+   "problem_id": 1935,
+   "iters": 10,
+   "loop_s": 0.26013860007515177,
+   "wall_incl_setup_s": 0.37062630004948005,
+   "c_ours_last": 5.729189201830926
+  },
+  {
+   "problem_id": 1935,
+   "iters": 15,
+   "loop_s": 0.36274500004947186,
+   "wall_incl_setup_s": 0.4712386000319384,
+   "c_ours_last": 5.691778446800291
+  },
+  {
+   "problem_id": 1935,
+   "iters": 20,
+   "loop_s": 0.45714830013457686,
+   "wall_incl_setup_s": 0.5658207000233233,
+   "c_ours_last": 5.688871247163484
+  },
+  {
+   "problem_id": 1935,
+   "iters": 30,
+   "loop_s": 0.6420131001505069,
+   "wall_incl_setup_s": 0.7533657000167295,
+   "c_ours_last": 5.686981007262324
+  },
+  {
+   "problem_id": 1935,
+   "iters": 40,
+   "loop_s": 0.8253244000370614,
+   "wall_incl_setup_s": 0.9402569999801926,
+   "c_ours_last": 5.686187826290421
+  },
+  {
+   "problem_id": 1935,
+   "iters": 50,
+   "loop_s": 1.00777000002563,
+   "wall_incl_setup_s": 1.1224127999739721,
+   "c_ours_last": 5.685752930652493
+  },
+  {
+   "problem_id": 1935,
+   "iters": 75,
+   "loop_s": 1.4502120000543073,
+   "wall_incl_setup_s": 1.5682576000108384,
+   "c_ours_last": 5.685111271323945
+  },
+  {
+   "problem_id": 1935,
+   "iters": 100,
+   "loop_s": 1.9045535003533587,
+   "wall_incl_setup_s": 2.026192999968771,
+   "c_ours_last": 5.68466390580131
+  },
+  {
+   "problem_id": 1935,
+   "iters": 150,
+   "loop_s": 2.809236100059934,
+   "wall_incl_setup_s": 2.9458240999956615,
+   "c_ours_last": 5.684062011375345
+  },
+  {
+   "problem_id": 1961,
+   "iters": 5,
+   "loop_s": 0.1777890999801457,
+   "wall_incl_setup_s": 0.29510709998430684,
+   "c_ours_last": 43.17954501586998
+  },
+  {
+   "problem_id": 1961,
+   "iters": 10,
+   "loop_s": 0.36817710008472204,
+   "wall_incl_setup_s": 0.4846531999646686,
+   "c_ours_last": 36.13971730430873
+  },
+  {
+   "problem_id": 1961,
+   "iters": 15,
+   "loop_s": 0.6738200000254437,
+   "wall_incl_setup_s": 0.812188400013838,
+   "c_ours_last": 34.72096462659833
+  },
+  {
+   "problem_id": 1961,
+   "iters": 20,
+   "loop_s": 1.0057213999680243,
+   "wall_incl_setup_s": 1.1211258000112139,
+   "c_ours_last": 34.447697245586774
+  },
+  {
+   "problem_id": 1961,
+   "iters": 30,
+   "loop_s": 1.6482431999174878,
+   "wall_incl_setup_s": 1.7665662000072189,
+   "c_ours_last": 34.298220441057374
+  },
+  {
+   "problem_id": 1961,
+   "iters": 40,
+   "loop_s": 2.195897000026889,
+   "wall_incl_setup_s": 2.3088694000034593,
+   "c_ours_last": 34.23588396617927
+  },
+  {
+   "problem_id": 1961,
+   "iters": 50,
+   "loop_s": 2.8353134998469613,
+   "wall_incl_setup_s": 2.94996810000157,
+   "c_ours_last": 34.194525340794144
+  },
+  {
+   "problem_id": 1961,
+   "iters": 75,
+   "loop_s": 4.382512899697758,
+   "wall_incl_setup_s": 4.505926700017881,
+   "c_ours_last": 34.13104224998199
+  },
+  {
+   "problem_id": 1961,
+   "iters": 100,
+   "loop_s": 5.827881699777208,
+   "wall_incl_setup_s": 5.96433759998763,
+   "c_ours_last": 34.09512193225869
+  },
+  {
+   "problem_id": 1961,
+   "iters": 150,
+   "loop_s": 8.625725400052033,
+   "wall_incl_setup_s": 8.762080299959052,
+   "c_ours_last": 34.05230405801343
+  }
+ ]
+}

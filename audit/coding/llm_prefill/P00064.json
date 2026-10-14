@@ -1,0 +1,88 @@
+{
+  "pid": "P00064",
+  "citation": {
+    "title": "Consistent machine learning for topology optimization with microstructure-dependent neural network material models",
+    "authors": "Harikrishnan Vijayakumaran, Jonathan B. Russ, Glaucio H. Paulino, Miguel A. Bessa",
+    "year": 2025,
+    "venue": "Journal of the Mechanics and Physics of Solids 196 (2025) 106015 (version of record, not accessible); arXiv preprint coded",
+    "doi": "10.1016/j.jmps.2024.106015",
+    "arxiv_id": "2408.13843",
+    "version_coded": "arXiv v2 (27 Aug 2024), read in full from the PDF (32 pages incl. Appendices A-E); Table 3 checked against the arXiv HTML. Version of record not read: ScienceDirect returned HTTP 403, and Crossref lists Elsevier copyright with no open-access licence."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "llm_prefill",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; the cost advantage over computational homogenization is framing only and never measured; the only classical comparison executed is design parity)",
+    "stratum": "quality",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "metamaterial_homogenization",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "In single-scale finite-deformation TO (T-bracket, cantilever, portal frame, 3D beam), designs and objective histories obtained with the consistent ML material model nearly coincide with those obtained with the ground-truth phenomenological Arruda–Boyce model.",
+    "key_phrase": "demonstrating nearly identical designs in a setting with directly comparable conventional results",
+    "location": "Sec. 5.4, Figs. 6-9, pp. 14-17 (first optimization-level comparison with a classical method; figure-based: objective histories and difference plots, with no per-model final values printed); App. D.1 and D.3 repeat it for the portal frame and the 3D beam. The Abstract, Sec. 6 Conclusions and Introduction hold no quantitative classical comparison.",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No runtime, cost or iteration time is reported for any method (full text searched). The cost advantage over computational homogenization or FE2 is stated only as motivation (Abstract; Sec. 1). Not derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Abstract and Sec. 1 (qualitative cost framing): TO with nonlinear homogenization is limited by the expense of computational homogenization, concurrent FE2 is called computationally prohibitive, and ML offers efficient differentiable mappings; never measured. This was the screening basis (I-SPEED) and would put the record in the speed stratum. (2) Sec. 5.2, Table 2: surrogate accuracy against the ground-truth data (test 1-R2 3.22e-8 for Ms; 1.53e-4, RMSE 1.19e-2, MAE 4.41e-3 for Mm, whose data come from ABAQUS RVE homogenization); forward-model accuracy, not an optimization comparison. (3) Sec. 5.5, App. D.2 and Sec. 6: varying microstructure beats a fixed-microstructure baseline (T-bracket, cantilever, portal frame); ML vs ML, no ground truth."
+  },
+  "baseline": {
+    "classical_method": "The same density-based TO (filter, Heaviside projection, SIMP energy interpolation of Wang et al. 2014, generalized displacement control, MMA, continuation) run with the analytical Arruda–Boyce hyperelastic model instead of the ML model (Secs. 3, 5.4). FE2 or computational homogenization is named as the classical route for the multiscale case but not run (Sec. 1).",
+    "implementation": "not stated for the TO code; ML workflow in JAX with Equinox and Optax (footnote 2, p. 12); RVE data generated in ABAQUS through the f3dasm framework (Sec. 5.1)",
+    "solver": "Newton-Raphson with relative tolerance 1e-6 and 8 load steps (15 for the 3D example) (Algorithm 1; Table 3; App. D.3); linear solver not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "ML training on a standard desktop with an NVIDIA RTX 3050 Ti GPU (footnote 2, p. 12); TO hardware not stated",
+    "problem_size": "T-bracket 35,400 bilinear quadrilaterals; cantilever 40,000; portal frame 28,902 (unstructured); 3D fixed-fixed beam 16,250 hexahedra (quarter model) (Secs. 5.4.1-5.4.2; App. D.1, D.3)",
+    "classical_iterations": "Continuation: p raised by 1 per step to 4, then β doubled; a step ends when the objective changes by less than 0.1% over 5 iterations or after 50 iterations, with at least 20 iterations per step (Sec. 5.4, p. 14). Iteration axes end at 164 (T-bracket, Fig. 7), 195 (cantilever, Fig. 9), 177 (portal frame, Fig. D.14) and 174 (3D beam, Fig. D.17).",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated (Adam with weight decay, up to 15,000 epochs with early stopping; Table 1)",
+    "data_generation_cost": "not stated; Ds = 2^12 = 4,096 strain states evaluated analytically; Dm = 5 × 2^10 RVE simulations in ABAQUS, 4,787 retained after removing non-converged runs (Sec. 5.1); 3D model data 2^13 = 8,192 states (App. D.3)",
+    "quality_metric": "External-work objective histories for both material models (Figs. 7, 9, D.14, D.17) and density difference plots between the two final designs (Figs. 6b, 8b, D.13c, D.16c)",
+    "quality_gap": "Text only: final design closely resembles the phenomenological design (T-bracket, Sec. 5.4.1); final objective values remain close to one another (cantilever, Sec. 5.4.2); curves overlap and designs almost identical (portal frame, App. D.1); final objectives almost identical (3D, App. D.3). No numeric gap is printed."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Sec. 5.4 and Table 3: both runs use the same mesh, volume bound (g_max 0.5 T-bracket, 0.6 cantilever), filter, projection, continuation, MMA settings and stopping rules, and the objective histories and continuation steps overlap (Figs. 7, 9). The comparison isolates the material model. Final objective values and achieved volumes are not printed, but nothing suggests a mismatch. Unsure, so pass."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "The classical comparator is the authors' own TO run with identical settings (Sec. 5.4; Table 3), so it is run as competently as the ML variant, with the full continuation schedule and the same step-stopping rules. No runtimes exist, so markers (a)-(e) do not bear on a speed claim. Linear solver and hardware are not stated."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim is quantified. For C3: training and data-generation costs are not reported; the Dm dataset needed 5 × 2^10 ABAQUS RVE simulations (Sec. 5.1), and training ran on an RTX 3050 Ti desktop (footnote 2, p. 12)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-surrogate-predicted",
+      "evidence": "Objectives come from a real nonlinear FE analysis, but each design is scored under its own material model: the ML-designed structures are not re-evaluated with the ground-truth Arruda–Boyce model (Sec. 5.4; Figs. 7, 9) [inferred: no cross-evaluation is described]. The Ms surrogate is very accurate (test 1-R2 3.22e-8, Table 2), and the difference plots compare the returned designs directly. Achieved volume fractions are not reported, and instabilities are discussed only qualitatively (cantilever, Sec. 5.4.2). Multiscale designs have no ground truth at all (Sec. 5.5)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Single-scale ML vs phenomenological TO: 4 problems (T-bracket, cantilever, portal frame, 3D fixed-fixed beam; Sec. 5.4, App. D.1, D.3). Multiscale varying vs fixed microstructure: 3 (Sec. 5.5, App. D.2). Surrogate test splits: 20% of each dataset (Sec. 5.2).",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED (abstract framing of ML as an efficient substitute for costly computational homogenization). At full text that framing is motivation only: no time or cost is reported anywhere, and the conclusions call the method efficient without a comparator. The only executed comparison with a non-learned method is the Sec. 5.4 parity check, so the record is coded in stratum Q. If the verifier reads the abstract framing as the primary (qualitative) speed claim, the record moves to the speed stratum; R3 would then fail (no training or data cost), R1 would be partial or fail (no timing), and R2 would be na (no classical baseline timed). Primary-outcome judgment: the Sec. 5.4 comparison is treated as quantitative because it plots both objective histories and design differences, but the text states only qualitative agreement. Reporting locators: OOD = Sec. 5.3, Figs. 3-4 (surrogate predictions beyond the trained strain domain); hardware = footnote 2, p. 12 (training only); no code or data availability statement in arXiv v2; the multiscale portal frame (App. D.2) has 13 vs 15 void regions (varying vs fixed microstructure). The journal version (JMPS 196, 106015; Crossref created 24 Dec 2024) may differ from arXiv v2 and should be checked by the verifier if access is available. retest_candidate false: no speed claim and no public code."
+}

@@ -1,0 +1,88 @@
+{
+  "pid": "P00054",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Meta-neural Topology Optimization: Knowledge Infusion with Meta-learning",
+    "authors": "Igor Kuszczak, Gaweł Kuś, Federico Bosi, Miguel A. Bessa",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.CE); the v2 manuscript header names Engineering Applications of Artificial Intelligence, but no version of record was found (web search 2026-09-24)",
+    "doi": "10.48550/arXiv.2502.01830",
+    "arxiv_id": "2502.01830",
+    "version_coded": "arXiv v2 (31 Jul 2026; v1 3 Feb 2025), full HTML text including Appendices A-F read from https://arxiv.org/html/2502.01830"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text; cost proxy = iterations, i.e. FE evaluations, to convergence)",
+    "stratum": "speed",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Across 1000 in-distribution (64×64) and 1000 cross-resolution (256×256) compliance tasks, meta-neural TO reached the shared stopping rule in the fewest iterations in 57.6% and 74.1% of tasks (standard GCMMA TO: 42.3%, 25.7%), with thresholded compliance called competitive.",
+    "key_phrase": "converges in fewer iterations in 57.6% of in-distribution and 74.1% of cross-resolution tasks",
+    "location": "Abstract; quantified in Sections 4.1 and 4.3, Fig. 6(a),(c) and Table 2",
+    "quantitative": true,
+    "claimed_speedup": 1.07,
+    "claimed_speedup_basis": "Proxy (iterations to convergence; one FE solve per iteration), derived from Table 2 means: standard TO 111.26 ÷ meta-neural TO 103.65 = 1.07 (in-distribution); 130.03 ÷ 100.90 = 1.29 (cross-resolution); 110.89 ÷ 126.57 = 0.88 (out-of-distribution, standard TO faster). No factor is stated. Wall-clock [derived from Table 3 per-iteration times × Table 2 means]: 64×64 standard 111.26 × 46.11 ms ≈ 5.13 s vs meta-neural 103.65 × 62.49 ms ≈ 6.48 s, i.e. 0.79 (meta-neural slower); 256×256 130.03 × 723.13 ms ≈ 94.0 s vs 100.90 × 672.90 ms ≈ 67.9 s, i.e. 1.38. The per-iteration times come from three separate benchmark tasks, so these wall-clock ratios are approximate.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 2 mean iterations: in-distribution 103.65 (meta-neural) vs 111.26 (standard) vs 149.56 (neural TO); out-of-distribution 126.57 vs 110.89 vs 154.67; cross-resolution 100.90 vs 130.03 vs 152.04. (2) Section 4.2, out-of-distribution: fewest iterations in 39.3% of tasks vs 59.9% for standard TO. (3) Table 3 (one A100): per-iteration 46.11 ms (standard) vs 62.49 ms (neural and meta-neural) at 64×64; 723.13 vs 672.90 ms at 256×256; meta-training 3 h 35 min. (4) Appendix F: cross-aspect 128×64, fewest iterations 63.6% vs 31.5%; compound shift, 40.9% vs 56.0% (standard faster). (5) Quality, in-distribution: best thresholded design 63.1% standard vs 20.3% meta-neural; within 5%, 83.9% vs 80.9% (Section 4.1)."
+  },
+  "baseline": {
+    "classical_method": "Standard density-based TO (modified SIMP, p = 3, Emin = 10⁻⁹, ν = 0.3) solved with GCMMA using default NLopt settings and no hyperparameter tuning; uniform initial design; volume-preserving thresholding of final designs (Sections 3.1, 3.3, 4). The filter for standard TO is not stated in the article [the repository applies the same density filter, radius 1/32 of the domain]",
+    "implementation": "Authors' JAX code; gradients by implicit differentiation through the linear solve (Section 3.1); the authors say the implementations are not fully optimized (Section 4.6). Repository [checked 2026-09-24]: FE solve by cvxopt CHOLMOD through a JAX callback (metatopia/solver/fem_cvxopt.py); standard TO = nlopt.LD_MMA with ftol_abs = ftol_rel = tol and maxeval 201 (experiments/meta_neural_to/mma.py)",
+    "solver": "direct (sparse Cholesky, CHOLMOD via cvxopt), shared by all methods, per the public repository; the article names no solver type",
+    "hardware_classical": "single NVIDIA A100 GPU for all wall-clock timings (Table 3 caption); host CPU not stated, although the CHOLMOD solve and the NLopt update run on the CPU [inferred from repository code]",
+    "hardware_ml": "single NVIDIA A100 GPU for timings and meta-training (Table 3; Section 4.6); same host-CPU caveat",
+    "problem_size": "64×64 elements (meta-training, in-distribution, out-of-distribution, validation); 256×256 (cross-resolution, compound shift); 128×64 (cross-aspect) (Section 3.4; Appendix F) [≈8.5×10³ and ≈1.3×10⁵ DOFs at 64×64 and 256×256, inferred]",
+    "classical_iterations": "Same stopping rule for all methods: relative loss change below ε(1 + |L|) with ε = 10⁻⁵, minimum 10 and maximum 200 iterations (Section 3.3; Appendix F). Means: 111.26 (in-distribution), 110.89 (out-of-distribution), 130.03 (cross-resolution) (Table 2). 48 in-distribution tasks hit the 200-iteration cap for all methods (Section 4.1)",
+    "classical_time": "46.11 ms per iteration at 64×64 and 723.13 ms at 256×256, averaged over 200 iterations on MBB, cantilever and tensile benchmarks (Table 3); no per-task wall-clock [derived means per task: ≈5.13 s in-distribution, ≈94.0 s cross-resolution]",
+    "ml_time": "62.49 ms per iteration at 64×64 and 672.90 ms at 256×256, identical for neural and meta-neural TO (Table 3) [derived means per task: ≈6.48 s in-distribution, ≈67.9 s cross-resolution]",
+    "training_time": "Meta-training 3 h 35 min on one A100 (Table 3; Section 4.6): 6000 outer iterations, meta-batch 5, 10 inner steps (Section 3.3); stated as equivalent to about 1500 full 64×64 optimizations (Section 4.6). The grid search ran a full meta-training per configuration, 8 configurations listed (Appendix A, Table A.1), not included in the 3 h 35 min [inferred]",
+    "data_generation_cost": "No pre-optimized data. 3000 meta-training tasks, 100 validation tasks and 1000 tasks per test set are generated pseudorandomly, with one FE analysis per task for the strain-energy field and reference compliance (Section 3.4); time not stated",
+    "quality_metric": "Compliance of the thresholded (volume-preserving) final design of each task, compared with performance profiles over all tasks (Fig. 6 d-f); continuous-design compliance in Appendix B",
+    "quality_gap": "Best thresholded design (tolerance 1): in-distribution standard 63.1%, meta-neural 20.3%, neural 16.6%; within 5%: 83.9%, 80.9%, 80.4% (Section 4.1). Out-of-distribution: 47.6% vs 24.6% (Section 4.2). Cross-resolution: 48.5% vs 41.0%; within 5%: 83.6% vs 87.7% (Section 4.3). Continuous designs: meta-neural best in 69.1% of in-distribution tasks (Section 4.1; Appendix B). Thresholding improved standard-TO compliance by 6.63% (in-distribution) and 5.68% (out-of-distribution) vs 1.97% and 1.74% for meta-neural TO (Appendix B)"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sections 3.3-4.3, Fig. 6, Tables 2-3: all methods share one stopping rule (relative loss change < 10⁻⁵, 10-200 iterations) and the same volume (exact volume enforcement and volume-preserving thresholding), and quality is reported for every task. The iteration comparison is not made at matched quality or matched budget: in-distribution, standard TO gives the best thresholded design in 63.1% of tasks vs 20.3% for meta-neural TO (83.9% vs 80.9% within 5%). The iteration counts also ignore the per-iteration cost gap that Table 3 reports (62.49 vs 46.11 ms at 64×64)."
+    },
+    "R2": {
+      "verdict": "partial",
+      "marker": "R2-inefficient-impl (untuned default GCMMA)",
+      "evidence": "Section 4: standard TO uses GCMMA with default NLopt settings and no tuning, while neural TO was tuned on a validation set and reported as the best of three seeds, and meta-neural TO was grid-searched (Appendix A). Section 4.1 attributes standard TO's slow early loss reduction to these default GCMMA parameters; Section 4.6 says the implementations are not fully optimized. The linear solver is a sparse direct Cholesky (CHOLMOD) shared by all methods [public repository, checked], so the solver class is efficient. (b), (c) and (d) are not established: the abstract gives no baseline figure, the hardware and stopping rule are the same for all methods. (e) needs a re-test with the article's update; per-iteration times are 46.11 ms (64×64) and 723.13 ms (256×256) (Table 3)."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-amortization",
+      "evidence": "Table 3 and Section 4.6: the meta-training cost (3 h 35 min, one A100) is reported and expressed as about 1500 full 64×64 optimizations that amortize over later problems, but no break-even is computed. Data cost is one FE analysis per task (Section 3.4), time not stated [small, inferred]; the hyperparameter grid search reran meta-training for 8 configurations (Appendix A), not counted [inferred]. From Tables 2-3 [derived]: at 64×64 meta-neural TO averages ≈6.48 s per task vs ≈5.13 s for standard TO, so there is no saving to amortize; at 256×256, ≈67.9 s vs ≈94.0 s gives break-even after ≈494 tasks."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Fig. 6 d-f and Sections 3.2-3.3: the compliance of each thresholded returned design is computed with the FE model for all 1000 tasks per test set. Volume is enforced by construction (bisection for the neural methods, the GCMMA constraint for standard TO, then volume-preserving thresholding), but achieved volumes are not reported. A failure share is given only for the compound-shift set (Appendix F.2: thresholded designs at least 10× worse than the best in 9.2%, 5.8% and 3.1% of tasks for standard, neural and meta-neural TO). Appendix B drops tasks with more than 50% thresholding degradation without giving a count."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 test sets × 1000 tasks (in-distribution 64×64; out-of-distribution 64×64 with distributed boundary conditions; cross-resolution 256×256), plus 2 appendix sets × 1000 (cross-aspect 128×64; compound shift 256×256) and 100 validation tasks; timing on 3 benchmark cases (MBB, cantilever, tensile) (Sections 3.4, 4.6; Appendix F)",
+    "ood_test": "yes",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "yes",
+    "hardware_per_method_stated": "yes"
+  },
+  "retest_candidate": true,
+  "notes": "Primary outcome is the abstract's iteration win-rate, a cost proxy ('fewer FE evaluations'): each iteration is one FE solve for the neural methods, and the repository counts standard-TO iterations as NLopt function evaluations (mma.py) [checked]. The article's own Table 3 shows the proxy gives no wall-clock gain at 64×64 (derived 0.79×) and a modest one at 256×256 (1.38×). claimed_speedup records the in-distribution iteration ratio (1.07); the abstract's second number (cross-resolution) corresponds to 1.29. Out-of-distribution (Section 4.2) and compound shift (Appendix F.2): standard TO needs fewer iterations. Appendix C: a simple pretraining (identity map of the strain-energy field) beats meta-learning in both speed and quality. Appendix E: initial designs from the strain-energy-conditioned meta-neural TO also speed up standard TO. Both point to the strain-energy prior, which a classical optimizer can use too, as the source of the gain [inferred]. Pointer for R2(e), not decisive: Table 3's 723.13 ms per standard-TO iteration at 256×256 compares with the project's provisional strong baseline (OC update, retest/runs 2026-09-24) at 31.1-31.9 ms on GPU (≈23×) or 336-356 ms with CPU PARDISO (≈2×); the update (GCMMA vs OC) and the hardware differ, so a re-test with GCMMA is needed. Reporting locators: seeds = Section 4 (neural TO run with three seeds, best reported; meta-neural and standard TO single runs described as deterministic; no variance); failure rate = Appendix F.2 only; timing = Table 3 caption (hardware, 200-iteration average; warm-up not stated in the article, the repository timing script uses 10 warm-up iterations); runtimes = per-iteration times from 3 benchmark cases, not per test task; code = github.com/bessagroup/metatopia (BSD-3-Clause, checked 2026-09-24); data = Zenodo doi 10.5281/zenodo.15172934 (stated; not verified, HTTP 403 from this network). retest_candidate true: public code with a BSD-3-Clause licence, the MMA baseline and timing scripts, and the task datasets. Per the repository's conf/meta_test.yaml, meta-trained checkpoints are downloaded separately and the two appendix datasets must be regenerated; neither download was verified."
+}

@@ -1,0 +1,19 @@
+{
+  "pid": "P01670",
+  "citation": {"title": "Composite 3D-printed Plate-based Mechanical Metamaterials", "authors": "Aya Hosoi; Jier Wang; Yuki Fujita; T. Tanaka; J. Takahashi; Ajit Panesar", "year": 2025, "venue": "International Conferences on Composite Materials (ICCM)", "doi": "10.5281/zenodo.18597653", "arxiv_id": "", "version_coded": "conference-paper abstract on coauthor's university profile; full text unavailable"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR (no accessible full text)", "stratum": "none", "method_family": "other: ML-based metamaterial inverse design", "physics": "metamaterial_homogenization", "dim": "3d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "abstract only", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "no full text", "direction": "similar_or_mixed", "alternatives": ""},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "not stated", "quality_gap": "not stated"},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "R2-no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "R3-no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "R4-no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {"n_test_cases": "not stated", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "The coauthor's Nagoya University profile provides the abstract and identifies a 2025 conference-proceedings paper. The Zenodo DOI and API returned HTTP 403 due to a network traffic restriction; no open full text was found by title search. The abstract describes a two-step TO/ML approach and compares designs with uniform designs, without establishing an optimization-level classical baseline."
+}

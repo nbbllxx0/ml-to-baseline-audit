@@ -1,0 +1,44 @@
+{
+  "pid": "P01468",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "GANTL: Towards Practical and Real-Time Topology Optimization with Conditional GANs and Transfer Learning",
+    "authors": "Mohammad Mahdi Behzadi, Horea T. Ilieş",
+    "year": 2021,
+    "venue": "arXiv preprint (cs.LG; also cs.AI). This pool record is OpenAlex work W4302027779, whose DOI is the arXiv DOI and whose only location is arxiv.org/abs/2105.03045. Version of record: Journal of Mechanical Design, doi 10.1115/1.4052757 (Crossref: online 2021-10-18; licence field is the ASME legal policy, no Creative Commons licence), carried together with the same arXiv id by pool record P00141",
+    "doi": "10.48550/arXiv.2105.03045",
+    "arxiv_id": "2105.03045",
+    "version_coded": "arXiv v1 (7 May 2021; the only version on the abs page). Identity with P00141 checked on the arXiv abs page and the header of https://arxiv.org/html/2105.03045 (title, authors, v1 label). The full text was not coded again, because it is the document already coded under P00141"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "exclude",
+    "reason": "FT-DUPLICATE",
+    "stratum": "none",
+    "method_family": "gan",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (excluded as a duplicate of P00141, the same arXiv document). Would-be primary outcome as coded under P00141 (not re-read here): GANTL predictions differ from the SIMP designs by 1.00% average compliance error (Table 2), with no GANTL run time reported.",
+    "location": "Would-be: Sec. 4.2 and Table 2, as coded under P00141",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not coded (excluded as a duplicate). The arXiv HTML, read on 2026-09-24, reports no GANTL, training or data-generation time; its only cost number is a cited SIMP cost of 1.85 s per iteration for a 300 x 100 MBB beam (Introduction)."
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R2": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R3": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"},
+    "R4": {"verdict": "na", "marker": "excluded", "evidence": "excluded at full text (FT-DUPLICATE)"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Excluded under PROTOCOL §4 (duplicates) with code FT-DUPLICATE. Duplicate of P00141 (decision order 51; already coded in llm_prefill). Evidence: this record's DOI, 10.48550/arXiv.2105.03045, is the arXiv DOI of arXiv 2105.03045, which is the arxiv_id of P00141; titles and authors match; the arXiv abs page lists a single version (v1). Primary version: the JMD version of record is not open access (Crossref licence = ASME legal policy), so the latest arXiv version is primary, and P00141 already holds it together with the JMD DOI. A third pool record, P02546 (OAT reference-list entry for the JMD article; decision order 309), is another duplicate of the same study. Screening flagged this record as a possible duplicate of P00141 (audit/pool/possible_duplicates.csv, similarity 1.00). Screening code was I-SPEED. Authors checked: no author named Jun Wang."
+}

@@ -1,0 +1,18 @@
+{
+  "pid": "P02306",
+  "citation": {"title": "Denoising diffusion algorithm for inverse design of microstructures with fine-tuned nonlinear material properties", "authors": "Nikolaos N. Vlassis; WaiChing Sun", "year": 2023, "venue": "Computer Methods in Applied Mechanics and Engineering", "doi": "10.1016/j.cma.2023.116126", "arxiv_id": "2302.12881", "version_coded": "arXiv 2302.12881v1"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-NOBASELINE", "stratum": "none", "method_family": "diffusion_flow", "physics": "metamaterial_homogenization", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "", "key_phrase": "", "location": "", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "not stated", "direction": "outperform", "alternatives": ""},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-excluded", "evidence": "Section 4 and conclusion: no classical optimization comparison."},
+    "R2": {"verdict": "na", "marker": "R2-excluded", "evidence": "Section 4 and conclusion: no classical optimization comparison."},
+    "R3": {"verdict": "na", "marker": "R3-excluded", "evidence": "Section 4 and conclusion: no classical optimization comparison."},
+    "R4": {"verdict": "na", "marker": "R4-excluded", "evidence": "Section 4 and conclusion: no classical optimization comparison."}
+  },
+  "reporting": {"n_test_cases": "not coded after exclusion", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "on_request", "data_available": "on_request", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Introduction discusses conventional level-set or phase-field inverse design only as motivation. Sections 4-5 test generated Mechanical MNIST-like structures with CNN predictions and selected forward FEM simulations, but do not run, time, or cite a classical optimization result for comparison."
+}

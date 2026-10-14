@@ -1,0 +1,52 @@
+iter 0: c = 13.2283
+iter 10: c = 8.35587
+iter 20: c = 8.18884
+iter 30: c = 8.1728
+FAILED at iteration 35
+Traceback (most recent call last):
+  File "E:\AI\ml-to-baseline-audit\retest\oat_harness\debug_mg.py", line 38, in main
+    opt.iter()
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\Optimizers\CUDA\OC.py", line 81, in iter
+    self.problem.set_desvars(desvars_new)
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\Problem\CUDA\MinimumCompliance.py", line 130, in set_desvars
+    self._compute()
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\Problem\CUDA\MinimumCompliance.py", line 249, in _compute
+    U, residual = self.FE.solve(rho_)
+                  ^^^^^^^^^^^^^^^^^^^
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\FiniteElement\CUDA\FiniteElement.py", line 206, in solve
+    U, residual = self.solver.solve(self.rhs, use_last=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\solvers\CUDA\_solvers.py", line 372, in solve
+    z = v_cycle(cp.zeros_like(r), r,0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\solvers\CUDA\_solvers.py", line 297, in _multi_grid
+    e = self._multi_grid(coarse_u, coarse_residual, level+1)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\solvers\CUDA\_solvers.py", line 297, in _multi_grid
+    e = self._multi_grid(coarse_u, coarse_residual, level+1)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\solvers\CUDA\_solvers.py", line 297, in _multi_grid
+    e = self._multi_grid(coarse_u, coarse_residual, level+1)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 2 more times]
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\solvers\CUDA\_solvers.py", line 279, in _multi_grid
+    return self.coarse_solve(b)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\AI\ml-to-baseline-audit\retest\targets\OptimizeAnyTopology\pyEDGE\solvers\CUDA\_solvers.py", line 264, in <lambda>
+    return lambda rhs: SOLVER.solve(rhs)
+                       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\scipy\sparse\linalg\_solve.py", line 609, in solve
+    x = sm(self.U, x, lower=False, transa=trans)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\scipy\sparse\linalg\_solve.py", line 591, in spsm
+    return cusparse.spsm(A, B, lower=lower, transa=transa)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\YSL0\anaconda3\envs\oat\Lib\site-packages\cupyx\cusparse.py", line 2398, in spsm
+    _cusparse.spSM_solve(
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 3442, in cupy_backends.cuda.libs.cusparse.spSM_solve
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 3446, in cupy_backends.cuda.libs.cusparse.spSM_solve
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 1355, in cupy_backends.cuda.libs.cusparse._setStream
+  File "cupy_backends/cuda/libs/cusparse.pyx", line 1337, in cupy_backends.cuda.libs.cusparse.setStream
+  File "cupy_backends/cuda/api/runtime.pyx", line 1040, in cupy_backends.cuda.api.runtime.streamIsCapturing
+  File "cupy_backends/cuda/api/runtime.pyx", line 146, in cupy_backends.cuda.api.runtime.check_status
+cupy_backends.cuda.api.runtime.CUDARuntimeError: cudaErrorIllegalAddress: an illegal memory access was encountered

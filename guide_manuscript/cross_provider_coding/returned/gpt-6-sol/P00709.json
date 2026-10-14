@@ -1,0 +1,14 @@
+{
+  "pid": "P00709",
+  "citation": {"title": "On demand design of two-dimensional phononic crystal bandgap based on machine learning and multi-objective topology optimization", "authors": "Nansha Gao, Jiacheng Guo, Mou Wang, Yilin Qu, Xingguang Peng, Ye Tang, Xiao Liang, Guang Pan", "year": 2026, "venue": "Mechanical Systems and Signal Processing 242, 113670", "doi": "10.1016/j.ymssp.2025.113670", "version_coded": "abstract of version of record only"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR (no accessible full text)", "stratum": "none", "method_family": "vae and neural networks", "physics": "phononic crystal elastic waves", "dim": "2d"},
+  "claim": {"primary_outcome_paraphrase": "The abstract reports accurate inverse and forward predictions and suggests rapid on-demand design, without giving a classical optimization comparison.", "location": "abstract", "quantitative": false, "claimed_speedup": null, "claimed_speedup_basis": "No paired classical and ML runtimes in accessible abstract.", "direction": "outperform", "alternatives": "Abstract reports cross-validation prediction accuracy rather than a classical optimization result."},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "Abstract: prediction accuracy", "quality_gap": "not stated"},
+  "rules": {"R1": {"verdict": "na", "marker": "R1-no-full-text", "evidence": "no full text"}, "R2": {"verdict": "na", "marker": "R2-no-full-text", "evidence": "no full text"}, "R3": {"verdict": "na", "marker": "R3-no-full-text", "evidence": "no full text"}, "R4": {"verdict": "na", "marker": "R4-no-full-text", "evidence": "no full text"}},
+  "reporting": {"n_test_cases": "not stated in accessible abstract", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "no", "data_available": "on_request", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Publisher DOI resolved, but full-text retrieval returned access-denied and the public ResearchGate entry offers only request-full-text. No legal downloadable full text located. The source used for this record is the publisher abstract at https://www.sciencedirect.com/science/article/pii/S0888327025013718 ."
+}

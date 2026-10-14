@@ -1,0 +1,88 @@
+{
+  "pid": "P00918",
+  "citation": {
+    "title": "Accelerating cell topology optimisation by leveraging similarity in the parametric input space",
+    "authors": "A. Martínez-Martínez, D. Muñoz, J.M. Navarro-Jiménez, O. Allix, F. Chinesta, J.J. Ródenas, E. Nadal",
+    "year": 2025,
+    "venue": "Computer Methods in Applied Mechanics and Engineering, vol. 442, art. 118044 (published online 9 May 2025)",
+    "doi": "10.1016/j.cma.2025.118044",
+    "arxiv_id": "",
+    "version_coded": "Version of record (CMAME 442 (2025) 118044), full text and references read from the PDF obtained via the Universitat Politècnica de València institutional repository (RiuNet, https://riunet.upv.es, bitstream 2f0f92f2-6cb1-4bbd-a15c-168698bb817f). The article is CC BY 4.0 open access (confirmed via Crossref licence metadata, VOR licence effective 2025-05-07). ScienceDirect itself (ordinary route via doi.org) returned an HTTP 403 CAPTCHA challenge to anonymous automated access, both via curl and via the WebFetch tool, and was not read further; no bot check was bypassed. A prior attempt to reach an HAL open-repository copy also hit an automated 'not a bot' interstitial and was likewise abandoned."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (the first, and only, quantitative comparison with a classical method is an iteration-count acceleration ratio against the 'standard' two-level SIMP baseline)",
+    "stratum": "speed",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Warm-starting the standard two-level SIMP optimiser with the nearest previously-optimised cell (vector- or energy-based similarity), instead of a homogeneous guess, cuts SIMP iterations on a held-out 2D test problem by a mean of about 1.3x-1.4x up to 2.7x-2.9x (Table 5).",
+    "key_phrase": "placing it closer to a local minimum and reducing computation time",
+    "location": "Section 4 (Results), Table 5, and the surrounding local-result figures (Figs. 16-17, 20-21, 24, 27-28); Abstract and Conclusion (Sec. 6) state the same finding only qualitatively",
+    "quantitative": true,
+    "claimed_speedup": 2.67,
+    "claimed_speedup_basis": "Directly stated by the authors as the acceleration ratio beta = n_standard/n_model (Eqs. 6-7), Table 5, for the most-enriched configuration (Dataset Index 3 = macro problems A+B+C, with data augmentation, 15,744 samples). Table 5 gives a full grid from 1.34 (Index 1, L2, no augmentation) to 2.86 (Index 3, L2-based norm, with augmentation); L1-based gives 2.80 and energy-based gives 2.67 in the same Index-3-plus-augmentation row. 2.67 (energy-based) is entered here because Sec. 6 (Conclusions) explicitly names the energy-based metric 'the best option' overall, even though the L1/L2 vector-based norms score marginally higher in this 2D-only benchmark; the full grid and the numerically highest value (2.86) are noted here as the alternative.",
+    "direction": "outperform",
+    "alternatives": "(1) Table 5, L2-based norm, Dataset Index 3, with data augmentation: 2.86, the single highest tabulated value (vs. the energy-based 2.67 used as the primary outcome). (2) Table 5, no-augmentation rows: acceleration only 1.34-1.85x depending on dataset size and metric. (3) Fig. 17 discussion: 'some outliers in the deceleration region can be identified' -- i.e., for some individual cells the warm start is slower than the homogeneous guess, though the aggregate trend favours acceleration. (4) Sec. 5.2/5.3 (qualitative, not the primary outcome because it is not the first quantitative comparison): final compliance values and assembled Hook-problem geometry are described as 'comparable' / 'qualitatively... similar' between the two approaches, with only minor differences in density distribution."
+  },
+  "baseline": {
+    "classical_method": "The 'standard' two-level (macro + cell) SIMP-based TO of Merli et al. 2025 (ref. [15], Comput.-Aided Des. 179), using a homogeneous/uniform initial density guess (set by the cell's volume fraction) at the cell-level SIMP stage; this is the sole comparator, and it is run with the identical FE/SIMP machinery as the proposed method, differing only in the initial guess",
+    "implementation": "Not stated (authors' own two-level SIMP code following ref. [15]; no software framework, language or library named)",
+    "solver": "Not stated (no mention of direct vs. iterative/multigrid FE solver for the elasticity problem)",
+    "hardware_classical": "Not stated",
+    "hardware_ml": "Not stated (same code/hardware as the classical arm; only the initial density field differs, so no separate ML hardware is used)",
+    "problem_size": "Cell domain: uniform Cartesian mesh with N_e = 32 (32x32 elements per cell); parameter space dimension D = 17 (16 boundary-traction coefficients + 1 volume fraction) in 2D. Macro (training) problems A, B, C contribute 374, 290 and 320 raw optimised cells respectively (Table 1); held-out 2D test problem ('Hook', Problem D) has 486 cells. Dataset sizes after enrichment: 748-1,968 cells (context-based only) or 5,984-15,744 cells (context-based + 8x rotation/flip augmentation), Table 2",
+    "classical_iterations": "Convergence-based stopping ('until convergence condition is reached') for both the classical and proposed arms; no numeric convergence threshold is given in this article",
+    "classical_time": "Not stated -- no wall-clock times are reported anywhere; the only reported speed proxy is the iteration-count ratio beta (Table 5)",
+    "ml_time": "Not stated (same iteration-count proxy as above)",
+    "training_time": "Not applicable / none: the instance-based model performs a nearest-neighbour lookup with 'no training phase' (Sec. 3.3)",
+    "data_generation_cost": "Not quantified. The lookup dataset is built by running the identical two-level SIMP process on macro problems A, B and C (984 raw cells) plus dedicated 'context-based' extra sampling solved with FEM-SIMP (Sec. 3.2.1); data augmentation itself (flips/rotations) is stated to add samples 'with no computational cost' (Sec. 3.2.2, x8 in 2D), but no time, iteration count or compute cost is ever given for the underlying TO runs that populate the archive, and no break-even number of subsequent queries is computed against that cost",
+    "quality_metric": "Compliance (SIMP objective, Eq. 1), computed by the same FE solve used to run the optimisation itself (not a surrogate prediction), for both the classical and proposed arms",
+    "quality_gap": "Not quantified numerically. Sec. 5.2: 'the achieved compliance values are comparable between both approaches. However, the resulting density distributions exhibit slight differences.' Sec. 5.3 / Fig. 31: the assembled Hook-problem geometry is 'qualitatively and on a global scale... similar', with variations concentrated in the central region of individual cells"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Both arms run the identical SIMP solver to its convergence criterion, and Sec. 5.2-5.3 state the final compliance and assembled geometry are 'comparable' / 'qualitatively... similar', so quality is not sacrificed for speed. But this comparability is only asserted qualitatively (no compliance numbers are tabulated for either arm), and the numeric value of the shared convergence/stopping criterion is never stated in this article -- both are the protocol's example of a 'loose' match (unstated classical stopping rule)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-pass-shared-solver",
+      "evidence": "The classical ('standard') and proposed arms use the identical FE/SIMP implementation and (implicitly) identical hardware; only the cell's initial density field differs (Sec. 3.3, Fig. 10). No re-test data, no abstract-vs-results baseline mismatch, no GPU-vs-CPU asymmetry, and no fixed-iteration-cap vs. convergence-based mismatch is present (both use the same convergence-based stopping), so none of R2(a)-(e) is evidenced; per the template convention, unsure/no adverse evidence defaults to pass."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-data-cost",
+      "evidence": "The instance-based model needs no training (Sec. 3.3), but its warm start depends on an archived dataset of 748-15,744 previously-optimised cells (Tables 1-2) built by running full two-level SIMP TO on macro problems A/B/C plus dedicated context-based extra sampling (Sec. 3.2.1). No time, iteration count or compute cost is reported anywhere for building or maintaining this archive, and no break-even number of subsequent queries is given, despite the paper's own claim (Sec. 1) that this cost 'comes for free' as a by-product of other work -- an amortisation argument asserted qualitatively, with no supporting figures."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Every reported design in both arms is produced by the real FE/SIMP solve (not a surrogate-predicted quality), and volume fraction is a direct constraint of that solve, satisfying the FE-verification core of R4. But no failure or infeasibility rate (e.g. disconnected material, unmet volume constraint) is reported for any of the hundreds-to-thousands of cells optimised across the three datasets, and inter-cell structural continuity (Sec. 5.3) is discussed only qualitatively via one zoomed figure, not as a measured rate."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "1 held-out macro test problem (2D 'Hook', 486 cells), evaluated across 3 training-dataset sizes (Index 1-3), 2 enrichment strategies (context-based; context-based + augmentation) and 2 similarity-metric families (vector-based L1/L2; energy-based) -- one structure, many cells and configurations",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "on_request",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Included as a speed-stratum ML-for-TO article: an instance-based (nearest-neighbour / case-based) model retrieves a previously-optimised cell to warm-start the cell-level SIMP optimiser, replacing the homogeneous initial guess of the pre-existing two-level TO method of Merli et al. 2025 (ref. [15]), which is this article's sole and explicit baseline. method_family is coded 'other' because the technique is instance-based/case-based retrieval (explicitly contrasted in the text with 'surrogate models such as neural networks, which learn a parametric mapping'; Sec. 3.3) and is not covered by the schema's cnn/gan/vae/diffusion_flow/transformer/gnn/llm_agent/rl/neural_reparam/surrogate_mlp_gp categories; it is in scope because the article self-identifies it as a Machine Learning technique (keyword list; Sec. 1 'employed ML models to propose improved initial guesses') that accelerates iterative TO (PROTOCOL Sec. 3, criterion 1). ood_test = yes because the test macro-problem (Hook) is a structurally distinct problem never included in the training archive (Table 1). ood/variance evidence: seeds_or_variance = yes on the strength of the per-distance-metric standard deviations in Tables 3-4 and the per-cell acceleration-ratio histograms (Figs. 21, 28); Table 5's headline means themselves carry no explicit spread. No wall-clock timing is reported anywhere in the article; the entire speed claim rests on an iteration-count ratio (beta), which is used here as the speed proxy required by PROTOCOL Sec. 3, criterion 2 ('fewer FE evaluations' is one of the protocol's own listed proxies). retest_candidate is false: no code-availability statement is given (only 'Data will be made available on request', Data availability section), so the benchmark cannot currently be re-run independently. Duplicate check: audit/pool/pool.csv searched by title on 2026-09-24; no second pool record found (this is the only pid for this article; it has no arXiv id). Incidental cross-reference, not a duplicate: this article's own reference [16] is Y. Zhang et al., 'A deep convolutional neural network for topology optimization with strong generalization ability', arXiv:1901.07761 -- the same article as pid P00176, elsewhere in this coder's queue. No author named Jun Wang (authors: A. Martínez-Martínez, D. Muñoz, J.M. Navarro-Jiménez, O. Allix, F. Chinesta, J.J. Ródenas, E. Nadal)."
+}

@@ -1,0 +1,72 @@
+{
+  "pid": "P01827",
+  "citation": {
+    "title": "TPMS-Optimized Cement Geometries for Carbon-Efficient Structural Performance",
+    "authors": "Juliette Carson, Julian Heredia Hirschfeld",
+    "year": 2026,
+    "venue": "Journal of High School Research, Vol. 3, No. 1 (2026), published online 31 Aug 2026",
+    "doi": "10.70671/dq9am588",
+    "arxiv_id": "",
+    "version_coded": "Abstract only. doi.org resolved normally (HTTP 200, no bot check) to https://jhsr.net/index.php/jhsr/article/view/72, an Open Journal Systems page giving title, authors, DOI, keywords, abstract, licence (CC BY-NC-ND 4.0) and citation-export links, but no PDF/galley link anywhere in the page markup. The issue table of contents (https://jhsr.net/index.php/jhsr/issue/view/4) was also checked and links only back to the same abstract page. A web search for an alternate legal copy of this exact title/authors found none. This is not a paywall, login, or CAPTCHA/bot-check - the journal simply does not appear to have a full-text file published for this article as of 2026-09-24"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude Sonnet 5 (claude-sonnet-5)",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "other",
+    "dim": "3d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Abstract: among TPMS topologies for cement, Lamella cuts mass 32% at 93% of solid compressive strength and 139.9% strength-to-weight; a generative ML model then synthesizes hybrid topologies reaching 104% of the best classical compressive performance.",
+    "key_phrase": "generative synthesis of hybrid topologies achieving 104% of the best classical compressive performance",
+    "location": "abstract (the only text accessible; full text could not be checked)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable/not stated. The abstract reports only design-quality and structural-performance percentages (mass reduction, strength-to-weight, seismic response reduction); no computation time, iteration count, or cost figure of any kind appears in the abstract, and the full text could not be checked to look for one.",
+    "direction": "outperform",
+    "alternatives": "Abstract also reports 85-98% seismic response amplification reduction and 50-88% peak stress reduction across all seven topologies, and a predictive ML surrogate with R^2=0.987-0.999 (a fit-quality metric, not itself a classical comparison). Without full text it cannot be determined which single result the article itself treats as its headline comparison, or what its exact classical/control baseline is."
+  },
+  "baseline": {
+    "classical_method": "not stated beyond an implied solid (non-porous) cement/concrete 'control' specimen and a 'classical' compressive-performance benchmark; no topology-optimization algorithm is named in the abstract (full text inaccessible)",
+    "implementation": "not stated (abstract only)",
+    "solver": "not stated; the abstract names 'Mazars continuum damage mechanics' for compressive/damage simulation and 'Newmark-beta' time integration for seismic simulation, but no software/solver package or classical TO algorithm",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "not stated numerically as element/DOF counts; the abstract states 8,750 unique TPMS configurations were generated and evaluated across 7 topological families and porosity 0-70%, described as 'two orders of magnitude larger than prior studies'",
+    "classical_iterations": "not stated",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "not stated",
+    "data_generation_cost": "not stated; the abstract states 8,750 configurations were simulated and top performers underwent seismic simulation plus a physical shaker-table validation, with no compute cost or time given",
+    "quality_metric": "Compressive strength retention (% of solid), strength-to-weight ratio (% of control), tensile strength-to-weight ratio, seismic response amplification, and peak stress reduction, all named in the abstract; the verification method beyond 'Mazars continuum damage mechanics', 'Newmark-beta seismic simulation' and a 'calibrated shaker table' physical validation is not accessible",
+    "quality_gap": "Abstract: Lamella (best single topology) retains 93% of solid compressive strength at 32% mass reduction, reaches 139.9% of the control's strength-to-weight ratio, and an '180x' improvement in tensile strength-to-weight ratio; all seven topologies show 85-98% seismic response amplification reduction and 50-88% peak stress reduction; a generative-ML hybrid topology reaches 104% of the best classical compressive performance"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "na-abstract-only", "evidence": "no full text"}
+  },
+  "reporting": {
+    "n_test_cases": "not verifiable beyond the abstract's '8,750 unique TPMS configurations' and 'top performers' subset taken to seismic/physical testing; exact counts for later stages not stated",
+    "ood_test": "unclear",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "unclear",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Coded from the abstract only, per the protocol's abstract-only fallback: full text was not reachable through any legal route tried (DOI resolution succeeded normally with no bot check or paywall message; the OJS article page and its issue table of contents were both checked for a PDF/galley link and neither has one; a web search for an alternate legal copy of this exact title/authorship found none). Per instructions, the article is kept as include with reason 'I-UNCLEAR (no accessible full text)', stratum set to 'none', and all four rules set to na with evidence 'no full text', regardless of how detailed the abstract itself is. method_family and physics are coded 'other' rather than guessed into a specific enum value: the abstract describes 'dual machine learning frameworks' (an unspecified predictive/regression surrogate, R^2=0.987-0.999, plus a separate unspecified generative model for 'hybrid topology' synthesis) without naming either architecture, and the physics combines compressive damage mechanics (Mazars model) with seismic/dynamic response (Newmark-beta), which does not map cleanly onto the schema's compliance/stress/thermal/compliant_mechanism/multiphysics/metamaterial_homogenization options without more detail than the abstract gives. This is a 2026 'Journal of High School Research' article (a high-school-level research venue); that does not affect coding, which follows the same protocol as any other included record. No author named Jun Wang (authors: Juliette Carson, Julian Heredia Hirschfeld). No duplicate pool record found for this title or DOI (pool.csv has only P01827)."
+}

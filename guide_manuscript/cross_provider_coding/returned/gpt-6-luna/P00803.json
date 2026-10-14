@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00803",
+    "citation":  {
+                     "title":  "Self-directed online machine learning for topology optimization",
+                     "authors":  "Changyu Deng, Yizhou Wang, Can Qin, Yun Fu, Wei Lu",
+                     "year":  2022,
+                     "venue":  "Nature Communications",
+                     "doi":  "10.1038/s41467-021-27713-7",
+                     "arxiv_id":  "2002.01927",
+                     "version_coded":  "Version of record (open-access publisher article)"
+                 },
+    "access":  "full_text",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-SPEED",
+                     "stratum":  "speed",
+                     "method_family":  "surrogate_mlp_gp",
+                     "physics":  "compliance",
+                     "dim":  "both"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "Self-directed online learning reduces objective evaluations and computational time for heuristic topology optimization; the abstract reports a two-to-five-order reduction relative to direct heuristic methods.",
+                  "key_phrase":  "2–5 orders of magnitude",
+                  "location":  "Abstract",
+                  "quantitative":  true,
+                  "claimed_speedup":  100,
+                  "claimed_speedup_basis":  "Abstract states 2–5 orders of magnitude less computational time; represented as a range of 100× to 100,000×, with 100 used as the numeric field\u0027s lower bound.",
+                  "direction":  "outperform",
+                  "alternatives":  "The abstract also claims better results than tested state-of-the-art algorithms; particular problem comparisons appear in Results."
+              },
+    "baseline":  {
+                     "classical_method":  "Generalized Simulated Annealing, Binary Bat Algorithm and Bat Algorithm",
+                     "implementation":  "Heuristic optimizers use the learned surrogate in SOLO; direct heuristic baseline also evaluates the objective by FEM",
+                     "solver":  "Finite element method for objective evaluation",
+                     "hardware_classical":  "Intel i7-8086K CPU and Nvidia RTX 2080 Super GPU (Supplementary Table 1; compute split by step)",
+                     "hardware_ml":  "Intel i7-8086K CPU and Nvidia RTX 2080 Super GPU (Supplementary Table 1)",
+                     "problem_size":  "Two compliance problems, fluid-structure cases, heat-transfer case, and truss problems; compliance examples include 5×5 and 11×11 design variables (Abstract; Results and Supplement)",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "Abstract gives direct heuristic method comparison as 2–5 orders slower; objective FEM calls take \u003c0.5 s in compliance examples (Supplementary Table 1 discussion)",
+                     "ml_time":  "Loop times listed in Supplementary Table 1; no single ML runtime in abstract",
+                     "training_time":  "Reported by loop in Supplementary Table 1",
+                     "data_generation_cost":  "Dynamically generated FEM-labelled samples; numbers of FEM evaluations compared as 10^5–10^8 reduced to 10^2–10^4 (Supplementary Table 1 discussion)",
+                     "quality_metric":  "Compliance/objective, heat charging time, fluid pressure loss, or truss weight, depending on problem",
+                     "quality_gap":  "Problem-specific objective values and comparisons are reported in Results; no single aggregate gap."
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "fail",
+                             "marker":  "R1-unmatched",
+                             "evidence":  "Abstract: computational time is compared with direct heuristics, without a stated equal-quality or matched-budget comparison."
+                         },
+                  "R2":  {
+                             "verdict":  "pass",
+                             "marker":  "R2-none-established",
+                             "evidence":  "Methods and Supplementary Table 1: the article reports direct heuristic comparisons and shared computing hardware; no R2 failure criterion is established."
+                         },
+                  "R3":  {
+                             "verdict":  "partial",
+                             "marker":  "R3-no-amortization",
+                             "evidence":  "Methods and Supplementary Table 1 describe dynamically generated data and DNN training/optimization overhead, but no break-even number of uses is given."
+                         },
+                  "R4":  {
+                             "verdict":  "partial",
+                             "marker":  "R4-no-failure-rate",
+                             "evidence":  "Results use FEM objective evaluations and volume constraints, but systematic infeasibility/failure rates are not reported."
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "Two compliance problems, two fluid-structure problems, one heat-transfer problem and three truss problems (Abstract; Results).",
+                      "ood_test":  "unclear",
+                      "seeds_or_variance":  "yes",
+                      "failure_rate_reported":  "no",
+                      "timing_protocol_stated":  "yes",
+                      "runtimes_all_cases":  "yes",
+                      "code_available":  "yes",
+                      "data_available":  "yes",
+                      "hardware_per_method_stated":  "yes"
+                  },
+    "retest_candidate":  false,
+    "stage":  "cross_provider_pass",
+    "notes":  "Queue title identifies an earlier title for arXiv:2002.01927. Per duplicate/version rule, coded the latest arXiv v8 full text. Public source code and data are identified, but a permissive license and runnable benchmark were not confirmed. Fluid-structure examples are outside scope, but the article also includes structural compliance optimization."
+}

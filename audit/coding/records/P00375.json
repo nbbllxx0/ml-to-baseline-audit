@@ -1,0 +1,127 @@
+{
+  "pid": "P00375",
+  "stage": "ai_adjudicated",
+  "citation": {
+    "title": "Diffusing the Optimal Topology: A Generative Optimization Approach",
+    "authors": "Giorgio Giannone, Faez Ahmed",
+    "year": 2023,
+    "venue": "arXiv preprint (cs.LG; cs.CE). Also published as an ASME IDETC-CIE 2023 conference paper (49th Design Automation Conference, Vol. 3A, V03AT03A012, 20 Aug 2023; Crossref record of doi 10.1115/detc2023-116595, ASME standard licence; not read, see notes)",
+    "doi": "10.1115/detc2023-116595",
+    "arxiv_id": "2303.09760",
+    "version_coded": "arXiv v1 (17 Mar 2023; only version on the abs page), read in full from the PDF (15 pages); tables checked on rendered pages"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-SPEED; full text reports no SIMP runtime, and the first quantitative classical comparison is compliance error against SIMP-optimized designs)",
+    "stratum": "quality",
+    "method_family": "diffusion_flow",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On in-distribution test constraints (task-1, 64×64), diffusion designs conditioned on the cheap kernel and refined by 10 SIMP iterations have 4.16% mean compliance error relative to the SIMP-optimized references, with 1.16% volume-fraction error and 5.61% floating material.",
+    "key_phrase": "has the lowest values for compliance error, volume fraction error, and floating material",
+    "location": "Sec. 5.1, Table 5, p. 9 (first quantitative comparison with a classical method; the Abstract, Sec. 7 Conclusion and Introduction hold no quantitative classical comparison, and the Introduction's 53.93%, 23.81% and 25.64% figures are against ML baselines)",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No SIMP runtime is reported anywhere. Inference times (TopoDiff-FF + SIMP(10): sampling 2.23, processing 0.32, inference 2.55, in seconds per the Fig. 9 legend; Table 5) are compared only with ML baselines (TopoDiff 5.54, TopoDiff-GUIDED 5.87; TopologyGAN in Fig. 8). Not derivable.",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Table 6 (task-2, out-of-distribution constraints): CE 7.84%, VFE 1.29%, FM 6.53%; Table 7 (task-3, unfiltered): same values. (2) Sec. 5.7, Table 9, p. 11 (task-2): at equal SIMP iterations, TopoDiff-FF + SIMP beats SIMP started from scratch: avg C 8.67 vs 9.87 and CE 20.34% vs 35.13% at +5 iterations; 7.65 vs 8.57 and 7.84% vs 17.61% at +10. This is the only head-to-head outperform claim against a classical method, with SIMP truncated at 5 or 10 iterations. (3) Introduction: 53.93% lower inference time and 23.81%/25.64% better performance, both against ML baselines [derived: they approximately match TopoDiff 5.54 s vs 2.55 s and CE 5.46% vs 4.16%]. (4) Abstract: qualitative framing of SIMP as computationally expensive; no SIMP runtime."
+  },
+  "baseline": {
+    "classical_method": "SIMP-optimized reference topologies from the TopoDiff dataset [13], used as ground truth for compliance error (Sec. 5 Dataset; CE definition p. 7). Table 9 also runs SIMP for only 5 or 10 iterations as a comparator.",
+    "implementation": "not stated in this article (reference designs taken from [13])",
+    "solver": "not stated",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "64×64 domain (Sec. 3; Sec. 5 Setup) [inferred ≈8.4×10³ DOFs]; 30,000 optimized training topologies; number of test configurations per task not stated",
+    "classical_iterations": "not stated for the SIMP references; Table 9 SIMP comparator runs 5 or 10 iterations; the refinement step is SIMP(10)",
+    "classical_time": "not stated",
+    "ml_time": "TopoDiff-FF + SIMP(10): sampling 2.23, processing 0.32, total inference 2.55 (seconds per Fig. 9 legend; Table 5); 100 sampling steps",
+    "training_time": "not stated (200k steps on 30,000 optimized topologies; Sec. 5 Setup)",
+    "data_generation_cost": "not stated (dataset of SIMP-optimized topologies taken from [13])",
+    "quality_metric": "Compliance error CE vs the SIMP-optimized design, volume fraction error VFE, floating material FM, load disrespect LD, average and median compliance (Sec. 5 Evaluation; Tables 5-7); samples with compliance > 100 removed in Tables 5-6",
+    "quality_gap": "Task-1 (Table 5): CE 4.16%, VFE 1.16%, FM 5.61%, avg C 8.05 and mdn C 5.77. Table 4 lists avg C 7.73 and mdn C 5.54 for task-1 as an optimality reference [inferred: SIMP reference set; whether the > 100 filter applies is not stated]. Task-2 (Table 6): CE 7.84%, VFE 1.29%, FM 6.53%."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Stratum Q, so R1 applies as written (PROTOCOL §11, 2026-09-24). Table 5 and Sec. 5 Evaluation: generated designs are compared with SIMP references at the same prescribed volume fraction, but volume is only approximately matched (VFE 1.16%). Samples with compliance > 100 are removed before averaging, with no count reported. Budgets are not matched or stated: the ML side spends 2.55 s of sampling, processing and 10 SIMP iterations; the SIMP reference runs have no stated iteration count or time. No time is compared with SIMP anywhere (Tables 5-7 time ML models only; Table 9 reports no time), so the R1 fail markers, which need a reported time, do not apply."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Stratum Q (PROTOCOL §11, 2026-09-24): R2 applies only through criterion (b). The abstract (p. 1) names SIMP only as computationally expensive and prone to local minima, and gives no baseline figures, so (b) is not observed. For context: the SIMP references come from the TopoDiff dataset [13], and this article states none of their settings (iterations, continuation, solver); Table 9 stops SIMP at 5 or 10 iterations from an unstated initial design."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-no-speed-claim",
+      "evidence": "No speed or cost claim against a classical method. For C3: training is 200k steps on 30,000 SIMP-optimized topologies (Sec. 5 Setup); training time, data-generation cost and hardware are not reported."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-filtered-outliers",
+      "evidence": "Compliance of generated designs is compared with SIMP compliance for the test configurations, presumably by FE analysis [inferred; the evaluation procedure is not described]. VFE, floating-material rate and load disrespect are reported (Tables 5-7). But Tables 5-6, including the primary outcome, drop samples with compliance > 100 and do not report how many; only task-3 (Table 7) is unfiltered. Figs. 11-12 show selected bad and good examples without a stated selection rule."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 test tasks (task-1 in-distribution; task-2 and task-3 out-of-distribution constraints, Table 4); number of test configurations per task not stated; results averaged over 5 runs (Tables 5-7)",
+    "ood_test": "yes",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED; the full text gives stratum Q because no SIMP runtime appears anywhere and all speed comparisons are against ML baselines (TopoDiff, TopoDiff-GUIDED, TopologyGAN). Primary-outcome judgment: Table 5 is taken as the first quantitative classical comparison because its CE is defined against the SIMP result for the same constraints (p. 7). If the verifier treats CE against ground truth as an accuracy metric rather than a comparison, the primary outcome becomes Table 9 (outperform against 5- or 10-iteration SIMP). Under Table 9, R1 would be pass at equal FE-evaluation budget but the ML side adds about 2.35 s of sampling and processing, and SIMP volume fractions are not reported. Inconsistency: Table 9 lists TopoDiff-FF avg C 19.01 (the task-3 unfiltered value in Table 7) together with CE 58.36% (the task-2 filtered value in Table 6). Reporting locators: OOD = tasks 2-3 (Table 4); variance = averages over 5 runs and confidence intervals referenced to Fig. 9; failure indicators = FM and LD columns (Tables 5-7) and Sec. 5.8 manufacturability; timing = Tables 5-7 with no hardware, warm-up or batch details; no code, data or hardware statements found in v1. retest_candidate false: no speed claim against SIMP and no public code stated. Adjudication (2026-09-24): the adjudicator re-read arXiv v1 (PDF, 15 pp.). Citation corrected: the first coding said no version of record was found, but the pool record and Crossref (api.crossref.org, 2026-09-24) give doi 10.1115/detc2023-116595, an ASME IDETC-CIE 2023 proceedings paper with the same title and authors under the ASME standard licence [inferred: not open access]. Its landing page (asmedigitalcollection.asme.org) returned a Cloudflare 'Just a moment...' check (HTTP 403), not bypassed, so arXiv v1 (the latest arXiv version) stays the coded version. R2 changed from pass (both coders) to na as a consequence of the stratum-Q decision under PROTOCOL §11 (2026-09-24); see adjudication.consequential_changes.",
+  "adjudication": {
+    "adjudicator_model": "Claude Opus 5.5 (claude-opus-5-5)",
+    "date": "2026-09-24",
+    "based_on": "first",
+    "items": {
+      "stratum": {
+        "first": "quality",
+        "second": "speed",
+        "decision": "quality",
+        "reason": "No quantitative ML-vs-classical comparison appears in the abstract, conclusion (Sec. 7) or introduction, whose 53.93 %, 23.81 % and 25.64 % figures are against ML baselines (Sec. 1, p. 2), so §5.1 takes the first one in the main text: compliance error against the SIMP result in Table 5 (Sec. 5.1, p. 9), a design-quality comparison. Table 9 (Sec. 5.7, p. 11) comes later and reports no time or cost for either arm."
+      },
+      "R1": {
+        "first": "partial",
+        "second": "fail",
+        "decision": "partial",
+        "reason": "In stratum Q, R1 applies as written (§11), and its fail markers need a reported time, but no time is compared with SIMP (Tables 5-7 time ML models only; Table 9 has none). For Table 5 the volume is only approximately matched (VFE 1.16 %), samples with compliance > 100 are removed without a count (Table 5 caption, p. 9) and the SIMP reference settings are not stated (Sec. 5 Dataset, p. 7): loose matching, the §5.3 partial case."
+      },
+      "R3": {
+        "first": "na",
+        "second": "fail",
+        "decision": "na",
+        "reason": "The §11 stratum-Q rule (2026-09-24) makes R3 na. The article also compares no time or cost with SIMP: Tables 5-7 (pp. 9-10) time only the ML models, and Table 9 (p. 11) reports no time."
+      },
+      "R4": {
+        "first": "partial",
+        "second": "pass",
+        "decision": "partial",
+        "reason": "VFE, FM and load disrespect are reported (Sec. 5 Evaluation, p. 7; Tables 5-7) and compliance is FE-computed [inferred], but the primary-outcome table drops samples with compliance > 100 without saying how many (Table 5 caption, p. 9); the unfiltered Table 7 covers task-3 only. An unreported failure count for the primary outcome is the §5.3 R4 partial case."
+      }
+    },
+    "consequential_changes": {
+      "R2": {
+        "first": "pass",
+        "second": "pass",
+        "decision": "na",
+        "reason": "Not a disputed item. With stratum Q decided, the §11 stratum-Q rule (2026-09-24) makes R2 na unless criterion (b) applies; the abstract (p. 1) gives no baseline figures, so (b) is not observed and pass would contradict the stratum decision."
+      }
+    }
+  }
+}

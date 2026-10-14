@@ -1,0 +1,88 @@
+{
+  "pid": "P00051",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Diverse Topology Optimization using Modulated Neural Fields",
+    "authors": "Andreas Radler, Eric Volkmann, Johannes Brandstetter, Arturs Berzins",
+    "year": 2025,
+    "venue": "arXiv preprint (cs.LG); v1 was titled 'Generative Topology Optimization: Exploring Diverse Solutions in Structural Design' (method name GenTO); no journal reference on the abs page",
+    "doi": "10.48550/arXiv.2502.13174",
+    "arxiv_id": "2502.13174",
+    "version_coded": "arXiv v2 (17 Jun 2025; v1 17 Feb 2025), PDF (22 pp.) read in full as text; Tables 1 and 2 checked on the rendered pages (pp. 9 and 14)"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (screened I-UNCLEAR; the emphasized classical comparison is near-optimal compliance; speed vs the deflated barrier method is an alternative)",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "both"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "TOM's sampled designs come close to, but average above, classical compliance: 0.75±0.03 vs 0.68 (SIMP) and 0.67 (deflated barrier) on MBB, 0.69±0.13 vs 0.59/0.58 on the cantilever, and 1.31 vs 0.99 (×10⁻³, SIMP) on the 3D bracket.",
+    "key_phrase": "generates more diverse solutions than any previous method, all while maintaining near-optimality",
+    "location": "Sec. 4.4 and Table 1, p. 9: first quantitative classical comparison. Abstract, introduction and conclusion are qualitative. Chosen by §5.1 rule 4: near-optimality is claimed in the abstract and introduction, and the conclusion stresses adherence to mechanical requirements, while the speed claim appears only in the introduction and one results heading",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Quality-stratum primary. Speed alternative (Table 1): the deflated barrier method (DB) takes 55.5 min vs TOM 6.1 min on MBB (9.1× [derived]) and 123 vs 29 min on the cantilever (4.2× [derived]). Against SIMP (FeniTop), TOM is slower in 2D (2 vs 6.1 min; 4 vs 29 min) and faster on the bracket (187 vs 47 min) with a 64× coarser FEM mesh [derived from Table 2].",
+    "direction": "similar_or_mixed",
+    "alternatives": "(1) Speed vs DB (Table 1; Sec. 4.4 heading; the introduction calls TOM much faster than prior work): 9.1× and 4.2× [derived]; speed stratum if chosen. (2) v1 abstract (not coded; v2 removed it): claimed an order-of-magnitude speed-up from parallelism. (3) Diversity E(W1) 4.23 vs 1.36 (MBB) and 2.42 vs 1.01 (cantilever), ×10⁻², against DB: outside the rules (PROTOCOL §10). (4) Against TopoDiff (ML): lower compliance and load-violation ratio (ML-only)."
+  },
+  "baseline": {
+    "classical_method": "SIMP via FeniTop (Python wrapper of FEniCSx/DOLFINx; one design per problem) and the deflated barrier method (DB, Papadopoulos et al. 2021; public implementation with adaptive mesh refinement; two designs) (Sec. 4.2, App. A.4). DB omitted for the 3D bracket",
+    "implementation": "FeniTop (Jia et al. 2024) for SIMP; DB public code; TOM code is in the GINNs repository, which includes its own FeniTop copy",
+    "solver": "not stated (FEniCSx/DOLFINx FEM). TOM runs its FEM calls in parallel on CPU cores, one process per shape (Sec. 3.1)",
+    "hardware_classical": "not stated per method; all experiments ran on one node: NVIDIA Titan V GPU (printed 'Titan V12'), Xeon Gold 6150 (36 cores, 2.70 GHz), 384 GB RAM (App. A.3) [same node inferred for the baselines]",
+    "hardware_ml": "Same node; network and diversity loss on the GPU (under 2 GB memory), FEM on CPU cores (Sec. 3.1, App. A.3)",
+    "problem_size": "MBB half-beam 180×60 (FeniTop, TOM), DB 50×150 refined to 27,174 elements; cantilever 150×100 (FeniTop, TOM), DB 25×37 refined to 52,024; jet engine bracket FeniTop 104×172×60 vs TOM 26×43×15 (Table 2). Metrics recomputed on one common high-resolution mesh per problem (Sec. 4.3)",
+    "classical_iterations": "FeniTop fixed 400 iterations (400 solver calls) on each problem; DB 3,190 (MBB) and 4,922 (cantilever) solver calls; TOM 400/1,000/1,000 iterations with 10,000/25,000/9,000 solver calls (Table 2)",
+    "classical_time": "FeniTop 2, 4 and 187 min; DB 55.5 and 123 min (MBB, cantilever, bracket; Table 1)",
+    "ml_time": "TOM 6.1, 29 and 47 min, including its per-problem training (Table 1)",
+    "training_time": "No offline training: the network is trained per problem with the solver in the loop, and that is the TOM time above",
+    "data_generation_cost": "none (data-free)",
+    "quality_metric": "Compliance mean ± std, min and max, and volume fraction, computed with FEniCSx on a common high-resolution mesh; load-violation ratio (LVR), with violating samples filtered; diversity E(W1) (Sec. 4.3, Table 1)",
+    "quality_gap": "Mean compliance above the best classical result by 11.9% (MBB, vs DB), 19.0% (cantilever, vs DB) and 32.3% (bracket, vs FeniTop) [derived from Table 1]. TOM minima 0.66 and 0.64 vs DB 0.66 and 0.57. Volumes 55.08±1.04% (MBB target 53.5%), 49.21±0.48% (cantilever target 50%), 6.86±0.09% (bracket target 7%). TOM cantilever LVR 8%"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Sec. 4.3 and Tables 1-2: all designs are scored on the same high-resolution mesh. Budgets and outputs differ: TOM uses 9,000-25,000 solver calls vs 400 (FeniTop) and 3,190-4,922 (DB), and samples a continuous family vs one or two designs. On MBB, TOM's mean volume exceeds the 53.5% target (55.08%) while its compliance is still higher. The FeniTop stopping rule is a fixed 400 iterations; DB's is not stated."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "The classical baselines are established open implementations (FeniTop; DB's public code) on the same node [inferred]. (b) not observed: no numbers in the abstract. (c) does not apply: FEM runs on CPUs for all methods. (d) not established: FeniTop's 400 iterations are not compared with a convergence need. Sec. 4.4 attributes part of DB's run time to its public implementation's mesh refinement, which bears on the speed alternative, not on compliance. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-per-problem",
+      "evidence": "TOM is data-free and trains one network per problem with the solver in the loop (Sec. 3.1), so its cost sits inside R1/R2; the reported TOM times include that training (Table 1)."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-floaters-not-counted",
+      "evidence": "Sec. 4.3 and Table 1: compliance and volume of the returned designs come from a FEniCSx analysis on a common mesh. Load-violating designs are counted and filtered (TOM 8% on the cantilever). Floaters (disconnected pieces) are acknowledged only qualitatively (Sec. 4.4; post-processing shown in App. D.3 but not used for Table 1 [inferred]). The number of TOM samples behind the statistics is not stated."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "3 problems: MBB half-beam (2D), cantilever (2D), jet engine bracket (3D) (Sec. 4.1, Table 1); ablations in Table 4. The number of sampled TOM designs per problem is not stated",
+    "ood_test": "no",
+    "seeds_or_variance": "unclear",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": true,
+  "notes": "Primary-outcome judgment: v2 is coded, as the protocol takes the latest arXiv version. Its abstract claims diversity and near-optimality but no speed; v1's abstract also claimed an order-of-magnitude speed-up. The primary is therefore the compliance comparison in Table 1 (stratum Q, mixed direction). If the verifier takes the speed comparison with DB as primary (speed stratum), the verdicts would likely be: R1 fail (TOM's mean compliance is 12-19% above DB's while faster, with no matching; DB returns two designs); R2 partial (the authors attribute DB's slowness partly to its public implementation; TOM parallelizes FEM over CPU cores); R3 na (per-problem). Against single-design SIMP (FeniTop), TOM is slower in 2D. seeds_or_variance 'unclear': Table 1's ± values are the spread across sampled designs of one trained model, not across repeated runs or seeds. Code: the TOM repository (MIT) holds only a README, licence and media files; the README points to the GINNs repository (github.com/ml-jku/GINNs-Geometry-informed-Neural-Networks, MIT licence). That repository holds configs/TOM YAMLs for all three benchmarks and a FeniTop copy (checked 2026-09-24; not run). retest_candidate true on code, configs and licence. Caveats: FEniCSx and OpenMPI dependencies were not tested, the primary is quality, and DB would need its own public code. data_available 'no' because the method uses no dataset. Name collision: pool record P00214 names a different method 'GenTO'. It is not a duplicate. No author named Jun Wang. Screening code was I-UNCLEAR."
+}

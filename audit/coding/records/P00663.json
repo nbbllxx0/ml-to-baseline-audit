@@ -1,0 +1,92 @@
+{
+ "pid": "P00663",
+ "stage": "ai_agreed",
+ "citation": {
+  "title": "Topology Optimisation under Uncertainties with Neural Networks",
+  "authors": "Martin Eigel, Marvin Haase, Johannes Neumann",
+  "year": 2022,
+  "venue": "Algorithms 15(7), 241 (MDPI; published 12 July 2022; open access, CC BY)",
+  "doi": "10.3390/a15070241",
+  "arxiv_id": "",
+  "version_coded": "Version of record, publisher PDF (34 pp.) from MDPI's file server (mdpi-res.com, the target of the article's PDF link), read in full as text; the www.mdpi.com pages returned HTTP 403 to the generic User-Agent. No arXiv version found (arXiv API author search)"
+ },
+ "access": "full_text",
+ "coder": {
+  "llm_model": "Claude subagent",
+  "llm_date": "2026-09-24",
+  "human_initials": null,
+  "human_date": null
+ },
+ "included": {
+  "decision": "include",
+  "reason": "I-SPEED (screening code confirmed at full text)",
+  "stratum": "speed",
+  "method_family": "cnn",
+  "physics": "compliance",
+  "dim": "2d"
+ },
+ "claim": {
+  "primary_outcome_paraphrase": "Deterministic 2D bridge, nominal load: inserting CNN-predicted gradient steps every 55 iterations cut convergence from 538 to 441 iterations, with lower compliance (1148.66 vs 1173.22) and run time 4 min 05 s vs 4 min 43 s.",
+  "key_phrase": "the NN prediction of the gradient step clearly outperforms the classical optimisation method",
+  "location": "Sec. 4.1.3, Table 1 (p. 22): first quantitative comparison with the classical optimizer (iterations, J, compliance); the matching times are in Table 4 (p. 28). The abstract, conclusion and introduction compare only qualitatively",
+  "quantitative": true,
+  "claimed_speedup": 1.16,
+  "claimed_speedup_basis": "Derived, no factor is stated: Table 4 (p. 28), nominal load, 4 min 43 s (283 s, classical Algorithm A1) \u00f7 4 min 05 s (245 s, CNN Algorithm 1) = 1.155; times are averages of 10 runs (Sec. 4.1.3, p. 21). Iteration ratio 538 \u00f7 441 = 1.22 (Table 1). Over the five loads in Table 4 the CNN time ratio is 1.03-1.16 [derived]. Data generation and training are not in the times and are not reported.",
+  "direction": "outperform",
+  "alternatives": "(1) Table 4: over five deterministic loads the CNN variant is 1.03-1.16\u00d7 faster [derived], but its compliance is higher for two loads (998.34 vs 992.28; 811.15 vs 805.94) and it needs more iterations for two loads (517 vs 473; 497 vs 457). (2) Table 4: the LSTM variant (Algorithm 3) is slower than the classical optimizer for two of five loads (4 min 34 s vs 4 min 31 s; 2 min 59 s vs 2 min 17 s). (3) Table 2, risk-averse stochastic case (224 samples per iteration): the CNN variant needs 517 iterations vs 490 but reaches lower compliance (708.61 vs 729.20); stopped at 500 it gives 723.24; times appear only in Fig. 7. (4) Abstract and Sec. 5, qualitative: larger viable steps make the NN-assisted optimization more efficient."
+ },
+ "baseline": {
+  "classical_method": "Phase-field TO: Allen-Cahn gradient flow with a Ginzburg-Landau interface penalty, adaptive step size and adaptive mesh refinement (Algorithm A1, the authors' refs [1,2]); risk-averse CVaR variant with 224 Monte Carlo samples per iteration (Algorithm A2) (Sec. 2, App. A-B)",
+  "implementation": "Authors' Python code on FEniCS with first-order triangles; the NN steps are inserted into the same optimization loop (Sec. 4, App. B). Public repository (FEniCS 2019.1 and PyTorch per its requirements file)",
+  "solver": "not stated",
+  "hardware_classical": "not stated (WIAS IT infrastructure acknowledged)",
+  "hardware_ml": "not stated",
+  "problem_size": "2D bridge on D = [-1,1] \u00d7 [0,1], adaptive triangular mesh refined up to about 15,000 vertices (Sec. 4.1.3, p. 20); NN reference grid 201 \u00d7 101 nodes (Example 1, p. 11) [derived: up to about 3\u00d710\u2074 DOFs]",
+  "classical_iterations": "Run to convergence: relative phase-field change below a tolerance relative to the step size on the finest mesh (Eq. A1, App. B); 538 iterations for the nominal load (Table 1, App. A.1)",
+  "classical_time": "Nominal load 4 min 43 s; other loads 4 min 31 s, 4 min 50 s, 5 min 11 s, 2 min 17 s; averages of 10 runs (Table 4, p. 28; Sec. 4.1.3, p. 21)",
+  "ml_time": "Total optimization time with NN steps inserted. CNN (Algorithm 1): 4 min 05 s nominal; 4 min 14 s, 4 min 21 s, 4 min 42 s, 2 min 13 s. LSTM (Algorithm 3): 4 min 34 s nominal; 4 min 34 s, 4 min 41 s, 4 min 43 s, 2 min 59 s (Table 4, p. 28)",
+  "training_time": "not stated",
+  "data_generation_cost": "not stated. Training data are S sample paths of the classical optimizer with random load rotations, each up to 500 iterations (Sec. 4.1.1, p. 20; Sec. 4.2.1, p. 25); S is not given [inferred: each path costs about one classical run of 4-5 min]",
+  "quality_metric": "Objective J (compliance plus interface penalty) and compliance of the converged design from the FE state solve (Tables 1-4)",
+  "quality_gap": "Nominal load: J 1206.49 vs 1475.39, compliance 1148.66 vs 1173.22 (CNN better; Table 1). Other loads (Tables 3-4): CNN compliance 1405.39 vs 1416.46 and 1042.58 vs 1062.41 (better), 998.34 vs 992.28 and 811.15 vs 805.94 (worse). Stochastic: 708.61 vs 729.20 (Table 2)"
+ },
+ "rules": {
+  "R1": {
+   "verdict": "pass",
+   "marker": "R1-matched",
+   "evidence": "Tables 1 and 4: both optimizers solve the same problem with the same volume constraint (m = 0.4) and the same convergence criterion (Eq. A1), and the CNN-assisted design has lower J and compliance at the nominal load, so the time gain (4 min 05 s vs 4 min 43 s) does not come with worse quality. Achieved volumes are not reported. For two of five loads (Table 4) the CNN design is about 0.6% worse in compliance [derived] while faster; a verifier who weighs those cases may choose partial."
+  },
+  "R2": {
+   "verdict": "pass",
+   "marker": "R2-none-established",
+   "evidence": "Sec. 4 and App. B: the baseline is the authors' own phase-field optimizer (refs [1,2]) in the same FEniCS code, and the NN steps are inserted into the same loop, so implementation and hardware are shared [inferred]; hardware and linear solver are not stated. The mesh has up to about 15,000 vertices [\u22483\u00d710\u2074 DOFs, derived], so (c) does not apply; (b) not observed (no figure in the abstract); (d) not applicable (convergence-based stopping). A per-iteration time is derivable (283 s \u00f7 538 \u2248 0.53 s, adaptive mesh [derived]), but the phase-field gradient flow differs from a SIMP strong baseline, so (e) is hard to apply. Unsure, so pass."
+  },
+  "R3": {
+   "verdict": "fail",
+   "marker": "R3-no-cost",
+   "evidence": "Sec. 4.1.1 and 4.2.1: the networks are trained on sample paths of the classical optimizer (S runs with random load rotations, up to 500 iterations each), but S, the data-generation time and the training time are not reported, and no break-even is given. The claim is not limited to per-query use. For C3: the saving is about 38 s per run at the nominal load (Table 4) [derived], so each training path (about one classical run [inferred]) needs roughly 7 uses to pay back [derived]."
+  },
+  "R4": {
+   "verdict": "partial",
+   "marker": "R4-no-failure-rate",
+   "evidence": "Tables 1-4: J and compliance come from the FE state solve of the converged designs, which continue with classical steps after each NN step [inferred]. Achieved volume is not reported. Topology collapse for an unsuitable insertion interval c_m or for loads far from the training data is described only qualitatively (Sec. 4.1.4, 4.4), with no counts. The extra loads are a hand-picked selection of extreme cases (three in Sec. 4.1.4 and Table 3; a fourth appears only in Table 4)."
+  }
+ },
+ "reporting": {
+  "n_test_cases": "Deterministic bridge: 5 loads (nominal plus 4 selected extreme loads; Tables 3-4); stochastic bridge: 1 case with 224 samples per iteration (Table 2)",
+  "ood_test": "no",
+  "seeds_or_variance": "no",
+  "failure_rate_reported": "no",
+  "timing_protocol_stated": "partial",
+  "runtimes_all_cases": "yes",
+  "code_available": "yes",
+  "data_available": "no",
+  "hardware_per_method_stated": "no"
+ },
+ "retest_candidate": false,
+ "notes": "Screening code was I-SPEED. Primary-outcome judgment: the abstract (NN prediction clearly outperforms the classical method), conclusion and introduction are qualitative; the first quantitative comparison is Table 1 (iterations as a cost proxy, plus J and compliance), and Table 4 adds times for the same case. The four extra loads lie in the tails of the training distribution of load rotations (truncated normal, SD 0.3 rad), not outside it, so ood_test = no. Times are averages of 10 runs with no variance, so seeds_or_variance = no; the stochastic comparison fixes seed 42. runtimes_all_cases = yes for the deterministic cases (Table 4); stochastic times are only plotted (Fig. 7). Claim strength: the abstract says the NN approach clearly outperforms the classical method, while the conclusion calls the results on par with the reference method, and the measured time gain is 1.03-1.16\u00d7 [derived]. Internal inconsistencies: Sec. 4.1.4 says Algorithm 2 reached lower compliance after fewer iterations, but Table 2 lists 517 (or 500) iterations vs 490 for the classical Algorithm A2, and the preceding sentence says the classical run converges sooner; in Table 4 the LSTM variant's J (1209.24) and compliance (1151.27) for load (2632.16, -4251.09) repeat its nominal-load values [possible copy error]. Code: github.com/MarvinHaa/DeepNNforTopoOptisation (link on p. 4; GitHub API 2026-09-24: no licence file; FEniCS 2019.1 and PyTorch code, trained CNN and ConvLSTM weights, and LSTM training tensors for three loads; no CNN training data). The data availability statement says not applicable, so data_available = no. retest_candidate false: no licence grant; otherwise the benchmark looks runnable. No author named Jun Wang.",
+ "verification": {
+  "second_pass": "audit/coding/second_pass/P00663.json",
+  "result": "full agreement"
+ }
+}

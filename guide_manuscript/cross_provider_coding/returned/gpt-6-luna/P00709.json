@@ -1,0 +1,88 @@
+﻿{
+    "pid":  "P00709",
+    "citation":  {
+                     "title":  "On demand design of two-dimensional phononic crystal bandgap based on machine learning and multi-objective topology optimization",
+                     "authors":  "Nansha Gao, Jiacheng Guo, Mou Wang, Yilin Qu, Xingguang Peng, Ye Tang, Xiao Liang, Guang Pan",
+                     "year":  2026,
+                     "venue":  "Mechanical Systems and Signal Processing",
+                     "doi":  "10.1016/j.ymssp.2025.113670",
+                     "arxiv_id":  "",
+                     "version_coded":  "publisher abstract only"
+                 },
+    "access":  "abstract_only",
+    "coder":  {
+                  "llm_model":  "gpt-6-luna",
+                  "llm_date":  "2026-09-26",
+                  "human_initials":  null,
+                  "human_date":  null
+              },
+    "included":  {
+                     "decision":  "include",
+                     "reason":  "I-UNCLEAR (no accessible full text)",
+                     "stratum":  "none",
+                     "method_family":  "vae",
+                     "physics":  "metamaterial_homogenization",
+                     "dim":  "2d"
+                 },
+    "claim":  {
+                  "primary_outcome_paraphrase":  "The abstract describes ML models for accurate forward and inverse prediction and on-demand phononic-crystal design balancing lightweight structure and bandgap performance.",
+                  "key_phrase":  "",
+                  "location":  "abstract",
+                  "quantitative":  true,
+                  "claimed_speedup":  null,
+                  "claimed_speedup_basis":  "The abstract calls development rapid but gives no comparison or runtime against a classical optimization method.",
+                  "direction":  "similar_or_mixed",
+                  "alternatives":  "Abstract reports five-fold cross-validation accuracy thresholds for forward and inverse predictions."
+              },
+    "baseline":  {
+                     "classical_method":  "not stated in accessible abstract",
+                     "implementation":  "not stated",
+                     "solver":  "not stated",
+                     "hardware_classical":  "not stated",
+                     "hardware_ml":  "not stated",
+                     "problem_size":  "two-dimensional phononic crystals",
+                     "classical_iterations":  "not stated",
+                     "classical_time":  "not stated",
+                     "ml_time":  "not stated",
+                     "training_time":  "not stated",
+                     "data_generation_cost":  "not stated",
+                     "quality_metric":  "forward/inverse prediction accuracy and bandgap performance",
+                     "quality_gap":  "abstract reports accuracy thresholds, but no classical comparison"
+                 },
+    "rules":  {
+                  "R1":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "no full text"
+                         },
+                  "R2":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "no full text"
+                         },
+                  "R3":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "no full text"
+                         },
+                  "R4":  {
+                             "verdict":  "na",
+                             "marker":  "",
+                             "evidence":  "no full text"
+                         }
+              },
+    "reporting":  {
+                      "n_test_cases":  "five-fold cross-validation; abstract gives no count",
+                      "ood_test":  "unclear",
+                      "seeds_or_variance":  "unclear",
+                      "failure_rate_reported":  "unclear",
+                      "timing_protocol_stated":  "no",
+                      "runtimes_all_cases":  "na",
+                      "code_available":  "no",
+                      "data_available":  "yes",
+                      "hardware_per_method_stated":  "no"
+                  },
+    "retest_candidate":  false,
+    "notes":  "Publisher page returned HTML rather than the article file; search located the abstract but no legitimate accessible full text.",
+    "stage":  "cross_provider_pass"
+}

@@ -1,0 +1,26 @@
+{
+  "pid": "P01994",
+  "citation": {
+    "title": "Practical Topology Optimization with Deep Reinforcement Learning and Genetic Algorithms",
+    "authors": "Giorgi Tskhondia",
+    "year": 2026,
+    "venue": "American Journal of Applied Scientific Research 12(1), 1-9",
+    "doi": "10.11648/j.ajasr.20261201.11",
+    "version_coded": "open-access journal version of queued ResearchGate preprint (10.13140/RG.2.2.16548.95369)"
+  },
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "exclude", "reason": "FT-MLONLY", "stratum": "none", "method_family": "rl", "physics": "compliance", "dim": "both"},
+  "claim": {},
+  "baseline": {},
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-excluded", "evidence": "Abstract and Results: no standalone classical TO comparator; full-text exclusion."},
+    "R2": {"verdict": "na", "marker": "R2-excluded", "evidence": "Abstract and Results: no standalone classical TO comparator; full-text exclusion."},
+    "R3": {"verdict": "na", "marker": "R3-excluded", "evidence": "Abstract and Results: no standalone classical TO comparator; full-text exclusion."},
+    "R4": {"verdict": "na", "marker": "R4-excluded", "evidence": "Abstract and Results: no standalone classical TO comparator; full-text exclusion."}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "The journal article cites the queued December 2025 ResearchGate preprint as its predecessor and repeats its core experiments. Its main comparisons are 12×12 DRL versus earlier 6×6 DRL and hybrid GA–DRL versus DRL. GA supplies a pretraining design in Figure 2, but a standalone non-learned TO optimization benchmark with an independently compared result or time is not presented. SIMP appears only as a possible future strategy, not a run."
+}

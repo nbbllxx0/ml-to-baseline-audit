@@ -1,0 +1,14 @@
+{
+  "pid": "P02296",
+  "citation": {"title": "Co-Optimization of Structure and Manufacturable Semi-Continuous Layers for Laminated Composites", "authors": "Tao Liu, Aoran Lyu, Yongxue Chen, Yu Jiang, Michael Petty, Charlie C. L. Wang", "year": 2026, "venue": "ACM Transactions on Graphics 45(4), article 146", "doi": "10.1145/3811393", "arxiv_id": "", "version_coded": "author project abstract only"},
+  "access": "abstract_only",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-UNCLEAR (no accessible full text)", "stratum": "none", "method_family": "neural_reparam", "physics": "compliance", "dim": "3d"},
+  "claim": {"primary_outcome_paraphrase": "The abstract reports laminated composite specimens with up to 43.8% greater stiffness than specimens made with planar fabric plies; it does not establish whether that comparator is a classical optimizer.", "key_phrase": "", "location": "author project page, abstract", "quantitative": true, "claimed_speedup": null, "claimed_speedup_basis": "The 43.8% is a stiffness improvement, not a time ratio.", "direction": "outperform", "alternatives": "The author project page depicts a comparison with NeuralTOMO, which is also a neural method."},
+  "baseline": {"classical_method": "not stated", "implementation": "not stated", "solver": "not stated", "hardware_classical": "not stated", "hardware_ml": "not stated", "problem_size": "not stated", "classical_iterations": "not stated", "classical_time": "not stated", "ml_time": "not stated", "training_time": "not stated", "data_generation_cost": "not stated", "quality_metric": "physical specimen stiffness (author project abstract)", "quality_gap": "up to 43.8% higher stiffness than planar-fabric-ply counterparts (author project abstract)"},
+  "rules": {"R1": {"verdict": "na", "marker": "R1-no-full-text", "evidence": "no full text"}, "R2": {"verdict": "na", "marker": "R2-no-full-text", "evidence": "no full text"}, "R3": {"verdict": "na", "marker": "R3-no-full-text", "evidence": "no full text"}, "R4": {"verdict": "na", "marker": "R4-no-full-text", "evidence": "no full text"}},
+  "reporting": {"n_test_cases": "not stated", "ood_test": "unclear", "seeds_or_variance": "unclear", "failure_rate_reported": "unclear", "timing_protocol_stated": "no", "runtimes_all_cases": "na", "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "no"},
+  "retest_candidate": false,
+  "notes": "Author project page provides abstract, method overview and code link, but its paper link reaches an ACM 403 block. A ResearchGate request page has no full text. The 43.8% comparison may be quality-only; the full text is needed to determine whether a classical optimization baseline exists."
+}

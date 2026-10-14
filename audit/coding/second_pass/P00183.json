@@ -1,0 +1,88 @@
+{
+  "pid": "P00183",
+  "citation": {
+    "title": "One-Shot Generation of Near-Optimal Topology through Theory-Driven Machine Learning",
+    "authors": "Ruijin Cang, Hope Yao, Yi Ren",
+    "year": 2019,
+    "venue": "Computer-Aided Design, vol. 109, pp. 12-21 (2019 publication year and volume/pages per ASU institutional repository and Semantic Scholar listings found by web search; ScienceDirect itself returned HTTP 403 to scripted access, so the version of record was not read)",
+    "doi": "10.1016/j.cad.2018.12.008",
+    "arxiv_id": "1807.10787",
+    "version_coded": "arXiv v3 (27 Dec 2018; latest of 3 versions on the abs page), main text and Appendix read in full from https://arxiv.org/html/1807.10787v3"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (full-text primary outcome is a quantitative speed comparison against the classical Augmented-Lagrangian TO solver, Sec. 5.4; this blind second-pass coder has no access to the original title/abstract screening record)",
+    "stratum": "speed",
+    "method_family": "surrogate_mlp_gp",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "The trained one-shot feedforward generator produces a topology in about 10^-2 s per case on a CPU, versus about 10^2-10^3 s per case for the classical Augmented-Lagrangian TO solver used to create the training/ground-truth data; the comparison explicitly excludes training/data-acquisition cost.",
+    "key_phrase": "the computation time required for generating solutions through the learned model is negligible",
+    "location": "Section 5.4, subsection 'Comparison on solution generation speed' (main text). No quantitative comparison with the classical Augmented-Lagrangian solver appears in the Abstract or Introduction (both compare only to 'standard supervised learning' / the learned benchmarks). The Conclusion (Sec. 7) contains an earlier quantitative remark (1 vs. thousands of FE analyses) and Table 1 (Sec. 5.4, Case 2) an earlier quantitative quality comparison; both are recorded as alternatives",
+    "quantitative": true,
+    "claimed_speedup": 31623,
+    "claimed_speedup_basis": "Derived, not stated as a single factor: Sec. 5.4 gives only order-of-magnitude ranges, classical TO solver '10^2 to 10^3 seconds per topology' versus learned-model generation '10^-2 seconds per topology'. Dividing gives a range of 10^4x (100/0.01) to 10^5x (1000/0.01); the geometric mean, 3.16x10^4 (31623), is entered as a single point estimate. No exact 'N times faster' figure is stated anywhere in the article.",
+    "direction": "outperform",
+    "alternatives": "(1) Sec. 7 Conclusion: 'computing the violation of a generated solution to the optimality conditions requires only a single finite element analysis, while comparing the generated solution with the ground truth would require an entire topology optimization process, which requires thousands of finite element analysis' -- quantitative (1 vs. 'thousands', consistent with the ~5000 FE analyses per TO solve stated in Sec. 3.2) and appears in the Conclusion, so it is mechanically the first quantitative classical-method comparison in the abstract->conclusion->introduction->main-text search order. It was not chosen as primary because it justifies the cost of the active-learning acquisition step (evaluating a candidate point) rather than the deployed generator's speed, and has no dedicated exposition, unlike Sec. 5.4. (2) Table 1 (Sec. 5.4, Case 2 results): median compliance-gap mean(std) versus the Augmented-Lagrangian ground truth = 22.12 (3.34) for Benchmark I, 6.64 (0.87) for Benchmark II, 5.2 (0.6) for the proposed method (no classical baseline compliance value printed in text); this is a quality-only comparison with the classical method's ground truth output, which would place the article in stratum 'quality' if selected as primary. (3) Abstract and Conclusion (Sec. 7) headline claim: 'significantly better generalization performance than the benchmarks' -- this compares the proposed method with Benchmark I/II, both learned mechanisms, not a classical method, so it is not eligible as the primary outcome under Inclusion Criterion 2."
+  },
+  "baseline": {
+    "classical_method": "Augmented Lagrangian (AL) algorithm (Algorithm 2, Appendix) solving the compliance-minimization problem (TO) with a tanh/beta-continuation density projection and global+local (p-norm) volume constraints, following the infill-optimization formulation of Wu et al. 2018 [ref. 9]; used both to generate all ground-truth/training topologies and as the classical comparator",
+    "implementation": "not stated (no language, library or vectorization details given)",
+    "solver": "unknown; the article does not state how the linear system Ku=s is solved (direct, iterative or multigrid)",
+    "hardware_classical": "not explicitly restated for the TO solver; the only hardware sentence (Sec. 5.4) names 'Intel Xeon CPU E5-1620 @ 3.50GHz' immediately after describing the learned model's generation time, and it is ambiguous whether this qualifier also covers the classical TO-solver time quoted in the same sentence",
+    "hardware_ml": "Intel Xeon CPU E5-1620 @ 3.50GHz (Sec. 5.4); no GPU is mentioned anywhere in the article for training or inference",
+    "problem_size": "2D structure meshed 40-by-120 elements (N=4800 design variables) for both Case 1 and Case 2 (Sec. 3.2, 5.2); approx. 9,900 DOFs [inferred from a 41x121-node mesh at 2 DOF/node]",
+    "classical_iterations": "Not a fixed count: nested convergence loops (Algorithm 2) -- an outer beta-continuation loop until beta>=beta_t, an inner Augmented-Lagrangian loop until max|dx|<=eps_al=1 and g0,g1<=0, wrapping an unconstrained line-search loop until max|dx|<=eps=1 (eps_opt=1e-3 for the overall optimality check). Sec. 3.2 states solving (TO) at N=4800 requires on average about 5000 finite element analyses",
+    "classical_time": "'in the order of 10^2 to 10^3 seconds per topology' (Sec. 5.4)",
+    "ml_time": "'in the order of 10^-2 seconds per topology' on the stated CPU (Sec. 5.4); inference only, after training",
+    "training_time": "Not given in absolute time. Training/data-acquisition budget is expressed in TO-solve-equivalents: Case 1 budget B0 = b_min x |D_static| with |D_static|=16 (Sec. 5.2); Case 2 budget stated directly as 'equivalent to solving 7000 TO problems' (Sec. 5.4, 'Challenges in Case 2' paragraph)",
+    "data_generation_cost": "Same TO-solve-equivalent budget as training_time above -- in this active-learning scheme each new labeled data point requires one full TO solve (~10^2-10^3 s each per Sec. 5.4); not converted to absolute CPU-hours anywhere in the article",
+    "quality_metric": "Compliance f(x,s) = 0.5 u^T K u obtained by FE analysis (solving Ku=s) of the returned continuous density field, for every method and the Augmented-Lagrangian ground truth alike (Sec. 3.2, 5.4); global/local volume-fraction constraint violation (g0, g1) also reported",
+    "quality_gap": "Case 2, Table 1 (after the augmented learning objective, Sec. 5.4): median compliance-gap mean(std) = 22.12 (3.34) Benchmark I, 6.64 (0.87) Benchmark II, 5.2 (0.6) proposed method (absolute compliance units; the ground-truth compliance value itself is not printed in text). Case 1's compliance gap is shown only in Fig. 3b (not given as printed numbers in text). Volume-constraint violation g0: ground truth 4.89% (Case 1) / 3.0% (Case 2); generated solutions 8.76% (Case 1, worse than ground truth) / 1.6% (Case 2, better than ground truth) (Sec. 5.4, 'Validity of hyper-parameter settings')"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "fail",
+      "marker": "R1-unmatched",
+      "evidence": "Sec. 5.4's speed statement ('Comparison on solution generation speed') gives raw generation time vs. a full classical solve with no quality-matching attempt in that passage. The generator's output is measurably worse than the Augmented-Lagrangian ground truth throughout the paper (non-zero 'compliance gap' is the paper's own headline metric, e.g. Table 1: 5.2 (0.6) median gap for the proposed method in Case 2; Case 1 gap shown only graphically in Fig. 3b), and no reported error tolerance is used to argue the gap is within an acceptable margin. This matches the fail condition: ML inference time compared with a classical run to full convergence while the ML output is measurably worse and no matching is attempted."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-no-fail-trigger-default-pass",
+      "evidence": "Problem size (N=4800, ~9,900 DOFs [inferred]) is far below the 10^5-DOF threshold for R2(c), and no GPU is used anywhere (Sec. 5.4 gives only a CPU, Intel Xeon E5-1620, for the learned model, with no separate GPU/CPU asymmetry stated for the classical solver). The linear-solver type for Ku=s is 'unknown' (not stated), so (b) cannot be checked either way, and the AL algorithm's stopping rule (Algorithm 2) is convergence-based, not an arbitrarily inflated fixed count, so (d) does not apply. (a) and (e) require a re-test or a per-iteration time that this coding pass does not perform. Per the protocol, R2 defaults to pass or partial absent an article-established trigger; nothing here establishes an inefficient implementation or unjustified hardware choice (the same CPU is plausibly used for both methods), so pass (unsure-means-pass) is used rather than partial."
+    },
+    "R3": {
+      "verdict": "partial",
+      "marker": "R3-no-amortization",
+      "evidence": "Sec. 5.4 explicitly states the headline 10^-2 s figure excludes 'the data acquisition cost for training the model', and gives a qualitative break-even condition ('the comparison only makes sense... when the expected amount of computation... is much larger than what is required for training the network'). The training/data-generation cost itself is quantified only in TO-solve-equivalents (Case 2: 'equivalent to solving 7000 TO problems', Sec. 5.4; Case 1: budget B0 = b_min x 16, Sec. 5.2), not in absolute time, and no numeric break-even number of future uses is computed -- the condition is stated qualitatively, not amortized into a concrete threshold. This matches the partial condition ('costs are reported with no amortization') rather than a full pass, since the training-cost quantification and per-query framing exist but no explicit break-even count is derived."
+    },
+    "R4": {
+      "verdict": "pass",
+      "marker": "R4-verified",
+      "evidence": "Compliance for every method's returned design, including the classical ground truth, is computed by the same FE analysis (solving Ku=s; Sec. 3.2, 5.4). Volume-fraction constraint violation is explicitly reported for both ground truth and generated solutions (Sec. 5.4, 'Validity of hyper-parameter settings': g0 = 4.89% vs 8.76% in Case 1, 3.0% vs 1.6% in Case 2). Failed/infeasible designs are explicitly defined (compliance gap over 1000) and counted: failure rates of 14%, 0.8%, 0.6% (pre-augmentation) and 5.12%, 0.64%, 0.16% (post-augmentation, Table 1) for Benchmark I, II and the proposed method respectively (Sec. 5.4, 'Challenges in Case 2' and 'Case 2 results')."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "Case 1: 100 test loads (|S_t|=100); Case 2: 1000 test loads (|S_t|=1000); each of the three learning mechanisms run 10 independent times per case to account for sampling randomness (Sec. 5.2, 5.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "yes",
+    "failure_rate_reported": "yes",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "selective",
+    "code_available": "yes",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "No author named Jun Wang (authors: Ruijin Cang, Hope Yao, Yi Ren). No duplicate pool entry found: audit/pool/pool.csv contains exactly one row for this title (P00183, matching both the DOI and the arXiv id given in the queue). Access: arXiv v3 HTML (https://arxiv.org/html/1807.10787v3) was read in full including the Appendix; the version of record (Computer-Aided Design) returned HTTP 403 from ScienceDirect to a scripted fetch with a generic User-Agent, consistent with a bot check/paywall, so it was not read; no CAPTCHA or login was encountered or bypassed. Publication year/volume/pages (2019, vol. 109, pp. 12-21) came from a web search of independent bibliographic listings (ASU institutional repository, Semantic Scholar), not from reading the publisher page. Primary-outcome choice: this is a genuinely close call among three candidates (see claim.alternatives) because the paper's own Abstract/Conclusion emphasis is on out-learning other learned benchmarks (Benchmark I/II), not on beating the classical TO solver; the classical-method speed remark (Sec. 5.4) is presented as an aside ('Lastly, we shall note that...'). I selected Sec. 5.4 over the mechanically-earlier Conclusion remark because that remark concerns the cost of the active-learning acquisition step rather than the deployed generator, and Sec. 5.4 is the only passage with a dedicated heading naming a speed comparison. retest_candidate is false despite public code (github.com/DesignInformaticsLab/Theory_Driven_TO, confirmed public via the GitHub API on 2026-09-24, repo non-empty, last updated 2024) because the API reports no declared license, so nothing affirmatively permits running it."
+}

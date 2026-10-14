@@ -1,0 +1,42 @@
+{
+  "pid": "P00842",
+  "citation": {"title": "Topology Optimization via Frequency Tuning of Neural Design Representations", "authors": "Nikan Doosti, Julian Panetta, Vahid Babaei", "year": 2021, "venue": "Symposium on Computational Fabrication (SCF '21)", "doi": "10.1145/3485114.3485124", "version_coded": "author-hosted conference paper"},
+  "access": "full_text",
+  "coder": {"llm_model": "gpt-6-sol", "llm_date": "2026-09-26", "human_initials": null, "human_date": null},
+  "stage": "cross_provider_pass",
+  "included": {"decision": "include", "reason": "I-QUALITY", "stratum": "quality", "method_family": "neural_reparam", "physics": "compliance", "dim": "both"},
+  "claim": {
+    "primary_outcome_paraphrase": "The Fourier-feature neural design representation produces structures with stiffness comparable to or better than standard finite-element density-based optimization, while requiring more optimization iterations.",
+    "key_phrase": "",
+    "location": "Section 7, conclusion",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "No speed-up is claimed; Section 5.4 says the neural method takes longer than the voxel baseline.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Section 5.4 and Figure 6 compare compliance with voxel-based OC and a CNN method; Section 5.6 reports per-iteration solver times, not a method-level speed-up."
+  },
+  "baseline": {
+    "classical_method": "voxel-density SIMP with optimality criteria and filtering (Section 5.4)",
+    "implementation": "traditional voxel-based method based on Andreassen et al. 2011; both methods evaluated using the paper's FEM solver (Sections 3.1, 5.4)",
+    "solver": "sparse Cholesky for 2D; multigrid-preconditioned conjugate gradient for 3D (Sections 3.1, 5.6)",
+    "hardware_classical": "AMD Ryzen 5950X CPU for benchmarks; exact baseline allocation not separately stated (Section 5.6)",
+    "hardware_ml": "AMD Ryzen 5950X CPU and Nvidia Quadro RTX 8000 GPU; network operations may run on CPU for large 3D cases (Section 5.6)",
+    "problem_size": "300 x 100 and 250 x 125 2D examples; 320 x 160 x 80 and 256 x 128 x 128 3D examples (Sections 5.4-5.6)",
+    "classical_iterations": "voxel-based method converges around 300 iterations in Figure 6 examples (Section 5.4)",
+    "classical_time": "not stated as total method time; Section 5.6 gives neural-method FE solver times of 0.161 s and 0.164 s per 2D iteration",
+    "ml_time": "not stated as total method time; up to 5000 optimization iterations and 0.161/0.164 s average 2D FE solve per iteration (Sections 5.4-5.6)",
+    "training_time": "not applicable: per-problem neural optimization has no offline training (Sections 4, 6)",
+    "data_generation_cost": "not applicable: no training dataset (Sections 4, 6)",
+    "quality_metric": "FE-computed compliance/stiffness and volume budget (Sections 3.1, 5.4, Figure 6)",
+    "quality_gap": "Figure 6: reported compliances are near or below voxel baseline; a single aggregate numeric gap is not stated in text"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "R1-quality-stratum", "evidence": "Conclusion and Section 5.4: primary comparison concerns stiffness, with longer neural computation acknowledged."},
+    "R2": {"verdict": "na", "marker": "R2-quality-stratum", "evidence": "Section 5.4: no neural speed advantage is asserted in the primary outcome."},
+    "R3": {"verdict": "na", "marker": "R3-per-problem-learning", "evidence": "Sections 4 and 6: network parameters are optimized for each design, without offline dataset training."},
+    "R4": {"verdict": "partial", "marker": "R4-no-failure-rate", "evidence": "Sections 3.1 and 5.4: returned designs are evaluated with an FE compliance solver and constrained by a volume penalty; infeasible-design or failed-run frequency is not reported."}
+  },
+  "reporting": {"n_test_cases": "Figure 6 compares two 2D load cases; Figures 7-9 show 3D examples; no aggregate case count stated", "ood_test": "no", "seeds_or_variance": "no", "failure_rate_reported": "no", "timing_protocol_stated": "partial", "runtimes_all_cases": "no", "code_available": "yes", "data_available": "no", "hardware_per_method_stated": "partial"},
+  "retest_candidate": false,
+  "notes": "Publisher PDF returned HTTP 403; author-hosted full text was read at https://julianpanetta.com/pdf/toftndr.pdf. Author's public code is at https://github.com/Nikronic/ndr; no license was visible, so runnable licensed retest status was not established."
+}

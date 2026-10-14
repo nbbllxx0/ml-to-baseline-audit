@@ -1,0 +1,88 @@
+{
+  "pid": "P00029",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Accelerating metamaterial topology optimization using deep super-resolution networks",
+    "authors": "Ajendra Singh, Shubham Saurabh, Abhinav Gupta, Rajib Chowdhury",
+    "year": 2025,
+    "venue": "arXiv preprint (physics.comp-ph)",
+    "doi": "10.48550/arXiv.2511.04795",
+    "arxiv_id": "2511.04795",
+    "version_coded": "arXiv v1 (6 Nov 2025; the only version on the abs page), PDF (25 pp.) read in full as text"
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-SPEED (screening code confirmed at full text)",
+    "stratum": "speed",
+    "method_family": "cnn",
+    "physics": "metamaterial_homogenization",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "After training, running SIMP at 48×48 and upscaling with the EDSR network gives 192×192 unit cells in 24-28 s on average, versus 386-493 s for SIMP run directly at 192×192 (5-7% of the cost), with mean objective errors of 1.57-4.24%.",
+    "key_phrase": "with only 5-7% of the computational cost required by conventional SIMP-based TO",
+    "location": "Abstract (quantitative comparison with the classical method, §5.1 rule 1); numbers in Sec. 4.1-4.4, Tables 1, 3, 5, 7 (times) and Tables 2, 4, 6, 8 (errors)",
+    "quantitative": true,
+    "claimed_speedup": 19.0,
+    "claimed_speedup_basis": "Derived for the first case (bulk modulus, Table 1): 457 s ÷ 24 s = 19.0. Other objectives: shear 493 ÷ 26 = 19.0, elastic modulus 438 ÷ 28 = 15.6, Poisson's ratio 386 ÷ 24 = 16.1 [all derived]. The abstract states 5-7% of the cost, i.e. 14-20x. The ML time includes the 48×48 SIMP run plus the network prediction (Sec. 4.1). Data generation and training are excluded and not quantified.",
+    "direction": "outperform",
+    "alternatives": "(1) Contributions list (Sec. 1): up to 93-95% reduction in computational cost with high predictive accuracy, the same claim. (2) Conclusion, qualitative: significant improvements in design quality, manufacturability and computational efficiency over conventional SIMP; no design-quality advantage is measured anywhere. (3) Per objective (Sec. 4.1-4.4): cost reductions of 94%, 94%, 93% and 93%, with objective errors 3.03%, 1.57%, 2.34% and 4.24%."
+  },
+  "baseline": {
+    "classical_method": "SIMP with energy-based homogenization for 2D periodic unit cells (maximum bulk, shear or equivalent elastic modulus; minimum Poisson's ratio), optimality criteria update, sensitivity filter; run directly at 192×192 (Sec. 2, Algorithm 1, Sec. 4)",
+    "implementation": "The 55-line Python/FEniCS topology optimization code of Gupta et al. (ref. 82, arXiv 2012.08208, by the third and fourth authors with co-authors), used to generate the data (Sec. 4); the article implies the conventional timing uses the same code [inferred]",
+    "solver": "not stated",
+    "hardware_classical": "one system with an Intel Xeon 6230 CPU and an NVIDIA Quadro P2200 GPU for all data generation, training and testing (Sec. 4); the device used by SIMP is not stated [CPU inferred]",
+    "hardware_ml": "same system (Xeon 6230 + Quadro P2200); TensorFlow (Sec. 3, 4); the device per step is not stated",
+    "problem_size": "Unit cell 192×192 elements for the conventional run and the ML output; 48×48 low-resolution SIMP input (Sec. 3.1) [≈7.4×10^4 DOFs at 192×192, derived]",
+    "classical_iterations": "not stated (Algorithm 1 stops when an unstated stopping criterion is met or at maxIter)",
+    "classical_time": "Average per design: bulk 457 s, shear 493 s, elastic modulus 438 s, Poisson's ratio 386 s (Tables 1, 3, 5, 7)",
+    "ml_time": "Average per design, including the 48×48 SIMP run and the prediction: 24 s, 26 s, 28 s and 24 s (Tables 1, 3, 5, 7; Sec. 4.1)",
+    "training_time": "not stated; Adam, learning rate 1e-4, batch 32; losses converge at about 0.02 after 103 epochs for the bulk-modulus case (Sec. 3.3.1, Fig. 9)",
+    "data_generation_cost": "not stated; 1000 samples per objective (4000 in total), each with a 48×48 and a 192×192 SIMP run, split 70/15/15 (Sec. 3.1) [inferred ≈134 h per objective at most: 1000 × (457 s + ≤24 s) for the bulk case]",
+    "quality_metric": "Averages over 150 test samples per objective: volume-fraction error, objective-function error from re-analysing the predicted image converted to a mesh, pixel MSE and IoU against the 192×192 SIMP designs (Sec. 3.4; Tables 2, 4, 6, 8)",
+    "quality_gap": "Bulk: VF error 1.95%, objective error 3.03%, MSE 2.24%, IoU 0.92 (Table 2). Shear: 1.04%, 1.57%, 2.55%, 0.91 (Table 4). Elastic: 1.91%, 2.34%, 2.74%, 0.93 (Table 6). Poisson's ratio: 1.57%, 4.24%, 6.63%, 0.84 (Table 8). The sign of the objective error is not given"
+  },
+  "rules": {
+    "R1": {
+      "verdict": "partial",
+      "marker": "R1-loose",
+      "evidence": "Tables 1-8, Sec. 3.4 and 4: average times are compared with SIMP runs at the same 192×192 resolution, and quality is reported for the same 150 test designs (objective error 1.57-4.24%, volume-fraction error 1.04-1.95%). Matching is loose: the SIMP stopping rule and iteration count are not stated, volumes differ by 1-2% on average, the sign of the objective error is not given, and no equal-quality or equal-budget run is attempted. A verifier who follows P00176 (mean compliance error about 4%, no matching) may choose fail (R1-unmatched)."
+    },
+    "R2": {
+      "verdict": "pass",
+      "marker": "R2-none-established",
+      "evidence": "Sec. 4: the comparator is the group's published 55-line FEniCS SIMP code on a Xeon 6230 workstation; the device per method is not stated. At 192×192 (≈7.4×10^4 DOFs [derived]) marker (c) does not apply; (b) is not observed (the abstract's 5-7% matches Tables 1-7); (d) and (e) cannot be derived without an iteration count. A stronger classical comparator would start the 192×192 SIMP run from the upsampled 48×48 design that the pipeline already computes [inferred]; it is not tried. Unsure, so pass."
+    },
+    "R3": {
+      "verdict": "fail",
+      "marker": "R3-no-cost",
+      "evidence": "Sec. 3 (end of the overview) and abstract: the speed claim applies once the network is trained, and sample preparation and training are called a one-time offline expense, but neither is quantified and no break-even is given. For C3: 1000 samples per objective, each with a 192×192 and a 48×48 SIMP run (Sec. 3.1) [inferred ≈4.8×10^5 s per objective at the bulk-case times]; the saving is 433 s per design (457 - 24 s), so break-even is about 1,100 uses per objective before training cost [derived]."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Sec. 3.4 and Tables 2, 4, 6, 8: the objective of each returned (thresholded) design is recomputed by converting the image to a mesh and re-analysing it, and the volume-fraction error is reported, averaged over all 150 test samples per objective; figures show four examples per objective, but the numbers cover the test sets. Disconnected, non-periodic or otherwise failed designs are neither defined nor counted."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "150 test samples per objective (stated for bulk, shear and elastic modulus; the Poisson's ratio case follows the same procedure [inferred]) × 4 objectives, from 1000 generated samples each, split 70/15/15 (Sec. 3.1, 4.1-4.4)",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "partial",
+    "runtimes_all_cases": "yes",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "partial"
+  },
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED, confirmed. Primary outcome from the abstract (§5.1 rule 1): 5-7% of the cost of SIMP at the same resolution; the per-objective tables give 5.25%, 5.27%, 6.39% and 6.22% [the last derived; the text says 93%]. The ML time includes the low-resolution SIMP run, which is to the authors' credit, and the classical and ML runs share one workstation. runtimes_all_cases = yes because each table reports the average time for its objective [averaging over the 150 test samples inferred]; no variance, warm-up or repeat protocol is given. ood_test = no: the test samples come from the same random parameter ranges (volume fraction 0.2-0.7, penalty 3-7.5, filter radius 0.02-0.07; Sec. 3.1); the unoptimized input of Fig. 14(d) is a single anecdote. Internal inconsistencies and quality flags: Sec. 4.3 refers to Table 2 for the elastic-modulus errors, which are in Table 6; the conclusion claims better design quality than conventional SIMP, which no experiment measures; several references are unfinished placeholders (refs. 19-23, 25 and 26 carry '[Journal Name]' or '[volume]:[pages]'). No code or data availability statement; the classical 55-line FEniCS code is public (arXiv 2012.08208; not checked), so a baseline-only re-test at 192×192 is possible, but retest_candidate is false because no EDSR code or data are released. Related record: P00059 (Singh, Chakraborty, Chowdhury, dual PINN for TO) shares authors and is a different study. Duplicate check: no prefill matches the title, the arXiv id or 'EDSR'. No author named Jun Wang."
+}

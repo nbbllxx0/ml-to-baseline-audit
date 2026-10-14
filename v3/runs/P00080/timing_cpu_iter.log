@@ -1,0 +1,5 @@
+cpu iter warm-up
+cpu iter 90.54948469996452
+cpu iter 90.73347019997891
+cpu iter 90.50662460003514
+wrote E:\AI\ml-to-baseline-audit\v3\runs\P00080\timing\cpu_iter.json

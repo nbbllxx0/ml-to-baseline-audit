@@ -1,0 +1,88 @@
+{
+  "pid": "P00148",
+  "citation": {
+    "title": "A Parametric Level Set Method for Topology Optimization based on Deep Neural Network (DNN)",
+    "authors": "Hao Deng, Albert C. To",
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "doi": "10.48550/arxiv.2101.03286",
+    "arxiv_id": "2101.03286",
+    "version_coded": "arXiv v1 (9 Jan 2021; only version on the abs page), PDF downloaded directly from arxiv.org, 20 pages, read in full including references."
+  },
+  "access": "full_text",
+  "coder": {
+    "llm_model": "Claude Sonnet 5",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "stage": "ai_second_pass",
+  "included": {
+    "decision": "include",
+    "reason": "I-QUALITY (this coder has no access to the title/abstract screening record; assigned from full text, which contains only a design-quality comparison with SIMP, no speed or cost comparison anywhere)",
+    "stratum": "quality",
+    "method_family": "neural_reparam",
+    "physics": "compliance",
+    "dim": "2d"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "On an MBB beam (200x100 mesh, volume fraction 0.4), a DNN-based parametric level-set reparameterization (the level-set implicit function is represented by a feedforward network whose weights are updated to solve the Hamilton-Jacobi PDE) reaches compliance values of 33.39, 32.57 and 36.02 for networks with 1, 2 and 3 hidden layers of 8 neurons, against a SIMP benchmark (top88 code) compliance of 33.48; the authors describe the shallower-network results as 'quite close with the benchmark solution.'",
+    "key_phrase": "quite close with the benchmark solution",
+    "location": "Section 4.1 (main text, MBB beam example); no comparison with a classical method appears in the Abstract, Conclusion or Introduction, which are otherwise qualitative",
+    "quantitative": true,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "Not applicable: the article makes no speed, wall-clock-time or iteration-count comparison with SIMP anywhere. DNN-LS's own convergence is reported in iteration counts (150 for the MBB beam; 120-140 for the cantilever beam, Sections 4.1-4.2) but no analogous number, or any timing, is given for the SIMP benchmark.",
+    "direction": "similar_or_mixed",
+    "alternatives": "Section 4.2 (short cantilever beam, 100x100 mesh): SIMP benchmark compliance 183,543 versus DNN-LS values of 174,319-197,768 across 9 tested architectures (5 to 15x15x15 neurons per layer); the authors state a difference of 'less than 5%' overall and 'around 3.5%' (lower/better) for the 2- and 3-layer networks specifically. No speed or cost comparison accompanies either example."
+  },
+  "baseline": {
+    "classical_method": "SIMP (Solid Isotropic Material with Penalization) density-based topology optimization, used only as a fixed benchmark design for comparison, not re-implemented, timed or re-run by this article's own study.",
+    "implementation": "The top88 MATLAB code (Andreassen et al. 2011, Ref. [61]), filter radius r=2 (Section 4.1).",
+    "solver": "Not stated (top88's own default MATLAB sparse solver is not discussed in this article).",
+    "hardware_classical": "not stated",
+    "hardware_ml": "not stated",
+    "problem_size": "MBB beam: 200x100 element mesh, half-domain with symmetry, 33/105/177 design variables for 1/2/3 hidden layers (Section 4.1). Short cantilever beam: 100x100 element mesh, 105/177 design variables for 2/3 hidden layers (Section 4.2). Both at volume fraction 0.4.",
+    "classical_iterations": "Not stated for the SIMP benchmark (no iteration count or stopping criterion given). DNN-LS itself converges after 150 iterations (MBB beam) and 120-140 iterations (cantilever beam, depending on architecture) (Sections 4.1-4.2).",
+    "classical_time": "not stated",
+    "ml_time": "not stated",
+    "training_time": "Not applicable as a separate stage: the network is a per-problem reparameterization initialized by back-propagation fitting to a target implicit function (Eq. 3, Section 2) and then evolved via the ODE update (Eq. 14) during optimization; no offline dataset-based pretraining is used, and no wall-clock time is given for either the initialization or the optimization.",
+    "data_generation_cost": "None: no labeled dataset is used; each design is optimized from scratch per problem and per network architecture (Section 3).",
+    "quality_metric": "Structural compliance (twice the strain energy, Eq. 6), computed via FEM at each optimization iteration for the DNN-LS designs (Section 3.2, step 2(a)); the SIMP benchmark's compliance is taken from the separately run top88 code (Section 4.1) rather than independently re-verified by a shared evaluator.",
+    "quality_gap": "MBB beam: SIMP 33.48 vs DNN-LS 33.39 (1 layer), 32.57 (2 layers), 36.02 (3 layers) -- roughly -2.7% to +7.6% [derived] relative to the benchmark (Fig. 8, Section 4.1). Cantilever beam: SIMP 183,543 vs DNN-LS 174,319-197,768 across 9 architectures (Figs. 15, 19, Section 4.2), a difference the authors describe as under 5%, roughly -5.0% to +7.8% [derived]."
+  },
+  "rules": {
+    "R1": {
+      "verdict": "pass",
+      "marker": "R1-matched",
+      "evidence": "Both methods are applied to the same problem instance (same mesh, volume fraction, loads and boundary conditions per example, Sections 4.1-4.2), and compliance is reported for both on a comparable basis; there is no speed claim at all, so the R1 failure modes concerning a fast-but-worse ML inference time compared with a full classical run do not arise here. No sign of the classical baseline being handicapped (e.g. a stated weaker filter or truncated run) is present; the SIMP benchmark's own convergence/iteration count is simply not restated, which is a minor gap given no speed comparison is being made."
+    },
+    "R2": {
+      "verdict": "na",
+      "marker": "R2-na-quality-only",
+      "evidence": "Primary outcome (and the entire article) compares design quality (compliance) only; no classical runtime, cost or speed claim is made anywhere, so the efficiency criteria (a)-(e) do not bear on it. For the record: the SIMP implementation (top88), solver and hardware are not stated in enough detail to assess efficiency independently of a speed claim."
+    },
+    "R3": {
+      "verdict": "na",
+      "marker": "R3-na-quality-only",
+      "evidence": "No speed claim exists to account cost against. Independently, this is also a per-problem neural reparameterization with no offline training on a labeled dataset (Section 3; the network is fit directly to the optimization problem at hand), so any learning cost would sit inside R1/R2 rather than requiring separate data-generation/training accounting."
+    },
+    "R4": {
+      "verdict": "partial",
+      "marker": "R4-no-failure-rate",
+      "evidence": "Compliance is computed via FEM at each iteration for the DNN-LS designs (Section 3.2, step 2(a)), i.e. FE-verified rather than an image-similarity proxy. However, no achieved volume fraction is restated numerically for any specific final design (only the target 0.4 constraint is given), and no feasibility or failure check (disconnected members, floating material) is reported for any of the roughly 24 optimized designs shown across both problems, even though several of the more complex architectures visibly produce intricate, thin-membered topologies (Figs. 12, 19)."
+    }
+  },
+  "reporting": {
+    "n_test_cases": "2 benchmark problems (MBB beam, short cantilever beam); 3 network architectures (1/2/3 hidden layers of 8 neurons) compared against the SIMP benchmark for each problem, plus 9 additional architectures per problem for the diverse-design study (Figs. 12 and 19) -- about 24 optimized designs in total.",
+    "ood_test": "no",
+    "seeds_or_variance": "no",
+    "failure_rate_reported": "no",
+    "timing_protocol_stated": "no",
+    "runtimes_all_cases": "na",
+    "code_available": "no",
+    "data_available": "no",
+    "hardware_per_method_stated": "no"
+  },
+  "retest_candidate": false,
+  "notes": "Duplicate handling: pool.csv lists a version of record of this same article -- pool id P00544, 'A Parametric Level Set Method for Topology Optimization Based on Deep Neural Network,' Journal of Mechanical Design, DOI 10.1115/1.4050105 (2021), same authors (Hao Deng, Albert C. To, confirmed via OpenAlex). OpenAlex records that ASME/Journal-of-Mechanical-Design location as closed access (is_oa=false, any_repository_has_fulltext=false), while this arXiv record (P00148) is green open access. Per the protocol's duplicate rule (primary = version of record if open access, else the latest arXiv version), the ASME version is not open access, so this arXiv preprint (P00148) is the primary version and is coded fully here; P00544 (outside this coder's queue) is expected to be coded FT-DUPLICATE, naming P00148 as the primary version, by whoever processes it. Access: arXiv PDF downloaded with no bot check, CAPTCHA, login or paywall. No author named Jun Wang (authors: Hao Deng, Albert C. To); the reference list cites several unrelated 'Wang' authors (M.Y. Wang, S. Wang, B. Wang, F. Wang, P. Wang) in prior work, none of them 'Jun Wang' and none authors of this article. Funding: US National Science Foundation, CMMI-1634261. Primary-outcome choice: the MBB beam (Section 4.1) is the first, and closest-matching (SIMP 33.48 vs DNN-LS 32.57-36.02), quantitative classical-method comparison in the article; no comparison of any kind (quality or speed) appears in the Abstract, Introduction or Conclusion, so per protocol §5.1 the search falls through to the main text. The cantilever beam (Section 4.2) restates the same type of comparison at a larger scale and is recorded as the alternative."
+}

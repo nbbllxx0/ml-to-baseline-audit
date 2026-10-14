@@ -1,0 +1,45 @@
+{
+  "pid": "P01016",
+  "stage": "llm_prefill",
+  "citation": {
+    "title": "Designing Porous Structure with Optimized Topology using Machine Learning",
+    "authors": "Shradha Ghansiyal, Li Yi, Matthias Klar, Jan C. Aurich (Crossref; the pool record lists 'Yi Li')",
+    "year": 2024,
+    "venue": "Procedia CIRP 125 (2024) 190-195, conference proceedings (Crossref); open access, CC BY-NC-ND 4.0 (Crossref licence metadata; OpenAlex: diamond)",
+    "doi": "10.1016/j.procir.2024.08.033",
+    "arxiv_id": "",
+    "version_coded": "none; only the abstract was read (pool record from OpenAlex). The version of record could not be retrieved"
+  },
+  "access": "abstract_only",
+  "coder": {
+    "llm_model": "Claude subagent",
+    "llm_date": "2026-09-24",
+    "human_initials": null,
+    "human_date": null
+  },
+  "included": {
+    "decision": "include",
+    "reason": "I-UNCLEAR (no accessible full text)",
+    "stratum": "none",
+    "method_family": "other",
+    "physics": "compliance",
+    "dim": "unclear"
+  },
+  "claim": {
+    "primary_outcome_paraphrase": "Not coded (no full text). The abstract says machine-learning models performing topology optimization for porous biomedical structures give a large cut in computation time, with performance comparable to conventional methods; no numbers are given.",
+    "location": "abstract only",
+    "quantitative": false,
+    "claimed_speedup": null,
+    "claimed_speedup_basis": "not coded (no full text); the abstract gives no time or speed-up figure",
+    "alternatives": "not assessed (no full text)"
+  },
+  "rules": {
+    "R1": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R2": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R3": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"},
+    "R4": {"verdict": "na", "marker": "no-full-text", "evidence": "no full text"}
+  },
+  "reporting": {},
+  "retest_candidate": false,
+  "notes": "Screening code was I-SPEED. Access attempts on 2026-09-24, all anonymous with a generic User-Agent and no personal data: (1) doi.org -> linkinghub -> ScienceDirect article page (PII S2212827124003871), the only location OpenAlex lists: HTTP 403 with an 'Are you a robot?' captcha page, by curl and by WebFetch; not bypassed. (2) The Elsevier API link listed in Crossref, called without an API key: HTTP 200 with core metadata only (title, cover date, open-access flags, CC BY-NC-ND licence), no abstract or body text. No key was used. (3) OpenAlex lists no repository copy. (4) An arXiv API search by title phrase found no preprint. The article is open access, so a human verifier can read it in a browser. Pointers from the abstract for the verifier: the claimed speed and quality comparison is against conventional simulation-based TO, stated qualitatively. At full text, check (a) whether the conventional TO is run and timed (speed stratum) or only described as slow (FT-NOBASELINE); (b) what the ML models are (method family coded 'other' per screening) and whether they replace the whole optimization or only the FE analysis (FT-FORWARD if no optimization-level comparison). Type: a conference paper in Procedia CIRP (a proceedings series; the conference name was not checked), admissible under §3.3. Related pool records: none found by author surname (Ghansiyal, Klar, Aurich). COI check: no author named Jun Wang."
+}
