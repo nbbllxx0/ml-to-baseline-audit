@@ -96,7 +96,7 @@ def main():
     ax.text(1.97, 520, "our workstation", fontsize=8, ha="center", va="bottom", clip_on=False)
     ax.text(0, 520, "article's hardware", fontsize=8, ha="center", va="bottom", clip_on=False)
     ax.legend(loc="upper center", bbox_to_anchor=(0.45, -0.255), ncol=1, handletextpad=0.4, borderaxespad=0.0)
-    ax.set_ylabel("Speed-up of the learned method (×)")
+    ax.set_ylabel("Learning-based speed-up (×)")
     log_axis(ax, [0.1, 1, 10, 100])
     ax.tick_params(axis="x", length=0)
     mf.letter(ax, "a", x=-0.13, y=1.06)
